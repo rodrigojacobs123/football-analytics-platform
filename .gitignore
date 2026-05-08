@@ -1,0 +1,58 @@
+# ── Data (too large for GitHub — 297 GB of Opta event files) ─────────────────
+testeo_ligas_europa/
+data/raw/
+*.json.gz
+
+# ── Python ────────────────────────────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyo
+*.pyd
+.Python
+*.egg
+*.egg-info/
+dist/
+build/
+eggs/
+parts/
+var/
+sdist/
+develop-eggs/
+.installed.cfg
+lib/
+lib64/
+*.so
+
+# ── Virtual environments ──────────────────────────────────────────────────────
+.env
+.venv
+env/
+venv/
+ENV/
+
+# ── Secrets / config ──────────────────────────────────────────────────────────
+.env.*
+secrets.toml
+.streamlit/secrets.toml
+
+# ── OS & editor ───────────────────────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# ── Claude internal ───────────────────────────────────────────────────────────
+.claude/
+CLAUDE.md
+
+# ── Jupyter ───────────────────────────────────────────────────────────────────
+.ipynb_checkpoints/
+*.ipynb
+
+# ── Misc ──────────────────────────────────────────────────────────────────────
+*.log
+*.tmp
+/tmp/
