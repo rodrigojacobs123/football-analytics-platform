@@ -117,7 +117,7 @@ elif not standings.empty and MU_TEAM_NAME in standings["team_name"].values:
         form_list = list(last_six.replace(",", ""))
         st.markdown("**Recent Form:** " + form_badges(form_list), unsafe_allow_html=True)
 else:
-    st.warning("Manchester United not found in standings for this season.")
+    st.warning("CF América not found in standings for this season.")
 
 
 # ═══════════════════════════════════════════════════════════════════════════
@@ -487,7 +487,7 @@ if is_mu_league and not results.empty:
         )
         st.caption(f"{len(mu_matches)} matches played")
     else:
-        st.info("No match results available for Manchester United in this competition.")
+        st.info("No match results available for CF América in this competition.")
 elif not results.empty:
     display_df = results[["matchday", "date", "home_team", "away_team",
                            "home_score", "away_score"]].copy()

@@ -21,14 +21,14 @@ page_header("Injury Tracker", subtitle=f"{season}", badge="Synthetic Data")
 # Disclaimer
 st.warning(
     "**Note:** Injury data shown here is synthetically generated for demonstration purposes. "
-    "It does not reflect actual Manchester United injury records. This module showcases the "
+    "It does not reflect actual CF América injury records. This module showcases the "
     "platform's injury intelligence capabilities for the TFM project."
 )
 
 # ── Generate Synthetic Injuries ─────────────────────────────────────────────
 roster = load_squad_roster(league, season)
 mu_roster = {pid: info for pid, info in roster.items()
-             if MU_TEAM_NAME in info.get("team", "") or "Manchester United" in info.get("team", "")}
+             if MU_TEAM_NAME in info.get("team", "") or "CF América" in info.get("team", "")}
 
 if not mu_roster:
     st.error("No roster data available.")

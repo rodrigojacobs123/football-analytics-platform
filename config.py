@@ -1,30 +1,30 @@
-"""Central configuration for the Manchester United Sports Analytics Platform."""
+"""Central configuration for the Club América Sports Analytics Platform."""
 
 import os
 from pathlib import Path
 
 # ── Data paths ──────────────────────────────────────────────────────────────
-DATA_ROOT = Path(os.environ.get("MU_DATA_ROOT", "/Users/rodrigojacobs/Desktop/Final Project/testeo_ligas_europa"))
-DEFAULT_LEAGUE = "England_Premier_League"
+DATA_ROOT = Path(os.environ.get("MU_DATA_ROOT", "/Users/rodrigojacobs/Desktop/Final Project/testeo_ligas_norteamerica"))
+DEFAULT_LEAGUE = "Mexico_Liga_MX"
 DEFAULT_SEASON = "2025-2026"
 
-# ── Manchester United identifiers ───────────────────────────────────────────
-MU_TEAM_ID = "6eqit8ye8aomdsrrq0hk3v7gh"
-MU_TEAM_CODE = "MUN"
-MU_TEAM_NAME = "Manchester United FC"
-MU_TEAM_FOLDER = "Manchester_United_FC"
-MU_VENUE = "Old Trafford"
-MU_VENUE_ID = "4zn9oeubcog5ol4cb9zm635ni"
+# ── Club América identifiers ─────────────────────────────────────────────────
+MU_TEAM_ID = "eu8c408f59yx7egaqossbv25e"
+MU_TEAM_CODE = "AME"
+MU_TEAM_NAME = "CF América"
+MU_TEAM_FOLDER = "CF_América"
+MU_VENUE = "Estadio Azteca"
+MU_VENUE_ID = ""
 MU_CREST_URL = (
     "https://omo.akamai.opta.net/image.php?h=www.scoresway.com"
     "&sport=football&entity=team&description=badges&dimensions=150"
     f"&id={MU_TEAM_ID}"
 )
 
-# ── Visual identity ────────────────────────────────────────────────────────
-MU_RED = "#DA291C"
+# ── Visual identity (Club América — Amarillo y Azul) ───────────────────────
+MU_RED = "#FFCD00"       # América primary yellow (replaces MU red as main accent)
 MU_BLACK = "#000000"
-MU_GOLD = "#FBE122"
+MU_GOLD = "#003366"      # América navy blue (secondary accent)
 MU_WHITE = "#FFFFFF"
 MU_DARK_BG = "#0E1117"
 MU_CARD_BG = "#1A1A2E"
@@ -144,14 +144,14 @@ CARD_TYPE_MAP = {
     "RC": "Red Card",
 }
 
-# ── EPL Big Six team IDs (for defaults in comparison views) ────────────────
+# ── Liga MX "Grandes" team IDs (for defaults in comparison views) ──────────
 BIG_SIX = {
-    "Manchester United FC": "6eqit8ye8aomdsrrq0hk3v7gh",
-    "Manchester City FC": "b496gs285it6bheuikox6z9mj",
-    "Liverpool FC": "c8h9bw1l82s06h77xxrelzhur",
-    "Arsenal FC": "4dsgumo7d4zupm2ugsvm4zm4d",
-    "Chelsea FC": "9q0arba2kbnywth8bkxlhgmdr",
-    "Tottenham Hotspur FC": "22doj4sgsocqpbih45j5fyh89",
+    "CF América":                              "eu8c408f59yx7egaqossbv25e",
+    "CD Guadalajara":                          "e603sojy77s4u0ypqds2v2a1g",
+    "CF Cruz Azul":                            "1aw67co8uut64yckd3wbhy9t2",
+    "Club Tigres UANL":                        "6hmo9mrlz73nwxkshwuu5vsfm",
+    "CF Monterrey":                            "233335xtoe3e3phg3hp91xguq",
+    "CF Pachuca":                              "cynfvfb31rml7xrlsnejf8r6j",
 }
 
 # ── Elo rating parameters ──────────────────────────────────────────────────
@@ -182,39 +182,35 @@ MIN_MINUTES_FOR_RATING = 450  # ~5 full matches, avoids per-90 inflation
 RATING_FLOOR = 40
 RATING_CEILING = 99
 
-# ── Available seasons (EPL) ─────────────────────────────────────────────────
+# ── Available seasons (Liga MX) ─────────────────────────────────────────────
 EPL_SEASONS = [
     "2025-2026", "2024-2025", "2023-2024", "2022-2023", "2021-2022",
     "2020-2021", "2019-2020", "2018-2019", "2017-2018", "2016-2017",
-    "2015-2016", "2014-2015", "2013-2014", "2012-2013", "2011-2012",
-    "2010-2011", "2009-2010", "2008-2009",
+    "2015-2016", "2014-2015",
 ]
 
 # ── Available competitions ─────────────────────────────────────────────────
 COMPETITIONS = {
-    # England
-    "England_Premier_League": "Premier League",
-    # Top 5 European Leagues
-    "Spain_Primera_Division": "La Liga",
-    "Germany_Bundesliga": "Bundesliga",
-    "Italy_Serie_A": "Serie A",
-    "France_Ligue_1": "Ligue 1",
-    # Other European Leagues
-    "Netherlands_Eredivisie": "Eredivisie",
-    "Portugal_Primeira_Liga": "Liga Portugal",
-    "Scotland_Premiership": "Scottish Premiership",
-    # UEFA Club Competitions
-    "UEFA_UEFA_Champions_League": "Champions League",
-    "UEFA_UEFA_Europa_League": "Europa League",
-    "UEFA_UEFA_Conference_League": "Conference League",
+    # Mexico
+    "Mexico_Liga_MX":              "Liga MX",
+    "Mexico_Copa_MX":              "Copa MX",
+    "Mexico_Supercopa_MX":         "Supercopa MX",
+    # CONCACAF
+    "Concacaf_Concacaf_Champions_Cup":   "CONCACAF Champions Cup",
+    "Concacaf_Leagues_Cup":              "Leagues Cup",
+    "Concacaf_Concacaf_Gold_Cup":        "Gold Cup",
+    # North America
+    "USA_MLS":                     "MLS",
+    "Canada_Canadian_Premier_League": "Canadian Premier League",
 }
 
-# Competitions where MU participates (for page guards)
+# Competitions where Club América participates (for page guards)
 MU_LEAGUES = {
-    "England_Premier_League",
-    "UEFA_UEFA_Champions_League",
-    "UEFA_UEFA_Europa_League",
-    "UEFA_UEFA_Conference_League",
+    "Mexico_Liga_MX",
+    "Mexico_Copa_MX",
+    "Mexico_Supercopa_MX",
+    "Concacaf_Concacaf_Champions_Cup",
+    "Concacaf_Leagues_Cup",
 }
 
 # ── Position-specific rating categories ───────────────────────────────────

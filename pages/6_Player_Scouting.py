@@ -74,7 +74,7 @@ all_styles = sorted(set(ratings_df["play_style"].dropna().unique().tolist()))
 with st.expander("**Advanced Filters**", expanded=True):
     fcol1, fcol2, fcol3, fcol4 = st.columns(4)
     with fcol1:
-        scope = st.radio("Scope", ["Manchester United", "Custom Team", "Entire League"],
+        scope = st.radio("Scope", ["CF América", "Custom Team", "Entire League"],
                          horizontal=False, key="scouting_scope")
     with fcol2:
         if scope == "Custom Team":
@@ -95,10 +95,10 @@ with st.expander("**Advanced Filters**", expanded=True):
         attr_sort = st.selectbox("Sort by", sort_options, key="sort_ratings")
 
 # Apply filters
-if scope == "Manchester United":
+if scope == "CF América":
     display_df = ratings_df[ratings_df["equipo"] == MU_TEAM_NAME].copy()
     if display_df.empty:
-        display_df = ratings_df[ratings_df["equipo"].str.contains("Manchester United", na=False)]
+        display_df = ratings_df[ratings_df["equipo"].str.contains("CF América", na=False)]
     focus_team = MU_TEAM_NAME
 elif scope == "Custom Team":
     if selected_teams:
@@ -374,7 +374,7 @@ with st.expander("**⚡ Player Intelligence Card** (Opta-style deep profile)", e
 
     with card_col1:
         st.caption("Playing style (vs. peers in league)")
-        pos_color = MU_RED if team == "Manchester United FC" else "#4A90D9"
+        pos_color = MU_RED if team == "CF América" else "#4A90D9"
         st.plotly_chart(
             style_matrix_figure(dim_ratings, position_color=pos_color),
             use_container_width=True,

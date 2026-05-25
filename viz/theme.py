@@ -1,4 +1,4 @@
-"""Manchester United visual theme — Plotly template, mplsoccer config, CSS."""
+"""Club América visual theme — Plotly template, mplsoccer config, CSS."""
 
 import plotly.graph_objects as go
 import plotly.io as pio
@@ -52,7 +52,7 @@ HALF_PITCH_KWARGS = dict(
 # ── Matplotlib colormaps ────────────────────────────────────────────────────
 
 MU_CMAP = LinearSegmentedColormap.from_list(
-    "mu_heat", ["#0E0E14", "#3D0A0A", MU_RED, MU_GOLD, MU_WHITE]
+    "mu_heat", ["#0E0E14", "#2A2200", MU_RED, "#FFE566", MU_WHITE]
 )
 
 MU_CMAP_BLUE = LinearSegmentedColormap.from_list(
@@ -76,9 +76,9 @@ GLOBAL_CSS = """
   --mu-card2:    #17171F;
   --mu-border:   #1F1F2A;
   --mu-border2:  #2A2A38;
-  --mu-red:      #DA291C;
+  --mu-red:      #FFCD00;
   --mu-blue:     #42A5F5;
-  --mu-gold:     #FBE122;
+  --mu-gold:     #003366;
   --mu-green:    #3DD68C;
   --mu-warn:     #FF9F1C;
   --mu-danger:   #FF4D6D;
@@ -690,7 +690,7 @@ hr { border-color: var(--mu-border) !important; margin: 1.5rem 0 !important; }
 .v3-team-name { font-family: var(--display); font-size: 1rem; letter-spacing: 0.07em; color: var(--mu-text2); text-transform: uppercase; line-height: 1.1; }
 .v3-score-center { display: flex; flex-direction: column; align-items: center; min-width: 150px; }
 .v3-score-digits { font-family: var(--display); font-size: clamp(3.5rem, 9vw, 6rem); line-height: 1; letter-spacing: -0.02em; display: flex; align-items: center; gap: 0.1em; }
-.v3-score-home { background: linear-gradient(160deg, #FF5555 0%, #DA291C 60%, #8B0000 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+.v3-score-home { background: linear-gradient(160deg, #FFE566 0%, #FFCD00 60%, #B38A00 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
 .v3-score-sep { color: #1E1E2A; font-size: 0.7em; padding: 0 0.05em; -webkit-text-fill-color: #1E1E2A; }
 .v3-score-away { background: linear-gradient(160deg, #90CAF9 0%, #42A5F5 60%, #1565C0 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
 .v3-ht { font-family: var(--mono); font-size: 0.65rem; color: var(--mu-text4); letter-spacing: 0.1em; margin-top: 0.25rem; }
