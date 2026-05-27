@@ -17,30 +17,67 @@ def phase_donut(distribution: dict[str, dict], title: str = "") -> go.Figure:
 
     `distribution` is the {phase: {events, share_pct}} dict from
     `phase_distribution()`.
+
+    Each slice is dark enough to carry white text (contrast ≥ 4.5:1).
+    Hover shows both the label and the % share for clarity.
     """
-    labels, values, colors = [], [], []
+    labels, values, colors, events = [], [], [], []
     for p in PHASES:
         share = distribution.get(p, {}).get("share_pct", 0)
+        n_ev  = distribution.get(p, {}).get("events", 0)
         if share <= 0:
             continue
         labels.append(PHASE_LABELS[p])
         values.append(share)
         colors.append(PHASE_COLORS[p])
+        events.append(n_ev)
+
+    # Total event count for centre annotation
+    total_events = sum(events)
 
     fig = go.Figure(data=[go.Pie(
-        labels=labels, values=values, hole=0.55,
-        marker=dict(colors=colors, line=dict(color=MU_DARK_BG, width=1)),
-        textposition="inside", textinfo="percent",
-        hovertemplate="<b>%{label}</b><br>%{percent} of match events<extra></extra>",
+        labels=labels,
+        values=values,
+        hole=0.60,
+        marker=dict(
+            colors=colors,
+            line=dict(color="#0E1117", width=2),   # dark gap between slices
+        ),
+        textposition="inside",
+        textinfo="percent+label",                   # show label AND % inside each slice
+        insidetextorientation="horizontal",
+        textfont=dict(color="white", size=10, family="Arial Black, sans-serif"),
+        hovertemplate=(
+            "<b>%{label}</b><br>"
+            "%{percent} of match events<br>"
+            "<extra></extra>"
+        ),
+        customdata=events,
         sort=False,
+        pull=[0.04 if v == max(values) else 0 for v in values],  # pop the biggest slice
     )])
+
+    # Centre annotation: total events logged
+    fig.add_annotation(
+        text=f"<b>{total_events}</b><br><span style='font-size:9px'>events</span>",
+        x=0.5, y=0.5, showarrow=False,
+        font=dict(size=14, color=MU_WHITE),
+        align="center",
+    )
+
     fig.update_layout(
-        title=dict(text=title, x=0.5, xanchor="center", font=dict(size=14, color=MU_WHITE)),
-        height=380,
-        margin=dict(l=10, r=10, t=40, b=10),
-        legend=dict(orientation="v", yanchor="middle", y=0.5, xanchor="left", x=1.02,
-                    font=dict(color=MU_WHITE, size=10)),
-        paper_bgcolor=MU_DARK_BG, plot_bgcolor=MU_DARK_BG,
+        title=dict(text=title, x=0.5, xanchor="center",
+                   font=dict(size=13, color=MU_WHITE)),
+        height=400,
+        margin=dict(l=10, r=10, t=44, b=10),
+        legend=dict(
+            orientation="v", yanchor="middle", y=0.5, xanchor="left", x=1.01,
+            font=dict(color=MU_WHITE, size=10),
+            bgcolor="rgba(0,0,0,0)",
+        ),
+        paper_bgcolor=MU_DARK_BG,
+        plot_bgcolor=MU_DARK_BG,
+        showlegend=True,
     )
     return fig
 

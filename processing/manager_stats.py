@@ -83,7 +83,8 @@ def get_all_team_coaches(league: str, season: str, team_id: str) -> list[dict]:
 # ── Tenure-aware stats ───────────────────────────────────────────────────────
 
 def compute_manager_record(league: str, season: str, team_id: str,
-                           start_date: str = "", end_date: str = "") -> dict:
+                           start_date: str = "", end_date: str = "",
+                           stage_filter: str = "") -> dict:
     """Compute a manager's W/D/L record from season results.
 
     If start_date/end_date are provided, filters to that tenure window.
@@ -91,7 +92,7 @@ def compute_manager_record(league: str, season: str, team_id: str,
     Returns dict with: played, won, drawn, lost, win_pct, gf, ga, gd,
     points, ppg (points per game).
     """
-    results = load_all_season_results(league, season)
+    results = load_all_season_results(league, season, stage_filter=stage_filter)
     if results.empty:
         return _empty_record()
 
@@ -139,7 +140,8 @@ def compute_manager_record(league: str, season: str, team_id: str,
 
 
 def compute_formation_usage(league: str, season: str, team_id: str,
-                            start_date: str = "", end_date: str = "") -> list[dict]:
+                            start_date: str = "", end_date: str = "",
+                            stage_filter: str = "") -> list[dict]:
     """Scan all matches for a team and count formation usage.
 
     If start_date/end_date are provided, only counts matches in that window.
@@ -165,6 +167,12 @@ def compute_formation_usage(league: str, season: str, team_id: str,
                 info = parse_match_info(raw)
                 if team_id not in (info["home_id"], info["away_id"]):
                     continue
+
+                # Stage filter (prefix match)
+                if stage_filter:
+                    sn = info.get("stage_name", "")
+                    if not sn.lower().startswith(stage_filter.lower().strip()):
+                        continue
 
                 # Date filter for tenure
                 if start or end:
@@ -195,9 +203,9 @@ def compute_formation_usage(league: str, season: str, team_id: str,
 
 def compute_recent_form(league: str, season: str, team_id: str,
                         n: int = 5, start_date: str = "",
-                        end_date: str = "") -> list[str]:
+                        end_date: str = "", stage_filter: str = "") -> list[str]:
     """Get the last N results as W/D/L strings within tenure window."""
-    results = load_all_season_results(league, season)
+    results = load_all_season_results(league, season, stage_filter=stage_filter)
     if results.empty:
         return []
 
@@ -222,12 +230,13 @@ def compute_recent_form(league: str, season: str, team_id: str,
 
 
 def compute_home_away_split(league: str, season: str, team_id: str,
-                            start_date: str = "", end_date: str = "") -> dict:
+                            start_date: str = "", end_date: str = "",
+                            stage_filter: str = "") -> dict:
     """Compute home vs away performance split within tenure window.
 
     Returns dict with home_{w,d,l,gf,ga} and away_{w,d,l,gf,ga}.
     """
-    results = load_all_season_results(league, season)
+    results = load_all_season_results(league, season, stage_filter=stage_filter)
     if results.empty:
         return _empty_split()
 
@@ -258,12 +267,13 @@ def compute_home_away_split(league: str, season: str, team_id: str,
 
 
 def compute_goals_timeline(league: str, season: str, team_id: str,
-                           start_date: str = "", end_date: str = "") -> pd.DataFrame:
+                           start_date: str = "", end_date: str = "",
+                           stage_filter: str = "") -> pd.DataFrame:
     """Build a matchday-by-matchday goals scored/conceded timeline.
 
     Returns DataFrame: match_num, matchday, gf, ga, gd_cumulative.
     """
-    results = load_all_season_results(league, season)
+    results = load_all_season_results(league, season, stage_filter=stage_filter)
     if results.empty:
         return pd.DataFrame()
 
@@ -293,7 +303,7 @@ def compute_goals_timeline(league: str, season: str, team_id: str,
 # ── Comparison helper ────────────────────────────────────────────────────────
 
 def compare_managers(league: str, season: str, team_id: str,
-                     coaches: list[dict]) -> pd.DataFrame:
+                     coaches: list[dict], stage_filter: str = "") -> pd.DataFrame:
     """Build a comparison DataFrame across multiple coaches for the same team.
 
     Returns DataFrame with one row per coach: name, tenure, record, PPG,
@@ -305,11 +315,13 @@ def compare_managers(league: str, season: str, team_id: str,
             league, season, team_id,
             start_date=c.get("start_date", ""),
             end_date=c.get("end_date", ""),
+            stage_filter=stage_filter,
         )
         forms = compute_formation_usage(
             league, season, team_id,
             start_date=c.get("start_date", ""),
             end_date=c.get("end_date", ""),
+            stage_filter=stage_filter,
         )
         pref_formation = forms[0]["formation"] if forms else "N/A"
 

@@ -7,19 +7,19 @@ from data.loader import load_mu_match_list, load_all_season_results
 
 
 def match_selector(league: str, season: str, key: str = "match_sel",
-                   label: str = "Select Match") -> dict | None:
+                   label: str = "Select Match", stage_filter: str = "") -> dict | None:
     """Render a match selector dropdown.
 
     If MU has matches in this competition/season, shows MU matches.
     Otherwise shows all matches in the competition.
     Returns dict with match details or None if no selection.
     """
-    mu_matches = load_mu_match_list(league, season)
+    mu_matches = load_mu_match_list(league, season, stage_filter=stage_filter)
     if not mu_matches.empty:
         return _mu_match_selector(mu_matches, key, label)
 
     # Fallback: show all matches in the competition
-    return all_match_selector(league, season, key=key, label=label)
+    return all_match_selector(league, season, key=key, label=label, stage_filter=stage_filter)
 
 
 def _mu_match_selector(matches: pd.DataFrame, key: str, label: str) -> dict | None:
@@ -46,9 +46,10 @@ def _mu_match_selector(matches: pd.DataFrame, key: str, label: str) -> dict | No
 
 def all_match_selector(league: str, season: str, team_id: str = None,
                        key: str = "all_match_sel",
-                       label: str = "Select Match") -> dict | None:
+                       label: str = "Select Match",
+                       stage_filter: str = "") -> dict | None:
     """Generic match selector for any team (or all matches in the competition)."""
-    results = load_all_season_results(league, season)
+    results = load_all_season_results(league, season, stage_filter=stage_filter)
     if results.empty:
         st.warning("No results available.")
         return None

@@ -49,15 +49,18 @@ PHASE_LABELS = {
 }
 
 PHASE_COLORS = {
-    "BUILD_UP":           "#2E7D32",   # dark green – patient buildup
-    "PROGRESSION":        "#66BB6A",   # mid green
-    "FINAL_THIRD":        "#A5D6A7",   # light green – attack
-    "HIGH_PRESS":         "#C62828",   # dark red – aggressive press
-    "MID_BLOCK":          "#EF5350",   # red
-    "LOW_BLOCK":          "#FFCDD2",   # light red – sit deep
-    "DEF_TRANSITION_5S":  "#F57C00",   # orange – urgent recovery
-    "DEF_TRANSITION_7S":  "#FFB74D",   # light orange
-    "OFF_TRANSITION_10S": "#FFC107",   # yellow – fast break
+    # In possession — greens (all dark enough for white text)
+    "BUILD_UP":           "#1B5E20",   # very dark green – patient build from back
+    "PROGRESSION":        "#2E7D32",   # dark green – moving through mid-third
+    "FINAL_THIRD":        "#388E3C",   # medium green – attacking third entries
+    # Out of possession — reds (all dark enough for white text)
+    "HIGH_PRESS":         "#B71C1C",   # deep dark red – high-line aggressive press
+    "MID_BLOCK":          "#C62828",   # dark red – medium block shape
+    "LOW_BLOCK":          "#D32F2F",   # red (was near-white #FFCDD2 — fixed)
+    # Transitions — ambers/oranges (all dark enough for white text)
+    "DEF_TRANSITION_5S":  "#E65100",   # dark orange – gegenpress window (0–5 s)
+    "DEF_TRANSITION_7S":  "#F57C00",   # orange – Hudl standard window (0–7 s)
+    "OFF_TRANSITION_10S": "#F9A825",   # dark amber – counter-attack window (0–10 s)
 }
 
 # Coordinate thresholds (Opta normalised 0–100, x is attacking direction)

@@ -16,7 +16,7 @@ from viz.charts import (
 from viz.radar import team_radar
 from viz.pitch import plot_shot_map, plot_formation_shape
 from viz.tables import styled_dataframe
-from data.loader import load_standings, load_team_season_stats, build_player_name_map
+from data.loader import load_standings, load_team_season_stats, build_player_name_map, list_standings_stages
 from data.event_parser import extract_shots, parse_match_info
 from data.paths import list_team_folders, partidos_dir
 from processing.season_tactics import (
@@ -38,6 +38,18 @@ apply_theme()
 league, season = render_sidebar()
 
 page_header("Season Tactics", subtitle=f"{season}")
+
+# ── Tournament Stage Selector (Liga MX / bi-annual leagues) ────────────────
+_stage_names = list_standings_stages(league, season)
+_stage_filter = ""
+if len(_stage_names) > 1:
+    _stage_filter = st.radio(
+        "Tournament",
+        options=_stage_names,
+        index=len(_stage_names) - 1,
+        horizontal=True,
+        key="tactics_stage",
+    )
 
 # ── Team Selector ──────────────────────────────────────────────────────────
 selected = team_selector(league, season, key="season_tactics_sel",
@@ -61,8 +73,9 @@ if not team_id:
 # Fast tier: aggregate season stats
 agg = load_team_season_agg(league, season, team_folder) if team_folder else {}
 
-# Deep tier: per-match progression (cached)
-progression = compute_season_tactical_progression(league, season, team_id)
+# Deep tier: per-match progression (cached, stage-filtered)
+progression = compute_season_tactical_progression(league, season, team_id,
+                                                  stage_filter=_stage_filter)
 has_progression = not progression.empty
 
 
@@ -150,7 +163,8 @@ else:
 
 
 # Recent form
-form = compute_recent_form(league, season, team_id, n=5)
+form = compute_recent_form(league, season, team_id, n=5,
+                           stage_filter=_stage_filter)
 if form:
     form_colors = {"W": "#4CAF50", "D": "#FFC107", "L": "#F44336"}
     chips = ""
@@ -174,7 +188,8 @@ if form:
 st.markdown("---")
 section_header("Formation Profile")
 
-formations = compute_formation_usage(league, season, team_id)
+formations = compute_formation_usage(league, season, team_id,
+                                     stage_filter=_stage_filter)
 
 if formations:
     # Show up to 3 most-used formations as pitch shapes
@@ -236,19 +251,30 @@ if has_progression:
     )
     st.plotly_chart(fig_ppda, use_container_width=True)
 
-    # ── Chart 2: Possession & Territory (both % scale) ────────────────────
-    fig_poss = dual_axis_trend_chart(
-        prog_with_rolling,
-        left_metric="possession",
-        right_metric="field_tilt",
-        left_rolling="possession_rolling",
-        right_rolling="field_tilt_rolling",
-        left_color=MU_RED,
-        right_color="#42A5F5",
-        left_label="Possession %",
-        right_label="Field Tilt %",
-        title=f"{team_name} — Possession & Territorial Control",
+    # ── Chart 2: Possession & Territory (single % axis, both comparable) ─────
+    st.caption(
+        "**Possession %** = ball control share. "
+        "**Field Tilt %** = share of both teams' attacking-third touches. "
+        "Both >50% means territorial dominance."
     )
+    fig_poss = tactical_progression_chart(
+        prog_with_rolling,
+        metrics=["possession", "field_tilt"],
+        rolling_cols=["possession_rolling", "field_tilt_rolling"],
+        colors=[MU_RED, "#42A5F5"],
+        title=f"{team_name} — Possession & Territory (%)",
+        y_label="% (both on same scale)",
+    )
+    # 50% reference line — above = dominant
+    fig_poss.add_hline(y=50, line_dash="dash", line_color="#555", opacity=0.6,
+                       annotation_text="50% (equal)", annotation_position="top right",
+                       annotation=dict(font_size=10, font_color="#888"))
+    # Rename legend labels
+    for trace in fig_poss.data:
+        if trace.name == "Possession":
+            trace.name = "Possession %"
+        elif trace.name == "Field Tilt":
+            trace.name = "Field Tilt %"
     st.plotly_chart(fig_poss, use_container_width=True)
 
     # ── Chart 3: Passing Quality (dual axis — % vs count) ────────────────
@@ -331,7 +357,8 @@ if agg:
 
 # Home vs Away split
 st.markdown("#### Home vs Away Performance")
-ha_split = compute_home_away_split(league, season, team_id)
+ha_split = compute_home_away_split(league, season, team_id,
+                                   stage_filter=_stage_filter)
 
 ha_df = pd.DataFrame({
     "Metric": ["Wins", "Draws", "Losses", "Goals For", "Goals Against"],
@@ -439,7 +466,8 @@ else:
 st.markdown("---")
 section_header("Goal Difference Trend")
 
-goals_df = compute_goals_timeline(league, season, team_id)
+goals_df = compute_goals_timeline(league, season, team_id,
+                                  stage_filter=_stage_filter)
 if not goals_df.empty:
     fig = multi_line_chart(
         goals_df, x="match_num",

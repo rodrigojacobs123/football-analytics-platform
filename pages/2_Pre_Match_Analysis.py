@@ -21,6 +21,7 @@ from viz.pitch import (
 )
 from data.loader import (
     load_all_season_results, load_match_raw, build_player_name_map,
+    list_standings_stages,
 )
 from data.event_parser import (
     extract_formation, parse_match_info, extract_tackles, extract_interceptions,
@@ -43,6 +44,18 @@ league, season = render_sidebar()
 
 page_header("Pre-Match Analysis", subtitle=f"{season}")
 
+# ── Tournament Stage Selector (Liga MX / bi-annual leagues) ────────────────
+_stage_names_pre = list_standings_stages(league, season)
+_stage_filter_pre = ""
+if len(_stage_names_pre) > 1:
+    _stage_filter_pre = st.radio(
+        "Tournament",
+        options=_stage_names_pre,
+        index=len(_stage_names_pre) - 1,
+        horizontal=True,
+        key="prematch_stage",
+    )
+
 # ══════════════════════════════════════════════════════════════════════════════
 # §1 — Team Selection & Quick Prediction
 # ══════════════════════════════════════════════════════════════════════════════
@@ -59,7 +72,8 @@ n_sims = st.select_slider(
 )
 
 with st.spinner("Computing enhanced prediction…"):
-    result = compute_enhanced_prediction(league, season, home_team, away_team, n_sims)
+    result = compute_enhanced_prediction(league, season, home_team, away_team, n_sims,
+                                        stage_filter=_stage_filter_pre)
 
 pred = result["prediction"]
 mc = result["monte_carlo"]
@@ -328,7 +342,7 @@ st.markdown("---")
 section_header("Probable Starting XI")
 st.caption("Based on most recent match formation for each team")
 
-results_df = load_all_season_results(league, season)
+results_df = load_all_season_results(league, season, stage_filter=_stage_filter_pre)
 name_map = build_player_name_map(league, season)
 
 # Resolve team names for results lookup (standings may use "FC" suffix)

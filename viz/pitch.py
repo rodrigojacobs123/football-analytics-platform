@@ -1,13 +1,36 @@
-"""mplsoccer pitch visualizations — shot maps, pass networks, heatmaps."""
+"""mplsoccer pitch visualizations — shot maps, pass networks, heatmaps, lineups."""
 
 import matplotlib.pyplot as plt
+import matplotlib.patches as mpatches
 import numpy as np
 import pandas as pd
+from collections import defaultdict
 from mplsoccer import Pitch, VerticalPitch
 import streamlit as st
 
 from config import MU_RED, MU_GOLD, MU_DARK_BG, EVENT_PASS, EVENT_GOAL
 from viz.theme import PITCH_KWARGS, HALF_PITCH_KWARGS, MU_CMAP
+
+# ── mplsoccer formation string aliases (Opta "4-3-3" → mplsoccer "433") ──────
+_FORMATION_ALIASES = {
+    "4-4-2": "442", "4-4-1-1": "4411", "4-3-3": "433", "4-5-1": "451",
+    "4-1-4-1": "4141", "4-2-3-1": "4231", "4-3-2-1": "4321", "5-3-2": "532",
+    "5-4-1": "541", "3-5-2": "352", "3-4-3": "343", "3-4-2-1": "3421",
+    "4-1-2-1-2": "41212", "3-5-1-1": "3511", "3-1-4-2": "3142",
+    "3-4-1-2": "3412", "4-2-2-2": "4222", "4-2-4-0": "424",
+    "4-1-3-2": "4132", "3-2-4-1": "3241",
+    # already-clean forms
+    "442": "442", "433": "433", "4231": "4231", "451": "451",
+    "4411": "4411", "4141": "4141", "532": "532", "541": "541",
+    "352": "352", "343": "343",
+}
+
+_MPLSOCCER_FORMATIONS = {
+    "442", "41212", "433", "451", "4411", "4141", "4231", "4321",
+    "532", "541", "352", "343", "3421", "3511", "3412", "3142", "4222",
+    "4132", "424", "4312", "3241", "3331", "432", "441", "4311", "4221",
+    "4131", "4212", "342", "3411", "351", "531", "431",
+}
 
 
 def _draw_pitch(pitch, figsize=(12, 8)):
@@ -67,7 +90,15 @@ def plot_shot_map(shots: pd.DataFrame, title: str = "Shot Map",
 def plot_pass_network(nodes: pd.DataFrame, edges: pd.DataFrame,
                       title: str = "Pass Network",
                       node_color: str = MU_RED) -> None:
-    """Plot a pass network — clean Forza-Football style with connection lines."""
+    """Pass network on a proper mplsoccer VerticalPitch.
+
+    Players are placed at their average touch position on a real pitch outline.
+    Edge thickness = pass volume; only top-25% connections are labelled.
+
+    Coordinate convention (Opta):
+        avg_x: 0 = own goal-line → 100 = opponent goal-line  (→ vertical axis)
+        avg_y: 0 = right touchline → 100 = left touchline     (→ horizontal, flipped)
+    """
     if nodes.empty:
         st.info("No pass network data.")
         return
@@ -79,77 +110,253 @@ def plot_pass_network(nodes: pd.DataFrame, edges: pd.DataFrame,
         edges["from_id"] = edges["from_id"].astype(str)
         edges["to_id"] = edges["to_id"].astype(str)
 
-    # Map Opta coords to canvas space
-    # Opta: x=0 own goal → 100 opp goal, y=0 right touchline → 100 left
-    # Canvas: x-axis = horizontal width, y-axis = vertical (bottom=own goal)
-    canvas_x = (100 - nodes["avg_y"].values) / 100 * 10 + 0.5   # y→horizontal, flip
-    canvas_y = nodes["avg_x"].values / 100 * 13.5 + 0.5          # x→vertical
-    pos = dict(zip(nodes["player_id"], zip(canvas_x, canvas_y)))
-
-    fig, ax = plt.subplots(figsize=(6, 9))
+    # ── Pitch ───────────────────────────────────────────────────────────────
+    pitch = VerticalPitch(
+        pitch_type="opta",
+        pitch_color="#0D1117",
+        line_color="#2A3A4A",
+        linewidth=1.2,
+        goal_type="box",
+        corner_arcs=True,
+        pad_top=4, pad_bottom=4, pad_left=2, pad_right=2,
+    )
+    fig, ax = pitch.draw(figsize=(6, 9))
     fig.set_facecolor(MU_DARK_BG)
-    ax.set_facecolor(MU_DARK_BG)
-    ax.set_xlim(-0.5, 11.5)
-    ax.set_ylim(-0.8, 15)
-    ax.set_aspect("equal")
-    ax.axis("off")
-    ax.set_title(title, color="white", fontsize=12, fontweight="bold", pad=10)
+    ax.set_facecolor("#0D1117")
 
-    # Draw connection lines — width proportional to pass count
+    # Title
+    ax.set_title(title, color="white", fontsize=13, fontweight="bold", pad=12)
+
+    # ── Coordinate mapping ──────────────────────────────────────────────────
+    # For VerticalPitch with opta: scatter(x, y) → x=width coord, y=length coord
+    # Opta avg_y → pitch width (x):  flip because Opta y=0 = right touchline
+    # Opta avg_x → pitch length (y): 0=own goal at bottom, 100=opp goal at top
+    px = (100 - nodes["avg_y"].values).clip(0, 100)   # horizontal position on pitch
+    py = nodes["avg_x"].values.clip(0, 100)            # vertical  position on pitch
+    pos = dict(zip(nodes["player_id"], zip(px, py)))   # {pid: (px, py)}
+
+    # ── Edges — pass connections ────────────────────────────────────────────
     if not edges.empty:
-        max_passes = edges["pass_count"].max()
+        max_passes = max(edges["pass_count"].max(), 1)
         top_threshold = edges["pass_count"].quantile(0.75) if len(edges) > 3 else 0
 
         for _, edge in edges.iterrows():
-            fid, tid = edge["from_id"], edge["to_id"]
+            fid, tid = str(edge["from_id"]), str(edge["to_id"])
             if fid not in pos or tid not in pos:
                 continue
             fx, fy = pos[fid]
             tx, ty = pos[tid]
             ratio = edge["pass_count"] / max_passes
-            lw = ratio * 5 + 0.5
-            alpha = min(ratio * 0.6 + 0.15, 0.85)
-            ax.plot([fx, tx], [fy, ty], color=MU_GOLD, linewidth=lw,
-                    alpha=alpha, solid_capstyle="round", zorder=2)
+            lw    = ratio * 7 + 0.8
+            alpha = float(np.clip(ratio * 0.65 + 0.15, 0.12, 0.90))
 
-            # Pass count badge on strongest connections
-            if edge["pass_count"] >= top_threshold and edge["pass_count"] > 1:
+            ax.plot([fx, tx], [fy, ty],
+                    color=MU_GOLD, linewidth=lw,
+                    alpha=alpha, solid_capstyle="round",
+                    transform=ax.transData, zorder=2)
+
+            # Badge on strongest connections only
+            if edge["pass_count"] >= top_threshold and edge["pass_count"] > 2:
                 mx, my = (fx + tx) / 2, (fy + ty) / 2
                 ax.text(mx, my, str(int(edge["pass_count"])),
-                        ha="center", va="center", fontsize=6,
+                        ha="center", va="center", fontsize=7,
                         fontweight="bold", color="white",
-                        bbox=dict(facecolor="#000", alpha=0.65,
-                                  edgecolor=MU_GOLD, linewidth=0.6,
-                                  pad=1.2, boxstyle="round,pad=0.15"),
+                        bbox=dict(facecolor="#000000CC", edgecolor=MU_GOLD,
+                                  linewidth=0.8, boxstyle="round,pad=0.25"),
                         zorder=6)
 
-    # Draw player nodes — circles with shirt numbers + last name
-    circle_r = 0.36
+    # ── Nodes — players ────────────────────────────────────────────────────
     has_shirt = "shirt_number" in nodes.columns
-    for _, node in nodes.iterrows():
+    node_sizes = []
+    if "pass_count" in nodes.columns:
+        pcounts = nodes["pass_count"].fillna(0).values
+        pmax = max(pcounts.max(), 1)
+        node_sizes = (pcounts / pmax * 900 + 200).tolist()
+    else:
+        node_sizes = [400] * len(nodes)
+
+    for i, (_, node) in enumerate(nodes.iterrows()):
         pid = node["player_id"]
         if pid not in pos:
             continue
         x, y = pos[pid]
-        shirt = str(node["shirt_number"]) if has_shirt and node.get("shirt_number") else ""
+        shirt = str(int(node["shirt_number"])) if (has_shirt and node.get("shirt_number") and
+                                                    str(node["shirt_number"]) not in ("", "nan")) else ""
         name = node.get("player_name", "")
-        last = name.split()[-1] if " " in name else (name or shirt)
+        last = name.split()[-1] if name and " " in name else (name or shirt)
 
-        # Glow ring
-        glow = plt.Circle((x, y), circle_r + 0.05, fc="none",
-                           ec=node_color, linewidth=1.2, alpha=0.35, zorder=3)
-        ax.add_patch(glow)
-        # Filled circle
-        circle = plt.Circle((x, y), circle_r, fc=node_color,
-                             ec="white", linewidth=1.8, zorder=4)
-        ax.add_patch(circle)
+        sz = node_sizes[i] if i < len(node_sizes) else 400
+
+        # Glow halo
+        ax.scatter(x, y, s=sz + 180, c="none",
+                   edgecolors=node_color, linewidths=2.5,
+                   alpha=0.35, zorder=3)
+        # Main circle
+        ax.scatter(x, y, s=sz, c=node_color,
+                   edgecolors="white", linewidths=1.5,
+                   alpha=0.95, zorder=4)
+        # Shirt number inside circle
+        ax.text(x, y, shirt,
+                ha="center", va="center",
+                fontsize=8, fontweight="bold", color="white", zorder=5)
+        # Name label just below the circle
+        ax.text(x, y - np.sqrt(sz) / 2 / 12 - 1.8, last,
+                ha="center", va="top",
+                fontsize=6.5, fontweight="bold", color="white",
+                zorder=5,
+                bbox=dict(facecolor="#00000088", edgecolor="none",
+                          boxstyle="round,pad=0.15"))
+
+    st.pyplot(fig, use_container_width=True)
+    plt.close(fig)
+
+
+def plot_lineup(
+    starters: list[dict],
+    formation_str: str,
+    name_map: dict[str, str],
+    title: str = "",
+    primary_color: str = "#003366",
+    sub_players: list[dict] | None = None,
+    events_list: list[dict] | None = None,
+) -> None:
+    """Draw a match lineup on a proper mplsoccer VerticalPitch.
+
+    Uses mplsoccer's built-in ``get_formation()`` to place all 11 players at
+    canonical formation positions — GK at the bottom, forwards at the top.
+
+    Parameters
+    ----------
+    starters      : list of {player_id, shirt, position_row, order_in_row}
+    formation_str : Opta formation string, e.g. "4-3-3" or "4-2-3-1"
+    name_map      : {player_id → display_name}
+    title         : chart title
+    primary_color : fill color for player circles
+    sub_players   : list of {player_id, shirt, came_on_for} — shown with a
+                    different outline to mark substitutes
+    events_list   : raw event list used to sort players laterally by avg touch y
+    """
+    if not starters:
+        st.info("No lineup data available.")
+        return
+
+    # ── Resolve mplsoccer formation string ──────────────────────────────────
+    fmt_clean = _FORMATION_ALIASES.get(formation_str, formation_str.replace("-", ""))
+    if fmt_clean not in _MPLSOCCER_FORMATIONS:
+        fmt_clean = "433"   # safe fallback
+
+    # ── Draw the pitch ───────────────────────────────────────────────────────
+    pitch = VerticalPitch(
+        pitch_type="opta",
+        pitch_color="#0D1117",
+        line_color="#2C3E50",
+        linewidth=1.3,
+        goal_type="box",
+        corner_arcs=True,
+        pad_top=6, pad_bottom=6, pad_left=4, pad_right=4,
+    )
+    fig, ax = pitch.draw(figsize=(5, 8))
+    fig.set_facecolor(MU_DARK_BG)
+    ax.set_facecolor("#0D1117")
+    if title:
+        ax.set_title(title, color="white", fontsize=12, fontweight="bold", pad=10,
+                     fontfamily="sans-serif")
+
+    # ── Get mplsoccer canonical positions for this formation ─────────────────
+    try:
+        positions = pitch.get_formation(fmt_clean)
+    except Exception:
+        st.info(f"Formation {formation_str} not supported for pitch display.")
+        plt.close(fig)
+        return
+
+    # positions[i] has .x (length, 0=own goal→100) and .y (width, 0=right→100)
+    # For VerticalPitch scatter: first arg = y (width), second = x (length)
+
+    # ── Build avg-y map from events for lateral ordering ────────────────────
+    avg_y_map: dict[str, float] = {}
+    if events_list:
+        bucket: dict[str, list[float]] = defaultdict(list)
+        for ev in events_list:
+            pid = ev.get("playerId", "")
+            yv  = ev.get("y")
+            if pid and yv is not None:
+                bucket[pid].append(float(yv))
+        avg_y_map = {pid: sum(ys) / len(ys) for pid, ys in bucket.items() if ys}
+
+    # ── Sort starters to match formation order ───────────────────────────────
+    # Group starters by position_row, sort within each row by avg_y (left→right)
+    from itertools import chain
+    rows: dict[int, list] = defaultdict(list)
+    for p in starters:
+        rows[p["position_row"]].append(p)
+
+    sub_ids = {p["player_id"] for p in (sub_players or [])}
+
+    ordered: list[dict] = []
+    for row_key in sorted(rows):
+        row_players = rows[row_key]
+        # Sort by avg touch y (low y = right touchline → left touchline)
+        row_players.sort(key=lambda p: avg_y_map.get(p["player_id"], p.get("order_in_row", 0) * 25))
+        ordered.extend(row_players)
+
+    # Trim / pad to exactly 11
+    ordered = ordered[:11]
+    while len(ordered) < len(positions):
+        ordered.append({"player_id": "", "shirt": "?", "position_row": 3, "order_in_row": 0})
+
+    # ── Draw each player ─────────────────────────────────────────────────────
+    for player, pos in zip(ordered, positions):
+        px  = pos.y    # width coordinate → horizontal on VerticalPitch
+        py  = pos.x    # length coordinate → vertical on VerticalPitch
+
+        pid   = player.get("player_id", "")
+        shirt = str(player.get("shirt", "")).strip()
+        name  = name_map.get(pid, player.get("player_name", ""))
+        last  = name.split()[-1] if name and " " in name else (name or shirt)
+        is_sub = pid in sub_ids
+
+        circle_color = primary_color
+        edge_color   = MU_GOLD if is_sub else "white"
+        edge_width   = 2.5 if is_sub else 1.8
+
+        # Shadow / glow
+        ax.scatter(px, py, s=820, c="none",
+                   edgecolors=circle_color, linewidths=3.5,
+                   alpha=0.20, zorder=3)
+        # Main circle
+        ax.scatter(px, py, s=620, c=circle_color,
+                   edgecolors=edge_color, linewidths=edge_width,
+                   alpha=0.95, zorder=4)
         # Shirt number
-        ax.text(x, y, shirt, ha="center", va="center",
-                fontsize=10, fontweight="bold", color="white", zorder=5)
-        # Last name below
-        ax.text(x, y - circle_r - 0.12, last,
-                ha="center", va="top", fontsize=6.5, color="white",
-                fontweight="bold", zorder=5)
+        ax.text(px, py, shirt,
+                ha="center", va="center",
+                fontsize=9, fontweight="bold", color="white", zorder=5)
+        # Name label below circle
+        ax.text(px, py - 4.8, last,
+                ha="center", va="top",
+                fontsize=6.2, fontweight="bold", color="white",
+                zorder=5,
+                bbox=dict(facecolor="#000000AA", edgecolor="none",
+                          boxstyle="round,pad=0.2"))
+
+    # ── Legend for substitutes ───────────────────────────────────────────────
+    if sub_players:
+        legend_patches = [
+            mpatches.Patch(facecolor=primary_color, edgecolor="white",
+                           linewidth=1.5, label="Starter"),
+            mpatches.Patch(facecolor=primary_color, edgecolor=MU_GOLD,
+                           linewidth=2.5, label="Came on (sub)"),
+        ]
+        ax.legend(handles=legend_patches, loc="upper center",
+                  bbox_to_anchor=(0.5, -0.01), ncol=2,
+                  fontsize=7, facecolor="#1A1A2E", edgecolor="#333",
+                  labelcolor="white", framealpha=0.8)
+
+    # Formation string annotation
+    ax.text(50, 3, formation_str,
+            ha="center", va="center", fontsize=11, fontweight="bold",
+            color=MU_GOLD, alpha=0.8, zorder=6)
 
     st.pyplot(fig, use_container_width=True)
     plt.close(fig)

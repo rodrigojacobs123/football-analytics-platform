@@ -13,7 +13,7 @@ from processing.manager_stats import (
     compute_formation_usage, compute_recent_form, compute_home_away_split,
     compute_goals_timeline, compare_managers,
 )
-from data.loader import load_standings
+from data.loader import load_standings, list_standings_stages
 from config import MU_RED, MU_GOLD, MU_DARK_BG
 
 apply_theme()
@@ -22,8 +22,20 @@ league, season = render_sidebar()
 
 page_header("Manager Profiles", subtitle=f"Head coaches & tenure tracking — {season}")
 
+# ── Tournament Stage Selector (Liga MX / bi-annual leagues) ────────────────
+_stage_names_mgr = list_standings_stages(league, season)
+_stage_filter_mgr = ""
+if len(_stage_names_mgr) > 1:
+    _stage_filter_mgr = st.radio(
+        "Tournament",
+        options=_stage_names_mgr,
+        index=len(_stage_names_mgr) - 1,
+        horizontal=True,
+        key="mgr_stage",
+    )
+
 # ── Team selector ────────────────────────────────────────────────────────────
-standings = load_standings(league, season)
+standings = load_standings(league, season, stage_name=_stage_filter_mgr)
 if standings.empty:
     st.warning("No standings data available for this competition/season.")
     st.stop()
@@ -127,6 +139,7 @@ record = compute_manager_record(
     league, season, team_id,
     start_date=coach.get("start_date", ""),
     end_date=coach.get("end_date", ""),
+    stage_filter=_stage_filter_mgr,
 )
 
 if record["played"] > 0:
@@ -151,6 +164,7 @@ form = compute_recent_form(
     league, season, team_id, n=5,
     start_date=coach.get("start_date", ""),
     end_date=coach.get("end_date", ""),
+    stage_filter=_stage_filter_mgr,
 )
 if form:
     st.markdown(
@@ -191,8 +205,8 @@ if record["played"] > 0:
             title=dict(text=f"Results — {coach['name']}", x=0.5, xanchor="center",
                        font=dict(color="white", size=14)),
             height=260, margin=dict(l=10, r=80, t=40, b=20),
-            paper_bgcolor="#0E1117", plot_bgcolor="#0E1117",
-            xaxis=dict(title="", gridcolor="#333",
+            template="mu_dark",
+            xaxis=dict(title="", gridcolor="#1F1F2A",
                        tickfont=dict(color="white", size=10)),
             yaxis=dict(autorange="reversed", tickfont=dict(color="white", size=12)),
             showlegend=False, font=dict(color="white"),
@@ -214,6 +228,7 @@ if record["played"] > 0:
             yaxis_title="Goals",
             showlegend=False,
             height=380,
+            template="mu_dark",
         )
         st.plotly_chart(fig_goals, use_container_width=True)
 
@@ -225,6 +240,7 @@ split = compute_home_away_split(
     league, season, team_id,
     start_date=coach.get("start_date", ""),
     end_date=coach.get("end_date", ""),
+    stage_filter=_stage_filter_mgr,
 )
 home_played = split["home_w"] + split["home_d"] + split["home_l"]
 away_played = split["away_w"] + split["away_d"] + split["away_l"]
@@ -258,6 +274,7 @@ formations = compute_formation_usage(
     league, season, team_id,
     start_date=coach.get("start_date", ""),
     end_date=coach.get("end_date", ""),
+    stage_filter=_stage_filter_mgr,
 )
 
 if formations:
@@ -277,6 +294,7 @@ if formations:
             xaxis_title="Formation",
             yaxis_title="Matches",
             height=380,
+            template="mu_dark",
         )
         st.plotly_chart(fig_fm, use_container_width=True)
 
@@ -307,6 +325,7 @@ timeline = compute_goals_timeline(
     league, season, team_id,
     start_date=coach.get("start_date", ""),
     end_date=coach.get("end_date", ""),
+    stage_filter=_stage_filter_mgr,
 )
 
 if not timeline.empty:
@@ -327,6 +346,7 @@ if not timeline.empty:
         xaxis_title="Match Number",
         yaxis_title="Cumulative Goal Difference",
         height=380,
+        template="mu_dark",
     )
     st.plotly_chart(fig_gd, use_container_width=True)
 
@@ -341,7 +361,8 @@ if n_coaches >= 2:
     st.caption(f"Compare all {n_coaches} managers who coached {selected_team} this season")
 
     # Build comparison table
-    comp_df = compare_managers(league, season, team_id, team_coaches)
+    comp_df = compare_managers(league, season, team_id, team_coaches,
+                               stage_filter=_stage_filter_mgr)
 
     if not comp_df.empty and comp_df["P"].sum() > 0:
         st.dataframe(comp_df, hide_index=True, use_container_width=True)
@@ -366,6 +387,7 @@ if n_coaches >= 2:
             title="Points Per Game",
             yaxis_title="PPG",
             height=350,
+            template="mu_dark",
         )
 
         # Win % comparison
@@ -384,6 +406,7 @@ if n_coaches >= 2:
             title="Win Rate",
             yaxis_title="Win %",
             height=350,
+            template="mu_dark",
         )
 
         col1, col2 = st.columns(2)
@@ -413,6 +436,7 @@ if n_coaches >= 2:
             height=380,
             legend=dict(orientation="h", yanchor="bottom", y=1.02,
                         xanchor="center", x=0.5),
+            template="mu_dark",
         )
         st.plotly_chart(fig_wdl, use_container_width=True)
 
@@ -435,6 +459,7 @@ if n_coaches >= 2:
             height=380,
             legend=dict(orientation="h", yanchor="bottom", y=1.02,
                         xanchor="center", x=0.5),
+            template="mu_dark",
         )
         st.plotly_chart(fig_gfga, use_container_width=True)
 
@@ -449,7 +474,8 @@ section_header("All Head Coaches in Competition")
 all_coaches = get_head_coaches(league, season)
 all_data = []
 for c in all_coaches:
-    rec = compute_manager_record(league, season, c["team_id"])
+    rec = compute_manager_record(league, season, c["team_id"],
+                                 stage_filter=_stage_filter_mgr)
     all_data.append({
         "Manager": c["name"],
         "Team": c["team"],

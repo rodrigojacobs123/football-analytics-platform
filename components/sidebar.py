@@ -19,7 +19,7 @@ def render_sidebar():
             f"""
             <div style="text-align:center;padding:0.5rem 0 1rem 0;">
                 <img src="{MU_CREST_URL}" width="80" style="margin-bottom:0.5rem;"/>
-                <h2 style="color:{MU_RED};margin:0;font-size:1.2rem;">Manchester United</h2>
+                <h2 style="color:{MU_RED};margin:0;font-size:1.2rem;">CF América</h2>
                 <p style="color:#999;font-size:0.75rem;margin:0;">Sports Analytics Platform · TFM</p>
             </div>
             <hr style="border-color:{MU_RED}30;margin:0.5rem 0;">

@@ -11,7 +11,7 @@ from viz.tables import styled_league_table
 from viz.charts import line_chart, grouped_bar_chart
 from data.loader import (
     load_standings, load_mu_match_list, load_all_season_results,
-    load_player_season_stats,
+    load_player_season_stats, list_standings_stages,
 )
 from processing.team_stats import compute_points_by_matchday, compute_standings_from_results
 from processing.poisson import _resolve_team_in_results
@@ -29,14 +29,38 @@ league, season = render_sidebar()
 comp_display = COMPETITIONS.get(league, league)
 page_header("Season Dashboard", subtitle=f"{season} · {comp_display}")
 
+# ── Liga MX tournament selector (Apertura / Clausura) ──────────────────────
+_stage_names = list_standings_stages(league, season)
+_selected_stage = ""
+if len(_stage_names) > 1:
+    _selected_stage = st.radio(
+        "Tournament",
+        options=_stage_names,
+        index=len(_stage_names) - 1,   # default to last (Clausura)
+        horizontal=True,
+        key="liga_mx_stage_selector",
+    )
+    st.markdown(
+        f"<p style='font-size:0.78rem;color:#888;margin-top:-0.5rem;'>"
+        f"Liga MX uses two separate tournaments per year — "
+        f"<b>Apertura</b> (Jul–Nov) and <b>Clausura</b> (Jan–May). "
+        f"Standings reset each tournament.</p>",
+        unsafe_allow_html=True,
+    )
+
 # ═══════════════════════════════════════════════════════════════════════════
 # § 0  KPI HEADER — Position, Points, Record, Goal Difference
 # ═══════════════════════════════════════════════════════════════════════════
 # Load standings — prefer computed table when the static JSON is stale
-_json_standings = load_standings(league, season)
+_json_standings = load_standings(league, season, stage_name=_selected_stage)
 _computed_standings = compute_standings_from_results(league, season)
 
-if (not _computed_standings.empty
+# Prefer computed standings ONLY if they have marginally more matches than the JSON
+# (i.e., data is fresh/newer). For bi-annual leagues (Liga MX), the computed table
+# combines Apertura+Clausura which inflates played counts — always prefer the JSON there.
+_has_stages = len(_stage_names) > 1
+if (not _has_stages
+        and not _computed_standings.empty
         and (_json_standings.empty
              or _computed_standings["played"].max() > _json_standings["played"].max())):
     standings = _computed_standings
@@ -44,7 +68,12 @@ else:
     standings = _json_standings
 
 is_mu_league = league in MU_LEAGUES
-mu_matches = load_mu_match_list(league, season) if is_mu_league else pd.DataFrame()
+# For bi-annual leagues pass the selected tournament as a stage filter so
+# W/D/L, GF/GA and rank all reflect the correct Apertura or Clausura only.
+mu_matches = (
+    load_mu_match_list(league, season, stage_filter=_selected_stage)
+    if is_mu_league else pd.DataFrame()
+)
 
 if not mu_matches.empty:
     wins = int((mu_matches["result"] == "W").sum())
@@ -56,9 +85,9 @@ if not mu_matches.empty:
     played = len(mu_matches)
     points = wins * 3 + draws
 
-    # Compute rank from all match results
+    # Compute rank from all match results — same stage filter as mu_matches
     rank = "–"
-    all_results = load_all_season_results(league, season)
+    all_results = load_all_season_results(league, season, stage_filter=_selected_stage)
     if not all_results.empty:
         team_points = {}
         for _, r in all_results.iterrows():
@@ -128,12 +157,13 @@ all_seasons = list_seasons(league)
 
 season_history = []  # W/D/L, GF/GA, rank per season
 for s in all_seasons:
-    st_df = load_standings(league, s)
-    # Upgrade to computed standings when JSON is stale
-    comp_df = compute_standings_from_results(league, s)
-    if (not comp_df.empty
-            and (st_df.empty or comp_df["played"].max() > st_df["played"].max())):
-        st_df = comp_df
+    st_df = load_standings(league, s)  # default = last stage (Clausura) — consistent for trends
+    # Upgrade to computed standings ONLY when JSON is stale and not bi-annual league
+    if not _has_stages:
+        comp_df = compute_standings_from_results(league, s)
+        if (not comp_df.empty
+                and (st_df.empty or comp_df["played"].max() > st_df["played"].max())):
+            st_df = comp_df
     if st_df.empty or MU_TEAM_NAME not in st_df["team_name"].values:
         continue
     row = st_df[st_df["team_name"] == MU_TEAM_NAME].iloc[0]
@@ -462,7 +492,7 @@ with col_scatter2:
 st.markdown("---")
 section_header("Season Results")
 
-results = load_all_season_results(league, season)
+results = load_all_season_results(league, season, stage_filter=_selected_stage)
 
 if is_mu_league and not results.empty:
     if not mu_matches.empty:
@@ -516,7 +546,7 @@ col_table, col_chart = st.columns([1, 1])
 
 with col_table:
     section_header("League Table")
-    styled_league_table(standings)
+    styled_league_table(standings, league=league)
 
 with col_chart:
     section_header("Points Progression")
@@ -532,6 +562,6 @@ with col_chart:
     section_header("Historical Points by Season")
     if not hist_df.empty:
         fig = line_chart(hist_df, x="season", y="points",
-                         title="MU Points by Season", y_label="Total Points",
+                         title="CF América Points by Season", y_label="Total Points",
                          markers=True)
         st.plotly_chart(fig, use_container_width=True)

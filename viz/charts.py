@@ -18,7 +18,8 @@ def line_chart(df: pd.DataFrame, x: str, y: str, title: str = "",
         marker=dict(size=6) if markers else None,
         name=y_label or y,
     ))
-    fig.update_layout(title=title, xaxis_title=x, yaxis_title=y_label or y)
+    fig.update_layout(title=title, xaxis_title=x, yaxis_title=y_label or y,
+                      template="mu_dark")
     return fig
 
 
@@ -36,7 +37,7 @@ def multi_line_chart(df: pd.DataFrame, x: str, y_cols: list[str],
             line=dict(color=colors[i % len(colors)], width=2.5),
             name=col,
         ))
-    fig.update_layout(title=title, yaxis_title=y_label)
+    fig.update_layout(title=title, yaxis_title=y_label, template="mu_dark")
     return fig
 
 
@@ -46,10 +47,12 @@ def bar_chart(df: pd.DataFrame, x: str, y: str, title: str = "",
     if horizontal:
         fig = go.Figure(go.Bar(x=df[y], y=df[x], orientation="h",
                                marker_color=color))
-        fig.update_layout(title=title, xaxis_title=y, yaxis_title=x)
+        fig.update_layout(title=title, xaxis_title=y, yaxis_title=x,
+                          template="mu_dark")
     else:
         fig = go.Figure(go.Bar(x=df[x], y=df[y], marker_color=color))
-        fig.update_layout(title=title, xaxis_title=x, yaxis_title=y)
+        fig.update_layout(title=title, xaxis_title=x, yaxis_title=y,
+                          template="mu_dark")
     return fig
 
 
@@ -68,7 +71,7 @@ def grouped_bar_chart(df: pd.DataFrame, x: str, y_cols: list[str],
             name=bar_names[i],
             marker_color=colors[i % len(colors)],
         ))
-    fig.update_layout(title=title, barmode="group")
+    fig.update_layout(title=title, barmode="group", template="mu_dark")
     return fig
 
 
@@ -95,7 +98,8 @@ def histogram(values: pd.Series | np.ndarray, title: str = "",
               x_label: str = "", color: str = MU_RED, nbins: int = 30) -> go.Figure:
     """Histogram chart."""
     fig = go.Figure(go.Histogram(x=values, nbinsx=nbins, marker_color=color))
-    fig.update_layout(title=title, xaxis_title=x_label, yaxis_title="Frequency")
+    fig.update_layout(title=title, xaxis_title=x_label, yaxis_title="Frequency",
+                      template="mu_dark")
     return fig
 
 
@@ -111,7 +115,7 @@ def donut_chart(labels: list[str], values: list[float], title: str = "",
         textinfo="label+percent",
         textfont=dict(size=12),
     ))
-    fig.update_layout(title=title, showlegend=True)
+    fig.update_layout(title=title, showlegend=True, template="mu_dark")
     return fig
 
 
@@ -139,6 +143,7 @@ def heatmap_grid(matrix: np.ndarray, x_labels: list[str], y_labels: list[str],
         yaxis_title=y_title,
         xaxis=dict(dtick=1),
         yaxis=dict(dtick=1, autorange="reversed"),
+        template="mu_dark",
     )
     return fig
 
@@ -200,6 +205,7 @@ def xg_race_chart(xg_timeline: pd.DataFrame, home_team: str, away_team: str,
         yaxis_title="Cumulative xG",
         xaxis=dict(range=[0, 95]),
         hovermode="x unified",
+        template="mu_dark",
     )
     return fig
 
@@ -227,6 +233,7 @@ def probability_bars(home_prob: float, draw_prob: float, away_prob: float,
         barmode="stack", showlegend=True,
         height=120, margin=dict(l=10, r=10, t=10, b=10),
         xaxis=dict(visible=False), yaxis=dict(visible=False),
+        template="mu_dark",
     )
     return fig
 
@@ -243,7 +250,8 @@ def goals_by_matchday(df: pd.DataFrame, title: str = "Goals by Matchday") -> go.
         name="Conceded", marker_color=MU_RED,
     ))
     fig.update_layout(title=title, barmode="group",
-                      xaxis_title="Matchday", yaxis_title="Goals")
+                      xaxis_title="Matchday", yaxis_title="Goals",
+                      template="mu_dark")
     return fig
 
 
@@ -277,6 +285,7 @@ def monte_carlo_histogram(simulations: np.ndarray, home_team: str, away_team: st
         xaxis_title="Goal Difference (Home - Away)",
         yaxis_title="Frequency",
         barmode="stack",
+        template="mu_dark",
     )
     return fig
 
@@ -353,6 +362,7 @@ def tactical_progression_chart(
         yaxis_title=y_label,
         hovermode="x unified",
         legend=dict(orientation="h", yanchor="bottom", y=1.02),
+        template="mu_dark",
     )
     return fig
 
@@ -429,6 +439,7 @@ def ppda_trend_chart(
         yaxis=dict(range=[0, max(df["ppda"].max() + 5, 25)]),
         hovermode="x unified",
         legend=dict(orientation="h", yanchor="bottom", y=1.02),
+        template="mu_dark",
     )
     return fig
 
@@ -501,13 +512,20 @@ def dual_axis_trend_chart(
         xaxis_title="Match",
         hovermode="x unified",
         legend=dict(orientation="h", yanchor="bottom", y=1.02),
+        template="mu_dark",
+        paper_bgcolor=MU_DARK_BG,
+        plot_bgcolor=MU_DARK_BG,
+        font=dict(color="#FAFAFA"),
     )
     fig.update_yaxes(title_text=left_label, secondary_y=False,
                      title_font=dict(color=left_color),
-                     tickfont=dict(color=left_color))
+                     tickfont=dict(color=left_color),
+                     gridcolor="#1F1F2A")
     fig.update_yaxes(title_text=right_label, secondary_y=True,
                      title_font=dict(color=right_color),
-                     tickfont=dict(color=right_color))
+                     tickfont=dict(color=right_color),
+                     gridcolor="#1F1F2A")
+    fig.update_xaxes(gridcolor="#1F1F2A")
     return fig
 
 
@@ -533,5 +551,5 @@ def formation_donut(formations: list[dict], title: str = "Formation Usage") -> g
         textfont=dict(size=12),
         hovertemplate="%{label}: %{value} matches (%{percent})<extra></extra>",
     ))
-    fig.update_layout(title=title, showlegend=True)
+    fig.update_layout(title=title, showlegend=True, template="mu_dark")
     return fig

@@ -8,7 +8,7 @@ from viz.kpi_cards import section_header, kpi_card, metric_highlight, page_heade
 from viz.radar import fc_radar, position_radar
 from viz.pizza import pizza_chart
 from viz.tables import styled_dataframe
-from data.loader import load_all_player_season_stats, load_player_events_season
+from data.loader import load_all_player_season_stats, load_player_events_season, list_standings_stages
 from processing.player_ratings import (
     compute_fc_ratings, POSITION_ATTR_KEYS, POSITION_CATEGORY_DISPLAY,
     get_position_attrs, get_position_display_names,
@@ -39,6 +39,15 @@ apply_theme()
 league, season = render_sidebar()
 
 page_header("Player Scouting", subtitle=f"{season}")
+
+# ── Tournament note for bi-annual leagues ───────────────────────────────────
+_stage_names_scout = list_standings_stages(league, season)
+if len(_stage_names_scout) > 1:
+    st.info(
+        f"📊 **{' + '.join(_stage_names_scout)} combined** — Player ratings are computed from "
+        f"full-season aggregate stats (both tournaments). Event visualizations "
+        f"(shot maps, heatmaps) show all-season data."
+    )
 
 # ── Compute Ratings ─────────────────────────────────────────────────────────
 with st.spinner("Computing player ratings..."):

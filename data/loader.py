@@ -37,11 +37,17 @@ def load_season_matches(league: str, season: str) -> list[dict]:
 
 
 @st.cache_data(ttl=3600)
-def load_standings(league: str, season: str) -> pd.DataFrame:
+def load_standings(league: str, season: str, stage_name: str = "") -> pd.DataFrame:
     """Load standings.json → league table DataFrame.
 
     Returns DataFrame with: rank, team_name, team_id, team_code, played,
     won, drawn, lost, gf, ga, gd, points, last_six.
+
+    Parameters
+    ----------
+    stage_name : str
+        For bi-annual leagues (e.g. Liga MX):
+        "Apertura", "Clausura", or "" (default = last stage in the file).
     """
     path = jsons_dir(league, season) / "standings.json"
     if not path.exists():
@@ -52,9 +58,16 @@ def load_standings(league: str, season: str) -> pd.DataFrame:
     if not stages:
         return pd.DataFrame()
 
-    # Find the "total" division (overall standings)
+    # Select target stage: by name if given, else the last stage in the file
+    if stage_name:
+        target_stages = [s for s in stages if s.get("name", "").lower() == stage_name.lower()]
+        if not target_stages:
+            target_stages = stages[-1:]   # fallback to last
+    else:
+        target_stages = stages[-1:]  # default: latest tournament (Clausura)
+
     rows = []
-    for stage in stages:
+    for stage in target_stages:
         for div in stage.get("division", []):
             if div.get("type", "") != "total":
                 continue
@@ -74,14 +87,22 @@ def load_standings(league: str, season: str) -> pd.DataFrame:
                     "points": int(r.get("points", 0)),
                     "last_six": r.get("lastSix", ""),
                 })
-            break  # only need "total" division
-        if rows:
-            break
+            break  # only need "total" division per stage
 
     df = pd.DataFrame(rows)
     if not df.empty:
         df = df.sort_values("rank").reset_index(drop=True)
     return df
+
+
+def list_standings_stages(league: str, season: str) -> list[str]:
+    """Return the list of stage names in standings.json (e.g. ['Apertura', 'Clausura'])."""
+    path = jsons_dir(league, season) / "standings.json"
+    if not path.exists():
+        return []
+    data = _load_json(path)
+    stages = data.get("stage", [])
+    return [s.get("name", "") for s in stages if s.get("name")]
 
 
 @st.cache_data(ttl=3600)
@@ -343,36 +364,55 @@ def load_equipos(league: str, season: str) -> pd.DataFrame:
 # ── Season results extraction ───────────────────────────────────────────────
 
 @st.cache_data(ttl=3600)
-def load_all_season_results(league: str, season: str) -> pd.DataFrame:
+def load_all_season_results(league: str, season: str,
+                            stage_filter: str = "") -> pd.DataFrame:
     """Extract match results from matches.json + partidos/.
 
     matches.json may lag behind the actual match files in partidos/.
     We use matches.json first (fast), then supplement with any played
     matches found in partidos/ that matches.json still marks as Fixture.
 
-    Returns DataFrame: date, home_team, away_team, home_id, away_id,
-    home_score, away_score, matchday.
+    Parameters
+    ----------
+    stage_filter : str
+        If non-empty, only return matches whose stage name **starts with**
+        this prefix (case-insensitive). E.g. "Apertura" matches
+        "Apertura", "Apertura - Final", "Apertura - Quarter-finals", etc.
+        Pass "" (default) to return all stages.
+
+    Returns DataFrame: date, stage_name, home_team, away_team, home_id,
+    away_id, home_score, away_score, matchday.
     """
     from data.event_parser import parse_match_info
     import json as _json
 
+    prefix = stage_filter.lower().strip()
+
     matches = load_season_matches(league, season)
     rows = []
     seen_ids = set()
+
+    def _matches_stage(sn: str) -> bool:
+        if not prefix:
+            return True
+        return sn.lower().startswith(prefix)
 
     # ── Pass 1: matches.json (fast, most matches) ──────────────────────
     for m in matches:
         info = parse_match_info(m)
         if info.get("match_status") == "Fixture":
             continue
+        if not _matches_stage(info.get("stage_name", "")):
+            continue
         if info["home_score"] is not None:
             rows.append({
-                "date": info["date"],
-                "matchday": info["matchday"],
-                "home_team": info["home_team"],
-                "away_team": info["away_team"],
-                "home_id": info["home_id"],
-                "away_id": info["away_id"],
+                "date":       info["date"],
+                "matchday":   info["matchday"],
+                "stage_name": info.get("stage_name", ""),
+                "home_team":  info["home_team"],
+                "away_team":  info["away_team"],
+                "home_id":    info["home_id"],
+                "away_id":    info["away_id"],
                 "home_score": info["home_score"],
                 "away_score": info["away_score"],
             })
@@ -392,20 +432,21 @@ def load_all_season_results(league: str, season: str) -> pd.DataFrame:
                 continue
 
             info = parse_match_info(raw)
-            # Skip if already captured from matches.json
             if info["match_id"] and info["match_id"] in seen_ids:
                 continue
-            # Skip unplayed matches
             if info.get("match_status") == "Fixture":
+                continue
+            if not _matches_stage(info.get("stage_name", "")):
                 continue
             if info["home_score"] is not None:
                 rows.append({
-                    "date": info["date"],
-                    "matchday": info["matchday"],
-                    "home_team": info["home_team"],
-                    "away_team": info["away_team"],
-                    "home_id": info["home_id"],
-                    "away_id": info["away_id"],
+                    "date":       info["date"],
+                    "matchday":   info["matchday"],
+                    "stage_name": info.get("stage_name", ""),
+                    "home_team":  info["home_team"],
+                    "away_team":  info["away_team"],
+                    "home_id":    info["home_id"],
+                    "away_id":    info["away_id"],
                     "home_score": info["home_score"],
                     "away_score": info["away_score"],
                 })
@@ -422,9 +463,13 @@ def load_all_season_results(league: str, season: str) -> pd.DataFrame:
 # ── MU-specific helpers ─────────────────────────────────────────────────────
 
 @st.cache_data(ttl=3600)
-def load_mu_match_list(league: str, season: str) -> pd.DataFrame:
-    """Get a list of all Manchester United matches with scores and opponents."""
-    results = load_all_season_results(league, season)
+def load_mu_match_list(league: str, season: str,
+                       stage_filter: str = "") -> pd.DataFrame:
+    """Get CF América match list — optionally filtered to one tournament stage.
+
+    stage_filter: e.g. "Apertura" or "Clausura" for bi-annual leagues.
+    """
+    results = load_all_season_results(league, season, stage_filter=stage_filter)
     if results.empty:
         return results
     mu_matches = results[

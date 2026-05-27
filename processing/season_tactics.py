@@ -11,7 +11,7 @@ from processing.set_pieces import compute_set_piece_stats
 
 @st.cache_data(ttl=3600, show_spinner="Loading season tactical data...")
 def compute_season_tactical_progression(
-    league: str, season: str, team_id: str,
+    league: str, season: str, team_id: str, stage_filter: str = "",
 ) -> pd.DataFrame:
     """Scan all matches for a team and compute per-match tactical KPIs.
 
@@ -48,6 +48,12 @@ def compute_season_tactical_progression(
         # Skip matches where this team didn't play
         if team_id not in (home_id, away_id):
             continue
+
+        # Stage filter — prefix match (e.g. "Apertura" matches "Apertura - Final")
+        if stage_filter:
+            sn = info.get("stage_name", "")
+            if not sn.lower().startswith(stage_filter.lower().strip()):
+                continue
 
         match_num += 1
         is_home = team_id == home_id

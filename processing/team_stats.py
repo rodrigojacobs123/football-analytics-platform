@@ -57,10 +57,12 @@ def compute_team_radar_data(league: str, season: str,
                 if isinstance(s, dict) and "type" in s:
                     stat_dict[s["type"]] = float(s.get("value", 0))
 
-        # Resolve games played from either format
+        # Resolve games played from either format.
+        # Liga MX: 17 games per Apertura/Clausura tournament.
+        # Fallback to 17 (more conservative than 38) if not in data.
         games = (stat_dict.get("Games Played")        # Format B
                  or stat_dict.get("gamesPlayed")       # Format A
-                 or 38)
+                 or 17)
         games = max(games, 1)
 
         raw_stats[team_name] = {
@@ -107,8 +109,8 @@ def get_team_folder_map(league: str, season: str) -> dict[str, str]:
 def build_team_name_lookup(league: str, season: str) -> dict[str, str]:
     """Map standings team names → folder names via fuzzy substring matching.
 
-    Handles cases where standings use 'Manchester United' but folder is
-    'Manchester_United_FC', or accented characters differ.
+    Handles cases where standings use 'CF América' but folder is
+    'CF_América', or accented characters differ across sources.
     """
     standings = load_standings(league, season)
     folder_map = get_team_folder_map(league, season)

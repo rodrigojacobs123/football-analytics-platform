@@ -636,7 +636,8 @@ def monte_carlo_simulation(home_lambda: float, away_lambda: float,
 
 def compute_enhanced_prediction(league: str, season: str,
                                 home_team: str, away_team: str,
-                                n_sims: int = MONTE_CARLO_SIMS) -> dict:
+                                n_sims: int = MONTE_CARLO_SIMS,
+                                stage_filter: str = "") -> dict:
     """Orchestrate all prediction factors into a single enhanced prediction.
 
     Each factor is computed independently and gracefully falls back to
@@ -661,8 +662,8 @@ def compute_enhanced_prediction(league: str, season: str,
         compute_team_radar_data, RADAR_CATEGORIES, get_team_folder_map,
     )
 
-    results = load_all_season_results(league, season)
-    standings = load_standings(league, season)
+    results = load_all_season_results(league, season, stage_filter=stage_filter)
+    standings = load_standings(league, season, stage_name=stage_filter)
 
     if results.empty:
         return _empty_prediction()

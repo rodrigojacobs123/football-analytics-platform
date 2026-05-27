@@ -47,6 +47,10 @@ def parse_match_info(raw: dict) -> dict:
     # Match status: "Played" = finished, "Fixture" = not yet played
     match_status = details.get("matchStatus", "")
 
+    # Stage name (e.g. "Apertura", "Clausura - Quarter-finals") — used to
+    # filter bi-annual leagues like Liga MX by tournament.
+    stage_name = info.get("stage", {}).get("name", "")
+
     return {
         "match_id": info.get("id", ""),
         "date": info.get("date", ""),
@@ -66,6 +70,7 @@ def parse_match_info(raw: dict) -> dict:
         "winner": details.get("winner", ""),
         "match_length_min": details.get("matchLengthMin", 90),
         "match_status": match_status,
+        "stage_name": stage_name,
     }
 
 

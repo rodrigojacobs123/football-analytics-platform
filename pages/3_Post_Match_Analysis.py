@@ -12,16 +12,17 @@ from viz.kpi_cards import (
     page_header, mu_section, mu_tile_row,
 )
 from viz.pitch import (
-    plot_shot_map, plot_pass_network, plot_heatmap,
+    plot_shot_map, plot_heatmap,
     plot_formation, plot_defensive_actions,
     plot_progressive_passes, plot_set_piece_map, plot_corner_shot_panels,
     plot_pass_map, plot_ball_win_height, plot_dominant_actions_by_zone,
-    plot_goal_buildup, ZONE_ACTION_COLORS, _ORIGIN_LABELS, _ORIGIN_COLORS,
+    plot_goal_buildup,
+    ZONE_ACTION_COLORS, _ORIGIN_LABELS, _ORIGIN_COLORS,
 )
 from viz.charts import xg_race_chart
 from viz.phases import phase_donut, phase_compare_bars, transition_matrix, transition_kpi_html
 from viz.xt import xt_pitch_heatmap, xt_top_contributors_bar
-from data.loader import load_match_raw, build_player_name_map
+from data.loader import load_match_raw, build_player_name_map, list_standings_stages
 from data.event_parser import (
     parse_match_info, extract_shots, extract_goals,
     extract_all_touches, extract_key_events,
@@ -31,7 +32,6 @@ from data.event_parser import (
     extract_clearances,
 )
 from processing.xg import compute_xg_timeline, compute_match_xg
-from processing.pass_network import build_pass_network
 from processing.goal_buildup import extract_goal_buildups
 from processing.match_stats import compute_match_stats
 from processing.set_pieces import (
@@ -54,7 +54,20 @@ apply_theme()
 
 league, season = render_sidebar()
 
-match = match_selector(league, season, key="postmatch_sel")
+# ── Tournament Stage Selector (Liga MX / bi-annual leagues) ────────────────
+_stage_names_pm = list_standings_stages(league, season)
+_stage_filter_pm = ""
+if len(_stage_names_pm) > 1:
+    _stage_filter_pm = st.radio(
+        "Tournament",
+        options=_stage_names_pm,
+        index=len(_stage_names_pm) - 1,
+        horizontal=True,
+        key="postmatch_stage",
+    )
+
+match = match_selector(league, season, key="postmatch_sel",
+                       stage_filter=_stage_filter_pm)
 if not match:
     st.info("Select a match to analyze.")
     st.stop()
@@ -349,25 +362,6 @@ st.markdown(f"""
 """, unsafe_allow_html=True)
 
 
-# ═══════════════════════════════════════════════════════════════════════════
-# § 4  PASS NETWORKS (Side by Side, period-aware)
-# ═══════════════════════════════════════════════════════════════════════════
-v3_section_header("PASS NETWORKS", f"Pass Networks — {half_choice}")
-
-pn_tab_home, pn_tab_away = st.tabs([f"⚽ {home_team}", f"⚽ {away_team}"])
-with pn_tab_home:
-    nodes_h, edges_h = build_pass_network(events, home_id, period=period)
-    h_color = MU_RED if home_id == MU_TEAM_ID else "#42A5F5"
-    plot_pass_network(nodes_h, edges_h,
-                      title=f"{home_team}",
-                      node_color=h_color)
-with pn_tab_away:
-    nodes_a, edges_a = build_pass_network(events, away_id, period=period)
-    a_color = MU_RED if away_id == MU_TEAM_ID else "#FF9800"
-    plot_pass_network(nodes_a, edges_a,
-                      title=f"{away_team}",
-                      node_color=a_color)
-
 
 # ═══════════════════════════════════════════════════════════════════════════
 # § 5  PRESSING ANALYSIS
@@ -451,12 +445,49 @@ else:
 # § 5b  GAME PHASES & TRANSITIONS  (Hudl/Wyscout-style)
 # ═══════════════════════════════════════════════════════════════════════════
 v3_section_header("GAME PHASES", "Phases & Transitions")
-st.caption(
-    "Each event is classified by **possession state × pitch zone**: in-possession "
-    "phases (Build-up → Progression → Final-third), out-of-possession phases "
-    "(High-press → Mid-block → Low-block), plus the transition windows after a "
-    "turnover (counter-press 5 s & 7 s, counter-attack 10 s)."
-)
+
+# ── Phase explainer card ───────────────────────────────────────────────────
+st.markdown("""
+<div style="background:#12122A;border-left:3px solid #FFCD00;padding:12px 16px;border-radius:6px;margin-bottom:12px;">
+  <p style="color:#FFCD00;font-weight:700;margin:0 0 6px;font-size:0.85rem;letter-spacing:.5px;">
+    📊 WHAT IS THE PHASE MIX?
+  </p>
+  <p style="color:#ccc;font-size:0.82rem;margin:0 0 8px;">
+    Every event in this match is tagged with <b>who had the ball</b> and <b>where on the pitch it happened</b>.
+    That combination produces 9 tactical phases — the donut shows what fraction of each team's events fell into each phase.
+  </p>
+  <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-top:8px;">
+    <div style="background:#1B5E2040;border-radius:4px;padding:8px;">
+      <div style="color:#66BB6A;font-weight:700;font-size:0.8rem;">🟢 IN POSSESSION</div>
+      <div style="color:#aaa;font-size:0.75rem;margin-top:4px;">
+        <b>Build-up</b> — passing out from the defensive third<br>
+        <b>Progression</b> — carrying play through the midfield<br>
+        <b>Final-third Attack</b> — events in the attacking third
+      </div>
+    </div>
+    <div style="background:#B71C1C30;border-radius:4px;padding:8px;">
+      <div style="color:#EF5350;font-weight:700;font-size:0.8rem;">🔴 OUT OF POSSESSION</div>
+      <div style="color:#aaa;font-size:0.75rem;margin-top:4px;">
+        <b>High Press</b> — defending high up the pitch<br>
+        <b>Mid-block</b> — organised mid-field defensive shape<br>
+        <b>Low Block</b> — sitting deep, defending own box
+      </div>
+    </div>
+    <div style="background:#E6510020;border-radius:4px;padding:8px;">
+      <div style="color:#FFB74D;font-weight:700;font-size:0.8rem;">🟡 TRANSITIONS</div>
+      <div style="color:#aaa;font-size:0.75rem;margin-top:4px;">
+        <b>Counter-press (5s)</b> — pressing to win the ball back within 5 seconds of losing it<br>
+        <b>Counter-press (7s)</b> — same window, Hudl standard (7 s)<br>
+        <b>Counter-attack (10s)</b> — advancing after winning the ball
+      </div>
+    </div>
+  </div>
+  <p style="color:#888;font-size:0.72rem;margin:8px 0 0;">
+    A large <b>Build-up</b> slice → team plays out from the back. Large <b>Mid/Low Block</b> → passive or defensive setup.
+    High <b>Counter-attack</b> share → fast-transition style (e.g. counter-attacking teams like LAFC or Cruz Azul).
+  </p>
+</div>
+""", unsafe_allow_html=True)
 
 home_rep = compute_team_phase_report(events, home_id, away_id)
 away_rep = compute_team_phase_report(events, away_id, home_id)
@@ -478,7 +509,12 @@ fig_cmp = phase_compare_bars(home_rep["distribution"], away_rep["distribution"],
                               home_team, away_team)
 st.plotly_chart(fig_cmp, use_container_width=True)
 
-# ── Donuts + transition Sankey side by side ────────────────────────────────
+# ── Donuts — Phase Mix ─────────────────────────────────────────────────────
+st.markdown(
+    "##### Phase Mix — Share of Match Events per Tactical Phase",
+    help="Each slice = % of that team's logged events in that phase. "
+         "Hover a slice to see the label and exact share.",
+)
 dc1, dc2 = st.columns(2)
 with dc1:
     st.plotly_chart(
@@ -491,9 +527,9 @@ with dc2:
 
 st.markdown("##### Phase Transition Matrix")
 st.caption(
-    "Read across one row to answer **\"when in phase X, where do we go next?\"**  "
-    "Each row is row-normalised — values are the % of exits from that phase to "
-    "each destination (Hudl-style transition matrix)."
+    "**How to read:** pick a row (starting phase) → scan across columns to see where the team went next.  "
+    "E.g. a *Build-up* row with 62% in *Progression* means 6 in 10 build-up phases led to mid-field play.  "
+    "Each row sums to 100%. Blank cells = transition happened fewer than 5% of the time (suppressed to reduce noise)."
 )
 fc1, fc2 = st.columns(2)
 with fc1:
@@ -512,12 +548,30 @@ with fc2:
 # § 5c  EXPECTED THREAT (xT)  — Karun Singh / The Analyst standard
 # ═══════════════════════════════════════════════════════════════════════════
 v3_section_header("EXPECTED THREAT", "xT — Territory Value")
-st.caption(
-    "Each pass and carry is valued by **Δ-xT** — the change in scoring "
-    "probability between the start and end cell of a 12 × 8 grid "
-    "([Karun Singh's xT](https://karun.in/blog/expected-threat.html), the "
-    "standard used by The Analyst and FBref). Only successful actions credit threat."
-)
+
+st.markdown("""
+<div style="background:#12122A;border-left:3px solid #FFCD00;padding:12px 16px;border-radius:6px;margin-bottom:12px;">
+  <p style="color:#FFCD00;font-weight:700;margin:0 0 6px;font-size:0.85rem;letter-spacing:.5px;">
+    📐 WHAT IS xT (Expected Threat)?
+  </p>
+  <p style="color:#ccc;font-size:0.82rem;margin:0 0 6px;">
+    <b>xT measures how much a pass or carry moved the ball into a more dangerous area.</b>
+    The pitch is divided into a 12 × 8 grid (96 cells). Each cell has a pre-calculated score —
+    the historical probability that a possession starting from that cell leads to a goal in the next few actions.
+    Cells near the opponent's goal have high xT (≈ 0.10–0.40); cells in your own half have near-zero xT.
+  </p>
+  <p style="color:#ccc;font-size:0.82rem;margin:0 0 6px;">
+    <b>Δ-xT (xT added)</b> = xT at destination cell − xT at start cell.<br>
+    A forward pass from midfield to the penalty area might add <b>+0.12 xT</b>. A back-pass to the goalkeeper subtracts.
+    Only <em>completed</em> passes and successful carries accumulate positive threat.
+  </p>
+  <p style="color:#888;font-size:0.72rem;margin:0;">
+    Model: <a href="https://karun.in/blog/expected-threat.html" style="color:#FFCD00;">Karun Singh's published 12×8 xT grid</a>
+    — the same standard used by The Analyst (Opta) and FBref.
+    The heatmap below shows <em>where</em> each team generated threat; the bar chart shows <em>who</em> generated most.
+  </p>
+</div>
+""", unsafe_allow_html=True)
 
 home_xt = xt_summary(events, home_id)
 away_xt = xt_summary(events, away_id)
