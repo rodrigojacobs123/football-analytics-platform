@@ -1,0 +1,772 @@
+{
+    "match": [
+        {
+            "matchInfo": {
+                "id": "9g9hb2gqdd6ef433silx6jg4q",
+                "coverageLevel": "13",
+                "date": "2019-05-30Z",
+                "time": "02:30:00Z",
+                "localDate": "2019-05-29",
+                "localTime": "19:30:00",
+                "numberOfPeriods": 2,
+                "periodLength": 45,
+                "overtimeLength": 15,
+                "lastUpdated": "2025-01-16T06:18:15Z",
+                "description": "Las Vegas Lights vs Orange County FC",
+                "sport": {
+                    "id": "289u5typ3vp4ifwh5thalohmq",
+                    "name": "Soccer"
+                },
+                "ruleset": {
+                    "id": "79plas4983031idr6vw83nuel",
+                    "name": "Men"
+                },
+                "competition": {
+                    "id": "2bmwykmdlcc2u1c40ytoc39vy",
+                    "name": "US Open Cup",
+                    "knownName": "US Open Cup",
+                    "competitionCode": "UOC",
+                    "competitionFormat": "Domestic cup",
+                    "country": {
+                        "id": "7hr2f89v44y65dyu9k92vprwn",
+                        "name": "USA"
+                    }
+                },
+                "tournamentCalendar": {
+                    "id": "c7tmg7pxkutef9ymogovz4huy",
+                    "startDate": "2019-05-08Z",
+                    "endDate": "2019-08-28Z",
+                    "name": "2019"
+                },
+                "stage": {
+                    "id": "c8oald29684fma4yf4v7o9wtm",
+                    "formatId": "emn81yxry3kpgybjulh9yzq39",
+                    "startDate": "2019-05-29Z",
+                    "endDate": "2019-05-30Z",
+                    "name": "3rd Round"
+                },
+                "contestant": [
+                    {
+                        "id": "7c9knuwazz9k9449u5rnuuy5m",
+                        "name": "Las Vegas Lights",
+                        "shortName": "LV Lights",
+                        "officialName": "Las Vegas Lights FC",
+                        "code": "LV",
+                        "position": "home",
+                        "country": {
+                            "id": "7hr2f89v44y65dyu9k92vprwn",
+                            "name": "USA"
+                        }
+                    },
+                    {
+                        "id": "kwfia9xmttpspa5d046l5zze",
+                        "name": "Orange County FC",
+                        "shortName": "Orange County",
+                        "officialName": "Orange County FC",
+                        "code": "OCF",
+                        "position": "away",
+                        "country": {
+                            "id": "7hr2f89v44y65dyu9k92vprwn",
+                            "name": "USA"
+                        }
+                    }
+                ],
+                "venue": {
+                    "id": "6ybja9882nt94qwhbfv5rf14a",
+                    "neutral": "no",
+                    "longName": "Cashman Field",
+                    "shortName": "Cashman Field"
+                }
+            },
+            "liveData": {
+                "matchDetails": {
+                    "periodId": 14,
+                    "matchStatus": "Played",
+                    "winner": "away",
+                    "matchLengthMin": 97,
+                    "matchLengthSec": 50,
+                    "period": [
+                        {
+                            "id": 1,
+                            "start": "2019-05-30T02:36:09Z",
+                            "end": "2019-05-30T03:24:29Z",
+                            "lengthMin": 48,
+                            "lengthSec": 20
+                        },
+                        {
+                            "id": 2,
+                            "start": "2019-05-30T03:40:14Z",
+                            "end": "2019-05-30T04:29:44Z",
+                            "lengthMin": 49,
+                            "lengthSec": 30
+                        }
+                    ],
+                    "scores": {
+                        "ht": {
+                            "home": 1,
+                            "away": 3
+                        },
+                        "ft": {
+                            "home": 3,
+                            "away": 5
+                        },
+                        "total": {
+                            "home": 3,
+                            "away": 5
+                        }
+                    }
+                },
+                "goal": [
+                    {
+                        "contestantId": "kwfia9xmttpspa5d046l5zze",
+                        "periodId": 1,
+                        "timeMin": 6,
+                        "timeMinSec": "5:15",
+                        "lastUpdated": "2019-09-11T12:33:05Z",
+                        "type": "G",
+                        "scorerId": "b0tm918g30ans6kiv8sjbc9ka",
+                        "scorerName": "C. Shelton",
+                        "assistPlayerId": "748m4lwi449jdbip899v6kamt",
+                        "assistPlayerName": "P. Gregory",
+                        "optaEventId": "1380787296",
+                        "homeScore": 0,
+                        "awayScore": 1
+                    },
+                    {
+                        "contestantId": "7c9knuwazz9k9449u5rnuuy5m",
+                        "periodId": 1,
+                        "timeMin": 16,
+                        "timeMinSec": "15:50",
+                        "lastUpdated": "2024-03-11T17:20:51Z",
+                        "type": "OG",
+                        "scorerId": "6hdas9nshfgbjhj91y3ob8b11",
+                        "scorerName": "M. Fehr",
+                        "optaEventId": "1392380785",
+                        "homeScore": 0,
+                        "awayScore": 2
+                    },
+                    {
+                        "contestantId": "7c9knuwazz9k9449u5rnuuy5m",
+                        "periodId": 1,
+                        "timeMin": 23,
+                        "timeMinSec": "22:57",
+                        "lastUpdated": "2023-04-03T16:19:54Z",
+                        "type": "PG",
+                        "scorerId": "4f2dsr4fnspwvkupvycdu5soa",
+                        "scorerName": "S. Echavarria",
+                        "optaEventId": "1344075657",
+                        "homeScore": 1,
+                        "awayScore": 2
+                    },
+                    {
+                        "contestantId": "kwfia9xmttpspa5d046l5zze",
+                        "periodId": 1,
+                        "timeMin": 35,
+                        "timeMinSec": "34:49",
+                        "lastUpdated": "2019-09-11T12:32:52Z",
+                        "type": "G",
+                        "scorerId": "bymv7rxgxak0wyrgpwb9b7r9x",
+                        "scorerName": "D. Collins",
+                        "assistPlayerId": "5l65hftatfs9o50on7mh6gkq",
+                        "assistPlayerName": "B. Frischknecht",
+                        "optaEventId": "1202530261",
+                        "homeScore": 1,
+                        "awayScore": 3
+                    },
+                    {
+                        "contestantId": "7c9knuwazz9k9449u5rnuuy5m",
+                        "periodId": 2,
+                        "timeMin": 47,
+                        "timeMinSec": "46:39",
+                        "lastUpdated": "2020-09-18T03:30:10Z",
+                        "type": "G",
+                        "scorerId": "8x5vdo57pei30iai7e0mg1gbt",
+                        "scorerName": "E. Rivas",
+                        "assistPlayerId": "4f2dsr4fnspwvkupvycdu5soa",
+                        "assistPlayerName": "S. Echavarria",
+                        "optaEventId": "1227772495",
+                        "homeScore": 2,
+                        "awayScore": 3
+                    },
+                    {
+                        "contestantId": "7c9knuwazz9k9449u5rnuuy5m",
+                        "periodId": 2,
+                        "timeMin": 85,
+                        "timeMinSec": "84:19",
+                        "lastUpdated": "2021-02-11T18:07:00Z",
+                        "type": "G",
+                        "scorerId": "cdc4axip2o5gxrw7hx4wd6ml1",
+                        "scorerName": "J. Sandoval",
+                        "assistPlayerId": "430jtuvon7l6plhlrdxb6jbv9",
+                        "assistPlayerName": "J. Villarreal",
+                        "optaEventId": "1111952801",
+                        "homeScore": 3,
+                        "awayScore": 3
+                    },
+                    {
+                        "contestantId": "kwfia9xmttpspa5d046l5zze",
+                        "periodId": 2,
+                        "timeMin": 89,
+                        "timeMinSec": "88:28",
+                        "lastUpdated": "2021-02-11T18:05:02Z",
+                        "type": "G",
+                        "scorerId": "5l65hftatfs9o50on7mh6gkq",
+                        "scorerName": "B. Frischknecht",
+                        "assistPlayerId": "b0tm918g30ans6kiv8sjbc9ka",
+                        "assistPlayerName": "C. Shelton",
+                        "optaEventId": "1370521519",
+                        "homeScore": 3,
+                        "awayScore": 4
+                    },
+                    {
+                        "contestantId": "kwfia9xmttpspa5d046l5zze",
+                        "periodId": 2,
+                        "timeMin": 91,
+                        "timeMinSec": "90:04",
+                        "lastUpdated": "2019-09-11T12:33:16Z",
+                        "type": "G",
+                        "scorerId": "sntduwo7cr2ca2t7txb6razu",
+                        "scorerName": "O. Flores",
+                        "assistPlayerId": "9on80ab77u5p6mnh8jj3hl3l6",
+                        "assistPlayerName": "J. Bynoe",
+                        "optaEventId": "1714312018",
+                        "homeScore": 3,
+                        "awayScore": 5
+                    }
+                ],
+                "card": [
+                    {
+                        "contestantId": "kwfia9xmttpspa5d046l5zze",
+                        "periodId": 1,
+                        "timeMin": 23,
+                        "timeMinSec": "22:19",
+                        "lastUpdated": "2020-09-01T09:43:23Z",
+                        "type": "YC",
+                        "playerId": "9ob3fmfqcl40aya90l3xi3r6y",
+                        "playerName": "R. Holland",
+                        "optaEventId": "1339347493",
+                        "cardReason": "Foul"
+                    },
+                    {
+                        "contestantId": "7c9knuwazz9k9449u5rnuuy5m",
+                        "periodId": 1,
+                        "timeMin": 32,
+                        "timeMinSec": "31:42",
+                        "lastUpdated": "2021-02-11T18:07:00Z",
+                        "type": "YC",
+                        "playerId": "cdc4axip2o5gxrw7hx4wd6ml1",
+                        "playerName": "J. Sandoval",
+                        "optaEventId": "1588102335",
+                        "cardReason": "Foul"
+                    },
+                    {
+                        "contestantId": "7c9knuwazz9k9449u5rnuuy5m",
+                        "periodId": 2,
+                        "timeMin": 74,
+                        "timeMinSec": "73:20",
+                        "lastUpdated": "2019-05-30T04:10:24Z",
+                        "type": "RC",
+                        "playerId": "k3wg70hobao9y7x8v0n96o5x",
+                        "playerName": "C. Torres",
+                        "optaEventId": "1905166748",
+                        "cardReason": "Foul"
+                    },
+                    {
+                        "contestantId": "kwfia9xmttpspa5d046l5zze",
+                        "periodId": 2,
+                        "timeMin": 74,
+                        "timeMinSec": "73:54",
+                        "lastUpdated": "2019-09-11T12:33:05Z",
+                        "type": "YC",
+                        "playerId": "b0tm918g30ans6kiv8sjbc9ka",
+                        "playerName": "C. Shelton",
+                        "optaEventId": "1694920230",
+                        "cardReason": "Foul"
+                    },
+                    {
+                        "contestantId": "kwfia9xmttpspa5d046l5zze",
+                        "periodId": 2,
+                        "timeMin": 84,
+                        "timeMinSec": "83:32",
+                        "lastUpdated": "2024-05-06T11:57:51Z",
+                        "type": "YC",
+                        "playerId": "8n2bppwta5ug4nawajawt0n6y",
+                        "playerName": "A. Lombardi",
+                        "optaEventId": "1503318141",
+                        "cardReason": "Foul"
+                    }
+                ],
+                "substitute": [
+                    {
+                        "contestantId": "7c9knuwazz9k9449u5rnuuy5m",
+                        "periodId": 2,
+                        "timeMin": 46,
+                        "timeMinSec": "45:00",
+                        "lastUpdated": "2019-05-30T03:39:46Z",
+                        "playerOnId": "47gj2myyyqetrm8sxakfxgjpx",
+                        "playerOnName": "P. Cruz",
+                        "playerOffId": "b49drtr895wxyz7twfs8ylv1m",
+                        "playerOffName": "V. Rojas",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "7c9knuwazz9k9449u5rnuuy5m",
+                        "periodId": 2,
+                        "timeMin": 46,
+                        "timeMinSec": "45:00",
+                        "lastUpdated": "2021-02-11T18:10:02Z",
+                        "playerOnId": "6o0f6acrjtiwqlxagsqteou7d",
+                        "playerOnName": "T. Olsen",
+                        "playerOffId": "77025w8dkzb0t0768xce12xux",
+                        "playerOffName": "A. Alvarez",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "7c9knuwazz9k9449u5rnuuy5m",
+                        "periodId": 2,
+                        "timeMin": 69,
+                        "timeMinSec": "68:15",
+                        "lastUpdated": "2019-08-27T09:21:04Z",
+                        "playerOnId": "430jtuvon7l6plhlrdxb6jbv9",
+                        "playerOnName": "J. Villarreal",
+                        "playerOffId": "8x5vdo57pei30iai7e0mg1gbt",
+                        "playerOffName": "E. Rivas",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "kwfia9xmttpspa5d046l5zze",
+                        "periodId": 2,
+                        "timeMin": 69,
+                        "timeMinSec": "68:25",
+                        "lastUpdated": "2019-09-11T12:33:17Z",
+                        "playerOnId": "9on80ab77u5p6mnh8jj3hl3l6",
+                        "playerOnName": "J. Bynoe",
+                        "playerOffId": "748m4lwi449jdbip899v6kamt",
+                        "playerOffName": "P. Gregory",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "kwfia9xmttpspa5d046l5zze",
+                        "periodId": 2,
+                        "timeMin": 78,
+                        "timeMinSec": "77:45",
+                        "lastUpdated": "2019-09-11T12:33:10Z",
+                        "playerOnId": "8ibn9vxnsfp6126jisubbgh9m",
+                        "playerOnName": "J. Chrzan",
+                        "playerOffId": "9jc85hbpruze4v8u1pjzsjt62",
+                        "playerOffName": "M. Bryant",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "kwfia9xmttpspa5d046l5zze",
+                        "periodId": 2,
+                        "timeMin": 89,
+                        "timeMinSec": "88:10",
+                        "lastUpdated": "2019-09-11T12:33:16Z",
+                        "playerOnId": "sntduwo7cr2ca2t7txb6razu",
+                        "playerOnName": "O. Flores",
+                        "playerOffId": "bymv7rxgxak0wyrgpwb9b7r9x",
+                        "playerOffName": "D. Collins",
+                        "subReason": "Tactical"
+                    }
+                ],
+                "matchDetailsExtra": {
+                    "attendance": "2378",
+                    "matchOfficial": [
+                        {
+                            "id": "37nnb8d74as43kvcfl33iw5m2",
+                            "type": "Main",
+                            "firstName": "Samantha",
+                            "lastName": "Martinez",
+                            "shortFirstName": "Samantha",
+                            "shortLastName": "Martinez"
+                        },
+                        {
+                            "id": "71smopuf2yxv7y9qo8d3m2z8p",
+                            "type": "Assistant referee 1",
+                            "firstName": "Uriel",
+                            "lastName": "Aguilera",
+                            "shortFirstName": "Uriel",
+                            "shortLastName": "Aguilera"
+                        },
+                        {
+                            "id": "l12g83ltbdcth3b8thc4s67e",
+                            "type": "Assistant referee 2",
+                            "firstName": "Ryan",
+                            "lastName": "Cuddy",
+                            "shortFirstName": "Ryan",
+                            "shortLastName": "Cuddy"
+                        },
+                        {
+                            "id": "9ukz09b60wbyx1xkgfhev90bt",
+                            "type": "Fourth official",
+                            "firstName": "Alejandro",
+                            "lastName": "Aguilera",
+                            "shortFirstName": "Alejandro",
+                            "shortLastName": "Aguilera"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "matchInfo": {
+                "id": "ev7hq1dfgny9cxtslpvrdxm2",
+                "coverageLevel": "13",
+                "date": "2019-05-15Z",
+                "time": "02:30:00Z",
+                "localDate": "2019-05-14",
+                "localTime": "19:30:00",
+                "numberOfPeriods": 2,
+                "periodLength": 45,
+                "overtimeLength": 15,
+                "lastUpdated": "2025-03-14T19:30:12Z",
+                "description": "Las Vegas Lights vs Cal",
+                "sport": {
+                    "id": "289u5typ3vp4ifwh5thalohmq",
+                    "name": "Soccer"
+                },
+                "ruleset": {
+                    "id": "79plas4983031idr6vw83nuel",
+                    "name": "Men"
+                },
+                "competition": {
+                    "id": "2bmwykmdlcc2u1c40ytoc39vy",
+                    "name": "US Open Cup",
+                    "knownName": "US Open Cup",
+                    "competitionCode": "UOC",
+                    "competitionFormat": "Domestic cup",
+                    "country": {
+                        "id": "7hr2f89v44y65dyu9k92vprwn",
+                        "name": "USA"
+                    }
+                },
+                "tournamentCalendar": {
+                    "id": "c7tmg7pxkutef9ymogovz4huy",
+                    "startDate": "2019-05-08Z",
+                    "endDate": "2019-08-28Z",
+                    "name": "2019"
+                },
+                "stage": {
+                    "id": "c8l1yjl6nu5vyvc2t9dfiub8q",
+                    "formatId": "8cdpi9d29bu9gim4bl5m8ijth",
+                    "startDate": "2019-05-15Z",
+                    "endDate": "2019-05-16Z",
+                    "name": "2nd Round"
+                },
+                "contestant": [
+                    {
+                        "id": "7c9knuwazz9k9449u5rnuuy5m",
+                        "name": "Las Vegas Lights",
+                        "shortName": "LV Lights",
+                        "officialName": "Las Vegas Lights FC",
+                        "code": "LV",
+                        "position": "home",
+                        "country": {
+                            "id": "7hr2f89v44y65dyu9k92vprwn",
+                            "name": "USA"
+                        }
+                    },
+                    {
+                        "id": "3d2i15hl2xycub6aev2d34dhi",
+                        "name": "Cal",
+                        "shortName": "Cal",
+                        "officialName": "Cal",
+                        "code": "CAL",
+                        "position": "away",
+                        "country": {
+                            "id": "7hr2f89v44y65dyu9k92vprwn",
+                            "name": "USA"
+                        }
+                    }
+                ],
+                "venue": {
+                    "id": "6ybja9882nt94qwhbfv5rf14a",
+                    "neutral": "no",
+                    "longName": "Cashman Field",
+                    "shortName": "Cashman Field"
+                }
+            },
+            "liveData": {
+                "matchDetails": {
+                    "periodId": 14,
+                    "matchStatus": "Played",
+                    "winner": "home",
+                    "matchLengthMin": 95,
+                    "matchLengthSec": 38,
+                    "period": [
+                        {
+                            "id": 1,
+                            "start": "2019-05-15T02:35:52Z",
+                            "end": "2019-05-15T03:23:35Z",
+                            "lengthMin": 47,
+                            "lengthSec": 43
+                        },
+                        {
+                            "id": 2,
+                            "start": "2019-05-15T03:39:31Z",
+                            "end": "2019-05-15T04:27:26Z",
+                            "lengthMin": 47,
+                            "lengthSec": 55
+                        }
+                    ],
+                    "scores": {
+                        "ht": {
+                            "home": 1,
+                            "away": 0
+                        },
+                        "ft": {
+                            "home": 2,
+                            "away": 0
+                        },
+                        "total": {
+                            "home": 2,
+                            "away": 0
+                        }
+                    }
+                },
+                "goal": [
+                    {
+                        "contestantId": "7c9knuwazz9k9449u5rnuuy5m",
+                        "periodId": 1,
+                        "timeMin": 13,
+                        "timeMinSec": "12:03",
+                        "lastUpdated": "2019-05-15T02:48:11Z",
+                        "type": "G",
+                        "scorerId": "9kre2yb7asuj6vae9a3zgf26t",
+                        "scorerName": "S. Ochoa",
+                        "assistPlayerId": "8x5vdo57pei30iai7e0mg1gbt",
+                        "assistPlayerName": "E. Rivas",
+                        "optaEventId": "1944922998",
+                        "homeScore": 1,
+                        "awayScore": 0
+                    },
+                    {
+                        "contestantId": "7c9knuwazz9k9449u5rnuuy5m",
+                        "periodId": 2,
+                        "timeMin": 50,
+                        "timeMinSec": "49:36",
+                        "lastUpdated": "2019-05-15T03:44:47Z",
+                        "type": "G",
+                        "scorerId": "b49drtr895wxyz7twfs8ylv1m",
+                        "scorerName": "V. Rojas",
+                        "assistPlayerId": "47gj2myyyqetrm8sxakfxgjpx",
+                        "assistPlayerName": "P. Cruz",
+                        "optaEventId": "1350782315",
+                        "homeScore": 2,
+                        "awayScore": 0
+                    }
+                ],
+                "card": [
+                    {
+                        "contestantId": "7c9knuwazz9k9449u5rnuuy5m",
+                        "periodId": 1,
+                        "timeMin": 41,
+                        "timeMinSec": "40:51",
+                        "lastUpdated": "2019-05-15T03:17:16Z",
+                        "type": "YC",
+                        "playerId": "k3wg70hobao9y7x8v0n96o5x",
+                        "playerName": "C. Torres",
+                        "optaEventId": "1804769358",
+                        "cardReason": "Foul"
+                    },
+                    {
+                        "contestantId": "7c9knuwazz9k9449u5rnuuy5m",
+                        "periodId": 2,
+                        "timeMin": 60,
+                        "timeMinSec": "59:45",
+                        "lastUpdated": "2019-05-15T04:00:38Z",
+                        "type": "YC",
+                        "playerId": "9kre2yb7asuj6vae9a3zgf26t",
+                        "playerName": "S. Ochoa",
+                        "optaEventId": "1928594811",
+                        "cardReason": "Foul"
+                    },
+                    {
+                        "contestantId": "7c9knuwazz9k9449u5rnuuy5m",
+                        "periodId": 2,
+                        "timeMin": 62,
+                        "timeMinSec": "61:30",
+                        "lastUpdated": "2021-02-11T18:07:00Z",
+                        "type": "YC",
+                        "playerId": "cdc4axip2o5gxrw7hx4wd6ml1",
+                        "playerName": "J. Sandoval",
+                        "optaEventId": "1666499982",
+                        "cardReason": "Foul"
+                    },
+                    {
+                        "contestantId": "7c9knuwazz9k9449u5rnuuy5m",
+                        "periodId": 2,
+                        "timeMin": 68,
+                        "timeMinSec": "67:34",
+                        "lastUpdated": "2019-05-15T04:02:58Z",
+                        "type": "YC",
+                        "playerId": "47gj2myyyqetrm8sxakfxgjpx",
+                        "playerName": "P. Cruz",
+                        "optaEventId": "1236883941",
+                        "cardReason": "Foul"
+                    },
+                    {
+                        "contestantId": "3d2i15hl2xycub6aev2d34dhi",
+                        "periodId": 2,
+                        "timeMin": 82,
+                        "timeMinSec": "81:48",
+                        "lastUpdated": "2024-03-07T15:51:41Z",
+                        "type": "YC",
+                        "playerId": "a8q0m9uczyvjyn6cfzkaxkp1x",
+                        "playerName": "D. Barrera",
+                        "optaEventId": "1620228245",
+                        "cardReason": "Foul"
+                    },
+                    {
+                        "contestantId": "3d2i15hl2xycub6aev2d34dhi",
+                        "periodId": 2,
+                        "timeMin": 87,
+                        "timeMinSec": "86:41",
+                        "lastUpdated": "2019-05-15T04:21:43Z",
+                        "type": "YC",
+                        "playerId": "4bk93fcy8qcppnowshg6wydih",
+                        "playerName": "V. Vasquez",
+                        "optaEventId": "1335859890",
+                        "cardReason": "Foul"
+                    },
+                    {
+                        "contestantId": "7c9knuwazz9k9449u5rnuuy5m",
+                        "periodId": 2,
+                        "timeMin": 92,
+                        "timeMinSec": "91:06",
+                        "lastUpdated": "2022-03-10T08:25:57Z",
+                        "type": "RC",
+                        "playerId": "8fnof0i3ksalhkm40a0cymxg5",
+                        "playerName": "J. Levin",
+                        "optaEventId": "1982920485",
+                        "cardReason": "Foul"
+                    },
+                    {
+                        "contestantId": "3d2i15hl2xycub6aev2d34dhi",
+                        "periodId": 2,
+                        "timeMin": 92,
+                        "timeMinSec": "91:07",
+                        "lastUpdated": "2019-05-15T04:25:53Z",
+                        "type": "RC",
+                        "playerId": "4bk93fcy8qcppnowshg6wydih",
+                        "playerName": "V. Vasquez",
+                        "optaEventId": "1861404209",
+                        "cardReason": "Foul"
+                    }
+                ],
+                "substitute": [
+                    {
+                        "contestantId": "7c9knuwazz9k9449u5rnuuy5m",
+                        "periodId": 2,
+                        "timeMin": 46,
+                        "timeMinSec": "45:00",
+                        "lastUpdated": "2019-05-15T03:39:17Z",
+                        "playerOnId": "47gj2myyyqetrm8sxakfxgjpx",
+                        "playerOnName": "P. Cruz",
+                        "playerOffId": "8x5vdo57pei30iai7e0mg1gbt",
+                        "playerOffName": "E. Rivas",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "7c9knuwazz9k9449u5rnuuy5m",
+                        "periodId": 2,
+                        "timeMin": 46,
+                        "timeMinSec": "45:00",
+                        "lastUpdated": "2021-02-11T18:07:00Z",
+                        "playerOnId": "cdc4axip2o5gxrw7hx4wd6ml1",
+                        "playerOnName": "J. Sandoval",
+                        "playerOffId": "1nozr0fc073t36pjp9tz9910q",
+                        "playerOffName": "M. Thomas",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "3d2i15hl2xycub6aev2d34dhi",
+                        "periodId": 2,
+                        "timeMin": 54,
+                        "timeMinSec": "53:21",
+                        "lastUpdated": "2019-05-15T03:48:38Z",
+                        "playerOnId": "4bk93fcy8qcppnowshg6wydih",
+                        "playerOnName": "V. Vasquez",
+                        "playerOffId": "92j7nhyhr8fn4wf96wz31nn8q",
+                        "playerOffName": "R. Lomeli",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "3d2i15hl2xycub6aev2d34dhi",
+                        "periodId": 2,
+                        "timeMin": 73,
+                        "timeMinSec": "73:00",
+                        "lastUpdated": "2019-05-15T04:10:47Z",
+                        "playerOnId": "bn804aqytz3vee0pfglnvzbop",
+                        "playerOnName": "W. Raygoza",
+                        "playerOffId": "7gzcx735jrzpmnrq8wm0a34r9",
+                        "playerOffName": "R. Menjívar",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "7c9knuwazz9k9449u5rnuuy5m",
+                        "periodId": 2,
+                        "timeMin": 78,
+                        "timeMinSec": "77:24",
+                        "lastUpdated": "2019-05-15T04:12:03Z",
+                        "playerOnId": "38sky4vk2o3ucgr8mwt3qyuhh",
+                        "playerOnName": "L. Scaglia",
+                        "playerOffId": "k3wg70hobao9y7x8v0n96o5x",
+                        "playerOffName": "C. Torres",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "3d2i15hl2xycub6aev2d34dhi",
+                        "periodId": 2,
+                        "timeMin": 81,
+                        "timeMinSec": "80:12",
+                        "lastUpdated": "2019-05-15T04:15:23Z",
+                        "playerOnId": "c55jyorh33h0f9izt5958om7e",
+                        "playerOnName": "L. Hodges",
+                        "playerOffId": "b9to3elwvz6s649cfnh5605at",
+                        "playerOffName": "J. Alewine",
+                        "subReason": "Tactical"
+                    }
+                ],
+                "matchDetailsExtra": {
+                    "attendance": "2536",
+                    "matchOfficial": [
+                        {
+                            "id": "9ukz09b60wbyx1xkgfhev90bt",
+                            "type": "Main",
+                            "firstName": "Alejandro",
+                            "lastName": "Aguilera",
+                            "shortFirstName": "Alejandro",
+                            "shortLastName": "Aguilera"
+                        },
+                        {
+                            "id": "71smopuf2yxv7y9qo8d3m2z8p",
+                            "type": "Assistant referee 1",
+                            "firstName": "Uriel",
+                            "lastName": "Aguilera",
+                            "shortFirstName": "Uriel",
+                            "shortLastName": "Aguilera"
+                        },
+                        {
+                            "id": "e27y1y0j375z13m8j1xy4z2ay",
+                            "type": "Assistant referee 2",
+                            "firstName": "Chris",
+                            "lastName": "Sosa",
+                            "shortFirstName": "Chris",
+                            "shortLastName": "Sosa"
+                        },
+                        {
+                            "id": "l12g83ltbdcth3b8thc4s67e",
+                            "type": "Fourth official",
+                            "firstName": "Ryan",
+                            "lastName": "Cuddy",
+                            "shortFirstName": "Ryan",
+                            "shortLastName": "Cuddy"
+                        }
+                    ]
+                }
+            }
+        }
+    ]
+}

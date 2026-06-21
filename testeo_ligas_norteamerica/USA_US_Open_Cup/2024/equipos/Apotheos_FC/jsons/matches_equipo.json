@@ -1,0 +1,433 @@
+{
+    "match": [
+        {
+            "matchInfo": {
+                "id": "9kds7ji5l10km68b8qgo95yc4",
+                "coverageLevel": "13",
+                "date": "2024-04-03Z",
+                "time": "23:30:00Z",
+                "localDate": "2024-04-03",
+                "localTime": "19:30:00",
+                "numberOfPeriods": 2,
+                "periodLength": 45,
+                "overtimeLength": 15,
+                "lastUpdated": "2025-05-24T18:08:25Z",
+                "description": "Apotheos vs Chattanooga Red Wolves",
+                "sport": {
+                    "id": "289u5typ3vp4ifwh5thalohmq",
+                    "name": "Soccer"
+                },
+                "ruleset": {
+                    "id": "79plas4983031idr6vw83nuel",
+                    "name": "Men"
+                },
+                "competition": {
+                    "id": "2bmwykmdlcc2u1c40ytoc39vy",
+                    "name": "US Open Cup",
+                    "knownName": "US Open Cup",
+                    "competitionCode": "UOC",
+                    "competitionFormat": "Domestic cup",
+                    "country": {
+                        "id": "7hr2f89v44y65dyu9k92vprwn",
+                        "name": "USA"
+                    }
+                },
+                "tournamentCalendar": {
+                    "id": "dh2sb8k8qnboef5ev5p1a01lg",
+                    "startDate": "2024-03-19Z",
+                    "endDate": "2024-09-26Z",
+                    "name": "2024"
+                },
+                "stage": {
+                    "id": "di3tye3wcsz8w5vsm8pdxctn8",
+                    "formatId": "8cdpi9d29bu9gim4bl5m8ijth",
+                    "startDate": "2024-04-03Z",
+                    "endDate": "2024-04-04Z",
+                    "name": "2nd Round"
+                },
+                "contestant": [
+                    {
+                        "id": "1uwnohxr86s6euig4h1p03fo4",
+                        "name": "Apotheos",
+                        "shortName": "Apotheos",
+                        "officialName": "Apotheos FC",
+                        "code": "APO",
+                        "position": "home",
+                        "country": {
+                            "id": "7hr2f89v44y65dyu9k92vprwn",
+                            "name": "USA"
+                        }
+                    },
+                    {
+                        "id": "f4x0hx78zcbx4hgnf6w65z8fe",
+                        "name": "Chattanooga Red Wolves",
+                        "shortName": "Red Wolves",
+                        "officialName": "Chattanooga Red Wolves SC",
+                        "code": "CHA",
+                        "position": "away",
+                        "country": {
+                            "id": "7hr2f89v44y65dyu9k92vprwn",
+                            "name": "USA"
+                        }
+                    }
+                ],
+                "venue": {
+                    "id": "16cslcbb9jxs2suq2h9gjfwbt",
+                    "neutral": "no",
+                    "longName": "Atlanta Silverbacks Park",
+                    "shortName": "Atlanta Silverbacks Park"
+                }
+            },
+            "liveData": {
+                "matchDetails": {
+                    "periodId": 14,
+                    "matchStatus": "Played",
+                    "winner": "away",
+                    "matchLengthMin": 93,
+                    "matchLengthSec": 43,
+                    "period": [
+                        {
+                            "id": 1,
+                            "start": "2024-04-03T23:45:59Z",
+                            "end": "2024-04-04T00:31:04Z",
+                            "lengthMin": 45,
+                            "lengthSec": 5,
+                            "announcedInjuryTime": 60
+                        },
+                        {
+                            "id": 2,
+                            "start": "2024-04-04T00:50:02Z",
+                            "end": "2024-04-04T01:38:40Z",
+                            "lengthMin": 48,
+                            "lengthSec": 38,
+                            "announcedInjuryTime": 120
+                        }
+                    ],
+                    "scores": {
+                        "ht": {
+                            "home": 0,
+                            "away": 0
+                        },
+                        "ft": {
+                            "home": 0,
+                            "away": 1
+                        },
+                        "total": {
+                            "home": 0,
+                            "away": 1
+                        }
+                    }
+                },
+                "goal": [
+                    {
+                        "contestantId": "f4x0hx78zcbx4hgnf6w65z8fe",
+                        "periodId": 2,
+                        "timeMin": 52,
+                        "timeMinSec": "51:10",
+                        "lastUpdated": "2025-03-18T08:15:01Z",
+                        "timestamp": "2024-04-04T00:56:13Z",
+                        "type": "G",
+                        "scorerId": "8svvdqi69pc6it7mnin50q68k",
+                        "scorerName": "S. Lukić",
+                        "optaEventId": "2667224495",
+                        "homeScore": 0,
+                        "awayScore": 1
+                    }
+                ],
+                "card": [
+                    {
+                        "contestantId": "f4x0hx78zcbx4hgnf6w65z8fe",
+                        "periodId": 1,
+                        "timeMin": 2,
+                        "timeMinSec": "1:31",
+                        "lastUpdated": "2024-04-04T00:07:08Z",
+                        "timestamp": "2024-04-03T23:47:31Z",
+                        "type": "YC",
+                        "playerId": "1obodv132w5wxq4nb008ty06i",
+                        "playerName": "Lucas Coutinho",
+                        "optaEventId": "2667204719",
+                        "cardReason": "Foul"
+                    },
+                    {
+                        "contestantId": "1uwnohxr86s6euig4h1p03fo4",
+                        "periodId": 1,
+                        "timeMin": 29,
+                        "timeMinSec": "28:46",
+                        "lastUpdated": "2024-04-04T00:14:53Z",
+                        "timestamp": "2024-04-04T00:14:46Z",
+                        "type": "YC",
+                        "playerId": "549z21b3ubva59b4h85nb6r6c",
+                        "playerName": "J. Parisi Sitjar",
+                        "optaEventId": "2667208211",
+                        "cardReason": "Foul"
+                    },
+                    {
+                        "contestantId": "1uwnohxr86s6euig4h1p03fo4",
+                        "periodId": 2,
+                        "timeMin": 71,
+                        "timeMinSec": "70:44",
+                        "lastUpdated": "2024-04-04T01:15:55Z",
+                        "timestamp": "2024-04-04T01:15:46Z",
+                        "type": "YC",
+                        "playerId": "8fjqhxg8sibj312sw17e67816",
+                        "playerName": "B. Lekeaka",
+                        "optaEventId": "2667231581",
+                        "cardReason": "Foul"
+                    },
+                    {
+                        "contestantId": "f4x0hx78zcbx4hgnf6w65z8fe",
+                        "periodId": 2,
+                        "timeMin": 90,
+                        "timeMinSec": "89:32",
+                        "lastUpdated": "2025-02-20T13:30:46Z",
+                        "timestamp": "2024-04-04T01:34:34Z",
+                        "type": "YC",
+                        "playerId": "7vs1eqm82fwwuhwfqodb3dyw9",
+                        "playerName": "R. Ruiz",
+                        "optaEventId": "2667238553",
+                        "cardReason": "Foul"
+                    }
+                ],
+                "substitute": [
+                    {
+                        "contestantId": "1uwnohxr86s6euig4h1p03fo4",
+                        "periodId": 2,
+                        "timeMin": 46,
+                        "timeMinSec": "45:00",
+                        "lastUpdated": "2024-04-04T00:52:06Z",
+                        "timestamp": "2024-04-04T00:49:52Z",
+                        "playerOnId": "d1xh9xde8zv13hgmmemv6gyy",
+                        "playerOnName": "A. Levy-Salamanca",
+                        "playerOffId": "549z21b3ubva59b4h85nb6r6c",
+                        "playerOffName": "J. Parisi Sitjar",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "f4x0hx78zcbx4hgnf6w65z8fe",
+                        "periodId": 2,
+                        "timeMin": 46,
+                        "timeMinSec": "45:00",
+                        "lastUpdated": "2025-02-20T13:30:46Z",
+                        "timestamp": "2024-04-04T00:49:52Z",
+                        "playerOnId": "7vs1eqm82fwwuhwfqodb3dyw9",
+                        "playerOnName": "R. Ruiz",
+                        "playerOffId": "1obodv132w5wxq4nb008ty06i",
+                        "playerOffName": "Lucas Coutinho",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "1uwnohxr86s6euig4h1p03fo4",
+                        "periodId": 2,
+                        "timeMin": 66,
+                        "timeMinSec": "66:00",
+                        "lastUpdated": "2024-04-04T16:23:19Z",
+                        "timestamp": "2024-04-04T01:11:03Z",
+                        "playerOnId": "8qotm6797yt4pbllncsti5slw",
+                        "playerOnName": "A. Sanchez",
+                        "playerOffId": "d50nmp5v2bkpv0ourpqduol0q",
+                        "playerOffName": "J. Guest",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "f4x0hx78zcbx4hgnf6w65z8fe",
+                        "periodId": 2,
+                        "timeMin": 68,
+                        "timeMinSec": "67:33",
+                        "lastUpdated": "2024-04-25T13:28:01Z",
+                        "timestamp": "2024-04-04T01:12:36Z",
+                        "playerOnId": "coagq01ad3g64sjpmu9u1mg9h",
+                        "playerOnName": "S. Cvetanovic",
+                        "playerOffId": "8svvdqi69pc6it7mnin50q68k",
+                        "playerOffName": "S. Lukić",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "1uwnohxr86s6euig4h1p03fo4",
+                        "periodId": 2,
+                        "timeMin": 73,
+                        "timeMinSec": "72:55",
+                        "lastUpdated": "2024-04-04T01:19:35Z",
+                        "timestamp": "2024-04-04T01:17:57Z",
+                        "playerOnId": "6uowenbmpm5smnc8r01gr4lt6",
+                        "playerOnName": "A. James",
+                        "playerOffId": "cjf64pt15rs8phl09wu2mrsb8",
+                        "playerOffName": "M. Wilkins",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "f4x0hx78zcbx4hgnf6w65z8fe",
+                        "periodId": 2,
+                        "timeMin": 76,
+                        "timeMinSec": "75:35",
+                        "lastUpdated": "2024-04-25T14:28:03Z",
+                        "timestamp": "2024-04-04T01:20:38Z",
+                        "playerOnId": "7ic4iro02h8l2n9cm15maazv8",
+                        "playerOnName": "Y. Paez",
+                        "playerOffId": "e59usmu5w20s5bg44d37f8qcq",
+                        "playerOffName": "O. Hernandez",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "1uwnohxr86s6euig4h1p03fo4",
+                        "periodId": 2,
+                        "timeMin": 84,
+                        "timeMinSec": "83:33",
+                        "lastUpdated": "2024-05-01T18:12:47Z",
+                        "timestamp": "2024-04-04T01:28:36Z",
+                        "playerOnId": "80hf0v3fwg6q1hdcine1bnaxg",
+                        "playerOnName": "R. Munoz",
+                        "playerOffId": "40kwaum3ikff4mwex9yb88vmc",
+                        "playerOffName": "C. Chisholm",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "f4x0hx78zcbx4hgnf6w65z8fe",
+                        "periodId": 2,
+                        "timeMin": 90,
+                        "timeMinSec": "89:11",
+                        "lastUpdated": "2024-04-25T15:07:08Z",
+                        "timestamp": "2024-04-04T01:34:14Z",
+                        "playerOnId": "eeqszusvu1xqmw6r7cefga5g4",
+                        "playerOnName": "L. Plascencia",
+                        "playerOffId": "6df08vjd9oynh6tgj5n2mbd1x",
+                        "playerOffName": "C. Marsh",
+                        "subReason": "Tactical"
+                    }
+                ],
+                "matchDetailsExtra": {
+                    "attendance": "600",
+                    "matchOfficial": [
+                        {
+                            "id": "9ple04tuie8q3wsfm4bzxc8dm",
+                            "type": "Main",
+                            "firstName": "Kyle",
+                            "lastName": "Johnston",
+                            "shortFirstName": "Kyle",
+                            "shortLastName": "Johnston"
+                        },
+                        {
+                            "id": "30pwkvfi0j1qj2sz1udfnpjl6",
+                            "type": "Assistant referee 1",
+                            "firstName": "Christopher",
+                            "lastName": "Hagerty",
+                            "shortFirstName": "Christopher",
+                            "shortLastName": "Hagerty"
+                        },
+                        {
+                            "id": "4al90pw4hsn0rd9og0njq3y8k",
+                            "type": "Assistant referee 2",
+                            "firstName": "Justin",
+                            "lastName": "Higgins",
+                            "shortFirstName": "Justin",
+                            "shortLastName": "Higgins"
+                        },
+                        {
+                            "id": "8qztk2iwngw4f2pffy9trphxw",
+                            "type": "Fourth official",
+                            "firstName": "Deny",
+                            "lastName": "Kulasinac",
+                            "shortFirstName": "Deny",
+                            "shortLastName": "Kulasinac"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "matchInfo": {
+                "id": "9cvmozsd80smrqmbtizgn1xck",
+                "coverageLevel": "13",
+                "date": "2024-03-20Z",
+                "time": "23:30:00Z",
+                "localDate": "2024-03-20",
+                "localTime": "19:30:00",
+                "numberOfPeriods": 2,
+                "periodLength": 45,
+                "overtimeLength": 15,
+                "lastUpdated": "2025-03-16T10:03:51Z",
+                "description": "Apotheos vs Georgia Lions",
+                "sport": {
+                    "id": "289u5typ3vp4ifwh5thalohmq",
+                    "name": "Soccer"
+                },
+                "ruleset": {
+                    "id": "79plas4983031idr6vw83nuel",
+                    "name": "Men"
+                },
+                "competition": {
+                    "id": "2bmwykmdlcc2u1c40ytoc39vy",
+                    "name": "US Open Cup",
+                    "knownName": "US Open Cup",
+                    "competitionCode": "UOC",
+                    "competitionFormat": "Domestic cup",
+                    "country": {
+                        "id": "7hr2f89v44y65dyu9k92vprwn",
+                        "name": "USA"
+                    }
+                },
+                "tournamentCalendar": {
+                    "id": "dh2sb8k8qnboef5ev5p1a01lg",
+                    "startDate": "2024-03-19Z",
+                    "endDate": "2024-09-26Z",
+                    "name": "2024"
+                },
+                "stage": {
+                    "id": "dhvsqfg349rsoveyfwigy2txw",
+                    "formatId": "3ad6z07rilk8flizkw1bhv179",
+                    "startDate": "2024-03-19Z",
+                    "endDate": "2024-03-22Z",
+                    "name": "1st Round"
+                },
+                "contestant": [
+                    {
+                        "id": "1uwnohxr86s6euig4h1p03fo4",
+                        "name": "Apotheos",
+                        "shortName": "Apotheos",
+                        "officialName": "Apotheos FC",
+                        "code": "APO",
+                        "position": "home",
+                        "country": {
+                            "id": "7hr2f89v44y65dyu9k92vprwn",
+                            "name": "USA"
+                        }
+                    },
+                    {
+                        "id": "e5axrpj7c6ng7cuet82s9gxec",
+                        "name": "Georgia Lions",
+                        "shortName": "Georgia Lions",
+                        "officialName": "Georgia Lions FC",
+                        "code": "LIO",
+                        "position": "away",
+                        "country": {
+                            "id": "7hr2f89v44y65dyu9k92vprwn",
+                            "name": "USA"
+                        }
+                    }
+                ],
+                "venue": {
+                    "id": "16cslcbb9jxs2suq2h9gjfwbt",
+                    "neutral": "yes",
+                    "longName": "Atlanta Silverbacks Park",
+                    "shortName": "Atlanta Silverbacks Park"
+                }
+            },
+            "liveData": {
+                "matchDetails": {
+                    "periodId": 14,
+                    "matchStatus": "Awarded",
+                    "winner": "home",
+                    "scores": {
+                        "ft": {
+                            "home": 1,
+                            "away": 0
+                        },
+                        "total": {
+                            "home": 1,
+                            "away": 0
+                        }
+                    }
+                }
+            }
+        }
+    ]
+}

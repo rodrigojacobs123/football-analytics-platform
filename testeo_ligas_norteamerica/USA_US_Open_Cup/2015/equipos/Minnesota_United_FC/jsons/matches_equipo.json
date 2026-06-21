@@ -1,0 +1,301 @@
+{
+    "match": [
+        {
+            "matchInfo": {
+                "id": "7ojb5bem7xya7x2enpial6lt5",
+                "coverageLevel": "8",
+                "date": "2015-05-28Z",
+                "time": "00:00:00Z",
+                "localDate": "2015-05-27",
+                "localTime": "19:00:00",
+                "numberOfPeriods": 2,
+                "periodLength": 45,
+                "overtimeLength": 15,
+                "lastUpdated": "2025-01-17T00:41:18Z",
+                "description": "Saint Louis vs Minnesota United",
+                "sport": {
+                    "id": "289u5typ3vp4ifwh5thalohmq",
+                    "name": "Soccer"
+                },
+                "ruleset": {
+                    "id": "79plas4983031idr6vw83nuel",
+                    "name": "Men"
+                },
+                "competition": {
+                    "id": "2bmwykmdlcc2u1c40ytoc39vy",
+                    "name": "US Open Cup",
+                    "knownName": "US Open Cup",
+                    "competitionCode": "UOC",
+                    "competitionFormat": "Domestic cup",
+                    "country": {
+                        "id": "7hr2f89v44y65dyu9k92vprwn",
+                        "name": "USA"
+                    }
+                },
+                "tournamentCalendar": {
+                    "id": "dw87u5m9on9qg02b3zxu947op",
+                    "startDate": "2015-05-14Z",
+                    "endDate": "2015-10-01Z",
+                    "name": "2015"
+                },
+                "stage": {
+                    "id": "7glpq8afros01e3o3n0mi4lwt",
+                    "formatId": "emn81yxry3kpgybjulh9yzq39",
+                    "startDate": "2015-05-27Z",
+                    "endDate": "2015-05-28Z",
+                    "name": "3rd Round"
+                },
+                "contestant": [
+                    {
+                        "id": "5g7exmz2l3wlki5lzrg2wde5l",
+                        "name": "Saint Louis",
+                        "shortName": "St. Louis",
+                        "officialName": "Saint Louis FC",
+                        "code": "STL",
+                        "position": "home",
+                        "country": {
+                            "id": "7hr2f89v44y65dyu9k92vprwn",
+                            "name": "USA"
+                        }
+                    },
+                    {
+                        "id": "dna80a164iz5ta6pp6ivk64rx",
+                        "name": "Minnesota United",
+                        "shortName": "Minnesota",
+                        "officialName": "Minnesota United FC",
+                        "code": "MIN",
+                        "position": "away",
+                        "country": {
+                            "id": "7hr2f89v44y65dyu9k92vprwn",
+                            "name": "USA"
+                        }
+                    }
+                ],
+                "venue": {
+                    "id": "dgzg106d4c7mns6r6bobfbgt1",
+                    "neutral": "no",
+                    "longName": "World Wide Technology Soccer Park",
+                    "shortName": "World Wide Technology Soccer Park"
+                }
+            },
+            "liveData": {
+                "matchDetails": {
+                    "periodId": 14,
+                    "matchStatus": "Played",
+                    "winner": "home",
+                    "scores": {
+                        "ht": {
+                            "home": 0,
+                            "away": 0
+                        },
+                        "ft": {
+                            "home": 1,
+                            "away": 1
+                        },
+                        "et": {
+                            "home": 1,
+                            "away": 1
+                        },
+                        "pen": {
+                            "home": 3,
+                            "away": 1
+                        },
+                        "total": {
+                            "home": 4,
+                            "away": 2
+                        }
+                    }
+                },
+                "goal": [
+                    {
+                        "contestantId": "dna80a164iz5ta6pp6ivk64rx",
+                        "periodId": 2,
+                        "timeMin": 53,
+                        "lastUpdated": "2020-03-29T22:26:59Z",
+                        "type": "G",
+                        "scorerId": "84b0srjzbt28iqdk80oyh9pzp",
+                        "scorerName": "J. Banks",
+                        "homeScore": 0,
+                        "awayScore": 1
+                    },
+                    {
+                        "contestantId": "5g7exmz2l3wlki5lzrg2wde5l",
+                        "periodId": 2,
+                        "timeMin": 81,
+                        "lastUpdated": "2015-05-28T01:49:07Z",
+                        "type": "G",
+                        "scorerId": "439dxtw2yke2r2g1pd48cf26t",
+                        "scorerName": "B. Gaul",
+                        "homeScore": 1,
+                        "awayScore": 1
+                    }
+                ],
+                "card": [
+                    {
+                        "contestantId": "dna80a164iz5ta6pp6ivk64rx",
+                        "periodId": 1,
+                        "timeMin": 21,
+                        "lastUpdated": "2020-02-14T11:41:42Z",
+                        "type": "YC",
+                        "playerId": "52zojwl05fu0y4cuc8ywqnrh1",
+                        "playerName": "B. Kallman",
+                        "cardReason": "Foul"
+                    },
+                    {
+                        "contestantId": "5g7exmz2l3wlki5lzrg2wde5l",
+                        "periodId": 2,
+                        "timeMin": 90,
+                        "lastUpdated": "2016-03-27T17:08:19Z",
+                        "type": "YC",
+                        "playerId": "5p9ofsyknmn61shbss83p82qd",
+                        "playerName": "C. Renken",
+                        "cardReason": "Foul"
+                    },
+                    {
+                        "contestantId": "5g7exmz2l3wlki5lzrg2wde5l",
+                        "periodId": 2,
+                        "timeMin": 91,
+                        "lastUpdated": "2020-02-10T06:05:46Z",
+                        "type": "YC",
+                        "playerId": "8o9mxmzvhk2ncafzbdh8xq9qt",
+                        "playerName": "J. Lynch",
+                        "cardReason": "Foul"
+                    },
+                    {
+                        "contestantId": "5g7exmz2l3wlki5lzrg2wde5l",
+                        "periodId": 2,
+                        "timeMin": 94,
+                        "lastUpdated": "2016-03-27T17:37:49Z",
+                        "type": "YC",
+                        "playerId": "88n0gtij4j225c35snc5pd0ix",
+                        "playerName": "C. Vandegriffe",
+                        "cardReason": "Foul"
+                    },
+                    {
+                        "contestantId": "5g7exmz2l3wlki5lzrg2wde5l",
+                        "periodId": 4,
+                        "timeMin": 114,
+                        "lastUpdated": "2015-06-10T15:40:28Z",
+                        "type": "RC",
+                        "playerId": "439dxtw2yke2r2g1pd48cf26t",
+                        "playerName": "B. Gaul",
+                        "cardReason": "Foul"
+                    },
+                    {
+                        "contestantId": "dna80a164iz5ta6pp6ivk64rx",
+                        "periodId": 4,
+                        "timeMin": 114,
+                        "lastUpdated": "2016-05-04T09:14:08Z",
+                        "type": "YC",
+                        "playerId": "3uy1eqe9ic70wmo7909fkafp",
+                        "playerName": "Brian Kallman",
+                        "cardReason": "Foul"
+                    },
+                    {
+                        "contestantId": "dna80a164iz5ta6pp6ivk64rx",
+                        "periodId": 4,
+                        "timeMin": 118,
+                        "lastUpdated": "2024-03-18T11:12:26Z",
+                        "type": "YC",
+                        "playerId": "35wb4ujehz3nx4kgvxcn4ndn9",
+                        "playerName": "T. Polak",
+                        "cardReason": "Foul"
+                    }
+                ],
+                "substitute": [
+                    {
+                        "contestantId": "5g7exmz2l3wlki5lzrg2wde5l",
+                        "periodId": 1,
+                        "timeMin": 27,
+                        "lastUpdated": "2020-05-25T08:01:59Z",
+                        "playerOnId": "91g2zrug2lv9wuiegp9qfi8yd",
+                        "playerOnName": "O. Gasecki",
+                        "playerOffId": "33pqpsacje65m7xhh0x5ln2dx",
+                        "playerOffName": "R. Dixon",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "dna80a164iz5ta6pp6ivk64rx",
+                        "periodId": 2,
+                        "timeMin": 46,
+                        "lastUpdated": "2016-04-07T21:14:24Z",
+                        "playerOnId": "7muaf1r989nnw4a7c5zlz9tjp",
+                        "playerOnName": "Daniel Mendes",
+                        "playerOffId": "wb00t3566rf63f67gb9evsnp",
+                        "playerOffName": "J. Steele",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "5g7exmz2l3wlki5lzrg2wde5l",
+                        "periodId": 2,
+                        "timeMin": 72,
+                        "lastUpdated": "2021-06-01T02:17:14Z",
+                        "playerOnId": "ecne8b098mt2u1zd5en2cpgph",
+                        "playerOnName": "B. Barklage",
+                        "playerOffId": "dujltc2pf1yecrd8hj04e6pjp",
+                        "playerOffName": "M. Ambersley",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "dna80a164iz5ta6pp6ivk64rx",
+                        "periodId": 2,
+                        "timeMin": 72,
+                        "lastUpdated": "2024-11-23T00:00:19Z",
+                        "playerOnId": "8biemrooggry9ukd55wsdhln9",
+                        "playerOnName": "Ibson",
+                        "playerOffId": "8qa2rcyttst3cj71b0lbiy0gl",
+                        "playerOffName": "Geison Moura",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "5g7exmz2l3wlki5lzrg2wde5l",
+                        "periodId": 2,
+                        "timeMin": 77,
+                        "lastUpdated": "2016-03-27T17:08:19Z",
+                        "playerOnId": "5p9ofsyknmn61shbss83p82qd",
+                        "playerOnName": "C. Renken",
+                        "playerOffId": "56csotx4w808mpq5v9f2godzp",
+                        "playerOffName": "B. Ciesiulka",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "dna80a164iz5ta6pp6ivk64rx",
+                        "periodId": 2,
+                        "timeMin": 91,
+                        "lastUpdated": "2021-06-01T02:17:36Z",
+                        "playerOnId": "9os37in1cf0f24tl464tiee39",
+                        "playerOnName": "Pablo Campos",
+                        "playerOffId": "84b0srjzbt28iqdk80oyh9pzp",
+                        "playerOffName": "J. Banks",
+                        "subReason": "Tactical"
+                    }
+                ],
+                "matchDetailsExtra": {
+                    "attendance": "2600",
+                    "matchOfficial": [
+                        {
+                            "id": "aww6ett6j69ig05gr07kg3mj9",
+                            "type": "Main",
+                            "firstName": "Jon",
+                            "lastName": "Freemon",
+                            "shortFirstName": "Jon",
+                            "shortLastName": "Freemon"
+                        },
+                        {
+                            "id": "1ajtd78sq138c83hwev0ne191",
+                            "type": "Assistant referee 1",
+                            "firstName": "Keith",
+                            "lastName": "Angel"
+                        },
+                        {
+                            "id": "8rwdrz98mnmte43550u6vkmad",
+                            "type": "Assistant referee 2",
+                            "firstName": "Thomas",
+                            "lastName": "McCulloh"
+                        }
+                    ]
+                }
+            }
+        }
+    ]
+}

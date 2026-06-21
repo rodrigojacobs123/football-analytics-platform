@@ -1,0 +1,326 @@
+{
+    "match": [
+        {
+            "matchInfo": {
+                "id": "937lt0ma6i5ga6j52c48np6vo",
+                "coverageLevel": "13",
+                "date": "2022-04-19Z",
+                "time": "23:30:00Z",
+                "localDate": "2022-04-19",
+                "localTime": "19:30:00",
+                "numberOfPeriods": 2,
+                "periodLength": 45,
+                "overtimeLength": 15,
+                "lastUpdated": "2025-04-13T17:55:23Z",
+                "description": "Detroit City vs Columbus Crew",
+                "sport": {
+                    "id": "289u5typ3vp4ifwh5thalohmq",
+                    "name": "Soccer"
+                },
+                "ruleset": {
+                    "id": "79plas4983031idr6vw83nuel",
+                    "name": "Men"
+                },
+                "competition": {
+                    "id": "2bmwykmdlcc2u1c40ytoc39vy",
+                    "name": "US Open Cup",
+                    "knownName": "US Open Cup",
+                    "competitionCode": "UOC",
+                    "competitionFormat": "Domestic cup",
+                    "country": {
+                        "id": "7hr2f89v44y65dyu9k92vprwn",
+                        "name": "USA"
+                    }
+                },
+                "tournamentCalendar": {
+                    "id": "dhzyoostrc6so36xhzo5l1kb8",
+                    "startDate": "2022-03-23Z",
+                    "endDate": "2022-09-08Z",
+                    "name": "2022"
+                },
+                "stage": {
+                    "id": "cqjefuxmq8lgdqywdz0yvjb4k",
+                    "formatId": "emn81yxry3kpgybjulh9yzq39",
+                    "startDate": "2022-04-20Z",
+                    "endDate": "2022-04-21Z",
+                    "name": "3rd Round"
+                },
+                "contestant": [
+                    {
+                        "id": "b1rpb2ox52uxcmjrsnqd95pk5",
+                        "name": "Detroit City",
+                        "shortName": "Detroit City",
+                        "officialName": "Detroit City FC",
+                        "code": "DET",
+                        "position": "home",
+                        "country": {
+                            "id": "7hr2f89v44y65dyu9k92vprwn",
+                            "name": "USA"
+                        }
+                    },
+                    {
+                        "id": "chjb0xe5vlaaguop3q2nbalni",
+                        "name": "Columbus Crew",
+                        "shortName": "Columbus",
+                        "officialName": "Columbus Crew",
+                        "code": "CLB",
+                        "position": "away",
+                        "country": {
+                            "id": "7hr2f89v44y65dyu9k92vprwn",
+                            "name": "USA"
+                        }
+                    }
+                ],
+                "venue": {
+                    "id": "ckzpcxrgslc8if3pxbk7uo6sq",
+                    "neutral": "no",
+                    "longName": "Keyworth Stadium",
+                    "shortName": "Keyworth Stadium"
+                }
+            },
+            "liveData": {
+                "matchDetails": {
+                    "periodId": 14,
+                    "matchStatus": "Played",
+                    "winner": "home",
+                    "matchLengthMin": 98,
+                    "matchLengthSec": 54,
+                    "period": [
+                        {
+                            "id": 1,
+                            "start": "2022-04-19T23:34:39Z",
+                            "end": "2022-04-20T00:22:22Z",
+                            "lengthMin": 47,
+                            "lengthSec": 43
+                        },
+                        {
+                            "id": 2,
+                            "start": "2022-04-20T00:38:27Z",
+                            "end": "2022-04-20T01:29:38Z",
+                            "lengthMin": 51,
+                            "lengthSec": 11
+                        }
+                    ],
+                    "scores": {
+                        "ht": {
+                            "home": 0,
+                            "away": 1
+                        },
+                        "ft": {
+                            "home": 2,
+                            "away": 1
+                        },
+                        "total": {
+                            "home": 2,
+                            "away": 1
+                        }
+                    }
+                },
+                "goal": [
+                    {
+                        "contestantId": "chjb0xe5vlaaguop3q2nbalni",
+                        "periodId": 1,
+                        "timeMin": 7,
+                        "timeMinSec": "6:29",
+                        "lastUpdated": "2024-08-21T05:03:48Z",
+                        "timestamp": "2022-04-19T23:41:08Z",
+                        "type": "PG",
+                        "scorerId": "61y263ybiykc566mrl9w2bowl",
+                        "scorerName": "G. Zardes",
+                        "optaEventId": "2409171443",
+                        "homeScore": 0,
+                        "awayScore": 1
+                    },
+                    {
+                        "contestantId": "b1rpb2ox52uxcmjrsnqd95pk5",
+                        "periodId": 2,
+                        "timeMin": 64,
+                        "timeMinSec": "63:08",
+                        "lastUpdated": "2023-03-09T22:53:34Z",
+                        "timestamp": "2022-04-20T00:56:36Z",
+                        "type": "G",
+                        "scorerId": "711t32tk6qwl567dngcldfw15",
+                        "scorerName": "M. Rodriguez",
+                        "assistPlayerId": "cv8u1u1mvnd89t6sqhlheorth",
+                        "assistPlayerName": "A. Hoppenot",
+                        "optaEventId": "2409196899",
+                        "homeScore": 1,
+                        "awayScore": 1
+                    },
+                    {
+                        "contestantId": "b1rpb2ox52uxcmjrsnqd95pk5",
+                        "periodId": 2,
+                        "timeMin": 86,
+                        "timeMinSec": "85:25",
+                        "lastUpdated": "2023-03-09T22:53:34Z",
+                        "timestamp": "2022-04-20T01:18:53Z",
+                        "type": "PG",
+                        "scorerId": "711t32tk6qwl567dngcldfw15",
+                        "scorerName": "M. Rodriguez",
+                        "optaEventId": "2409205615",
+                        "homeScore": 2,
+                        "awayScore": 1
+                    }
+                ],
+                "card": [
+                    {
+                        "contestantId": "chjb0xe5vlaaguop3q2nbalni",
+                        "periodId": 1,
+                        "timeMin": 43,
+                        "timeMinSec": "42:39",
+                        "lastUpdated": "2025-02-20T15:30:35Z",
+                        "timestamp": "2022-04-20T00:17:18Z",
+                        "type": "YC",
+                        "playerId": "d0c51nxbxe1wdly784508ve21",
+                        "playerName": "W. Sands",
+                        "optaEventId": "2409178911",
+                        "cardReason": "Foul"
+                    },
+                    {
+                        "contestantId": "b1rpb2ox52uxcmjrsnqd95pk5",
+                        "periodId": 2,
+                        "timeMin": 62,
+                        "timeMinSec": "61:10",
+                        "lastUpdated": "2023-03-09T17:02:18Z",
+                        "timestamp": "2022-04-20T00:54:37Z",
+                        "type": "YC",
+                        "playerId": "cwtvxydk0a5itmpygna9ibe5m",
+                        "playerName": "M. Lewis",
+                        "optaEventId": "2409196421",
+                        "cardReason": "Foul"
+                    },
+                    {
+                        "contestantId": "chjb0xe5vlaaguop3q2nbalni",
+                        "periodId": 2,
+                        "timeMin": 66,
+                        "timeMinSec": "65:18",
+                        "lastUpdated": "2024-07-29T14:37:17Z",
+                        "timestamp": "2022-04-20T00:58:46Z",
+                        "type": "YC",
+                        "playerId": "c44bkncqmptribnxki1dyppbe",
+                        "playerName": "I. Parente",
+                        "optaEventId": "2409197703",
+                        "cardReason": "Foul"
+                    },
+                    {
+                        "contestantId": "chjb0xe5vlaaguop3q2nbalni",
+                        "periodId": 2,
+                        "timeMin": 87,
+                        "timeMinSec": "86:58",
+                        "lastUpdated": "2024-02-23T12:05:16Z",
+                        "timestamp": "2022-04-20T01:20:25Z",
+                        "type": "YC",
+                        "playerId": "660a1dq2kk90vuzw0ru6mbmy",
+                        "playerName": "Miguel Berry",
+                        "optaEventId": "2409206347",
+                        "cardReason": "Foul"
+                    }
+                ],
+                "substitute": [
+                    {
+                        "contestantId": "chjb0xe5vlaaguop3q2nbalni",
+                        "periodId": 2,
+                        "timeMin": 69,
+                        "timeMinSec": "68:53",
+                        "lastUpdated": "2024-03-14T16:19:38Z",
+                        "timestamp": "2022-04-20T01:02:20Z",
+                        "playerOnId": "2g5s1bd38e3v7j8h11xq3uo6h",
+                        "playerOnName": "J. Morris",
+                        "playerOffId": "d0c51nxbxe1wdly784508ve21",
+                        "playerOffName": "W. Sands",
+                        "subReason": "Injury"
+                    },
+                    {
+                        "contestantId": "chjb0xe5vlaaguop3q2nbalni",
+                        "periodId": 2,
+                        "timeMin": 70,
+                        "timeMinSec": "69:01",
+                        "lastUpdated": "2025-02-14T16:40:53Z",
+                        "timestamp": "2022-04-20T01:02:29Z",
+                        "playerOnId": "7w9nagtp5nlgayhb91yy32bc9",
+                        "playerOnName": "Y. Yeboah",
+                        "playerOffId": "c44bkncqmptribnxki1dyppbe",
+                        "playerOffName": "I. Parente",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "chjb0xe5vlaaguop3q2nbalni",
+                        "periodId": 2,
+                        "timeMin": 70,
+                        "timeMinSec": "69:09",
+                        "lastUpdated": "2025-02-20T14:33:57Z",
+                        "timestamp": "2022-04-20T01:02:36Z",
+                        "playerOnId": "2uis9d0h87arn5ew3bg1si40l",
+                        "playerOnName": "D. Etienne",
+                        "playerOffId": "5poofr1j8221dhowins42c1jp",
+                        "playerOffName": "E. Hurtado",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "b1rpb2ox52uxcmjrsnqd95pk5",
+                        "periodId": 2,
+                        "timeMin": 79,
+                        "timeMinSec": "78:04",
+                        "lastUpdated": "2025-03-06T17:08:54Z",
+                        "timestamp": "2022-04-20T01:11:32Z",
+                        "playerOnId": "9jc85hbpruze4v8u1pjzsjt62",
+                        "playerOnName": "M. Bryant",
+                        "playerOffId": "7o3vvz5w2ftz08ba23b79mgkq",
+                        "playerOffName": "A. Diop",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "chjb0xe5vlaaguop3q2nbalni",
+                        "periodId": 2,
+                        "timeMin": 86,
+                        "timeMinSec": "85:58",
+                        "lastUpdated": "2024-02-23T12:05:16Z",
+                        "timestamp": "2022-04-20T01:19:25Z",
+                        "playerOnId": "660a1dq2kk90vuzw0ru6mbmy",
+                        "playerOnName": "Miguel Berry",
+                        "playerOffId": "6pqwh2z47uwgr9u9y8n79ppzp",
+                        "playerOffName": "M. Hairston",
+                        "subReason": "Tactical"
+                    }
+                ],
+                "matchDetailsExtra": {
+                    "attendance": "6121",
+                    "matchOfficial": [
+                        {
+                            "id": "2b6usc96x8x3z7y1otrcj70q2",
+                            "type": "Main",
+                            "firstName": "Chris",
+                            "lastName": "Ruska",
+                            "shortFirstName": "Chris",
+                            "shortLastName": "Ruska"
+                        },
+                        {
+                            "id": "dykmll6o5887qsmzmytzy699m",
+                            "type": "Assistant referee 1",
+                            "firstName": "Jake",
+                            "lastName": "Brochu",
+                            "shortFirstName": "Jake",
+                            "shortLastName": "Brochu"
+                        },
+                        {
+                            "id": "28w8zhhtp2r0ihcsv7mno29uy",
+                            "type": "Assistant referee 2",
+                            "firstName": "Ryan",
+                            "lastName": "Homik",
+                            "shortFirstName": "Ryan",
+                            "shortLastName": "Homik"
+                        },
+                        {
+                            "id": "3zl2hegvr0a530882imizih62",
+                            "type": "Fourth official",
+                            "firstName": "Nicole",
+                            "lastName": "Green",
+                            "shortFirstName": "Nicole",
+                            "shortLastName": "Green"
+                        }
+                    ]
+                }
+            }
+        }
+    ]
+}

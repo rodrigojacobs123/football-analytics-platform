@@ -1,0 +1,365 @@
+{
+    "match": [
+        {
+            "matchInfo": {
+                "id": "9b02x3nlem01mft0m8924vhg4",
+                "coverageLevel": "13",
+                "date": "2024-03-20Z",
+                "time": "22:30:00Z",
+                "localDate": "2024-03-20",
+                "localTime": "18:30:00",
+                "numberOfPeriods": 2,
+                "periodLength": 45,
+                "overtimeLength": 15,
+                "lastUpdated": "2025-08-13T00:11:16Z",
+                "description": "Richmond Kickers vs Christos",
+                "sport": {
+                    "id": "289u5typ3vp4ifwh5thalohmq",
+                    "name": "Soccer"
+                },
+                "ruleset": {
+                    "id": "79plas4983031idr6vw83nuel",
+                    "name": "Men"
+                },
+                "competition": {
+                    "id": "2bmwykmdlcc2u1c40ytoc39vy",
+                    "name": "US Open Cup",
+                    "knownName": "US Open Cup",
+                    "competitionCode": "UOC",
+                    "competitionFormat": "Domestic cup",
+                    "country": {
+                        "id": "7hr2f89v44y65dyu9k92vprwn",
+                        "name": "USA"
+                    }
+                },
+                "tournamentCalendar": {
+                    "id": "dh2sb8k8qnboef5ev5p1a01lg",
+                    "startDate": "2024-03-19Z",
+                    "endDate": "2024-09-26Z",
+                    "name": "2024"
+                },
+                "stage": {
+                    "id": "dhvsqfg349rsoveyfwigy2txw",
+                    "formatId": "3ad6z07rilk8flizkw1bhv179",
+                    "startDate": "2024-03-19Z",
+                    "endDate": "2024-03-22Z",
+                    "name": "1st Round"
+                },
+                "contestant": [
+                    {
+                        "id": "dp2yq55igeru73owerhg95iz4",
+                        "name": "Richmond Kickers",
+                        "shortName": "Kickers",
+                        "officialName": "Richmond Kickers",
+                        "code": "RIC",
+                        "position": "home",
+                        "country": {
+                            "id": "7hr2f89v44y65dyu9k92vprwn",
+                            "name": "USA"
+                        }
+                    },
+                    {
+                        "id": "ac61q09kilm4vk612mvrt3tgp",
+                        "name": "Christos",
+                        "shortName": "Christos",
+                        "officialName": "Christos FC",
+                        "code": "CHR",
+                        "position": "away",
+                        "country": {
+                            "id": "7hr2f89v44y65dyu9k92vprwn",
+                            "name": "USA"
+                        }
+                    }
+                ],
+                "venue": {
+                    "id": "9rlwwmf40vm7bwsuwy2nfqwkc",
+                    "neutral": "no",
+                    "longName": "City Stadium",
+                    "shortName": "City Stadium",
+                    "latitude": "37.549642873",
+                    "longitude": "-77.486768067"
+                }
+            },
+            "liveData": {
+                "matchDetails": {
+                    "periodId": 14,
+                    "matchStatus": "Played",
+                    "winner": "home",
+                    "matchLengthMin": 100,
+                    "matchLengthSec": 26,
+                    "period": [
+                        {
+                            "id": 1,
+                            "start": "2024-03-20T22:33:35Z",
+                            "end": "2024-03-20T23:20:01Z",
+                            "lengthMin": 46,
+                            "lengthSec": 26,
+                            "announcedInjuryTime": 60
+                        },
+                        {
+                            "id": 2,
+                            "start": "2024-03-20T23:36:48Z",
+                            "end": "2024-03-21T00:30:48Z",
+                            "lengthMin": 54,
+                            "lengthSec": 0,
+                            "announcedInjuryTime": 480
+                        }
+                    ],
+                    "scores": {
+                        "ht": {
+                            "home": 1,
+                            "away": 0
+                        },
+                        "ft": {
+                            "home": 1,
+                            "away": 0
+                        },
+                        "total": {
+                            "home": 1,
+                            "away": 0
+                        }
+                    }
+                },
+                "goal": [
+                    {
+                        "contestantId": "dp2yq55igeru73owerhg95iz4",
+                        "periodId": 1,
+                        "timeMin": 46,
+                        "timeMinSec": "45:16",
+                        "lastUpdated": "2025-02-22T10:44:37Z",
+                        "timestamp": "2024-03-20T23:18:52Z",
+                        "type": "G",
+                        "scorerId": "bh8ci2ku56str20jzftbv3mqx",
+                        "scorerName": "A. Billhardt",
+                        "optaEventId": "2662188879",
+                        "homeScore": 1,
+                        "awayScore": 0
+                    }
+                ],
+                "card": [
+                    {
+                        "contestantId": "ac61q09kilm4vk612mvrt3tgp",
+                        "periodId": 1,
+                        "timeMin": 13,
+                        "timeMinSec": "12:50",
+                        "lastUpdated": "2024-03-22T07:33:06Z",
+                        "timestamp": "2024-03-20T22:46:26Z",
+                        "type": "YC",
+                        "playerId": "6iidq0fde6w7kw7jssxcuzc44",
+                        "playerName": "E. Belcher",
+                        "optaEventId": "2662182255",
+                        "cardReason": "Foul"
+                    },
+                    {
+                        "contestantId": "ac61q09kilm4vk612mvrt3tgp",
+                        "periodId": 2,
+                        "timeMin": 76,
+                        "timeMinSec": "75:27",
+                        "lastUpdated": "2024-03-21T00:07:54Z",
+                        "timestamp": "2024-03-21T00:07:15Z",
+                        "type": "YC",
+                        "playerId": "1932jqgh169r0nzm3vd2tvl9m",
+                        "playerName": "E. Paez",
+                        "optaEventId": "2662198885",
+                        "cardReason": "Foul"
+                    },
+                    {
+                        "contestantId": "ac61q09kilm4vk612mvrt3tgp",
+                        "periodId": 2,
+                        "timeMin": 98,
+                        "timeMinSec": "97:56",
+                        "lastUpdated": "2024-03-21T00:30:15Z",
+                        "timestamp": "2024-03-21T00:29:44Z",
+                        "type": "YC",
+                        "playerId": "dcfatu4kdtixr34e6dmy7p8gk",
+                        "playerName": "D. Shepard-Lewis",
+                        "optaEventId": "2662204237",
+                        "cardReason": "Foul"
+                    },
+                    {
+                        "contestantId": "ac61q09kilm4vk612mvrt3tgp",
+                        "periodId": 2,
+                        "timeMin": 90,
+                        "timeMinSec": "89:10",
+                        "lastUpdated": "2024-03-21T00:22:49Z",
+                        "timestamp": "2024-03-21T00:20:58Z",
+                        "type": "RC",
+                        "teamOfficialId": "ayrc33h5y33bi833759eq0wes",
+                        "officialName": "M. St. Martin",
+                        "optaEventId": "2662202443",
+                        "cardReason": "Foul and Abusive Language"
+                    }
+                ],
+                "substitute": [
+                    {
+                        "contestantId": "ac61q09kilm4vk612mvrt3tgp",
+                        "periodId": 2,
+                        "timeMin": 46,
+                        "timeMinSec": "45:00",
+                        "lastUpdated": "2024-03-20T23:37:38Z",
+                        "timestamp": "2024-03-20T23:36:38Z",
+                        "playerOnId": "5jguet93u7176gw30f8fkaaz8",
+                        "playerOnName": "A. Arbelaez",
+                        "playerOffId": "6iidq0fde6w7kw7jssxcuzc44",
+                        "playerOffName": "E. Belcher",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "ac61q09kilm4vk612mvrt3tgp",
+                        "periodId": 2,
+                        "timeMin": 57,
+                        "timeMinSec": "56:37",
+                        "lastUpdated": "2024-03-20T23:48:35Z",
+                        "timestamp": "2024-03-20T23:48:25Z",
+                        "playerOnId": "1932jqgh169r0nzm3vd2tvl9m",
+                        "playerOnName": "E. Paez",
+                        "playerOffId": "7kn4bayyvvvl9n036xzsuzqw9",
+                        "playerOffName": "C. Albrecht",
+                        "subReason": "Injury"
+                    },
+                    {
+                        "contestantId": "ac61q09kilm4vk612mvrt3tgp",
+                        "periodId": 2,
+                        "timeMin": 57,
+                        "timeMinSec": "56:41",
+                        "lastUpdated": "2024-03-20T23:48:35Z",
+                        "timestamp": "2024-03-20T23:48:29Z",
+                        "playerOnId": "9xu5646xa6jqq0uyjh1syblqt",
+                        "playerOnName": "B. Graham",
+                        "playerOffId": "ewt3evk0lt1a78ahos9pcosgk",
+                        "playerOffName": "M. Lussi",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "ac61q09kilm4vk612mvrt3tgp",
+                        "periodId": 2,
+                        "timeMin": 58,
+                        "timeMinSec": "57:01",
+                        "lastUpdated": "2024-03-20T23:48:59Z",
+                        "timestamp": "2024-03-20T23:48:49Z",
+                        "playerOnId": "dcfatu4kdtixr34e6dmy7p8gk",
+                        "playerOnName": "D. Shepard-Lewis",
+                        "playerOffId": "awk73owg7ymufobub79j54auh",
+                        "playerOffName": "D. Baxter",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "dp2yq55igeru73owerhg95iz4",
+                        "periodId": 2,
+                        "timeMin": 58,
+                        "timeMinSec": "57:05",
+                        "lastUpdated": "2024-03-20T23:48:59Z",
+                        "timestamp": "2024-03-20T23:48:53Z",
+                        "playerOnId": "628cppu58gng7hfq0s5nh9vro",
+                        "playerOnName": "N. Simmonds",
+                        "playerOffId": "97d846tm7ngsjqwkbz8xm3alm",
+                        "playerOffName": "A. Bosua",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "dp2yq55igeru73owerhg95iz4",
+                        "periodId": 2,
+                        "timeMin": 58,
+                        "timeMinSec": "57:20",
+                        "lastUpdated": "2025-02-22T12:10:09Z",
+                        "timestamp": "2024-03-20T23:49:09Z",
+                        "playerOnId": "5csmpw39d1ly14fv8eaba5rvu",
+                        "playerOnName": "J. Vaughan",
+                        "playerOffId": "2f3zvhznnpnefag1k7elzq8t0",
+                        "playerOffName": "J. Sukow",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "dp2yq55igeru73owerhg95iz4",
+                        "periodId": 2,
+                        "timeMin": 58,
+                        "timeMinSec": "57:41",
+                        "lastUpdated": "2025-08-13T00:01:16Z",
+                        "timestamp": "2024-03-20T23:49:29Z",
+                        "playerOnId": "da3gj7eqbmjghjb67cg51ox2i",
+                        "playerOnName": "T. Pineda",
+                        "playerOffId": "8p2147r97gz3gnxw044xrr4yx",
+                        "playerOffName": "M. Schenfeld",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "dp2yq55igeru73owerhg95iz4",
+                        "periodId": 2,
+                        "timeMin": 73,
+                        "timeMinSec": "72:12",
+                        "lastUpdated": "2024-04-25T15:05:47Z",
+                        "timestamp": "2024-03-21T00:04:00Z",
+                        "playerOnId": "jbh7l38xqsl14svx9rdu9hw5",
+                        "playerOnName": "R. Sierakowski",
+                        "playerOffId": "bh8ci2ku56str20jzftbv3mqx",
+                        "playerOffName": "A. Billhardt",
+                        "subReason": "Injury"
+                    },
+                    {
+                        "contestantId": "ac61q09kilm4vk612mvrt3tgp",
+                        "periodId": 2,
+                        "timeMin": 74,
+                        "timeMinSec": "73:31",
+                        "lastUpdated": "2024-03-21T00:05:30Z",
+                        "timestamp": "2024-03-21T00:05:20Z",
+                        "playerOnId": "e9p9e8jh08kkkdwoxc73ah15g",
+                        "playerOnName": "T. Katsuma",
+                        "playerOffId": "4ffuwlda1w22muyvfobp5nrx0",
+                        "playerOffName": "N. Richardson",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "dp2yq55igeru73owerhg95iz4",
+                        "periodId": 2,
+                        "timeMin": 80,
+                        "timeMinSec": "79:30",
+                        "lastUpdated": "2024-03-21T00:12:14Z",
+                        "timestamp": "2024-03-21T00:11:18Z",
+                        "playerOnId": "d9lx4jhdt6kd6zckl54yznpx",
+                        "playerOnName": "Z. Morán",
+                        "playerOffId": "da3gj7eqbmjghjb67cg51ox2i",
+                        "playerOffName": "T. Pineda",
+                        "subReason": "Injury"
+                    }
+                ],
+                "matchDetailsExtra": {
+                    "attendance": "1108",
+                    "matchOfficial": [
+                        {
+                            "id": "cubtccuum9xyzapsf0alf8oh5",
+                            "type": "Main",
+                            "firstName": "Brendan",
+                            "lastName": "O'Neill",
+                            "shortFirstName": "Brendan",
+                            "shortLastName": "O'Neill"
+                        },
+                        {
+                            "id": "xyor1r8yjebu4vqe875cof3e",
+                            "type": "Assistant referee 1",
+                            "firstName": "Andrew",
+                            "lastName": "Charron",
+                            "shortFirstName": "Andrew",
+                            "shortLastName": "Charron"
+                        },
+                        {
+                            "id": "6sneex6vttwokdtuseu69gphw",
+                            "type": "Assistant referee 2",
+                            "firstName": "Sean",
+                            "lastName": "Conlee",
+                            "shortFirstName": "Sean",
+                            "shortLastName": "Conlee"
+                        },
+                        {
+                            "id": "f0u5tzxvwalokva25ksnf9ch6",
+                            "type": "Fourth official",
+                            "firstName": "Otto",
+                            "lastName": "Leon",
+                            "shortFirstName": "Otto",
+                            "shortLastName": "Leon"
+                        }
+                    ]
+                }
+            }
+        }
+    ]
+}

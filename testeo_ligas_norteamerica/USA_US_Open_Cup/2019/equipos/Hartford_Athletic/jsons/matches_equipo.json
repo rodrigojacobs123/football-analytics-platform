@@ -1,0 +1,473 @@
+{
+    "match": [
+        {
+            "matchInfo": {
+                "id": "9g0ispl11zst3w2ge3m0gistm",
+                "coverageLevel": "13",
+                "date": "2019-05-30Z",
+                "time": "00:00:00Z",
+                "localDate": "2019-05-29",
+                "localTime": "19:00:00",
+                "numberOfPeriods": 2,
+                "periodLength": 45,
+                "overtimeLength": 15,
+                "lastUpdated": "2024-10-17T18:30:57Z",
+                "description": "Memphis 901 vs Hartford Athletic",
+                "sport": {
+                    "id": "289u5typ3vp4ifwh5thalohmq",
+                    "name": "Soccer"
+                },
+                "ruleset": {
+                    "id": "79plas4983031idr6vw83nuel",
+                    "name": "Men"
+                },
+                "competition": {
+                    "id": "2bmwykmdlcc2u1c40ytoc39vy",
+                    "name": "US Open Cup",
+                    "knownName": "US Open Cup",
+                    "competitionCode": "UOC",
+                    "competitionFormat": "Domestic cup",
+                    "country": {
+                        "id": "7hr2f89v44y65dyu9k92vprwn",
+                        "name": "USA"
+                    }
+                },
+                "tournamentCalendar": {
+                    "id": "c7tmg7pxkutef9ymogovz4huy",
+                    "startDate": "2019-05-08Z",
+                    "endDate": "2019-08-28Z",
+                    "name": "2019"
+                },
+                "stage": {
+                    "id": "c8oald29684fma4yf4v7o9wtm",
+                    "formatId": "emn81yxry3kpgybjulh9yzq39",
+                    "startDate": "2019-05-29Z",
+                    "endDate": "2019-05-30Z",
+                    "name": "3rd Round"
+                },
+                "contestant": [
+                    {
+                        "id": "97qwp1m762ftf33iuydwtom0a",
+                        "name": "Memphis 901",
+                        "shortName": "Memphis 901",
+                        "officialName": "Memphis 901 FC",
+                        "code": "MEM",
+                        "position": "home",
+                        "country": {
+                            "id": "7hr2f89v44y65dyu9k92vprwn",
+                            "name": "USA"
+                        }
+                    },
+                    {
+                        "id": "2n3wgr89m7jl8tmioemit2pgq",
+                        "name": "Hartford Athletic",
+                        "shortName": "Hartford Ath",
+                        "officialName": "Hartford Athletic",
+                        "code": "HFD",
+                        "position": "away",
+                        "country": {
+                            "id": "7hr2f89v44y65dyu9k92vprwn",
+                            "name": "USA"
+                        }
+                    }
+                ],
+                "venue": {
+                    "id": "65v9yogz20l23zg5c4lez0e3u",
+                    "neutral": "no",
+                    "longName": "Mike Rose Soccer Complex",
+                    "shortName": "Mike Rose Soccer Complex"
+                }
+            },
+            "liveData": {
+                "matchDetails": {
+                    "periodId": 14,
+                    "matchStatus": "Played",
+                    "winner": "home",
+                    "matchLengthMin": 94,
+                    "matchLengthSec": 23,
+                    "period": [
+                        {
+                            "id": 1,
+                            "start": "2019-05-30T00:06:04Z",
+                            "end": "2019-05-30T00:54:16Z",
+                            "lengthMin": 48,
+                            "lengthSec": 12
+                        },
+                        {
+                            "id": 2,
+                            "start": "2019-05-30T01:09:55Z",
+                            "end": "2019-05-30T01:56:06Z",
+                            "lengthMin": 46,
+                            "lengthSec": 11
+                        }
+                    ],
+                    "scores": {
+                        "ht": {
+                            "home": 2,
+                            "away": 0
+                        },
+                        "ft": {
+                            "home": 4,
+                            "away": 0
+                        },
+                        "total": {
+                            "home": 4,
+                            "away": 0
+                        }
+                    }
+                },
+                "goal": [
+                    {
+                        "contestantId": "97qwp1m762ftf33iuydwtom0a",
+                        "periodId": 1,
+                        "timeMin": 6,
+                        "timeMinSec": "5:55",
+                        "lastUpdated": "2020-08-14T16:10:03Z",
+                        "type": "PG",
+                        "scorerId": "7728unff4imi0hr91hifq7t1x",
+                        "scorerName": "M. Burch",
+                        "optaEventId": "2141424300",
+                        "homeScore": 1,
+                        "awayScore": 0
+                    },
+                    {
+                        "contestantId": "97qwp1m762ftf33iuydwtom0a",
+                        "periodId": 1,
+                        "timeMin": 21,
+                        "timeMinSec": "20:39",
+                        "lastUpdated": "2019-05-30T00:27:29Z",
+                        "type": "G",
+                        "scorerId": "1x1mkghysjlhokz38e6jpto7p",
+                        "scorerName": "J. Graf",
+                        "optaEventId": "1413789660",
+                        "homeScore": 2,
+                        "awayScore": 0
+                    },
+                    {
+                        "contestantId": "97qwp1m762ftf33iuydwtom0a",
+                        "periodId": 2,
+                        "timeMin": 59,
+                        "timeMinSec": "58:47",
+                        "lastUpdated": "2019-05-30T01:24:30Z",
+                        "type": "G",
+                        "scorerId": "1x1mkghysjlhokz38e6jpto7p",
+                        "scorerName": "J. Graf",
+                        "assistPlayerId": "1nl79aq9il743hgoaijmupmmt",
+                        "assistPlayerName": "E. Collier",
+                        "optaEventId": "2037671299",
+                        "homeScore": 3,
+                        "awayScore": 0
+                    },
+                    {
+                        "contestantId": "97qwp1m762ftf33iuydwtom0a",
+                        "periodId": 2,
+                        "timeMin": 83,
+                        "timeMinSec": "82:24",
+                        "lastUpdated": "2024-04-25T11:43:40Z",
+                        "type": "G",
+                        "scorerId": "1yjidngs1btk8r0826ymdht2i",
+                        "scorerName": "M. Hackworth",
+                        "optaEventId": "1257456651",
+                        "homeScore": 4,
+                        "awayScore": 0
+                    }
+                ],
+                "card": [
+                    {
+                        "contestantId": "2n3wgr89m7jl8tmioemit2pgq",
+                        "periodId": 1,
+                        "timeMin": 19,
+                        "timeMinSec": "18:45",
+                        "lastUpdated": "2019-05-30T00:25:38Z",
+                        "type": "YC",
+                        "playerId": "7pcs0b81r4galsdda6p8oj4d1",
+                        "playerName": "K. Curinga",
+                        "optaEventId": "1815373091",
+                        "cardReason": "Foul"
+                    },
+                    {
+                        "contestantId": "2n3wgr89m7jl8tmioemit2pgq",
+                        "periodId": 1,
+                        "timeMin": 39,
+                        "timeMinSec": "38:16",
+                        "lastUpdated": "2024-08-31T11:28:05Z",
+                        "type": "YC",
+                        "playerId": "9neud37gdyjfifesihb5m43it",
+                        "playerName": "S. de Wit",
+                        "optaEventId": "1201896992",
+                        "cardReason": "Foul"
+                    },
+                    {
+                        "contestantId": "97qwp1m762ftf33iuydwtom0a",
+                        "periodId": 1,
+                        "timeMin": 45,
+                        "timeMinSec": "44:51",
+                        "lastUpdated": "2024-05-06T14:39:53Z",
+                        "type": "YC",
+                        "playerId": "blts89a19itip4gjeagcwc1xx",
+                        "playerName": "C. Lindley",
+                        "optaEventId": "1896098053",
+                        "cardReason": "Foul"
+                    },
+                    {
+                        "contestantId": "2n3wgr89m7jl8tmioemit2pgq",
+                        "periodId": 2,
+                        "timeMin": 61,
+                        "timeMinSec": "60:21",
+                        "lastUpdated": "2024-08-31T11:28:05Z",
+                        "type": "Y2C",
+                        "playerId": "9neud37gdyjfifesihb5m43it",
+                        "playerName": "S. de Wit",
+                        "optaEventId": "1857665336",
+                        "cardReason": "Foul"
+                    }
+                ],
+                "substitute": [
+                    {
+                        "contestantId": "2n3wgr89m7jl8tmioemit2pgq",
+                        "periodId": 2,
+                        "timeMin": 59,
+                        "timeMinSec": "59:00",
+                        "lastUpdated": "2020-03-07T11:36:36Z",
+                        "playerOnId": "ezyl5fplg8zq6ricqz95ug639",
+                        "playerOnName": "W. Wojcik",
+                        "playerOffId": "8auz3q5phubnh3tfs7xdjxfpx",
+                        "playerOffName": "J. Angulo",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "97qwp1m762ftf33iuydwtom0a",
+                        "periodId": 2,
+                        "timeMin": 63,
+                        "timeMinSec": "62:30",
+                        "lastUpdated": "2024-03-19T12:45:29Z",
+                        "playerOnId": "2w25x6xhv4fj1odj1130gcwrt",
+                        "playerOnName": "L. Kunga",
+                        "playerOffId": "1nl79aq9il743hgoaijmupmmt",
+                        "playerOffName": "E. Collier",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "2n3wgr89m7jl8tmioemit2pgq",
+                        "periodId": 2,
+                        "timeMin": 63,
+                        "timeMinSec": "62:40",
+                        "lastUpdated": "2022-07-30T22:56:29Z",
+                        "playerOnId": "aecj3gekj6nh23vnlr6mlfnmy",
+                        "playerOnName": "M. Jørgensen",
+                        "playerOffId": "1nw1tmtpagpr647obkvygwgr9",
+                        "playerOffName": "Ryan Williams",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "97qwp1m762ftf33iuydwtom0a",
+                        "periodId": 2,
+                        "timeMin": 67,
+                        "timeMinSec": "66:10",
+                        "lastUpdated": "2019-05-30T01:31:10Z",
+                        "playerOnId": "cuoqfjefs15h0l1pecfq6bz6d",
+                        "playerOnName": "E. Grandison",
+                        "playerOffId": "656f0fwmkd8apq19e5q2jythx",
+                        "playerOffName": "Adam Najem",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "97qwp1m762ftf33iuydwtom0a",
+                        "periodId": 2,
+                        "timeMin": 75,
+                        "timeMinSec": "74:42",
+                        "lastUpdated": "2024-04-25T11:43:40Z",
+                        "playerOnId": "1yjidngs1btk8r0826ymdht2i",
+                        "playerOnName": "M. Hackworth",
+                        "playerOffId": "blts89a19itip4gjeagcwc1xx",
+                        "playerOffName": "C. Lindley",
+                        "subReason": "Tactical"
+                    }
+                ],
+                "matchDetailsExtra": {
+                    "attendance": "1819",
+                    "matchOfficial": [
+                        {
+                            "id": "crpo2grcuofwxr4t2b2z747ah",
+                            "type": "Main",
+                            "firstName": "Leland",
+                            "lastName": "Grant",
+                            "shortFirstName": "Leland",
+                            "shortLastName": "Grant"
+                        },
+                        {
+                            "id": "8fbwe8bcl0abpwcknjowlxmfp",
+                            "type": "Assistant referee 1",
+                            "firstName": "Benjamin",
+                            "lastName": "Meyer",
+                            "shortFirstName": "Benjamin",
+                            "shortLastName": "Meyer"
+                        },
+                        {
+                            "id": "293fdlvzxzjjcjv1hbgg0chqt",
+                            "type": "Assistant referee 2",
+                            "firstName": "Ryan",
+                            "lastName": "Starr",
+                            "shortFirstName": "Ryan",
+                            "shortLastName": "Starr"
+                        },
+                        {
+                            "id": "cim0qb65eop71es2vesd305ey",
+                            "type": "Fourth official",
+                            "firstName": "Laura",
+                            "lastName": "Waliski",
+                            "shortFirstName": "Laura",
+                            "shortLastName": "Chambers Waliski"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "matchInfo": {
+                "id": "46vj0df029ofj43v5i171w5t6",
+                "coverageLevel": "13",
+                "date": "2019-05-14Z",
+                "time": "23:30:00Z",
+                "localDate": "2019-05-14",
+                "localTime": "19:30:00",
+                "numberOfPeriods": 2,
+                "periodLength": 45,
+                "overtimeLength": 15,
+                "lastUpdated": "2023-03-31T19:41:00Z",
+                "description": "Hartford Athletic vs NY Cosmos",
+                "sport": {
+                    "id": "289u5typ3vp4ifwh5thalohmq",
+                    "name": "Soccer"
+                },
+                "ruleset": {
+                    "id": "79plas4983031idr6vw83nuel",
+                    "name": "Men"
+                },
+                "competition": {
+                    "id": "2bmwykmdlcc2u1c40ytoc39vy",
+                    "name": "US Open Cup",
+                    "competitionCode": "UOC",
+                    "competitionFormat": "Domestic cup",
+                    "country": {
+                        "id": "7hr2f89v44y65dyu9k92vprwn",
+                        "name": "USA"
+                    }
+                },
+                "tournamentCalendar": {
+                    "id": "c7tmg7pxkutef9ymogovz4huy",
+                    "startDate": "2019-05-08Z",
+                    "endDate": "2019-08-28Z",
+                    "name": "2019"
+                },
+                "stage": {
+                    "id": "c8l1yjl6nu5vyvc2t9dfiub8q",
+                    "formatId": "8cdpi9d29bu9gim4bl5m8ijth",
+                    "startDate": "2019-05-15Z",
+                    "endDate": "2019-05-16Z",
+                    "name": "2nd Round"
+                },
+                "contestant": [
+                    {
+                        "id": "2n3wgr89m7jl8tmioemit2pgq",
+                        "name": "Hartford Athletic",
+                        "shortName": "Hartford Ath",
+                        "officialName": "Hartford Athletic",
+                        "code": "HFD",
+                        "position": "home",
+                        "country": {
+                            "id": "7hr2f89v44y65dyu9k92vprwn",
+                            "name": "USA"
+                        }
+                    },
+                    {
+                        "id": "18zyeenk8h3o5rwrmkjvnhsv5",
+                        "name": "NY Cosmos",
+                        "shortName": "Cosmos",
+                        "officialName": "New York Cosmos",
+                        "code": "NYC",
+                        "position": "away",
+                        "country": {
+                            "id": "7hr2f89v44y65dyu9k92vprwn",
+                            "name": "USA"
+                        }
+                    }
+                ],
+                "venue": {
+                    "id": "ekhexrlknhf9zwn1hqjg2y8oa",
+                    "neutral": "no",
+                    "longName": "Al-Marzook Athletic Fields",
+                    "shortName": "Al-Marzook Athletic Fields"
+                }
+            },
+            "liveData": {
+                "matchDetails": {
+                    "periodId": 14,
+                    "matchStatus": "Played",
+                    "winner": "home",
+                    "matchLengthMin": 101,
+                    "matchLengthSec": 3,
+                    "period": [
+                        {
+                            "id": 1,
+                            "start": "2019-05-14T23:35:42Z",
+                            "end": "2019-05-15T00:24:05Z",
+                            "lengthMin": 48,
+                            "lengthSec": 23
+                        },
+                        {
+                            "id": 2,
+                            "start": "2019-05-15T00:40:02Z",
+                            "end": "2019-05-15T01:32:42Z",
+                            "lengthMin": 52,
+                            "lengthSec": 40
+                        }
+                    ],
+                    "scores": {
+                        "ht": {
+                            "home": 2,
+                            "away": 0
+                        },
+                        "ft": {
+                            "home": 2,
+                            "away": 1
+                        },
+                        "total": {
+                            "home": 2,
+                            "away": 1
+                        }
+                    }
+                },
+                "matchDetailsExtra": {
+                    "attendance": "400",
+                    "matchOfficial": [
+                        {
+                            "id": "b8lsdigh88zow7i742pukw2jt",
+                            "type": "Main",
+                            "firstName": "Thomas",
+                            "lastName": "Snyder"
+                        },
+                        {
+                            "id": "crm4rbk57e3dbgt3tgz1xwaju",
+                            "type": "Lineman 1",
+                            "firstName": "Anelise",
+                            "lastName": "Cimino"
+                        },
+                        {
+                            "id": "2hbvjtj18hkvvog51hbga5r3e",
+                            "type": "Lineman 2",
+                            "firstName": "William",
+                            "lastName": "Ferris"
+                        },
+                        {
+                            "id": "bk2rji2d9pj3l3vpe0tswvvqi",
+                            "type": "Fourth official",
+                            "firstName": "Jeremy",
+                            "lastName": "Scheer"
+                        }
+                    ]
+                }
+            }
+        }
+    ]
+}

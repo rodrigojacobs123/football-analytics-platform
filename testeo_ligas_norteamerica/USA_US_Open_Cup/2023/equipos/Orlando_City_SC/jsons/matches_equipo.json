@@ -1,0 +1,365 @@
+{
+    "match": [
+        {
+            "matchInfo": {
+                "id": "5kdkbextv3v3q1f32bocgrrx0",
+                "coverageLevel": "13",
+                "date": "2023-05-09Z",
+                "time": "23:00:00Z",
+                "localDate": "2023-05-09",
+                "localTime": "19:00:00",
+                "numberOfPeriods": 2,
+                "periodLength": 45,
+                "overtimeLength": 15,
+                "lastUpdated": "2025-03-14T18:02:45Z",
+                "description": "Charlotte vs Orlando City",
+                "sport": {
+                    "id": "289u5typ3vp4ifwh5thalohmq",
+                    "name": "Soccer"
+                },
+                "ruleset": {
+                    "id": "79plas4983031idr6vw83nuel",
+                    "name": "Men"
+                },
+                "competition": {
+                    "id": "2bmwykmdlcc2u1c40ytoc39vy",
+                    "name": "US Open Cup",
+                    "knownName": "US Open Cup",
+                    "competitionCode": "UOC",
+                    "competitionFormat": "Domestic cup",
+                    "country": {
+                        "id": "7hr2f89v44y65dyu9k92vprwn",
+                        "name": "USA"
+                    }
+                },
+                "tournamentCalendar": {
+                    "id": "5375c8qg9sy48l9wr2o8sjpxw",
+                    "startDate": "2023-03-22Z",
+                    "endDate": "2023-09-28Z",
+                    "name": "2023"
+                },
+                "stage": {
+                    "id": "53en0t59tmmndg4mqp73s6ec4",
+                    "formatId": "cg4bpdesyc3y0f9fnkhqd5m8l",
+                    "startDate": "2023-05-10Z",
+                    "endDate": "2023-05-11Z",
+                    "name": "16th Finals"
+                },
+                "contestant": [
+                    {
+                        "id": "dqq34048nqex146r77i5l8twq",
+                        "name": "Charlotte",
+                        "shortName": "Charlotte",
+                        "officialName": "Charlotte FC",
+                        "code": "CLT",
+                        "position": "home",
+                        "country": {
+                            "id": "7hr2f89v44y65dyu9k92vprwn",
+                            "name": "USA"
+                        }
+                    },
+                    {
+                        "id": "eaqreat4kxwvah0bvwg1wtoq5",
+                        "name": "Orlando City",
+                        "shortName": "Orlando",
+                        "officialName": "Orlando City SC",
+                        "code": "ORL",
+                        "position": "away",
+                        "country": {
+                            "id": "7hr2f89v44y65dyu9k92vprwn",
+                            "name": "USA"
+                        }
+                    }
+                ],
+                "venue": {
+                    "id": "cowmwzonxd2yp6ttqx98cwlih",
+                    "neutral": "no",
+                    "longName": "Mecklenburg County Sportsplex at Matthews",
+                    "shortName": "Mecklenburg County Sportsplex at Matthews"
+                }
+            },
+            "liveData": {
+                "matchDetails": {
+                    "periodId": 14,
+                    "matchStatus": "Played",
+                    "winner": "home",
+                    "matchLengthMin": 98,
+                    "matchLengthSec": 2,
+                    "period": [
+                        {
+                            "id": 1,
+                            "start": "2023-05-09T23:06:02Z",
+                            "end": "2023-05-09T23:55:03Z",
+                            "lengthMin": 49,
+                            "lengthSec": 1,
+                            "announcedInjuryTime": 240
+                        },
+                        {
+                            "id": 2,
+                            "start": "2023-05-10T00:11:04Z",
+                            "end": "2023-05-10T01:00:05Z",
+                            "lengthMin": 49,
+                            "lengthSec": 1,
+                            "announcedInjuryTime": 240
+                        }
+                    ],
+                    "scores": {
+                        "ht": {
+                            "home": 0,
+                            "away": 0
+                        },
+                        "ft": {
+                            "home": 1,
+                            "away": 0
+                        },
+                        "total": {
+                            "home": 1,
+                            "away": 0
+                        }
+                    }
+                },
+                "goal": [
+                    {
+                        "contestantId": "dqq34048nqex146r77i5l8twq",
+                        "periodId": 2,
+                        "timeMin": 70,
+                        "timeMinSec": "69:33",
+                        "lastUpdated": "2024-10-31T07:38:03Z",
+                        "timestamp": "2023-05-10T00:35:37Z",
+                        "type": "G",
+                        "scorerId": "8q7iu937hshsuvuhfwq5n0udx",
+                        "scorerName": "K. Jóźwiak",
+                        "assistPlayerId": "ki6c06zvxjgsdw8w80oxvz6d",
+                        "assistPlayerName": "K. Świderski",
+                        "optaEventId": "2546447097",
+                        "homeScore": 1,
+                        "awayScore": 0
+                    }
+                ],
+                "card": [
+                    {
+                        "contestantId": "dqq34048nqex146r77i5l8twq",
+                        "periodId": 1,
+                        "timeMin": 18,
+                        "timeMinSec": "17:05",
+                        "lastUpdated": "2024-11-13T12:49:21Z",
+                        "timestamp": "2023-05-09T23:23:07Z",
+                        "type": "YC",
+                        "playerId": "ahsgqqn4mjj7isq2x0fdkl49",
+                        "playerName": "B. Bronico",
+                        "optaEventId": "2546430537",
+                        "cardReason": "Foul"
+                    },
+                    {
+                        "contestantId": "eaqreat4kxwvah0bvwg1wtoq5",
+                        "periodId": 1,
+                        "timeMin": 27,
+                        "timeMinSec": "26:17",
+                        "lastUpdated": "2024-01-22T08:57:09Z",
+                        "timestamp": "2023-05-09T23:32:19Z",
+                        "type": "YC",
+                        "playerId": "dpcjzmo7pcggdl423a4lh3re2",
+                        "playerName": "C. Araújo",
+                        "optaEventId": "2546432437",
+                        "cardReason": "Foul"
+                    },
+                    {
+                        "contestantId": "dqq34048nqex146r77i5l8twq",
+                        "periodId": 2,
+                        "timeMin": 51,
+                        "timeMinSec": "50:13",
+                        "lastUpdated": "2023-07-20T01:57:08Z",
+                        "timestamp": "2023-05-10T00:16:17Z",
+                        "type": "YC",
+                        "playerId": "1dk0bdadfdnycriqp8u21ulpm",
+                        "playerName": "B. Bender",
+                        "optaEventId": "2546442489",
+                        "cardReason": "Foul"
+                    },
+                    {
+                        "contestantId": "eaqreat4kxwvah0bvwg1wtoq5",
+                        "periodId": 2,
+                        "timeMin": 74,
+                        "timeMinSec": "73:54",
+                        "lastUpdated": "2024-02-08T16:56:22Z",
+                        "timestamp": "2023-05-10T00:39:59Z",
+                        "type": "YC",
+                        "playerId": "45x2lnxdyzbvu39cbumx2ww6h",
+                        "playerName": "R. Schlegel",
+                        "optaEventId": "2546448795",
+                        "cardReason": "Foul"
+                    },
+                    {
+                        "contestantId": "eaqreat4kxwvah0bvwg1wtoq5",
+                        "periodId": 2,
+                        "timeMin": 78,
+                        "timeMinSec": "77:56",
+                        "lastUpdated": "2023-05-10T00:44:10Z",
+                        "timestamp": "2023-05-10T00:44:00Z",
+                        "type": "YC",
+                        "playerId": "48o5l5wo4okwdmo3yrjt1f3kl",
+                        "playerName": "R. Jansson",
+                        "optaEventId": "2546450191",
+                        "cardReason": "Foul"
+                    }
+                ],
+                "substitute": [
+                    {
+                        "contestantId": "eaqreat4kxwvah0bvwg1wtoq5",
+                        "periodId": 2,
+                        "timeMin": 46,
+                        "timeMinSec": "45:00",
+                        "lastUpdated": "2024-05-27T19:29:56Z",
+                        "timestamp": "2023-05-10T00:10:54Z",
+                        "playerOnId": "9jk0ae6wgso9znkuk6uyizpat",
+                        "playerOnName": "W. Cartagena",
+                        "playerOffId": "172v1833vp0m9ffu399j6l9ed",
+                        "playerOffName": "Felipe Martins",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "dqq34048nqex146r77i5l8twq",
+                        "periodId": 2,
+                        "timeMin": 46,
+                        "timeMinSec": "45:00",
+                        "lastUpdated": "2023-05-10T00:11:53Z",
+                        "timestamp": "2023-05-10T00:10:54Z",
+                        "playerOnId": "52rcg38mijjjusfwqxa2l7hex",
+                        "playerOnName": "J. Lindsey",
+                        "playerOffId": "cbw92qrdwycht8nkkdu4j4kph",
+                        "playerOffName": "H. Afful",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "eaqreat4kxwvah0bvwg1wtoq5",
+                        "periodId": 2,
+                        "timeMin": 61,
+                        "timeMinSec": "60:59",
+                        "lastUpdated": "2024-02-19T16:44:26Z",
+                        "timestamp": "2023-05-10T00:27:03Z",
+                        "playerOnId": "e1uhy0h96of2f9r9fx0ugzca1",
+                        "playerOnName": "I. Angulo",
+                        "playerOffId": "bll5srcz095ey4r3bkl558gyx",
+                        "playerOffName": "D. Þór­halls­son",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "dqq34048nqex146r77i5l8twq",
+                        "periodId": 2,
+                        "timeMin": 62,
+                        "timeMinSec": "61:44",
+                        "lastUpdated": "2024-10-31T07:38:03Z",
+                        "timestamp": "2023-05-10T00:27:48Z",
+                        "playerOnId": "8q7iu937hshsuvuhfwq5n0udx",
+                        "playerOnName": "K. Jóźwiak",
+                        "playerOffId": "e9edcsoafeo8g7heb4sjt3u8l",
+                        "playerOffName": "J. Meram",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "dqq34048nqex146r77i5l8twq",
+                        "periodId": 2,
+                        "timeMin": 63,
+                        "timeMinSec": "62:01",
+                        "lastUpdated": "2023-05-10T00:28:15Z",
+                        "timestamp": "2023-05-10T00:28:05Z",
+                        "playerOnId": "ki6c06zvxjgsdw8w80oxvz6d",
+                        "playerOnName": "K. Świderski",
+                        "playerOffId": "7d1v02o7kk9guqpn77xzgtvu2",
+                        "playerOffName": "C. Hegardt",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "dqq34048nqex146r77i5l8twq",
+                        "periodId": 2,
+                        "timeMin": 63,
+                        "timeMinSec": "62:10",
+                        "lastUpdated": "2023-07-19T17:44:17Z",
+                        "timestamp": "2023-05-10T00:28:14Z",
+                        "playerOnId": "2q032302ebdlpcuytftf5vpp1",
+                        "playerOnName": "N. Byrne",
+                        "playerOffId": "6fjpwiqcuvkedo3hhpj4341zo",
+                        "playerOffName": "H. Diop",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "eaqreat4kxwvah0bvwg1wtoq5",
+                        "periodId": 2,
+                        "timeMin": 69,
+                        "timeMinSec": "68:40",
+                        "lastUpdated": "2023-05-10T00:34:56Z",
+                        "timestamp": "2023-05-10T00:34:44Z",
+                        "playerOnId": "dx7yv49a1sv59wi6341h2n5d5",
+                        "playerOnName": "M. Ojeda",
+                        "playerOffId": "fpjn2kctgvx9kasuerm8blnu",
+                        "playerOffName": "G. González",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "dqq34048nqex146r77i5l8twq",
+                        "periodId": 2,
+                        "timeMin": 77,
+                        "timeMinSec": "76:48",
+                        "lastUpdated": "2023-05-10T00:43:00Z",
+                        "timestamp": "2023-05-10T00:42:52Z",
+                        "playerOnId": "9g7jit9xa9c5b25gfl6wy7kd1",
+                        "playerOnName": "A. Westwood",
+                        "playerOffId": "3nvijn3ctkplajtt1dd23wycp",
+                        "playerOffName": "M. Gaines",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "eaqreat4kxwvah0bvwg1wtoq5",
+                        "periodId": 2,
+                        "timeMin": 82,
+                        "timeMinSec": "81:08",
+                        "lastUpdated": "2023-05-10T00:47:20Z",
+                        "timestamp": "2023-05-10T00:47:12Z",
+                        "playerOnId": "2em4zk5aydjutyjf41slcf4t0",
+                        "playerOnName": "R. Enrique",
+                        "playerOffId": "1hrbaomx35x74ghbkwo8xwktm",
+                        "playerOffName": "M. Halliday",
+                        "subReason": "Tactical"
+                    }
+                ],
+                "matchDetailsExtra": {
+                    "attendance": "4024",
+                    "matchOfficial": [
+                        {
+                            "id": "8siongf4zmzqxf8stlwm3t0wl",
+                            "type": "Main",
+                            "firstName": "Guido",
+                            "lastName": "Gonzalez",
+                            "shortFirstName": "Guido",
+                            "shortLastName": "Gonzales Jr."
+                        },
+                        {
+                            "id": "1uv4cxu0hwp1ufu1e9fr8o8pg",
+                            "type": "Assistant referee 1",
+                            "firstName": "Bryson",
+                            "lastName": "Condrey",
+                            "shortFirstName": "Bryson",
+                            "shortLastName": "Condrey"
+                        },
+                        {
+                            "id": "e6j0d54f2o369r9a8h6cnozu2",
+                            "type": "Assistant referee 2",
+                            "firstName": "Marcus",
+                            "lastName": "Moss",
+                            "shortFirstName": "Marcus",
+                            "shortLastName": "Moss"
+                        },
+                        {
+                            "id": "drah8aivaav9anujgjalf0pw4",
+                            "type": "Fourth official",
+                            "firstName": "Joe",
+                            "lastName": "Surgan",
+                            "shortFirstName": "Joe",
+                            "shortLastName": "Surgan"
+                        }
+                    ]
+                }
+            }
+        }
+    ]
+}

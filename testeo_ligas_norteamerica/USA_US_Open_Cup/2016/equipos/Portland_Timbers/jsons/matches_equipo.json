@@ -1,0 +1,522 @@
+{
+    "match": [
+        {
+            "matchInfo": {
+                "id": "ar8m1rrv372bj5246hm5i7sa1",
+                "coverageLevel": "13",
+                "date": "2016-06-30Z",
+                "time": "02:30:00Z",
+                "localDate": "2016-06-29",
+                "localTime": "19:30:00",
+                "numberOfPeriods": 2,
+                "periodLength": 45,
+                "overtimeLength": 15,
+                "lastUpdated": "2025-04-02T17:00:24Z",
+                "description": "Portland Timbers vs LA Galaxy",
+                "sport": {
+                    "id": "289u5typ3vp4ifwh5thalohmq",
+                    "name": "Soccer"
+                },
+                "ruleset": {
+                    "id": "79plas4983031idr6vw83nuel",
+                    "name": "Men"
+                },
+                "competition": {
+                    "id": "2bmwykmdlcc2u1c40ytoc39vy",
+                    "name": "US Open Cup",
+                    "knownName": "US Open Cup",
+                    "competitionCode": "UOC",
+                    "competitionFormat": "Domestic cup",
+                    "country": {
+                        "id": "7hr2f89v44y65dyu9k92vprwn",
+                        "name": "USA"
+                    }
+                },
+                "tournamentCalendar": {
+                    "id": "jd3ycveqnkjvntl7b8wndb6x",
+                    "startDate": "2016-05-11Z",
+                    "endDate": "2016-09-14Z",
+                    "name": "2016"
+                },
+                "stage": {
+                    "id": "c8lm0pxkcwy4ggzmprr0rveno",
+                    "formatId": "614sqb9421oaflw5mpvvm9uj9",
+                    "startDate": "2016-06-29Z",
+                    "endDate": "2016-06-30Z",
+                    "name": "8th Finals"
+                },
+                "contestant": [
+                    {
+                        "id": "77o8sorlijzpr0t4s7231zzxp",
+                        "name": "Portland Timbers",
+                        "shortName": "Portland",
+                        "officialName": "Portland Timbers",
+                        "code": "POR",
+                        "position": "home",
+                        "country": {
+                            "id": "7hr2f89v44y65dyu9k92vprwn",
+                            "name": "USA"
+                        }
+                    },
+                    {
+                        "id": "6qr5y32dthc4dqycckwmfj1si",
+                        "name": "LA Galaxy",
+                        "shortName": "Galaxy",
+                        "officialName": "Los Angeles Galaxy",
+                        "code": "LAG",
+                        "position": "away",
+                        "country": {
+                            "id": "7hr2f89v44y65dyu9k92vprwn",
+                            "name": "USA"
+                        }
+                    }
+                ],
+                "venue": {
+                    "id": "76am1pezmjylwzchsjopyrgeb",
+                    "neutral": "no",
+                    "longName": "Providence Park",
+                    "shortName": "Providence Park"
+                }
+            },
+            "liveData": {
+                "matchDetails": {
+                    "periodId": 14,
+                    "matchStatus": "Played",
+                    "winner": "away",
+                    "matchLengthMin": 94,
+                    "matchLengthSec": 27,
+                    "period": [
+                        {
+                            "id": 1,
+                            "start": "2016-06-30T02:38:37Z",
+                            "end": "2016-06-30T03:24:37Z",
+                            "lengthMin": 46,
+                            "lengthSec": 0
+                        },
+                        {
+                            "id": 2,
+                            "start": "2016-06-30T03:40:00Z",
+                            "end": "2016-06-30T04:28:27Z",
+                            "lengthMin": 48,
+                            "lengthSec": 27
+                        }
+                    ],
+                    "scores": {
+                        "ht": {
+                            "home": 0,
+                            "away": 1
+                        },
+                        "ft": {
+                            "home": 0,
+                            "away": 1
+                        },
+                        "total": {
+                            "home": 0,
+                            "away": 1
+                        }
+                    }
+                },
+                "goal": [
+                    {
+                        "contestantId": "6qr5y32dthc4dqycckwmfj1si",
+                        "periodId": 1,
+                        "timeMin": 5,
+                        "lastUpdated": "2024-03-20T13:27:23Z",
+                        "type": "G",
+                        "scorerId": "85bhyzlvgzo8ov8es8t9jslw5",
+                        "scorerName": "R. Mendiola",
+                        "optaEventId": "85772268",
+                        "homeScore": 0,
+                        "awayScore": 1
+                    }
+                ],
+                "card": [
+                    {
+                        "contestantId": "6qr5y32dthc4dqycckwmfj1si",
+                        "periodId": 2,
+                        "timeMin": 57,
+                        "lastUpdated": "2019-05-14T20:37:44Z",
+                        "type": "YC",
+                        "playerId": "29yzbetu0kz3siy9prkcesno5",
+                        "playerName": "J. Larentowicz",
+                        "optaEventId": "1437288524",
+                        "cardReason": "Foul"
+                    },
+                    {
+                        "contestantId": "77o8sorlijzpr0t4s7231zzxp",
+                        "periodId": 2,
+                        "timeMin": 78,
+                        "lastUpdated": "2016-06-30T04:14:07Z",
+                        "type": "YC",
+                        "playerId": "b445z4znwh404qcex8cgbp905",
+                        "playerName": "J. Jewsbury",
+                        "optaEventId": "1350068727",
+                        "cardReason": "Foul"
+                    }
+                ],
+                "substitute": [
+                    {
+                        "contestantId": "6qr5y32dthc4dqycckwmfj1si",
+                        "periodId": 2,
+                        "timeMin": 64,
+                        "lastUpdated": "2021-06-09T15:14:20Z",
+                        "playerOnId": "cw3f39l4ghmo67cyslc39fw0l",
+                        "playerOnName": "M. Magee",
+                        "playerOffId": "85bhyzlvgzo8ov8es8t9jslw5",
+                        "playerOffName": "R. Mendiola",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "77o8sorlijzpr0t4s7231zzxp",
+                        "periodId": 2,
+                        "timeMin": 64,
+                        "lastUpdated": "2021-12-09T02:05:26Z",
+                        "playerOnId": "e5d62a8i9q48nxddohhp80r11",
+                        "playerOnName": "D. Valeri",
+                        "playerOffId": "9bg21691mpmk9adnyypmqvg0l",
+                        "playerOffName": "N. Grabavoy",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "77o8sorlijzpr0t4s7231zzxp",
+                        "periodId": 2,
+                        "timeMin": 66,
+                        "lastUpdated": "2024-04-21T21:40:16Z",
+                        "playerOnId": "ejmps4o7wp1pqmx1727prw91x",
+                        "playerOnName": "F. Adi",
+                        "playerOffId": "3ny0cwoygb1k0cc4eyoc7w15h",
+                        "playerOffName": "J. McInerney",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "77o8sorlijzpr0t4s7231zzxp",
+                        "periodId": 2,
+                        "timeMin": 73,
+                        "lastUpdated": "2024-07-28T13:33:54Z",
+                        "playerOnId": "bzs1s1yntau3dvzyvn6t7t785",
+                        "playerOnName": "L. Melano",
+                        "playerOffId": "2ctjr7ezhy5er14sdnos80y51",
+                        "playerOffName": "J. Barmby",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "6qr5y32dthc4dqycckwmfj1si",
+                        "periodId": 2,
+                        "timeMin": 89,
+                        "lastUpdated": "2017-02-28T14:20:59Z",
+                        "playerOnId": "d8ghjah6w8n3c0q2uvhuuuw9h",
+                        "playerOnName": "A. Gordon",
+                        "playerOffId": "6ixgoyhigh86jgucw6k0547o5",
+                        "playerOffName": "J. McBean",
+                        "subReason": "Tactical"
+                    }
+                ],
+                "matchDetailsExtra": {
+                    "attendance": "18164",
+                    "matchOfficial": [
+                        {
+                            "id": "ey0p2g417l70870tffjy9kdzp",
+                            "type": "Main",
+                            "firstName": "Edvin",
+                            "lastName": "Jurisevic",
+                            "shortFirstName": "Edvin",
+                            "shortLastName": "Jurisevic"
+                        },
+                        {
+                            "id": "3tib5r6fl159t1ctaoujk4lat",
+                            "type": "Assistant referee 1",
+                            "firstName": "Jeremy",
+                            "lastName": "Hanson",
+                            "shortFirstName": "Jeremy",
+                            "shortLastName": "Hanson"
+                        },
+                        {
+                            "id": "bod9biigjpknafgvi8p28fh79",
+                            "type": "Assistant referee 2",
+                            "firstName": "Mike",
+                            "lastName": "Rottersman",
+                            "shortFirstName": "Mike",
+                            "shortLastName": "Rottersman"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "matchInfo": {
+                "id": "25vj36z1sigvfz90vzg31lm95",
+                "coverageLevel": "13",
+                "date": "2016-06-15Z",
+                "time": "02:30:00Z",
+                "localDate": "2016-06-14",
+                "localTime": "19:30:00",
+                "numberOfPeriods": 2,
+                "periodLength": 45,
+                "overtimeLength": 15,
+                "lastUpdated": "2025-04-02T17:00:23Z",
+                "description": "Portland Timbers vs SJ Earthquakes",
+                "sport": {
+                    "id": "289u5typ3vp4ifwh5thalohmq",
+                    "name": "Soccer"
+                },
+                "ruleset": {
+                    "id": "79plas4983031idr6vw83nuel",
+                    "name": "Men"
+                },
+                "competition": {
+                    "id": "2bmwykmdlcc2u1c40ytoc39vy",
+                    "name": "US Open Cup",
+                    "knownName": "US Open Cup",
+                    "competitionCode": "UOC",
+                    "competitionFormat": "Domestic cup",
+                    "country": {
+                        "id": "7hr2f89v44y65dyu9k92vprwn",
+                        "name": "USA"
+                    }
+                },
+                "tournamentCalendar": {
+                    "id": "jd3ycveqnkjvntl7b8wndb6x",
+                    "startDate": "2016-05-11Z",
+                    "endDate": "2016-09-14Z",
+                    "name": "2016"
+                },
+                "stage": {
+                    "id": "cydco29zqhmjq7cfepkv94zf7",
+                    "formatId": "1nwzmep86chmczxs7a7iu97md",
+                    "startDate": "2016-06-15Z",
+                    "endDate": "2016-06-16Z",
+                    "name": "4th Round"
+                },
+                "contestant": [
+                    {
+                        "id": "77o8sorlijzpr0t4s7231zzxp",
+                        "name": "Portland Timbers",
+                        "shortName": "Portland",
+                        "officialName": "Portland Timbers",
+                        "code": "POR",
+                        "position": "home",
+                        "country": {
+                            "id": "7hr2f89v44y65dyu9k92vprwn",
+                            "name": "USA"
+                        }
+                    },
+                    {
+                        "id": "a2jg79bf9ab1vj6iok2r328cc",
+                        "name": "SJ Earthquakes",
+                        "shortName": "Earthquakes",
+                        "officialName": "San Jose Earthquakes",
+                        "code": "SJ",
+                        "position": "away",
+                        "country": {
+                            "id": "7hr2f89v44y65dyu9k92vprwn",
+                            "name": "USA"
+                        }
+                    }
+                ],
+                "venue": {
+                    "id": "76am1pezmjylwzchsjopyrgeb",
+                    "neutral": "no",
+                    "longName": "Providence Park",
+                    "shortName": "Providence Park"
+                }
+            },
+            "liveData": {
+                "matchDetails": {
+                    "periodId": 14,
+                    "matchStatus": "Played",
+                    "winner": "home",
+                    "matchLengthMin": 93,
+                    "matchLengthSec": 8,
+                    "period": [
+                        {
+                            "id": 1,
+                            "start": "2016-06-15T02:39:18Z",
+                            "end": "2016-06-15T03:24:23Z",
+                            "lengthMin": 45,
+                            "lengthSec": 5
+                        },
+                        {
+                            "id": 2,
+                            "start": "2016-06-15T03:39:32Z",
+                            "end": "2016-06-15T04:27:35Z",
+                            "lengthMin": 48,
+                            "lengthSec": 3
+                        }
+                    ],
+                    "scores": {
+                        "ht": {
+                            "home": 2,
+                            "away": 0
+                        },
+                        "ft": {
+                            "home": 2,
+                            "away": 0
+                        },
+                        "total": {
+                            "home": 2,
+                            "away": 0
+                        }
+                    }
+                },
+                "goal": [
+                    {
+                        "contestantId": "77o8sorlijzpr0t4s7231zzxp",
+                        "periodId": 1,
+                        "timeMin": 34,
+                        "lastUpdated": "2021-04-14T12:51:42Z",
+                        "type": "G",
+                        "scorerId": "6qmzaju2rlnvj46dvycvalrkl",
+                        "scorerName": "D. Asprilla",
+                        "optaEventId": "2052212347",
+                        "homeScore": 1,
+                        "awayScore": 0
+                    },
+                    {
+                        "contestantId": "77o8sorlijzpr0t4s7231zzxp",
+                        "periodId": 1,
+                        "timeMin": 40,
+                        "lastUpdated": "2022-04-07T16:52:46Z",
+                        "type": "G",
+                        "scorerId": "3ny0cwoygb1k0cc4eyoc7w15h",
+                        "scorerName": "J. McInerney",
+                        "optaEventId": "426445428",
+                        "homeScore": 2,
+                        "awayScore": 0
+                    }
+                ],
+                "card": [
+                    {
+                        "contestantId": "77o8sorlijzpr0t4s7231zzxp",
+                        "periodId": 2,
+                        "timeMin": 71,
+                        "lastUpdated": "2020-08-21T06:08:52Z",
+                        "type": "YC",
+                        "playerId": "819g4ubpkw22jc17wf4zk42c5",
+                        "playerName": "T. Peay",
+                        "optaEventId": "405938881",
+                        "cardReason": "Foul"
+                    },
+                    {
+                        "contestantId": "a2jg79bf9ab1vj6iok2r328cc",
+                        "periodId": 2,
+                        "timeMin": 83,
+                        "lastUpdated": "2020-09-25T20:03:59Z",
+                        "type": "YC",
+                        "playerId": "6k9hinfk6da6yopmrm7jk7b9x",
+                        "playerName": "A. Jahn",
+                        "optaEventId": "584087367",
+                        "cardReason": "Foul"
+                    },
+                    {
+                        "contestantId": "a2jg79bf9ab1vj6iok2r328cc",
+                        "periodId": 2,
+                        "timeMin": 88,
+                        "lastUpdated": "2023-03-24T17:18:22Z",
+                        "type": "YC",
+                        "playerId": "7ozkcqd9yyagymvmc0ngt8dsl",
+                        "playerName": "J. Stewart",
+                        "optaEventId": "950589867",
+                        "cardReason": "Foul"
+                    }
+                ],
+                "substitute": [
+                    {
+                        "contestantId": "a2jg79bf9ab1vj6iok2r328cc",
+                        "periodId": 2,
+                        "timeMin": 61,
+                        "lastUpdated": "2016-06-15T03:55:13Z",
+                        "playerOnId": "cvuyu9pry83mccugncwz99kgl",
+                        "playerOnName": "M. Wynne",
+                        "playerOffId": "951hw9pw6g5w0wgnuqa5o939x",
+                        "playerOffName": "V. Bernárdez",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "77o8sorlijzpr0t4s7231zzxp",
+                        "periodId": 2,
+                        "timeMin": 62,
+                        "lastUpdated": "2016-06-15T03:56:15Z",
+                        "playerOnId": "9bg21691mpmk9adnyypmqvg0l",
+                        "playerOnName": "N. Grabavoy",
+                        "playerOffId": "2ctjr7ezhy5er14sdnos80y51",
+                        "playerOffName": "J. Barmby",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "a2jg79bf9ab1vj6iok2r328cc",
+                        "periodId": 2,
+                        "timeMin": 69,
+                        "lastUpdated": "2023-06-23T11:58:54Z",
+                        "playerOnId": "4psmfx94et0x0tmfony15lec5",
+                        "playerOnName": "M. Pérez",
+                        "playerOffId": "bbyd9yf6cq0q3ydm3w2nhexh",
+                        "playerOffName": "I. Emeghara",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "77o8sorlijzpr0t4s7231zzxp",
+                        "periodId": 2,
+                        "timeMin": 72,
+                        "lastUpdated": "2019-05-15T07:25:51Z",
+                        "playerOnId": "e77l3wpj8gep8h3o736y18xjp",
+                        "playerOnName": "D. Mattocks",
+                        "playerOffId": "e5d62a8i9q48nxddohhp80r11",
+                        "playerOffName": "D. Valeri",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "a2jg79bf9ab1vj6iok2r328cc",
+                        "periodId": 2,
+                        "timeMin": 78,
+                        "lastUpdated": "2023-03-24T17:18:22Z",
+                        "playerOnId": "7ozkcqd9yyagymvmc0ngt8dsl",
+                        "playerOnName": "J. Stewart",
+                        "playerOffId": "d456kwxcb0puaj7bpi94ewyj9",
+                        "playerOffName": "C. Barrett",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "77o8sorlijzpr0t4s7231zzxp",
+                        "periodId": 2,
+                        "timeMin": 86,
+                        "lastUpdated": "2024-03-06T15:14:34Z",
+                        "playerOnId": "cn8fovjei9tdslashum11dp05",
+                        "playerOnName": "N. Brett",
+                        "playerOffId": "3ny0cwoygb1k0cc4eyoc7w15h",
+                        "playerOffName": "J. McInerney",
+                        "subReason": "Tactical"
+                    }
+                ],
+                "matchDetailsExtra": {
+                    "attendance": "16834",
+                    "matchOfficial": [
+                        {
+                            "id": "4gysbxojeyfc92b5qcnjrsiqd",
+                            "type": "Main",
+                            "firstName": "Allen",
+                            "lastName": "Chapman",
+                            "shortFirstName": "Allen",
+                            "shortLastName": "Chapman"
+                        },
+                        {
+                            "id": "7z1q66f9oema04ctf8k8belt5",
+                            "type": "Assistant referee 1",
+                            "firstName": "Joshua",
+                            "lastName": "Haimes",
+                            "shortFirstName": "Joshua",
+                            "shortLastName": "Haimes"
+                        },
+                        {
+                            "id": "2zp9j714flbx54sf0nowcnb9x",
+                            "type": "Assistant referee 2",
+                            "firstName": "Mike",
+                            "lastName": "Kampmeinert",
+                            "shortFirstName": "Michael",
+                            "shortLastName": "Kampmeinert"
+                        }
+                    ]
+                }
+            }
+        }
+    ]
+}

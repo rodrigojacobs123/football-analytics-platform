@@ -1,0 +1,695 @@
+{
+    "match": [
+        {
+            "matchInfo": {
+                "id": "5rnndopsbbx3clrh2g0tdm7vu",
+                "coverageLevel": "13",
+                "date": "2018-05-24Z",
+                "time": "02:00:00Z",
+                "localDate": "2018-05-23",
+                "localTime": "19:00:00",
+                "numberOfPeriods": 2,
+                "periodLength": 45,
+                "overtimeLength": 15,
+                "lastUpdated": "2025-04-13T00:02:49Z",
+                "description": "Golden State Force vs Las Vegas Lights",
+                "sport": {
+                    "id": "289u5typ3vp4ifwh5thalohmq",
+                    "name": "Soccer"
+                },
+                "ruleset": {
+                    "id": "79plas4983031idr6vw83nuel",
+                    "name": "Men"
+                },
+                "competition": {
+                    "id": "2bmwykmdlcc2u1c40ytoc39vy",
+                    "name": "US Open Cup",
+                    "knownName": "US Open Cup",
+                    "competitionCode": "UOC",
+                    "competitionFormat": "Domestic cup",
+                    "country": {
+                        "id": "7hr2f89v44y65dyu9k92vprwn",
+                        "name": "USA"
+                    }
+                },
+                "tournamentCalendar": {
+                    "id": "cxw5w4qfd7logmfcqvoby2noq",
+                    "startDate": "2018-05-07Z",
+                    "endDate": "2018-09-27Z",
+                    "name": "2018"
+                },
+                "stage": {
+                    "id": "cyhteyfuxkl7xg7vm5cz7ujqi",
+                    "formatId": "emn81yxry3kpgybjulh9yzq39",
+                    "startDate": "2018-05-23Z",
+                    "endDate": "2018-05-24Z",
+                    "name": "3rd Round"
+                },
+                "contestant": [
+                    {
+                        "id": "3cb5mmqdyn6j7fj95x3c61ysw",
+                        "name": "Golden State Force",
+                        "shortName": "Golden State",
+                        "officialName": "FC Golden State Force",
+                        "code": "GSF",
+                        "position": "home",
+                        "country": {
+                            "id": "7hr2f89v44y65dyu9k92vprwn",
+                            "name": "USA"
+                        }
+                    },
+                    {
+                        "id": "7c9knuwazz9k9449u5rnuuy5m",
+                        "name": "Las Vegas Lights",
+                        "shortName": "LV Lights",
+                        "officialName": "Las Vegas Lights FC",
+                        "code": "LV",
+                        "position": "away",
+                        "country": {
+                            "id": "7hr2f89v44y65dyu9k92vprwn",
+                            "name": "USA"
+                        }
+                    }
+                ],
+                "venue": {
+                    "id": "1auk7hsfsothhn2ralqh4wpre",
+                    "neutral": "no",
+                    "longName": "Rio Hondo College Soccer Field",
+                    "shortName": "Rio Hondo College Soccer Field"
+                }
+            },
+            "liveData": {
+                "matchDetails": {
+                    "periodId": 14,
+                    "matchStatus": "Played",
+                    "winner": "home",
+                    "matchLengthMin": 98,
+                    "matchLengthSec": 44,
+                    "period": [
+                        {
+                            "id": 1,
+                            "start": "2018-05-24T02:11:59Z",
+                            "end": "2018-05-24T03:00:03Z",
+                            "lengthMin": 48,
+                            "lengthSec": 4
+                        },
+                        {
+                            "id": 2,
+                            "start": "2018-05-24T03:17:14Z",
+                            "end": "2018-05-24T04:07:54Z",
+                            "lengthMin": 50,
+                            "lengthSec": 40
+                        }
+                    ],
+                    "scores": {
+                        "ht": {
+                            "home": 0,
+                            "away": 0
+                        },
+                        "ft": {
+                            "home": 2,
+                            "away": 1
+                        },
+                        "total": {
+                            "home": 2,
+                            "away": 1
+                        }
+                    }
+                },
+                "goal": [
+                    {
+                        "contestantId": "3cb5mmqdyn6j7fj95x3c61ysw",
+                        "periodId": 2,
+                        "timeMin": 75,
+                        "timeMinSec": "74:45",
+                        "lastUpdated": "2022-05-23T18:49:16Z",
+                        "type": "G",
+                        "scorerId": "afjaw9ti0gula9ll45ajz6sid",
+                        "scorerName": "Allisson Ricardo",
+                        "assistPlayerId": "4s4cottvp2fmcoaidxpi8fw89",
+                        "assistPlayerName": "M. Powell",
+                        "optaEventId": "1782578270",
+                        "homeScore": 1,
+                        "awayScore": 0
+                    },
+                    {
+                        "contestantId": "7c9knuwazz9k9449u5rnuuy5m",
+                        "periodId": 2,
+                        "timeMin": 81,
+                        "timeMinSec": "80:03",
+                        "lastUpdated": "2018-05-26T10:48:41Z",
+                        "type": "G",
+                        "scorerId": "jm8cjmn08exgvu7v2e4mifh1",
+                        "scorerName": "J. Huiqui",
+                        "assistPlayerId": "k3wg70hobao9y7x8v0n96o5x",
+                        "assistPlayerName": "C. Torres",
+                        "optaEventId": "1164834377",
+                        "homeScore": 1,
+                        "awayScore": 1
+                    },
+                    {
+                        "contestantId": "3cb5mmqdyn6j7fj95x3c61ysw",
+                        "periodId": 2,
+                        "timeMin": 91,
+                        "timeMinSec": "90:25",
+                        "lastUpdated": "2022-05-23T18:49:16Z",
+                        "type": "PG",
+                        "scorerId": "afjaw9ti0gula9ll45ajz6sid",
+                        "scorerName": "Allisson Ricardo",
+                        "optaEventId": "1204858093",
+                        "homeScore": 2,
+                        "awayScore": 1
+                    }
+                ],
+                "card": [
+                    {
+                        "contestantId": "7c9knuwazz9k9449u5rnuuy5m",
+                        "periodId": 1,
+                        "timeMin": 43,
+                        "timeMinSec": "42:46",
+                        "lastUpdated": "2025-04-11T02:01:58Z",
+                        "type": "YC",
+                        "playerId": "cijslwbc730evygvnzcqzuimt",
+                        "playerName": "E. Ávila",
+                        "optaEventId": "1239563689",
+                        "cardReason": "Foul"
+                    },
+                    {
+                        "contestantId": "7c9knuwazz9k9449u5rnuuy5m",
+                        "periodId": 1,
+                        "timeMin": 45,
+                        "timeMinSec": "44:04",
+                        "lastUpdated": "2022-05-23T18:50:19Z",
+                        "type": "YC",
+                        "playerId": "4zyxkrfm5qok5bcjoqhx1h6y2",
+                        "playerName": "J. Herrera-Perla",
+                        "optaEventId": "2141416232",
+                        "cardReason": "Foul"
+                    },
+                    {
+                        "contestantId": "7c9knuwazz9k9449u5rnuuy5m",
+                        "periodId": 2,
+                        "timeMin": 76,
+                        "timeMinSec": "76:00",
+                        "lastUpdated": "2018-05-29T18:57:32Z",
+                        "type": "YC",
+                        "playerId": "jm8cjmn08exgvu7v2e4mifh1",
+                        "playerName": "J. Huiqui",
+                        "optaEventId": "1824818330",
+                        "cardReason": "Foul"
+                    },
+                    {
+                        "contestantId": "7c9knuwazz9k9449u5rnuuy5m",
+                        "periodId": 2,
+                        "timeMin": 92,
+                        "timeMinSec": "91:33",
+                        "lastUpdated": "2018-05-24T04:04:34Z",
+                        "type": "YC",
+                        "playerId": "2s1z1cc1ix5lsixazczs09iad",
+                        "playerName": "Juan Calderón",
+                        "optaEventId": "2071600439",
+                        "cardReason": "Foul"
+                    }
+                ],
+                "substitute": [
+                    {
+                        "contestantId": "7c9knuwazz9k9449u5rnuuy5m",
+                        "periodId": 1,
+                        "timeMin": 35,
+                        "timeMinSec": "34:20",
+                        "lastUpdated": "2020-09-10T22:53:14Z",
+                        "playerOnId": "6sv0bv06er1v752nexzze1fxl",
+                        "playerOnName": "M. Jaime",
+                        "playerOffId": "8n4cvalhgkqkpn307gzuytn85",
+                        "playerOffName": "M. Garduño",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "7c9knuwazz9k9449u5rnuuy5m",
+                        "periodId": 2,
+                        "timeMin": 46,
+                        "timeMinSec": "45:00",
+                        "lastUpdated": "2020-09-10T22:52:53Z",
+                        "playerOnId": "7hij1axhmqhpz4bdk1a71td5h",
+                        "playerOnName": "M. Alatorre",
+                        "playerOffId": "7di62u0i7ju0p9y9zlr2c5sr9",
+                        "playerOffName": "A. Mendoza",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "7c9knuwazz9k9449u5rnuuy5m",
+                        "periodId": 2,
+                        "timeMin": 63,
+                        "timeMinSec": "62:45",
+                        "lastUpdated": "2018-05-24T03:36:59Z",
+                        "playerOnId": "2s1z1cc1ix5lsixazczs09iad",
+                        "playerOnName": "Juan Calderón",
+                        "playerOffId": "bs5asq5crb2l5lyeduy0cow5x",
+                        "playerOffName": "D. Kobayashi",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "3cb5mmqdyn6j7fj95x3c61ysw",
+                        "periodId": 2,
+                        "timeMin": 69,
+                        "timeMinSec": "68:17",
+                        "lastUpdated": "2022-05-23T18:49:18Z",
+                        "playerOnId": "7bwb4uy0au1vg6bwd0wob4ru1",
+                        "playerOnName": "Marcelo Manfredini",
+                        "playerOffId": "b6wi9kgnu3j8rbs6nmkncb1lh",
+                        "playerOffName": "G. Villalobos",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "3cb5mmqdyn6j7fj95x3c61ysw",
+                        "periodId": 2,
+                        "timeMin": 69,
+                        "timeMinSec": "68:20",
+                        "lastUpdated": "2018-05-24T03:41:09Z",
+                        "playerOnId": "335jn70k4mdbsba33qit3zyll",
+                        "playerOnName": "E. Cárdenas",
+                        "playerOffId": "6ykqf3onvgfckslrsytcr1a6t",
+                        "playerOffName": "D. Oduro",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "3cb5mmqdyn6j7fj95x3c61ysw",
+                        "periodId": 2,
+                        "timeMin": 78,
+                        "timeMinSec": "77:36",
+                        "lastUpdated": "2022-05-23T18:49:26Z",
+                        "playerOnId": "8wymogtwl8wna66yo0ajrw6p5",
+                        "playerOnName": "G. Silva",
+                        "playerOffId": "4s4cottvp2fmcoaidxpi8fw89",
+                        "playerOffName": "M. Powell",
+                        "subReason": "Tactical"
+                    }
+                ],
+                "matchDetailsExtra": {
+                    "attendance": "524",
+                    "matchOfficial": [
+                        {
+                            "id": "37nnb8d74as43kvcfl33iw5m2",
+                            "type": "Main",
+                            "firstName": "Samantha",
+                            "lastName": "Martinez",
+                            "shortFirstName": "Samantha",
+                            "shortLastName": "Martinez"
+                        },
+                        {
+                            "id": "e2v3w29ymq67rpcbyisr5xjl6",
+                            "type": "Assistant referee 1",
+                            "firstName": "William",
+                            "lastName": "Hoffman",
+                            "shortFirstName": "William",
+                            "shortLastName": "Hoffman"
+                        },
+                        {
+                            "id": "49yf7a6blg1i8mkwjdslqm5be",
+                            "type": "Assistant referee 2",
+                            "firstName": "Christian",
+                            "lastName": "Lara",
+                            "shortFirstName": "Christian",
+                            "shortLastName": "Lara"
+                        },
+                        {
+                            "id": "3pxouvrcnjuf1wwp1734v0t4a",
+                            "type": "Fourth official",
+                            "firstName": "Adrian",
+                            "lastName": "Gonzalez",
+                            "shortFirstName": "Adrian",
+                            "shortLastName": "Gonzalez"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "matchInfo": {
+                "id": "er3o8yz0t82js78ope472nzoq",
+                "coverageLevel": "10",
+                "date": "2018-05-17Z",
+                "time": "02:30:00Z",
+                "localDate": "2018-05-16",
+                "localTime": "19:30:00",
+                "numberOfPeriods": 2,
+                "periodLength": 45,
+                "overtimeLength": 15,
+                "lastUpdated": "2024-03-20T15:28:29Z",
+                "description": "Las Vegas Lights vs Tucson",
+                "sport": {
+                    "id": "289u5typ3vp4ifwh5thalohmq",
+                    "name": "Soccer"
+                },
+                "ruleset": {
+                    "id": "79plas4983031idr6vw83nuel",
+                    "name": "Men"
+                },
+                "competition": {
+                    "id": "2bmwykmdlcc2u1c40ytoc39vy",
+                    "name": "US Open Cup",
+                    "knownName": "US Open Cup",
+                    "competitionCode": "UOC",
+                    "competitionFormat": "Domestic cup",
+                    "country": {
+                        "id": "7hr2f89v44y65dyu9k92vprwn",
+                        "name": "USA"
+                    }
+                },
+                "tournamentCalendar": {
+                    "id": "cxw5w4qfd7logmfcqvoby2noq",
+                    "startDate": "2018-05-07Z",
+                    "endDate": "2018-09-27Z",
+                    "name": "2018"
+                },
+                "stage": {
+                    "id": "cyfrg37lmyr1f9qol2cdescx6",
+                    "formatId": "8cdpi9d29bu9gim4bl5m8ijth",
+                    "startDate": "2018-05-17Z",
+                    "endDate": "2018-05-17Z",
+                    "name": "2nd Round"
+                },
+                "contestant": [
+                    {
+                        "id": "7c9knuwazz9k9449u5rnuuy5m",
+                        "name": "Las Vegas Lights",
+                        "shortName": "LV Lights",
+                        "officialName": "Las Vegas Lights FC",
+                        "code": "LV",
+                        "position": "home",
+                        "country": {
+                            "id": "7hr2f89v44y65dyu9k92vprwn",
+                            "name": "USA"
+                        }
+                    },
+                    {
+                        "id": "5hi4ku421abl68chiupr6ptiv",
+                        "name": "Tucson",
+                        "shortName": "Tucson",
+                        "officialName": "FC Tucson",
+                        "code": "TUC",
+                        "position": "away",
+                        "country": {
+                            "id": "7hr2f89v44y65dyu9k92vprwn",
+                            "name": "USA"
+                        }
+                    }
+                ],
+                "venue": {
+                    "id": "5sl47wefomqetpw5h7uypgb6o",
+                    "neutral": "no",
+                    "longName": "UNLV Peter Johann Memorial Field",
+                    "shortName": "UNLV Peter Johann Memorial Field"
+                }
+            },
+            "liveData": {
+                "matchDetails": {
+                    "periodId": 14,
+                    "matchStatus": "Played",
+                    "winner": "home",
+                    "matchLengthMin": 94,
+                    "matchLengthSec": 40,
+                    "period": [
+                        {
+                            "id": 1,
+                            "start": "2018-05-22T18:15:36Z",
+                            "end": "2018-05-22T19:03:01Z",
+                            "lengthMin": 47,
+                            "lengthSec": 25
+                        },
+                        {
+                            "id": 2,
+                            "start": "2018-05-22T19:09:49Z",
+                            "end": "2018-05-22T19:57:04Z",
+                            "lengthMin": 47,
+                            "lengthSec": 15
+                        }
+                    ],
+                    "scores": {
+                        "ht": {
+                            "home": 2,
+                            "away": 1
+                        },
+                        "ft": {
+                            "home": 4,
+                            "away": 2
+                        },
+                        "total": {
+                            "home": 4,
+                            "away": 2
+                        }
+                    }
+                },
+                "goal": [
+                    {
+                        "contestantId": "7c9knuwazz9k9449u5rnuuy5m",
+                        "periodId": 1,
+                        "timeMin": 5,
+                        "timeMinSec": "4:49",
+                        "lastUpdated": "2018-05-22T20:00:35Z",
+                        "type": "G",
+                        "scorerId": "5w2crade404p7fipy43yul5g5",
+                        "scorerName": "C. Alvarez",
+                        "assistPlayerId": "1nozr0fc073t36pjp9tz9910q",
+                        "assistPlayerName": "M. Thomas",
+                        "optaEventId": "1715859758",
+                        "homeScore": 1,
+                        "awayScore": 0
+                    },
+                    {
+                        "contestantId": "7c9knuwazz9k9449u5rnuuy5m",
+                        "periodId": 1,
+                        "timeMin": 9,
+                        "timeMinSec": "8:18",
+                        "lastUpdated": "2020-09-10T22:52:53Z",
+                        "type": "G",
+                        "scorerId": "7hij1axhmqhpz4bdk1a71td5h",
+                        "scorerName": "M. Alatorre",
+                        "assistPlayerId": "5w2crade404p7fipy43yul5g5",
+                        "assistPlayerName": "C. Alvarez",
+                        "optaEventId": "1095878454",
+                        "homeScore": 2,
+                        "awayScore": 0
+                    },
+                    {
+                        "contestantId": "5hi4ku421abl68chiupr6ptiv",
+                        "periodId": 1,
+                        "timeMin": 39,
+                        "timeMinSec": "38:41",
+                        "lastUpdated": "2019-11-14T08:52:19Z",
+                        "type": "G",
+                        "scorerId": "cyex7clv49xf8p6j8l3jw1cdl",
+                        "scorerName": "J. Romero",
+                        "assistPlayerId": "1jjhpzsbcwb7d4mrlqhbupl2h",
+                        "assistPlayerName": "A. Mokhtar",
+                        "optaEventId": "1088747532",
+                        "homeScore": 2,
+                        "awayScore": 1
+                    },
+                    {
+                        "contestantId": "5hi4ku421abl68chiupr6ptiv",
+                        "periodId": 2,
+                        "timeMin": 48,
+                        "timeMinSec": "47:42",
+                        "lastUpdated": "2021-02-19T16:02:35Z",
+                        "type": "G",
+                        "scorerId": "6kur4ylifkikbcmr3c2owmeei",
+                        "scorerName": "A. Valenzuela",
+                        "assistPlayerId": "cyex7clv49xf8p6j8l3jw1cdl",
+                        "assistPlayerName": "J. Romero",
+                        "optaEventId": "1120450652",
+                        "homeScore": 2,
+                        "awayScore": 2
+                    },
+                    {
+                        "contestantId": "7c9knuwazz9k9449u5rnuuy5m",
+                        "periodId": 2,
+                        "timeMin": 56,
+                        "timeMinSec": "55:56",
+                        "lastUpdated": "2019-04-16T21:48:47Z",
+                        "type": "G",
+                        "scorerId": "9kre2yb7asuj6vae9a3zgf26t",
+                        "scorerName": "S. Ochoa",
+                        "assistPlayerId": "7hij1axhmqhpz4bdk1a71td5h",
+                        "assistPlayerName": "M. Alatorre",
+                        "optaEventId": "1788635035",
+                        "homeScore": 3,
+                        "awayScore": 2
+                    },
+                    {
+                        "contestantId": "7c9knuwazz9k9449u5rnuuy5m",
+                        "periodId": 2,
+                        "timeMin": 65,
+                        "timeMinSec": "64:24",
+                        "lastUpdated": "2019-04-16T21:48:47Z",
+                        "type": "G",
+                        "scorerId": "9kre2yb7asuj6vae9a3zgf26t",
+                        "scorerName": "S. Ochoa",
+                        "assistPlayerId": "bs5asq5crb2l5lyeduy0cow5x",
+                        "assistPlayerName": "D. Kobayashi",
+                        "optaEventId": "1276525781",
+                        "homeScore": 4,
+                        "awayScore": 2
+                    }
+                ],
+                "card": [
+                    {
+                        "contestantId": "7c9knuwazz9k9449u5rnuuy5m",
+                        "periodId": 1,
+                        "timeMin": 19,
+                        "timeMinSec": "18:50",
+                        "lastUpdated": "2018-05-28T15:59:59Z",
+                        "type": "YC",
+                        "playerId": "jm8cjmn08exgvu7v2e4mifh1",
+                        "playerName": "J. Huiqui",
+                        "optaEventId": "1591942819",
+                        "cardReason": "Foul"
+                    },
+                    {
+                        "contestantId": "7c9knuwazz9k9449u5rnuuy5m",
+                        "periodId": 1,
+                        "timeMin": 35,
+                        "timeMinSec": "34:38",
+                        "lastUpdated": "2020-09-10T22:53:14Z",
+                        "type": "YC",
+                        "playerId": "6sv0bv06er1v752nexzze1fxl",
+                        "playerName": "M. Jaime",
+                        "optaEventId": "1664951101",
+                        "cardReason": "Foul"
+                    },
+                    {
+                        "contestantId": "5hi4ku421abl68chiupr6ptiv",
+                        "periodId": 2,
+                        "timeMin": 89,
+                        "timeMinSec": "88:54",
+                        "lastUpdated": "2023-03-21T08:26:22Z",
+                        "type": "YC",
+                        "playerId": "d7911cwndx7j24ugxrsu56s4p",
+                        "playerName": "M. Salazar",
+                        "optaEventId": "1376405475",
+                        "cardReason": "Foul"
+                    }
+                ],
+                "substitute": [
+                    {
+                        "contestantId": "7c9knuwazz9k9449u5rnuuy5m",
+                        "periodId": 1,
+                        "timeMin": 46,
+                        "timeMinSec": "45:14",
+                        "lastUpdated": "2022-05-23T18:50:19Z",
+                        "playerOnId": "4zyxkrfm5qok5bcjoqhx1h6y2",
+                        "playerOnName": "J. Herrera-Perla",
+                        "playerOffId": "6sv0bv06er1v752nexzze1fxl",
+                        "playerOffName": "M. Jaime",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "5hi4ku421abl68chiupr6ptiv",
+                        "periodId": 2,
+                        "timeMin": 69,
+                        "timeMinSec": "68:25",
+                        "lastUpdated": "2018-05-22T20:13:55Z",
+                        "playerOnId": "55wjcbiee7kjgs6yxpog6nrhl",
+                        "playerOnName": "W. Delmonte",
+                        "playerOffId": "cssh7ot986ppecau1yv1ci6p6",
+                        "playerOffName": "A. Gonzales",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "7c9knuwazz9k9449u5rnuuy5m",
+                        "periodId": 2,
+                        "timeMin": 71,
+                        "timeMinSec": "70:13",
+                        "lastUpdated": "2018-05-22T20:00:35Z",
+                        "playerOnId": "6j30vwldz9cnivosszbdpvh05",
+                        "playerOnName": "F. Adu",
+                        "playerOffId": "e80dp6aeqxn2f0hjfqqcscup6",
+                        "playerOffName": "Z. Drake",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "7c9knuwazz9k9449u5rnuuy5m",
+                        "periodId": 2,
+                        "timeMin": 79,
+                        "timeMinSec": "78:48",
+                        "lastUpdated": "2022-05-23T18:50:18Z",
+                        "playerOnId": "7di62u0i7ju0p9y9zlr2c5sr9",
+                        "playerOnName": "A. Mendoza",
+                        "playerOffId": "5w2crade404p7fipy43yul5g5",
+                        "playerOffName": "C. Alvarez",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "5hi4ku421abl68chiupr6ptiv",
+                        "periodId": 2,
+                        "timeMin": 80,
+                        "timeMinSec": "79:20",
+                        "lastUpdated": "2018-05-28T15:57:54Z",
+                        "playerOnId": "7lth3deynam1e29732wukk1uy",
+                        "playerOnName": "R. Scarpulla",
+                        "playerOffId": "51f67nvvfpknv4qq2aogfkwve",
+                        "playerOffName": "K. Van Alstine",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "5hi4ku421abl68chiupr6ptiv",
+                        "periodId": 2,
+                        "timeMin": 82,
+                        "timeMinSec": "81:15",
+                        "lastUpdated": "2024-03-18T15:43:23Z",
+                        "playerOnId": "99t007fta5wwkw9o5cfjucixh",
+                        "playerOnName": "D. Pando",
+                        "playerOffId": "akbsmkm4h4z3dtiiseyrg9f55",
+                        "playerOffName": "G. Carranza",
+                        "subReason": "Tactical"
+                    }
+                ],
+                "matchDetailsExtra": {
+                    "attendance": "2251",
+                    "matchOfficial": [
+                        {
+                            "id": "9ukz09b60wbyx1xkgfhev90bt",
+                            "type": "Main",
+                            "firstName": "Alejandro",
+                            "lastName": "Aguilera",
+                            "shortFirstName": "Alejandro",
+                            "shortLastName": "Aguilera"
+                        },
+                        {
+                            "id": "71smopuf2yxv7y9qo8d3m2z8p",
+                            "type": "Assistant referee 1",
+                            "firstName": "Uriel",
+                            "lastName": "Aguilera",
+                            "shortFirstName": "Uriel",
+                            "shortLastName": "Aguilera"
+                        },
+                        {
+                            "id": "68v6k38qd69j7nr987ya2jvmx",
+                            "type": "Assistant referee 2",
+                            "firstName": "Joe",
+                            "lastName": "Pickens",
+                            "shortFirstName": "Joe",
+                            "shortLastName": "Pickens"
+                        },
+                        {
+                            "id": "bs6dkrjtw8afyqmk1t9omq1yi",
+                            "type": "Fourth official",
+                            "firstName": "Eduardo",
+                            "lastName": "Gonzalez",
+                            "shortFirstName": "Eduardo",
+                            "shortLastName": "Gonzalez"
+                        },
+                        {
+                            "id": "17umv5squnvmua4z6jb7m1lg5",
+                            "type": "Video Assistant Referee",
+                            "firstName": "Juan",
+                            "lastName": "Guzmán",
+                            "shortFirstName": "Juan",
+                            "shortLastName": "Guzman Jr."
+                        }
+                    ]
+                }
+            }
+        }
+    ]
+}

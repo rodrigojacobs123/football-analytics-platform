@@ -1,0 +1,555 @@
+{
+    "match": [
+        {
+            "matchInfo": {
+                "id": "7k1wtpbvjqs3prdh9g19cxzl6",
+                "coverageLevel": "9",
+                "date": "2018-05-16Z",
+                "time": "23:00:00Z",
+                "localDate": "2018-05-16",
+                "localTime": "19:00:00",
+                "numberOfPeriods": 2,
+                "periodLength": 45,
+                "overtimeLength": 15,
+                "lastUpdated": "2025-03-23T13:11:19Z",
+                "description": "Louisville City vs Long Island Rough Riders",
+                "sport": {
+                    "id": "289u5typ3vp4ifwh5thalohmq",
+                    "name": "Soccer"
+                },
+                "ruleset": {
+                    "id": "79plas4983031idr6vw83nuel",
+                    "name": "Men"
+                },
+                "competition": {
+                    "id": "2bmwykmdlcc2u1c40ytoc39vy",
+                    "name": "US Open Cup",
+                    "knownName": "US Open Cup",
+                    "competitionCode": "UOC",
+                    "competitionFormat": "Domestic cup",
+                    "country": {
+                        "id": "7hr2f89v44y65dyu9k92vprwn",
+                        "name": "USA"
+                    }
+                },
+                "tournamentCalendar": {
+                    "id": "cxw5w4qfd7logmfcqvoby2noq",
+                    "startDate": "2018-05-07Z",
+                    "endDate": "2018-09-27Z",
+                    "name": "2018"
+                },
+                "stage": {
+                    "id": "cyfrg37lmyr1f9qol2cdescx6",
+                    "formatId": "8cdpi9d29bu9gim4bl5m8ijth",
+                    "startDate": "2018-05-17Z",
+                    "endDate": "2018-05-17Z",
+                    "name": "2nd Round"
+                },
+                "contestant": [
+                    {
+                        "id": "83cpn99fh7ulkwe8nezy8a3mx",
+                        "name": "Louisville City",
+                        "shortName": "Louisville",
+                        "officialName": "Louisville City FC",
+                        "code": "LOU",
+                        "position": "home",
+                        "country": {
+                            "id": "7hr2f89v44y65dyu9k92vprwn",
+                            "name": "USA"
+                        }
+                    },
+                    {
+                        "id": "ehrc9xh264p8y67fk2g9pzi1y",
+                        "name": "Long Island Rough Riders",
+                        "shortName": "Rough Riders",
+                        "officialName": "Long Island Rough Riders",
+                        "code": "ROU",
+                        "position": "away",
+                        "country": {
+                            "id": "7hr2f89v44y65dyu9k92vprwn",
+                            "name": "USA"
+                        }
+                    }
+                ],
+                "venue": {
+                    "id": "1ligg2xslrjgcgbr7wpa8na0a",
+                    "neutral": "no",
+                    "longName": "Mark & Cindy Lynn Soccer Stadium",
+                    "shortName": "Mark & Cindy Lynn Soccer Stadium"
+                }
+            },
+            "liveData": {
+                "matchDetails": {
+                    "periodId": 14,
+                    "matchStatus": "Played",
+                    "winner": "home",
+                    "matchLengthMin": 93,
+                    "matchLengthSec": 16,
+                    "period": [
+                        {
+                            "id": 1,
+                            "start": "2018-05-16T23:00:16Z",
+                            "end": "2018-05-16T23:47:52Z",
+                            "lengthMin": 47,
+                            "lengthSec": 36
+                        },
+                        {
+                            "id": 2,
+                            "start": "2018-05-17T00:03:52Z",
+                            "end": "2018-05-17T00:49:32Z",
+                            "lengthMin": 45,
+                            "lengthSec": 40
+                        }
+                    ],
+                    "scores": {
+                        "ht": {
+                            "home": 2,
+                            "away": 0
+                        },
+                        "ft": {
+                            "home": 5,
+                            "away": 0
+                        },
+                        "total": {
+                            "home": 5,
+                            "away": 0
+                        }
+                    }
+                },
+                "goal": [
+                    {
+                        "contestantId": "83cpn99fh7ulkwe8nezy8a3mx",
+                        "periodId": 1,
+                        "timeMin": 26,
+                        "timeMinSec": "25:22",
+                        "lastUpdated": "2023-03-06T16:00:54Z",
+                        "type": "G",
+                        "scorerId": "92gocghgshcshnzre6qih1vxl",
+                        "scorerName": "K. Smith",
+                        "assistPlayerId": "3wkl0kgfkjim07ywgf8bo1trd",
+                        "assistPlayerName": "I. Ilić",
+                        "optaEventId": "1682948683",
+                        "homeScore": 1,
+                        "awayScore": 0
+                    },
+                    {
+                        "contestantId": "83cpn99fh7ulkwe8nezy8a3mx",
+                        "periodId": 1,
+                        "timeMin": 38,
+                        "timeMinSec": "37:47",
+                        "lastUpdated": "2024-08-21T19:22:41Z",
+                        "type": "G",
+                        "scorerId": "3wkl0kgfkjim07ywgf8bo1trd",
+                        "scorerName": "I. Ilić",
+                        "assistPlayerId": "58uexaxruilsi52735lkwmqqx",
+                        "assistPlayerName": "O. Jiménez",
+                        "optaEventId": "616495222",
+                        "homeScore": 2,
+                        "awayScore": 0
+                    },
+                    {
+                        "contestantId": "83cpn99fh7ulkwe8nezy8a3mx",
+                        "periodId": 2,
+                        "timeMin": 68,
+                        "timeMinSec": "67:13",
+                        "lastUpdated": "2024-07-14T01:50:55Z",
+                        "type": "G",
+                        "scorerId": "8dozyetopy6sf9k97lazl09gp",
+                        "scorerName": "L. Spencer",
+                        "assistPlayerId": "58uexaxruilsi52735lkwmqqx",
+                        "assistPlayerName": "O. Jiménez",
+                        "optaEventId": "304548836",
+                        "homeScore": 3,
+                        "awayScore": 0
+                    },
+                    {
+                        "contestantId": "83cpn99fh7ulkwe8nezy8a3mx",
+                        "periodId": 2,
+                        "timeMin": 82,
+                        "timeMinSec": "81:49",
+                        "lastUpdated": "2020-12-27T02:07:00Z",
+                        "type": "G",
+                        "scorerId": "4j66zd5w1epq6dlmux4o9ac45",
+                        "scorerName": "B. Ownby",
+                        "optaEventId": "414807171",
+                        "homeScore": 4,
+                        "awayScore": 0
+                    },
+                    {
+                        "contestantId": "83cpn99fh7ulkwe8nezy8a3mx",
+                        "periodId": 2,
+                        "timeMin": 87,
+                        "timeMinSec": "86:10",
+                        "lastUpdated": "2024-03-07T23:06:57Z",
+                        "type": "G",
+                        "scorerId": "4f03usm5tnljkqleajmz9kmol",
+                        "scorerName": "C. Lancaster",
+                        "optaEventId": "1678667159",
+                        "homeScore": 5,
+                        "awayScore": 0
+                    }
+                ],
+                "missedPen": [
+                    {
+                        "contestantId": "83cpn99fh7ulkwe8nezy8a3mx",
+                        "periodId": 2,
+                        "timeMin": 51,
+                        "lastUpdated": "2023-03-06T16:00:54Z",
+                        "type": "PM",
+                        "playerId": "92gocghgshcshnzre6qih1vxl",
+                        "playerName": "K. Smith",
+                        "optaEventId": "1959921089"
+                    },
+                    {
+                        "contestantId": "ehrc9xh264p8y67fk2g9pzi1y",
+                        "periodId": 2,
+                        "timeMin": 51,
+                        "lastUpdated": "2024-03-07T19:54:20Z",
+                        "type": "PS",
+                        "playerId": "9l35nvd07jhy457u1yehm3gx6",
+                        "playerName": "D. Vitiello",
+                        "optaEventId": "1959921089"
+                    }
+                ],
+                "card": [
+                    {
+                        "contestantId": "83cpn99fh7ulkwe8nezy8a3mx",
+                        "periodId": 2,
+                        "timeMin": 56,
+                        "timeMinSec": "56:00",
+                        "lastUpdated": "2023-03-06T16:00:54Z",
+                        "type": "YC",
+                        "playerId": "92gocghgshcshnzre6qih1vxl",
+                        "playerName": "K. Smith",
+                        "optaEventId": "1613085840",
+                        "cardReason": "Foul"
+                    }
+                ],
+                "substitute": [
+                    {
+                        "contestantId": "ehrc9xh264p8y67fk2g9pzi1y",
+                        "periodId": 2,
+                        "timeMin": 52,
+                        "timeMinSec": "51:14",
+                        "lastUpdated": "2019-09-11T12:31:54Z",
+                        "playerOnId": "e37pe8ljnrp0q39od5cwtw2ne",
+                        "playerOnName": "C. Ledula",
+                        "playerOffId": "5g6t4aqqz05nu1kk9yphcwuz9",
+                        "playerOffName": "D. Gwyther",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "83cpn99fh7ulkwe8nezy8a3mx",
+                        "periodId": 2,
+                        "timeMin": 63,
+                        "timeMinSec": "62:12",
+                        "lastUpdated": "2020-12-27T02:07:00Z",
+                        "playerOnId": "4j66zd5w1epq6dlmux4o9ac45",
+                        "playerOnName": "B. Ownby",
+                        "playerOffId": "92gocghgshcshnzre6qih1vxl",
+                        "playerOffName": "K. Smith",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "83cpn99fh7ulkwe8nezy8a3mx",
+                        "periodId": 2,
+                        "timeMin": 65,
+                        "timeMinSec": "64:02",
+                        "lastUpdated": "2023-03-23T16:08:14Z",
+                        "playerOnId": "371fgwtxyfnnu6m4pmq7s55ud",
+                        "playerOnName": "A. Souahy",
+                        "playerOffId": "104j1j066exq7cvaypkyvv2dx",
+                        "playerOffName": "P. McMahon",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "ehrc9xh264p8y67fk2g9pzi1y",
+                        "periodId": 2,
+                        "timeMin": 68,
+                        "timeMinSec": "67:06",
+                        "lastUpdated": "2022-05-23T18:50:26Z",
+                        "playerOnId": "98qfzwrnya5t47ja69qx8kfe",
+                        "playerOnName": "M. Sloan",
+                        "playerOffId": "cqnjagklrypk0y4y0m6z2bfft",
+                        "playerOffName": "N. Crofts",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "83cpn99fh7ulkwe8nezy8a3mx",
+                        "periodId": 2,
+                        "timeMin": 73,
+                        "timeMinSec": "72:45",
+                        "lastUpdated": "2024-03-07T23:06:57Z",
+                        "playerOnId": "4f03usm5tnljkqleajmz9kmol",
+                        "playerOnName": "C. Lancaster",
+                        "playerOffId": "58uexaxruilsi52735lkwmqqx",
+                        "playerOffName": "O. Jiménez",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "ehrc9xh264p8y67fk2g9pzi1y",
+                        "periodId": 2,
+                        "timeMin": 80,
+                        "timeMinSec": "79:29",
+                        "lastUpdated": "2020-10-05T16:02:54Z",
+                        "playerOnId": "b8wds0htaaos1859o7i3ndj2t",
+                        "playerOnName": "N. Hutchins",
+                        "playerOffId": "ed1zepfsh6or1ecaomepc2ane",
+                        "playerOffName": "A. Dexter",
+                        "subReason": "Tactical"
+                    }
+                ],
+                "matchDetailsExtra": {
+                    "attendance": "2000",
+                    "matchOfficial": [
+                        {
+                            "id": "9uu3pw08tyuzp37ec3qvdye39",
+                            "type": "Main",
+                            "firstName": "Brandon",
+                            "lastName": "Artis",
+                            "shortFirstName": "Brandon",
+                            "shortLastName": "Artis"
+                        },
+                        {
+                            "id": "d5wisbx159tbdhkx1epvpgx61",
+                            "type": "Assistant referee 1",
+                            "firstName": "Johann",
+                            "lastName": "Pedolzky",
+                            "shortFirstName": "Johann",
+                            "shortLastName": "Pedolzky"
+                        },
+                        {
+                            "id": "bc19odl3hxkxpkz90x9fg0ag9",
+                            "type": "Assistant referee 2",
+                            "firstName": "Benjamin",
+                            "lastName": "Hall-Volpenhein",
+                            "shortFirstName": "Benjamin",
+                            "shortLastName": "Hall-Volpenhein"
+                        },
+                        {
+                            "id": "a95q8vdxwby5w15duph5ojmy",
+                            "type": "Fourth official",
+                            "firstName": "Casie",
+                            "lastName": "Anderson",
+                            "shortFirstName": "Casie",
+                            "shortLastName": "Anderson"
+                        },
+                        {
+                            "id": "auaqfa3zop45jt1v7oz9qlq8k",
+                            "type": "Video Assistant Referee",
+                            "firstName": "Brian",
+                            "lastName": "Darling",
+                            "shortFirstName": "Brian",
+                            "shortLastName": "Darling"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "matchInfo": {
+                "id": "4mt2bbmo71cggdaujd1kpqaui",
+                "coverageLevel": "5",
+                "date": "2018-05-10Z",
+                "time": "00:00:00Z",
+                "localDate": "2018-05-09",
+                "localTime": "20:00:00",
+                "numberOfPeriods": 2,
+                "periodLength": 45,
+                "overtimeLength": 15,
+                "lastUpdated": "2025-03-23T13:11:17Z",
+                "description": "Long Island Rough Riders vs Kingston Stockade",
+                "sport": {
+                    "id": "289u5typ3vp4ifwh5thalohmq",
+                    "name": "Soccer"
+                },
+                "ruleset": {
+                    "id": "79plas4983031idr6vw83nuel",
+                    "name": "Men"
+                },
+                "competition": {
+                    "id": "2bmwykmdlcc2u1c40ytoc39vy",
+                    "name": "US Open Cup",
+                    "knownName": "US Open Cup",
+                    "competitionCode": "UOC",
+                    "competitionFormat": "Domestic cup",
+                    "country": {
+                        "id": "7hr2f89v44y65dyu9k92vprwn",
+                        "name": "USA"
+                    }
+                },
+                "tournamentCalendar": {
+                    "id": "cxw5w4qfd7logmfcqvoby2noq",
+                    "startDate": "2018-05-07Z",
+                    "endDate": "2018-09-27Z",
+                    "name": "2018"
+                },
+                "stage": {
+                    "id": "cydfflocsyou9r2w4lmr2k7sa",
+                    "formatId": "3ad6z07rilk8flizkw1bhv179",
+                    "startDate": "2018-05-09Z",
+                    "endDate": "2018-05-10Z",
+                    "name": "1st Round"
+                },
+                "contestant": [
+                    {
+                        "id": "ehrc9xh264p8y67fk2g9pzi1y",
+                        "name": "Long Island Rough Riders",
+                        "shortName": "Rough Riders",
+                        "officialName": "Long Island Rough Riders",
+                        "code": "ROU",
+                        "position": "home",
+                        "country": {
+                            "id": "7hr2f89v44y65dyu9k92vprwn",
+                            "name": "USA"
+                        }
+                    },
+                    {
+                        "id": "49cqlf3xmjenjle0mx9553dyi",
+                        "name": "Kingston Stockade",
+                        "shortName": "Kingston Stock",
+                        "officialName": "Kingston Stockade FC",
+                        "code": "KST",
+                        "position": "away",
+                        "country": {
+                            "id": "7hr2f89v44y65dyu9k92vprwn",
+                            "name": "USA"
+                        }
+                    }
+                ],
+                "venue": {
+                    "id": "4xgz9x6w3cb71wvcd1u4k1u22",
+                    "neutral": "no",
+                    "longName": "John Burns Park",
+                    "shortName": "John Burns Park"
+                }
+            },
+            "liveData": {
+                "matchDetails": {
+                    "periodId": 14,
+                    "matchStatus": "Played",
+                    "winner": "home",
+                    "scores": {
+                        "ht": {
+                            "home": 0,
+                            "away": 1
+                        },
+                        "ft": {
+                            "home": 2,
+                            "away": 2
+                        },
+                        "et": {
+                            "home": 6,
+                            "away": 3
+                        },
+                        "total": {
+                            "home": 6,
+                            "away": 3
+                        }
+                    }
+                },
+                "goal": [
+                    {
+                        "contestantId": "49cqlf3xmjenjle0mx9553dyi",
+                        "periodId": 1,
+                        "timeMin": 11,
+                        "lastUpdated": "2018-05-10T18:36:27Z",
+                        "type": "G",
+                        "scorerId": "dsjl6s82ov6hfigxd8phcx3ze",
+                        "scorerName": "B. Jeter",
+                        "homeScore": 0,
+                        "awayScore": 1
+                    },
+                    {
+                        "contestantId": "49cqlf3xmjenjle0mx9553dyi",
+                        "periodId": 2,
+                        "timeMin": 52,
+                        "lastUpdated": "2018-05-10T18:36:36Z",
+                        "type": "G",
+                        "scorerId": "7090pr17xiir4gsxtipxgbo16",
+                        "scorerName": "M. Creswick",
+                        "homeScore": 0,
+                        "awayScore": 2
+                    },
+                    {
+                        "contestantId": "ehrc9xh264p8y67fk2g9pzi1y",
+                        "periodId": 2,
+                        "timeMin": 56,
+                        "lastUpdated": "2020-03-17T18:08:26Z",
+                        "type": "G",
+                        "scorerId": "ed1zepfsh6or1ecaomepc2ane",
+                        "scorerName": "A. Dexter",
+                        "homeScore": 1,
+                        "awayScore": 2
+                    },
+                    {
+                        "contestantId": "ehrc9xh264p8y67fk2g9pzi1y",
+                        "periodId": 2,
+                        "timeMin": 80,
+                        "lastUpdated": "2022-05-23T18:50:22Z",
+                        "type": "G",
+                        "scorerId": "2ftqt2ur6xf0yfp73plu7roph",
+                        "scorerName": "T. Wharf",
+                        "homeScore": 2,
+                        "awayScore": 2
+                    },
+                    {
+                        "contestantId": "ehrc9xh264p8y67fk2g9pzi1y",
+                        "periodId": 2,
+                        "timeMin": 102,
+                        "lastUpdated": "2019-09-11T12:31:54Z",
+                        "type": "G",
+                        "scorerId": "e37pe8ljnrp0q39od5cwtw2ne",
+                        "scorerName": "C. Ledula",
+                        "homeScore": 3,
+                        "awayScore": 2
+                    },
+                    {
+                        "contestantId": "ehrc9xh264p8y67fk2g9pzi1y",
+                        "periodId": 2,
+                        "timeMin": 104,
+                        "lastUpdated": "2022-05-23T18:50:24Z",
+                        "type": "G",
+                        "scorerId": "b8e6gd83rgo0mot85a7qp50wl",
+                        "scorerName": "T. Botte",
+                        "homeScore": 4,
+                        "awayScore": 2
+                    },
+                    {
+                        "contestantId": "49cqlf3xmjenjle0mx9553dyi",
+                        "periodId": 2,
+                        "timeMin": 105,
+                        "lastUpdated": "2018-05-10T18:36:50Z",
+                        "type": "G",
+                        "scorerId": "csj1s3woqscjxy44rf5jw1pbe",
+                        "scorerName": "M. Koziol",
+                        "homeScore": 4,
+                        "awayScore": 3
+                    },
+                    {
+                        "contestantId": "ehrc9xh264p8y67fk2g9pzi1y",
+                        "periodId": 2,
+                        "timeMin": 108,
+                        "lastUpdated": "2025-03-18T15:50:36Z",
+                        "type": "G",
+                        "scorerId": "7l8mxxv9h614ml2mwbpkh831m",
+                        "scorerName": "J. Rosero",
+                        "homeScore": 5,
+                        "awayScore": 3
+                    },
+                    {
+                        "contestantId": "ehrc9xh264p8y67fk2g9pzi1y",
+                        "periodId": 2,
+                        "timeMin": 109,
+                        "lastUpdated": "2019-09-11T12:31:54Z",
+                        "type": "G",
+                        "scorerId": "e37pe8ljnrp0q39od5cwtw2ne",
+                        "scorerName": "C. Ledula",
+                        "homeScore": 6,
+                        "awayScore": 3
+                    }
+                ]
+            }
+        }
+    ]
+}

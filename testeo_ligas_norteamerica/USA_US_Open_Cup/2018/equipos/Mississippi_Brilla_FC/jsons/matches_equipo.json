@@ -1,0 +1,765 @@
+{
+    "match": [
+        {
+            "matchInfo": {
+                "id": "5rfpig6bfdoiwpm8g2flbrre2",
+                "coverageLevel": "13",
+                "date": "2018-05-24Z",
+                "time": "00:30:00Z",
+                "localDate": "2018-05-23",
+                "localTime": "19:30:00",
+                "numberOfPeriods": 2,
+                "periodLength": 45,
+                "overtimeLength": 15,
+                "lastUpdated": "2025-02-23T00:49:00Z",
+                "description": "Nashville vs Mississippi Brilla",
+                "sport": {
+                    "id": "289u5typ3vp4ifwh5thalohmq",
+                    "name": "Soccer"
+                },
+                "ruleset": {
+                    "id": "79plas4983031idr6vw83nuel",
+                    "name": "Men"
+                },
+                "competition": {
+                    "id": "2bmwykmdlcc2u1c40ytoc39vy",
+                    "name": "US Open Cup",
+                    "knownName": "US Open Cup",
+                    "competitionCode": "UOC",
+                    "competitionFormat": "Domestic cup",
+                    "country": {
+                        "id": "7hr2f89v44y65dyu9k92vprwn",
+                        "name": "USA"
+                    }
+                },
+                "tournamentCalendar": {
+                    "id": "cxw5w4qfd7logmfcqvoby2noq",
+                    "startDate": "2018-05-07Z",
+                    "endDate": "2018-09-27Z",
+                    "name": "2018"
+                },
+                "stage": {
+                    "id": "cyhteyfuxkl7xg7vm5cz7ujqi",
+                    "formatId": "emn81yxry3kpgybjulh9yzq39",
+                    "startDate": "2018-05-23Z",
+                    "endDate": "2018-05-24Z",
+                    "name": "3rd Round"
+                },
+                "contestant": [
+                    {
+                        "id": "d57ycet13fuwu2zb5ycy0x2ei",
+                        "name": "Nashville",
+                        "shortName": "Nashville",
+                        "officialName": "Nashville SC (USL)",
+                        "code": "NSH",
+                        "position": "home",
+                        "country": {
+                            "id": "7hr2f89v44y65dyu9k92vprwn",
+                            "name": "USA"
+                        }
+                    },
+                    {
+                        "id": "p8juwh7peii635ule54y6qsq",
+                        "name": "Mississippi Brilla",
+                        "shortName": "Brilla",
+                        "officialName": "Mississippi Brilla FC",
+                        "code": "BRI",
+                        "position": "away",
+                        "country": {
+                            "id": "7hr2f89v44y65dyu9k92vprwn",
+                            "name": "USA"
+                        }
+                    }
+                ],
+                "venue": {
+                    "id": "wh647z3dlvmv3u57waiwk8o9",
+                    "neutral": "no",
+                    "longName": "Vanderbilt Stadium",
+                    "shortName": "Vanderbilt Stadium"
+                }
+            },
+            "liveData": {
+                "matchDetails": {
+                    "periodId": 14,
+                    "matchStatus": "Played",
+                    "winner": "home",
+                    "matchLengthMin": 92,
+                    "matchLengthSec": 23,
+                    "period": [
+                        {
+                            "id": 1,
+                            "start": "2018-05-24T00:36:17Z",
+                            "end": "2018-05-24T01:21:25Z",
+                            "lengthMin": 45,
+                            "lengthSec": 8
+                        },
+                        {
+                            "id": 2,
+                            "start": "2018-05-24T01:37:57Z",
+                            "end": "2018-05-24T02:25:12Z",
+                            "lengthMin": 47,
+                            "lengthSec": 15
+                        }
+                    ],
+                    "scores": {
+                        "ht": {
+                            "home": 2,
+                            "away": 0
+                        },
+                        "ft": {
+                            "home": 3,
+                            "away": 1
+                        },
+                        "total": {
+                            "home": 3,
+                            "away": 1
+                        }
+                    }
+                },
+                "goal": [
+                    {
+                        "contestantId": "d57ycet13fuwu2zb5ycy0x2ei",
+                        "periodId": 1,
+                        "timeMin": 19,
+                        "timeMinSec": "18:49",
+                        "lastUpdated": "2018-05-24T00:55:22Z",
+                        "type": "G",
+                        "scorerId": "f07dkt0q5fpiw8c1rkuedrx05",
+                        "scorerName": "B. Allen",
+                        "assistPlayerId": "4w8axbmvbczcb71ufhr8higgl",
+                        "assistPlayerName": "T. Hume",
+                        "optaEventId": "2125385866",
+                        "homeScore": 1,
+                        "awayScore": 0
+                    },
+                    {
+                        "contestantId": "d57ycet13fuwu2zb5ycy0x2ei",
+                        "periodId": 1,
+                        "timeMin": 30,
+                        "timeMinSec": "29:02",
+                        "lastUpdated": "2018-05-24T01:30:18Z",
+                        "type": "G",
+                        "scorerId": "261wjd7v4uuu0zza52vjdpfpx",
+                        "scorerName": "L. Woodberry",
+                        "optaEventId": "1384645733",
+                        "homeScore": 2,
+                        "awayScore": 0
+                    },
+                    {
+                        "contestantId": "p8juwh7peii635ule54y6qsq",
+                        "periodId": 2,
+                        "timeMin": 59,
+                        "timeMinSec": "58:52",
+                        "lastUpdated": "2024-03-07T15:46:58Z",
+                        "type": "G",
+                        "scorerId": "6b3gpcxipjbkqpeiahugoplgp",
+                        "scorerName": "N. Matsoso",
+                        "assistPlayerId": "ehr5pght2flfewwlx4h1f3f56",
+                        "assistPlayerName": "C. Kirchhoff",
+                        "optaEventId": "1823895328",
+                        "homeScore": 2,
+                        "awayScore": 1
+                    },
+                    {
+                        "contestantId": "d57ycet13fuwu2zb5ycy0x2ei",
+                        "periodId": 2,
+                        "timeMin": 91,
+                        "timeMinSec": "90:35",
+                        "lastUpdated": "2024-09-02T07:13:21Z",
+                        "type": "G",
+                        "scorerId": "5kyw2dzcbxvlfgqie1y0ns639",
+                        "scorerName": "R. Shroot",
+                        "assistPlayerId": "b04dnzjt176a4hyhff3j1p7u1",
+                        "assistPlayerName": "R. Mensah",
+                        "optaEventId": "1687675207",
+                        "homeScore": 3,
+                        "awayScore": 1
+                    }
+                ],
+                "missedPen": [
+                    {
+                        "contestantId": "d57ycet13fuwu2zb5ycy0x2ei",
+                        "periodId": 1,
+                        "timeMin": 25,
+                        "lastUpdated": "2018-05-24T01:01:13Z",
+                        "type": "PM",
+                        "playerId": "f07dkt0q5fpiw8c1rkuedrx05",
+                        "playerName": "B. Allen",
+                        "optaEventId": "1948417469"
+                    },
+                    {
+                        "contestantId": "p8juwh7peii635ule54y6qsq",
+                        "periodId": 1,
+                        "timeMin": 25,
+                        "lastUpdated": "2023-03-16T14:04:54Z",
+                        "type": "PS",
+                        "playerId": "4ydpwew0t1gr77b47m11cjkyx",
+                        "playerName": "J. Bell",
+                        "optaEventId": "1948417469"
+                    }
+                ],
+                "card": [
+                    {
+                        "contestantId": "p8juwh7peii635ule54y6qsq",
+                        "periodId": 2,
+                        "timeMin": 50,
+                        "timeMinSec": "49:40",
+                        "lastUpdated": "2024-03-07T21:14:36Z",
+                        "type": "YC",
+                        "playerId": "6a9s7obrfl3v40jei3wl5tzah",
+                        "playerName": "K. Fox",
+                        "optaEventId": "1698168389",
+                        "cardReason": "Foul"
+                    },
+                    {
+                        "contestantId": "d57ycet13fuwu2zb5ycy0x2ei",
+                        "periodId": 2,
+                        "timeMin": 53,
+                        "timeMinSec": "52:06",
+                        "lastUpdated": "2022-03-10T09:46:51Z",
+                        "type": "YC",
+                        "playerId": "4qo8t2en3surrx8hpyccworft",
+                        "playerName": "L. Doyle",
+                        "optaEventId": "1091956243",
+                        "cardReason": "Foul"
+                    }
+                ],
+                "substitute": [
+                    {
+                        "contestantId": "p8juwh7peii635ule54y6qsq",
+                        "periodId": 1,
+                        "timeMin": 32,
+                        "timeMinSec": "32:00",
+                        "lastUpdated": "2022-05-23T18:50:49Z",
+                        "playerOnId": "37itof2xvogcifzddgekb6z56",
+                        "playerOnName": "O. Brock",
+                        "playerOffId": "2kdn5hgde36ydaf1g9t5m5brp",
+                        "playerOffName": "J. Fricker",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "p8juwh7peii635ule54y6qsq",
+                        "periodId": 2,
+                        "timeMin": 46,
+                        "timeMinSec": "45:00",
+                        "lastUpdated": "2022-05-23T18:50:48Z",
+                        "playerOnId": "8fxkdfdcvqwpu3to0y5ulpx49",
+                        "playerOnName": "J. Palmer",
+                        "playerOffId": "4dczis55sdm8kryabmjqzfr6y",
+                        "playerOffName": "G. Charkoutsakis",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "p8juwh7peii635ule54y6qsq",
+                        "periodId": 2,
+                        "timeMin": 46,
+                        "timeMinSec": "45:00",
+                        "lastUpdated": "2021-02-19T15:12:58Z",
+                        "playerOnId": "xx7t8cduh84x1qwd4o559g16",
+                        "playerOnName": "R. Bryan",
+                        "playerOffId": "asx2cteni11kyniwrhdgwh1m2",
+                        "playerOffName": "A. Brador",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "d57ycet13fuwu2zb5ycy0x2ei",
+                        "periodId": 2,
+                        "timeMin": 63,
+                        "timeMinSec": "62:01",
+                        "lastUpdated": "2023-03-08T14:01:13Z",
+                        "playerOnId": "8r0uyu11pehylcwdqjlfqqi8l",
+                        "playerOnName": "M. LaGrassa",
+                        "playerOffId": "f07dkt0q5fpiw8c1rkuedrx05",
+                        "playerOffName": "B. Allen",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "d57ycet13fuwu2zb5ycy0x2ei",
+                        "periodId": 2,
+                        "timeMin": 63,
+                        "timeMinSec": "62:02",
+                        "lastUpdated": "2023-11-13T22:04:44Z",
+                        "playerOnId": "c4vss7v8yi62e13rxxnilsgrt",
+                        "playerOnName": "I. Jome",
+                        "playerOffId": "13eclvq1nld5l5jewx1hvcwyd",
+                        "playerOffName": "J. Davis",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "d57ycet13fuwu2zb5ycy0x2ei",
+                        "periodId": 2,
+                        "timeMin": 85,
+                        "timeMinSec": "84:30",
+                        "lastUpdated": "2024-03-20T21:22:30Z",
+                        "playerOnId": "b04dnzjt176a4hyhff3j1p7u1",
+                        "playerOnName": "R. Mensah",
+                        "playerOffId": "4w8axbmvbczcb71ufhr8higgl",
+                        "playerOffName": "T. Hume",
+                        "subReason": "Tactical"
+                    }
+                ],
+                "matchDetailsExtra": {
+                    "attendance": "1047",
+                    "matchOfficial": [
+                        {
+                            "id": "6gspkbpny4kaadc9gpo6j4f6x",
+                            "type": "Main",
+                            "firstName": "Jose",
+                            "lastName": "Lara",
+                            "shortFirstName": "José",
+                            "shortLastName": "Lara"
+                        },
+                        {
+                            "id": "9ipnzrjku6lmynhuq6leqbuqy",
+                            "type": "Assistant referee 1",
+                            "firstName": "Carlos",
+                            "lastName": "Pielago",
+                            "shortFirstName": "Carlos",
+                            "shortLastName": "Pielago"
+                        },
+                        {
+                            "id": "awnpwo5g96dj3h29jv3suqg6i",
+                            "type": "Assistant referee 2",
+                            "firstName": "Jack",
+                            "lastName": "Starr",
+                            "shortFirstName": "Jack",
+                            "shortLastName": "Starr"
+                        },
+                        {
+                            "id": "crpo2grcuofwxr4t2b2z747ah",
+                            "type": "Fourth official",
+                            "firstName": "Leland",
+                            "lastName": "Grant",
+                            "shortFirstName": "Leland",
+                            "shortLastName": "Grant"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "matchInfo": {
+                "id": "epraj4ux09wfh25c2kqw50fai",
+                "coverageLevel": "13",
+                "date": "2018-05-17Z",
+                "time": "00:00:00Z",
+                "localDate": "2018-05-16",
+                "localTime": "19:00:00",
+                "numberOfPeriods": 2,
+                "periodLength": 45,
+                "overtimeLength": 15,
+                "lastUpdated": "2024-11-14T04:11:52Z",
+                "description": "Mississippi Brilla vs Indy Eleven",
+                "sport": {
+                    "id": "289u5typ3vp4ifwh5thalohmq",
+                    "name": "Soccer"
+                },
+                "ruleset": {
+                    "id": "79plas4983031idr6vw83nuel",
+                    "name": "Men"
+                },
+                "competition": {
+                    "id": "2bmwykmdlcc2u1c40ytoc39vy",
+                    "name": "US Open Cup",
+                    "knownName": "US Open Cup",
+                    "competitionCode": "UOC",
+                    "competitionFormat": "Domestic cup",
+                    "country": {
+                        "id": "7hr2f89v44y65dyu9k92vprwn",
+                        "name": "USA"
+                    }
+                },
+                "tournamentCalendar": {
+                    "id": "cxw5w4qfd7logmfcqvoby2noq",
+                    "startDate": "2018-05-07Z",
+                    "endDate": "2018-09-27Z",
+                    "name": "2018"
+                },
+                "stage": {
+                    "id": "cyfrg37lmyr1f9qol2cdescx6",
+                    "formatId": "8cdpi9d29bu9gim4bl5m8ijth",
+                    "startDate": "2018-05-17Z",
+                    "endDate": "2018-05-17Z",
+                    "name": "2nd Round"
+                },
+                "contestant": [
+                    {
+                        "id": "p8juwh7peii635ule54y6qsq",
+                        "name": "Mississippi Brilla",
+                        "shortName": "Brilla",
+                        "officialName": "Mississippi Brilla FC",
+                        "code": "BRI",
+                        "position": "home",
+                        "country": {
+                            "id": "7hr2f89v44y65dyu9k92vprwn",
+                            "name": "USA"
+                        }
+                    },
+                    {
+                        "id": "8cpjplodpphtkbt0hq8sr8mqs",
+                        "name": "Indy Eleven",
+                        "shortName": "Indy Eleven",
+                        "officialName": "Indy Eleven",
+                        "code": "IND",
+                        "position": "away",
+                        "country": {
+                            "id": "7hr2f89v44y65dyu9k92vprwn",
+                            "name": "USA"
+                        }
+                    }
+                ],
+                "venue": {
+                    "id": "l21g4rjn2ms0htgldoborzk4",
+                    "neutral": "no",
+                    "longName": "Arrow Field at Clinton High School",
+                    "shortName": "Arrow Field at Clinton High School"
+                }
+            },
+            "liveData": {
+                "matchDetails": {
+                    "periodId": 14,
+                    "matchStatus": "Played",
+                    "winner": "home",
+                    "matchLengthMin": 95,
+                    "matchLengthSec": 54,
+                    "period": [
+                        {
+                            "id": 1,
+                            "start": "2018-05-17T00:08:45Z",
+                            "end": "2018-05-17T00:54:53Z",
+                            "lengthMin": 46,
+                            "lengthSec": 8
+                        },
+                        {
+                            "id": 2,
+                            "start": "2018-05-17T01:12:55Z",
+                            "end": "2018-05-17T02:02:41Z",
+                            "lengthMin": 49,
+                            "lengthSec": 46
+                        }
+                    ],
+                    "scores": {
+                        "ht": {
+                            "home": 0,
+                            "away": 0
+                        },
+                        "ft": {
+                            "home": 1,
+                            "away": 0
+                        },
+                        "total": {
+                            "home": 1,
+                            "away": 0
+                        }
+                    }
+                },
+                "goal": [
+                    {
+                        "contestantId": "p8juwh7peii635ule54y6qsq",
+                        "periodId": 2,
+                        "timeMin": 81,
+                        "timeMinSec": "80:32",
+                        "lastUpdated": "2019-09-11T12:25:05Z",
+                        "type": "G",
+                        "scorerId": "9c987ruwguf80tpyga4x3hyzu",
+                        "scorerName": "K. Easterling",
+                        "assistPlayerId": "37itof2xvogcifzddgekb6z56",
+                        "assistPlayerName": "O. Brock",
+                        "optaEventId": "2127591191",
+                        "homeScore": 1,
+                        "awayScore": 0
+                    }
+                ],
+                "card": [
+                    {
+                        "contestantId": "p8juwh7peii635ule54y6qsq",
+                        "periodId": 1,
+                        "timeMin": 36,
+                        "timeMinSec": "36:00",
+                        "lastUpdated": "2022-05-23T18:50:49Z",
+                        "type": "YC",
+                        "playerId": "37itof2xvogcifzddgekb6z56",
+                        "playerName": "O. Brock",
+                        "optaEventId": "1680091601",
+                        "cardReason": "Foul"
+                    },
+                    {
+                        "contestantId": "p8juwh7peii635ule54y6qsq",
+                        "periodId": 2,
+                        "timeMin": 78,
+                        "timeMinSec": "77:26",
+                        "lastUpdated": "2022-05-23T18:50:48Z",
+                        "type": "YC",
+                        "playerId": "8fxkdfdcvqwpu3to0y5ulpx49",
+                        "playerName": "J. Palmer",
+                        "optaEventId": "1718207998",
+                        "cardReason": "Foul"
+                    },
+                    {
+                        "contestantId": "8cpjplodpphtkbt0hq8sr8mqs",
+                        "periodId": 2,
+                        "timeMin": 78,
+                        "timeMinSec": "77:40",
+                        "lastUpdated": "2020-10-05T16:03:39Z",
+                        "type": "YC",
+                        "playerId": "96ssjvdnc80gviyw0m52lopn9",
+                        "playerName": "B. Ring",
+                        "optaEventId": "2057014040",
+                        "cardReason": "Foul"
+                    }
+                ],
+                "substitute": [
+                    {
+                        "contestantId": "p8juwh7peii635ule54y6qsq",
+                        "periodId": 2,
+                        "timeMin": 46,
+                        "timeMinSec": "45:00",
+                        "lastUpdated": "2023-03-16T14:04:54Z",
+                        "playerOnId": "4ydpwew0t1gr77b47m11cjkyx",
+                        "playerOnName": "J. Bell",
+                        "playerOffId": "cm2aae0f7qnu285myxkfs1d61",
+                        "playerOffName": "B. Ledgeway",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "8cpjplodpphtkbt0hq8sr8mqs",
+                        "periodId": 2,
+                        "timeMin": 69,
+                        "timeMinSec": "68:58",
+                        "lastUpdated": "2024-01-12T10:56:04Z",
+                        "playerOnId": "un7mf28faj9yeihpofnkgct1",
+                        "playerOnName": "Soony Saad",
+                        "playerOffId": "caj2ud2nds0nxc2etfhdd50wl",
+                        "playerOffName": "S. Moses",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "8cpjplodpphtkbt0hq8sr8mqs",
+                        "periodId": 2,
+                        "timeMin": 70,
+                        "timeMinSec": "69:03",
+                        "lastUpdated": "2022-04-07T16:52:46Z",
+                        "playerOnId": "3ny0cwoygb1k0cc4eyoc7w15h",
+                        "playerOnName": "J. McInerney",
+                        "playerOffId": "7j0ju51jxeaevvgdsauo29dyh",
+                        "playerOffName": "A. Amankona",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "p8juwh7peii635ule54y6qsq",
+                        "periodId": 2,
+                        "timeMin": 76,
+                        "timeMinSec": "75:16",
+                        "lastUpdated": "2022-08-28T06:28:20Z",
+                        "playerOnId": "ehr5pght2flfewwlx4h1f3f56",
+                        "playerOnName": "C. Kirchhoff",
+                        "playerOffId": "6b3gpcxipjbkqpeiahugoplgp",
+                        "playerOffName": "N. Matsoso",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "8cpjplodpphtkbt0hq8sr8mqs",
+                        "periodId": 2,
+                        "timeMin": 85,
+                        "timeMinSec": "84:13",
+                        "lastUpdated": "2019-09-10T20:58:30Z",
+                        "playerOnId": "44ivaqhwzxqm3llgw226zeml1",
+                        "playerOnName": "Z. Steinberger",
+                        "playerOffId": "b6r4x1tp27p2jycfm761ma8r9",
+                        "playerOffName": "N. Matern",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "p8juwh7peii635ule54y6qsq",
+                        "periodId": 2,
+                        "timeMin": 91,
+                        "timeMinSec": "90:47",
+                        "lastUpdated": "2019-09-11T12:24:03Z",
+                        "playerOnId": "4dczis55sdm8kryabmjqzfr6y",
+                        "playerOnName": "G. Charkoutsakis",
+                        "playerOffId": "67l2zg4fxwwl0y39200puf0iy",
+                        "playerOffName": "T. Bourrier",
+                        "subReason": "Tactical"
+                    }
+                ],
+                "matchDetailsExtra": {
+                    "attendance": "400",
+                    "matchOfficial": [
+                        {
+                            "id": "17bjqd2zc6oqfjkmp86e2uuzu",
+                            "type": "Main",
+                            "firstName": "Alex",
+                            "lastName": "Connelly",
+                            "shortFirstName": "Alex",
+                            "shortLastName": "Connelly"
+                        },
+                        {
+                            "id": "58aqpe9fkqcmcaeguvj63r07p",
+                            "type": "Assistant referee 1",
+                            "firstName": "Thai",
+                            "lastName": "Huynh",
+                            "shortFirstName": "Thai",
+                            "shortLastName": "Huynh"
+                        },
+                        {
+                            "id": "d3znjaaj4g16vqd5iqfj7rh4a",
+                            "type": "Assistant referee 2",
+                            "firstName": "Logan",
+                            "lastName": "Reeves",
+                            "shortFirstName": "Logan",
+                            "shortLastName": "Reeves"
+                        },
+                        {
+                            "id": "a1onwrvak7uxdiv588tai1g8a",
+                            "type": "Fourth official",
+                            "firstName": "Mark",
+                            "lastName": "Dreifuss",
+                            "shortFirstName": "Mark",
+                            "shortLastName": "Dreifuss"
+                        },
+                        {
+                            "id": "5iw0hvv4jsq765n7q3y5dbomi",
+                            "type": "Video Assistant Referee",
+                            "firstName": "Alyssa",
+                            "lastName": "Pennington",
+                            "shortFirstName": "Alyssa",
+                            "shortLastName": "Pennington"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "matchInfo": {
+                "id": "7tydlza3m4uzp8nznad008siy",
+                "coverageLevel": "5",
+                "date": "2018-05-10Z",
+                "time": "00:00:00Z",
+                "localDate": "2018-05-09",
+                "localTime": "19:00:00",
+                "numberOfPeriods": 2,
+                "periodLength": 45,
+                "overtimeLength": 15,
+                "lastUpdated": "2024-11-14T04:11:52Z",
+                "description": "New Orleans Jesters vs Mississippi Brilla",
+                "sport": {
+                    "id": "289u5typ3vp4ifwh5thalohmq",
+                    "name": "Soccer"
+                },
+                "ruleset": {
+                    "id": "79plas4983031idr6vw83nuel",
+                    "name": "Men"
+                },
+                "competition": {
+                    "id": "2bmwykmdlcc2u1c40ytoc39vy",
+                    "name": "US Open Cup",
+                    "knownName": "US Open Cup",
+                    "competitionCode": "UOC",
+                    "competitionFormat": "Domestic cup",
+                    "country": {
+                        "id": "7hr2f89v44y65dyu9k92vprwn",
+                        "name": "USA"
+                    }
+                },
+                "tournamentCalendar": {
+                    "id": "cxw5w4qfd7logmfcqvoby2noq",
+                    "startDate": "2018-05-07Z",
+                    "endDate": "2018-09-27Z",
+                    "name": "2018"
+                },
+                "stage": {
+                    "id": "cydfflocsyou9r2w4lmr2k7sa",
+                    "formatId": "3ad6z07rilk8flizkw1bhv179",
+                    "startDate": "2018-05-09Z",
+                    "endDate": "2018-05-10Z",
+                    "name": "1st Round"
+                },
+                "contestant": [
+                    {
+                        "id": "f2p2o6qe367vmgf3hoi64o8hm",
+                        "name": "New Orleans Jesters",
+                        "shortName": "Jesters",
+                        "officialName": "New Orleans Jesters",
+                        "code": "NOJ",
+                        "position": "home",
+                        "country": {
+                            "id": "7hr2f89v44y65dyu9k92vprwn",
+                            "name": "USA"
+                        }
+                    },
+                    {
+                        "id": "p8juwh7peii635ule54y6qsq",
+                        "name": "Mississippi Brilla",
+                        "shortName": "Brilla",
+                        "officialName": "Mississippi Brilla FC",
+                        "code": "BRI",
+                        "position": "away",
+                        "country": {
+                            "id": "7hr2f89v44y65dyu9k92vprwn",
+                            "name": "USA"
+                        }
+                    }
+                ],
+                "venue": {
+                    "id": "7jtwk0pzfs53y8h15gxse9yhh",
+                    "neutral": "no",
+                    "longName": "Pan American Stadium",
+                    "shortName": "Pan American Stadium"
+                }
+            },
+            "liveData": {
+                "matchDetails": {
+                    "periodId": 14,
+                    "matchStatus": "Played",
+                    "winner": "away",
+                    "scores": {
+                        "ht": {
+                            "home": 0,
+                            "away": 0
+                        },
+                        "ft": {
+                            "home": 1,
+                            "away": 1
+                        },
+                        "et": {
+                            "home": 1,
+                            "away": 1
+                        },
+                        "pen": {
+                            "home": 2,
+                            "away": 3
+                        },
+                        "total": {
+                            "home": 3,
+                            "away": 4
+                        }
+                    }
+                },
+                "goal": [
+                    {
+                        "contestantId": "p8juwh7peii635ule54y6qsq",
+                        "periodId": 2,
+                        "timeMin": 65,
+                        "lastUpdated": "2022-05-23T18:50:49Z",
+                        "type": "G",
+                        "scorerId": "37itof2xvogcifzddgekb6z56",
+                        "scorerName": "O. Brock",
+                        "homeScore": 0,
+                        "awayScore": 1
+                    },
+                    {
+                        "contestantId": "f2p2o6qe367vmgf3hoi64o8hm",
+                        "periodId": 2,
+                        "timeMin": 72,
+                        "lastUpdated": "2023-10-06T08:36:44Z",
+                        "type": "G",
+                        "scorerId": "7a3b1bnluwgxfxsfaa5lzud3p",
+                        "scorerName": "T. Peers",
+                        "homeScore": 1,
+                        "awayScore": 1
+                    }
+                ]
+            }
+        }
+    ]
+}

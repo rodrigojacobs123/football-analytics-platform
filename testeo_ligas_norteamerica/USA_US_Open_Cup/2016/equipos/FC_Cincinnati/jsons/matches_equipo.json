@@ -1,0 +1,422 @@
+{
+    "match": [
+        {
+            "matchInfo": {
+                "id": "47xed63juwqeb0ra2jtdivkrt",
+                "coverageLevel": "13",
+                "date": "2016-06-01Z",
+                "time": "23:30:00Z",
+                "localDate": "2016-06-01",
+                "localTime": "19:30:00",
+                "numberOfPeriods": 2,
+                "periodLength": 45,
+                "overtimeLength": 15,
+                "lastUpdated": "2025-04-13T00:02:45Z",
+                "description": "Tampa Bay Rowdies vs Cincinnati",
+                "sport": {
+                    "id": "289u5typ3vp4ifwh5thalohmq",
+                    "name": "Soccer"
+                },
+                "ruleset": {
+                    "id": "79plas4983031idr6vw83nuel",
+                    "name": "Men"
+                },
+                "competition": {
+                    "id": "2bmwykmdlcc2u1c40ytoc39vy",
+                    "name": "US Open Cup",
+                    "knownName": "US Open Cup",
+                    "competitionCode": "UOC",
+                    "competitionFormat": "Domestic cup",
+                    "country": {
+                        "id": "7hr2f89v44y65dyu9k92vprwn",
+                        "name": "USA"
+                    }
+                },
+                "tournamentCalendar": {
+                    "id": "jd3ycveqnkjvntl7b8wndb6x",
+                    "startDate": "2016-05-11Z",
+                    "endDate": "2016-09-14Z",
+                    "name": "2016"
+                },
+                "stage": {
+                    "id": "9140icljpobjkx61oap478o9e",
+                    "formatId": "emn81yxry3kpgybjulh9yzq39",
+                    "startDate": "2016-06-01Z",
+                    "endDate": "2016-06-02Z",
+                    "name": "3rd Round"
+                },
+                "contestant": [
+                    {
+                        "id": "5qfq6cwtrgzd2szijivns7rjl",
+                        "name": "Tampa Bay Rowdies",
+                        "shortName": "Tampa Bay",
+                        "officialName": "Tampa Bay Rowdies",
+                        "code": "TBR",
+                        "position": "home",
+                        "country": {
+                            "id": "7hr2f89v44y65dyu9k92vprwn",
+                            "name": "USA"
+                        }
+                    },
+                    {
+                        "id": "652hppivbqchvrp3wopx1isyt",
+                        "name": "Cincinnati",
+                        "shortName": "Cincinnati",
+                        "officialName": "FC Cincinnati",
+                        "code": "CIN",
+                        "position": "away",
+                        "country": {
+                            "id": "7hr2f89v44y65dyu9k92vprwn",
+                            "name": "USA"
+                        }
+                    }
+                ],
+                "venue": {
+                    "id": "cyhqrivrm8a3q2o4oj4bxooi1",
+                    "neutral": "no",
+                    "longName": "Al Lang Stadium",
+                    "shortName": "Al Lang Stadium"
+                }
+            },
+            "liveData": {
+                "matchDetails": {
+                    "periodId": 14,
+                    "matchStatus": "Played",
+                    "winner": "home",
+                    "matchLengthMin": 96,
+                    "matchLengthSec": 54,
+                    "period": [
+                        {
+                            "id": 1,
+                            "start": "2016-06-01T23:41:08Z",
+                            "end": "2016-06-02T00:27:08Z",
+                            "lengthMin": 46,
+                            "lengthSec": 0
+                        },
+                        {
+                            "id": 2,
+                            "start": "2016-06-02T00:44:56Z",
+                            "end": "2016-06-02T01:35:50Z",
+                            "lengthMin": 50,
+                            "lengthSec": 54
+                        }
+                    ],
+                    "scores": {
+                        "ht": {
+                            "home": 1,
+                            "away": 0
+                        },
+                        "ft": {
+                            "home": 1,
+                            "away": 0
+                        },
+                        "total": {
+                            "home": 1,
+                            "away": 0
+                        }
+                    }
+                },
+                "goal": [
+                    {
+                        "contestantId": "5qfq6cwtrgzd2szijivns7rjl",
+                        "periodId": 1,
+                        "timeMin": 11,
+                        "lastUpdated": "2018-05-13T20:50:54Z",
+                        "type": "G",
+                        "scorerId": "6lqhpdabrfjb5egd069l3yehh",
+                        "scorerName": "G. Hristov",
+                        "optaEventId": "964614456",
+                        "homeScore": 1,
+                        "awayScore": 0
+                    }
+                ],
+                "card": [
+                    {
+                        "contestantId": "652hppivbqchvrp3wopx1isyt",
+                        "periodId": 2,
+                        "timeMin": 70,
+                        "lastUpdated": "2021-02-11T19:17:46Z",
+                        "type": "YC",
+                        "playerId": "5ac09uothinet31s1890qnumt",
+                        "playerName": "K. Walker",
+                        "optaEventId": "1444044818",
+                        "cardReason": "Foul"
+                    },
+                    {
+                        "contestantId": "5qfq6cwtrgzd2szijivns7rjl",
+                        "periodId": 2,
+                        "timeMin": 78,
+                        "lastUpdated": "2025-03-27T21:16:43Z",
+                        "type": "YC",
+                        "playerId": "anklhk2phdsmbt84kumwvgvyt",
+                        "playerName": "D. King",
+                        "optaEventId": "1539724970",
+                        "cardReason": "Foul"
+                    },
+                    {
+                        "contestantId": "5qfq6cwtrgzd2szijivns7rjl",
+                        "periodId": 2,
+                        "timeMin": 91,
+                        "lastUpdated": "2018-11-13T11:57:55Z",
+                        "type": "YC",
+                        "playerId": "wf6ih47zgj6me89wweom5ck5",
+                        "playerName": "J. Cole",
+                        "optaEventId": "218102309",
+                        "cardReason": "Foul"
+                    },
+                    {
+                        "contestantId": "652hppivbqchvrp3wopx1isyt",
+                        "periodId": 2,
+                        "timeMin": 95,
+                        "lastUpdated": "2020-08-09T14:58:38Z",
+                        "type": "YC",
+                        "playerId": "104j1j066exq7cvaypkyvv2dx",
+                        "playerName": "P. McMahon",
+                        "optaEventId": "1177814718",
+                        "cardReason": "Foul"
+                    }
+                ],
+                "substitute": [
+                    {
+                        "contestantId": "652hppivbqchvrp3wopx1isyt",
+                        "periodId": 2,
+                        "timeMin": 46,
+                        "lastUpdated": "2025-02-22T10:01:24Z",
+                        "playerOnId": "8mnq6su69w3xyujz7n03n4zqh",
+                        "playerOnName": "E. Lee",
+                        "playerOffId": "ejnlwn82c1733yb58fkek1w45",
+                        "playerOffName": "P. Nicholson",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "5qfq6cwtrgzd2szijivns7rjl",
+                        "periodId": 2,
+                        "timeMin": 69,
+                        "lastUpdated": "2024-11-25T12:09:36Z",
+                        "playerOnId": "3qzhn017ek7vg09glq2vleqd",
+                        "playerOnName": "K. Alhassan",
+                        "playerOffId": "cijslwbc730evygvnzcqzuimt",
+                        "playerOffName": "E. Ávila",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "5qfq6cwtrgzd2szijivns7rjl",
+                        "periodId": 2,
+                        "timeMin": 77,
+                        "lastUpdated": "2020-10-05T16:02:47Z",
+                        "playerOnId": "8stk4kvilehgir7rcirkof651",
+                        "playerOnName": "D. Mwanga",
+                        "playerOffId": "76okt8p3c25abarxfemq46t3p",
+                        "playerOffName": "W. Ramírez",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "652hppivbqchvrp3wopx1isyt",
+                        "periodId": 2,
+                        "timeMin": 81,
+                        "lastUpdated": "2020-10-05T16:03:00Z",
+                        "playerOnId": "18onv7xvx194c51ow74g7y1ud",
+                        "playerOnName": "O. Cummings",
+                        "playerOffId": "ddberhwd5gjg8n877n9nhfo45",
+                        "playerOffName": "R. Tomaselli",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "5qfq6cwtrgzd2szijivns7rjl",
+                        "periodId": 2,
+                        "timeMin": 83,
+                        "lastUpdated": "2023-03-21T00:12:51Z",
+                        "playerOnId": "7h8l71u6stmnvt868a8ci2ndh",
+                        "playerOnName": "J. Chavez",
+                        "playerOffId": "ekd5grsk9i1ls5dt273gh1fbp",
+                        "playerOffName": "E. Burgos",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "652hppivbqchvrp3wopx1isyt",
+                        "periodId": 2,
+                        "timeMin": 88,
+                        "lastUpdated": "2023-03-31T16:35:49Z",
+                        "playerOnId": "cv8u1u1mvnd89t6sqhlheorth",
+                        "playerOnName": "A. Hoppenot",
+                        "playerOffId": "5ac09uothinet31s1890qnumt",
+                        "playerOffName": "K. Walker",
+                        "subReason": "Tactical"
+                    }
+                ],
+                "matchDetailsExtra": {
+                    "attendance": "3455",
+                    "matchOfficial": [
+                        {
+                            "id": "57fl1w0qtgkewi3ebx225crth",
+                            "type": "Main",
+                            "firstName": "Rubiel",
+                            "lastName": "Vazquez",
+                            "shortFirstName": "Rubiel",
+                            "shortLastName": "Vazquez"
+                        },
+                        {
+                            "id": "bgejxr41ut0ryucd0rg30msb9",
+                            "type": "Assistant referee 1",
+                            "firstName": "Daniel",
+                            "lastName": "Gutierrez",
+                            "shortFirstName": "Daniel",
+                            "shortLastName": "Gutierrez"
+                        },
+                        {
+                            "id": "brr2nd7v048tait23iii0ghjp",
+                            "type": "Assistant referee 2",
+                            "firstName": "Hassan",
+                            "lastName": "Belmnahia",
+                            "shortFirstName": "Hassan",
+                            "shortLastName": "Belmnahia"
+                        },
+                        {
+                            "id": "8o7980rqe70r18luuxselt3o5",
+                            "type": "Fourth official",
+                            "firstName": "Janessa",
+                            "lastName": "Gunn",
+                            "shortFirstName": "Janessa",
+                            "shortLastName": "Gunn"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "matchInfo": {
+                "id": "bceie85rjllip8vdq2m27ig2x",
+                "coverageLevel": "5",
+                "date": "2016-05-18Z",
+                "time": "23:00:00Z",
+                "localDate": "2016-05-18",
+                "localTime": "19:00:00",
+                "numberOfPeriods": 2,
+                "periodLength": 45,
+                "overtimeLength": 15,
+                "lastUpdated": "2025-02-10T09:54:04Z",
+                "description": "Cincinnati vs Indy Eleven NPSL",
+                "sport": {
+                    "id": "289u5typ3vp4ifwh5thalohmq",
+                    "name": "Soccer"
+                },
+                "ruleset": {
+                    "id": "79plas4983031idr6vw83nuel",
+                    "name": "Men"
+                },
+                "competition": {
+                    "id": "2bmwykmdlcc2u1c40ytoc39vy",
+                    "name": "US Open Cup",
+                    "knownName": "US Open Cup",
+                    "competitionCode": "UOC",
+                    "competitionFormat": "Domestic cup",
+                    "country": {
+                        "id": "7hr2f89v44y65dyu9k92vprwn",
+                        "name": "USA"
+                    }
+                },
+                "tournamentCalendar": {
+                    "id": "jd3ycveqnkjvntl7b8wndb6x",
+                    "startDate": "2016-05-11Z",
+                    "endDate": "2016-09-14Z",
+                    "name": "2016"
+                },
+                "stage": {
+                    "id": "dsdnnige4ewix5rkr2ox65x8f",
+                    "formatId": "8cdpi9d29bu9gim4bl5m8ijth",
+                    "startDate": "2016-05-19Z",
+                    "endDate": "2016-05-20Z",
+                    "name": "2nd Round"
+                },
+                "contestant": [
+                    {
+                        "id": "652hppivbqchvrp3wopx1isyt",
+                        "name": "Cincinnati",
+                        "shortName": "Cincinnati",
+                        "officialName": "FC Cincinnati",
+                        "code": "CIN",
+                        "position": "home",
+                        "country": {
+                            "id": "7hr2f89v44y65dyu9k92vprwn",
+                            "name": "USA"
+                        }
+                    },
+                    {
+                        "id": "9arb15s95j3isqc8br43ev7ll",
+                        "name": "Indy Eleven NPSL",
+                        "shortName": "Indy Eleven",
+                        "officialName": "Indy Eleven NPSL",
+                        "code": "I11",
+                        "position": "away",
+                        "country": {
+                            "id": "7hr2f89v44y65dyu9k92vprwn",
+                            "name": "USA"
+                        }
+                    }
+                ],
+                "venue": {
+                    "id": "3yeccl8kzb9thw0x5ikuiy9yh",
+                    "neutral": "no",
+                    "longName": "Nippert Stadium",
+                    "shortName": "Nippert Stadium"
+                }
+            },
+            "liveData": {
+                "matchDetails": {
+                    "periodId": 14,
+                    "matchStatus": "Played",
+                    "winner": "home",
+                    "scores": {
+                        "ht": {
+                            "home": 1,
+                            "away": 1
+                        },
+                        "ft": {
+                            "home": 2,
+                            "away": 1
+                        },
+                        "total": {
+                            "home": 2,
+                            "away": 1
+                        }
+                    }
+                },
+                "goal": [
+                    {
+                        "contestantId": "652hppivbqchvrp3wopx1isyt",
+                        "periodId": 1,
+                        "timeMin": 36,
+                        "lastUpdated": "2020-10-05T16:03:00Z",
+                        "type": "PG",
+                        "scorerId": "18onv7xvx194c51ow74g7y1ud",
+                        "scorerName": "O. Cummings",
+                        "homeScore": 1,
+                        "awayScore": 0
+                    },
+                    {
+                        "contestantId": "9arb15s95j3isqc8br43ev7ll",
+                        "periodId": 1,
+                        "timeMin": 39,
+                        "lastUpdated": "2016-05-31T13:41:33Z",
+                        "type": "G",
+                        "scorerId": "6qwmp2u7byqitahw2nhvz9ucp",
+                        "scorerName": "V. Mitchell",
+                        "homeScore": 1,
+                        "awayScore": 1
+                    },
+                    {
+                        "contestantId": "652hppivbqchvrp3wopx1isyt",
+                        "periodId": 2,
+                        "timeMin": 61,
+                        "lastUpdated": "2021-05-13T16:50:38Z",
+                        "type": "G",
+                        "scorerId": "5fvke7tc7bgvaodffpdpayg9h",
+                        "scorerName": "J. McLaughlin",
+                        "homeScore": 2,
+                        "awayScore": 1
+                    }
+                ]
+            }
+        }
+    ]
+}

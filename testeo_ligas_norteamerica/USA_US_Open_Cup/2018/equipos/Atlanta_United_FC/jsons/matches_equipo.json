@@ -1,0 +1,552 @@
+{
+    "match": [
+        {
+            "matchInfo": {
+                "id": "46lfatpo65rm6mnxozx3b2p2i",
+                "coverageLevel": "13",
+                "date": "2018-06-20Z",
+                "time": "23:30:00Z",
+                "localDate": "2018-06-20",
+                "localTime": "19:30:00",
+                "numberOfPeriods": 2,
+                "periodLength": 45,
+                "overtimeLength": 15,
+                "lastUpdated": "2025-03-27T17:20:09Z",
+                "description": "Atlanta United vs Chicago Fire",
+                "sport": {
+                    "id": "289u5typ3vp4ifwh5thalohmq",
+                    "name": "Soccer"
+                },
+                "ruleset": {
+                    "id": "79plas4983031idr6vw83nuel",
+                    "name": "Men"
+                },
+                "competition": {
+                    "id": "2bmwykmdlcc2u1c40ytoc39vy",
+                    "name": "US Open Cup",
+                    "knownName": "US Open Cup",
+                    "competitionCode": "UOC",
+                    "competitionFormat": "Domestic cup",
+                    "country": {
+                        "id": "7hr2f89v44y65dyu9k92vprwn",
+                        "name": "USA"
+                    }
+                },
+                "tournamentCalendar": {
+                    "id": "cxw5w4qfd7logmfcqvoby2noq",
+                    "startDate": "2018-05-07Z",
+                    "endDate": "2018-09-27Z",
+                    "name": "2018"
+                },
+                "stage": {
+                    "id": "cylunr8rcftvzneqqltmzk8dm",
+                    "formatId": "614sqb9421oaflw5mpvvm9uj9",
+                    "startDate": "2018-06-16Z",
+                    "endDate": "2018-06-21Z",
+                    "name": "8th Finals"
+                },
+                "contestant": [
+                    {
+                        "id": "943ue6l8ylnidoygbi9p8op2h",
+                        "name": "Atlanta United",
+                        "shortName": "Atlanta United",
+                        "officialName": "Atlanta United FC",
+                        "code": "ATL",
+                        "position": "home",
+                        "country": {
+                            "id": "7hr2f89v44y65dyu9k92vprwn",
+                            "name": "USA"
+                        }
+                    },
+                    {
+                        "id": "apsqaaege20za4re5wm6bzq9a",
+                        "name": "Chicago Fire",
+                        "shortName": "Chicago",
+                        "officialName": "Chicago Fire FC",
+                        "code": "CHI",
+                        "position": "away",
+                        "country": {
+                            "id": "7hr2f89v44y65dyu9k92vprwn",
+                            "name": "USA"
+                        }
+                    }
+                ],
+                "venue": {
+                    "id": "bqr8mu8mh3p6lyquyi152deui",
+                    "neutral": "no",
+                    "longName": "Mercedes-Benz Stadium",
+                    "shortName": "Mercedes-Benz Stadium"
+                }
+            },
+            "liveData": {
+                "matchDetails": {
+                    "periodId": 14,
+                    "matchStatus": "Played",
+                    "winner": "away",
+                    "matchLengthMin": 95,
+                    "matchLengthSec": 25,
+                    "period": [
+                        {
+                            "id": 1,
+                            "start": "2018-06-20T23:32:12Z",
+                            "end": "2018-06-21T00:18:15Z",
+                            "lengthMin": 46,
+                            "lengthSec": 3
+                        },
+                        {
+                            "id": 2,
+                            "start": "2018-06-21T00:35:00Z",
+                            "end": "2018-06-21T01:24:22Z",
+                            "lengthMin": 49,
+                            "lengthSec": 22
+                        }
+                    ],
+                    "scores": {
+                        "ht": {
+                            "home": 0,
+                            "away": 0
+                        },
+                        "ft": {
+                            "home": 0,
+                            "away": 1
+                        },
+                        "total": {
+                            "home": 0,
+                            "away": 1
+                        }
+                    }
+                },
+                "goal": [
+                    {
+                        "contestantId": "apsqaaege20za4re5wm6bzq9a",
+                        "periodId": 2,
+                        "timeMin": 54,
+                        "timeMinSec": "53:47",
+                        "lastUpdated": "2021-06-02T15:47:51Z",
+                        "type": "G",
+                        "scorerId": "c8kvvkwlono7cv79t61gsydhx",
+                        "scorerName": "N. Nikolić",
+                        "assistPlayerId": "516ygtbil1p6hyupo2162frv9",
+                        "assistPlayerName": "L. Solignac",
+                        "optaEventId": "1297309376",
+                        "homeScore": 0,
+                        "awayScore": 1
+                    }
+                ],
+                "card": [
+                    {
+                        "contestantId": "apsqaaege20za4re5wm6bzq9a",
+                        "periodId": 1,
+                        "timeMin": 39,
+                        "timeMinSec": "38:44",
+                        "lastUpdated": "2023-09-16T20:35:48Z",
+                        "type": "YC",
+                        "playerId": "3oub3l3mryzafp6wobgjbgxjp",
+                        "playerName": "A. Katai",
+                        "optaEventId": "1705718869",
+                        "cardReason": "Foul"
+                    },
+                    {
+                        "contestantId": "943ue6l8ylnidoygbi9p8op2h",
+                        "periodId": 2,
+                        "timeMin": 81,
+                        "timeMinSec": "80:27",
+                        "lastUpdated": "2024-03-20T14:28:20Z",
+                        "type": "YC",
+                        "playerId": "7ruqyuqr8iil24sejip7mremt",
+                        "playerName": "L. González",
+                        "optaEventId": "1637081345",
+                        "cardReason": "Foul"
+                    }
+                ],
+                "substitute": [
+                    {
+                        "contestantId": "943ue6l8ylnidoygbi9p8op2h",
+                        "periodId": 2,
+                        "timeMin": 62,
+                        "timeMinSec": "61:13",
+                        "lastUpdated": "2024-07-16T10:36:47Z",
+                        "playerOnId": "9crw9og5xe70mc0m1etggpdk9",
+                        "playerOnName": "E. Barco",
+                        "playerOffId": "mjey6km17mz37bjy96v785ih",
+                        "playerOffName": "B. Vázquez",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "943ue6l8ylnidoygbi9p8op2h",
+                        "periodId": 2,
+                        "timeMin": 62,
+                        "timeMinSec": "61:19",
+                        "lastUpdated": "2024-03-05T18:19:20Z",
+                        "playerOnId": "d1e82ijf1k8jt10dxrrqfslw5",
+                        "playerOnName": "J. Gressel",
+                        "playerOffId": "6i2lftpxtsvjcdug1mflh8v6d",
+                        "playerOffName": "K. Kratz",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "apsqaaege20za4re5wm6bzq9a",
+                        "periodId": 2,
+                        "timeMin": 65,
+                        "timeMinSec": "64:07",
+                        "lastUpdated": "2020-10-05T16:03:10Z",
+                        "playerOnId": "drg3v7974zszuaaltfys5teqd",
+                        "playerOnName": "K. Ellis",
+                        "playerOffId": "991l8wbi9cfhm2pmyid7cle22",
+                        "playerOffName": "D. Campos",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "apsqaaege20za4re5wm6bzq9a",
+                        "periodId": 2,
+                        "timeMin": 78,
+                        "timeMinSec": "78:00",
+                        "lastUpdated": "2019-09-12T00:19:43Z",
+                        "playerOnId": "b4fisyd57o49077v5nwv9ex91",
+                        "playerOnName": "T. Tchani",
+                        "playerOffId": "c8kvvkwlono7cv79t61gsydhx",
+                        "playerOffName": "N. Nikolić",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "943ue6l8ylnidoygbi9p8op2h",
+                        "periodId": 2,
+                        "timeMin": 87,
+                        "timeMinSec": "86:41",
+                        "lastUpdated": "2020-08-09T07:46:51Z",
+                        "playerOnId": "bkhfbvpl7ahh68a53d2ykqmll",
+                        "playerOnName": "A. Carleton",
+                        "playerOffId": "e5943gbco6auoe61tswisvyl1",
+                        "playerOffName": "S. Zizzo",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "apsqaaege20za4re5wm6bzq9a",
+                        "periodId": 2,
+                        "timeMin": 94,
+                        "timeMinSec": "93:17",
+                        "lastUpdated": "2018-06-21T01:23:23Z",
+                        "playerOnId": "d8ghjah6w8n3c0q2uvhuuuw9h",
+                        "playerOnName": "A. Gordon",
+                        "playerOffId": "3oub3l3mryzafp6wobgjbgxjp",
+                        "playerOffName": "A. Katai",
+                        "subReason": "Tactical"
+                    }
+                ],
+                "matchDetailsExtra": {
+                    "attendance": "41012",
+                    "matchOfficial": [
+                        {
+                            "id": "57fl1w0qtgkewi3ebx225crth",
+                            "type": "Main",
+                            "firstName": "Rubiel",
+                            "lastName": "Vazquez",
+                            "shortFirstName": "Rubiel",
+                            "shortLastName": "Vazquez"
+                        },
+                        {
+                            "id": "2sa2puirlgg0rs8pabhwc49g5",
+                            "type": "Assistant referee 1",
+                            "firstName": "Nick",
+                            "lastName": "Uranga",
+                            "shortFirstName": "Nick",
+                            "shortLastName": "Uranga"
+                        },
+                        {
+                            "id": "4ysr368xfm1nwss1gz8t52p5h",
+                            "type": "Assistant referee 2",
+                            "firstName": "Danny",
+                            "lastName": "Thornberry",
+                            "shortFirstName": "Danny",
+                            "shortLastName": "Thornberry"
+                        },
+                        {
+                            "id": "a0w65ztovn6kv3tgizwv2atm2",
+                            "type": "Fourth official",
+                            "firstName": "Sergii",
+                            "lastName": "Demianchuk",
+                            "shortFirstName": "Sergii",
+                            "shortLastName": "Demianchuk"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "matchInfo": {
+                "id": "f2i2swtv8dykstwbrdsgl1kdm",
+                "coverageLevel": "13",
+                "date": "2018-06-06Z",
+                "time": "23:30:00Z",
+                "localDate": "2018-06-06",
+                "localTime": "19:30:00",
+                "numberOfPeriods": 2,
+                "periodLength": 45,
+                "overtimeLength": 15,
+                "lastUpdated": "2025-03-16T01:44:09Z",
+                "description": "Atlanta United vs Charleston Battery",
+                "sport": {
+                    "id": "289u5typ3vp4ifwh5thalohmq",
+                    "name": "Soccer"
+                },
+                "ruleset": {
+                    "id": "79plas4983031idr6vw83nuel",
+                    "name": "Men"
+                },
+                "competition": {
+                    "id": "2bmwykmdlcc2u1c40ytoc39vy",
+                    "name": "US Open Cup",
+                    "knownName": "US Open Cup",
+                    "competitionCode": "UOC",
+                    "competitionFormat": "Domestic cup",
+                    "country": {
+                        "id": "7hr2f89v44y65dyu9k92vprwn",
+                        "name": "USA"
+                    }
+                },
+                "tournamentCalendar": {
+                    "id": "cxw5w4qfd7logmfcqvoby2noq",
+                    "startDate": "2018-05-07Z",
+                    "endDate": "2018-09-27Z",
+                    "name": "2018"
+                },
+                "stage": {
+                    "id": "cyjrh8z3yjxoxd2y9dzkqqnai",
+                    "formatId": "1nwzmep86chmczxs7a7iu97md",
+                    "startDate": "2018-06-06Z",
+                    "endDate": "2018-06-07Z",
+                    "name": "4th Round"
+                },
+                "contestant": [
+                    {
+                        "id": "943ue6l8ylnidoygbi9p8op2h",
+                        "name": "Atlanta United",
+                        "shortName": "Atlanta United",
+                        "officialName": "Atlanta United FC",
+                        "code": "ATL",
+                        "position": "home",
+                        "country": {
+                            "id": "7hr2f89v44y65dyu9k92vprwn",
+                            "name": "USA"
+                        }
+                    },
+                    {
+                        "id": "e3k8yw2rbmphyfu5htn4yi5jk",
+                        "name": "Charleston Battery",
+                        "shortName": "Charleston",
+                        "officialName": "Charleston Battery",
+                        "code": "CHS",
+                        "position": "away",
+                        "country": {
+                            "id": "7hr2f89v44y65dyu9k92vprwn",
+                            "name": "USA"
+                        }
+                    }
+                ],
+                "venue": {
+                    "id": "bcpwtm78jzrbdcu3nxtki805x",
+                    "neutral": "no",
+                    "longName": "Fifth Third Bank Stadium",
+                    "shortName": "Fifth Third Bank Stadium"
+                }
+            },
+            "liveData": {
+                "matchDetails": {
+                    "periodId": 14,
+                    "matchStatus": "Played",
+                    "winner": "home",
+                    "matchLengthMin": 94,
+                    "matchLengthSec": 21,
+                    "period": [
+                        {
+                            "id": 1,
+                            "start": "2018-06-06T23:33:07Z",
+                            "end": "2018-06-07T00:19:18Z",
+                            "lengthMin": 46,
+                            "lengthSec": 11
+                        },
+                        {
+                            "id": 2,
+                            "start": "2018-06-07T00:36:13Z",
+                            "end": "2018-06-07T01:24:23Z",
+                            "lengthMin": 48,
+                            "lengthSec": 10
+                        }
+                    ],
+                    "scores": {
+                        "ht": {
+                            "home": 1,
+                            "away": 0
+                        },
+                        "ft": {
+                            "home": 3,
+                            "away": 0
+                        },
+                        "total": {
+                            "home": 3,
+                            "away": 0
+                        }
+                    }
+                },
+                "goal": [
+                    {
+                        "contestantId": "943ue6l8ylnidoygbi9p8op2h",
+                        "periodId": 1,
+                        "timeMin": 14,
+                        "timeMinSec": "13:54",
+                        "lastUpdated": "2020-08-09T07:46:51Z",
+                        "type": "G",
+                        "scorerId": "bkhfbvpl7ahh68a53d2ykqmll",
+                        "scorerName": "A. Carleton",
+                        "assistPlayerId": "d1e82ijf1k8jt10dxrrqfslw5",
+                        "assistPlayerName": "J. Gressel",
+                        "optaEventId": "1775091750",
+                        "homeScore": 1,
+                        "awayScore": 0
+                    },
+                    {
+                        "contestantId": "943ue6l8ylnidoygbi9p8op2h",
+                        "periodId": 2,
+                        "timeMin": 47,
+                        "timeMinSec": "46:31",
+                        "lastUpdated": "2024-07-16T10:36:47Z",
+                        "type": "PG",
+                        "scorerId": "9crw9og5xe70mc0m1etggpdk9",
+                        "scorerName": "E. Barco",
+                        "optaEventId": "1233176620",
+                        "homeScore": 2,
+                        "awayScore": 0
+                    },
+                    {
+                        "contestantId": "943ue6l8ylnidoygbi9p8op2h",
+                        "periodId": 2,
+                        "timeMin": 64,
+                        "timeMinSec": "64:00",
+                        "lastUpdated": "2024-03-07T18:00:23Z",
+                        "type": "G",
+                        "scorerId": "a2bwi8risp0a9q88cno5wlihh",
+                        "scorerName": "R. Williams",
+                        "assistPlayerId": "9crw9og5xe70mc0m1etggpdk9",
+                        "assistPlayerName": "E. Barco",
+                        "optaEventId": "1277001042",
+                        "homeScore": 3,
+                        "awayScore": 0
+                    }
+                ],
+                "card": [
+                    {
+                        "contestantId": "e3k8yw2rbmphyfu5htn4yi5jk",
+                        "periodId": 2,
+                        "timeMin": 86,
+                        "timeMinSec": "85:01",
+                        "lastUpdated": "2022-03-31T14:28:54Z",
+                        "type": "YC",
+                        "playerId": "1qy6habugg41z0xmgrm2by86h",
+                        "playerName": "V. Candela",
+                        "optaEventId": "1128245630",
+                        "cardReason": "Foul"
+                    }
+                ],
+                "substitute": [
+                    {
+                        "contestantId": "e3k8yw2rbmphyfu5htn4yi5jk",
+                        "periodId": 2,
+                        "timeMin": 56,
+                        "timeMinSec": "55:09",
+                        "lastUpdated": "2020-11-14T19:52:47Z",
+                        "playerOnId": "dzv8m8vrfyaggjdkn4jxzalzp",
+                        "playerOnName": "N. Rittmeyer",
+                        "playerOffId": "bqclw3gr0tdyt47lsoeuy90id",
+                        "playerOffName": "O. Woodbine",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "943ue6l8ylnidoygbi9p8op2h",
+                        "periodId": 2,
+                        "timeMin": 71,
+                        "timeMinSec": "70:42",
+                        "lastUpdated": "2023-03-31T16:39:26Z",
+                        "playerOnId": "f3gh5dq60yb84ngww3uj6ct7t",
+                        "playerOnName": "A. Wheeler-Omiunu",
+                        "playerOffId": "d1e82ijf1k8jt10dxrrqfslw5",
+                        "playerOffName": "J. Gressel",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "e3k8yw2rbmphyfu5htn4yi5jk",
+                        "periodId": 2,
+                        "timeMin": 74,
+                        "timeMinSec": "73:36",
+                        "lastUpdated": "2021-02-11T17:40:17Z",
+                        "playerOnId": "coxaq9p6ottf9z6ilyzntl42x",
+                        "playerOnName": "J. Bolt",
+                        "playerOffId": "2w7w1l7lwhu2u6nhvqg1bnd2h",
+                        "playerOffName": "N. Hackshaw",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "e3k8yw2rbmphyfu5htn4yi5jk",
+                        "periodId": 2,
+                        "timeMin": 82,
+                        "timeMinSec": "81:15",
+                        "lastUpdated": "2024-08-10T21:50:54Z",
+                        "playerOnId": "907nz1feumzdb125rzlh85w5",
+                        "playerOnName": "V. Mansaray",
+                        "playerOffId": "6gbmjgjyf3h1mu0jmw84o2fv9",
+                        "playerOffName": "A. Guerra",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "943ue6l8ylnidoygbi9p8op2h",
+                        "periodId": 2,
+                        "timeMin": 86,
+                        "timeMinSec": "85:44",
+                        "lastUpdated": "2021-07-29T22:01:56Z",
+                        "playerOnId": "474oxdp0js1hjuul5jnvoyhgp",
+                        "playerOnName": "C. Goslin",
+                        "playerOffId": "9crw9og5xe70mc0m1etggpdk9",
+                        "playerOffName": "E. Barco",
+                        "subReason": "Tactical"
+                    }
+                ],
+                "matchDetailsExtra": {
+                    "attendance": "9742",
+                    "matchOfficial": [
+                        {
+                            "id": "8siongf4zmzqxf8stlwm3t0wl",
+                            "type": "Main",
+                            "firstName": "Guido",
+                            "lastName": "Gonzalez",
+                            "shortFirstName": "Guido",
+                            "shortLastName": "Gonzales Jr."
+                        },
+                        {
+                            "id": "2sa2puirlgg0rs8pabhwc49g5",
+                            "type": "Assistant referee 1",
+                            "firstName": "Nick",
+                            "lastName": "Uranga",
+                            "shortFirstName": "Nick",
+                            "shortLastName": "Uranga"
+                        },
+                        {
+                            "id": "7g8tk67sjfgv8046dixymx0x5",
+                            "type": "Assistant referee 2",
+                            "firstName": "Brian",
+                            "lastName": "Marshall",
+                            "shortFirstName": "Brian",
+                            "shortLastName": "Marshall"
+                        },
+                        {
+                            "id": "bza8kv2jqn8gxfrutiwtfl5ka",
+                            "type": "Fourth official",
+                            "firstName": "Kevin",
+                            "lastName": "Huet",
+                            "shortFirstName": "Kevin",
+                            "shortLastName": "Huet"
+                        }
+                    ]
+                }
+            }
+        }
+    ]
+}

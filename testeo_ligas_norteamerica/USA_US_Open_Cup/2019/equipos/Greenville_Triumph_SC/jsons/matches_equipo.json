@@ -1,0 +1,586 @@
+{
+    "match": [
+        {
+            "matchInfo": {
+                "id": "44ox4ad1ieln9gpz3hdj486ei",
+                "coverageLevel": "13",
+                "date": "2019-05-15Z",
+                "time": "23:00:00Z",
+                "localDate": "2019-05-15",
+                "localTime": "19:00:00",
+                "numberOfPeriods": 2,
+                "periodLength": 45,
+                "overtimeLength": 15,
+                "lastUpdated": "2025-02-19T14:21:44Z",
+                "description": "Greenville Triumph vs Charleston Battery",
+                "sport": {
+                    "id": "289u5typ3vp4ifwh5thalohmq",
+                    "name": "Soccer"
+                },
+                "ruleset": {
+                    "id": "79plas4983031idr6vw83nuel",
+                    "name": "Men"
+                },
+                "competition": {
+                    "id": "2bmwykmdlcc2u1c40ytoc39vy",
+                    "name": "US Open Cup",
+                    "knownName": "US Open Cup",
+                    "competitionCode": "UOC",
+                    "competitionFormat": "Domestic cup",
+                    "country": {
+                        "id": "7hr2f89v44y65dyu9k92vprwn",
+                        "name": "USA"
+                    }
+                },
+                "tournamentCalendar": {
+                    "id": "c7tmg7pxkutef9ymogovz4huy",
+                    "startDate": "2019-05-08Z",
+                    "endDate": "2019-08-28Z",
+                    "name": "2019"
+                },
+                "stage": {
+                    "id": "c8l1yjl6nu5vyvc2t9dfiub8q",
+                    "formatId": "8cdpi9d29bu9gim4bl5m8ijth",
+                    "startDate": "2019-05-15Z",
+                    "endDate": "2019-05-16Z",
+                    "name": "2nd Round"
+                },
+                "contestant": [
+                    {
+                        "id": "9feqf3iawhgmv76pzwdebdv8q",
+                        "name": "Greenville Triumph",
+                        "shortName": "Greenville",
+                        "officialName": "Greenville Triumph SC",
+                        "code": "GVL",
+                        "position": "home",
+                        "country": {
+                            "id": "7hr2f89v44y65dyu9k92vprwn",
+                            "name": "USA"
+                        }
+                    },
+                    {
+                        "id": "e3k8yw2rbmphyfu5htn4yi5jk",
+                        "name": "Charleston Battery",
+                        "shortName": "Charleston",
+                        "officialName": "Charleston Battery",
+                        "code": "CHS",
+                        "position": "away",
+                        "country": {
+                            "id": "7hr2f89v44y65dyu9k92vprwn",
+                            "name": "USA"
+                        }
+                    }
+                ],
+                "venue": {
+                    "id": "7guh7r0p1hlw7lq5vn2n81b3e",
+                    "neutral": "no",
+                    "longName": "Triumph Stadium at Legacy Early College",
+                    "shortName": "Triumph Stadium at Legacy Early College"
+                }
+            },
+            "liveData": {
+                "matchDetails": {
+                    "periodId": 14,
+                    "matchStatus": "Played",
+                    "winner": "away",
+                    "matchLengthMin": 96,
+                    "matchLengthSec": 5,
+                    "period": [
+                        {
+                            "id": 1,
+                            "start": "2019-05-15T23:05:52Z",
+                            "end": "2019-05-15T23:52:54Z",
+                            "lengthMin": 47,
+                            "lengthSec": 2
+                        },
+                        {
+                            "id": 2,
+                            "start": "2019-05-16T00:08:19Z",
+                            "end": "2019-05-16T00:57:22Z",
+                            "lengthMin": 49,
+                            "lengthSec": 3
+                        }
+                    ],
+                    "scores": {
+                        "ht": {
+                            "home": 1,
+                            "away": 0
+                        },
+                        "ft": {
+                            "home": 1,
+                            "away": 2
+                        },
+                        "total": {
+                            "home": 1,
+                            "away": 2
+                        }
+                    }
+                },
+                "goal": [
+                    {
+                        "contestantId": "9feqf3iawhgmv76pzwdebdv8q",
+                        "periodId": 1,
+                        "timeMin": 29,
+                        "timeMinSec": "28:59",
+                        "lastUpdated": "2022-02-24T21:36:47Z",
+                        "type": "G",
+                        "scorerId": "f0pvxeyui9i0jz7bigb8cfx0p",
+                        "scorerName": "M. Hemmings",
+                        "assistPlayerId": "3uyvzfylq1i5xnl6i90uap6uh",
+                        "assistPlayerName": "A. Walker",
+                        "optaEventId": "1420041125",
+                        "homeScore": 1,
+                        "awayScore": 0
+                    },
+                    {
+                        "contestantId": "e3k8yw2rbmphyfu5htn4yi5jk",
+                        "periodId": 2,
+                        "timeMin": 79,
+                        "timeMinSec": "78:32",
+                        "lastUpdated": "2019-08-30T10:45:56Z",
+                        "type": "G",
+                        "scorerId": "bnobrhh9dyw6ywrysq2y1jgt1",
+                        "scorerName": "I. Svantesson",
+                        "optaEventId": "1935286356",
+                        "homeScore": 1,
+                        "awayScore": 1
+                    },
+                    {
+                        "contestantId": "e3k8yw2rbmphyfu5htn4yi5jk",
+                        "periodId": 2,
+                        "timeMin": 91,
+                        "timeMinSec": "90:13",
+                        "lastUpdated": "2019-08-30T10:45:56Z",
+                        "type": "G",
+                        "scorerId": "bnobrhh9dyw6ywrysq2y1jgt1",
+                        "scorerName": "I. Svantesson",
+                        "assistPlayerId": "d1ftmvmdr1o6d19qwk6zaaiju",
+                        "assistPlayerName": "K. Nelson",
+                        "optaEventId": "1934875700",
+                        "homeScore": 1,
+                        "awayScore": 2
+                    }
+                ],
+                "card": [
+                    {
+                        "contestantId": "e3k8yw2rbmphyfu5htn4yi5jk",
+                        "periodId": 1,
+                        "timeMin": 4,
+                        "timeMinSec": "3:17",
+                        "lastUpdated": "2020-08-08T11:21:15Z",
+                        "type": "YC",
+                        "playerId": "ay3xse6n4dj7f9wsg058p6ndh",
+                        "playerName": "J. van Schaik",
+                        "optaEventId": "1647975804",
+                        "cardReason": "Foul"
+                    },
+                    {
+                        "contestantId": "9feqf3iawhgmv76pzwdebdv8q",
+                        "periodId": 1,
+                        "timeMin": 19,
+                        "timeMinSec": "18:20",
+                        "lastUpdated": "2019-09-11T12:28:24Z",
+                        "type": "YC",
+                        "playerId": "3ivdfynwv7yf8tvgy8uto3aol",
+                        "playerName": "P. Clowes",
+                        "optaEventId": "1131100352",
+                        "cardReason": "Foul"
+                    }
+                ],
+                "substitute": [
+                    {
+                        "contestantId": "9feqf3iawhgmv76pzwdebdv8q",
+                        "periodId": 2,
+                        "timeMin": 46,
+                        "timeMinSec": "45:00",
+                        "lastUpdated": "2019-09-11T12:28:36Z",
+                        "playerOnId": "dtkckxt7m78cddxmyvm702r8q",
+                        "playerOnName": "D. Boland",
+                        "playerOffId": "3ivdfynwv7yf8tvgy8uto3aol",
+                        "playerOffName": "P. Clowes",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "e3k8yw2rbmphyfu5htn4yi5jk",
+                        "periodId": 2,
+                        "timeMin": 60,
+                        "timeMinSec": "59:44",
+                        "lastUpdated": "2023-03-18T00:43:53Z",
+                        "playerOnId": "97d846tm7ngsjqwkbz8xm3alm",
+                        "playerOnName": "A. Bosua",
+                        "playerOffId": "8envagj4daoc5ni22kpi98c89",
+                        "playerOffName": "K. Higashi",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "9feqf3iawhgmv76pzwdebdv8q",
+                        "periodId": 2,
+                        "timeMin": 67,
+                        "timeMinSec": "66:37",
+                        "lastUpdated": "2019-09-11T12:28:41Z",
+                        "playerOnId": "9qtn2000da9a0x8fpro0agwh6",
+                        "playerOnName": "E. Robinson",
+                        "playerOffId": "7q548j1wgmjqrwiis5qw4xpsl",
+                        "playerOffName": "O. Mohomed",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "e3k8yw2rbmphyfu5htn4yi5jk",
+                        "periodId": 2,
+                        "timeMin": 70,
+                        "timeMinSec": "69:46",
+                        "lastUpdated": "2019-08-30T10:45:56Z",
+                        "playerOnId": "bnobrhh9dyw6ywrysq2y1jgt1",
+                        "playerOnName": "I. Svantesson",
+                        "playerOffId": "9vmkraasuy4r0myv3ov3thotl",
+                        "playerOffName": "N. Daley",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "9feqf3iawhgmv76pzwdebdv8q",
+                        "periodId": 2,
+                        "timeMin": 91,
+                        "timeMinSec": "91:00",
+                        "lastUpdated": "2022-08-03T08:47:32Z",
+                        "playerOnId": "dhc0qpcxud7h64y5hx39bd9wq",
+                        "playerOnName": "Carlos Gómez",
+                        "playerOffId": "9ti1lmtxr7hnv7bgu5mklv93p",
+                        "playerOffName": "C. Seiler",
+                        "subReason": "Tactical"
+                    }
+                ],
+                "matchDetailsExtra": {
+                    "attendance": "1738",
+                    "matchOfficial": [
+                        {
+                            "id": "13c1iu0onsko691pthfqotfpx",
+                            "type": "Main",
+                            "firstName": "David",
+                            "lastName": "Erbacher",
+                            "shortFirstName": "David",
+                            "shortLastName": "Erbacher"
+                        },
+                        {
+                            "id": "7g8tk67sjfgv8046dixymx0x5",
+                            "type": "Assistant referee 1",
+                            "firstName": "Brian",
+                            "lastName": "Marshall",
+                            "shortFirstName": "Brian",
+                            "shortLastName": "Marshall"
+                        },
+                        {
+                            "id": "4o86b9tcsac2uvi2342ecns6i",
+                            "type": "Assistant referee 2",
+                            "firstName": "Zach",
+                            "lastName": "Mcwhorter",
+                            "shortFirstName": "Zach",
+                            "shortLastName": "Mcwhorter"
+                        },
+                        {
+                            "id": "3xdtymszmloaj4y52pdu66ig9",
+                            "type": "Fourth official",
+                            "firstName": "Wilmer",
+                            "lastName": "Soriano",
+                            "shortFirstName": "Wilmer",
+                            "shortLastName": "Soriano"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "matchInfo": {
+                "id": "8jlhbqvkfnsdjb5iyl7ps7dyi",
+                "coverageLevel": "13",
+                "date": "2019-05-08Z",
+                "time": "23:00:00Z",
+                "localDate": "2019-05-08",
+                "localTime": "19:00:00",
+                "numberOfPeriods": 2,
+                "periodLength": 45,
+                "overtimeLength": 15,
+                "lastUpdated": "2025-01-13T00:46:12Z",
+                "description": "Greenville Triumph vs Tormenta",
+                "sport": {
+                    "id": "289u5typ3vp4ifwh5thalohmq",
+                    "name": "Soccer"
+                },
+                "ruleset": {
+                    "id": "79plas4983031idr6vw83nuel",
+                    "name": "Men"
+                },
+                "competition": {
+                    "id": "2bmwykmdlcc2u1c40ytoc39vy",
+                    "name": "US Open Cup",
+                    "knownName": "US Open Cup",
+                    "competitionCode": "UOC",
+                    "competitionFormat": "Domestic cup",
+                    "country": {
+                        "id": "7hr2f89v44y65dyu9k92vprwn",
+                        "name": "USA"
+                    }
+                },
+                "tournamentCalendar": {
+                    "id": "c7tmg7pxkutef9ymogovz4huy",
+                    "startDate": "2019-05-08Z",
+                    "endDate": "2019-08-28Z",
+                    "name": "2019"
+                },
+                "stage": {
+                    "id": "c8hc5gwyib3kl7l7egddfl2ei",
+                    "formatId": "3ad6z07rilk8flizkw1bhv179",
+                    "startDate": "2019-05-08Z",
+                    "endDate": "2019-05-09Z",
+                    "name": "1st Round"
+                },
+                "contestant": [
+                    {
+                        "id": "9feqf3iawhgmv76pzwdebdv8q",
+                        "name": "Greenville Triumph",
+                        "shortName": "Greenville",
+                        "officialName": "Greenville Triumph SC",
+                        "code": "GVL",
+                        "position": "home",
+                        "country": {
+                            "id": "7hr2f89v44y65dyu9k92vprwn",
+                            "name": "USA"
+                        }
+                    },
+                    {
+                        "id": "40cyh8n6ttq986iydr3hhk0bs",
+                        "name": "Tormenta",
+                        "shortName": "Tormenta",
+                        "officialName": "South Georgia Tormenta FC",
+                        "code": "TRM",
+                        "position": "away",
+                        "country": {
+                            "id": "7hr2f89v44y65dyu9k92vprwn",
+                            "name": "USA"
+                        }
+                    }
+                ],
+                "venue": {
+                    "id": "7guh7r0p1hlw7lq5vn2n81b3e",
+                    "neutral": "no",
+                    "longName": "Triumph Stadium at Legacy Early College",
+                    "shortName": "Triumph Stadium at Legacy Early College"
+                }
+            },
+            "liveData": {
+                "matchDetails": {
+                    "periodId": 14,
+                    "matchStatus": "Played",
+                    "winner": "home",
+                    "matchLengthMin": 94,
+                    "matchLengthSec": 26,
+                    "period": [
+                        {
+                            "id": 1,
+                            "start": "2019-05-08T23:06:38Z",
+                            "end": "2019-05-08T23:52:48Z",
+                            "lengthMin": 46,
+                            "lengthSec": 10
+                        },
+                        {
+                            "id": 2,
+                            "start": "2019-05-09T00:08:57Z",
+                            "end": "2019-05-09T00:57:13Z",
+                            "lengthMin": 48,
+                            "lengthSec": 16
+                        }
+                    ],
+                    "scores": {
+                        "ht": {
+                            "home": 0,
+                            "away": 0
+                        },
+                        "ft": {
+                            "home": 1,
+                            "away": 0
+                        },
+                        "total": {
+                            "home": 1,
+                            "away": 0
+                        }
+                    }
+                },
+                "goal": [
+                    {
+                        "contestantId": "9feqf3iawhgmv76pzwdebdv8q",
+                        "periodId": 2,
+                        "timeMin": 75,
+                        "timeMinSec": "74:42",
+                        "lastUpdated": "2020-07-16T04:00:12Z",
+                        "type": "G",
+                        "scorerId": "9ti1lmtxr7hnv7bgu5mklv93p",
+                        "scorerName": "C. Seiler",
+                        "optaEventId": "1418745408",
+                        "homeScore": 1,
+                        "awayScore": 0
+                    }
+                ],
+                "card": [
+                    {
+                        "contestantId": "40cyh8n6ttq986iydr3hhk0bs",
+                        "periodId": 1,
+                        "timeMin": 38,
+                        "timeMinSec": "37:14",
+                        "lastUpdated": "2024-02-14T10:39:46Z",
+                        "type": "YC",
+                        "playerId": "ai0p8r38h5te03g9s0yhzmac5",
+                        "playerName": "M. Rowe",
+                        "optaEventId": "1505093275",
+                        "cardReason": "Foul"
+                    },
+                    {
+                        "contestantId": "40cyh8n6ttq986iydr3hhk0bs",
+                        "periodId": 1,
+                        "timeMin": 40,
+                        "timeMinSec": "39:04",
+                        "lastUpdated": "2023-08-08T04:53:52Z",
+                        "type": "YC",
+                        "playerId": "dlz48v55bfdgu8vphpzfjhnxm",
+                        "playerName": "J. Phelps",
+                        "optaEventId": "1228802753",
+                        "cardReason": "Foul"
+                    },
+                    {
+                        "contestantId": "9feqf3iawhgmv76pzwdebdv8q",
+                        "periodId": 2,
+                        "timeMin": 50,
+                        "timeMinSec": "49:07",
+                        "lastUpdated": "2019-09-11T12:28:36Z",
+                        "type": "YC",
+                        "playerId": "dtkckxt7m78cddxmyvm702r8q",
+                        "playerName": "D. Boland",
+                        "optaEventId": "1436248583",
+                        "cardReason": "Foul"
+                    },
+                    {
+                        "contestantId": "40cyh8n6ttq986iydr3hhk0bs",
+                        "periodId": 2,
+                        "timeMin": 85,
+                        "timeMinSec": "84:19",
+                        "lastUpdated": "2024-03-08T13:10:30Z",
+                        "type": "YC",
+                        "playerId": "6eqvj5hboqw5c21ofhsgo4p9l",
+                        "playerName": "M. Micaletto",
+                        "optaEventId": "1559381126",
+                        "cardReason": "Foul"
+                    }
+                ],
+                "substitute": [
+                    {
+                        "contestantId": "40cyh8n6ttq986iydr3hhk0bs",
+                        "periodId": 2,
+                        "timeMin": 51,
+                        "timeMinSec": "50:16",
+                        "lastUpdated": "2021-04-07T20:51:08Z",
+                        "playerOnId": "9ez608cc60g314q118twqnqzu",
+                        "playerOnName": "R. Gomez",
+                        "playerOffId": "9lq1maw2cmuwzzzfkomfvmlpm",
+                        "playerOffName": "P. Pearson",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "40cyh8n6ttq986iydr3hhk0bs",
+                        "periodId": 2,
+                        "timeMin": 51,
+                        "timeMinSec": "50:23",
+                        "lastUpdated": "2024-03-15T17:21:51Z",
+                        "playerOnId": "35tm2y83fcb7sa5rc4phzh08a",
+                        "playerOnName": "C. Antley",
+                        "playerOffId": "6ws232bi7lbbdyr2kz2eh8h9m",
+                        "playerOffName": "N. Wells",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "9feqf3iawhgmv76pzwdebdv8q",
+                        "periodId": 2,
+                        "timeMin": 63,
+                        "timeMinSec": "62:13",
+                        "lastUpdated": "2019-09-11T12:28:41Z",
+                        "playerOnId": "9qtn2000da9a0x8fpro0agwh6",
+                        "playerOnName": "E. Robinson",
+                        "playerOffId": "3croi2ffr0f5c9sg4006r59ii",
+                        "playerOffName": "C. Saul",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "9feqf3iawhgmv76pzwdebdv8q",
+                        "periodId": 2,
+                        "timeMin": 74,
+                        "timeMinSec": "73:31",
+                        "lastUpdated": "2020-07-17T00:44:18Z",
+                        "playerOnId": "7q548j1wgmjqrwiis5qw4xpsl",
+                        "playerOnName": "O. Mohomed",
+                        "playerOffId": "dhc0qpcxud7h64y5hx39bd9wq",
+                        "playerOffName": "Carlos Gómez",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "40cyh8n6ttq986iydr3hhk0bs",
+                        "periodId": 2,
+                        "timeMin": 76,
+                        "timeMinSec": "75:40",
+                        "lastUpdated": "2023-03-08T16:13:57Z",
+                        "playerOnId": "dv155f8jlvq8frvhjcokboiy1",
+                        "playerOnName": "C. Dennis",
+                        "playerOffId": "99t007fta5wwkw9o5cfjucixh",
+                        "playerOffName": "D. Pando",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "9feqf3iawhgmv76pzwdebdv8q",
+                        "periodId": 2,
+                        "timeMin": 86,
+                        "timeMinSec": "86:00",
+                        "lastUpdated": "2019-09-11T12:28:24Z",
+                        "playerOnId": "3ivdfynwv7yf8tvgy8uto3aol",
+                        "playerOnName": "P. Clowes",
+                        "playerOffId": "9ti1lmtxr7hnv7bgu5mklv93p",
+                        "playerOffName": "C. Seiler",
+                        "subReason": "Tactical"
+                    }
+                ],
+                "matchDetailsExtra": {
+                    "attendance": "1757",
+                    "matchOfficial": [
+                        {
+                            "id": "3xdtymszmloaj4y52pdu66ig9",
+                            "type": "Main",
+                            "firstName": "Wilmer",
+                            "lastName": "Soriano",
+                            "shortFirstName": "Wilmer",
+                            "shortLastName": "Soriano"
+                        },
+                        {
+                            "id": "h57egdswv5gk7mtr8whei356",
+                            "type": "Assistant referee 1",
+                            "firstName": "Daniel",
+                            "lastName": "Taylor",
+                            "shortFirstName": "Daniel",
+                            "shortLastName": "Taylor"
+                        },
+                        {
+                            "id": "b2d29h02j7txg6p68zvkkn622",
+                            "type": "Assistant referee 2",
+                            "firstName": "Sara",
+                            "lastName": "Griggs",
+                            "shortFirstName": "Sara",
+                            "shortLastName": "Griggs"
+                        },
+                        {
+                            "id": "dsl83jjujcbpbdot6ynesekt1",
+                            "type": "Fourth official",
+                            "firstName": "Brian",
+                            "lastName": "Hall",
+                            "shortFirstName": "Brian",
+                            "shortLastName": "Hall"
+                        }
+                    ]
+                }
+            }
+        }
+    ]
+}

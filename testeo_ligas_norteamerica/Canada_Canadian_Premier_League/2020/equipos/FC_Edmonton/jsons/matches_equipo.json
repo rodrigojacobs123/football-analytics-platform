@@ -1,0 +1,2505 @@
+{
+    "match": [
+        {
+            "matchInfo": {
+                "id": "7v18c0lc1p8rx62p3chr1w07o",
+                "coverageLevel": "13",
+                "date": "2020-09-06Z",
+                "time": "19:00:00Z",
+                "localDate": "2020-09-06",
+                "localTime": "16:00:00",
+                "attendanceInfoId": "1",
+                "attendanceInfo": "Behind Closed Doors",
+                "numberOfPeriods": 2,
+                "periodLength": 45,
+                "lastUpdated": "2025-02-08T14:06:26Z",
+                "description": "Pacific vs Edmonton",
+                "sport": {
+                    "id": "289u5typ3vp4ifwh5thalohmq",
+                    "name": "Soccer"
+                },
+                "ruleset": {
+                    "id": "79plas4983031idr6vw83nuel",
+                    "name": "Men"
+                },
+                "competition": {
+                    "id": "6lkj3o21cr4g7bql6tb3fk222",
+                    "name": "Canadian Premier League",
+                    "knownName": "Canadian Premier League",
+                    "competitionCode": "CPL",
+                    "competitionFormat": "Domestic league",
+                    "country": {
+                        "id": "1iaoypzp6syf32cz9l15pzp7e",
+                        "name": "Canada"
+                    }
+                },
+                "tournamentCalendar": {
+                    "id": "1gz4f3r68v3w92gdsu12lom0a",
+                    "startDate": "2020-08-14Z",
+                    "endDate": "2020-09-19Z",
+                    "name": "2020"
+                },
+                "stage": {
+                    "id": "1hk5r2gykjom0kulqslpaxnca",
+                    "formatId": "e2q01r9o9jwiq1fls93d1sslx",
+                    "startDate": "2020-08-14Z",
+                    "endDate": "2020-09-06Z",
+                    "name": "Regular Season"
+                },
+                "contestant": [
+                    {
+                        "id": "b3436h8h14zw7f1uv6w9vqf6y",
+                        "name": "Pacific",
+                        "shortName": "Pacific",
+                        "officialName": "Pacific FC",
+                        "code": "PAC",
+                        "position": "home",
+                        "country": {
+                            "id": "1iaoypzp6syf32cz9l15pzp7e",
+                            "name": "Canada"
+                        }
+                    },
+                    {
+                        "id": "73xrv2025rnj0t3y9ayp83bec",
+                        "name": "Edmonton",
+                        "shortName": "Edmonton",
+                        "officialName": "FC Edmonton",
+                        "code": "EDM",
+                        "position": "away",
+                        "country": {
+                            "id": "1iaoypzp6syf32cz9l15pzp7e",
+                            "name": "Canada"
+                        }
+                    }
+                ],
+                "venue": {
+                    "id": "ac5bsyj7gvwq5ykzyjdxuo5xw",
+                    "neutral": "no",
+                    "longName": "UPEI Artificial Turf Field",
+                    "shortName": "UPEI Artificial Turf Field"
+                }
+            },
+            "liveData": {
+                "matchDetails": {
+                    "periodId": 14,
+                    "matchStatus": "Played",
+                    "winner": "home",
+                    "matchLengthMin": 96,
+                    "matchLengthSec": 32,
+                    "period": [
+                        {
+                            "id": 1,
+                            "start": "2020-09-06T19:08:03Z",
+                            "end": "2020-09-06T19:54:04Z",
+                            "lengthMin": 46,
+                            "lengthSec": 1
+                        },
+                        {
+                            "id": 2,
+                            "start": "2020-09-06T20:09:29Z",
+                            "end": "2020-09-06T21:00:00Z",
+                            "lengthMin": 50,
+                            "lengthSec": 31
+                        }
+                    ],
+                    "scores": {
+                        "ht": {
+                            "home": 0,
+                            "away": 0
+                        },
+                        "ft": {
+                            "home": 2,
+                            "away": 1
+                        },
+                        "total": {
+                            "home": 2,
+                            "away": 1
+                        }
+                    }
+                },
+                "goal": [
+                    {
+                        "contestantId": "73xrv2025rnj0t3y9ayp83bec",
+                        "periodId": 2,
+                        "timeMin": 59,
+                        "timeMinSec": "58:54",
+                        "lastUpdated": "2023-04-13T07:53:25Z",
+                        "timestamp": "2020-09-06T20:23:24Z",
+                        "type": "G",
+                        "scorerId": "9wsm9vzab3uywb8rox5go6jxm",
+                        "scorerName": "E. Ongaro",
+                        "optaEventId": "2209060365",
+                        "homeScore": 0,
+                        "awayScore": 1
+                    },
+                    {
+                        "contestantId": "b3436h8h14zw7f1uv6w9vqf6y",
+                        "periodId": 2,
+                        "timeMin": 64,
+                        "timeMinSec": "63:41",
+                        "lastUpdated": "2024-12-13T14:22:18Z",
+                        "timestamp": "2020-09-06T20:28:11Z",
+                        "type": "G",
+                        "scorerId": "7i19hu44byapft1lpm3okbb3d",
+                        "scorerName": "J. Heard",
+                        "optaEventId": "2209062401",
+                        "homeScore": 1,
+                        "awayScore": 1
+                    },
+                    {
+                        "contestantId": "b3436h8h14zw7f1uv6w9vqf6y",
+                        "periodId": 2,
+                        "timeMin": 85,
+                        "timeMinSec": "84:43",
+                        "lastUpdated": "2024-02-16T04:59:04Z",
+                        "timestamp": "2020-09-06T20:49:13Z",
+                        "type": "G",
+                        "scorerId": "7t6lyj5pvvgzfscj775acuqc5",
+                        "scorerName": "M. Bustos",
+                        "assistPlayerId": "41fep3jlo1ieyq9hvpmsl6wvd",
+                        "assistPlayerName": "K. Chung",
+                        "optaEventId": "2209069569",
+                        "homeScore": 2,
+                        "awayScore": 1
+                    }
+                ],
+                "card": [
+                    {
+                        "contestantId": "73xrv2025rnj0t3y9ayp83bec",
+                        "periodId": 2,
+                        "timeMin": 54,
+                        "timeMinSec": "53:26",
+                        "lastUpdated": "2020-09-06T20:18:00Z",
+                        "timestamp": "2020-09-06T20:17:56Z",
+                        "type": "YC",
+                        "playerId": "57sscey83fcglkmcrtpp28k5",
+                        "playerName": "Soria",
+                        "optaEventId": "2209057929",
+                        "cardReason": "Foul"
+                    },
+                    {
+                        "contestantId": "73xrv2025rnj0t3y9ayp83bec",
+                        "periodId": 2,
+                        "timeMin": 92,
+                        "timeMinSec": "91:46",
+                        "lastUpdated": "2024-05-11T19:06:56Z",
+                        "timestamp": "2020-09-06T20:56:16Z",
+                        "type": "YC",
+                        "playerId": "cu34wwcs8ozsglt7gew3p7sh5",
+                        "playerName": "T. Mohammed",
+                        "optaEventId": "2209070829",
+                        "cardReason": "Foul"
+                    }
+                ],
+                "substitute": [
+                    {
+                        "contestantId": "73xrv2025rnj0t3y9ayp83bec",
+                        "periodId": 2,
+                        "timeMin": 46,
+                        "timeMinSec": "45:00",
+                        "lastUpdated": "2020-09-06T20:10:40Z",
+                        "timestamp": "2020-09-06T20:09:19Z",
+                        "playerOnId": "81ggmgps5zcnafmhlv9f0osiy",
+                        "playerOnName": "A. Caceres",
+                        "playerOffId": "6mmfo5q4m9zdbpl1cgqv5muhh",
+                        "playerOffName": "K. Alemán",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "b3436h8h14zw7f1uv6w9vqf6y",
+                        "periodId": 2,
+                        "timeMin": 57,
+                        "timeMinSec": "56:35",
+                        "lastUpdated": "2024-04-12T16:27:58Z",
+                        "timestamp": "2020-09-06T20:21:05Z",
+                        "playerOnId": "am6blpv9h0wzsn8rjv1q0zpp1",
+                        "playerOnName": "A. Díaz",
+                        "playerOffId": "6re5keaha87h6kc01848h53ah",
+                        "playerOffName": "Víctor Blasco",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "73xrv2025rnj0t3y9ayp83bec",
+                        "periodId": 2,
+                        "timeMin": 62,
+                        "timeMinSec": "61:25",
+                        "lastUpdated": "2020-09-06T20:26:02Z",
+                        "timestamp": "2020-09-06T20:25:55Z",
+                        "playerOnId": "2bvfol1n1otgzral4w8j0ci22",
+                        "playerOnName": "D. Doe",
+                        "playerOffId": "759r7l0y8jofaf394tnc7ytt6",
+                        "playerOffName": "P. Amanda",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "b3436h8h14zw7f1uv6w9vqf6y",
+                        "periodId": 2,
+                        "timeMin": 63,
+                        "timeMinSec": "62:50",
+                        "lastUpdated": "2024-12-13T14:23:23Z",
+                        "timestamp": "2020-09-06T20:27:20Z",
+                        "playerOnId": "dryx6vgko76wuqqr4g9pjl4ru",
+                        "playerOnName": "S. Young",
+                        "playerOffId": "368zrfhpvljc7rvzkl1v0x1bd",
+                        "playerOffName": "A. Samaké",
+                        "subReason": "Injury"
+                    },
+                    {
+                        "contestantId": "b3436h8h14zw7f1uv6w9vqf6y",
+                        "periodId": 2,
+                        "timeMin": 71,
+                        "timeMinSec": "71:00",
+                        "lastUpdated": "2024-12-13T14:00:42Z",
+                        "timestamp": "2020-09-06T20:35:30Z",
+                        "playerOnId": "882vd5rnobx3xba2sb99k49gp",
+                        "playerOnName": "A. Hojabrpour",
+                        "playerOffId": "4ezd4d37kbb1249qd7bvi0dzp",
+                        "playerOffName": "J. Dixon",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "b3436h8h14zw7f1uv6w9vqf6y",
+                        "periodId": 2,
+                        "timeMin": 72,
+                        "timeMinSec": "71:05",
+                        "lastUpdated": "2024-04-12T16:12:32Z",
+                        "timestamp": "2020-09-06T20:35:35Z",
+                        "playerOnId": "al5jt5ntx6alvfvo3tq1py6i2",
+                        "playerOnName": "Z. Verhoven",
+                        "playerOffId": "7i19hu44byapft1lpm3okbb3d",
+                        "playerOffName": "J. Heard",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "73xrv2025rnj0t3y9ayp83bec",
+                        "periodId": 2,
+                        "timeMin": 75,
+                        "timeMinSec": "74:49",
+                        "lastUpdated": "2020-09-06T20:39:26Z",
+                        "timestamp": "2020-09-06T20:39:19Z",
+                        "playerOnId": "614w28s7cigyjam7f10hz9gwl",
+                        "playerOnName": "T. Ameobi",
+                        "playerOffId": "9wsm9vzab3uywb8rox5go6jxm",
+                        "playerOffName": "E. Ongaro",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "73xrv2025rnj0t3y9ayp83bec",
+                        "periodId": 2,
+                        "timeMin": 75,
+                        "timeMinSec": "74:57",
+                        "lastUpdated": "2022-03-31T02:25:39Z",
+                        "timestamp": "2020-09-06T20:39:26Z",
+                        "playerOnId": "csicvwhik2guponydus9zt0x5",
+                        "playerOnName": "E. Zetterberg",
+                        "playerOffId": "6byiub7o0uwogoc24p79vx6ju",
+                        "playerOffName": "C. Carter",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "73xrv2025rnj0t3y9ayp83bec",
+                        "periodId": 2,
+                        "timeMin": 90,
+                        "timeMinSec": "89:01",
+                        "lastUpdated": "2024-09-08T23:28:32Z",
+                        "timestamp": "2020-09-06T20:53:30Z",
+                        "playerOnId": "8v158n3stjodma3bjlj4yg639",
+                        "playerOnName": "K. Moses",
+                        "playerOffId": "2bvfol1n1otgzral4w8j0ci22",
+                        "playerOffName": "D. Doe",
+                        "subReason": "Tactical"
+                    }
+                ],
+                "matchDetailsExtra": {
+                    "matchOfficial": [
+                        {
+                            "id": "7hru8t9jwytlbfi2z0fnnhmuh",
+                            "type": "Main",
+                            "firstName": "Juan",
+                            "lastName": "Marquez",
+                            "shortFirstName": "Juan",
+                            "shortLastName": "Márquez"
+                        },
+                        {
+                            "id": "2kxdpiuq7tspqzo9iwgmz225m",
+                            "type": "Assistant referee 1",
+                            "firstName": "Gabrielle",
+                            "lastName": "Lemieux",
+                            "shortFirstName": "Gabrielle",
+                            "shortLastName": "Lemieux"
+                        },
+                        {
+                            "id": "auxr2a0q4r1onopnifncs04fe",
+                            "type": "Assistant referee 2",
+                            "firstName": "Jason",
+                            "lastName": "Olinski",
+                            "shortFirstName": "Jason",
+                            "shortLastName": "Olinski"
+                        },
+                        {
+                            "id": "bbedgt1khx2mrmnb7iedo5awa",
+                            "type": "Fourth official",
+                            "firstName": "Carly Marissa",
+                            "lastName": "Shaw-MacLaren",
+                            "shortFirstName": "Carly",
+                            "shortLastName": "Shaw-MacLaren"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "matchInfo": {
+                "id": "7ulatzc5xxyaiw5pmjxft1kb8",
+                "coverageLevel": "13",
+                "date": "2020-09-02Z",
+                "time": "00:00:00Z",
+                "localDate": "2020-09-01",
+                "localTime": "21:00:00",
+                "attendanceInfoId": "1",
+                "attendanceInfo": "Behind Closed Doors",
+                "numberOfPeriods": 2,
+                "periodLength": 45,
+                "lastUpdated": "2025-01-24T13:20:25Z",
+                "description": "Edmonton vs York United",
+                "sport": {
+                    "id": "289u5typ3vp4ifwh5thalohmq",
+                    "name": "Soccer"
+                },
+                "ruleset": {
+                    "id": "79plas4983031idr6vw83nuel",
+                    "name": "Men"
+                },
+                "competition": {
+                    "id": "6lkj3o21cr4g7bql6tb3fk222",
+                    "name": "Canadian Premier League",
+                    "knownName": "Canadian Premier League",
+                    "competitionCode": "CPL",
+                    "competitionFormat": "Domestic league",
+                    "country": {
+                        "id": "1iaoypzp6syf32cz9l15pzp7e",
+                        "name": "Canada"
+                    }
+                },
+                "tournamentCalendar": {
+                    "id": "1gz4f3r68v3w92gdsu12lom0a",
+                    "startDate": "2020-08-14Z",
+                    "endDate": "2020-09-19Z",
+                    "name": "2020"
+                },
+                "stage": {
+                    "id": "1hk5r2gykjom0kulqslpaxnca",
+                    "formatId": "e2q01r9o9jwiq1fls93d1sslx",
+                    "startDate": "2020-08-14Z",
+                    "endDate": "2020-09-06Z",
+                    "name": "Regular Season"
+                },
+                "contestant": [
+                    {
+                        "id": "73xrv2025rnj0t3y9ayp83bec",
+                        "name": "Edmonton",
+                        "shortName": "Edmonton",
+                        "officialName": "FC Edmonton",
+                        "code": "EDM",
+                        "position": "home",
+                        "country": {
+                            "id": "1iaoypzp6syf32cz9l15pzp7e",
+                            "name": "Canada"
+                        }
+                    },
+                    {
+                        "id": "cqthcpums3aas2tdy0qhlkuwa",
+                        "name": "York United",
+                        "shortName": "York",
+                        "officialName": "York United FC",
+                        "code": "YRK",
+                        "position": "away",
+                        "country": {
+                            "id": "1iaoypzp6syf32cz9l15pzp7e",
+                            "name": "Canada"
+                        }
+                    }
+                ],
+                "venue": {
+                    "id": "ac5bsyj7gvwq5ykzyjdxuo5xw",
+                    "neutral": "no",
+                    "longName": "UPEI Artificial Turf Field",
+                    "shortName": "UPEI Artificial Turf Field"
+                }
+            },
+            "liveData": {
+                "matchDetails": {
+                    "periodId": 14,
+                    "matchStatus": "Played",
+                    "winner": "away",
+                    "matchLengthMin": 96,
+                    "matchLengthSec": 19,
+                    "period": [
+                        {
+                            "id": 1,
+                            "start": "2020-09-02T00:08:10Z",
+                            "end": "2020-09-02T00:54:11Z",
+                            "lengthMin": 46,
+                            "lengthSec": 1
+                        },
+                        {
+                            "id": 2,
+                            "start": "2020-09-02T01:08:12Z",
+                            "end": "2020-09-02T01:58:30Z",
+                            "lengthMin": 50,
+                            "lengthSec": 18
+                        }
+                    ],
+                    "scores": {
+                        "ht": {
+                            "home": 0,
+                            "away": 1
+                        },
+                        "ft": {
+                            "home": 0,
+                            "away": 1
+                        },
+                        "total": {
+                            "home": 0,
+                            "away": 1
+                        }
+                    }
+                },
+                "goal": [
+                    {
+                        "contestantId": "cqthcpums3aas2tdy0qhlkuwa",
+                        "periodId": 1,
+                        "timeMin": 44,
+                        "timeMinSec": "43:54",
+                        "lastUpdated": "2024-04-12T15:13:14Z",
+                        "timestamp": "2020-09-02T00:52:04Z",
+                        "type": "G",
+                        "scorerId": "622w13rktz2os2jlo286col3p",
+                        "scorerName": "M. Aparicio",
+                        "optaEventId": "2207817937",
+                        "homeScore": 0,
+                        "awayScore": 1
+                    }
+                ],
+                "card": [
+                    {
+                        "contestantId": "73xrv2025rnj0t3y9ayp83bec",
+                        "periodId": 1,
+                        "timeMin": 43,
+                        "timeMinSec": "42:15",
+                        "lastUpdated": "2022-03-31T02:25:39Z",
+                        "timestamp": "2020-09-02T00:50:26Z",
+                        "type": "YC",
+                        "playerId": "csicvwhik2guponydus9zt0x5",
+                        "playerName": "E. Zetterberg",
+                        "optaEventId": "2207817571",
+                        "cardReason": "Foul"
+                    },
+                    {
+                        "contestantId": "cqthcpums3aas2tdy0qhlkuwa",
+                        "periodId": 2,
+                        "timeMin": 74,
+                        "timeMinSec": "73:52",
+                        "lastUpdated": "2022-04-07T11:00:33Z",
+                        "timestamp": "2020-09-02T01:37:04Z",
+                        "type": "YC",
+                        "playerId": "63rmd2xbr48c0zzvsj6bn3651",
+                        "playerName": "C. Mannella",
+                        "optaEventId": "2207825383",
+                        "cardReason": "Foul"
+                    }
+                ],
+                "substitute": [
+                    {
+                        "contestantId": "73xrv2025rnj0t3y9ayp83bec",
+                        "periodId": 2,
+                        "timeMin": 46,
+                        "timeMinSec": "45:00",
+                        "lastUpdated": "2020-09-02T01:08:43Z",
+                        "timestamp": "2020-09-02T01:08:02Z",
+                        "playerOnId": "6byiub7o0uwogoc24p79vx6ju",
+                        "playerOnName": "C. Carter",
+                        "playerOffId": "csicvwhik2guponydus9zt0x5",
+                        "playerOffName": "E. Zetterberg",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "73xrv2025rnj0t3y9ayp83bec",
+                        "periodId": 2,
+                        "timeMin": 58,
+                        "timeMinSec": "57:18",
+                        "lastUpdated": "2020-09-02T01:20:42Z",
+                        "timestamp": "2020-09-02T01:20:30Z",
+                        "playerOnId": "81ggmgps5zcnafmhlv9f0osiy",
+                        "playerOnName": "A. Caceres",
+                        "playerOffId": "759r7l0y8jofaf394tnc7ytt6",
+                        "playerOffName": "P. Amanda",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "73xrv2025rnj0t3y9ayp83bec",
+                        "periodId": 2,
+                        "timeMin": 66,
+                        "timeMinSec": "65:32",
+                        "lastUpdated": "2020-09-02T01:28:49Z",
+                        "timestamp": "2020-09-02T01:28:45Z",
+                        "playerOnId": "614w28s7cigyjam7f10hz9gwl",
+                        "playerOnName": "T. Ameobi",
+                        "playerOffId": "7dbeb4b7em8hmoc7e0begi1yi",
+                        "playerOffName": "M. Velado-Tsegaye",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "73xrv2025rnj0t3y9ayp83bec",
+                        "periodId": 2,
+                        "timeMin": 66,
+                        "timeMinSec": "65:39",
+                        "lastUpdated": "2020-09-02T01:28:58Z",
+                        "timestamp": "2020-09-02T01:28:51Z",
+                        "playerOnId": "7syvxffcyqbhwd42954p8ej85",
+                        "playerOnName": "H. Boakai",
+                        "playerOffId": "6mmfo5q4m9zdbpl1cgqv5muhh",
+                        "playerOffName": "K. Alemán",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "cqthcpums3aas2tdy0qhlkuwa",
+                        "periodId": 2,
+                        "timeMin": 68,
+                        "timeMinSec": "67:56",
+                        "lastUpdated": "2022-04-07T11:00:33Z",
+                        "timestamp": "2020-09-02T01:31:08Z",
+                        "playerOnId": "63rmd2xbr48c0zzvsj6bn3651",
+                        "playerOnName": "C. Mannella",
+                        "playerOffId": "8djbjtpajhwv1falg9buuone2",
+                        "playerOffName": "W. Murofushi",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "cqthcpums3aas2tdy0qhlkuwa",
+                        "periodId": 2,
+                        "timeMin": 69,
+                        "timeMinSec": "68:01",
+                        "lastUpdated": "2024-04-22T16:37:13Z",
+                        "timestamp": "2020-09-02T01:31:13Z",
+                        "playerOnId": "5gyjio4tvbg4ahjzoass6lxey",
+                        "playerOnName": "I. Halley",
+                        "playerOffId": "cqzj50mwiry6o6vz6drrh1cyd",
+                        "playerOffName": "Álvaro Rivero",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "cqthcpums3aas2tdy0qhlkuwa",
+                        "periodId": 2,
+                        "timeMin": 82,
+                        "timeMinSec": "81:12",
+                        "lastUpdated": "2023-07-21T10:12:57Z",
+                        "timestamp": "2020-09-02T01:44:24Z",
+                        "playerOnId": "6z58yyouaevipxrmrmorcz0no",
+                        "playerOnName": "I. Johnston",
+                        "playerOffId": "db3mtdls95klppptl1n96ezf9",
+                        "playerOffName": "K. Porter",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "cqthcpums3aas2tdy0qhlkuwa",
+                        "periodId": 2,
+                        "timeMin": 95,
+                        "timeMinSec": "94:04",
+                        "lastUpdated": "2024-12-04T17:10:11Z",
+                        "timestamp": "2020-09-02T01:57:16Z",
+                        "playerOnId": "6v3jzhrpgs47rzoyw6b8lz6ui",
+                        "playerOnName": "M. Ferrari",
+                        "playerOffId": "37pbdttxfaqvayoufo0q0dxey",
+                        "playerOffName": "D. Abzi",
+                        "subReason": "Tactical"
+                    }
+                ],
+                "matchDetailsExtra": {
+                    "matchOfficial": [
+                        {
+                            "id": "f001yvwubyj56cg6clnr03mui",
+                            "type": "Main",
+                            "firstName": "Myriam",
+                            "lastName": "Marcotte",
+                            "shortFirstName": "Myriam",
+                            "shortLastName": "Marcotte"
+                        },
+                        {
+                            "id": "6lqh8h9j9c7c1zjskm7epzhlh",
+                            "type": "Assistant referee 1",
+                            "firstName": "Sean",
+                            "lastName": "Hornsby",
+                            "shortFirstName": "Sean",
+                            "shortLastName": "Hornsby"
+                        },
+                        {
+                            "id": "5gi1zt2uygpnxhioc0sv1vdd6",
+                            "type": "Assistant referee 2",
+                            "firstName": "Michael",
+                            "lastName": "Hood",
+                            "shortFirstName": "Michael",
+                            "shortLastName": "Hood"
+                        },
+                        {
+                            "id": "5zg8fdw7qiwuygvqwfjyiqhg5",
+                            "type": "Fourth official",
+                            "firstName": "David",
+                            "lastName": "Barrie",
+                            "shortFirstName": "David",
+                            "shortLastName": "Barrie"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "matchInfo": {
+                "id": "7u70ahhsjfxqkqyoibw4kuql0",
+                "coverageLevel": "13",
+                "date": "2020-08-29Z",
+                "time": "16:00:00Z",
+                "localDate": "2020-08-29",
+                "localTime": "13:00:00",
+                "attendanceInfoId": "1",
+                "attendanceInfo": "Behind Closed Doors",
+                "numberOfPeriods": 2,
+                "periodLength": 45,
+                "lastUpdated": "2025-04-04T13:45:31Z",
+                "description": "Valour vs Edmonton",
+                "sport": {
+                    "id": "289u5typ3vp4ifwh5thalohmq",
+                    "name": "Soccer"
+                },
+                "ruleset": {
+                    "id": "79plas4983031idr6vw83nuel",
+                    "name": "Men"
+                },
+                "competition": {
+                    "id": "6lkj3o21cr4g7bql6tb3fk222",
+                    "name": "Canadian Premier League",
+                    "knownName": "Canadian Premier League",
+                    "competitionCode": "CPL",
+                    "competitionFormat": "Domestic league",
+                    "country": {
+                        "id": "1iaoypzp6syf32cz9l15pzp7e",
+                        "name": "Canada"
+                    }
+                },
+                "tournamentCalendar": {
+                    "id": "1gz4f3r68v3w92gdsu12lom0a",
+                    "startDate": "2020-08-14Z",
+                    "endDate": "2020-09-19Z",
+                    "name": "2020"
+                },
+                "stage": {
+                    "id": "1hk5r2gykjom0kulqslpaxnca",
+                    "formatId": "e2q01r9o9jwiq1fls93d1sslx",
+                    "startDate": "2020-08-14Z",
+                    "endDate": "2020-09-06Z",
+                    "name": "Regular Season"
+                },
+                "contestant": [
+                    {
+                        "id": "dd2vf0yzjm7jm7cak9tf11sa2",
+                        "name": "Valour",
+                        "shortName": "Valour",
+                        "officialName": "Valour FC",
+                        "code": "VAL",
+                        "position": "home",
+                        "country": {
+                            "id": "1iaoypzp6syf32cz9l15pzp7e",
+                            "name": "Canada"
+                        }
+                    },
+                    {
+                        "id": "73xrv2025rnj0t3y9ayp83bec",
+                        "name": "Edmonton",
+                        "shortName": "Edmonton",
+                        "officialName": "FC Edmonton",
+                        "code": "EDM",
+                        "position": "away",
+                        "country": {
+                            "id": "1iaoypzp6syf32cz9l15pzp7e",
+                            "name": "Canada"
+                        }
+                    }
+                ],
+                "venue": {
+                    "id": "ac5bsyj7gvwq5ykzyjdxuo5xw",
+                    "neutral": "no",
+                    "longName": "UPEI Artificial Turf Field",
+                    "shortName": "UPEI Artificial Turf Field"
+                }
+            },
+            "liveData": {
+                "matchDetails": {
+                    "periodId": 14,
+                    "matchStatus": "Played",
+                    "winner": "home",
+                    "matchLengthMin": 99,
+                    "matchLengthSec": 9,
+                    "period": [
+                        {
+                            "id": 1,
+                            "start": "2020-08-29T16:08:57Z",
+                            "end": "2020-08-29T16:58:49Z",
+                            "lengthMin": 49,
+                            "lengthSec": 52
+                        },
+                        {
+                            "id": 2,
+                            "start": "2020-08-29T17:13:33Z",
+                            "end": "2020-08-29T18:02:50Z",
+                            "lengthMin": 49,
+                            "lengthSec": 17
+                        }
+                    ],
+                    "scores": {
+                        "ht": {
+                            "home": 0,
+                            "away": 0
+                        },
+                        "ft": {
+                            "home": 2,
+                            "away": 1
+                        },
+                        "total": {
+                            "home": 2,
+                            "away": 1
+                        }
+                    }
+                },
+                "goal": [
+                    {
+                        "contestantId": "dd2vf0yzjm7jm7cak9tf11sa2",
+                        "periodId": 2,
+                        "timeMin": 61,
+                        "timeMinSec": "60:52",
+                        "lastUpdated": "2023-04-13T18:11:07Z",
+                        "timestamp": "2020-08-29T17:29:25Z",
+                        "type": "G",
+                        "scorerId": "dpee0p2qzqrzcefewdtey4vyt",
+                        "scorerName": "D. Fordyce",
+                        "optaEventId": "2207032507",
+                        "homeScore": 1,
+                        "awayScore": 0
+                    },
+                    {
+                        "contestantId": "73xrv2025rnj0t3y9ayp83bec",
+                        "periodId": 2,
+                        "timeMin": 73,
+                        "timeMinSec": "72:31",
+                        "lastUpdated": "2023-04-13T07:53:25Z",
+                        "timestamp": "2020-08-29T17:41:04Z",
+                        "type": "G",
+                        "scorerId": "9wsm9vzab3uywb8rox5go6jxm",
+                        "scorerName": "E. Ongaro",
+                        "assistPlayerId": "cu34wwcs8ozsglt7gew3p7sh5",
+                        "assistPlayerName": "T. Mohammed",
+                        "optaEventId": "2207040117",
+                        "homeScore": 1,
+                        "awayScore": 1
+                    },
+                    {
+                        "contestantId": "dd2vf0yzjm7jm7cak9tf11sa2",
+                        "periodId": 2,
+                        "timeMin": 88,
+                        "timeMinSec": "87:14",
+                        "lastUpdated": "2022-04-08T09:03:00Z",
+                        "timestamp": "2020-08-29T17:55:47Z",
+                        "type": "G",
+                        "scorerId": "4g57cr61ps0y0w29dv3f5s3c9",
+                        "scorerName": "M. Kacher",
+                        "optaEventId": "2207047969",
+                        "homeScore": 2,
+                        "awayScore": 1
+                    }
+                ],
+                "missedPen": [
+                    {
+                        "contestantId": "dd2vf0yzjm7jm7cak9tf11sa2",
+                        "periodId": 2,
+                        "timeMin": 61,
+                        "timeMinSec": "60:51",
+                        "lastUpdated": "2023-04-13T18:11:07Z",
+                        "timestamp": "2020-08-29T17:29:25Z",
+                        "type": "PM",
+                        "playerId": "dpee0p2qzqrzcefewdtey4vyt",
+                        "playerName": "D. Fordyce",
+                        "optaEventId": "2207032467"
+                    },
+                    {
+                        "contestantId": "73xrv2025rnj0t3y9ayp83bec",
+                        "periodId": 2,
+                        "timeMin": 61,
+                        "timeMinSec": "60:51",
+                        "lastUpdated": "2020-08-29T17:29:36Z",
+                        "type": "PS",
+                        "playerId": "4wg2u3zl05ijnwx0wicmwpvpx",
+                        "playerName": "C. James",
+                        "optaEventId": "2207032467"
+                    }
+                ],
+                "card": [
+                    {
+                        "contestantId": "73xrv2025rnj0t3y9ayp83bec",
+                        "periodId": 1,
+                        "timeMin": 36,
+                        "timeMinSec": "35:16",
+                        "lastUpdated": "2020-08-29T16:44:26Z",
+                        "timestamp": "2020-08-29T16:44:14Z",
+                        "type": "YC",
+                        "playerId": "7y21qqftugy5rfncz7atrue7e",
+                        "playerName": "D. Lee",
+                        "optaEventId": "2207005619",
+                        "cardReason": "Handball"
+                    },
+                    {
+                        "contestantId": "73xrv2025rnj0t3y9ayp83bec",
+                        "periodId": 2,
+                        "timeMin": 65,
+                        "timeMinSec": "64:22",
+                        "lastUpdated": "2022-03-31T02:25:39Z",
+                        "timestamp": "2020-08-29T17:32:55Z",
+                        "type": "YC",
+                        "playerId": "csicvwhik2guponydus9zt0x5",
+                        "playerName": "E. Zetterberg",
+                        "optaEventId": "2207034639",
+                        "cardReason": "Extra flag to checker"
+                    },
+                    {
+                        "contestantId": "dd2vf0yzjm7jm7cak9tf11sa2",
+                        "periodId": 2,
+                        "timeMin": 68,
+                        "timeMinSec": "67:56",
+                        "lastUpdated": "2024-12-04T16:55:58Z",
+                        "timestamp": "2020-08-29T17:36:29Z",
+                        "type": "YC",
+                        "playerId": "b6aw65sbptx2dlqsfx64x59m1",
+                        "playerName": "A. Ricci",
+                        "optaEventId": "2207037035",
+                        "cardReason": "Foul"
+                    },
+                    {
+                        "contestantId": "73xrv2025rnj0t3y9ayp83bec",
+                        "periodId": 2,
+                        "timeMin": 81,
+                        "timeMinSec": "80:06",
+                        "lastUpdated": "2020-08-29T17:48:51Z",
+                        "timestamp": "2020-08-29T17:48:39Z",
+                        "type": "YC",
+                        "playerId": "614w28s7cigyjam7f10hz9gwl",
+                        "playerName": "T. Ameobi",
+                        "optaEventId": "2207045039",
+                        "cardReason": "Argument"
+                    },
+                    {
+                        "contestantId": "dd2vf0yzjm7jm7cak9tf11sa2",
+                        "periodId": 2,
+                        "timeMin": 81,
+                        "timeMinSec": "80:07",
+                        "lastUpdated": "2022-04-08T13:12:18Z",
+                        "timestamp": "2020-08-29T17:48:40Z",
+                        "type": "YC",
+                        "playerId": "c5afaf96xtx4341sic680d711",
+                        "playerName": "S. Cebara",
+                        "optaEventId": "2207045027",
+                        "cardReason": "Argument"
+                    },
+                    {
+                        "contestantId": "dd2vf0yzjm7jm7cak9tf11sa2",
+                        "periodId": 2,
+                        "timeMin": 83,
+                        "timeMinSec": "82:59",
+                        "lastUpdated": "2023-04-16T17:52:43Z",
+                        "timestamp": "2020-08-29T17:51:32Z",
+                        "type": "YC",
+                        "playerId": "6rj6gpjhz8sk2405943kpii1h",
+                        "playerName": "D. Carreiro",
+                        "optaEventId": "2207046445",
+                        "cardReason": "Dissent"
+                    }
+                ],
+                "substitute": [
+                    {
+                        "contestantId": "73xrv2025rnj0t3y9ayp83bec",
+                        "periodId": 1,
+                        "timeMin": 46,
+                        "timeMinSec": "45:57",
+                        "lastUpdated": "2024-05-11T19:06:56Z",
+                        "timestamp": "2020-08-29T16:54:55Z",
+                        "playerOnId": "cu34wwcs8ozsglt7gew3p7sh5",
+                        "playerOnName": "T. Mohammed",
+                        "playerOffId": "7y21qqftugy5rfncz7atrue7e",
+                        "playerOffName": "D. Lee",
+                        "subReason": "Injury"
+                    },
+                    {
+                        "contestantId": "dd2vf0yzjm7jm7cak9tf11sa2",
+                        "periodId": 2,
+                        "timeMin": 46,
+                        "timeMinSec": "45:00",
+                        "lastUpdated": "2023-04-16T17:52:43Z",
+                        "timestamp": "2020-08-29T17:13:23Z",
+                        "playerOnId": "6rj6gpjhz8sk2405943kpii1h",
+                        "playerOnName": "D. Carreiro",
+                        "playerOffId": "3noqd54py6sbd1ph9xbj7tkyy",
+                        "playerOffName": "S. Antwi",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "73xrv2025rnj0t3y9ayp83bec",
+                        "periodId": 2,
+                        "timeMin": 46,
+                        "timeMinSec": "45:00",
+                        "lastUpdated": "2023-08-01T00:42:16Z",
+                        "timestamp": "2020-08-29T17:13:23Z",
+                        "playerOnId": "7dbeb4b7em8hmoc7e0begi1yi",
+                        "playerOnName": "M. Velado-Tsegaye",
+                        "playerOffId": "7syvxffcyqbhwd42954p8ej85",
+                        "playerOffName": "H. Boakai",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "dd2vf0yzjm7jm7cak9tf11sa2",
+                        "periodId": 2,
+                        "timeMin": 60,
+                        "timeMinSec": "59:08",
+                        "lastUpdated": "2023-04-13T18:11:07Z",
+                        "timestamp": "2020-08-29T17:27:41Z",
+                        "playerOnId": "dpee0p2qzqrzcefewdtey4vyt",
+                        "playerOnName": "D. Fordyce",
+                        "playerOffId": "4tus0wc9k482jmoncnstteelm",
+                        "playerOffName": "R. Ohin",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "73xrv2025rnj0t3y9ayp83bec",
+                        "periodId": 2,
+                        "timeMin": 72,
+                        "timeMinSec": "71:08",
+                        "lastUpdated": "2020-08-29T17:39:45Z",
+                        "timestamp": "2020-08-29T17:39:41Z",
+                        "playerOnId": "614w28s7cigyjam7f10hz9gwl",
+                        "playerOnName": "T. Ameobi",
+                        "playerOffId": "81ggmgps5zcnafmhlv9f0osiy",
+                        "playerOffName": "A. Caceres",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "dd2vf0yzjm7jm7cak9tf11sa2",
+                        "periodId": 2,
+                        "timeMin": 76,
+                        "timeMinSec": "75:03",
+                        "lastUpdated": "2024-12-04T13:59:24Z",
+                        "timestamp": "2020-08-29T17:43:36Z",
+                        "playerOnId": "4v13dz2g71gh5i527t347shyh",
+                        "playerOnName": "S. Hundal",
+                        "playerOffId": "b6aw65sbptx2dlqsfx64x59m1",
+                        "playerOffName": "A. Ricci",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "dd2vf0yzjm7jm7cak9tf11sa2",
+                        "periodId": 2,
+                        "timeMin": 76,
+                        "timeMinSec": "75:05",
+                        "lastUpdated": "2022-04-08T09:03:00Z",
+                        "timestamp": "2020-08-29T17:43:38Z",
+                        "playerOnId": "4g57cr61ps0y0w29dv3f5s3c9",
+                        "playerOnName": "M. Kacher",
+                        "playerOffId": "bewzox1rnh1n28tkj5k0rmrqh",
+                        "playerOffName": "D. Campbell",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "dd2vf0yzjm7jm7cak9tf11sa2",
+                        "periodId": 2,
+                        "timeMin": 83,
+                        "timeMinSec": "82:04",
+                        "lastUpdated": "2023-04-03T08:19:52Z",
+                        "timestamp": "2020-08-29T17:50:38Z",
+                        "playerOnId": "bwozu57m3yt2hypmbqe1hlbyt",
+                        "playerOnName": "M. Dyer",
+                        "playerOffId": "e6cd4pwmbb7lfatlo8gc8eaj9",
+                        "playerOffName": "José Galán",
+                        "subReason": "Tactical"
+                    }
+                ],
+                "matchDetailsExtra": {
+                    "matchOfficial": [
+                        {
+                            "id": "2702pdcf6fepvyr9nem8rt3ah",
+                            "type": "Main",
+                            "firstName": "Pierre Luc",
+                            "lastName": "Lauziere",
+                            "shortFirstName": "Pierre-Luc",
+                            "shortLastName": "Lauziere"
+                        },
+                        {
+                            "id": "2kxdpiuq7tspqzo9iwgmz225m",
+                            "type": "Assistant referee 1",
+                            "firstName": "Gabrielle",
+                            "lastName": "Lemieux",
+                            "shortFirstName": "Gabrielle",
+                            "shortLastName": "Lemieux"
+                        },
+                        {
+                            "id": "5gi1zt2uygpnxhioc0sv1vdd6",
+                            "type": "Assistant referee 2",
+                            "firstName": "Michael",
+                            "lastName": "Hood",
+                            "shortFirstName": "Michael",
+                            "shortLastName": "Hood"
+                        },
+                        {
+                            "id": "4hyc9zo5cfw450iz2hdm30qqy",
+                            "type": "Fourth official",
+                            "firstName": "Filip",
+                            "lastName": "Dujic",
+                            "shortFirstName": "Filip",
+                            "shortLastName": "Dujic"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "matchInfo": {
+                "id": "7u1iuq4d7judbzn8c1gawxp90",
+                "coverageLevel": "13",
+                "date": "2020-08-27Z",
+                "time": "00:00:00Z",
+                "localDate": "2020-08-26",
+                "localTime": "21:00:00",
+                "attendanceInfoId": "1",
+                "attendanceInfo": "Behind Closed Doors",
+                "numberOfPeriods": 2,
+                "periodLength": 45,
+                "lastUpdated": "2025-03-19T08:46:56Z",
+                "description": "Edmonton vs HFX Wanderers",
+                "sport": {
+                    "id": "289u5typ3vp4ifwh5thalohmq",
+                    "name": "Soccer"
+                },
+                "ruleset": {
+                    "id": "79plas4983031idr6vw83nuel",
+                    "name": "Men"
+                },
+                "competition": {
+                    "id": "6lkj3o21cr4g7bql6tb3fk222",
+                    "name": "Canadian Premier League",
+                    "knownName": "Canadian Premier League",
+                    "competitionCode": "CPL",
+                    "competitionFormat": "Domestic league",
+                    "country": {
+                        "id": "1iaoypzp6syf32cz9l15pzp7e",
+                        "name": "Canada"
+                    }
+                },
+                "tournamentCalendar": {
+                    "id": "1gz4f3r68v3w92gdsu12lom0a",
+                    "startDate": "2020-08-14Z",
+                    "endDate": "2020-09-19Z",
+                    "name": "2020"
+                },
+                "stage": {
+                    "id": "1hk5r2gykjom0kulqslpaxnca",
+                    "formatId": "e2q01r9o9jwiq1fls93d1sslx",
+                    "startDate": "2020-08-14Z",
+                    "endDate": "2020-09-06Z",
+                    "name": "Regular Season"
+                },
+                "contestant": [
+                    {
+                        "id": "73xrv2025rnj0t3y9ayp83bec",
+                        "name": "Edmonton",
+                        "shortName": "Edmonton",
+                        "officialName": "FC Edmonton",
+                        "code": "EDM",
+                        "position": "home",
+                        "country": {
+                            "id": "1iaoypzp6syf32cz9l15pzp7e",
+                            "name": "Canada"
+                        }
+                    },
+                    {
+                        "id": "5gmx3o5y2oc0i6rowjwtu7jvu",
+                        "name": "HFX Wanderers",
+                        "shortName": "Wanderers",
+                        "officialName": "HFX Wanderers FC",
+                        "code": "HFX",
+                        "position": "away",
+                        "country": {
+                            "id": "1iaoypzp6syf32cz9l15pzp7e",
+                            "name": "Canada"
+                        }
+                    }
+                ],
+                "venue": {
+                    "id": "ac5bsyj7gvwq5ykzyjdxuo5xw",
+                    "neutral": "no",
+                    "longName": "UPEI Artificial Turf Field",
+                    "shortName": "UPEI Artificial Turf Field"
+                }
+            },
+            "liveData": {
+                "matchDetails": {
+                    "periodId": 14,
+                    "matchStatus": "Played",
+                    "winner": "away",
+                    "matchLengthMin": 97,
+                    "matchLengthSec": 1,
+                    "period": [
+                        {
+                            "id": 1,
+                            "start": "2020-08-27T00:06:24Z",
+                            "end": "2020-08-27T00:53:25Z",
+                            "lengthMin": 47,
+                            "lengthSec": 1
+                        },
+                        {
+                            "id": 2,
+                            "start": "2020-08-27T01:08:29Z",
+                            "end": "2020-08-27T01:58:29Z",
+                            "lengthMin": 50,
+                            "lengthSec": 0
+                        }
+                    ],
+                    "scores": {
+                        "ht": {
+                            "home": 0,
+                            "away": 2
+                        },
+                        "ft": {
+                            "home": 1,
+                            "away": 3
+                        },
+                        "total": {
+                            "home": 1,
+                            "away": 3
+                        }
+                    }
+                },
+                "goal": [
+                    {
+                        "contestantId": "5gmx3o5y2oc0i6rowjwtu7jvu",
+                        "periodId": 1,
+                        "timeMin": 35,
+                        "timeMinSec": "34:52",
+                        "lastUpdated": "2022-04-05T14:50:31Z",
+                        "timestamp": "2020-08-27T00:41:16Z",
+                        "type": "G",
+                        "scorerId": "26zoncn0ilfvg5gwn91dkqmt",
+                        "scorerName": "A. García",
+                        "assistPlayerId": "8uqytik44ro3mbkz0s8m163xm",
+                        "assistPlayerName": "A. Rampersad",
+                        "optaEventId": "2206517917",
+                        "homeScore": 0,
+                        "awayScore": 1
+                    },
+                    {
+                        "contestantId": "5gmx3o5y2oc0i6rowjwtu7jvu",
+                        "periodId": 1,
+                        "timeMin": 45,
+                        "timeMinSec": "44:50",
+                        "lastUpdated": "2022-04-15T21:30:43Z",
+                        "timestamp": "2020-08-27T00:51:14Z",
+                        "type": "G",
+                        "scorerId": "ahyd5vf8f8cyoiefm8hsimzu1",
+                        "scorerName": "João Morelli",
+                        "assistPlayerId": "ezibxuzirgqnb5enkgvdk5ot1",
+                        "assistPlayerName": "A. Riggi",
+                        "optaEventId": "2206521743",
+                        "homeScore": 0,
+                        "awayScore": 2
+                    },
+                    {
+                        "contestantId": "5gmx3o5y2oc0i6rowjwtu7jvu",
+                        "periodId": 2,
+                        "timeMin": 76,
+                        "timeMinSec": "75:11",
+                        "lastUpdated": "2022-04-15T21:30:43Z",
+                        "timestamp": "2020-08-27T01:38:40Z",
+                        "type": "G",
+                        "scorerId": "ahyd5vf8f8cyoiefm8hsimzu1",
+                        "scorerName": "João Morelli",
+                        "assistPlayerId": "8uqytik44ro3mbkz0s8m163xm",
+                        "assistPlayerName": "A. Rampersad",
+                        "optaEventId": "2206533771",
+                        "homeScore": 0,
+                        "awayScore": 3
+                    },
+                    {
+                        "contestantId": "73xrv2025rnj0t3y9ayp83bec",
+                        "periodId": 2,
+                        "timeMin": 87,
+                        "timeMinSec": "86:15",
+                        "lastUpdated": "2023-08-01T00:42:16Z",
+                        "timestamp": "2020-08-27T01:49:44Z",
+                        "type": "G",
+                        "scorerId": "7dbeb4b7em8hmoc7e0begi1yi",
+                        "scorerName": "M. Velado-Tsegaye",
+                        "optaEventId": "2206535997",
+                        "homeScore": 1,
+                        "awayScore": 3
+                    }
+                ],
+                "missedPen": [
+                    {
+                        "contestantId": "73xrv2025rnj0t3y9ayp83bec",
+                        "periodId": 1,
+                        "timeMin": 27,
+                        "timeMinSec": "26:50",
+                        "lastUpdated": "2020-08-27T00:37:21Z",
+                        "timestamp": "2020-08-27T00:33:14Z",
+                        "type": "PM",
+                        "playerId": "614w28s7cigyjam7f10hz9gwl",
+                        "playerName": "T. Ameobi",
+                        "optaEventId": "2206515089"
+                    },
+                    {
+                        "contestantId": "5gmx3o5y2oc0i6rowjwtu7jvu",
+                        "periodId": 1,
+                        "timeMin": 27,
+                        "timeMinSec": "26:50",
+                        "lastUpdated": "2020-08-27T00:37:21Z",
+                        "type": "PS",
+                        "playerId": "999aky7w22iv11ny6d6w57g4q",
+                        "playerName": "C. Oxner",
+                        "optaEventId": "2206515089"
+                    }
+                ],
+                "card": [
+                    {
+                        "contestantId": "73xrv2025rnj0t3y9ayp83bec",
+                        "periodId": 1,
+                        "timeMin": 37,
+                        "timeMinSec": "36:33",
+                        "lastUpdated": "2022-04-14T11:52:47Z",
+                        "timestamp": "2020-08-27T00:42:57Z",
+                        "type": "YC",
+                        "playerId": "1yufrkhruoxnyg54sxgduilt5",
+                        "playerName": "J. Esua",
+                        "optaEventId": "2206518507",
+                        "cardReason": "Foul"
+                    },
+                    {
+                        "contestantId": "5gmx3o5y2oc0i6rowjwtu7jvu",
+                        "periodId": 2,
+                        "timeMin": 64,
+                        "timeMinSec": "63:37",
+                        "lastUpdated": "2021-06-18T19:28:37Z",
+                        "timestamp": "2020-08-27T01:27:06Z",
+                        "type": "YC",
+                        "playerId": "1i7a6katii8fnxncnyun4nyzt",
+                        "playerName": "J. Geffrard",
+                        "optaEventId": "2206531351",
+                        "cardReason": "Foul"
+                    }
+                ],
+                "substitute": [
+                    {
+                        "contestantId": "73xrv2025rnj0t3y9ayp83bec",
+                        "periodId": 2,
+                        "timeMin": 61,
+                        "timeMinSec": "60:29",
+                        "lastUpdated": "2023-04-13T07:53:25Z",
+                        "timestamp": "2020-08-27T01:23:58Z",
+                        "playerOnId": "9wsm9vzab3uywb8rox5go6jxm",
+                        "playerOnName": "E. Ongaro",
+                        "playerOffId": "614w28s7cigyjam7f10hz9gwl",
+                        "playerOffName": "T. Ameobi",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "73xrv2025rnj0t3y9ayp83bec",
+                        "periodId": 2,
+                        "timeMin": 61,
+                        "timeMinSec": "60:37",
+                        "lastUpdated": "2023-08-01T00:42:16Z",
+                        "timestamp": "2020-08-27T01:24:06Z",
+                        "playerOnId": "7dbeb4b7em8hmoc7e0begi1yi",
+                        "playerOnName": "M. Velado-Tsegaye",
+                        "playerOffId": "81ggmgps5zcnafmhlv9f0osiy",
+                        "playerOffName": "A. Caceres",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "5gmx3o5y2oc0i6rowjwtu7jvu",
+                        "periodId": 2,
+                        "timeMin": 78,
+                        "timeMinSec": "77:10",
+                        "lastUpdated": "2020-08-27T01:43:18Z",
+                        "timestamp": "2020-08-27T01:40:39Z",
+                        "playerOnId": "4ux10kolns6m5lgd64wumjfth",
+                        "playerOnName": "L. Béland-Goyette",
+                        "playerOffId": "ahyd5vf8f8cyoiefm8hsimzu1",
+                        "playerOffName": "João Morelli",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "5gmx3o5y2oc0i6rowjwtu7jvu",
+                        "periodId": 2,
+                        "timeMin": 78,
+                        "timeMinSec": "77:20",
+                        "lastUpdated": "2022-04-15T21:31:19Z",
+                        "timestamp": "2020-08-27T01:40:49Z",
+                        "playerOnId": "7yio8rqcy9vth90ps5f5j0s0l",
+                        "playerOnName": "M. Restrepo",
+                        "playerOffId": "ezibxuzirgqnb5enkgvdk5ot1",
+                        "playerOffName": "A. Riggi",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "73xrv2025rnj0t3y9ayp83bec",
+                        "periodId": 2,
+                        "timeMin": 78,
+                        "timeMinSec": "77:25",
+                        "lastUpdated": "2020-08-27T01:48:42Z",
+                        "timestamp": "2020-08-27T01:40:54Z",
+                        "playerOnId": "7z8zzlbmnxxfixcaod718ww0k",
+                        "playerOnName": "S. Gardner",
+                        "playerOffId": "7y21qqftugy5rfncz7atrue7e",
+                        "playerOffName": "D. Lee",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "73xrv2025rnj0t3y9ayp83bec",
+                        "periodId": 2,
+                        "timeMin": 78,
+                        "timeMinSec": "77:26",
+                        "lastUpdated": "2020-08-27T01:48:42Z",
+                        "timestamp": "2020-08-27T01:40:55Z",
+                        "playerOnId": "759r7l0y8jofaf394tnc7ytt6",
+                        "playerOnName": "P. Amanda",
+                        "playerOffId": "6mmfo5q4m9zdbpl1cgqv5muhh",
+                        "playerOffName": "K. Alemán",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "5gmx3o5y2oc0i6rowjwtu7jvu",
+                        "periodId": 2,
+                        "timeMin": 78,
+                        "timeMinSec": "77:27",
+                        "lastUpdated": "2020-09-03T18:26:06Z",
+                        "timestamp": "2020-08-27T01:40:56Z",
+                        "playerOnId": "5ep5673eihbif5vkbzctjj0x6",
+                        "playerOnName": "O. Kreim",
+                        "playerOffId": "549bk4ar8s05kzy78wi86one2",
+                        "playerOffName": "A. Marshsall",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "5gmx3o5y2oc0i6rowjwtu7jvu",
+                        "periodId": 2,
+                        "timeMin": 82,
+                        "timeMinSec": "81:38",
+                        "lastUpdated": "2020-08-27T01:45:12Z",
+                        "timestamp": "2020-08-27T01:45:07Z",
+                        "playerOnId": "ej15pecwc8l11pif9je6mo962",
+                        "playerOnName": "S. Firth",
+                        "playerOffId": "8uqytik44ro3mbkz0s8m163xm",
+                        "playerOffName": "A. Rampersad",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "73xrv2025rnj0t3y9ayp83bec",
+                        "periodId": 2,
+                        "timeMin": 82,
+                        "timeMinSec": "82:00",
+                        "lastUpdated": "2020-08-27T01:45:37Z",
+                        "timestamp": "2020-08-27T01:45:29Z",
+                        "playerOnId": "6byiub7o0uwogoc24p79vx6ju",
+                        "playerOnName": "C. Carter",
+                        "playerOffId": "ezyu9w01guirieddjudeln1lh",
+                        "playerOffName": "A. Zebie",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "5gmx3o5y2oc0i6rowjwtu7jvu",
+                        "periodId": 2,
+                        "timeMin": 88,
+                        "timeMinSec": "88:00",
+                        "lastUpdated": "2020-08-27T01:51:37Z",
+                        "timestamp": "2020-08-27T01:51:29Z",
+                        "playerOnId": "4t92bvofxxvfqe6f2w9gs8t0p",
+                        "playerOnName": "C. Bent",
+                        "playerOffId": "26zoncn0ilfvg5gwn91dkqmt",
+                        "playerOffName": "A. García",
+                        "subReason": "Tactical"
+                    }
+                ],
+                "matchDetailsExtra": {
+                    "matchOfficial": [
+                        {
+                            "id": "4hyc9zo5cfw450iz2hdm30qqy",
+                            "type": "Main",
+                            "firstName": "Filip",
+                            "lastName": "Dujic",
+                            "shortFirstName": "Filip",
+                            "shortLastName": "Dujic"
+                        },
+                        {
+                            "id": "2kxdpiuq7tspqzo9iwgmz225m",
+                            "type": "Assistant referee 1",
+                            "firstName": "Gabrielle",
+                            "lastName": "Lemieux",
+                            "shortFirstName": "Gabrielle",
+                            "shortLastName": "Lemieux"
+                        },
+                        {
+                            "id": "5gi1zt2uygpnxhioc0sv1vdd6",
+                            "type": "Assistant referee 2",
+                            "firstName": "Michael",
+                            "lastName": "Hood",
+                            "shortFirstName": "Michael",
+                            "shortLastName": "Hood"
+                        },
+                        {
+                            "id": "2702pdcf6fepvyr9nem8rt3ah",
+                            "type": "Fourth official",
+                            "firstName": "Pierre Luc",
+                            "lastName": "Lauziere",
+                            "shortFirstName": "Pierre-Luc",
+                            "shortLastName": "Lauziere"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "matchInfo": {
+                "id": "7tqr229an5mqpjp1qgvl7e0pg",
+                "coverageLevel": "13",
+                "date": "2020-08-23Z",
+                "time": "17:00:00Z",
+                "localDate": "2020-08-23",
+                "localTime": "14:00:00",
+                "attendanceInfoId": "1",
+                "attendanceInfo": "Behind Closed Doors",
+                "numberOfPeriods": 2,
+                "periodLength": 45,
+                "lastUpdated": "2024-09-08T23:28:46Z",
+                "description": "Atlético Ottawa vs Edmonton",
+                "sport": {
+                    "id": "289u5typ3vp4ifwh5thalohmq",
+                    "name": "Soccer"
+                },
+                "ruleset": {
+                    "id": "79plas4983031idr6vw83nuel",
+                    "name": "Men"
+                },
+                "competition": {
+                    "id": "6lkj3o21cr4g7bql6tb3fk222",
+                    "name": "Canadian Premier League",
+                    "knownName": "Canadian Premier League",
+                    "competitionCode": "CPL",
+                    "competitionFormat": "Domestic league",
+                    "country": {
+                        "id": "1iaoypzp6syf32cz9l15pzp7e",
+                        "name": "Canada"
+                    }
+                },
+                "tournamentCalendar": {
+                    "id": "1gz4f3r68v3w92gdsu12lom0a",
+                    "startDate": "2020-08-14Z",
+                    "endDate": "2020-09-19Z",
+                    "name": "2020"
+                },
+                "stage": {
+                    "id": "1hk5r2gykjom0kulqslpaxnca",
+                    "formatId": "e2q01r9o9jwiq1fls93d1sslx",
+                    "startDate": "2020-08-14Z",
+                    "endDate": "2020-09-06Z",
+                    "name": "Regular Season"
+                },
+                "contestant": [
+                    {
+                        "id": "dn8tjhuq0bax4dgixqvluhzze",
+                        "name": "Atlético Ottawa",
+                        "shortName": "Atlético",
+                        "officialName": "Atlético Ottawa",
+                        "code": "ATO",
+                        "position": "home",
+                        "country": {
+                            "id": "1iaoypzp6syf32cz9l15pzp7e",
+                            "name": "Canada"
+                        }
+                    },
+                    {
+                        "id": "73xrv2025rnj0t3y9ayp83bec",
+                        "name": "Edmonton",
+                        "shortName": "Edmonton",
+                        "officialName": "FC Edmonton",
+                        "code": "EDM",
+                        "position": "away",
+                        "country": {
+                            "id": "1iaoypzp6syf32cz9l15pzp7e",
+                            "name": "Canada"
+                        }
+                    }
+                ],
+                "venue": {
+                    "id": "ac5bsyj7gvwq5ykzyjdxuo5xw",
+                    "neutral": "no",
+                    "longName": "UPEI Artificial Turf Field",
+                    "shortName": "UPEI Artificial Turf Field"
+                }
+            },
+            "liveData": {
+                "matchDetails": {
+                    "periodId": 14,
+                    "matchStatus": "Played",
+                    "winner": "draw",
+                    "matchLengthMin": 97,
+                    "matchLengthSec": 25,
+                    "period": [
+                        {
+                            "id": 1,
+                            "start": "2020-08-23T17:06:22Z",
+                            "end": "2020-08-23T17:54:22Z",
+                            "lengthMin": 48,
+                            "lengthSec": 0
+                        },
+                        {
+                            "id": 2,
+                            "start": "2020-08-23T18:09:05Z",
+                            "end": "2020-08-23T18:58:30Z",
+                            "lengthMin": 49,
+                            "lengthSec": 25
+                        }
+                    ],
+                    "scores": {
+                        "ht": {
+                            "home": 2,
+                            "away": 0
+                        },
+                        "ft": {
+                            "home": 2,
+                            "away": 2
+                        },
+                        "total": {
+                            "home": 2,
+                            "away": 2
+                        }
+                    }
+                },
+                "goal": [
+                    {
+                        "contestantId": "dn8tjhuq0bax4dgixqvluhzze",
+                        "periodId": 1,
+                        "timeMin": 1,
+                        "timeMinSec": "0:22",
+                        "lastUpdated": "2024-01-07T07:58:06Z",
+                        "timestamp": "2020-08-23T17:06:44Z",
+                        "type": "G",
+                        "scorerId": "eb8zwnam8ieg4y7xra9x5on9x",
+                        "scorerName": "F. Acuña",
+                        "assistPlayerId": "6oy4mzcnojabnil6u43mxal4a",
+                        "assistPlayerName": "M. Shaw",
+                        "optaEventId": "2205947677",
+                        "homeScore": 1,
+                        "awayScore": 0
+                    },
+                    {
+                        "contestantId": "dn8tjhuq0bax4dgixqvluhzze",
+                        "periodId": 1,
+                        "timeMin": 15,
+                        "timeMinSec": "14:06",
+                        "lastUpdated": "2024-01-07T07:58:06Z",
+                        "timestamp": "2020-08-23T17:20:28Z",
+                        "type": "G",
+                        "scorerId": "eb8zwnam8ieg4y7xra9x5on9x",
+                        "scorerName": "F. Acuña",
+                        "assistPlayerId": "ddyudctrqh7j4vqoofwg0oull",
+                        "assistPlayerName": "M. Hamilton",
+                        "optaEventId": "2205951433",
+                        "homeScore": 2,
+                        "awayScore": 0
+                    },
+                    {
+                        "contestantId": "73xrv2025rnj0t3y9ayp83bec",
+                        "periodId": 2,
+                        "timeMin": 88,
+                        "timeMinSec": "87:29",
+                        "lastUpdated": "2024-06-14T00:47:44Z",
+                        "timestamp": "2020-08-23T18:51:34Z",
+                        "type": "G",
+                        "scorerId": "6mmfo5q4m9zdbpl1cgqv5muhh",
+                        "scorerName": "K. Alemán",
+                        "optaEventId": "2205965949",
+                        "homeScore": 2,
+                        "awayScore": 1
+                    },
+                    {
+                        "contestantId": "73xrv2025rnj0t3y9ayp83bec",
+                        "periodId": 2,
+                        "timeMin": 91,
+                        "timeMinSec": "90:07",
+                        "lastUpdated": "2023-04-13T07:53:25Z",
+                        "timestamp": "2020-08-23T18:54:12Z",
+                        "type": "G",
+                        "scorerId": "9wsm9vzab3uywb8rox5go6jxm",
+                        "scorerName": "E. Ongaro",
+                        "assistPlayerId": "81ggmgps5zcnafmhlv9f0osiy",
+                        "assistPlayerName": "A. Caceres",
+                        "optaEventId": "2205966229",
+                        "homeScore": 2,
+                        "awayScore": 2
+                    }
+                ],
+                "card": [
+                    {
+                        "contestantId": "73xrv2025rnj0t3y9ayp83bec",
+                        "periodId": 1,
+                        "timeMin": 20,
+                        "timeMinSec": "19:54",
+                        "lastUpdated": "2024-06-14T00:47:44Z",
+                        "timestamp": "2020-08-23T17:26:17Z",
+                        "type": "YC",
+                        "playerId": "6mmfo5q4m9zdbpl1cgqv5muhh",
+                        "playerName": "K. Alemán",
+                        "optaEventId": "2205952805",
+                        "cardReason": "Reckless Offence"
+                    },
+                    {
+                        "contestantId": "dn8tjhuq0bax4dgixqvluhzze",
+                        "periodId": 1,
+                        "timeMin": 41,
+                        "timeMinSec": "40:26",
+                        "lastUpdated": "2023-04-21T22:23:50Z",
+                        "timestamp": "2020-08-23T17:46:48Z",
+                        "type": "YC",
+                        "playerId": "bh7fb8v7o5wynmapdhlth594a",
+                        "playerName": "A. Coupland",
+                        "optaEventId": "2205956803",
+                        "cardReason": "Foul"
+                    },
+                    {
+                        "contestantId": "dn8tjhuq0bax4dgixqvluhzze",
+                        "periodId": 1,
+                        "timeMin": 43,
+                        "timeMinSec": "42:22",
+                        "lastUpdated": "2024-04-21T13:40:09Z",
+                        "timestamp": "2020-08-23T17:48:45Z",
+                        "type": "YC",
+                        "playerId": "ewjp0ru1c4fn1h5bqyqdih0wl",
+                        "playerName": "B. Fisk",
+                        "optaEventId": "2205957135",
+                        "cardReason": "Time wasting"
+                    },
+                    {
+                        "contestantId": "dn8tjhuq0bax4dgixqvluhzze",
+                        "periodId": 2,
+                        "timeMin": 48,
+                        "timeMinSec": "47:39",
+                        "lastUpdated": "2020-08-23T18:11:52Z",
+                        "timestamp": "2020-08-23T18:11:44Z",
+                        "type": "YC",
+                        "playerId": "9bu481g5htyonfco9whsamve2",
+                        "playerName": "M. Kourouma",
+                        "optaEventId": "2205960767",
+                        "cardReason": "Foul"
+                    },
+                    {
+                        "contestantId": "73xrv2025rnj0t3y9ayp83bec",
+                        "periodId": 2,
+                        "timeMin": 68,
+                        "timeMinSec": "67:42",
+                        "lastUpdated": "2020-08-23T18:31:52Z",
+                        "timestamp": "2020-08-23T18:31:47Z",
+                        "type": "YC",
+                        "playerId": "7z8zzlbmnxxfixcaod718ww0k",
+                        "playerName": "S. Gardner",
+                        "optaEventId": "2205963497",
+                        "cardReason": "Tactical Foul"
+                    },
+                    {
+                        "contestantId": "73xrv2025rnj0t3y9ayp83bec",
+                        "periodId": 2,
+                        "timeMin": 93,
+                        "timeMinSec": "92:40",
+                        "lastUpdated": "2022-09-25T20:04:36Z",
+                        "timestamp": "2020-08-23T18:56:45Z",
+                        "type": "YC",
+                        "playerId": "ezyu9w01guirieddjudeln1lh",
+                        "playerName": "A. Zebie",
+                        "optaEventId": "2207766497",
+                        "cardReason": "Not visible"
+                    }
+                ],
+                "substitute": [
+                    {
+                        "contestantId": "73xrv2025rnj0t3y9ayp83bec",
+                        "periodId": 1,
+                        "timeMin": 20,
+                        "timeMinSec": "19:17",
+                        "lastUpdated": "2020-08-23T17:25:45Z",
+                        "timestamp": "2020-08-23T17:25:40Z",
+                        "playerOnId": "7z8zzlbmnxxfixcaod718ww0k",
+                        "playerOnName": "S. Gardner",
+                        "playerOffId": "8v158n3stjodma3bjlj4yg639",
+                        "playerOffName": "K. Moses",
+                        "subReason": "Injury"
+                    },
+                    {
+                        "contestantId": "dn8tjhuq0bax4dgixqvluhzze",
+                        "periodId": 1,
+                        "timeMin": 40,
+                        "timeMinSec": "39:22",
+                        "lastUpdated": "2023-04-21T22:23:50Z",
+                        "timestamp": "2020-08-23T17:45:44Z",
+                        "playerOnId": "bh7fb8v7o5wynmapdhlth594a",
+                        "playerOnName": "A. Coupland",
+                        "playerOffId": "eyems8p1wpp6df9w1wz6rdvpx",
+                        "playerOffName": "B. McKendry",
+                        "subReason": "Injury"
+                    },
+                    {
+                        "contestantId": "73xrv2025rnj0t3y9ayp83bec",
+                        "periodId": 2,
+                        "timeMin": 46,
+                        "timeMinSec": "45:00",
+                        "lastUpdated": "2020-08-23T18:09:31Z",
+                        "timestamp": "2020-08-23T18:08:55Z",
+                        "playerOnId": "6byiub7o0uwogoc24p79vx6ju",
+                        "playerOnName": "C. Carter",
+                        "playerOffId": "csicvwhik2guponydus9zt0x5",
+                        "playerOffName": "E. Zetterberg",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "73xrv2025rnj0t3y9ayp83bec",
+                        "periodId": 2,
+                        "timeMin": 62,
+                        "timeMinSec": "61:32",
+                        "lastUpdated": "2020-08-23T18:25:42Z",
+                        "timestamp": "2020-08-23T18:25:37Z",
+                        "playerOnId": "7syvxffcyqbhwd42954p8ej85",
+                        "playerOnName": "H. Boakai",
+                        "playerOffId": "daf9pfrmp5w42wpwejb3lzkr9",
+                        "playerOffName": "Son Yong-Chan",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "dn8tjhuq0bax4dgixqvluhzze",
+                        "periodId": 2,
+                        "timeMin": 74,
+                        "timeMinSec": "73:48",
+                        "lastUpdated": "2021-07-20T12:37:05Z",
+                        "timestamp": "2020-08-23T18:37:54Z",
+                        "playerOnId": "3e7gd7j0811kh4ibwd2wfr84p",
+                        "playerOnName": "M. Kowal",
+                        "playerOffId": "eb8zwnam8ieg4y7xra9x5on9x",
+                        "playerOffName": "F. Acuña",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "73xrv2025rnj0t3y9ayp83bec",
+                        "periodId": 2,
+                        "timeMin": 77,
+                        "timeMinSec": "76:33",
+                        "lastUpdated": "2020-08-23T18:40:42Z",
+                        "timestamp": "2020-08-23T18:40:38Z",
+                        "playerOnId": "759r7l0y8jofaf394tnc7ytt6",
+                        "playerOnName": "P. Amanda",
+                        "playerOffId": "1yufrkhruoxnyg54sxgduilt5",
+                        "playerOffName": "J. Esua",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "73xrv2025rnj0t3y9ayp83bec",
+                        "periodId": 2,
+                        "timeMin": 77,
+                        "timeMinSec": "76:46",
+                        "lastUpdated": "2020-08-23T18:40:56Z",
+                        "timestamp": "2020-08-23T18:40:51Z",
+                        "playerOnId": "81ggmgps5zcnafmhlv9f0osiy",
+                        "playerOnName": "A. Caceres",
+                        "playerOffId": "614w28s7cigyjam7f10hz9gwl",
+                        "playerOffName": "T. Ameobi",
+                        "subReason": "Tactical"
+                    }
+                ],
+                "matchDetailsExtra": {
+                    "matchOfficial": [
+                        {
+                            "id": "f001yvwubyj56cg6clnr03mui",
+                            "type": "Main",
+                            "firstName": "Myriam",
+                            "lastName": "Marcotte",
+                            "shortFirstName": "Myriam",
+                            "shortLastName": "Marcotte"
+                        },
+                        {
+                            "id": "2kxdpiuq7tspqzo9iwgmz225m",
+                            "type": "Assistant referee 1",
+                            "firstName": "Gabrielle",
+                            "lastName": "Lemieux",
+                            "shortFirstName": "Gabrielle",
+                            "shortLastName": "Lemieux"
+                        },
+                        {
+                            "id": "f5cd8yi3mzk3eqcjictj4ij1l",
+                            "type": "Assistant referee 2",
+                            "firstName": "Stefan",
+                            "lastName": "Tanaka-Freundt",
+                            "shortFirstName": "Stefan",
+                            "shortLastName": "Tanaka-Freundt"
+                        },
+                        {
+                            "id": "7hru8t9jwytlbfi2z0fnnhmuh",
+                            "type": "Fourth official",
+                            "firstName": "Juan",
+                            "lastName": "Marquez",
+                            "shortFirstName": "Juan",
+                            "shortLastName": "Márquez"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "matchInfo": {
+                "id": "7tigxj35sgqjbet0qxe22v21g",
+                "coverageLevel": "13",
+                "date": "2020-08-21Z",
+                "time": "00:00:00Z",
+                "localDate": "2020-08-20",
+                "localTime": "21:00:00",
+                "attendanceInfoId": "1",
+                "attendanceInfo": "Behind Closed Doors",
+                "numberOfPeriods": 2,
+                "periodLength": 45,
+                "lastUpdated": "2025-04-08T00:00:43Z",
+                "description": "Edmonton vs Cavalry",
+                "sport": {
+                    "id": "289u5typ3vp4ifwh5thalohmq",
+                    "name": "Soccer"
+                },
+                "ruleset": {
+                    "id": "79plas4983031idr6vw83nuel",
+                    "name": "Men"
+                },
+                "competition": {
+                    "id": "6lkj3o21cr4g7bql6tb3fk222",
+                    "name": "Canadian Premier League",
+                    "knownName": "Canadian Premier League",
+                    "competitionCode": "CPL",
+                    "competitionFormat": "Domestic league",
+                    "country": {
+                        "id": "1iaoypzp6syf32cz9l15pzp7e",
+                        "name": "Canada"
+                    }
+                },
+                "tournamentCalendar": {
+                    "id": "1gz4f3r68v3w92gdsu12lom0a",
+                    "startDate": "2020-08-14Z",
+                    "endDate": "2020-09-19Z",
+                    "name": "2020"
+                },
+                "stage": {
+                    "id": "1hk5r2gykjom0kulqslpaxnca",
+                    "formatId": "e2q01r9o9jwiq1fls93d1sslx",
+                    "startDate": "2020-08-14Z",
+                    "endDate": "2020-09-06Z",
+                    "name": "Regular Season"
+                },
+                "contestant": [
+                    {
+                        "id": "73xrv2025rnj0t3y9ayp83bec",
+                        "name": "Edmonton",
+                        "shortName": "Edmonton",
+                        "officialName": "FC Edmonton",
+                        "code": "EDM",
+                        "position": "home",
+                        "country": {
+                            "id": "1iaoypzp6syf32cz9l15pzp7e",
+                            "name": "Canada"
+                        }
+                    },
+                    {
+                        "id": "41ewt71n8fqwy6trsqta1bjvu",
+                        "name": "Cavalry",
+                        "shortName": "Cavalry",
+                        "officialName": "Cavalry FC",
+                        "code": "CAV",
+                        "position": "away",
+                        "country": {
+                            "id": "1iaoypzp6syf32cz9l15pzp7e",
+                            "name": "Canada"
+                        }
+                    }
+                ],
+                "venue": {
+                    "id": "ac5bsyj7gvwq5ykzyjdxuo5xw",
+                    "neutral": "no",
+                    "longName": "UPEI Artificial Turf Field",
+                    "shortName": "UPEI Artificial Turf Field"
+                }
+            },
+            "liveData": {
+                "matchDetails": {
+                    "periodId": 14,
+                    "matchStatus": "Played",
+                    "winner": "away",
+                    "matchLengthMin": 97,
+                    "matchLengthSec": 57,
+                    "period": [
+                        {
+                            "id": 1,
+                            "start": "2020-08-21T00:00:23Z",
+                            "end": "2020-08-21T00:48:27Z",
+                            "lengthMin": 48,
+                            "lengthSec": 4
+                        },
+                        {
+                            "id": 2,
+                            "start": "2020-08-21T01:02:48Z",
+                            "end": "2020-08-21T01:52:41Z",
+                            "lengthMin": 49,
+                            "lengthSec": 53
+                        }
+                    ],
+                    "scores": {
+                        "ht": {
+                            "home": 0,
+                            "away": 1
+                        },
+                        "ft": {
+                            "home": 0,
+                            "away": 2
+                        },
+                        "total": {
+                            "home": 0,
+                            "away": 2
+                        }
+                    }
+                },
+                "goal": [
+                    {
+                        "contestantId": "41ewt71n8fqwy6trsqta1bjvu",
+                        "periodId": 1,
+                        "timeMin": 44,
+                        "timeMinSec": "43:49",
+                        "lastUpdated": "2021-04-19T14:44:46Z",
+                        "timestamp": "2020-08-21T00:44:13Z",
+                        "type": "G",
+                        "scorerId": "c0bz7h3es1ym0n5he0l4ntzop",
+                        "scorerName": "J. Brown",
+                        "assistPlayerId": "1lg1214de42tia4tcv7rk3z6d",
+                        "assistPlayerName": "Oliver Minatel",
+                        "optaEventId": "2205291509",
+                        "homeScore": 0,
+                        "awayScore": 1
+                    },
+                    {
+                        "contestantId": "41ewt71n8fqwy6trsqta1bjvu",
+                        "periodId": 2,
+                        "timeMin": 95,
+                        "timeMinSec": "94:07",
+                        "lastUpdated": "2021-04-19T14:44:46Z",
+                        "timestamp": "2020-08-21T01:51:55Z",
+                        "type": "PG",
+                        "scorerId": "c0bz7h3es1ym0n5he0l4ntzop",
+                        "scorerName": "J. Brown",
+                        "optaEventId": "2205300039",
+                        "homeScore": 0,
+                        "awayScore": 2
+                    }
+                ],
+                "card": [
+                    {
+                        "contestantId": "73xrv2025rnj0t3y9ayp83bec",
+                        "periodId": 1,
+                        "timeMin": 31,
+                        "timeMinSec": "30:44",
+                        "lastUpdated": "2020-08-21T00:31:15Z",
+                        "timestamp": "2020-08-21T00:31:08Z",
+                        "type": "YC",
+                        "playerId": "614w28s7cigyjam7f10hz9gwl",
+                        "playerName": "T. Ameobi",
+                        "optaEventId": "2205289005",
+                        "cardReason": "Foul"
+                    },
+                    {
+                        "contestantId": "73xrv2025rnj0t3y9ayp83bec",
+                        "periodId": 2,
+                        "timeMin": 49,
+                        "timeMinSec": "48:42",
+                        "lastUpdated": "2024-05-11T19:06:56Z",
+                        "timestamp": "2020-08-21T01:06:31Z",
+                        "type": "RC",
+                        "playerId": "cu34wwcs8ozsglt7gew3p7sh5",
+                        "playerName": "T. Mohammed",
+                        "optaEventId": "2205295125",
+                        "cardReason": "Serious Foul"
+                    }
+                ],
+                "substitute": [
+                    {
+                        "contestantId": "73xrv2025rnj0t3y9ayp83bec",
+                        "periodId": 2,
+                        "timeMin": 46,
+                        "timeMinSec": "45:00",
+                        "lastUpdated": "2023-04-13T07:53:25Z",
+                        "timestamp": "2020-08-21T01:02:38Z",
+                        "playerOnId": "9wsm9vzab3uywb8rox5go6jxm",
+                        "playerOnName": "E. Ongaro",
+                        "playerOffId": "7syvxffcyqbhwd42954p8ej85",
+                        "playerOffName": "H. Boakai",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "73xrv2025rnj0t3y9ayp83bec",
+                        "periodId": 2,
+                        "timeMin": 63,
+                        "timeMinSec": "62:14",
+                        "lastUpdated": "2020-08-21T01:20:10Z",
+                        "timestamp": "2020-08-21T01:20:03Z",
+                        "playerOnId": "6byiub7o0uwogoc24p79vx6ju",
+                        "playerOnName": "C. Carter",
+                        "playerOffId": "ezyu9w01guirieddjudeln1lh",
+                        "playerOffName": "A. Zebie",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "73xrv2025rnj0t3y9ayp83bec",
+                        "periodId": 2,
+                        "timeMin": 63,
+                        "timeMinSec": "62:22",
+                        "lastUpdated": "2020-08-21T01:20:15Z",
+                        "timestamp": "2020-08-21T01:20:11Z",
+                        "playerOnId": "2bvfol1n1otgzral4w8j0ci22",
+                        "playerOnName": "D. Doe",
+                        "playerOffId": "614w28s7cigyjam7f10hz9gwl",
+                        "playerOffName": "T. Ameobi",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "41ewt71n8fqwy6trsqta1bjvu",
+                        "periodId": 2,
+                        "timeMin": 64,
+                        "timeMinSec": "63:44",
+                        "lastUpdated": "2024-12-04T17:34:27Z",
+                        "timestamp": "2020-08-21T01:21:33Z",
+                        "playerOnId": "5m5p9c4iyl4f4j1rr1rdmojfu",
+                        "playerOnName": "E. Adekugbe",
+                        "playerOffId": "49rr75teem0kobuhr4cesh756",
+                        "playerOffName": "M. Farsi",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "41ewt71n8fqwy6trsqta1bjvu",
+                        "periodId": 2,
+                        "timeMin": 64,
+                        "timeMinSec": "63:53",
+                        "lastUpdated": "2024-08-18T14:52:35Z",
+                        "timestamp": "2020-08-21T01:21:42Z",
+                        "playerOnId": "1mg5xen2me6dsqu3b0lktvnbp",
+                        "playerOnName": "M. Haber",
+                        "playerOffId": "1lg1214de42tia4tcv7rk3z6d",
+                        "playerOffName": "Oliver Minatel",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "73xrv2025rnj0t3y9ayp83bec",
+                        "periodId": 2,
+                        "timeMin": 78,
+                        "timeMinSec": "77:16",
+                        "lastUpdated": "2020-08-21T01:35:11Z",
+                        "timestamp": "2020-08-21T01:35:05Z",
+                        "playerOnId": "81ggmgps5zcnafmhlv9f0osiy",
+                        "playerOnName": "A. Caceres",
+                        "playerOffId": "6mmfo5q4m9zdbpl1cgqv5muhh",
+                        "playerOffName": "K. Alemán",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "41ewt71n8fqwy6trsqta1bjvu",
+                        "periodId": 2,
+                        "timeMin": 90,
+                        "timeMinSec": "89:42",
+                        "lastUpdated": "2020-08-21T01:47:37Z",
+                        "timestamp": "2020-08-21T01:47:31Z",
+                        "playerOnId": "41yxh6wtv2lrs3js0y2ir7svd",
+                        "playerOnName": "B. Zebie",
+                        "playerOffId": "86tz9u1o9o5u0lbyycyd3df4l",
+                        "playerOffName": "N. Ledgerwood",
+                        "subReason": "Injury"
+                    }
+                ],
+                "matchDetailsExtra": {
+                    "matchOfficial": [
+                        {
+                            "id": "3m4qttnldgor56dzawn1a3jrp",
+                            "type": "Main",
+                            "firstName": "Yusri",
+                            "lastName": "Rudolf",
+                            "shortFirstName": "Yusri",
+                            "shortLastName": "Rudolf"
+                        },
+                        {
+                            "id": "f5cd8yi3mzk3eqcjictj4ij1l",
+                            "type": "Assistant referee 1",
+                            "firstName": "Stefan",
+                            "lastName": "Tanaka-Freundt",
+                            "shortFirstName": "Stefan",
+                            "shortLastName": "Tanaka-Freundt"
+                        },
+                        {
+                            "id": "bfwvxn9bwo8j1te5l8qsbtmju",
+                            "type": "Assistant referee 2",
+                            "firstName": "Travis",
+                            "lastName": "Lefebvre",
+                            "shortFirstName": "Travis",
+                            "shortLastName": "Lefebvre"
+                        },
+                        {
+                            "id": "2702pdcf6fepvyr9nem8rt3ah",
+                            "type": "Fourth official",
+                            "firstName": "Pierre Luc",
+                            "lastName": "Lauziere",
+                            "shortFirstName": "Pierre-Luc",
+                            "shortLastName": "Lauziere"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "matchInfo": {
+                "id": "7t5b01x3jsqkkavibyn5aej2s",
+                "coverageLevel": "13",
+                "date": "2020-08-16Z",
+                "time": "19:00:00Z",
+                "localDate": "2020-08-16",
+                "localTime": "16:00:00",
+                "attendanceInfoId": "1",
+                "attendanceInfo": "Behind Closed Doors",
+                "numberOfPeriods": 2,
+                "periodLength": 45,
+                "lastUpdated": "2025-04-04T08:36:22Z",
+                "description": "Forge vs Edmonton",
+                "sport": {
+                    "id": "289u5typ3vp4ifwh5thalohmq",
+                    "name": "Soccer"
+                },
+                "ruleset": {
+                    "id": "79plas4983031idr6vw83nuel",
+                    "name": "Men"
+                },
+                "competition": {
+                    "id": "6lkj3o21cr4g7bql6tb3fk222",
+                    "name": "Canadian Premier League",
+                    "knownName": "Canadian Premier League",
+                    "competitionCode": "CPL",
+                    "competitionFormat": "Domestic league",
+                    "country": {
+                        "id": "1iaoypzp6syf32cz9l15pzp7e",
+                        "name": "Canada"
+                    }
+                },
+                "tournamentCalendar": {
+                    "id": "1gz4f3r68v3w92gdsu12lom0a",
+                    "startDate": "2020-08-14Z",
+                    "endDate": "2020-09-19Z",
+                    "name": "2020"
+                },
+                "stage": {
+                    "id": "1hk5r2gykjom0kulqslpaxnca",
+                    "formatId": "e2q01r9o9jwiq1fls93d1sslx",
+                    "startDate": "2020-08-14Z",
+                    "endDate": "2020-09-06Z",
+                    "name": "Regular Season"
+                },
+                "contestant": [
+                    {
+                        "id": "c2pdzdl3dgf5b0siidn2ay5ii",
+                        "name": "Forge",
+                        "shortName": "Forge",
+                        "officialName": "Forge FC",
+                        "code": "FOR",
+                        "position": "home",
+                        "country": {
+                            "id": "1iaoypzp6syf32cz9l15pzp7e",
+                            "name": "Canada"
+                        }
+                    },
+                    {
+                        "id": "73xrv2025rnj0t3y9ayp83bec",
+                        "name": "Edmonton",
+                        "shortName": "Edmonton",
+                        "officialName": "FC Edmonton",
+                        "code": "EDM",
+                        "position": "away",
+                        "country": {
+                            "id": "1iaoypzp6syf32cz9l15pzp7e",
+                            "name": "Canada"
+                        }
+                    }
+                ],
+                "venue": {
+                    "id": "ac5bsyj7gvwq5ykzyjdxuo5xw",
+                    "neutral": "no",
+                    "longName": "UPEI Artificial Turf Field",
+                    "shortName": "UPEI Artificial Turf Field"
+                }
+            },
+            "liveData": {
+                "matchDetails": {
+                    "periodId": 14,
+                    "matchStatus": "Played",
+                    "winner": "home",
+                    "matchLengthMin": 98,
+                    "matchLengthSec": 28,
+                    "period": [
+                        {
+                            "id": 1,
+                            "start": "2020-08-16T19:01:04Z",
+                            "end": "2020-08-16T19:48:10Z",
+                            "lengthMin": 47,
+                            "lengthSec": 6
+                        },
+                        {
+                            "id": 2,
+                            "start": "2020-08-16T20:03:17Z",
+                            "end": "2020-08-16T20:54:39Z",
+                            "lengthMin": 51,
+                            "lengthSec": 22
+                        }
+                    ],
+                    "scores": {
+                        "ht": {
+                            "home": 1,
+                            "away": 0
+                        },
+                        "ft": {
+                            "home": 2,
+                            "away": 0
+                        },
+                        "total": {
+                            "home": 2,
+                            "away": 0
+                        }
+                    }
+                },
+                "goal": [
+                    {
+                        "contestantId": "c2pdzdl3dgf5b0siidn2ay5ii",
+                        "periodId": 1,
+                        "timeMin": 11,
+                        "timeMinSec": "10:54",
+                        "lastUpdated": "2024-03-07T14:14:57Z",
+                        "timestamp": "2020-08-16T19:11:59Z",
+                        "type": "G",
+                        "scorerId": "7ehcrcdv82ib5fkpo3498gpgp",
+                        "scorerName": "K. Awuah",
+                        "optaEventId": "2204608403",
+                        "homeScore": 1,
+                        "awayScore": 0
+                    },
+                    {
+                        "contestantId": "73xrv2025rnj0t3y9ayp83bec",
+                        "periodId": 2,
+                        "timeMin": 92,
+                        "timeMinSec": "91:29",
+                        "lastUpdated": "2024-09-08T23:28:32Z",
+                        "timestamp": "2020-08-16T20:49:46Z",
+                        "type": "OG",
+                        "scorerId": "8v158n3stjodma3bjlj4yg639",
+                        "scorerName": "K. Moses",
+                        "optaEventId": "2204630893",
+                        "homeScore": 2,
+                        "awayScore": 0
+                    }
+                ],
+                "card": [
+                    {
+                        "contestantId": "c2pdzdl3dgf5b0siidn2ay5ii",
+                        "periodId": 1,
+                        "timeMin": 40,
+                        "timeMinSec": "39:07",
+                        "lastUpdated": "2024-12-04T13:30:27Z",
+                        "timestamp": "2020-08-16T19:40:11Z",
+                        "type": "YC",
+                        "playerId": "6rsihixcpnuyulgk4giwpzvth",
+                        "playerName": "D. Samuel",
+                        "optaEventId": "2204615851",
+                        "cardReason": "Foul"
+                    }
+                ],
+                "substitute": [
+                    {
+                        "contestantId": "c2pdzdl3dgf5b0siidn2ay5ii",
+                        "periodId": 2,
+                        "timeMin": 46,
+                        "timeMinSec": "45:00",
+                        "lastUpdated": "2025-01-06T15:58:02Z",
+                        "timestamp": "2020-08-16T20:03:07Z",
+                        "playerOnId": "apavbqkzwn6ik22hi8d8mo1qt",
+                        "playerOnName": "M. Tissot",
+                        "playerOffId": "6pi1u2mdt56ns3pqkdjp772s5",
+                        "playerOffName": "C. Nanco",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "73xrv2025rnj0t3y9ayp83bec",
+                        "periodId": 2,
+                        "timeMin": 61,
+                        "timeMinSec": "60:02",
+                        "lastUpdated": "2024-09-08T23:28:32Z",
+                        "timestamp": "2020-08-16T20:18:19Z",
+                        "playerOnId": "8v158n3stjodma3bjlj4yg639",
+                        "playerOnName": "K. Moses",
+                        "playerOffId": "79pboh9mzuchik3r2027wntgp",
+                        "playerOffName": "A. Đidić",
+                        "subReason": "Injury"
+                    },
+                    {
+                        "contestantId": "73xrv2025rnj0t3y9ayp83bec",
+                        "periodId": 2,
+                        "timeMin": 61,
+                        "timeMinSec": "60:14",
+                        "lastUpdated": "2024-05-11T19:06:56Z",
+                        "timestamp": "2020-08-16T20:18:31Z",
+                        "playerOnId": "cu34wwcs8ozsglt7gew3p7sh5",
+                        "playerOnName": "T. Mohammed",
+                        "playerOffId": "daf9pfrmp5w42wpwejb3lzkr9",
+                        "playerOffName": "Son Yong-Chan",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "73xrv2025rnj0t3y9ayp83bec",
+                        "periodId": 2,
+                        "timeMin": 61,
+                        "timeMinSec": "60:22",
+                        "lastUpdated": "2020-08-16T20:18:46Z",
+                        "timestamp": "2020-08-16T20:18:39Z",
+                        "playerOnId": "614w28s7cigyjam7f10hz9gwl",
+                        "playerOnName": "T. Ameobi",
+                        "playerOffId": "9wsm9vzab3uywb8rox5go6jxm",
+                        "playerOffName": "E. Ongaro",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "c2pdzdl3dgf5b0siidn2ay5ii",
+                        "periodId": 2,
+                        "timeMin": 68,
+                        "timeMinSec": "67:45",
+                        "lastUpdated": "2020-08-16T20:26:07Z",
+                        "timestamp": "2020-08-16T20:26:02Z",
+                        "playerOnId": "4bc5n4bry6a5wswiwzq8d9oq2",
+                        "playerOnName": "K. Thomas",
+                        "playerOffId": "6r8emgp7oeom6yyibdb4g77c9",
+                        "playerOffName": "D. Choinière",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "c2pdzdl3dgf5b0siidn2ay5ii",
+                        "periodId": 2,
+                        "timeMin": 68,
+                        "timeMinSec": "67:57",
+                        "lastUpdated": "2022-04-07T11:34:36Z",
+                        "timestamp": "2020-08-16T20:26:14Z",
+                        "playerOnId": "32fe58rlsvv1h3qthbhol08yy",
+                        "playerOnName": "A. Novak",
+                        "playerOffId": "cfffc2qdknupbftpqye1cbf1l",
+                        "playerOffName": "Mo Babouli",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "73xrv2025rnj0t3y9ayp83bec",
+                        "periodId": 2,
+                        "timeMin": 77,
+                        "timeMinSec": "76:43",
+                        "lastUpdated": "2020-08-16T20:35:06Z",
+                        "timestamp": "2020-08-16T20:35:00Z",
+                        "playerOnId": "81ggmgps5zcnafmhlv9f0osiy",
+                        "playerOnName": "A. Caceres",
+                        "playerOffId": "7syvxffcyqbhwd42954p8ej85",
+                        "playerOffName": "H. Boakai",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "c2pdzdl3dgf5b0siidn2ay5ii",
+                        "periodId": 2,
+                        "timeMin": 79,
+                        "timeMinSec": "78:42",
+                        "lastUpdated": "2024-04-12T15:17:38Z",
+                        "timestamp": "2020-08-16T20:36:59Z",
+                        "playerOnId": "c8gbyfp650fgai5782915ywa1",
+                        "playerOnName": "E. Cissé",
+                        "playerOffId": "bzfamx9nfvg0cwshyldxiea5l",
+                        "playerOffName": "P. Sabak",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "73xrv2025rnj0t3y9ayp83bec",
+                        "periodId": 2,
+                        "timeMin": 87,
+                        "timeMinSec": "86:24",
+                        "lastUpdated": "2020-08-16T20:44:51Z",
+                        "timestamp": "2020-08-16T20:44:41Z",
+                        "playerOnId": "6byiub7o0uwogoc24p79vx6ju",
+                        "playerOnName": "C. Carter",
+                        "playerOffId": "ezyu9w01guirieddjudeln1lh",
+                        "playerOffName": "A. Zebie",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "c2pdzdl3dgf5b0siidn2ay5ii",
+                        "periodId": 2,
+                        "timeMin": 93,
+                        "timeMinSec": "92:44",
+                        "lastUpdated": "2025-03-07T01:01:05Z",
+                        "timestamp": "2020-08-16T20:51:01Z",
+                        "playerOnId": "6twhs1y8bihm7vc9dib8hgezt",
+                        "playerOnName": "K. Çela",
+                        "playerOffId": "8ad2vcq9xcul0kkfms8qo0wk5",
+                        "playerOffName": "A. Achinioti-Jönsson",
+                        "subReason": "Tactical"
+                    }
+                ],
+                "matchDetailsExtra": {
+                    "matchOfficial": [
+                        {
+                            "id": "bbedgt1khx2mrmnb7iedo5awa",
+                            "type": "Main",
+                            "firstName": "Carly Marissa",
+                            "lastName": "Shaw-MacLaren",
+                            "shortFirstName": "Carly",
+                            "shortLastName": "Shaw-MacLaren"
+                        },
+                        {
+                            "id": "f5cd8yi3mzk3eqcjictj4ij1l",
+                            "type": "Assistant referee 1",
+                            "firstName": "Stefan",
+                            "lastName": "Tanaka-Freundt",
+                            "shortFirstName": "Stefan",
+                            "shortLastName": "Tanaka-Freundt"
+                        },
+                        {
+                            "id": "6lqh8h9j9c7c1zjskm7epzhlh",
+                            "type": "Assistant referee 2",
+                            "firstName": "Sean",
+                            "lastName": "Hornsby",
+                            "shortFirstName": "Sean",
+                            "shortLastName": "Hornsby"
+                        },
+                        {
+                            "id": "3m4qttnldgor56dzawn1a3jrp",
+                            "type": "Fourth official",
+                            "firstName": "Yusri",
+                            "lastName": "Rudolf",
+                            "shortFirstName": "Yusri",
+                            "shortLastName": "Rudolf"
+                        }
+                    ]
+                }
+            }
+        }
+    ]
+}

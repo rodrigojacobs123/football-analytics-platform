@@ -1,0 +1,745 @@
+{
+    "match": [
+        {
+            "matchInfo": {
+                "id": "dmu00rax0rhmunq2f0fxt3g9g",
+                "coverageLevel": "13",
+                "date": "2022-04-20Z",
+                "time": "00:30:00Z",
+                "localDate": "2022-04-19",
+                "localTime": "19:30:00",
+                "numberOfPeriods": 2,
+                "periodLength": 45,
+                "overtimeLength": 15,
+                "lastUpdated": "2025-04-05T09:48:42Z",
+                "description": "Dallas vs FC Tulsa",
+                "sport": {
+                    "id": "289u5typ3vp4ifwh5thalohmq",
+                    "name": "Soccer"
+                },
+                "ruleset": {
+                    "id": "79plas4983031idr6vw83nuel",
+                    "name": "Men"
+                },
+                "competition": {
+                    "id": "2bmwykmdlcc2u1c40ytoc39vy",
+                    "name": "US Open Cup",
+                    "knownName": "US Open Cup",
+                    "competitionCode": "UOC",
+                    "competitionFormat": "Domestic cup",
+                    "country": {
+                        "id": "7hr2f89v44y65dyu9k92vprwn",
+                        "name": "USA"
+                    }
+                },
+                "tournamentCalendar": {
+                    "id": "dhzyoostrc6so36xhzo5l1kb8",
+                    "startDate": "2022-03-23Z",
+                    "endDate": "2022-09-08Z",
+                    "name": "2022"
+                },
+                "stage": {
+                    "id": "cqjefuxmq8lgdqywdz0yvjb4k",
+                    "formatId": "emn81yxry3kpgybjulh9yzq39",
+                    "startDate": "2022-04-20Z",
+                    "endDate": "2022-04-21Z",
+                    "name": "3rd Round"
+                },
+                "contestant": [
+                    {
+                        "id": "4gi4qw4gt6nfq0c6r8y574qgp",
+                        "name": "Dallas",
+                        "shortName": "Dallas",
+                        "officialName": "FC Dallas",
+                        "code": "DAL",
+                        "position": "home",
+                        "country": {
+                            "id": "7hr2f89v44y65dyu9k92vprwn",
+                            "name": "USA"
+                        }
+                    },
+                    {
+                        "id": "aj8ytsr2ap33tod0hd8ofzaw9",
+                        "name": "FC Tulsa",
+                        "shortName": "Tulsa",
+                        "officialName": "FC Tulsa",
+                        "code": "TUL",
+                        "position": "away",
+                        "country": {
+                            "id": "7hr2f89v44y65dyu9k92vprwn",
+                            "name": "USA"
+                        }
+                    }
+                ],
+                "venue": {
+                    "id": "86i7ztgeobez2lcwxl282817y",
+                    "neutral": "no",
+                    "longName": "Toyota Stadium",
+                    "shortName": "Toyota Stadium"
+                }
+            },
+            "liveData": {
+                "matchDetails": {
+                    "periodId": 14,
+                    "matchStatus": "Played",
+                    "winner": "home",
+                    "matchLengthMin": 95,
+                    "matchLengthSec": 11,
+                    "period": [
+                        {
+                            "id": 1,
+                            "start": "2022-04-20T00:33:46Z",
+                            "end": "2022-04-20T01:20:56Z",
+                            "lengthMin": 47,
+                            "lengthSec": 10
+                        },
+                        {
+                            "id": 2,
+                            "start": "2022-04-20T01:36:29Z",
+                            "end": "2022-04-20T02:24:30Z",
+                            "lengthMin": 48,
+                            "lengthSec": 1
+                        }
+                    ],
+                    "scores": {
+                        "ht": {
+                            "home": 1,
+                            "away": 1
+                        },
+                        "ft": {
+                            "home": 2,
+                            "away": 1
+                        },
+                        "total": {
+                            "home": 2,
+                            "away": 1
+                        }
+                    }
+                },
+                "goal": [
+                    {
+                        "contestantId": "4gi4qw4gt6nfq0c6r8y574qgp",
+                        "periodId": 1,
+                        "timeMin": 32,
+                        "timeMinSec": "31:35",
+                        "lastUpdated": "2022-04-20T01:05:31Z",
+                        "timestamp": "2022-04-20T01:05:22Z",
+                        "type": "PG",
+                        "scorerId": "dat3cnif8tjb0l88o28wx9brp",
+                        "scorerName": "F. Jara",
+                        "optaEventId": "2409199889",
+                        "homeScore": 1,
+                        "awayScore": 0
+                    },
+                    {
+                        "contestantId": "aj8ytsr2ap33tod0hd8ofzaw9",
+                        "periodId": 1,
+                        "timeMin": 42,
+                        "timeMinSec": "41:23",
+                        "lastUpdated": "2022-04-20T01:16:56Z",
+                        "timestamp": "2022-04-20T01:15:10Z",
+                        "type": "G",
+                        "scorerId": "bc3saagcea0reyfku6pc4zppl",
+                        "scorerName": "B. Bourgeois",
+                        "assistPlayerId": "2w38gs56nefz2s67peyzb10q1",
+                        "assistPlayerName": "J. Williams",
+                        "optaEventId": "2409204207",
+                        "homeScore": 1,
+                        "awayScore": 1
+                    },
+                    {
+                        "contestantId": "4gi4qw4gt6nfq0c6r8y574qgp",
+                        "periodId": 2,
+                        "timeMin": 55,
+                        "timeMinSec": "55:00",
+                        "lastUpdated": "2024-08-21T05:03:49Z",
+                        "timestamp": "2022-04-20T01:46:29Z",
+                        "type": "G",
+                        "scorerId": "dpvvvm0cip5j7j4i8nq4bb089",
+                        "scorerName": "J. Obrian",
+                        "assistPlayerId": "29shn7qwy1i83sje5raxw5otl",
+                        "assistPlayerName": "S. Schön",
+                        "optaEventId": "2409214457",
+                        "homeScore": 2,
+                        "awayScore": 1
+                    }
+                ],
+                "card": [
+                    {
+                        "contestantId": "aj8ytsr2ap33tod0hd8ofzaw9",
+                        "periodId": 1,
+                        "timeMin": 28,
+                        "timeMinSec": "28:00",
+                        "lastUpdated": "2022-04-20T01:01:53Z",
+                        "timestamp": "2022-04-20T01:01:47Z",
+                        "type": "YC",
+                        "playerId": "cwdrv999uq22mk8dscmx19hat",
+                        "playerName": "M. Moloto",
+                        "optaEventId": "2409198701",
+                        "cardReason": "Foul"
+                    },
+                    {
+                        "contestantId": "4gi4qw4gt6nfq0c6r8y574qgp",
+                        "periodId": 2,
+                        "timeMin": 53,
+                        "timeMinSec": "52:22",
+                        "lastUpdated": "2024-02-23T12:02:56Z",
+                        "timestamp": "2022-04-20T01:43:51Z",
+                        "type": "YC",
+                        "playerId": "dtj5zjdur2d1of2ip3ar4r88a",
+                        "playerName": "E. Cerrillo",
+                        "optaEventId": "2409213287",
+                        "cardReason": "Foul"
+                    },
+                    {
+                        "contestantId": "aj8ytsr2ap33tod0hd8ofzaw9",
+                        "periodId": 2,
+                        "timeMin": 61,
+                        "timeMinSec": "60:29",
+                        "lastUpdated": "2025-03-15T21:40:04Z",
+                        "timestamp": "2022-04-20T01:51:58Z",
+                        "type": "YC",
+                        "playerId": "2w38gs56nefz2s67peyzb10q1",
+                        "playerName": "J. Williams",
+                        "optaEventId": "2409216883",
+                        "cardReason": "Foul"
+                    },
+                    {
+                        "contestantId": "aj8ytsr2ap33tod0hd8ofzaw9",
+                        "periodId": 2,
+                        "timeMin": 86,
+                        "timeMinSec": "85:18",
+                        "lastUpdated": "2022-04-20T02:16:55Z",
+                        "timestamp": "2022-04-20T02:16:47Z",
+                        "type": "YC",
+                        "playerId": "bc3saagcea0reyfku6pc4zppl",
+                        "playerName": "B. Bourgeois",
+                        "optaEventId": "2409226347",
+                        "cardReason": "Foul"
+                    }
+                ],
+                "substitute": [
+                    {
+                        "contestantId": "aj8ytsr2ap33tod0hd8ofzaw9",
+                        "periodId": 2,
+                        "timeMin": 67,
+                        "timeMinSec": "66:43",
+                        "lastUpdated": "2024-09-13T20:01:03Z",
+                        "timestamp": "2022-04-20T01:58:13Z",
+                        "playerOnId": "6t1iwmt8vwah0kldd5u51fd1x",
+                        "playerOnName": "B. Brown",
+                        "playerOffId": "2w38gs56nefz2s67peyzb10q1",
+                        "playerOffName": "J. Williams",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "4gi4qw4gt6nfq0c6r8y574qgp",
+                        "periodId": 2,
+                        "timeMin": 67,
+                        "timeMinSec": "66:44",
+                        "lastUpdated": "2025-02-13T08:03:01Z",
+                        "timestamp": "2022-04-20T01:58:13Z",
+                        "playerOnId": "eekdiyrxu0wkcbos9je47qnvu",
+                        "playerOnName": "Joshué Quiñónez",
+                        "playerOffId": "dn1xzedh61k9dcrvd9rg6aove",
+                        "playerOffName": "E. Twumasi",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "aj8ytsr2ap33tod0hd8ofzaw9",
+                        "periodId": 2,
+                        "timeMin": 71,
+                        "timeMinSec": "70:22",
+                        "lastUpdated": "2024-03-08T00:20:52Z",
+                        "timestamp": "2022-04-20T02:01:51Z",
+                        "playerOnId": "6fgxgq77v66va16tcuqvyn6x",
+                        "playerOnName": "Gabi Torres",
+                        "playerOffId": "8up0rt8umisgqxxwq5vih60h5",
+                        "playerOffName": "J. Rivas",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "4gi4qw4gt6nfq0c6r8y574qgp",
+                        "periodId": 2,
+                        "timeMin": 73,
+                        "timeMinSec": "72:59",
+                        "lastUpdated": "2022-04-20T02:04:36Z",
+                        "timestamp": "2022-04-20T02:04:29Z",
+                        "playerOnId": "7478h0orsav6ms651ij3gjiwa",
+                        "playerOnName": "A. Velasco",
+                        "playerOffId": "29shn7qwy1i83sje5raxw5otl",
+                        "playerOffName": "S. Schön",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "4gi4qw4gt6nfq0c6r8y574qgp",
+                        "periodId": 2,
+                        "timeMin": 74,
+                        "timeMinSec": "73:13",
+                        "lastUpdated": "2024-05-05T23:36:11Z",
+                        "timestamp": "2022-04-20T02:04:42Z",
+                        "playerOnId": "5wttdjpftd57c2t5959sm2yg9",
+                        "playerOnName": "J. Ferreira",
+                        "playerOffId": "dat3cnif8tjb0l88o28wx9brp",
+                        "playerOffName": "F. Jara",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "4gi4qw4gt6nfq0c6r8y574qgp",
+                        "periodId": 2,
+                        "timeMin": 81,
+                        "timeMinSec": "80:19",
+                        "lastUpdated": "2024-03-13T18:00:03Z",
+                        "timestamp": "2022-04-20T02:11:48Z",
+                        "playerOnId": "7ditqci7td8u4wj4dmirr3qzu",
+                        "playerOnName": "B. Redžić",
+                        "playerOffId": "47y4l0loyys6gjr6q0ef25dnu",
+                        "playerOffName": "T. Ntsabeleng",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "4gi4qw4gt6nfq0c6r8y574qgp",
+                        "periodId": 2,
+                        "timeMin": 81,
+                        "timeMinSec": "80:28",
+                        "lastUpdated": "2025-02-20T14:27:01Z",
+                        "timestamp": "2022-04-20T02:11:57Z",
+                        "playerOnId": "czu9f4sxl5hpe05isdexmiy2",
+                        "playerOnName": "B. Servania",
+                        "playerOffId": "87pe681vhgbb6plpej3tr74oa",
+                        "playerOffName": "K. ElMedkhar",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "aj8ytsr2ap33tod0hd8ofzaw9",
+                        "periodId": 2,
+                        "timeMin": 81,
+                        "timeMinSec": "80:39",
+                        "lastUpdated": "2024-12-13T14:47:01Z",
+                        "timestamp": "2022-04-20T02:12:08Z",
+                        "playerOnId": "76pg2uamr7kuyi28u2przbip6",
+                        "playerOnName": "K. Kibato",
+                        "playerOffId": "c6l26cksqztpgxiu3t5rrl591",
+                        "playerOffName": "D. Suárez",
+                        "subReason": "Tactical"
+                    }
+                ],
+                "matchDetailsExtra": {
+                    "attendance": "2287",
+                    "matchOfficial": [
+                        {
+                            "id": "5ncz0p9amqd4zucvjyc7epbvu",
+                            "type": "Main",
+                            "firstName": "Lorenzo",
+                            "lastName": "Hernandez",
+                            "shortFirstName": "Lorenzo",
+                            "shortLastName": "Hernandez"
+                        },
+                        {
+                            "id": "f1a8jzpa82zs93b1g3j4qdtk9",
+                            "type": "Assistant referee 1",
+                            "firstName": "Matt",
+                            "lastName": "Trotter",
+                            "shortFirstName": "Matt",
+                            "shortLastName": "Trotter"
+                        },
+                        {
+                            "id": "9jtirnveglil856og2hzircic",
+                            "type": "Assistant referee 2",
+                            "firstName": "Olvin",
+                            "lastName": "Oliva",
+                            "shortFirstName": "Olvin",
+                            "shortLastName": "Oliva"
+                        },
+                        {
+                            "id": "5wqk8ltzfc5v2kahgryqk21yi",
+                            "type": "Fourth official",
+                            "firstName": "Brandon",
+                            "lastName": "Gardner",
+                            "shortFirstName": "Brandon",
+                            "shortLastName": "Gardner"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "matchInfo": {
+                "id": "197a4vxwa9vbhir3gepp972ms",
+                "coverageLevel": "13",
+                "date": "2022-04-06Z",
+                "time": "00:30:00Z",
+                "localDate": "2022-04-05",
+                "localTime": "19:30:00",
+                "numberOfPeriods": 2,
+                "periodLength": 45,
+                "overtimeLength": 15,
+                "lastUpdated": "2025-03-15T21:40:09Z",
+                "description": "FC Tulsa vs Tulsa Athletic",
+                "sport": {
+                    "id": "289u5typ3vp4ifwh5thalohmq",
+                    "name": "Soccer"
+                },
+                "ruleset": {
+                    "id": "79plas4983031idr6vw83nuel",
+                    "name": "Men"
+                },
+                "competition": {
+                    "id": "2bmwykmdlcc2u1c40ytoc39vy",
+                    "name": "US Open Cup",
+                    "knownName": "US Open Cup",
+                    "competitionCode": "UOC",
+                    "competitionFormat": "Domestic cup",
+                    "country": {
+                        "id": "7hr2f89v44y65dyu9k92vprwn",
+                        "name": "USA"
+                    }
+                },
+                "tournamentCalendar": {
+                    "id": "dhzyoostrc6so36xhzo5l1kb8",
+                    "startDate": "2022-03-23Z",
+                    "endDate": "2022-09-08Z",
+                    "name": "2022"
+                },
+                "stage": {
+                    "id": "cqgvjo9m1z0edi8pzckgaxous",
+                    "formatId": "8cdpi9d29bu9gim4bl5m8ijth",
+                    "startDate": "2022-04-06Z",
+                    "endDate": "2022-04-08Z",
+                    "name": "2nd Round"
+                },
+                "contestant": [
+                    {
+                        "id": "aj8ytsr2ap33tod0hd8ofzaw9",
+                        "name": "FC Tulsa",
+                        "shortName": "Tulsa",
+                        "officialName": "FC Tulsa",
+                        "code": "TUL",
+                        "position": "home",
+                        "country": {
+                            "id": "7hr2f89v44y65dyu9k92vprwn",
+                            "name": "USA"
+                        }
+                    },
+                    {
+                        "id": "93ogzc82cant58jidpf0gg1mg",
+                        "name": "Tulsa Athletic",
+                        "shortName": "Tulsa Athl.",
+                        "officialName": "Tulsa Athletic",
+                        "code": "TUL",
+                        "position": "away",
+                        "country": {
+                            "id": "7hr2f89v44y65dyu9k92vprwn",
+                            "name": "USA"
+                        }
+                    }
+                ],
+                "venue": {
+                    "id": "ad83t1yjvhlf2yx10bvtpq9rd",
+                    "neutral": "no",
+                    "longName": "ONEOK Field",
+                    "shortName": "ONEOK Field"
+                }
+            },
+            "liveData": {
+                "matchDetails": {
+                    "periodId": 14,
+                    "matchStatus": "Played",
+                    "winner": "home",
+                    "matchLengthMin": 93,
+                    "matchLengthSec": 41,
+                    "period": [
+                        {
+                            "id": 1,
+                            "start": "2022-04-06T00:37:36Z",
+                            "end": "2022-04-06T01:24:57Z",
+                            "lengthMin": 47,
+                            "lengthSec": 21
+                        },
+                        {
+                            "id": 2,
+                            "start": "2022-04-06T01:37:04Z",
+                            "end": "2022-04-06T02:23:24Z",
+                            "lengthMin": 46,
+                            "lengthSec": 20
+                        }
+                    ],
+                    "scores": {
+                        "ht": {
+                            "home": 2,
+                            "away": 0
+                        },
+                        "ft": {
+                            "home": 2,
+                            "away": 1
+                        },
+                        "total": {
+                            "home": 2,
+                            "away": 1
+                        }
+                    }
+                },
+                "goal": [
+                    {
+                        "contestantId": "aj8ytsr2ap33tod0hd8ofzaw9",
+                        "periodId": 1,
+                        "timeMin": 5,
+                        "timeMinSec": "5:00",
+                        "lastUpdated": "2024-09-13T20:01:03Z",
+                        "timestamp": "2022-04-06T00:42:36Z",
+                        "type": "G",
+                        "scorerId": "6t1iwmt8vwah0kldd5u51fd1x",
+                        "scorerName": "B. Brown",
+                        "assistPlayerId": "1wcq33p7w71u1mkdk349gicph",
+                        "assistPlayerName": "J. Corrales",
+                        "optaEventId": "2402370155",
+                        "homeScore": 1,
+                        "awayScore": 0
+                    },
+                    {
+                        "contestantId": "aj8ytsr2ap33tod0hd8ofzaw9",
+                        "periodId": 1,
+                        "timeMin": 19,
+                        "timeMinSec": "18:47",
+                        "lastUpdated": "2023-06-20T07:20:07Z",
+                        "timestamp": "2022-04-06T00:56:23Z",
+                        "type": "G",
+                        "scorerId": "1r446xomu7osop75m83ulz84p",
+                        "scorerName": "R. Rodríguez",
+                        "assistPlayerId": "8up0rt8umisgqxxwq5vih60h5",
+                        "assistPlayerName": "J. Rivas",
+                        "optaEventId": "2402376319",
+                        "homeScore": 2,
+                        "awayScore": 0
+                    },
+                    {
+                        "contestantId": "93ogzc82cant58jidpf0gg1mg",
+                        "periodId": 2,
+                        "timeMin": 77,
+                        "timeMinSec": "76:50",
+                        "lastUpdated": "2022-04-06T02:35:54Z",
+                        "timestamp": "2022-04-06T02:08:54Z",
+                        "type": "G",
+                        "scorerId": "bejlp8pjuy216zs4wsu0zxfqh",
+                        "scorerName": "B. Nzojyibwami",
+                        "assistPlayerId": "9mcrmfx8o93u9cl9tgnttvms4",
+                        "assistPlayerName": "J. Garcia",
+                        "optaEventId": "2402400605",
+                        "homeScore": 2,
+                        "awayScore": 1
+                    }
+                ],
+                "card": [
+                    {
+                        "contestantId": "aj8ytsr2ap33tod0hd8ofzaw9",
+                        "periodId": 2,
+                        "timeMin": 46,
+                        "timeMinSec": "46:00",
+                        "lastUpdated": "2022-04-06T01:40:57Z",
+                        "timestamp": "2022-04-06T01:38:04Z",
+                        "type": "YC",
+                        "playerId": "6itkesydmlipx41qqb5r5pjop",
+                        "playerName": "P. Čuić",
+                        "optaEventId": "2402391965",
+                        "cardReason": "Foul"
+                    },
+                    {
+                        "contestantId": "93ogzc82cant58jidpf0gg1mg",
+                        "periodId": 2,
+                        "timeMin": 72,
+                        "timeMinSec": "71:27",
+                        "lastUpdated": "2022-04-06T02:36:03Z",
+                        "timestamp": "2022-04-06T02:03:31Z",
+                        "type": "YC",
+                        "playerId": "bxjjl1fmelmrec5qpgfauluz8",
+                        "playerName": "S. Buitrago",
+                        "optaEventId": "2402399061",
+                        "cardReason": "Foul"
+                    },
+                    {
+                        "contestantId": "aj8ytsr2ap33tod0hd8ofzaw9",
+                        "periodId": 2,
+                        "timeMin": 93,
+                        "timeMinSec": "92:28",
+                        "lastUpdated": "2023-04-03T08:16:27Z",
+                        "timestamp": "2022-04-06T02:24:33Z",
+                        "type": "YC",
+                        "playerId": "es1e5fmh2pzzed3m5jknewcq2",
+                        "playerName": "A. Membrila",
+                        "optaEventId": "2402405625",
+                        "cardReason": "Time wasting"
+                    }
+                ],
+                "substitute": [
+                    {
+                        "contestantId": "aj8ytsr2ap33tod0hd8ofzaw9",
+                        "periodId": 2,
+                        "timeMin": 46,
+                        "timeMinSec": "45:00",
+                        "lastUpdated": "2022-04-06T01:38:17Z",
+                        "timestamp": "2022-04-06T01:36:54Z",
+                        "playerOnId": "6itkesydmlipx41qqb5r5pjop",
+                        "playerOnName": "P. Čuić",
+                        "playerOffId": "76pg2uamr7kuyi28u2przbip6",
+                        "playerOffName": "K. Kibato",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "93ogzc82cant58jidpf0gg1mg",
+                        "periodId": 2,
+                        "timeMin": 46,
+                        "timeMinSec": "45:00",
+                        "lastUpdated": "2022-04-06T01:38:17Z",
+                        "timestamp": "2022-04-06T01:36:54Z",
+                        "playerOnId": "bejlp8pjuy216zs4wsu0zxfqh",
+                        "playerOnName": "B. Nzojyibwami",
+                        "playerOffId": "e119lsnl5helo392x23m2owt0",
+                        "playerOffName": "A. Diallo",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "93ogzc82cant58jidpf0gg1mg",
+                        "periodId": 2,
+                        "timeMin": 64,
+                        "timeMinSec": "63:23",
+                        "lastUpdated": "2023-03-21T03:36:53Z",
+                        "timestamp": "2022-04-06T01:55:27Z",
+                        "playerOnId": "6tmnkq8nxip1c2abororkrllg",
+                        "playerOnName": "J. Arias",
+                        "playerOffId": "aflmxg8y0sc78pp7un29lxlw4",
+                        "playerOffName": "J. Watson",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "93ogzc82cant58jidpf0gg1mg",
+                        "periodId": 2,
+                        "timeMin": 64,
+                        "timeMinSec": "63:33",
+                        "lastUpdated": "2023-03-21T04:45:06Z",
+                        "timestamp": "2022-04-06T01:55:37Z",
+                        "playerOnId": "dp2y7t4lbovxczi0g8vh26l1w",
+                        "playerOnName": "T. Grant",
+                        "playerOffId": "1n1wta0jf7elbbtoseias1h49",
+                        "playerOffName": "M. Rogers",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "93ogzc82cant58jidpf0gg1mg",
+                        "periodId": 2,
+                        "timeMin": 64,
+                        "timeMinSec": "63:49",
+                        "lastUpdated": "2022-04-06T02:36:23Z",
+                        "timestamp": "2022-04-06T01:55:53Z",
+                        "playerOnId": "bxjjl1fmelmrec5qpgfauluz8",
+                        "playerOnName": "S. Buitrago",
+                        "playerOffId": "e867h0w7926fwagp7bc1g0sus",
+                        "playerOffName": "F. Saldana",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "aj8ytsr2ap33tod0hd8ofzaw9",
+                        "periodId": 2,
+                        "timeMin": 68,
+                        "timeMinSec": "67:38",
+                        "lastUpdated": "2024-03-08T00:20:52Z",
+                        "timestamp": "2022-04-06T01:59:42Z",
+                        "playerOnId": "6fgxgq77v66va16tcuqvyn6x",
+                        "playerOnName": "Gabi Torres",
+                        "playerOffId": "8up0rt8umisgqxxwq5vih60h5",
+                        "playerOffName": "J. Rivas",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "aj8ytsr2ap33tod0hd8ofzaw9",
+                        "periodId": 2,
+                        "timeMin": 72,
+                        "timeMinSec": "71:49",
+                        "lastUpdated": "2025-03-06T17:36:37Z",
+                        "timestamp": "2022-04-06T02:03:53Z",
+                        "playerOnId": "ecipfh5r0gqsf0skgvgpu8cbu",
+                        "playerOnName": "Rodrigo da Costa",
+                        "playerOffId": "c6l26cksqztpgxiu3t5rrl591",
+                        "playerOffName": "D. Suárez",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "aj8ytsr2ap33tod0hd8ofzaw9",
+                        "periodId": 2,
+                        "timeMin": 72,
+                        "timeMinSec": "71:55",
+                        "lastUpdated": "2024-03-14T12:47:13Z",
+                        "timestamp": "2022-04-06T02:03:59Z",
+                        "playerOnId": "2w38gs56nefz2s67peyzb10q1",
+                        "playerOnName": "J. Williams",
+                        "playerOffId": "6t1iwmt8vwah0kldd5u51fd1x",
+                        "playerOffName": "B. Brown",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "aj8ytsr2ap33tod0hd8ofzaw9",
+                        "periodId": 2,
+                        "timeMin": 79,
+                        "timeMinSec": "78:40",
+                        "lastUpdated": "2023-04-03T08:16:27Z",
+                        "timestamp": "2022-04-06T02:10:44Z",
+                        "playerOnId": "es1e5fmh2pzzed3m5jknewcq2",
+                        "playerOnName": "A. Membrila",
+                        "playerOffId": "1r5b147iemrrhi40qtyb7v00l",
+                        "playerOffName": "M. Ramírez",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "93ogzc82cant58jidpf0gg1mg",
+                        "periodId": 2,
+                        "timeMin": 83,
+                        "timeMinSec": "82:19",
+                        "lastUpdated": "2022-04-06T02:38:33Z",
+                        "timestamp": "2022-04-06T02:14:23Z",
+                        "playerOnId": "cq6itzu60y75okhrs8bxognbo",
+                        "playerOnName": "J. Gilbert",
+                        "playerOffId": "23mhyubsz5tr7gyepepxd668k",
+                        "playerOffName": "J. Reyes",
+                        "subReason": "Tactical"
+                    }
+                ],
+                "matchDetailsExtra": {
+                    "attendance": "2388",
+                    "matchOfficial": [
+                        {
+                            "id": "5brzb4khpj94zj2aex9hbckmi",
+                            "type": "Main",
+                            "firstName": "Mathew",
+                            "lastName": "Corrigan",
+                            "shortFirstName": "Matthew",
+                            "shortLastName": "Corrigan"
+                        },
+                        {
+                            "id": "1h1rwhj5ravuu9zm6ibsi06ei",
+                            "type": "Assistant referee 1",
+                            "firstName": "Brandon",
+                            "lastName": "Queri",
+                            "shortFirstName": "Brandon",
+                            "shortLastName": "Queri"
+                        },
+                        {
+                            "id": "f1a8jzpa82zs93b1g3j4qdtk9",
+                            "type": "Assistant referee 2",
+                            "firstName": "Matt",
+                            "lastName": "Trotter",
+                            "shortFirstName": "Matt",
+                            "shortLastName": "Trotter"
+                        },
+                        {
+                            "id": "9de79k5lk4auygr6lescd6fhl",
+                            "type": "Fourth official",
+                            "firstName": "Truman",
+                            "lastName": "Breghall",
+                            "shortFirstName": "Truman",
+                            "shortLastName": "Berghall"
+                        }
+                    ]
+                }
+            }
+        }
+    ]
+}

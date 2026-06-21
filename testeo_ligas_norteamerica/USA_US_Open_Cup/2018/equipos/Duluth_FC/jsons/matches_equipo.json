@@ -1,0 +1,465 @@
+{
+    "match": [
+        {
+            "matchInfo": {
+                "id": "eq5846yk6n8joyv58z0zj21d6",
+                "coverageLevel": "13",
+                "date": "2018-05-17Z",
+                "time": "00:00:00Z",
+                "localDate": "2018-05-16",
+                "localTime": "19:00:00",
+                "numberOfPeriods": 2,
+                "periodLength": 45,
+                "overtimeLength": 15,
+                "lastUpdated": "2025-02-03T12:52:24Z",
+                "description": "Duluth vs Saint Louis",
+                "sport": {
+                    "id": "289u5typ3vp4ifwh5thalohmq",
+                    "name": "Soccer"
+                },
+                "ruleset": {
+                    "id": "79plas4983031idr6vw83nuel",
+                    "name": "Men"
+                },
+                "competition": {
+                    "id": "2bmwykmdlcc2u1c40ytoc39vy",
+                    "name": "US Open Cup",
+                    "knownName": "US Open Cup",
+                    "competitionCode": "UOC",
+                    "competitionFormat": "Domestic cup",
+                    "country": {
+                        "id": "7hr2f89v44y65dyu9k92vprwn",
+                        "name": "USA"
+                    }
+                },
+                "tournamentCalendar": {
+                    "id": "cxw5w4qfd7logmfcqvoby2noq",
+                    "startDate": "2018-05-07Z",
+                    "endDate": "2018-09-27Z",
+                    "name": "2018"
+                },
+                "stage": {
+                    "id": "cyfrg37lmyr1f9qol2cdescx6",
+                    "formatId": "8cdpi9d29bu9gim4bl5m8ijth",
+                    "startDate": "2018-05-17Z",
+                    "endDate": "2018-05-17Z",
+                    "name": "2nd Round"
+                },
+                "contestant": [
+                    {
+                        "id": "20tg0liq4mzpitz5iau2ow82x",
+                        "name": "Duluth",
+                        "shortName": "Duluth",
+                        "officialName": "Duluth FC",
+                        "code": "DUL",
+                        "position": "home",
+                        "country": {
+                            "id": "7hr2f89v44y65dyu9k92vprwn",
+                            "name": "USA"
+                        }
+                    },
+                    {
+                        "id": "5g7exmz2l3wlki5lzrg2wde5l",
+                        "name": "Saint Louis",
+                        "shortName": "St. Louis",
+                        "officialName": "Saint Louis FC",
+                        "code": "STL",
+                        "position": "away",
+                        "country": {
+                            "id": "7hr2f89v44y65dyu9k92vprwn",
+                            "name": "USA"
+                        }
+                    }
+                ],
+                "venue": {
+                    "id": "93xp0n6lmy2xj4pdyw2mu6aui",
+                    "neutral": "no",
+                    "longName": "Denfeld High School Stadium",
+                    "shortName": "Denfeld High School Stadium"
+                }
+            },
+            "liveData": {
+                "matchDetails": {
+                    "periodId": 14,
+                    "matchStatus": "Played",
+                    "winner": "away",
+                    "matchLengthMin": 92,
+                    "matchLengthSec": 40,
+                    "period": [
+                        {
+                            "id": 1,
+                            "start": "2018-05-17T00:06:32Z",
+                            "end": "2018-05-17T00:52:32Z",
+                            "lengthMin": 46,
+                            "lengthSec": 0
+                        },
+                        {
+                            "id": 2,
+                            "start": "2018-05-17T01:09:29Z",
+                            "end": "2018-05-17T01:56:09Z",
+                            "lengthMin": 46,
+                            "lengthSec": 40
+                        }
+                    ],
+                    "scores": {
+                        "ht": {
+                            "home": 0,
+                            "away": 2
+                        },
+                        "ft": {
+                            "home": 0,
+                            "away": 2
+                        },
+                        "total": {
+                            "home": 0,
+                            "away": 2
+                        }
+                    }
+                },
+                "goal": [
+                    {
+                        "contestantId": "5g7exmz2l3wlki5lzrg2wde5l",
+                        "periodId": 1,
+                        "timeMin": 25,
+                        "timeMinSec": "24:13",
+                        "lastUpdated": "2021-05-13T17:43:21Z",
+                        "type": "G",
+                        "scorerId": "4xos6jdbt4bz35m3rc1rtk2xh",
+                        "scorerName": "K. Dacres",
+                        "assistPlayerId": "cp3xobpfectu6mnvm7jveoafp",
+                        "assistPlayerName": "C. Hertzog",
+                        "optaEventId": "1882128536",
+                        "homeScore": 0,
+                        "awayScore": 1
+                    },
+                    {
+                        "contestantId": "5g7exmz2l3wlki5lzrg2wde5l",
+                        "periodId": 1,
+                        "timeMin": 35,
+                        "timeMinSec": "34:47",
+                        "lastUpdated": "2020-08-22T21:53:05Z",
+                        "type": "G",
+                        "scorerId": "cp3xobpfectu6mnvm7jveoafp",
+                        "scorerName": "C. Hertzog",
+                        "assistPlayerId": "4xos6jdbt4bz35m3rc1rtk2xh",
+                        "assistPlayerName": "K. Dacres",
+                        "optaEventId": "2033550525",
+                        "homeScore": 0,
+                        "awayScore": 2
+                    }
+                ],
+                "card": [
+                    {
+                        "contestantId": "20tg0liq4mzpitz5iau2ow82x",
+                        "periodId": 2,
+                        "timeMin": 74,
+                        "timeMinSec": "73:10",
+                        "lastUpdated": "2018-05-18T05:04:28Z",
+                        "type": "YC",
+                        "playerId": "ur3ezx2rl7utkpy999w16i5m",
+                        "playerName": "S. Castro",
+                        "optaEventId": "2076277876",
+                        "cardReason": "Foul"
+                    }
+                ],
+                "substitute": [
+                    {
+                        "contestantId": "5g7exmz2l3wlki5lzrg2wde5l",
+                        "periodId": 2,
+                        "timeMin": 46,
+                        "timeMinSec": "45:00",
+                        "lastUpdated": "2024-11-12T13:55:01Z",
+                        "playerOnId": "3yd4f60qwxrbs2rch6uobxqsp",
+                        "playerOnName": "P. Kavita",
+                        "playerOffId": "33ygf077750eb4bvws9xw03bp",
+                        "playerOffName": "S. Reynolds",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "5g7exmz2l3wlki5lzrg2wde5l",
+                        "periodId": 2,
+                        "timeMin": 60,
+                        "timeMinSec": "60:00",
+                        "lastUpdated": "2022-03-11T13:32:35Z",
+                        "playerOnId": "axfsb5imzg5hgzgyn5w2cqtx",
+                        "playerOnName": "K. Greig",
+                        "playerOffId": "449e2muutlpvx9lhv1t2tcsmh",
+                        "playerOffName": "A. Dikwa",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "20tg0liq4mzpitz5iau2ow82x",
+                        "periodId": 2,
+                        "timeMin": 71,
+                        "timeMinSec": "70:07",
+                        "lastUpdated": "2018-05-17T01:34:43Z",
+                        "playerOnId": "3ilrhdbbcv3rigsiai1360fvu",
+                        "playerOnName": "A. Ari",
+                        "playerOffId": "4mq6r7jqcg64mwrom6zbjtca2",
+                        "playerOffName": "J. Lucumi",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "20tg0liq4mzpitz5iau2ow82x",
+                        "periodId": 2,
+                        "timeMin": 71,
+                        "timeMinSec": "70:17",
+                        "lastUpdated": "2019-09-11T12:25:29Z",
+                        "playerOnId": "6tdcmo0d0qubd88nzr3m06dm2",
+                        "playerOnName": "D. Rice",
+                        "playerOffId": "4o6pbvxfdq7brso9bikabt8t1",
+                        "playerOffName": "S. Morgan",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "20tg0liq4mzpitz5iau2ow82x",
+                        "periodId": 2,
+                        "timeMin": 73,
+                        "timeMinSec": "72:25",
+                        "lastUpdated": "2018-05-17T01:37:02Z",
+                        "playerOnId": "69mncdmst56jl3sno9t491t2i",
+                        "playerOnName": "G. Nyuah",
+                        "playerOffId": "bvhgquunxdoag78zn05uhejca",
+                        "playerOffName": "K. Farrar",
+                        "subReason": "Tactical"
+                    }
+                ],
+                "matchDetailsExtra": {
+                    "attendance": "584",
+                    "matchOfficial": [
+                        {
+                            "id": "2b6usc96x8x3z7y1otrcj70q2",
+                            "type": "Main",
+                            "firstName": "Chris",
+                            "lastName": "Ruska",
+                            "shortFirstName": "Chris",
+                            "shortLastName": "Ruska"
+                        },
+                        {
+                            "id": "7p4t46bjw8fxhjcqsm3jz80a2",
+                            "type": "Assistant referee 1",
+                            "firstName": "Tyler",
+                            "lastName": "Spiczka",
+                            "shortFirstName": "Tyler",
+                            "shortLastName": "Spiczka"
+                        },
+                        {
+                            "id": "12287bfjxbf3r4dhq89832t0q",
+                            "type": "Assistant referee 2",
+                            "firstName": "Daniel",
+                            "lastName": "Sandell",
+                            "shortFirstName": "Daniel",
+                            "shortLastName": "Sandell"
+                        },
+                        {
+                            "id": "8miobnv77amlbc22f95zebdud",
+                            "type": "Fourth official",
+                            "firstName": "Jeremy",
+                            "lastName": "Uecker",
+                            "shortFirstName": "Jeremy",
+                            "shortLastName": "Uecker"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "matchInfo": {
+                "id": "e30dk96dtmev8r5grla9x1nje",
+                "coverageLevel": "5",
+                "date": "2018-05-10Z",
+                "time": "00:30:00Z",
+                "localDate": "2018-05-09",
+                "localTime": "19:30:00",
+                "numberOfPeriods": 2,
+                "periodLength": 45,
+                "overtimeLength": 15,
+                "lastUpdated": "2025-02-03T12:52:24Z",
+                "description": "Duluth vs Dakota Fusion",
+                "sport": {
+                    "id": "289u5typ3vp4ifwh5thalohmq",
+                    "name": "Soccer"
+                },
+                "ruleset": {
+                    "id": "79plas4983031idr6vw83nuel",
+                    "name": "Men"
+                },
+                "competition": {
+                    "id": "2bmwykmdlcc2u1c40ytoc39vy",
+                    "name": "US Open Cup",
+                    "knownName": "US Open Cup",
+                    "competitionCode": "UOC",
+                    "competitionFormat": "Domestic cup",
+                    "country": {
+                        "id": "7hr2f89v44y65dyu9k92vprwn",
+                        "name": "USA"
+                    }
+                },
+                "tournamentCalendar": {
+                    "id": "cxw5w4qfd7logmfcqvoby2noq",
+                    "startDate": "2018-05-07Z",
+                    "endDate": "2018-09-27Z",
+                    "name": "2018"
+                },
+                "stage": {
+                    "id": "cydfflocsyou9r2w4lmr2k7sa",
+                    "formatId": "3ad6z07rilk8flizkw1bhv179",
+                    "startDate": "2018-05-09Z",
+                    "endDate": "2018-05-10Z",
+                    "name": "1st Round"
+                },
+                "contestant": [
+                    {
+                        "id": "20tg0liq4mzpitz5iau2ow82x",
+                        "name": "Duluth",
+                        "shortName": "Duluth",
+                        "officialName": "Duluth FC",
+                        "code": "DUL",
+                        "position": "home",
+                        "country": {
+                            "id": "7hr2f89v44y65dyu9k92vprwn",
+                            "name": "USA"
+                        }
+                    },
+                    {
+                        "id": "9fx81ebvh8k7ahfd0z7jxri09",
+                        "name": "Dakota Fusion",
+                        "shortName": "Dakota Fusion",
+                        "officialName": "Dakota Fusion FC",
+                        "code": "DFU",
+                        "position": "away",
+                        "country": {
+                            "id": "7hr2f89v44y65dyu9k92vprwn",
+                            "name": "USA"
+                        }
+                    }
+                ],
+                "venue": {
+                    "id": "6s07exslqlyr9lxlw88qzwvhm",
+                    "neutral": "no",
+                    "longName": "James S. Malosky Stadium",
+                    "shortName": "James S. Malosky Stadium"
+                }
+            },
+            "liveData": {
+                "matchDetails": {
+                    "periodId": 14,
+                    "matchStatus": "Played",
+                    "winner": "home",
+                    "scores": {
+                        "ht": {
+                            "home": 3,
+                            "away": 1
+                        },
+                        "ft": {
+                            "home": 4,
+                            "away": 4
+                        },
+                        "et": {
+                            "home": 4,
+                            "away": 4
+                        },
+                        "pen": {
+                            "home": 3,
+                            "away": 0
+                        },
+                        "total": {
+                            "home": 7,
+                            "away": 4
+                        }
+                    }
+                },
+                "goal": [
+                    {
+                        "contestantId": "9fx81ebvh8k7ahfd0z7jxri09",
+                        "periodId": 1,
+                        "timeMin": 4,
+                        "lastUpdated": "2018-10-17T12:22:21Z",
+                        "type": "G",
+                        "scorerId": "3a1zasom2aofmny5lyyhzbasq",
+                        "scorerName": "M. Stockman-Willis",
+                        "homeScore": 0,
+                        "awayScore": 1
+                    },
+                    {
+                        "contestantId": "20tg0liq4mzpitz5iau2ow82x",
+                        "periodId": 1,
+                        "timeMin": 31,
+                        "lastUpdated": "2019-09-11T12:25:23Z",
+                        "type": "G",
+                        "scorerId": "cr2kbz43eaien4nc1alf84dpm",
+                        "scorerName": "J. Watt",
+                        "homeScore": 1,
+                        "awayScore": 1
+                    },
+                    {
+                        "contestantId": "20tg0liq4mzpitz5iau2ow82x",
+                        "periodId": 1,
+                        "timeMin": 32,
+                        "lastUpdated": "2023-08-21T14:34:11Z",
+                        "type": "G",
+                        "scorerId": "7xtbgb2ac5rt4rnjhb8uhvhbe",
+                        "scorerName": "Ricardo Ramos",
+                        "homeScore": 2,
+                        "awayScore": 1
+                    },
+                    {
+                        "contestantId": "20tg0liq4mzpitz5iau2ow82x",
+                        "periodId": 1,
+                        "timeMin": 35,
+                        "lastUpdated": "2019-09-11T12:25:23Z",
+                        "type": "G",
+                        "scorerId": "cr2kbz43eaien4nc1alf84dpm",
+                        "scorerName": "J. Watt",
+                        "homeScore": 3,
+                        "awayScore": 1
+                    },
+                    {
+                        "contestantId": "9fx81ebvh8k7ahfd0z7jxri09",
+                        "periodId": 2,
+                        "timeMin": 47,
+                        "lastUpdated": "2018-10-17T12:18:14Z",
+                        "type": "G",
+                        "scorerId": "96x2t0gtel3xdkjtzhm84fvqi",
+                        "scorerName": "J. Johnson",
+                        "homeScore": 3,
+                        "awayScore": 2
+                    },
+                    {
+                        "contestantId": "9fx81ebvh8k7ahfd0z7jxri09",
+                        "periodId": 2,
+                        "timeMin": 48,
+                        "lastUpdated": "2018-10-17T12:18:18Z",
+                        "type": "G",
+                        "scorerId": "96x2t0gtel3xdkjtzhm84fvqi",
+                        "scorerName": "J. Johnson",
+                        "homeScore": 3,
+                        "awayScore": 3
+                    },
+                    {
+                        "contestantId": "20tg0liq4mzpitz5iau2ow82x",
+                        "periodId": 2,
+                        "timeMin": 50,
+                        "lastUpdated": "2019-09-11T12:25:23Z",
+                        "type": "G",
+                        "scorerId": "cr2kbz43eaien4nc1alf84dpm",
+                        "scorerName": "J. Watt",
+                        "homeScore": 4,
+                        "awayScore": 3
+                    },
+                    {
+                        "contestantId": "9fx81ebvh8k7ahfd0z7jxri09",
+                        "periodId": 2,
+                        "timeMin": 63,
+                        "lastUpdated": "2018-10-17T12:27:22Z",
+                        "type": "G",
+                        "scorerId": "eibztjhtgk0yam9yqrkzqhz6y",
+                        "scorerName": "G. Gauld",
+                        "homeScore": 4,
+                        "awayScore": 4
+                    }
+                ]
+            }
+        }
+    ]
+}

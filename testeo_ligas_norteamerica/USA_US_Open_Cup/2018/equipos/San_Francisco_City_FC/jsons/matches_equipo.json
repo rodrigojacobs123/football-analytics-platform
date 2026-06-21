@@ -1,0 +1,463 @@
+{
+    "match": [
+        {
+            "matchInfo": {
+                "id": "eqym7gu3thn5gv9i46zjjdppm",
+                "coverageLevel": "9",
+                "date": "2018-05-17Z",
+                "time": "00:00:00Z",
+                "localDate": "2018-05-16",
+                "localTime": "17:00:00",
+                "numberOfPeriods": 2,
+                "periodLength": 45,
+                "overtimeLength": 15,
+                "lastUpdated": "2024-08-09T02:20:04Z",
+                "description": "Sacramento Republic vs San Francisco City",
+                "sport": {
+                    "id": "289u5typ3vp4ifwh5thalohmq",
+                    "name": "Soccer"
+                },
+                "ruleset": {
+                    "id": "79plas4983031idr6vw83nuel",
+                    "name": "Men"
+                },
+                "competition": {
+                    "id": "2bmwykmdlcc2u1c40ytoc39vy",
+                    "name": "US Open Cup",
+                    "knownName": "US Open Cup",
+                    "competitionCode": "UOC",
+                    "competitionFormat": "Domestic cup",
+                    "country": {
+                        "id": "7hr2f89v44y65dyu9k92vprwn",
+                        "name": "USA"
+                    }
+                },
+                "tournamentCalendar": {
+                    "id": "cxw5w4qfd7logmfcqvoby2noq",
+                    "startDate": "2018-05-07Z",
+                    "endDate": "2018-09-27Z",
+                    "name": "2018"
+                },
+                "stage": {
+                    "id": "cyfrg37lmyr1f9qol2cdescx6",
+                    "formatId": "8cdpi9d29bu9gim4bl5m8ijth",
+                    "startDate": "2018-05-17Z",
+                    "endDate": "2018-05-17Z",
+                    "name": "2nd Round"
+                },
+                "contestant": [
+                    {
+                        "id": "7neuneh44n9rtsfsh6r0sb9no",
+                        "name": "Sacramento Republic",
+                        "shortName": "Sacramento",
+                        "officialName": "Sacramento Republic FC",
+                        "code": "SAC",
+                        "position": "home",
+                        "country": {
+                            "id": "7hr2f89v44y65dyu9k92vprwn",
+                            "name": "USA"
+                        }
+                    },
+                    {
+                        "id": "9jcix3py714hinx0rluumu7mm",
+                        "name": "San Francisco City",
+                        "shortName": "SF City",
+                        "officialName": "San Francisco City FC",
+                        "code": "SFC",
+                        "position": "away",
+                        "country": {
+                            "id": "7hr2f89v44y65dyu9k92vprwn",
+                            "name": "USA"
+                        }
+                    }
+                ],
+                "venue": {
+                    "id": "7eid76vfbn89x2st3q7ni98q2",
+                    "neutral": "no",
+                    "longName": "Hornet Stadium",
+                    "shortName": "Hornet Stadium"
+                }
+            },
+            "liveData": {
+                "matchDetails": {
+                    "periodId": 14,
+                    "matchStatus": "Played",
+                    "winner": "home",
+                    "matchLengthMin": 93,
+                    "matchLengthSec": 39,
+                    "period": [
+                        {
+                            "id": 1,
+                            "start": "2018-05-17T00:03:58Z",
+                            "end": "2018-05-17T00:50:09Z",
+                            "lengthMin": 46,
+                            "lengthSec": 11
+                        },
+                        {
+                            "id": 2,
+                            "start": "2018-05-17T01:06:37Z",
+                            "end": "2018-05-17T01:54:05Z",
+                            "lengthMin": 47,
+                            "lengthSec": 28
+                        }
+                    ],
+                    "scores": {
+                        "ht": {
+                            "home": 1,
+                            "away": 1
+                        },
+                        "ft": {
+                            "home": 3,
+                            "away": 1
+                        },
+                        "total": {
+                            "home": 3,
+                            "away": 1
+                        }
+                    }
+                },
+                "goal": [
+                    {
+                        "contestantId": "7neuneh44n9rtsfsh6r0sb9no",
+                        "periodId": 1,
+                        "timeMin": 24,
+                        "timeMinSec": "23:14",
+                        "lastUpdated": "2024-06-14T00:47:44Z",
+                        "type": "G",
+                        "scorerId": "6mmfo5q4m9zdbpl1cgqv5muhh",
+                        "scorerName": "K. Alemán",
+                        "optaEventId": "706425220",
+                        "homeScore": 1,
+                        "awayScore": 0
+                    },
+                    {
+                        "contestantId": "9jcix3py714hinx0rluumu7mm",
+                        "periodId": 1,
+                        "timeMin": 32,
+                        "timeMinSec": "31:14",
+                        "lastUpdated": "2024-05-06T11:57:51Z",
+                        "type": "G",
+                        "scorerId": "8n2bppwta5ug4nawajawt0n6y",
+                        "scorerName": "A. Lombardi",
+                        "assistPlayerId": "bfg74z9h7sg702wmfbhrqjtka",
+                        "assistPlayerName": "R. Hines",
+                        "optaEventId": "1537047695",
+                        "homeScore": 1,
+                        "awayScore": 1
+                    },
+                    {
+                        "contestantId": "7neuneh44n9rtsfsh6r0sb9no",
+                        "periodId": 2,
+                        "timeMin": 61,
+                        "timeMinSec": "60:46",
+                        "lastUpdated": "2024-03-06T19:49:27Z",
+                        "type": "G",
+                        "scorerId": "a2qsmjnfnjm3uwu86k85ek7h1",
+                        "scorerName": "V. Bijev",
+                        "assistPlayerId": "ks7omik17xov44i4hhjrldyh",
+                        "assistPlayerName": "M. Taintor",
+                        "optaEventId": "1783031644",
+                        "homeScore": 2,
+                        "awayScore": 1
+                    },
+                    {
+                        "contestantId": "7neuneh44n9rtsfsh6r0sb9no",
+                        "periodId": 2,
+                        "timeMin": 69,
+                        "timeMinSec": "68:22",
+                        "lastUpdated": "2018-05-17T01:31:02Z",
+                        "type": "G",
+                        "scorerId": "aefxy4v8lf52nsypmvaqu8f6d",
+                        "scorerName": "A. Moffat",
+                        "optaEventId": "1804565407",
+                        "homeScore": 3,
+                        "awayScore": 1
+                    }
+                ],
+                "card": [
+                    {
+                        "contestantId": "7neuneh44n9rtsfsh6r0sb9no",
+                        "periodId": 1,
+                        "timeMin": 31,
+                        "timeMinSec": "30:37",
+                        "lastUpdated": "2024-03-07T19:07:56Z",
+                        "type": "YC",
+                        "playerId": "aigpzkjyja6ksrcl8dteylqs5",
+                        "playerName": "S. Gómez",
+                        "optaEventId": "1054302369",
+                        "cardReason": "Foul"
+                    },
+                    {
+                        "contestantId": "9jcix3py714hinx0rluumu7mm",
+                        "periodId": 1,
+                        "timeMin": 39,
+                        "timeMinSec": "38:10",
+                        "lastUpdated": "2024-05-06T11:57:51Z",
+                        "type": "YC",
+                        "playerId": "8n2bppwta5ug4nawajawt0n6y",
+                        "playerName": "A. Lombardi",
+                        "optaEventId": "1931824911",
+                        "cardReason": "Foul"
+                    }
+                ],
+                "substitute": [
+                    {
+                        "contestantId": "7neuneh44n9rtsfsh6r0sb9no",
+                        "periodId": 2,
+                        "timeMin": 46,
+                        "timeMinSec": "45:00",
+                        "lastUpdated": "2022-05-23T18:51:37Z",
+                        "playerOnId": "b1zyp6ole8oyqvouux60colwp",
+                        "playerOnName": "J. Turnley",
+                        "playerOffId": "a2qxjjxdwp65dwl25skb5wxxx",
+                        "playerOffName": "E. Hord",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "7neuneh44n9rtsfsh6r0sb9no",
+                        "periodId": 2,
+                        "timeMin": 46,
+                        "timeMinSec": "45:00",
+                        "lastUpdated": "2024-03-06T19:49:27Z",
+                        "playerOnId": "a2qsmjnfnjm3uwu86k85ek7h1",
+                        "playerOnName": "V. Bijev",
+                        "playerOffId": "6mmfo5q4m9zdbpl1cgqv5muhh",
+                        "playerOffName": "K. Alemán",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "7neuneh44n9rtsfsh6r0sb9no",
+                        "periodId": 2,
+                        "timeMin": 62,
+                        "timeMinSec": "61:40",
+                        "lastUpdated": "2020-08-08T17:20:17Z",
+                        "playerOnId": "bvrqfmzxunzzg8rmc03vfeml1",
+                        "playerOnName": "C. Iwasa",
+                        "playerOffId": "32t6g252ti1peycjite40qiy2",
+                        "playerOffName": "R. Hațegan",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "9jcix3py714hinx0rluumu7mm",
+                        "periodId": 2,
+                        "timeMin": 63,
+                        "timeMinSec": "62:12",
+                        "lastUpdated": "2023-05-05T21:04:22Z",
+                        "playerOnId": "666e8jhvvmnlm80eormx4s91x",
+                        "playerOnName": "D. Kirkland",
+                        "playerOffId": "8n2bppwta5ug4nawajawt0n6y",
+                        "playerOffName": "A. Lombardi",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "9jcix3py714hinx0rluumu7mm",
+                        "periodId": 2,
+                        "timeMin": 63,
+                        "timeMinSec": "62:20",
+                        "lastUpdated": "2023-08-15T09:23:30Z",
+                        "playerOnId": "24qu21epxzwsk16dfu1lio7l6",
+                        "playerOnName": "A. Bagramyan",
+                        "playerOffId": "eicbzg50srqd85cg17gdv1kh5",
+                        "playerOffName": "K. Crow",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "9jcix3py714hinx0rluumu7mm",
+                        "periodId": 2,
+                        "timeMin": 71,
+                        "timeMinSec": "70:26",
+                        "lastUpdated": "2022-05-23T18:51:51Z",
+                        "playerOnId": "ehy2drm66up45mvazsrj9e4bu",
+                        "playerOnName": "B. Kaminski",
+                        "playerOffId": "bhjxnp0y1h1hqobn8mxj4hb3e",
+                        "playerOffName": "S. Bowman",
+                        "subReason": "Tactical"
+                    }
+                ],
+                "matchDetailsExtra": {
+                    "attendance": "300",
+                    "matchOfficial": [
+                        {
+                            "id": "1znwv8wbpjk4c1dlw5cl3lka1",
+                            "type": "Main",
+                            "firstName": "Elijio",
+                            "lastName": "Arreguin",
+                            "shortFirstName": "Elijio",
+                            "shortLastName": "Arreguin"
+                        },
+                        {
+                            "id": "7lgcmmqy7nt7jtxj1fv2squi1",
+                            "type": "Assistant referee 1",
+                            "firstName": "Andrew",
+                            "lastName": "Hanks",
+                            "shortFirstName": "Andrew",
+                            "shortLastName": "Hanks"
+                        },
+                        {
+                            "id": "cyuaisqp0amwkm5pa4eqjv755",
+                            "type": "Assistant referee 2",
+                            "firstName": "Stephan",
+                            "lastName": "McGonagle",
+                            "shortFirstName": "Stephen",
+                            "shortLastName": "McGonagle"
+                        },
+                        {
+                            "id": "cjw4x1gc3e9s09eg7ylrjizca",
+                            "type": "Fourth official",
+                            "firstName": "Daniel",
+                            "lastName": "Cervantes",
+                            "shortFirstName": "Daniel",
+                            "shortLastName": "Cervantes"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "matchInfo": {
+                "id": "5yuil9jmfbwci7avcne4jwx2i",
+                "coverageLevel": "5",
+                "date": "2018-05-10Z",
+                "time": "01:00:00Z",
+                "localDate": "2018-05-09",
+                "localTime": "18:00:00",
+                "numberOfPeriods": 2,
+                "periodLength": 45,
+                "overtimeLength": 15,
+                "lastUpdated": "2024-03-07T16:42:17Z",
+                "description": "Aguiluchos vs San Francisco City",
+                "sport": {
+                    "id": "289u5typ3vp4ifwh5thalohmq",
+                    "name": "Soccer"
+                },
+                "ruleset": {
+                    "id": "79plas4983031idr6vw83nuel",
+                    "name": "Men"
+                },
+                "competition": {
+                    "id": "2bmwykmdlcc2u1c40ytoc39vy",
+                    "name": "US Open Cup",
+                    "knownName": "US Open Cup",
+                    "competitionCode": "UOC",
+                    "competitionFormat": "Domestic cup",
+                    "country": {
+                        "id": "7hr2f89v44y65dyu9k92vprwn",
+                        "name": "USA"
+                    }
+                },
+                "tournamentCalendar": {
+                    "id": "cxw5w4qfd7logmfcqvoby2noq",
+                    "startDate": "2018-05-07Z",
+                    "endDate": "2018-09-27Z",
+                    "name": "2018"
+                },
+                "stage": {
+                    "id": "cydfflocsyou9r2w4lmr2k7sa",
+                    "formatId": "3ad6z07rilk8flizkw1bhv179",
+                    "startDate": "2018-05-09Z",
+                    "endDate": "2018-05-10Z",
+                    "name": "1st Round"
+                },
+                "contestant": [
+                    {
+                        "id": "bs4pavcefvu78nfrre7h0vlvd",
+                        "name": "Aguiluchos",
+                        "shortName": "Aguiluchos",
+                        "officialName": "CD Aguiluchos",
+                        "code": "AGU",
+                        "position": "home",
+                        "country": {
+                            "id": "7hr2f89v44y65dyu9k92vprwn",
+                            "name": "USA"
+                        }
+                    },
+                    {
+                        "id": "9jcix3py714hinx0rluumu7mm",
+                        "name": "San Francisco City",
+                        "shortName": "SF City",
+                        "officialName": "San Francisco City FC",
+                        "code": "SFC",
+                        "position": "away",
+                        "country": {
+                            "id": "7hr2f89v44y65dyu9k92vprwn",
+                            "name": "USA"
+                        }
+                    }
+                ],
+                "venue": {
+                    "id": "85dqgqwvrye5z2t4dn5r4802y",
+                    "neutral": "no",
+                    "longName": "Raimondi Park",
+                    "shortName": "Raimondi Park"
+                }
+            },
+            "liveData": {
+                "matchDetails": {
+                    "periodId": 14,
+                    "matchStatus": "Played",
+                    "winner": "away",
+                    "scores": {
+                        "ht": {
+                            "home": 0,
+                            "away": 2
+                        },
+                        "ft": {
+                            "home": 0,
+                            "away": 4
+                        },
+                        "total": {
+                            "home": 0,
+                            "away": 4
+                        }
+                    }
+                },
+                "goal": [
+                    {
+                        "contestantId": "9jcix3py714hinx0rluumu7mm",
+                        "periodId": 1,
+                        "timeMin": 44,
+                        "lastUpdated": "2022-04-21T11:11:03Z",
+                        "type": "G",
+                        "scorerId": "8n2bppwta5ug4nawajawt0n6y",
+                        "scorerName": "A. Lombardi",
+                        "homeScore": 0,
+                        "awayScore": 1
+                    },
+                    {
+                        "contestantId": "9jcix3py714hinx0rluumu7mm",
+                        "periodId": 1,
+                        "timeMin": 45,
+                        "lastUpdated": "2022-05-23T18:51:44Z",
+                        "type": "G",
+                        "scorerId": "29tc91ft8sxciel44bqleicbt",
+                        "scorerName": "M. Hurlow-Paonessa",
+                        "homeScore": 0,
+                        "awayScore": 2
+                    },
+                    {
+                        "contestantId": "9jcix3py714hinx0rluumu7mm",
+                        "periodId": 2,
+                        "timeMin": 80,
+                        "lastUpdated": "2022-05-23T18:51:43Z",
+                        "type": "G",
+                        "scorerId": "2mur9hrop7k863gsll8hjwg6h",
+                        "scorerName": "J. Hughes",
+                        "homeScore": 0,
+                        "awayScore": 3
+                    },
+                    {
+                        "contestantId": "9jcix3py714hinx0rluumu7mm",
+                        "periodId": 2,
+                        "timeMin": 90,
+                        "lastUpdated": "2023-08-15T09:23:30Z",
+                        "type": "G",
+                        "scorerId": "24qu21epxzwsk16dfu1lio7l6",
+                        "scorerName": "A. Bagramyan",
+                        "homeScore": 0,
+                        "awayScore": 4
+                    }
+                ]
+            }
+        }
+    ]
+}

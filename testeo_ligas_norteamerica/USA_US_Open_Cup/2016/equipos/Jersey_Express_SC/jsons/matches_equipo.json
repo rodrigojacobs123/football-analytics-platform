@@ -1,0 +1,525 @@
+{
+    "match": [
+        {
+            "matchInfo": {
+                "id": "cx17rb5r727qoft7i6xxpwoh5",
+                "coverageLevel": "13",
+                "date": "2016-06-01Z",
+                "time": "23:30:00Z",
+                "localDate": "2016-06-01",
+                "localTime": "19:30:00",
+                "numberOfPeriods": 2,
+                "periodLength": 45,
+                "overtimeLength": 15,
+                "lastUpdated": "2025-03-14T14:53:39Z",
+                "description": "NY Cosmos vs Jersey Express",
+                "sport": {
+                    "id": "289u5typ3vp4ifwh5thalohmq",
+                    "name": "Soccer"
+                },
+                "ruleset": {
+                    "id": "79plas4983031idr6vw83nuel",
+                    "name": "Men"
+                },
+                "competition": {
+                    "id": "2bmwykmdlcc2u1c40ytoc39vy",
+                    "name": "US Open Cup",
+                    "knownName": "US Open Cup",
+                    "competitionCode": "UOC",
+                    "competitionFormat": "Domestic cup",
+                    "country": {
+                        "id": "7hr2f89v44y65dyu9k92vprwn",
+                        "name": "USA"
+                    }
+                },
+                "tournamentCalendar": {
+                    "id": "jd3ycveqnkjvntl7b8wndb6x",
+                    "startDate": "2016-05-11Z",
+                    "endDate": "2016-09-14Z",
+                    "name": "2016"
+                },
+                "stage": {
+                    "id": "9140icljpobjkx61oap478o9e",
+                    "formatId": "emn81yxry3kpgybjulh9yzq39",
+                    "startDate": "2016-06-01Z",
+                    "endDate": "2016-06-02Z",
+                    "name": "3rd Round"
+                },
+                "contestant": [
+                    {
+                        "id": "18zyeenk8h3o5rwrmkjvnhsv5",
+                        "name": "NY Cosmos",
+                        "shortName": "Cosmos",
+                        "officialName": "New York Cosmos",
+                        "code": "NYC",
+                        "position": "home",
+                        "country": {
+                            "id": "7hr2f89v44y65dyu9k92vprwn",
+                            "name": "USA"
+                        }
+                    },
+                    {
+                        "id": "efj2pd6487j105gf2hrc04i16",
+                        "name": "Jersey Express",
+                        "shortName": "Jersey Express",
+                        "officialName": "Jersey Express SC",
+                        "code": "JEX",
+                        "position": "away",
+                        "country": {
+                            "id": "7hr2f89v44y65dyu9k92vprwn",
+                            "name": "USA"
+                        }
+                    }
+                ],
+                "venue": {
+                    "id": "b4u0pn6jgqj5zvq4qzq7ars41",
+                    "neutral": "no",
+                    "longName": "Belson Stadium",
+                    "shortName": "Belson Stadium"
+                }
+            },
+            "liveData": {
+                "matchDetails": {
+                    "periodId": 14,
+                    "matchStatus": "Played",
+                    "winner": "home",
+                    "matchLengthMin": 95,
+                    "matchLengthSec": 11,
+                    "period": [
+                        {
+                            "id": 1,
+                            "start": "2016-06-01T23:38:11Z",
+                            "end": "2016-06-02T00:24:26Z",
+                            "lengthMin": 46,
+                            "lengthSec": 15
+                        },
+                        {
+                            "id": 2,
+                            "start": "2016-06-02T00:40:41Z",
+                            "end": "2016-06-02T01:29:37Z",
+                            "lengthMin": 48,
+                            "lengthSec": 56
+                        }
+                    ],
+                    "scores": {
+                        "ht": {
+                            "home": 1,
+                            "away": 0
+                        },
+                        "ft": {
+                            "home": 2,
+                            "away": 0
+                        },
+                        "total": {
+                            "home": 2,
+                            "away": 0
+                        }
+                    }
+                },
+                "goal": [
+                    {
+                        "contestantId": "18zyeenk8h3o5rwrmkjvnhsv5",
+                        "periodId": 1,
+                        "timeMin": 35,
+                        "lastUpdated": "2022-03-09T16:18:52Z",
+                        "type": "G",
+                        "scorerId": "dl7ha327gcy54bxffnx8vpxhx",
+                        "scorerName": "Ayoze García",
+                        "optaEventId": "1086942826",
+                        "homeScore": 1,
+                        "awayScore": 0
+                    },
+                    {
+                        "contestantId": "18zyeenk8h3o5rwrmkjvnhsv5",
+                        "periodId": 2,
+                        "timeMin": 72,
+                        "lastUpdated": "2024-10-05T20:37:44Z",
+                        "type": "G",
+                        "scorerId": "crh6rb5xcetu442npwyfe3b2t",
+                        "scorerName": "Y. Orozco",
+                        "optaEventId": "714922416",
+                        "homeScore": 2,
+                        "awayScore": 0
+                    }
+                ],
+                "card": [
+                    {
+                        "contestantId": "efj2pd6487j105gf2hrc04i16",
+                        "periodId": 1,
+                        "timeMin": 5,
+                        "lastUpdated": "2016-06-01T23:43:20Z",
+                        "type": "YC",
+                        "playerId": "7dluze553k4xieu78la3ed1w5",
+                        "playerName": "Romário",
+                        "optaEventId": "207637172",
+                        "cardReason": "Foul"
+                    },
+                    {
+                        "contestantId": "18zyeenk8h3o5rwrmkjvnhsv5",
+                        "periodId": 1,
+                        "timeMin": 24,
+                        "lastUpdated": "2021-11-24T16:14:22Z",
+                        "type": "YC",
+                        "playerId": "cbernmlnvld7ok0qduwwv66dx",
+                        "playerName": "Rubén Bover",
+                        "optaEventId": "1224482971",
+                        "cardReason": "Foul"
+                    },
+                    {
+                        "contestantId": "18zyeenk8h3o5rwrmkjvnhsv5",
+                        "periodId": 2,
+                        "timeMin": 68,
+                        "lastUpdated": "2022-03-09T16:18:52Z",
+                        "type": "YC",
+                        "playerId": "dl7ha327gcy54bxffnx8vpxhx",
+                        "playerName": "Ayoze García",
+                        "optaEventId": "1302864997",
+                        "cardReason": "Foul"
+                    }
+                ],
+                "substitute": [
+                    {
+                        "contestantId": "efj2pd6487j105gf2hrc04i16",
+                        "periodId": 2,
+                        "timeMin": 55,
+                        "lastUpdated": "2016-06-02T01:40:59Z",
+                        "playerOnId": "faj3ocdwcqwitqcmdaj12twp",
+                        "playerOnName": "R. Kahlon",
+                        "playerOffId": "b7k3dggnbps08l5y61634kjqh",
+                        "playerOffName": "J. Pounce",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "18zyeenk8h3o5rwrmkjvnhsv5",
+                        "periodId": 2,
+                        "timeMin": 64,
+                        "lastUpdated": "2024-10-05T20:37:44Z",
+                        "playerOnId": "crh6rb5xcetu442npwyfe3b2t",
+                        "playerOnName": "Y. Orozco",
+                        "playerOffId": "cbernmlnvld7ok0qduwwv66dx",
+                        "playerOffName": "Rubén Bover",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "efj2pd6487j105gf2hrc04i16",
+                        "periodId": 2,
+                        "timeMin": 66,
+                        "lastUpdated": "2020-03-17T18:08:07Z",
+                        "playerOnId": "3hc6h9xq8q2w59a51nzc34grt",
+                        "playerOnName": "T. Morris",
+                        "playerOffId": "8u1q5tjpykphapjslvs7hcnvt",
+                        "playerOffName": "J. Onyeaka",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "efj2pd6487j105gf2hrc04i16",
+                        "periodId": 2,
+                        "timeMin": 81,
+                        "lastUpdated": "2016-06-02T01:20:15Z",
+                        "playerOnId": "cd0s8orie5rtxpv3an2l1vxm1",
+                        "playerOnName": "P. Claudio",
+                        "playerOffId": "7dluze553k4xieu78la3ed1w5",
+                        "playerOffName": "Romário",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "18zyeenk8h3o5rwrmkjvnhsv5",
+                        "periodId": 2,
+                        "timeMin": 84,
+                        "lastUpdated": "2022-07-18T01:00:46Z",
+                        "playerOnId": "b6o0ffhw2hu48cb8dk0bm489h",
+                        "playerOnName": "J. Arrieta",
+                        "playerOffId": "cvhu24dguzh3eqq876nydxplh",
+                        "playerOffName": "D. Diosa",
+                        "subReason": "Tactical"
+                    }
+                ],
+                "matchDetailsExtra": {
+                    "attendance": "984",
+                    "matchOfficial": [
+                        {
+                            "id": "484fm0jjtwtvrsbhcgwiplyvp",
+                            "type": "Main",
+                            "firstName": "David",
+                            "lastName": "Breckner",
+                            "shortFirstName": "Dave",
+                            "shortLastName": "Breckner"
+                        },
+                        {
+                            "id": "39k2osyn9v33p2e01duxwegvd",
+                            "type": "Assistant referee 1",
+                            "firstName": "Tom",
+                            "lastName": "Felice",
+                            "shortFirstName": "Tom",
+                            "shortLastName": "Felice"
+                        },
+                        {
+                            "id": "6yvjr8b4qji6a9yroz6lgny7d",
+                            "type": "Assistant referee 2",
+                            "firstName": "Victor",
+                            "lastName": "Vásquez",
+                            "shortFirstName": "Víctor",
+                            "shortLastName": "Vázquez"
+                        },
+                        {
+                            "id": "bsfhimws00vl1ibzeymnjv36x",
+                            "type": "Fourth official",
+                            "firstName": "Jared",
+                            "lastName": "Simons",
+                            "shortFirstName": "Jared",
+                            "shortLastName": "Simons"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "matchInfo": {
+                "id": "bdxetw5ihlwkgszwwvmkwj561",
+                "coverageLevel": "5",
+                "date": "2016-05-19Z",
+                "time": "23:30:00Z",
+                "localDate": "2016-05-19",
+                "localTime": "19:30:00",
+                "numberOfPeriods": 2,
+                "periodLength": 45,
+                "overtimeLength": 15,
+                "lastUpdated": "2025-03-18T15:56:16Z",
+                "description": "NY Pancyprian Freedoms vs Jersey Express",
+                "sport": {
+                    "id": "289u5typ3vp4ifwh5thalohmq",
+                    "name": "Soccer"
+                },
+                "ruleset": {
+                    "id": "79plas4983031idr6vw83nuel",
+                    "name": "Men"
+                },
+                "competition": {
+                    "id": "2bmwykmdlcc2u1c40ytoc39vy",
+                    "name": "US Open Cup",
+                    "knownName": "US Open Cup",
+                    "competitionCode": "UOC",
+                    "competitionFormat": "Domestic cup",
+                    "country": {
+                        "id": "7hr2f89v44y65dyu9k92vprwn",
+                        "name": "USA"
+                    }
+                },
+                "tournamentCalendar": {
+                    "id": "jd3ycveqnkjvntl7b8wndb6x",
+                    "startDate": "2016-05-11Z",
+                    "endDate": "2016-09-14Z",
+                    "name": "2016"
+                },
+                "stage": {
+                    "id": "dsdnnige4ewix5rkr2ox65x8f",
+                    "formatId": "8cdpi9d29bu9gim4bl5m8ijth",
+                    "startDate": "2016-05-19Z",
+                    "endDate": "2016-05-20Z",
+                    "name": "2nd Round"
+                },
+                "contestant": [
+                    {
+                        "id": "2wvitiyo8b1pfp3ti3zhgx0sm",
+                        "name": "NY Pancyprian Freedoms",
+                        "shortName": "NY Pancyprian",
+                        "officialName": "NY Pancyprian Freedoms",
+                        "code": "NYP",
+                        "position": "home",
+                        "country": {
+                            "id": "7hr2f89v44y65dyu9k92vprwn",
+                            "name": "USA"
+                        }
+                    },
+                    {
+                        "id": "efj2pd6487j105gf2hrc04i16",
+                        "name": "Jersey Express",
+                        "shortName": "Jersey Express",
+                        "officialName": "Jersey Express SC",
+                        "code": "JEX",
+                        "position": "away",
+                        "country": {
+                            "id": "7hr2f89v44y65dyu9k92vprwn",
+                            "name": "USA"
+                        }
+                    }
+                ],
+                "venue": {
+                    "id": "b4u0pn6jgqj5zvq4qzq7ars41",
+                    "neutral": "no",
+                    "longName": "Belson Stadium",
+                    "shortName": "Belson Stadium"
+                }
+            },
+            "liveData": {
+                "matchDetails": {
+                    "periodId": 14,
+                    "matchStatus": "Played",
+                    "winner": "away",
+                    "scores": {
+                        "ht": {
+                            "home": 0,
+                            "away": 0
+                        },
+                        "ft": {
+                            "home": 0,
+                            "away": 1
+                        },
+                        "total": {
+                            "home": 0,
+                            "away": 1
+                        }
+                    }
+                },
+                "goal": [
+                    {
+                        "contestantId": "efj2pd6487j105gf2hrc04i16",
+                        "periodId": 2,
+                        "timeMin": 81,
+                        "lastUpdated": "2016-06-01T16:30:41Z",
+                        "type": "G",
+                        "scorerId": "4ugir7x6gp3yixkasws8jjh7t",
+                        "scorerName": "A. Otto",
+                        "homeScore": 0,
+                        "awayScore": 1
+                    }
+                ]
+            }
+        },
+        {
+            "matchInfo": {
+                "id": "5g59tgm1ipr4kvab64l0svze1",
+                "coverageLevel": "5",
+                "date": "2016-05-11Z",
+                "time": "23:00:00Z",
+                "localDate": "2016-05-11",
+                "localTime": "19:00:00",
+                "numberOfPeriods": 2,
+                "periodLength": 45,
+                "overtimeLength": 15,
+                "lastUpdated": "2025-02-13T11:13:43Z",
+                "description": "Clarkstown Eagles vs Jersey Express",
+                "sport": {
+                    "id": "289u5typ3vp4ifwh5thalohmq",
+                    "name": "Soccer"
+                },
+                "ruleset": {
+                    "id": "79plas4983031idr6vw83nuel",
+                    "name": "Men"
+                },
+                "competition": {
+                    "id": "2bmwykmdlcc2u1c40ytoc39vy",
+                    "name": "US Open Cup",
+                    "knownName": "US Open Cup",
+                    "competitionCode": "UOC",
+                    "competitionFormat": "Domestic cup",
+                    "country": {
+                        "id": "7hr2f89v44y65dyu9k92vprwn",
+                        "name": "USA"
+                    }
+                },
+                "tournamentCalendar": {
+                    "id": "jd3ycveqnkjvntl7b8wndb6x",
+                    "startDate": "2016-05-11Z",
+                    "endDate": "2016-09-14Z",
+                    "name": "2016"
+                },
+                "stage": {
+                    "id": "97pjbwgwkqb1li7lp9wmsmuu6",
+                    "formatId": "3ad6z07rilk8flizkw1bhv179",
+                    "startDate": "2016-05-11Z",
+                    "endDate": "2016-05-12Z",
+                    "name": "1st Round"
+                },
+                "contestant": [
+                    {
+                        "id": "itun99owhce2ha4qtgmkkv10",
+                        "name": "Clarkstown Eagles",
+                        "shortName": "Clarkstown",
+                        "officialName": "Clarkstown SC Eagles",
+                        "code": "CEA",
+                        "position": "home",
+                        "country": {
+                            "id": "7hr2f89v44y65dyu9k92vprwn",
+                            "name": "USA"
+                        }
+                    },
+                    {
+                        "id": "efj2pd6487j105gf2hrc04i16",
+                        "name": "Jersey Express",
+                        "shortName": "Jersey Express",
+                        "officialName": "Jersey Express SC",
+                        "code": "JEX",
+                        "position": "away",
+                        "country": {
+                            "id": "7hr2f89v44y65dyu9k92vprwn",
+                            "name": "USA"
+                        }
+                    }
+                ],
+                "venue": {
+                    "id": "bgmjunu49t022wgi3y6lp2ay1",
+                    "neutral": "no",
+                    "longName": "Torne Valley Sports Complex",
+                    "shortName": "Torne Valley Sports Complex"
+                }
+            },
+            "liveData": {
+                "matchDetails": {
+                    "periodId": 14,
+                    "matchStatus": "Played",
+                    "winner": "away",
+                    "scores": {
+                        "ht": {
+                            "home": 0,
+                            "away": 1
+                        },
+                        "ft": {
+                            "home": 1,
+                            "away": 2
+                        },
+                        "total": {
+                            "home": 1,
+                            "away": 2
+                        }
+                    }
+                },
+                "goal": [
+                    {
+                        "contestantId": "efj2pd6487j105gf2hrc04i16",
+                        "periodId": 1,
+                        "timeMin": 26,
+                        "lastUpdated": "2016-06-01T23:22:13Z",
+                        "type": "PG",
+                        "scorerId": "bibo65d1kld38ma8komn8kq1h",
+                        "scorerName": "J. Correa",
+                        "homeScore": 0,
+                        "awayScore": 1
+                    },
+                    {
+                        "contestantId": "efj2pd6487j105gf2hrc04i16",
+                        "periodId": 2,
+                        "timeMin": 55,
+                        "lastUpdated": "2016-06-01T23:22:13Z",
+                        "type": "PG",
+                        "scorerId": "bibo65d1kld38ma8komn8kq1h",
+                        "scorerName": "J. Correa",
+                        "homeScore": 0,
+                        "awayScore": 2
+                    },
+                    {
+                        "contestantId": "itun99owhce2ha4qtgmkkv10",
+                        "periodId": 2,
+                        "timeMin": 90,
+                        "lastUpdated": "2025-02-13T11:13:17Z",
+                        "type": "G",
+                        "scorerId": "78mc4gnv6zyobgf9v1jdp1otl",
+                        "scorerName": "B. Bardic",
+                        "homeScore": 1,
+                        "awayScore": 2
+                    }
+                ]
+            }
+        }
+    ]
+}

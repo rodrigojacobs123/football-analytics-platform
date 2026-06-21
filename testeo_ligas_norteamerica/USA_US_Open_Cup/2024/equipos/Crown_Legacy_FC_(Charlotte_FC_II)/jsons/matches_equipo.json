@@ -1,0 +1,366 @@
+{
+    "match": [
+        {
+            "matchInfo": {
+                "id": "6n72jgjx5w0hiy0vbgp70rpjo",
+                "coverageLevel": "13",
+                "date": "2024-03-21Z",
+                "time": "23:30:00Z",
+                "localDate": "2024-03-21",
+                "localTime": "19:30:00",
+                "numberOfPeriods": 2,
+                "periodLength": 45,
+                "overtimeLength": 15,
+                "lastUpdated": "2025-11-11T20:58:27Z",
+                "description": "Crown Legacy vs SC United Heat",
+                "sport": {
+                    "id": "289u5typ3vp4ifwh5thalohmq",
+                    "name": "Soccer"
+                },
+                "ruleset": {
+                    "id": "79plas4983031idr6vw83nuel",
+                    "name": "Men"
+                },
+                "competition": {
+                    "id": "2bmwykmdlcc2u1c40ytoc39vy",
+                    "name": "US Open Cup",
+                    "knownName": "US Open Cup",
+                    "competitionCode": "UOC",
+                    "competitionFormat": "Domestic cup",
+                    "country": {
+                        "id": "7hr2f89v44y65dyu9k92vprwn",
+                        "name": "USA"
+                    }
+                },
+                "tournamentCalendar": {
+                    "id": "dh2sb8k8qnboef5ev5p1a01lg",
+                    "startDate": "2024-03-19Z",
+                    "endDate": "2024-09-26Z",
+                    "name": "2024"
+                },
+                "stage": {
+                    "id": "dhvsqfg349rsoveyfwigy2txw",
+                    "formatId": "3ad6z07rilk8flizkw1bhv179",
+                    "startDate": "2024-03-19Z",
+                    "endDate": "2024-03-22Z",
+                    "name": "1st Round"
+                },
+                "contestant": [
+                    {
+                        "id": "6ubc4y1v6hr63mca7ica4hp90",
+                        "name": "Crown Legacy",
+                        "shortName": "Crown Legacy",
+                        "officialName": "Crown Legacy FC (Charlotte FC II)",
+                        "code": "CLT",
+                        "position": "home",
+                        "country": {
+                            "id": "7hr2f89v44y65dyu9k92vprwn",
+                            "name": "USA"
+                        }
+                    },
+                    {
+                        "id": "5oj7rqhl5re2sgl8snqhd632s",
+                        "name": "SC United Heat",
+                        "shortName": "SC United Heat",
+                        "officialName": "South Carolina United Heat",
+                        "code": "SCH",
+                        "position": "away",
+                        "country": {
+                            "id": "7hr2f89v44y65dyu9k92vprwn",
+                            "name": "USA"
+                        }
+                    }
+                ],
+                "venue": {
+                    "id": "cowmwzonxd2yp6ttqx98cwlih",
+                    "neutral": "no",
+                    "longName": "Mecklenburg County Sportsplex at Matthews",
+                    "shortName": "Mecklenburg County Sportsplex at Matthews",
+                    "latitude": "35.112212372",
+                    "longitude": "-80.697518965"
+                }
+            },
+            "liveData": {
+                "matchDetails": {
+                    "periodId": 14,
+                    "matchStatus": "Played",
+                    "winner": "away",
+                    "matchLengthMin": 99,
+                    "matchLengthSec": 14,
+                    "period": [
+                        {
+                            "id": 1,
+                            "start": "2024-03-21T23:34:32Z",
+                            "end": "2024-03-22T00:20:36Z",
+                            "lengthMin": 46,
+                            "lengthSec": 4,
+                            "announcedInjuryTime": 60
+                        },
+                        {
+                            "id": 2,
+                            "start": "2024-03-22T00:36:20Z",
+                            "end": "2024-03-22T01:29:30Z",
+                            "lengthMin": 53,
+                            "lengthSec": 10,
+                            "announcedInjuryTime": 300
+                        }
+                    ],
+                    "scores": {
+                        "ht": {
+                            "home": 0,
+                            "away": 0
+                        },
+                        "ft": {
+                            "home": 0,
+                            "away": 1
+                        },
+                        "total": {
+                            "home": 0,
+                            "away": 1
+                        }
+                    }
+                },
+                "goal": [
+                    {
+                        "contestantId": "5oj7rqhl5re2sgl8snqhd632s",
+                        "periodId": 2,
+                        "timeMin": 95,
+                        "timeMinSec": "94:26",
+                        "lastUpdated": "2024-03-22T01:26:00Z",
+                        "timestamp": "2024-03-22T01:25:46Z",
+                        "type": "PG",
+                        "scorerId": "8pt0d8vm8mzhvnha93acru8oa",
+                        "scorerName": "W. Inalien",
+                        "optaEventId": "2662462251",
+                        "homeScore": 0,
+                        "awayScore": 1
+                    }
+                ],
+                "missedPen": [
+                    {
+                        "contestantId": "6ubc4y1v6hr63mca7ica4hp90",
+                        "periodId": 2,
+                        "timeMin": 88,
+                        "timeMinSec": "87:09",
+                        "lastUpdated": "2024-03-22T01:18:45Z",
+                        "timestamp": "2024-03-22T01:18:30Z",
+                        "type": "PM",
+                        "playerId": "drt65b9m2f494wnoyep49bn1m",
+                        "playerName": "F. Mirkovic",
+                        "optaEventId": "2662459805"
+                    }
+                ],
+                "card": [
+                    {
+                        "contestantId": "5oj7rqhl5re2sgl8snqhd632s",
+                        "periodId": 2,
+                        "timeMin": 77,
+                        "timeMinSec": "76:33",
+                        "lastUpdated": "2024-03-22T01:08:06Z",
+                        "timestamp": "2024-03-22T01:07:54Z",
+                        "type": "YC",
+                        "playerId": "bmsca8wux276kitzwkvcyyi5m",
+                        "playerName": "R. Fortune",
+                        "optaEventId": "2662456093",
+                        "cardReason": "Foul"
+                    },
+                    {
+                        "contestantId": "6ubc4y1v6hr63mca7ica4hp90",
+                        "periodId": 2,
+                        "timeMin": 80,
+                        "timeMinSec": "79:29",
+                        "lastUpdated": "2024-03-22T01:11:00Z",
+                        "timestamp": "2024-03-22T01:10:49Z",
+                        "type": "YC",
+                        "playerId": "35i699wz5v6nush729peu776c",
+                        "playerName": "Josué",
+                        "optaEventId": "2662457193",
+                        "cardReason": "Foul"
+                    },
+                    {
+                        "contestantId": "5oj7rqhl5re2sgl8snqhd632s",
+                        "periodId": 2,
+                        "timeMin": 82,
+                        "timeMinSec": "81:41",
+                        "lastUpdated": "2024-03-22T01:13:30Z",
+                        "timestamp": "2024-03-22T01:13:02Z",
+                        "type": "YC",
+                        "playerId": "etf1bbss77fm645kr517vu221",
+                        "playerName": "M. Dioury",
+                        "optaEventId": "2662458031",
+                        "cardReason": "Foul"
+                    },
+                    {
+                        "contestantId": "5oj7rqhl5re2sgl8snqhd632s",
+                        "periodId": 2,
+                        "timeMin": 87,
+                        "timeMinSec": "86:15",
+                        "lastUpdated": "2024-03-26T06:11:14Z",
+                        "timestamp": "2024-03-22T01:17:36Z",
+                        "type": "YC",
+                        "playerId": "82mhi0kyhmwjj762tu1d0xjpw",
+                        "playerName": "M. Barrozo",
+                        "optaEventId": "2662460051",
+                        "cardReason": "Dissent"
+                    },
+                    {
+                        "contestantId": "5oj7rqhl5re2sgl8snqhd632s",
+                        "periodId": 2,
+                        "timeMin": 90,
+                        "timeMinSec": "89:48",
+                        "lastUpdated": "2024-03-22T01:21:25Z",
+                        "timestamp": "2024-03-22T01:21:09Z",
+                        "type": "YC",
+                        "playerId": "epqlh8armvsfwrtecyhbur3tg",
+                        "playerName": "I. Vlek",
+                        "optaEventId": "2662460673",
+                        "cardReason": "Dissent"
+                    }
+                ],
+                "substitute": [
+                    {
+                        "contestantId": "6ubc4y1v6hr63mca7ica4hp90",
+                        "periodId": 2,
+                        "timeMin": 60,
+                        "timeMinSec": "59:32",
+                        "lastUpdated": "2025-09-05T23:14:28Z",
+                        "timestamp": "2024-03-22T00:50:53Z",
+                        "playerOnId": "9qhpi9y9iujvkbocafhgrj04q",
+                        "playerOnName": "C. Duke",
+                        "playerOffId": "3ve0xap9f0gjsslhgjsmakx04",
+                        "playerOffName": "A. John",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "6ubc4y1v6hr63mca7ica4hp90",
+                        "periodId": 2,
+                        "timeMin": 60,
+                        "timeMinSec": "59:40",
+                        "lastUpdated": "2024-03-22T00:51:10Z",
+                        "timestamp": "2024-03-22T00:51:01Z",
+                        "playerOnId": "avg8cobjwujoc3os8q8755tlg",
+                        "playerOnName": "C. Young",
+                        "playerOffId": "7bxp7ho4cmsoviw19q4bxr02c",
+                        "playerOffName": "B. Romero",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "5oj7rqhl5re2sgl8snqhd632s",
+                        "periodId": 2,
+                        "timeMin": 62,
+                        "timeMinSec": "61:47",
+                        "lastUpdated": "2024-03-22T00:53:16Z",
+                        "timestamp": "2024-03-22T00:53:08Z",
+                        "playerOnId": "8pt0d8vm8mzhvnha93acru8oa",
+                        "playerOnName": "W. Inalien",
+                        "playerOffId": "4d8c86ose639ioxhq01d8ir6c",
+                        "playerOffName": "S. Hanson",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "5oj7rqhl5re2sgl8snqhd632s",
+                        "periodId": 2,
+                        "timeMin": 68,
+                        "timeMinSec": "67:14",
+                        "lastUpdated": "2024-03-26T06:11:14Z",
+                        "timestamp": "2024-03-22T00:58:35Z",
+                        "playerOnId": "82mhi0kyhmwjj762tu1d0xjpw",
+                        "playerOnName": "M. Barrozo",
+                        "playerOffId": "895zn0fi8f8n65b7oqa0ejg2c",
+                        "playerOffName": "N. Campbell",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "6ubc4y1v6hr63mca7ica4hp90",
+                        "periodId": 2,
+                        "timeMin": 68,
+                        "timeMinSec": "67:20",
+                        "lastUpdated": "2024-03-22T00:59:02Z",
+                        "timestamp": "2024-03-22T00:58:40Z",
+                        "playerOnId": "1mgojctk6vwsxz2rhurggk1sk",
+                        "playerOnName": "B. Parrish",
+                        "playerOffId": "8texi81doeqhy7eu6fnhrstbe",
+                        "playerOffName": "J. Assi",
+                        "subReason": "Injury"
+                    },
+                    {
+                        "contestantId": "5oj7rqhl5re2sgl8snqhd632s",
+                        "periodId": 2,
+                        "timeMin": 74,
+                        "timeMinSec": "74:00",
+                        "lastUpdated": "2025-07-15T23:17:47Z",
+                        "timestamp": "2024-03-22T01:05:21Z",
+                        "playerOnId": "3pbmu8upuo5ueagbxvpf4hbtg",
+                        "playerOnName": "H. Hampton",
+                        "playerOffId": "cdpzffdtsleo1ifsbqnol0cus",
+                        "playerOffName": "L. Molina",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "5oj7rqhl5re2sgl8snqhd632s",
+                        "periodId": 2,
+                        "timeMin": 74,
+                        "timeMinSec": "74:00",
+                        "lastUpdated": "2024-03-22T01:07:19Z",
+                        "timestamp": "2024-03-22T01:05:20Z",
+                        "playerOnId": "as2bm915kl4a4s7q7z0dny1as",
+                        "playerOnName": "S. Nygård",
+                        "playerOffId": "4j88r3fax4hwvq45rp8juffh0",
+                        "playerOffName": "A. Adefioye",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "6ubc4y1v6hr63mca7ica4hp90",
+                        "periodId": 2,
+                        "timeMin": 81,
+                        "timeMinSec": "80:44",
+                        "lastUpdated": "2024-11-13T14:22:03Z",
+                        "timestamp": "2024-03-22T01:12:04Z",
+                        "playerOnId": "3sg9rl2w343fvx1uv046ox4pg",
+                        "playerOnName": "A. Lucas",
+                        "playerOffId": "35i699wz5v6nush729peu776c",
+                        "playerOffName": "Josué",
+                        "subReason": "Tactical"
+                    }
+                ],
+                "matchDetailsExtra": {
+                    "attendance": "630",
+                    "matchOfficial": [
+                        {
+                            "id": "2if0sry091ael3qc1ztmiozys",
+                            "type": "Main",
+                            "firstName": "Shawn",
+                            "lastName": "Tehini",
+                            "shortFirstName": "Shawn",
+                            "shortLastName": "Tehini"
+                        },
+                        {
+                            "id": "fc75zh0nnpuvrevdvnk4bca",
+                            "type": "Assistant referee 1",
+                            "firstName": "Colin",
+                            "lastName": "Ashley",
+                            "shortFirstName": "Colin",
+                            "shortLastName": "Ashley"
+                        },
+                        {
+                            "id": "iv0httve0lr1vje8s2ycaa6s",
+                            "type": "Assistant referee 2",
+                            "firstName": "Tyler",
+                            "lastName": "Buchman",
+                            "shortFirstName": "Tyler",
+                            "shortLastName": "Buchman"
+                        },
+                        {
+                            "id": "d2p47w4vj80kr62jfef0li5pm",
+                            "type": "Fourth official",
+                            "firstName": "John",
+                            "lastName": "Rush",
+                            "shortFirstName": "John",
+                            "shortLastName": "Rush"
+                        }
+                    ]
+                }
+            }
+        }
+    ]
+}

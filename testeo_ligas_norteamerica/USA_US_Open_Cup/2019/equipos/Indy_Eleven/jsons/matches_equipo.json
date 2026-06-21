@@ -1,0 +1,572 @@
+{
+    "match": [
+        {
+            "matchInfo": {
+                "id": "9fdlz7cm12kw0l5qb02iw9je2",
+                "coverageLevel": "13",
+                "date": "2019-05-29Z",
+                "time": "23:00:00Z",
+                "localDate": "2019-05-29",
+                "localTime": "19:00:00",
+                "numberOfPeriods": 2,
+                "periodLength": 45,
+                "overtimeLength": 15,
+                "lastUpdated": "2025-03-16T08:48:40Z",
+                "description": "Pittsburgh Riverhounds vs Indy Eleven",
+                "sport": {
+                    "id": "289u5typ3vp4ifwh5thalohmq",
+                    "name": "Soccer"
+                },
+                "ruleset": {
+                    "id": "79plas4983031idr6vw83nuel",
+                    "name": "Men"
+                },
+                "competition": {
+                    "id": "2bmwykmdlcc2u1c40ytoc39vy",
+                    "name": "US Open Cup",
+                    "knownName": "US Open Cup",
+                    "competitionCode": "UOC",
+                    "competitionFormat": "Domestic cup",
+                    "country": {
+                        "id": "7hr2f89v44y65dyu9k92vprwn",
+                        "name": "USA"
+                    }
+                },
+                "tournamentCalendar": {
+                    "id": "c7tmg7pxkutef9ymogovz4huy",
+                    "startDate": "2019-05-08Z",
+                    "endDate": "2019-08-28Z",
+                    "name": "2019"
+                },
+                "stage": {
+                    "id": "c8oald29684fma4yf4v7o9wtm",
+                    "formatId": "emn81yxry3kpgybjulh9yzq39",
+                    "startDate": "2019-05-29Z",
+                    "endDate": "2019-05-30Z",
+                    "name": "3rd Round"
+                },
+                "contestant": [
+                    {
+                        "id": "224tl8u2smnbyliroayk69nt0",
+                        "name": "Pittsburgh Riverhounds",
+                        "shortName": "Pittsburgh",
+                        "officialName": "Pittsburgh Riverhounds SC",
+                        "code": "PIT",
+                        "position": "home",
+                        "country": {
+                            "id": "7hr2f89v44y65dyu9k92vprwn",
+                            "name": "USA"
+                        }
+                    },
+                    {
+                        "id": "8cpjplodpphtkbt0hq8sr8mqs",
+                        "name": "Indy Eleven",
+                        "shortName": "Indy Eleven",
+                        "officialName": "Indy Eleven",
+                        "code": "IND",
+                        "position": "away",
+                        "country": {
+                            "id": "7hr2f89v44y65dyu9k92vprwn",
+                            "name": "USA"
+                        }
+                    }
+                ],
+                "venue": {
+                    "id": "68u2lkedvhwnkxj9m9o87i236",
+                    "neutral": "no",
+                    "longName": "Highmark Stadium",
+                    "shortName": "Highmark Stadium"
+                }
+            },
+            "liveData": {
+                "matchDetails": {
+                    "periodId": 14,
+                    "matchStatus": "Played",
+                    "winner": "home",
+                    "matchLengthMin": 93,
+                    "matchLengthSec": 55,
+                    "period": [
+                        {
+                            "id": 1,
+                            "start": "2019-05-29T23:47:26Z",
+                            "end": "2019-05-30T00:33:11Z",
+                            "lengthMin": 45,
+                            "lengthSec": 45
+                        },
+                        {
+                            "id": 2,
+                            "start": "2019-05-30T00:50:20Z",
+                            "end": "2019-05-30T01:38:30Z",
+                            "lengthMin": 48,
+                            "lengthSec": 10
+                        }
+                    ],
+                    "scores": {
+                        "ht": {
+                            "home": 0,
+                            "away": 0
+                        },
+                        "ft": {
+                            "home": 1,
+                            "away": 0
+                        },
+                        "total": {
+                            "home": 1,
+                            "away": 0
+                        }
+                    }
+                },
+                "goal": [
+                    {
+                        "contestantId": "224tl8u2smnbyliroayk69nt0",
+                        "periodId": 2,
+                        "timeMin": 85,
+                        "timeMinSec": "84:42",
+                        "lastUpdated": "2024-03-06T14:29:26Z",
+                        "type": "G",
+                        "scorerId": "1gfsz5cm0jooza42rf98iqvo5",
+                        "scorerName": "K. Forbes",
+                        "assistPlayerId": "bnzbojx4ox8a4vvxywxep1ln9",
+                        "assistPlayerName": "N. Franke",
+                        "optaEventId": "1891088352",
+                        "homeScore": 1,
+                        "awayScore": 0
+                    }
+                ],
+                "card": [
+                    {
+                        "contestantId": "224tl8u2smnbyliroayk69nt0",
+                        "periodId": 1,
+                        "timeMin": 43,
+                        "timeMinSec": "42:28",
+                        "lastUpdated": "2021-04-29T16:51:24Z",
+                        "type": "YC",
+                        "playerId": "2mqxkxtrjrt9cbeqbyncer209",
+                        "playerName": "R. James",
+                        "optaEventId": "1423272058",
+                        "cardReason": "Foul"
+                    },
+                    {
+                        "contestantId": "224tl8u2smnbyliroayk69nt0",
+                        "periodId": 2,
+                        "timeMin": 74,
+                        "timeMinSec": "73:49",
+                        "lastUpdated": "2020-08-10T12:13:05Z",
+                        "type": "YC",
+                        "playerId": "ds4ydkz3y7hnymqsnef0wa0h5",
+                        "playerName": "J. Greenspan",
+                        "optaEventId": "1777650491",
+                        "cardReason": "Foul"
+                    }
+                ],
+                "substitute": [
+                    {
+                        "contestantId": "8cpjplodpphtkbt0hq8sr8mqs",
+                        "periodId": 2,
+                        "timeMin": 72,
+                        "timeMinSec": "71:36",
+                        "lastUpdated": "2022-03-09T12:06:17Z",
+                        "playerOnId": "2ahydamecjom9wgc8o59g3v85",
+                        "playerOnName": "D. Kelly",
+                        "playerOffId": "7t8o8pe93me2pef74vw21nr6y",
+                        "playerOffName": "J. Penn",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "224tl8u2smnbyliroayk69nt0",
+                        "periodId": 2,
+                        "timeMin": 81,
+                        "timeMinSec": "80:20",
+                        "lastUpdated": "2024-03-06T14:29:26Z",
+                        "playerOnId": "1gfsz5cm0jooza42rf98iqvo5",
+                        "playerOnName": "K. Forbes",
+                        "playerOffId": "dz86dvz82rkpgmr52cff5ch2i",
+                        "playerOffName": "S. Kahsai",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "224tl8u2smnbyliroayk69nt0",
+                        "periodId": 2,
+                        "timeMin": 83,
+                        "timeMinSec": "82:05",
+                        "lastUpdated": "2024-03-06T14:09:23Z",
+                        "playerOnId": "e8rbnbqkrxia3lgt7agaid4kq",
+                        "playerOnName": "R. Mertz",
+                        "playerOffId": "et6iog1ep6dh6h2kzc35raa5l",
+                        "playerOffName": "A. Velarde",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "224tl8u2smnbyliroayk69nt0",
+                        "periodId": 2,
+                        "timeMin": 87,
+                        "timeMinSec": "86:07",
+                        "lastUpdated": "2025-03-13T20:37:40Z",
+                        "playerOnId": "amqkkery2iviorex40t7yi3xm",
+                        "playerOnName": "D. Rovira",
+                        "playerOffId": "cn8fovjei9tdslashum11dp05",
+                        "playerOffName": "N. Brett",
+                        "subReason": "Tactical"
+                    }
+                ],
+                "matchDetailsExtra": {
+                    "attendance": "444",
+                    "matchOfficial": [
+                        {
+                            "id": "2b6usc96x8x3z7y1otrcj70q2",
+                            "type": "Main",
+                            "firstName": "Chris",
+                            "lastName": "Ruska",
+                            "shortFirstName": "Chris",
+                            "shortLastName": "Ruska"
+                        },
+                        {
+                            "id": "5zu95zuqg2i2pswwe3pc549h",
+                            "type": "Assistant referee 1",
+                            "firstName": "Ross",
+                            "lastName": "Kleinstuber",
+                            "shortFirstName": "Ross",
+                            "shortLastName": "Kleinstuber"
+                        },
+                        {
+                            "id": "59hndeyhc1xhodwv7redyr0q2",
+                            "type": "Assistant referee 2",
+                            "firstName": "Sean",
+                            "lastName": "Heilman",
+                            "shortFirstName": "Sean",
+                            "shortLastName": "Heilman"
+                        },
+                        {
+                            "id": "enrqrs7axcczdene9nal2zsru",
+                            "type": "Fourth official",
+                            "firstName": "Kerven",
+                            "lastName": "Moon",
+                            "shortFirstName": "Kerven",
+                            "shortLastName": "Moon"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "matchInfo": {
+                "id": "44ilp5868h16581kepxtx8bqi",
+                "coverageLevel": "13",
+                "date": "2019-05-15Z",
+                "time": "23:00:00Z",
+                "localDate": "2019-05-15",
+                "localTime": "19:00:00",
+                "numberOfPeriods": 2,
+                "periodLength": 45,
+                "overtimeLength": 15,
+                "lastUpdated": "2025-03-20T17:28:57Z",
+                "description": "Indy Eleven vs Lansing Ignite",
+                "sport": {
+                    "id": "289u5typ3vp4ifwh5thalohmq",
+                    "name": "Soccer"
+                },
+                "ruleset": {
+                    "id": "79plas4983031idr6vw83nuel",
+                    "name": "Men"
+                },
+                "competition": {
+                    "id": "2bmwykmdlcc2u1c40ytoc39vy",
+                    "name": "US Open Cup",
+                    "knownName": "US Open Cup",
+                    "competitionCode": "UOC",
+                    "competitionFormat": "Domestic cup",
+                    "country": {
+                        "id": "7hr2f89v44y65dyu9k92vprwn",
+                        "name": "USA"
+                    }
+                },
+                "tournamentCalendar": {
+                    "id": "c7tmg7pxkutef9ymogovz4huy",
+                    "startDate": "2019-05-08Z",
+                    "endDate": "2019-08-28Z",
+                    "name": "2019"
+                },
+                "stage": {
+                    "id": "c8l1yjl6nu5vyvc2t9dfiub8q",
+                    "formatId": "8cdpi9d29bu9gim4bl5m8ijth",
+                    "startDate": "2019-05-15Z",
+                    "endDate": "2019-05-16Z",
+                    "name": "2nd Round"
+                },
+                "contestant": [
+                    {
+                        "id": "8cpjplodpphtkbt0hq8sr8mqs",
+                        "name": "Indy Eleven",
+                        "shortName": "Indy Eleven",
+                        "officialName": "Indy Eleven",
+                        "code": "IND",
+                        "position": "home",
+                        "country": {
+                            "id": "7hr2f89v44y65dyu9k92vprwn",
+                            "name": "USA"
+                        }
+                    },
+                    {
+                        "id": "1m6kvk2pmd3gm2odgia3s43fu",
+                        "name": "Lansing Ignite",
+                        "shortName": "Lansing Ignite",
+                        "officialName": "Lansing Ignite FC",
+                        "code": "LAN",
+                        "position": "away",
+                        "country": {
+                            "id": "7hr2f89v44y65dyu9k92vprwn",
+                            "name": "USA"
+                        }
+                    }
+                ],
+                "venue": {
+                    "id": "5b84j54uun48yhylrjhj7mqga",
+                    "neutral": "no",
+                    "longName": "Bud and Jackie Sellick Bowl",
+                    "shortName": "Bud and Jackie Sellick Bowl"
+                }
+            },
+            "liveData": {
+                "matchDetails": {
+                    "periodId": 14,
+                    "matchStatus": "Played",
+                    "winner": "home",
+                    "matchLengthMin": 105,
+                    "matchLengthSec": 4,
+                    "period": [
+                        {
+                            "id": 1,
+                            "start": "2019-05-15T23:05:49Z",
+                            "end": "2019-05-16T00:01:54Z",
+                            "lengthMin": 56,
+                            "lengthSec": 5
+                        },
+                        {
+                            "id": 2,
+                            "start": "2019-05-16T00:18:19Z",
+                            "end": "2019-05-16T01:07:18Z",
+                            "lengthMin": 48,
+                            "lengthSec": 59
+                        }
+                    ],
+                    "scores": {
+                        "ht": {
+                            "home": 0,
+                            "away": 0
+                        },
+                        "ft": {
+                            "home": 1,
+                            "away": 0
+                        },
+                        "total": {
+                            "home": 1,
+                            "away": 0
+                        }
+                    }
+                },
+                "goal": [
+                    {
+                        "contestantId": "8cpjplodpphtkbt0hq8sr8mqs",
+                        "periodId": 2,
+                        "timeMin": 57,
+                        "timeMinSec": "56:31",
+                        "lastUpdated": "2020-09-08T08:35:57Z",
+                        "type": "G",
+                        "scorerId": "8ip1nbv9fmpcb7zbuvkkx39p1",
+                        "scorerName": "T. Enevoldsen",
+                        "assistPlayerId": "ane7mklbxwoa3fpsxc3qdf9w5",
+                        "assistPlayerName": "P. Barrett",
+                        "optaEventId": "1690211078",
+                        "homeScore": 1,
+                        "awayScore": 0
+                    }
+                ],
+                "card": [
+                    {
+                        "contestantId": "8cpjplodpphtkbt0hq8sr8mqs",
+                        "periodId": 1,
+                        "timeMin": 21,
+                        "timeMinSec": "20:32",
+                        "lastUpdated": "2020-08-09T07:46:51Z",
+                        "type": "RC",
+                        "playerId": "dvfx5383ws30x2tit8h72o05x",
+                        "playerName": "E. Newton",
+                        "optaEventId": "1206101627",
+                        "cardReason": "Foul"
+                    },
+                    {
+                        "contestantId": "8cpjplodpphtkbt0hq8sr8mqs",
+                        "periodId": 2,
+                        "timeMin": 51,
+                        "timeMinSec": "50:19",
+                        "lastUpdated": "2020-09-08T08:35:57Z",
+                        "type": "YC",
+                        "playerId": "8ip1nbv9fmpcb7zbuvkkx39p1",
+                        "playerName": "T. Enevoldsen",
+                        "optaEventId": "1795312331",
+                        "cardReason": "Foul"
+                    },
+                    {
+                        "contestantId": "1m6kvk2pmd3gm2odgia3s43fu",
+                        "periodId": 2,
+                        "timeMin": 62,
+                        "timeMinSec": "61:39",
+                        "lastUpdated": "2020-05-17T00:12:40Z",
+                        "type": "YC",
+                        "playerId": "couplbg5c1wzrb14ycd8f7h0p",
+                        "playerName": "G. Stoneman",
+                        "optaEventId": "2045433527",
+                        "cardReason": "Foul"
+                    },
+                    {
+                        "contestantId": "8cpjplodpphtkbt0hq8sr8mqs",
+                        "periodId": 2,
+                        "timeMin": 62,
+                        "timeMinSec": "61:55",
+                        "lastUpdated": "2020-08-09T07:46:51Z",
+                        "type": "YC",
+                        "playerId": "2wrufv0lw0ura0w6e3pgu221h",
+                        "playerName": "M. Watson",
+                        "optaEventId": "1445647789",
+                        "cardReason": "Foul"
+                    },
+                    {
+                        "contestantId": "8cpjplodpphtkbt0hq8sr8mqs",
+                        "periodId": 2,
+                        "timeMin": 88,
+                        "timeMinSec": "87:42",
+                        "lastUpdated": "2021-02-11T19:17:46Z",
+                        "type": "YC",
+                        "playerId": "5ac09uothinet31s1890qnumt",
+                        "playerName": "K. Walker",
+                        "optaEventId": "1457045518",
+                        "cardReason": "Foul"
+                    },
+                    {
+                        "contestantId": "8cpjplodpphtkbt0hq8sr8mqs",
+                        "periodId": 2,
+                        "timeMin": 92,
+                        "timeMinSec": "91:40",
+                        "lastUpdated": "2022-03-09T12:06:17Z",
+                        "type": "YC",
+                        "playerId": "2ahydamecjom9wgc8o59g3v85",
+                        "playerName": "D. Kelly",
+                        "optaEventId": "1181313464",
+                        "cardReason": "Foul"
+                    }
+                ],
+                "substitute": [
+                    {
+                        "contestantId": "1m6kvk2pmd3gm2odgia3s43fu",
+                        "periodId": 1,
+                        "timeMin": 28,
+                        "timeMinSec": "27:16",
+                        "lastUpdated": "2019-09-11T12:29:22Z",
+                        "playerOnId": "d6cmypxzh0clyxzpc4n30bpbd",
+                        "playerOnName": "S. Saint-Duc",
+                        "playerOffId": "cun5ltbqixvqk8gn4wq9hbxbe",
+                        "playerOffName": "E. N'For",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "8cpjplodpphtkbt0hq8sr8mqs",
+                        "periodId": 1,
+                        "timeMin": 28,
+                        "timeMinSec": "27:40",
+                        "lastUpdated": "2025-02-10T03:27:06Z",
+                        "playerOnId": "blb3vzbk5bvi986xxswlc3s2x",
+                        "playerOnName": "J. Farr",
+                        "playerOffId": "79qyiuj0oektgfulyyhid61ka",
+                        "playerOffName": "A. Diakhate",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "1m6kvk2pmd3gm2odgia3s43fu",
+                        "periodId": 2,
+                        "timeMin": 69,
+                        "timeMinSec": "68:14",
+                        "lastUpdated": "2023-02-02T09:02:11Z",
+                        "playerOnId": "bcd5xeprff304onvw6mpjjaei",
+                        "playerOnName": "A. Bruce",
+                        "playerOffId": "411grh3cytippnnanb767qvsa",
+                        "playerOffName": "Rafa Mentzingen",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "1m6kvk2pmd3gm2odgia3s43fu",
+                        "periodId": 2,
+                        "timeMin": 69,
+                        "timeMinSec": "68:18",
+                        "lastUpdated": "2021-01-11T19:47:27Z",
+                        "playerOnId": "7a9y6fu0qj6xr6xdnzomrv90q",
+                        "playerOnName": "X. Gomez",
+                        "playerOffId": "8tz28o1tg0w4u5byjlt80uhn9",
+                        "playerOffName": "N. Lewis",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "8cpjplodpphtkbt0hq8sr8mqs",
+                        "periodId": 2,
+                        "timeMin": 74,
+                        "timeMinSec": "73:41",
+                        "lastUpdated": "2022-03-09T12:06:17Z",
+                        "playerOnId": "2ahydamecjom9wgc8o59g3v85",
+                        "playerOnName": "D. Kelly",
+                        "playerOffId": "8ip1nbv9fmpcb7zbuvkkx39p1",
+                        "playerOffName": "T. Enevoldsen",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "8cpjplodpphtkbt0hq8sr8mqs",
+                        "periodId": 2,
+                        "timeMin": 86,
+                        "timeMinSec": "85:23",
+                        "lastUpdated": "2022-03-09T16:18:52Z",
+                        "playerOnId": "dl7ha327gcy54bxffnx8vpxhx",
+                        "playerOnName": "Ayoze García",
+                        "playerOffId": "2wrufv0lw0ura0w6e3pgu221h",
+                        "playerOffName": "M. Watson",
+                        "subReason": "Tactical"
+                    }
+                ],
+                "matchDetailsExtra": {
+                    "attendance": "853",
+                    "matchOfficial": [
+                        {
+                            "id": "cwim42pwxthiufn96tpwen42y",
+                            "type": "Main",
+                            "firstName": "Adam",
+                            "lastName": "Behrens",
+                            "shortFirstName": "Adam",
+                            "shortLastName": "Behrens"
+                        },
+                        {
+                            "id": "eqldcrne6bwgjj6adnig4czx1",
+                            "type": "Assistant referee 1",
+                            "firstName": "Andrew",
+                            "lastName": "Bigelow",
+                            "shortFirstName": "Andrew",
+                            "shortLastName": "Bigelow"
+                        },
+                        {
+                            "id": "dg00bumnk8gb7a980yu3pq86h",
+                            "type": "Assistant referee 2",
+                            "firstName": "Jeffrey",
+                            "lastName": "Swartzel",
+                            "shortFirstName": "Jeffrey",
+                            "shortLastName": "Swartzel"
+                        },
+                        {
+                            "id": "azv2a9p2a7z1by6zxnf4ii9gq",
+                            "type": "Fourth official",
+                            "firstName": "Salvador",
+                            "lastName": "Flores",
+                            "shortFirstName": "Salvador",
+                            "shortLastName": "Flores"
+                        }
+                    ]
+                }
+            }
+        }
+    ]
+}

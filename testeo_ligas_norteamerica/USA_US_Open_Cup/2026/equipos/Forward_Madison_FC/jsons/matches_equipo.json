@@ -1,0 +1,433 @@
+{
+    "match": [
+        {
+            "matchInfo": {
+                "id": "13y9rcd41um0pyj91d3wyeolw",
+                "coverageLevel": "13",
+                "date": "2026-03-19Z",
+                "time": "22:30:00Z",
+                "localDate": "2026-03-19",
+                "localTime": "18:30:00",
+                "numberOfPeriods": 2,
+                "periodLength": 45,
+                "overtimeLength": 15,
+                "lastUpdated": "2026-03-23T16:46:41Z",
+                "description": "Flint City Bucks vs Forward Madison",
+                "sport": {
+                    "id": "289u5typ3vp4ifwh5thalohmq",
+                    "name": "Soccer"
+                },
+                "ruleset": {
+                    "id": "79plas4983031idr6vw83nuel",
+                    "name": "Men"
+                },
+                "competition": {
+                    "id": "2bmwykmdlcc2u1c40ytoc39vy",
+                    "name": "US Open Cup",
+                    "knownName": "US Open Cup",
+                    "competitionCode": "UOC",
+                    "competitionFormat": "Domestic cup",
+                    "country": {
+                        "id": "7hr2f89v44y65dyu9k92vprwn",
+                        "name": "USA"
+                    }
+                },
+                "tournamentCalendar": {
+                    "id": "5e1xetw29nk8519zs133hf28k",
+                    "startDate": "2026-03-17Z",
+                    "endDate": "2026-10-21Z",
+                    "name": "2026"
+                },
+                "stage": {
+                    "id": "5et8c7h4rm6n54zsv1wq0jh90",
+                    "formatId": "3ad6z07rilk8flizkw1bhv179",
+                    "startDate": "2026-03-17Z",
+                    "endDate": "2026-03-26Z",
+                    "name": "1st Round"
+                },
+                "contestant": [
+                    {
+                        "id": "d98xhc5e2i2657btdpwmoor0d",
+                        "name": "Flint City Bucks",
+                        "shortName": "Flint City",
+                        "officialName": "Flint City Bucks",
+                        "code": "FCB",
+                        "position": "home",
+                        "country": {
+                            "id": "7hr2f89v44y65dyu9k92vprwn",
+                            "name": "USA"
+                        }
+                    },
+                    {
+                        "id": "bg197i7zlh6jejajyccrcff56",
+                        "name": "Forward Madison",
+                        "shortName": "Forward",
+                        "officialName": "Forward Madison FC",
+                        "code": "MAD",
+                        "position": "away",
+                        "country": {
+                            "id": "7hr2f89v44y65dyu9k92vprwn",
+                            "name": "USA"
+                        }
+                    }
+                ],
+                "venue": {
+                    "id": "3i1klp8l1ex4mhsd7gcnvks2c",
+                    "neutral": "no",
+                    "longName": "Don Batchelor Field",
+                    "shortName": "Don Batchelor Field",
+                    "latitude": "42.922960868",
+                    "longitude": "-83.628012110"
+                }
+            },
+            "liveData": {
+                "matchDetails": {
+                    "periodId": 14,
+                    "matchStatus": "Played",
+                    "winner": "home",
+                    "matchLengthMin": 99,
+                    "matchLengthSec": 20,
+                    "period": [
+                        {
+                            "id": 1,
+                            "start": "2026-03-19T22:43:44Z",
+                            "end": "2026-03-19T23:31:57Z",
+                            "lengthMin": 48,
+                            "lengthSec": 13,
+                            "announcedInjuryTime": 180
+                        },
+                        {
+                            "id": 2,
+                            "start": "2026-03-19T23:48:23Z",
+                            "end": "2026-03-20T00:39:30Z",
+                            "lengthMin": 51,
+                            "lengthSec": 7,
+                            "announcedInjuryTime": 360
+                        }
+                    ],
+                    "scores": {
+                        "ht": {
+                            "home": 1,
+                            "away": 0
+                        },
+                        "ft": {
+                            "home": 2,
+                            "away": 0
+                        },
+                        "total": {
+                            "home": 2,
+                            "away": 0
+                        }
+                    }
+                },
+                "goal": [
+                    {
+                        "contestantId": "bg197i7zlh6jejajyccrcff56",
+                        "periodId": 1,
+                        "timeMin": 13,
+                        "timeMinSec": "12:30",
+                        "lastUpdated": "2026-03-19T22:56:49Z",
+                        "timestamp": "2026-03-19T22:56:15Z",
+                        "type": "OG",
+                        "scorerId": "9ph8wasuz3ndre586gople49g",
+                        "scorerName": "S. Annor Gyamfi",
+                        "optaEventId": "2913792387",
+                        "homeScore": 1,
+                        "awayScore": 0
+                    },
+                    {
+                        "contestantId": "d98xhc5e2i2657btdpwmoor0d",
+                        "periodId": 2,
+                        "timeMin": 67,
+                        "timeMinSec": "66:45",
+                        "lastUpdated": "2026-03-20T00:11:01Z",
+                        "timestamp": "2026-03-20T00:10:09Z",
+                        "type": "G",
+                        "scorerId": "8jfu2tnfhsse5c16sx2w06vpw",
+                        "scorerName": "J. Lopez",
+                        "assistPlayerId": "3qh84bqun29zl8i7h2xm499uc",
+                        "assistPlayerName": "J. Roman",
+                        "optaEventId": "2913822707",
+                        "homeScore": 2,
+                        "awayScore": 0
+                    }
+                ],
+                "card": [
+                    {
+                        "contestantId": "bg197i7zlh6jejajyccrcff56",
+                        "periodId": 1,
+                        "timeMin": 42,
+                        "timeMinSec": "41:57",
+                        "lastUpdated": "2026-03-19T23:25:48Z",
+                        "timestamp": "2026-03-19T23:25:41Z",
+                        "type": "YC",
+                        "playerId": "dwyatw1wz3nrh1fcwu27ie8ve",
+                        "playerName": "A. Edwards",
+                        "optaEventId": "2913803987",
+                        "cardReason": "Dissent"
+                    },
+                    {
+                        "contestantId": "d98xhc5e2i2657btdpwmoor0d",
+                        "periodId": 1,
+                        "timeMin": 48,
+                        "timeMinSec": "47:18",
+                        "lastUpdated": "2026-03-19T23:31:08Z",
+                        "timestamp": "2026-03-19T23:31:03Z",
+                        "type": "YC",
+                        "playerId": "880pxwq5ed2mphiepcef9vi3u",
+                        "playerName": "W. Carnevale",
+                        "optaEventId": "2913806279",
+                        "cardReason": "Foul"
+                    },
+                    {
+                        "contestantId": "d98xhc5e2i2657btdpwmoor0d",
+                        "periodId": 2,
+                        "timeMin": 74,
+                        "timeMinSec": "73:32",
+                        "lastUpdated": "2026-03-20T00:17:02Z",
+                        "timestamp": "2026-03-20T00:16:55Z",
+                        "type": "YC",
+                        "playerId": "1mp51fueitndhajukl5mcooic",
+                        "playerName": "A. Kamara",
+                        "optaEventId": "2913825515",
+                        "cardReason": "Foul"
+                    },
+                    {
+                        "contestantId": "bg197i7zlh6jejajyccrcff56",
+                        "periodId": 2,
+                        "timeMin": 87,
+                        "timeMinSec": "86:50",
+                        "lastUpdated": "2026-03-23T16:46:39Z",
+                        "timestamp": "2026-03-20T00:30:13Z",
+                        "type": "YC",
+                        "playerId": "8t6b8q53ovws370a1b27s85jo",
+                        "playerName": "R. Torres",
+                        "optaEventId": "2916004069",
+                        "cardReason": "Dissent"
+                    },
+                    {
+                        "contestantId": "d98xhc5e2i2657btdpwmoor0d",
+                        "periodId": 2,
+                        "timeMin": 91,
+                        "timeMinSec": "91:00",
+                        "lastUpdated": "2026-03-20T00:35:08Z",
+                        "timestamp": "2026-03-20T00:34:24Z",
+                        "type": "YC",
+                        "playerId": "6y4dhco5w4ontgfdtl1oj06xg",
+                        "playerName": "L. Spadafora",
+                        "optaEventId": "2913831491",
+                        "cardReason": "Foul"
+                    },
+                    {
+                        "contestantId": "bg197i7zlh6jejajyccrcff56",
+                        "periodId": 2,
+                        "timeMin": 92,
+                        "timeMinSec": "91:04",
+                        "lastUpdated": "2026-03-20T00:34:37Z",
+                        "timestamp": "2026-03-20T00:34:28Z",
+                        "type": "YC",
+                        "playerId": "e7vsajjh4e7t51ciycjg0skd0",
+                        "playerName": "T. Humphrey",
+                        "optaEventId": "2913831259",
+                        "cardReason": "Argument"
+                    },
+                    {
+                        "contestantId": "bg197i7zlh6jejajyccrcff56",
+                        "periodId": 2,
+                        "timeMin": 92,
+                        "timeMinSec": "91:35",
+                        "lastUpdated": "2026-03-20T00:36:42Z",
+                        "timestamp": "2026-03-20T00:34:59Z",
+                        "type": "RC",
+                        "playerId": "e7vsajjh4e7t51ciycjg0skd0",
+                        "playerName": "T. Humphrey",
+                        "optaEventId": "2913831825",
+                        "cardReason": "Violent Conduct"
+                    },
+                    {
+                        "contestantId": "bg197i7zlh6jejajyccrcff56",
+                        "periodId": 1,
+                        "timeMin": 31,
+                        "timeMinSec": "30:50",
+                        "lastUpdated": "2026-03-19T23:16:23Z",
+                        "timestamp": "2026-03-19T23:14:35Z",
+                        "type": "YC",
+                        "teamOfficialId": "6qsfj3yiqzk79wl396dnp2zf9",
+                        "officialName": "M. Glaeser",
+                        "optaEventId": "2913799583",
+                        "cardReason": "Dissent"
+                    }
+                ],
+                "substitute": [
+                    {
+                        "contestantId": "d98xhc5e2i2657btdpwmoor0d",
+                        "periodId": 1,
+                        "timeMin": 29,
+                        "timeMinSec": "28:56",
+                        "lastUpdated": "2026-03-19T23:37:20Z",
+                        "timestamp": "2026-03-19T23:12:41Z",
+                        "playerOnId": "4ou0t46aipxm5xepak61isphw",
+                        "playerOnName": "Z. Townsend",
+                        "playerOffId": "7n4wio0qnqmapf0j0nepzmn84",
+                        "playerOffName": "B. Arpachinda",
+                        "subReason": "Injury"
+                    },
+                    {
+                        "contestantId": "d98xhc5e2i2657btdpwmoor0d",
+                        "periodId": 2,
+                        "timeMin": 46,
+                        "timeMinSec": "45:00",
+                        "lastUpdated": "2026-03-19T23:51:12Z",
+                        "timestamp": "2026-03-19T23:48:13Z",
+                        "playerOnId": "8jfu2tnfhsse5c16sx2w06vpw",
+                        "playerOnName": "J. Lopez",
+                        "playerOffId": "2qppysxegulhzadlh4z4t3wus",
+                        "playerOffName": "S. Albritton",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "bg197i7zlh6jejajyccrcff56",
+                        "periodId": 2,
+                        "timeMin": 46,
+                        "timeMinSec": "45:00",
+                        "lastUpdated": "2026-03-19T23:53:27Z",
+                        "timestamp": "2026-03-19T23:48:13Z",
+                        "playerOnId": "ltoddlfbimoyb6xgae4b2ktl",
+                        "playerOnName": "D. Gebhard",
+                        "playerOffId": "cliiemf1ih37qhh1wi1olk9ka",
+                        "playerOffName": "R. Carmichael",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "bg197i7zlh6jejajyccrcff56",
+                        "periodId": 2,
+                        "timeMin": 46,
+                        "timeMinSec": "45:00",
+                        "lastUpdated": "2026-03-19T23:54:03Z",
+                        "timestamp": "2026-03-19T23:48:14Z",
+                        "playerOnId": "8t6b8q53ovws370a1b27s85jo",
+                        "playerOnName": "R. Torres",
+                        "playerOffId": "8a7dk0rtvbzj4w5d1ifx3k3kk",
+                        "playerOffName": "E. Machasen",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "bg197i7zlh6jejajyccrcff56",
+                        "periodId": 2,
+                        "timeMin": 46,
+                        "timeMinSec": "45:00",
+                        "lastUpdated": "2026-03-19T23:58:59Z",
+                        "timestamp": "2026-03-19T23:48:14Z",
+                        "playerOnId": "65tz3ua4d3levd5ifd7zuhox6",
+                        "playerOnName": "C. McCamy",
+                        "playerOffId": "552rvcnk53rs5gh7fiwj6mxp0",
+                        "playerOffName": "K. Toure",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "bg197i7zlh6jejajyccrcff56",
+                        "periodId": 2,
+                        "timeMin": 56,
+                        "timeMinSec": "55:30",
+                        "lastUpdated": "2026-03-20T00:09:55Z",
+                        "timestamp": "2026-03-19T23:58:54Z",
+                        "playerOnId": "3lbqmjup43ygbk7hyrupkvkdl",
+                        "playerOnName": "E. Munjoma",
+                        "playerOffId": "dwyatw1wz3nrh1fcwu27ie8ve",
+                        "playerOffName": "A. Edwards",
+                        "subReason": "Injury"
+                    },
+                    {
+                        "contestantId": "bg197i7zlh6jejajyccrcff56",
+                        "periodId": 2,
+                        "timeMin": 69,
+                        "timeMinSec": "68:01",
+                        "lastUpdated": "2026-03-20T00:16:08Z",
+                        "timestamp": "2026-03-20T00:11:24Z",
+                        "playerOnId": "507d1tf4wug4xmt6r021oypnu",
+                        "playerOnName": "T. Trimnal",
+                        "playerOffId": "2vxqa1gef1vn6d6oxhyqmurro",
+                        "playerOffName": "C. N'goubou",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "d98xhc5e2i2657btdpwmoor0d",
+                        "periodId": 2,
+                        "timeMin": 82,
+                        "timeMinSec": "81:18",
+                        "lastUpdated": "2026-03-20T00:24:48Z",
+                        "timestamp": "2026-03-20T00:24:42Z",
+                        "playerOnId": "6y4dhco5w4ontgfdtl1oj06xg",
+                        "playerOnName": "L. Spadafora",
+                        "playerOffId": "543zce776jqie9e1gblh6uyvo",
+                        "playerOffName": "O. Møller-Jensen",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "d98xhc5e2i2657btdpwmoor0d",
+                        "periodId": 2,
+                        "timeMin": 86,
+                        "timeMinSec": "85:42",
+                        "lastUpdated": "2026-03-20T00:29:12Z",
+                        "timestamp": "2026-03-20T00:29:06Z",
+                        "playerOnId": "bl3giyqdh7h1xm2jsfzrrfyay",
+                        "playerOnName": "M. Mazzei",
+                        "playerOffId": "880pxwq5ed2mphiepcef9vi3u",
+                        "playerOffName": "W. Carnevale",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "d98xhc5e2i2657btdpwmoor0d",
+                        "periodId": 2,
+                        "timeMin": 90,
+                        "timeMinSec": "89:39",
+                        "lastUpdated": "2026-03-20T00:34:31Z",
+                        "timestamp": "2026-03-20T00:33:03Z",
+                        "playerOnId": "d5f018bh5o5gwykxwovwquvpw",
+                        "playerOnName": "R. Bodurov",
+                        "playerOffId": "8jfu2tnfhsse5c16sx2w06vpw",
+                        "playerOffName": "J. Lopez",
+                        "subReason": "Injury"
+                    }
+                ],
+                "matchDetailsExtra": {
+                    "attendance": "3027",
+                    "matchOfficial": [
+                        {
+                            "id": "56sm6c6dc21q9g5jyub9cz7u2",
+                            "type": "Main",
+                            "firstName": "Quinton",
+                            "lastName": "McFarlen",
+                            "shortFirstName": "Quinton",
+                            "shortLastName": "McFarlen"
+                        },
+                        {
+                            "id": "5c0q4q9zsq65w25w7ezkkkn4k",
+                            "type": "Assistant referee 1",
+                            "firstName": "Marcus",
+                            "lastName": "Barnett",
+                            "shortFirstName": "Marcus",
+                            "shortLastName": "Barnett"
+                        },
+                        {
+                            "id": "dykmll6o5887qsmzmytzy699m",
+                            "type": "Assistant referee 2",
+                            "firstName": "Jake",
+                            "lastName": "Brochu",
+                            "shortFirstName": "Jake",
+                            "shortLastName": "Brochu"
+                        },
+                        {
+                            "id": "2fmxve0sudmi0mwrwpf6pl3is",
+                            "type": "Fourth official",
+                            "firstName": "Avi",
+                            "lastName": "Weingarten",
+                            "shortFirstName": "Avi",
+                            "shortLastName": "Weingarten"
+                        }
+                    ]
+                }
+            }
+        }
+    ]
+}

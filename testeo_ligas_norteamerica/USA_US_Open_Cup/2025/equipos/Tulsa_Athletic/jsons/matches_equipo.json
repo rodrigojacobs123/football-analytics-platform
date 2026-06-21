@@ -1,0 +1,351 @@
+{
+    "match": [
+        {
+            "matchInfo": {
+                "id": "ar5yz533k3atiorv4pfzxzoyc",
+                "coverageLevel": "13",
+                "date": "2025-03-19Z",
+                "time": "00:30:00Z",
+                "localDate": "2025-03-18",
+                "localTime": "19:30:00",
+                "numberOfPeriods": 2,
+                "periodLength": 45,
+                "overtimeLength": 15,
+                "lastUpdated": "2025-09-19T05:22:12Z",
+                "description": "Tulsa Athletic vs FC Tulsa",
+                "sport": {
+                    "id": "289u5typ3vp4ifwh5thalohmq",
+                    "name": "Soccer"
+                },
+                "ruleset": {
+                    "id": "79plas4983031idr6vw83nuel",
+                    "name": "Men"
+                },
+                "competition": {
+                    "id": "2bmwykmdlcc2u1c40ytoc39vy",
+                    "name": "US Open Cup",
+                    "knownName": "US Open Cup",
+                    "competitionCode": "UOC",
+                    "competitionFormat": "Domestic cup",
+                    "country": {
+                        "id": "7hr2f89v44y65dyu9k92vprwn",
+                        "name": "USA"
+                    }
+                },
+                "tournamentCalendar": {
+                    "id": "cg9jkml9zkekrf2j9pv5s3w9g",
+                    "startDate": "2025-03-18Z",
+                    "endDate": "2025-10-02Z",
+                    "name": "2025"
+                },
+                "stage": {
+                    "id": "ch349ac5072p4li41yf41v3tg",
+                    "formatId": "3ad6z07rilk8flizkw1bhv179",
+                    "startDate": "2025-03-18Z",
+                    "endDate": "2025-03-22Z",
+                    "name": "1st Round"
+                },
+                "contestant": [
+                    {
+                        "id": "93ogzc82cant58jidpf0gg1mg",
+                        "name": "Tulsa Athletic",
+                        "shortName": "Tulsa Athl.",
+                        "officialName": "Tulsa Athletic",
+                        "code": "TUL",
+                        "position": "home",
+                        "country": {
+                            "id": "7hr2f89v44y65dyu9k92vprwn",
+                            "name": "USA"
+                        }
+                    },
+                    {
+                        "id": "aj8ytsr2ap33tod0hd8ofzaw9",
+                        "name": "FC Tulsa",
+                        "shortName": "Tulsa",
+                        "officialName": "FC Tulsa",
+                        "code": "TUL",
+                        "position": "away",
+                        "country": {
+                            "id": "7hr2f89v44y65dyu9k92vprwn",
+                            "name": "USA"
+                        }
+                    }
+                ],
+                "venue": {
+                    "id": "9drailfz10nsd23msggmox4pg",
+                    "neutral": "no",
+                    "longName": "Athletic Community Field at Hicks Park",
+                    "shortName": "Athletic Community Field at Hicks Park",
+                    "latitude": "36.112424214",
+                    "longitude": "-95.867283948"
+                }
+            },
+            "liveData": {
+                "matchDetails": {
+                    "periodId": 14,
+                    "matchStatus": "Played",
+                    "winner": "away",
+                    "matchLengthMin": 100,
+                    "matchLengthSec": 7,
+                    "period": [
+                        {
+                            "id": 1,
+                            "start": "2025-03-19T00:43:36Z",
+                            "end": "2025-03-19T01:33:53Z",
+                            "lengthMin": 50,
+                            "lengthSec": 17,
+                            "announcedInjuryTime": 180
+                        },
+                        {
+                            "id": 2,
+                            "start": "2025-03-19T01:49:34Z",
+                            "end": "2025-03-19T02:39:24Z",
+                            "lengthMin": 49,
+                            "lengthSec": 50,
+                            "announcedInjuryTime": 240
+                        }
+                    ],
+                    "scores": {
+                        "ht": {
+                            "home": 0,
+                            "away": 0
+                        },
+                        "ft": {
+                            "home": 0,
+                            "away": 1
+                        },
+                        "total": {
+                            "home": 0,
+                            "away": 1
+                        }
+                    }
+                },
+                "goal": [
+                    {
+                        "contestantId": "aj8ytsr2ap33tod0hd8ofzaw9",
+                        "periodId": 2,
+                        "timeMin": 84,
+                        "timeMinSec": "83:29",
+                        "lastUpdated": "2025-03-19T02:28:16Z",
+                        "timestamp": "2025-03-19T02:28:04Z",
+                        "type": "PG",
+                        "scorerId": "1d20nyyvmp0doobj6heejkowk",
+                        "scorerName": "T. Calheira",
+                        "optaEventId": "2790235439",
+                        "homeScore": 0,
+                        "awayScore": 1
+                    }
+                ],
+                "card": [
+                    {
+                        "contestantId": "aj8ytsr2ap33tod0hd8ofzaw9",
+                        "periodId": 1,
+                        "timeMin": 8,
+                        "timeMinSec": "7:40",
+                        "lastUpdated": "2025-03-19T00:51:40Z",
+                        "timestamp": "2025-03-19T00:51:16Z",
+                        "type": "YC",
+                        "playerId": "1e1wh213cg8q6lsqa3kvbjdka",
+                        "playerName": "G. Colli",
+                        "optaEventId": "2790221445",
+                        "cardReason": "Dissent"
+                    },
+                    {
+                        "contestantId": "93ogzc82cant58jidpf0gg1mg",
+                        "periodId": 1,
+                        "timeMin": 48,
+                        "timeMinSec": "47:12",
+                        "lastUpdated": "2025-03-19T01:31:12Z",
+                        "timestamp": "2025-03-19T01:30:48Z",
+                        "type": "YC",
+                        "playerId": "1ria1zyr9eib1xg9qz7zqcdn8",
+                        "playerName": "G. Vargas",
+                        "optaEventId": "2790230963",
+                        "cardReason": "Foul"
+                    },
+                    {
+                        "contestantId": "aj8ytsr2ap33tod0hd8ofzaw9",
+                        "periodId": 1,
+                        "timeMin": 49,
+                        "timeMinSec": "48:22",
+                        "lastUpdated": "2025-03-19T01:32:08Z",
+                        "timestamp": "2025-03-19T01:31:58Z",
+                        "type": "YC",
+                        "playerId": "dgpphcc9ql3pv3b4chhchml90",
+                        "playerName": "O. Damm",
+                        "optaEventId": "2790231125",
+                        "cardReason": "Foul"
+                    },
+                    {
+                        "contestantId": "93ogzc82cant58jidpf0gg1mg",
+                        "periodId": 2,
+                        "timeMin": 66,
+                        "timeMinSec": "65:51",
+                        "lastUpdated": "2025-03-19T02:10:46Z",
+                        "timestamp": "2025-03-19T02:10:26Z",
+                        "type": "Y2C",
+                        "playerId": "1ria1zyr9eib1xg9qz7zqcdn8",
+                        "playerName": "G. Vargas",
+                        "optaEventId": "2790234555",
+                        "cardReason": "Foul"
+                    },
+                    {
+                        "contestantId": "aj8ytsr2ap33tod0hd8ofzaw9",
+                        "periodId": 2,
+                        "timeMin": 76,
+                        "timeMinSec": "75:11",
+                        "lastUpdated": "2025-03-19T02:19:54Z",
+                        "timestamp": "2025-03-19T02:19:46Z",
+                        "type": "YC",
+                        "playerId": "2giowiodzndu5m2gwn79iiui1",
+                        "playerName": "L. Batista",
+                        "optaEventId": "2790235059",
+                        "cardReason": "Foul"
+                    }
+                ],
+                "substitute": [
+                    {
+                        "contestantId": "aj8ytsr2ap33tod0hd8ofzaw9",
+                        "periodId": 2,
+                        "timeMin": 46,
+                        "timeMinSec": "45:00",
+                        "lastUpdated": "2025-03-19T01:49:28Z",
+                        "timestamp": "2025-03-19T01:49:22Z",
+                        "playerOnId": "1o7iht0ow216jvo5qm64akup6",
+                        "playerOnName": "S. Stojanovic",
+                        "playerOffId": "dks0ibq4b4i2w3bcc05v8rhn8",
+                        "playerOffName": "A. Dalou",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "aj8ytsr2ap33tod0hd8ofzaw9",
+                        "periodId": 2,
+                        "timeMin": 66,
+                        "timeMinSec": "65:17",
+                        "lastUpdated": "2025-07-31T23:36:01Z",
+                        "timestamp": "2025-03-19T02:09:51Z",
+                        "playerOnId": "9etod4kwf9f5ye7jzc5ez0e3u",
+                        "playerOnName": "E. Laszo",
+                        "playerOffId": "87pe681vhgbb6plpej3tr74oa",
+                        "playerOffName": "K. ElMedkhar",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "93ogzc82cant58jidpf0gg1mg",
+                        "periodId": 2,
+                        "timeMin": 78,
+                        "timeMinSec": "77:46",
+                        "lastUpdated": "2025-03-19T02:22:29Z",
+                        "timestamp": "2025-03-19T02:22:21Z",
+                        "playerOnId": "22utbm5w0qb6nz6td6k8bcbxm",
+                        "playerOnName": "M. Cashion",
+                        "playerOffId": "bhhdcubw5vyxzf0lc1fcfftka",
+                        "playerOffName": "D. Flores",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "aj8ytsr2ap33tod0hd8ofzaw9",
+                        "periodId": 2,
+                        "timeMin": 87,
+                        "timeMinSec": "86:07",
+                        "lastUpdated": "2025-03-19T02:30:53Z",
+                        "timestamp": "2025-03-19T02:30:41Z",
+                        "playerOnId": "2imizu6je16b3ssheijycxjh1",
+                        "playerOnName": "H. St Clair",
+                        "playerOffId": "dgpphcc9ql3pv3b4chhchml90",
+                        "playerOffName": "O. Damm",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "aj8ytsr2ap33tod0hd8ofzaw9",
+                        "periodId": 2,
+                        "timeMin": 87,
+                        "timeMinSec": "86:07",
+                        "lastUpdated": "2025-03-19T02:37:15Z",
+                        "timestamp": "2025-03-19T02:30:41Z",
+                        "playerOnId": "d99eakp27bro9g50wpzti8rca",
+                        "playerOnName": "A. Cissoko",
+                        "playerOffId": "do5q14naxm61jw8px8qvacn4k",
+                        "playerOffName": "B. Diallo",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "93ogzc82cant58jidpf0gg1mg",
+                        "periodId": 2,
+                        "timeMin": 89,
+                        "timeMinSec": "88:57",
+                        "lastUpdated": "2025-03-19T02:33:40Z",
+                        "timestamp": "2025-03-19T02:33:32Z",
+                        "playerOnId": "3m65zskedpgloc5r37utqh5w4",
+                        "playerOnName": "J. Bonilla",
+                        "playerOffId": "3jr3xx5h1qdv0oxe3dt8khzl6",
+                        "playerOffName": "J. Moreno",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "93ogzc82cant58jidpf0gg1mg",
+                        "periodId": 2,
+                        "timeMin": 89,
+                        "timeMinSec": "88:57",
+                        "lastUpdated": "2025-03-19T02:44:52Z",
+                        "timestamp": "2025-03-19T02:33:32Z",
+                        "playerOnId": "8lqs7154y1zt6737p0ahz0cgk",
+                        "playerOnName": "Ruben Torres",
+                        "playerOffId": "8wkwf7gorncn1bemrzzr15hqs",
+                        "playerOffName": "J. Ruiz",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "aj8ytsr2ap33tod0hd8ofzaw9",
+                        "periodId": 2,
+                        "timeMin": 95,
+                        "timeMinSec": "94:04",
+                        "lastUpdated": "2025-03-19T02:38:45Z",
+                        "timestamp": "2025-03-19T02:38:39Z",
+                        "playerOnId": "8svvdqi69pc6it7mnin50q68k",
+                        "playerOnName": "S. Lukić",
+                        "playerOffId": "1d20nyyvmp0doobj6heejkowk",
+                        "playerOffName": "T. Calheira",
+                        "subReason": "Tactical"
+                    }
+                ],
+                "matchDetailsExtra": {
+                    "matchOfficial": [
+                        {
+                            "id": "eadsin201wof5b51hnu424ob8",
+                            "type": "Main",
+                            "firstName": "Rodrigo",
+                            "lastName": "Albuquerque",
+                            "shortFirstName": "Rodrigo",
+                            "shortLastName": "Albuquerque"
+                        },
+                        {
+                            "id": "c722w7gz6ryabsuwmnfaneck4",
+                            "type": "Assistant referee 1",
+                            "firstName": "Jay",
+                            "lastName": "Norris",
+                            "shortFirstName": "Jay",
+                            "shortLastName": "Norris"
+                        },
+                        {
+                            "id": "8akfq2y83pxw9iskw8899nnys",
+                            "type": "Assistant referee 2",
+                            "firstName": "AJ",
+                            "lastName": "Franklin",
+                            "shortFirstName": "AJ",
+                            "shortLastName": "Franklin"
+                        },
+                        {
+                            "id": "dnrr2hkigyu1zwbk55op3to2c",
+                            "type": "Fourth official",
+                            "firstName": "Eric",
+                            "lastName": "Aplis",
+                            "shortFirstName": "Eric",
+                            "shortLastName": "Aplis"
+                        }
+                    ]
+                }
+            }
+        }
+    ]
+}

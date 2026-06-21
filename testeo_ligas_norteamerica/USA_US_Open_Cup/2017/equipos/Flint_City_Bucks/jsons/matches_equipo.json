@@ -1,0 +1,647 @@
+{
+    "match": [
+        {
+            "matchInfo": {
+                "id": "cq3jyni2hh4516oend4l7638p",
+                "coverageLevel": "13",
+                "date": "2017-05-31Z",
+                "time": "00:00:00Z",
+                "localDate": "2017-05-30",
+                "localTime": "20:00:00",
+                "numberOfPeriods": 2,
+                "periodLength": 45,
+                "overtimeLength": 15,
+                "lastUpdated": "2024-04-16T16:23:54Z",
+                "description": "Flint City Bucks vs Saint Louis",
+                "sport": {
+                    "id": "289u5typ3vp4ifwh5thalohmq",
+                    "name": "Soccer"
+                },
+                "ruleset": {
+                    "id": "79plas4983031idr6vw83nuel",
+                    "name": "Men"
+                },
+                "competition": {
+                    "id": "2bmwykmdlcc2u1c40ytoc39vy",
+                    "name": "US Open Cup",
+                    "knownName": "US Open Cup",
+                    "competitionCode": "UOC",
+                    "competitionFormat": "Domestic cup",
+                    "country": {
+                        "id": "7hr2f89v44y65dyu9k92vprwn",
+                        "name": "USA"
+                    }
+                },
+                "tournamentCalendar": {
+                    "id": "cd8sfgfqq5fv387wemrjmlrl5",
+                    "startDate": "2017-05-10Z",
+                    "endDate": "2017-09-21Z",
+                    "name": "2017"
+                },
+                "stage": {
+                    "id": "umg5nncmktxn3xbtmd8opnvh",
+                    "formatId": "emn81yxry3kpgybjulh9yzq39",
+                    "startDate": "2017-05-31Z",
+                    "endDate": "2017-06-01Z",
+                    "name": "3rd Round"
+                },
+                "contestant": [
+                    {
+                        "id": "d98xhc5e2i2657btdpwmoor0d",
+                        "name": "Flint City Bucks",
+                        "shortName": "Flint City",
+                        "officialName": "Flint City Bucks",
+                        "code": "FCB",
+                        "position": "home",
+                        "country": {
+                            "id": "7hr2f89v44y65dyu9k92vprwn",
+                            "name": "USA"
+                        }
+                    },
+                    {
+                        "id": "5g7exmz2l3wlki5lzrg2wde5l",
+                        "name": "Saint Louis",
+                        "shortName": "St. Louis",
+                        "officialName": "Saint Louis FC",
+                        "code": "STL",
+                        "position": "away",
+                        "country": {
+                            "id": "7hr2f89v44y65dyu9k92vprwn",
+                            "name": "USA"
+                        }
+                    }
+                ],
+                "venue": {
+                    "id": "bqyighe3dxpznn4is3yy2y42v",
+                    "neutral": "no",
+                    "longName": "Ultimate Soccer Arenas Indoor",
+                    "shortName": "Ultimate Soccer Arenas Indoor"
+                }
+            },
+            "liveData": {
+                "matchDetails": {
+                    "periodId": 14,
+                    "matchStatus": "Played",
+                    "winner": "away",
+                    "matchLengthMin": 98,
+                    "matchLengthSec": 10,
+                    "period": [
+                        {
+                            "id": 1,
+                            "start": "2017-05-31T00:09:12Z",
+                            "end": "2017-05-31T00:56:22Z",
+                            "lengthMin": 47,
+                            "lengthSec": 10
+                        },
+                        {
+                            "id": 2,
+                            "start": "2017-05-31T01:22:57Z",
+                            "end": "2017-05-31T02:13:57Z",
+                            "lengthMin": 51,
+                            "lengthSec": 0
+                        }
+                    ],
+                    "scores": {
+                        "ht": {
+                            "home": 0,
+                            "away": 2
+                        },
+                        "ft": {
+                            "home": 1,
+                            "away": 2
+                        },
+                        "total": {
+                            "home": 1,
+                            "away": 2
+                        }
+                    }
+                },
+                "goal": [
+                    {
+                        "contestantId": "5g7exmz2l3wlki5lzrg2wde5l",
+                        "periodId": 1,
+                        "timeMin": 13,
+                        "lastUpdated": "2023-03-08T16:02:32Z",
+                        "type": "G",
+                        "scorerId": "6zmdzhx72ydq7lgvn9fstltcl",
+                        "scorerName": "S. Dalgaard",
+                        "assistPlayerId": "bb6ivndiil039gmljizzubit",
+                        "assistPlayerName": "O. Guzmán",
+                        "optaEventId": "2051280581",
+                        "homeScore": 0,
+                        "awayScore": 1
+                    },
+                    {
+                        "contestantId": "5g7exmz2l3wlki5lzrg2wde5l",
+                        "periodId": 1,
+                        "timeMin": 16,
+                        "lastUpdated": "2023-03-08T16:02:32Z",
+                        "type": "G",
+                        "scorerId": "6zmdzhx72ydq7lgvn9fstltcl",
+                        "scorerName": "S. Dalgaard",
+                        "optaEventId": "1455918917",
+                        "homeScore": 0,
+                        "awayScore": 2
+                    },
+                    {
+                        "contestantId": "d98xhc5e2i2657btdpwmoor0d",
+                        "periodId": 2,
+                        "timeMin": 46,
+                        "lastUpdated": "2020-08-10T12:13:05Z",
+                        "type": "G",
+                        "scorerId": "erm5zuf9861sxyqflg3ugmsbt",
+                        "scorerName": "F. Atuahene",
+                        "assistPlayerId": "7y146dg1rh3yp9562xd7sdoet",
+                        "assistPlayerName": "A. Carvalho-Landell",
+                        "optaEventId": "1537402045",
+                        "homeScore": 1,
+                        "awayScore": 2
+                    }
+                ],
+                "card": [
+                    {
+                        "contestantId": "5g7exmz2l3wlki5lzrg2wde5l",
+                        "periodId": 2,
+                        "timeMin": 71,
+                        "lastUpdated": "2023-03-08T16:02:32Z",
+                        "type": "YC",
+                        "playerId": "6zmdzhx72ydq7lgvn9fstltcl",
+                        "playerName": "S. Dalgaard",
+                        "optaEventId": "1892429924",
+                        "cardReason": "Foul"
+                    },
+                    {
+                        "contestantId": "5g7exmz2l3wlki5lzrg2wde5l",
+                        "periodId": 2,
+                        "timeMin": 77,
+                        "lastUpdated": "2020-10-05T16:01:12Z",
+                        "type": "YC",
+                        "playerId": "bb6ivndiil039gmljizzubit",
+                        "playerName": "O. Guzmán",
+                        "optaEventId": "1897866273",
+                        "cardReason": "Foul"
+                    },
+                    {
+                        "contestantId": "d98xhc5e2i2657btdpwmoor0d",
+                        "periodId": 2,
+                        "timeMin": 96,
+                        "lastUpdated": "2019-09-11T12:24:50Z",
+                        "type": "YC",
+                        "playerId": "8n0zi6qj8bkkezyxft6vxp79",
+                        "playerName": "D. Mukuna",
+                        "optaEventId": "1606425034",
+                        "cardReason": "Foul"
+                    }
+                ],
+                "substitute": [
+                    {
+                        "contestantId": "5g7exmz2l3wlki5lzrg2wde5l",
+                        "periodId": 1,
+                        "timeMin": 44,
+                        "lastUpdated": "2022-04-07T08:45:35Z",
+                        "playerOnId": "2ith944jz6kopy3h1zmvg6iuh",
+                        "playerOnName": "E. Alihodzic",
+                        "playerOffId": "bwyk5icogeuog3w979czqa02d",
+                        "playerOffName": "M. Bjurman",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "5g7exmz2l3wlki5lzrg2wde5l",
+                        "periodId": 2,
+                        "timeMin": 51,
+                        "lastUpdated": "2023-03-09T15:52:07Z",
+                        "playerOnId": "5u1bw6y3l6w8co1ftvvxtly3t",
+                        "playerOnName": "C. Volesky",
+                        "playerOffId": "8auz3q5phubnh3tfs7xdjxfpx",
+                        "playerOffName": "J. Angulo",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "5g7exmz2l3wlki5lzrg2wde5l",
+                        "periodId": 2,
+                        "timeMin": 75,
+                        "lastUpdated": "2021-02-12T23:54:51Z",
+                        "playerOnId": "7r0zys87ehzn97quiuskbgqfp",
+                        "playerOnName": "T. Walls",
+                        "playerOffId": "6zmdzhx72ydq7lgvn9fstltcl",
+                        "playerOffName": "S. Dalgaard",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "d98xhc5e2i2657btdpwmoor0d",
+                        "periodId": 2,
+                        "timeMin": 76,
+                        "lastUpdated": "2024-04-11T15:22:13Z",
+                        "playerOnId": "b6aw65sbptx2dlqsfx64x59m1",
+                        "playerOnName": "A. Ricci",
+                        "playerOffId": "7y146dg1rh3yp9562xd7sdoet",
+                        "playerOffName": "A. Carvalho-Landell",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "d98xhc5e2i2657btdpwmoor0d",
+                        "periodId": 2,
+                        "timeMin": 82,
+                        "lastUpdated": "2022-05-23T18:50:32Z",
+                        "playerOnId": "42f8bgvjnecwgdijcps1lta09",
+                        "playerOnName": "J. Bevan",
+                        "playerOffId": "371fgwtxyfnnu6m4pmq7s55ud",
+                        "playerOffName": "A. Souahy",
+                        "subReason": "Tactical"
+                    }
+                ],
+                "matchDetailsExtra": {
+                    "attendance": "743",
+                    "matchOfficial": [
+                        {
+                            "id": "bc19odl3hxkxpkz90x9fg0ag9",
+                            "type": "Main",
+                            "firstName": "Benjamin",
+                            "lastName": "Hall-Volpenhein",
+                            "shortFirstName": "Benjamin",
+                            "shortLastName": "Hall-Volpenhein"
+                        },
+                        {
+                            "id": "axrfycotuvryaofvoit1kodzp",
+                            "type": "Assistant referee 1",
+                            "firstName": "Jason",
+                            "lastName": "White",
+                            "shortFirstName": "Jason",
+                            "shortLastName": "White"
+                        },
+                        {
+                            "id": "dg00bumnk8gb7a980yu3pq86h",
+                            "type": "Assistant referee 2",
+                            "firstName": "Jeffrey",
+                            "lastName": "Swartzel",
+                            "shortFirstName": "Jeffrey",
+                            "shortLastName": "Swartzel"
+                        },
+                        {
+                            "id": "429y794in5twt48dpus7ouzth",
+                            "type": "Fourth official",
+                            "firstName": "Donovan",
+                            "lastName": "Noocha",
+                            "shortFirstName": "Donovan",
+                            "shortLastName": "Noocha"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "matchInfo": {
+                "id": "3tv3upp48n9zw0d7gqj76f3e1",
+                "coverageLevel": "13",
+                "date": "2017-05-17Z",
+                "time": "23:30:00Z",
+                "localDate": "2017-05-17",
+                "localTime": "19:30:00",
+                "numberOfPeriods": 2,
+                "periodLength": 45,
+                "overtimeLength": 15,
+                "lastUpdated": "2024-05-06T14:44:47Z",
+                "description": "Flint City Bucks vs Indy Eleven",
+                "sport": {
+                    "id": "289u5typ3vp4ifwh5thalohmq",
+                    "name": "Soccer"
+                },
+                "ruleset": {
+                    "id": "79plas4983031idr6vw83nuel",
+                    "name": "Men"
+                },
+                "competition": {
+                    "id": "2bmwykmdlcc2u1c40ytoc39vy",
+                    "name": "US Open Cup",
+                    "knownName": "US Open Cup",
+                    "competitionCode": "UOC",
+                    "competitionFormat": "Domestic cup",
+                    "country": {
+                        "id": "7hr2f89v44y65dyu9k92vprwn",
+                        "name": "USA"
+                    }
+                },
+                "tournamentCalendar": {
+                    "id": "cd8sfgfqq5fv387wemrjmlrl5",
+                    "startDate": "2017-05-10Z",
+                    "endDate": "2017-09-21Z",
+                    "name": "2017"
+                },
+                "stage": {
+                    "id": "c3otmmsoxvmk30rt0q5pcr5jq",
+                    "formatId": "8cdpi9d29bu9gim4bl5m8ijth",
+                    "startDate": "2017-05-17Z",
+                    "endDate": "2017-05-18Z",
+                    "name": "2nd Round"
+                },
+                "contestant": [
+                    {
+                        "id": "d98xhc5e2i2657btdpwmoor0d",
+                        "name": "Flint City Bucks",
+                        "shortName": "Flint City",
+                        "officialName": "Flint City Bucks",
+                        "code": "FCB",
+                        "position": "home",
+                        "country": {
+                            "id": "7hr2f89v44y65dyu9k92vprwn",
+                            "name": "USA"
+                        }
+                    },
+                    {
+                        "id": "8cpjplodpphtkbt0hq8sr8mqs",
+                        "name": "Indy Eleven",
+                        "shortName": "Indy Eleven",
+                        "officialName": "Indy Eleven",
+                        "code": "IND",
+                        "position": "away",
+                        "country": {
+                            "id": "7hr2f89v44y65dyu9k92vprwn",
+                            "name": "USA"
+                        }
+                    }
+                ],
+                "venue": {
+                    "id": "bqyighe3dxpznn4is3yy2y42v",
+                    "neutral": "no",
+                    "longName": "Ultimate Soccer Arenas Indoor",
+                    "shortName": "Ultimate Soccer Arenas Indoor"
+                }
+            },
+            "liveData": {
+                "matchDetails": {
+                    "periodId": 14,
+                    "matchStatus": "Played",
+                    "winner": "home",
+                    "matchLengthMin": 95,
+                    "matchLengthSec": 57,
+                    "period": [
+                        {
+                            "id": 1,
+                            "start": "2017-05-17T23:38:38Z",
+                            "end": "2017-05-18T00:25:03Z",
+                            "lengthMin": 46,
+                            "lengthSec": 25
+                        },
+                        {
+                            "id": 2,
+                            "start": "2017-05-18T00:43:05Z",
+                            "end": "2017-05-18T01:32:37Z",
+                            "lengthMin": 49,
+                            "lengthSec": 32
+                        }
+                    ],
+                    "scores": {
+                        "ht": {
+                            "home": 1,
+                            "away": 0
+                        },
+                        "ft": {
+                            "home": 1,
+                            "away": 0
+                        },
+                        "total": {
+                            "home": 1,
+                            "away": 0
+                        }
+                    }
+                },
+                "goal": [
+                    {
+                        "contestantId": "d98xhc5e2i2657btdpwmoor0d",
+                        "periodId": 1,
+                        "timeMin": 36,
+                        "lastUpdated": "2020-08-10T12:13:05Z",
+                        "type": "G",
+                        "scorerId": "erm5zuf9861sxyqflg3ugmsbt",
+                        "scorerName": "F. Atuahene",
+                        "assistPlayerId": "b1g6vkuv0xoq99jazskliarqh",
+                        "assistPlayerName": "J. Snell",
+                        "optaEventId": "2071751258",
+                        "homeScore": 1,
+                        "awayScore": 0
+                    }
+                ],
+                "card": [
+                    {
+                        "contestantId": "d98xhc5e2i2657btdpwmoor0d",
+                        "periodId": 2,
+                        "timeMin": 49,
+                        "lastUpdated": "2019-09-11T12:29:16Z",
+                        "type": "YC",
+                        "playerId": "dwfear5sdv1c4wnq44vd52hh",
+                        "playerName": "I. Cerda",
+                        "optaEventId": "747599787",
+                        "cardReason": "Foul"
+                    },
+                    {
+                        "contestantId": "8cpjplodpphtkbt0hq8sr8mqs",
+                        "periodId": 2,
+                        "timeMin": 88,
+                        "lastUpdated": "2017-05-18T01:26:23Z",
+                        "type": "YC",
+                        "playerId": "bis858jxcxu0wbcx4k4lww44p",
+                        "playerName": "A. Manning",
+                        "optaEventId": "2123122981",
+                        "cardReason": "Foul"
+                    }
+                ],
+                "substitute": [
+                    {
+                        "contestantId": "8cpjplodpphtkbt0hq8sr8mqs",
+                        "periodId": 2,
+                        "timeMin": 46,
+                        "lastUpdated": "2020-08-08T11:40:27Z",
+                        "playerOnId": "c31uuxvrfj83xl7jupzaewnh1",
+                        "playerOnName": "B. Speas",
+                        "playerOffId": "ei69b13qmv0v3a63a5klqwull",
+                        "playerOffName": "D. Keller",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "d98xhc5e2i2657btdpwmoor0d",
+                        "periodId": 2,
+                        "timeMin": 49,
+                        "lastUpdated": "2019-09-11T12:29:16Z",
+                        "playerOnId": "dwfear5sdv1c4wnq44vd52hh",
+                        "playerOnName": "I. Cerda",
+                        "playerOffId": "b1g6vkuv0xoq99jazskliarqh",
+                        "playerOffName": "J. Snell",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "8cpjplodpphtkbt0hq8sr8mqs",
+                        "periodId": 2,
+                        "timeMin": 66,
+                        "lastUpdated": "2019-09-11T12:30:39Z",
+                        "playerOnId": "8xb6vbl893w17b5laexwqn5cl",
+                        "playerOnName": "M. Franco",
+                        "playerOffId": "5tb9sez4pfnxjvq4a8yw3jx0p",
+                        "playerOffName": "J. Plumhoff",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "d98xhc5e2i2657btdpwmoor0d",
+                        "periodId": 2,
+                        "timeMin": 66,
+                        "lastUpdated": "2023-04-03T00:13:02Z",
+                        "playerOnId": "1nl79aq9il743hgoaijmupmmt",
+                        "playerOnName": "E. Collier",
+                        "playerOffId": "7y146dg1rh3yp9562xd7sdoet",
+                        "playerOffName": "A. Carvalho-Landell",
+                        "subReason": "Tactical"
+                    }
+                ],
+                "matchDetailsExtra": {
+                    "attendance": "1000",
+                    "matchOfficial": [
+                        {
+                            "id": "7npve7wls329aqjk34jr2kzxl",
+                            "type": "Main",
+                            "firstName": "Nick",
+                            "lastName": "Balcer",
+                            "shortFirstName": "Nick",
+                            "shortLastName": "Balcer"
+                        },
+                        {
+                            "id": "cvhwxzgin0ny6vyb13l7vi1ud",
+                            "type": "Assistant referee 1",
+                            "firstName": "Igor",
+                            "lastName": "Reznik",
+                            "shortFirstName": "Igor",
+                            "shortLastName": "Reznik"
+                        },
+                        {
+                            "id": "1n7bkywu038vpcoo5xzwwc4bt",
+                            "type": "Assistant referee 2",
+                            "firstName": "Carter",
+                            "lastName": "Brochu",
+                            "shortFirstName": "Carter",
+                            "shortLastName": "Brochu"
+                        },
+                        {
+                            "id": "3ybxhauvnnv4xq2w8hga4dnmd",
+                            "type": "Fourth official",
+                            "firstName": "Mark",
+                            "lastName": "Lawrence",
+                            "shortFirstName": "Marc",
+                            "shortLastName": "Lawrence"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "matchInfo": {
+                "id": "9v42nr2twyjkuho9wy2ra7p49",
+                "coverageLevel": "5",
+                "date": "2017-05-10Z",
+                "time": "23:30:00Z",
+                "localDate": "2017-05-10",
+                "localTime": "19:30:00",
+                "numberOfPeriods": 2,
+                "periodLength": 45,
+                "overtimeLength": 15,
+                "lastUpdated": "2025-04-03T21:33:14Z",
+                "description": "Flint City Bucks vs Ann Arbor",
+                "sport": {
+                    "id": "289u5typ3vp4ifwh5thalohmq",
+                    "name": "Soccer"
+                },
+                "ruleset": {
+                    "id": "79plas4983031idr6vw83nuel",
+                    "name": "Men"
+                },
+                "competition": {
+                    "id": "2bmwykmdlcc2u1c40ytoc39vy",
+                    "name": "US Open Cup",
+                    "knownName": "US Open Cup",
+                    "competitionCode": "UOC",
+                    "competitionFormat": "Domestic cup",
+                    "country": {
+                        "id": "7hr2f89v44y65dyu9k92vprwn",
+                        "name": "USA"
+                    }
+                },
+                "tournamentCalendar": {
+                    "id": "cd8sfgfqq5fv387wemrjmlrl5",
+                    "startDate": "2017-05-10Z",
+                    "endDate": "2017-09-21Z",
+                    "name": "2017"
+                },
+                "stage": {
+                    "id": "dwf4efh4l95r19bgkpqa8igpg",
+                    "formatId": "3ad6z07rilk8flizkw1bhv179",
+                    "startDate": "2017-05-10Z",
+                    "endDate": "2017-05-12Z",
+                    "name": "1st Round"
+                },
+                "contestant": [
+                    {
+                        "id": "d98xhc5e2i2657btdpwmoor0d",
+                        "name": "Flint City Bucks",
+                        "shortName": "Flint City",
+                        "officialName": "Flint City Bucks",
+                        "code": "FCB",
+                        "position": "home",
+                        "country": {
+                            "id": "7hr2f89v44y65dyu9k92vprwn",
+                            "name": "USA"
+                        }
+                    },
+                    {
+                        "id": "156y6q143x6kprivta2t1xii1",
+                        "name": "Ann Arbor",
+                        "shortName": "Ann Arbor",
+                        "officialName": "AFC Ann Arbor",
+                        "code": "ANN",
+                        "position": "away",
+                        "country": {
+                            "id": "7hr2f89v44y65dyu9k92vprwn",
+                            "name": "USA"
+                        }
+                    }
+                ],
+                "venue": {
+                    "id": "bqyighe3dxpznn4is3yy2y42v",
+                    "neutral": "no",
+                    "longName": "Ultimate Soccer Arenas Indoor",
+                    "shortName": "Ultimate Soccer Arenas Indoor"
+                }
+            },
+            "liveData": {
+                "matchDetails": {
+                    "periodId": 14,
+                    "matchStatus": "Played",
+                    "winner": "home",
+                    "scores": {
+                        "ht": {
+                            "home": 1,
+                            "away": 0
+                        },
+                        "ft": {
+                            "home": 1,
+                            "away": 0
+                        },
+                        "total": {
+                            "home": 1,
+                            "away": 0
+                        }
+                    }
+                },
+                "goal": [
+                    {
+                        "contestantId": "d98xhc5e2i2657btdpwmoor0d",
+                        "periodId": 1,
+                        "timeMin": 12,
+                        "lastUpdated": "2022-03-18T12:25:28Z",
+                        "type": "G",
+                        "scorerId": "6nfir4x9nyfu7anfymrm2mort",
+                        "scorerName": "Daniel Farias",
+                        "homeScore": 1,
+                        "awayScore": 0
+                    }
+                ]
+            }
+        }
+    ]
+}

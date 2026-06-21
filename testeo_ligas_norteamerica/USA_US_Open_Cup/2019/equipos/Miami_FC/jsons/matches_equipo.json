@@ -1,0 +1,348 @@
+{
+    "match": [
+        {
+            "matchInfo": {
+                "id": "eku196pmlrfeem095u8qihox6",
+                "coverageLevel": "13",
+                "date": "2019-05-08Z",
+                "time": "23:00:00Z",
+                "localDate": "2019-05-08",
+                "localTime": "19:00:00",
+                "numberOfPeriods": 2,
+                "periodLength": 45,
+                "overtimeLength": 15,
+                "lastUpdated": "2025-03-16T05:27:55Z",
+                "description": "Miami vs Florida Soldiers",
+                "sport": {
+                    "id": "289u5typ3vp4ifwh5thalohmq",
+                    "name": "Soccer"
+                },
+                "ruleset": {
+                    "id": "79plas4983031idr6vw83nuel",
+                    "name": "Men"
+                },
+                "competition": {
+                    "id": "2bmwykmdlcc2u1c40ytoc39vy",
+                    "name": "US Open Cup",
+                    "knownName": "US Open Cup",
+                    "competitionCode": "UOC",
+                    "competitionFormat": "Domestic cup",
+                    "country": {
+                        "id": "7hr2f89v44y65dyu9k92vprwn",
+                        "name": "USA"
+                    }
+                },
+                "tournamentCalendar": {
+                    "id": "c7tmg7pxkutef9ymogovz4huy",
+                    "startDate": "2019-05-08Z",
+                    "endDate": "2019-08-28Z",
+                    "name": "2019"
+                },
+                "stage": {
+                    "id": "c8hc5gwyib3kl7l7egddfl2ei",
+                    "formatId": "3ad6z07rilk8flizkw1bhv179",
+                    "startDate": "2019-05-08Z",
+                    "endDate": "2019-05-09Z",
+                    "name": "1st Round"
+                },
+                "contestant": [
+                    {
+                        "id": "bu5w8wprynlj9mvphvy8sd94f",
+                        "name": "Miami",
+                        "shortName": "Miami",
+                        "officialName": "Miami FC",
+                        "code": "MIA",
+                        "position": "home",
+                        "country": {
+                            "id": "7hr2f89v44y65dyu9k92vprwn",
+                            "name": "USA"
+                        }
+                    },
+                    {
+                        "id": "3nv2x81jk0242r6w6uenuopre",
+                        "name": "Florida Soldiers",
+                        "shortName": "Florida",
+                        "officialName": "Florida Soldiers",
+                        "code": "FSS",
+                        "position": "away",
+                        "country": {
+                            "id": "7hr2f89v44y65dyu9k92vprwn",
+                            "name": "USA"
+                        }
+                    }
+                ],
+                "venue": {
+                    "id": "7qjck8ofjxnd6gijt8g9dx7u",
+                    "neutral": "no",
+                    "longName": "Barry University",
+                    "shortName": "Barry University"
+                }
+            },
+            "liveData": {
+                "matchDetails": {
+                    "periodId": 14,
+                    "matchStatus": "Played",
+                    "winner": "away",
+                    "matchLengthMin": 99,
+                    "matchLengthSec": 19,
+                    "period": [
+                        {
+                            "id": 1,
+                            "start": "2019-05-08T23:10:39Z",
+                            "end": "2019-05-08T23:57:40Z",
+                            "lengthMin": 47,
+                            "lengthSec": 1
+                        },
+                        {
+                            "id": 2,
+                            "start": "2019-05-09T00:14:42Z",
+                            "end": "2019-05-09T01:07:00Z",
+                            "lengthMin": 52,
+                            "lengthSec": 18
+                        }
+                    ],
+                    "scores": {
+                        "ht": {
+                            "home": 1,
+                            "away": 0
+                        },
+                        "ft": {
+                            "home": 1,
+                            "away": 2
+                        },
+                        "total": {
+                            "home": 1,
+                            "away": 2
+                        }
+                    }
+                },
+                "goal": [
+                    {
+                        "contestantId": "bu5w8wprynlj9mvphvy8sd94f",
+                        "periodId": 1,
+                        "timeMin": 6,
+                        "timeMinSec": "5:33",
+                        "lastUpdated": "2023-03-31T14:49:13Z",
+                        "type": "G",
+                        "scorerId": "ceqe5m48sbuflm7nxhd8ew639",
+                        "scorerName": "A. Martínez",
+                        "assistPlayerId": "6z8ui3requ6px2s4r3oimr2s5",
+                        "assistPlayerName": "D. Mares",
+                        "optaEventId": "1666467852",
+                        "homeScore": 1,
+                        "awayScore": 0
+                    },
+                    {
+                        "contestantId": "3nv2x81jk0242r6w6uenuopre",
+                        "periodId": 2,
+                        "timeMin": 46,
+                        "timeMinSec": "45:55",
+                        "lastUpdated": "2019-05-10T06:43:35Z",
+                        "type": "G",
+                        "scorerId": "1g3wp63x61mdm3r22aoena0yy",
+                        "scorerName": "W. Stamatis",
+                        "optaEventId": "1253392940",
+                        "homeScore": 1,
+                        "awayScore": 1
+                    },
+                    {
+                        "contestantId": "3nv2x81jk0242r6w6uenuopre",
+                        "periodId": 2,
+                        "timeMin": 87,
+                        "timeMinSec": "86:14",
+                        "lastUpdated": "2019-05-09T00:56:54Z",
+                        "type": "G",
+                        "scorerId": "9c6dvldwasy56dxn7b13j0amt",
+                        "scorerName": "C. Meneses",
+                        "optaEventId": "1534020018",
+                        "homeScore": 1,
+                        "awayScore": 2
+                    }
+                ],
+                "missedPen": [
+                    {
+                        "contestantId": "3nv2x81jk0242r6w6uenuopre",
+                        "periodId": 2,
+                        "timeMin": 70,
+                        "lastUpdated": "2019-05-09T00:39:42Z",
+                        "type": "PM",
+                        "playerId": "9c6dvldwasy56dxn7b13j0amt",
+                        "playerName": "C. Meneses",
+                        "optaEventId": "1617064533"
+                    },
+                    {
+                        "contestantId": "bu5w8wprynlj9mvphvy8sd94f",
+                        "periodId": 2,
+                        "timeMin": 70,
+                        "lastUpdated": "2019-09-11T12:30:37Z",
+                        "type": "PS",
+                        "playerId": "bkqlt4f6vj3odgpbpm500gyxh",
+                        "playerName": "M. Pais",
+                        "optaEventId": "1617064533"
+                    }
+                ],
+                "card": [
+                    {
+                        "contestantId": "bu5w8wprynlj9mvphvy8sd94f",
+                        "periodId": 2,
+                        "timeMin": 53,
+                        "timeMinSec": "52:43",
+                        "lastUpdated": "2019-09-11T12:30:39Z",
+                        "type": "YC",
+                        "playerId": "8xb6vbl893w17b5laexwqn5cl",
+                        "playerName": "M. Franco",
+                        "optaEventId": "1139373401",
+                        "cardReason": "Foul"
+                    },
+                    {
+                        "contestantId": "bu5w8wprynlj9mvphvy8sd94f",
+                        "periodId": 2,
+                        "timeMin": 68,
+                        "timeMinSec": "68:00",
+                        "lastUpdated": "2019-09-11T12:30:37Z",
+                        "type": "YC",
+                        "playerId": "bkqlt4f6vj3odgpbpm500gyxh",
+                        "playerName": "M. Pais",
+                        "optaEventId": "1796981135",
+                        "cardReason": "Foul"
+                    },
+                    {
+                        "contestantId": "3nv2x81jk0242r6w6uenuopre",
+                        "periodId": 2,
+                        "timeMin": 73,
+                        "timeMinSec": "72:48",
+                        "lastUpdated": "2019-05-09T00:51:14Z",
+                        "type": "YC",
+                        "playerId": "bdwc2z14wbobmg3kgcjzza7rp",
+                        "playerName": "Antonioni González",
+                        "optaEventId": "1361690307",
+                        "cardReason": "Foul"
+                    },
+                    {
+                        "contestantId": "bu5w8wprynlj9mvphvy8sd94f",
+                        "periodId": 2,
+                        "timeMin": 86,
+                        "timeMinSec": "85:23",
+                        "lastUpdated": "2024-05-06T14:37:26Z",
+                        "type": "YC",
+                        "playerId": "4dw662egycd9yn2e86ae4s7hl",
+                        "playerName": "C. Chapman-Page",
+                        "optaEventId": "1634858415",
+                        "cardReason": "Foul"
+                    }
+                ],
+                "substitute": [
+                    {
+                        "contestantId": "3nv2x81jk0242r6w6uenuopre",
+                        "periodId": 1,
+                        "timeMin": 34,
+                        "timeMinSec": "33:01",
+                        "lastUpdated": "2019-05-10T07:00:26Z",
+                        "playerOnId": "7992l2ffq6h5mnebrwovvko6i",
+                        "playerOnName": "M. Ferro",
+                        "playerOffId": "4w09glnflwcu8gbvrckucdf8q",
+                        "playerOffName": "J. Paredes Rios",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "3nv2x81jk0242r6w6uenuopre",
+                        "periodId": 2,
+                        "timeMin": 65,
+                        "timeMinSec": "64:13",
+                        "lastUpdated": "2019-05-09T00:34:38Z",
+                        "playerOnId": "atb0ilsu8dzxr281332vq2jf9",
+                        "playerOnName": "S. Aldunate",
+                        "playerOffId": "1e5s4vurebs804jywt0iemgdm",
+                        "playerOffName": "M. Coll",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "bu5w8wprynlj9mvphvy8sd94f",
+                        "periodId": 2,
+                        "timeMin": 66,
+                        "timeMinSec": "65:50",
+                        "lastUpdated": "2021-01-11T19:47:28Z",
+                        "playerOnId": "5194uh51hv4wz0j24b8jb8r56",
+                        "playerOnName": "M. Thiaw",
+                        "playerOffId": "c6l26cksqztpgxiu3t5rrl591",
+                        "playerOffName": "D. Suárez",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "bu5w8wprynlj9mvphvy8sd94f",
+                        "periodId": 2,
+                        "timeMin": 66,
+                        "timeMinSec": "65:53",
+                        "lastUpdated": "2019-09-11T12:30:42Z",
+                        "playerOnId": "f13c3qnsbsgfhvhkuqhyydzvt",
+                        "playerOnName": "M. Gonzalez",
+                        "playerOffId": "ceqe5m48sbuflm7nxhd8ew639",
+                        "playerOffName": "A. Martínez",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "bu5w8wprynlj9mvphvy8sd94f",
+                        "periodId": 2,
+                        "timeMin": 80,
+                        "timeMinSec": "79:08",
+                        "lastUpdated": "2019-09-11T12:30:28Z",
+                        "playerOnId": "ax10yyy47hzqbx66g5dnsn5qt",
+                        "playerOnName": "L. Sam",
+                        "playerOffId": "33ltcg2de7e96evqkdqzx9m1h",
+                        "playerOffName": "T. Granitto",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "3nv2x81jk0242r6w6uenuopre",
+                        "periodId": 2,
+                        "timeMin": 83,
+                        "timeMinSec": "82:19",
+                        "lastUpdated": "2019-05-09T00:52:16Z",
+                        "playerOnId": "8tgkm3p61t2b2mtu4p5m0mt3p",
+                        "playerOnName": "J. Guanipa",
+                        "playerOffId": "1g3wp63x61mdm3r22aoena0yy",
+                        "playerOffName": "W. Stamatis",
+                        "subReason": "Tactical"
+                    }
+                ],
+                "matchDetailsExtra": {
+                    "attendance": "817",
+                    "matchOfficial": [
+                        {
+                            "id": "f53skgy1mk1usbnx7b95r4bje",
+                            "type": "Main",
+                            "firstName": "Jamie",
+                            "lastName": "Willis",
+                            "shortFirstName": "Jamie",
+                            "shortLastName": "Willis"
+                        },
+                        {
+                            "id": "779o1gaorhhgvbkf87ngzju5m",
+                            "type": "Assistant referee 1",
+                            "firstName": "Diego",
+                            "lastName": "Lucio",
+                            "shortFirstName": "Diego",
+                            "shortLastName": "Lucio"
+                        },
+                        {
+                            "id": "686m69t25tdd2q8eq6u2w9je2",
+                            "type": "Assistant referee 2",
+                            "firstName": "Fritz",
+                            "lastName": "Barberousse",
+                            "shortFirstName": "Fritz",
+                            "shortLastName": "Barberousse"
+                        },
+                        {
+                            "id": "cobluekqvzuphzomwfgkjo4q1",
+                            "type": "Fourth official",
+                            "firstName": "Juan Pablo",
+                            "lastName": "Casas",
+                            "shortFirstName": "Juan Pablo",
+                            "shortLastName": "Casas"
+                        }
+                    ]
+                }
+            }
+        }
+    ]
+}

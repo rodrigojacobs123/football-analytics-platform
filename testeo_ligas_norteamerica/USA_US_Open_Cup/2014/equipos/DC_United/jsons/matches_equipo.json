@@ -1,0 +1,258 @@
+{
+    "match": [
+        {
+            "matchInfo": {
+                "id": "2rdxy4dsvl17hzj33iai9ore5",
+                "coverageLevel": "8",
+                "date": "2014-06-17Z",
+                "time": "23:05:00Z",
+                "localDate": "2014-06-17",
+                "localTime": "19:05:00",
+                "numberOfPeriods": 2,
+                "periodLength": 45,
+                "overtimeLength": 15,
+                "lastUpdated": "2025-03-06T18:16:23Z",
+                "description": "Rochester New York vs DC United",
+                "sport": {
+                    "id": "289u5typ3vp4ifwh5thalohmq",
+                    "name": "Soccer"
+                },
+                "ruleset": {
+                    "id": "79plas4983031idr6vw83nuel",
+                    "name": "Men"
+                },
+                "competition": {
+                    "id": "2bmwykmdlcc2u1c40ytoc39vy",
+                    "name": "US Open Cup",
+                    "knownName": "US Open Cup",
+                    "competitionCode": "UOC",
+                    "competitionFormat": "Domestic cup",
+                    "country": {
+                        "id": "7hr2f89v44y65dyu9k92vprwn",
+                        "name": "USA"
+                    }
+                },
+                "tournamentCalendar": {
+                    "id": "9dix6hbqctygcjh4rk65f7qda",
+                    "startDate": "2014-05-08Z",
+                    "endDate": "2014-09-17Z",
+                    "name": "2014"
+                },
+                "stage": {
+                    "id": "11xmb4t9daosrr99e439ynbp5",
+                    "formatId": "1nwzmep86chmczxs7a7iu97md",
+                    "startDate": "2014-06-12Z",
+                    "endDate": "2014-06-19Z",
+                    "name": "4th Round"
+                },
+                "contestant": [
+                    {
+                        "id": "4xy3qntamtgfj912145kbnyba",
+                        "name": "Rochester New York",
+                        "shortName": "ROC",
+                        "officialName": "Rochester New York FC",
+                        "code": "ROC",
+                        "position": "home",
+                        "country": {
+                            "id": "7hr2f89v44y65dyu9k92vprwn",
+                            "name": "USA"
+                        }
+                    },
+                    {
+                        "id": "5qw82lpi6fio4fbljihlyyulb",
+                        "name": "DC United",
+                        "shortName": "DC United",
+                        "officialName": "DC United",
+                        "code": "DC",
+                        "position": "away",
+                        "country": {
+                            "id": "7hr2f89v44y65dyu9k92vprwn",
+                            "name": "USA"
+                        }
+                    }
+                ],
+                "venue": {
+                    "id": "5iov2mfzk2h3ws3cb6tnkyi9j",
+                    "neutral": "no",
+                    "longName": "Marina Auto Stadium",
+                    "shortName": "Marina Auto Stadium"
+                }
+            },
+            "liveData": {
+                "matchDetails": {
+                    "periodId": 14,
+                    "matchStatus": "Played",
+                    "winner": "home",
+                    "matchLengthMin": 186,
+                    "matchLengthSec": 14,
+                    "period": [
+                        {
+                            "id": 1,
+                            "start": "2014-06-17T23:06:00Z",
+                            "end": "2014-06-17T23:52:00Z",
+                            "lengthMin": 46,
+                            "lengthSec": 0
+                        },
+                        {
+                            "id": 2,
+                            "suspension": [
+                                {
+                                    "start": "2014-06-18T00:27:46Z",
+                                    "end": "2014-06-18T01:02:22Z"
+                                }
+                            ],
+                            "start": "2014-06-18T00:12:00Z",
+                            "end": "2014-06-18T03:06:50Z",
+                            "lengthMin": 140,
+                            "lengthSec": 14
+                        }
+                    ],
+                    "scores": {
+                        "ht": {
+                            "home": 1,
+                            "away": 0
+                        },
+                        "ft": {
+                            "home": 1,
+                            "away": 0
+                        },
+                        "total": {
+                            "home": 1,
+                            "away": 0
+                        }
+                    }
+                },
+                "goal": [
+                    {
+                        "contestantId": "4xy3qntamtgfj912145kbnyba",
+                        "periodId": 1,
+                        "timeMin": 27,
+                        "lastUpdated": "2020-10-05T16:01:01Z",
+                        "type": "G",
+                        "scorerId": "es4dwuetyzqz197gdmmq8pqz9",
+                        "scorerName": "Colin Rolfe",
+                        "homeScore": 1,
+                        "awayScore": 0
+                    }
+                ],
+                "card": [
+                    {
+                        "contestantId": "5qw82lpi6fio4fbljihlyyulb",
+                        "periodId": 2,
+                        "timeMin": 50,
+                        "lastUpdated": "2024-07-17T19:11:01Z",
+                        "type": "YC",
+                        "playerId": "7ftzvsdtanjzae4acqwp5r0lx",
+                        "playerName": "S. Birnbaum",
+                        "cardReason": "Foul"
+                    },
+                    {
+                        "contestantId": "5qw82lpi6fio4fbljihlyyulb",
+                        "periodId": 2,
+                        "timeMin": 60,
+                        "lastUpdated": "2024-07-17T19:11:01Z",
+                        "type": "Y2C",
+                        "playerId": "7ftzvsdtanjzae4acqwp5r0lx",
+                        "playerName": "S. Birnbaum",
+                        "cardReason": "Foul"
+                    }
+                ],
+                "substitute": [
+                    {
+                        "contestantId": "5qw82lpi6fio4fbljihlyyulb",
+                        "periodId": 2,
+                        "timeMin": 56,
+                        "lastUpdated": "2024-07-25T04:36:03Z",
+                        "playerOnId": "atq1k4cv1xkb50pt444xaaj9",
+                        "playerOnName": "M. Seaton",
+                        "playerOffId": "49pl202vb1r6qu8kh2n9snahh",
+                        "playerOffName": "J. Robinson",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "4xy3qntamtgfj912145kbnyba",
+                        "periodId": 2,
+                        "timeMin": 61,
+                        "lastUpdated": "2022-03-20T17:41:33Z",
+                        "playerOnId": "23fgydmwjf2qq9xu0x2w3bf85",
+                        "playerOnName": "L. Rozeboom",
+                        "playerOffId": "4jfbst2u7wo6zsnx9v375wrmd",
+                        "playerOffName": "M. Garzi",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "5qw82lpi6fio4fbljihlyyulb",
+                        "periodId": 2,
+                        "timeMin": 61,
+                        "lastUpdated": "2015-03-01T15:13:43Z",
+                        "playerOnId": "7auanavbq7kbs26yjhr4z8yqd",
+                        "playerOnName": "B. Boswell",
+                        "playerOffId": "3sf0izh82az9bgch9cdhp69xx",
+                        "playerOffName": "L. Neal",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "4xy3qntamtgfj912145kbnyba",
+                        "periodId": 2,
+                        "timeMin": 70,
+                        "lastUpdated": "2017-03-04T17:51:16Z",
+                        "playerOnId": "4jotqhu5wlwgfxopo356a5711",
+                        "playerOnName": "O. Obasi",
+                        "playerOffId": "4iobp7illz8drpunoyx436uvp",
+                        "playerOffName": "P. Slogic",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "5qw82lpi6fio4fbljihlyyulb",
+                        "periodId": 2,
+                        "timeMin": 76,
+                        "lastUpdated": "2016-03-02T19:42:14Z",
+                        "playerOnId": "28jgq65xjxl5ycjv9sq19a6t",
+                        "playerOnName": "C. Rolfe",
+                        "playerOffId": "a2nh07nmrplv0tcxrhunhy6z9",
+                        "playerOffName": "A. Caskey",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "4xy3qntamtgfj912145kbnyba",
+                        "periodId": 2,
+                        "timeMin": 88,
+                        "lastUpdated": "2020-03-29T22:26:59Z",
+                        "playerOnId": "84b0srjzbt28iqdk80oyh9pzp",
+                        "playerOnName": "J. Banks",
+                        "playerOffId": "9glti6ay2zxkigdtjcxtkj7it",
+                        "playerOffName": "A. Dixon",
+                        "subReason": "Tactical"
+                    }
+                ],
+                "matchDetailsExtra": {
+                    "attendance": "2250",
+                    "matchOfficial": [
+                        {
+                            "id": "9qn3y4kvrlenz04vj5600tvit",
+                            "type": "Main",
+                            "firstName": "Robert",
+                            "lastName": "Sibiga",
+                            "shortFirstName": "Robert",
+                            "shortLastName": "Sibiga"
+                        },
+                        {
+                            "id": "c67x0agf1fa6hb99qzcg1hkut",
+                            "type": "Assistant referee 1",
+                            "firstName": "Chris",
+                            "lastName": "Trottier",
+                            "shortFirstName": "Christopher",
+                            "shortLastName": "Trottier"
+                        },
+                        {
+                            "id": "7g6f2tcqhhcz3yesrqeqodpzp",
+                            "type": "Assistant referee 2",
+                            "firstName": "David",
+                            "lastName": "Mon"
+                        }
+                    ]
+                }
+            }
+        }
+    ]
+}

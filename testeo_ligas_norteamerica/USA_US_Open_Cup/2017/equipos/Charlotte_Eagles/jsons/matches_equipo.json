@@ -1,0 +1,445 @@
+{
+    "match": [
+        {
+            "matchInfo": {
+                "id": "3tsdlhsj4mbsnnch0643fubjd",
+                "coverageLevel": "13",
+                "date": "2017-05-17Z",
+                "time": "23:00:00Z",
+                "localDate": "2017-05-17",
+                "localTime": "19:00:00",
+                "numberOfPeriods": 2,
+                "periodLength": 45,
+                "overtimeLength": 15,
+                "lastUpdated": "2025-02-22T10:57:47Z",
+                "description": "Charlotte Eagles vs Charlotte Independence",
+                "sport": {
+                    "id": "289u5typ3vp4ifwh5thalohmq",
+                    "name": "Soccer"
+                },
+                "ruleset": {
+                    "id": "79plas4983031idr6vw83nuel",
+                    "name": "Men"
+                },
+                "competition": {
+                    "id": "2bmwykmdlcc2u1c40ytoc39vy",
+                    "name": "US Open Cup",
+                    "knownName": "US Open Cup",
+                    "competitionCode": "UOC",
+                    "competitionFormat": "Domestic cup",
+                    "country": {
+                        "id": "7hr2f89v44y65dyu9k92vprwn",
+                        "name": "USA"
+                    }
+                },
+                "tournamentCalendar": {
+                    "id": "cd8sfgfqq5fv387wemrjmlrl5",
+                    "startDate": "2017-05-10Z",
+                    "endDate": "2017-09-21Z",
+                    "name": "2017"
+                },
+                "stage": {
+                    "id": "c3otmmsoxvmk30rt0q5pcr5jq",
+                    "formatId": "8cdpi9d29bu9gim4bl5m8ijth",
+                    "startDate": "2017-05-17Z",
+                    "endDate": "2017-05-18Z",
+                    "name": "2nd Round"
+                },
+                "contestant": [
+                    {
+                        "id": "owr9rzdw3sya03gqji66l63q",
+                        "name": "Charlotte Eagles",
+                        "shortName": "Eagles",
+                        "officialName": "Charlotte Eagles",
+                        "code": "CHE",
+                        "position": "home",
+                        "country": {
+                            "id": "7hr2f89v44y65dyu9k92vprwn",
+                            "name": "USA"
+                        }
+                    },
+                    {
+                        "id": "1jonibkcr7qa3eozzxh0dcxd5",
+                        "name": "Charlotte Independence",
+                        "shortName": "Independence",
+                        "officialName": "Charlotte Independence",
+                        "code": "CLT",
+                        "position": "away",
+                        "country": {
+                            "id": "7hr2f89v44y65dyu9k92vprwn",
+                            "name": "USA"
+                        }
+                    }
+                ],
+                "venue": {
+                    "id": "12jktkxwtuysht4nkg61zgo2d",
+                    "neutral": "no",
+                    "longName": "Charlotte Christian Stadium",
+                    "shortName": "Charlotte Christian Stadium"
+                }
+            },
+            "liveData": {
+                "matchDetails": {
+                    "periodId": 14,
+                    "matchStatus": "Played",
+                    "winner": "away",
+                    "matchLengthMin": 96,
+                    "matchLengthSec": 30,
+                    "period": [
+                        {
+                            "id": 1,
+                            "start": "2017-05-17T23:05:59Z",
+                            "end": "2017-05-17T23:53:23Z",
+                            "lengthMin": 47,
+                            "lengthSec": 24
+                        },
+                        {
+                            "id": 2,
+                            "start": "2017-05-18T00:12:07Z",
+                            "end": "2017-05-18T01:01:13Z",
+                            "lengthMin": 49,
+                            "lengthSec": 6
+                        }
+                    ],
+                    "scores": {
+                        "ht": {
+                            "home": 0,
+                            "away": 1
+                        },
+                        "ft": {
+                            "home": 2,
+                            "away": 3
+                        },
+                        "total": {
+                            "home": 2,
+                            "away": 3
+                        }
+                    }
+                },
+                "goal": [
+                    {
+                        "contestantId": "1jonibkcr7qa3eozzxh0dcxd5",
+                        "periodId": 1,
+                        "timeMin": 10,
+                        "lastUpdated": "2017-05-17T23:15:42Z",
+                        "type": "G",
+                        "scorerId": "e713wiuacxmyjksikowzv46hh",
+                        "scorerName": "C. Townsend",
+                        "assistPlayerId": "1tm1alsanccpl0hcg85u78ded",
+                        "assistPlayerName": "Y. Ekra",
+                        "optaEventId": "1968724466",
+                        "homeScore": 0,
+                        "awayScore": 1
+                    },
+                    {
+                        "contestantId": "owr9rzdw3sya03gqji66l63q",
+                        "periodId": 2,
+                        "timeMin": 61,
+                        "lastUpdated": "2021-02-11T19:29:39Z",
+                        "type": "G",
+                        "scorerId": "67svlcrrgq799793emojr0r8p",
+                        "scorerName": "R. Williams",
+                        "assistPlayerId": "42163v34kyksrpoqoyv5d2msp",
+                        "assistPlayerName": "J. Costa",
+                        "optaEventId": "519050772",
+                        "homeScore": 1,
+                        "awayScore": 1
+                    },
+                    {
+                        "contestantId": "owr9rzdw3sya03gqji66l63q",
+                        "periodId": 2,
+                        "timeMin": 63,
+                        "lastUpdated": "2017-05-18T00:30:36Z",
+                        "type": "G",
+                        "scorerId": "2mhznqi8v5sem2vzrnpy11cyx",
+                        "scorerName": "K. Omondi",
+                        "assistPlayerId": "42q0a5w0alxek7xlds7fgqdw5",
+                        "assistPlayerName": "H. Pyle",
+                        "optaEventId": "2013363694",
+                        "homeScore": 2,
+                        "awayScore": 1
+                    },
+                    {
+                        "contestantId": "1jonibkcr7qa3eozzxh0dcxd5",
+                        "periodId": 2,
+                        "timeMin": 77,
+                        "lastUpdated": "2024-05-06T19:59:03Z",
+                        "type": "PG",
+                        "scorerId": "e6uww9a9ssp0n20ksoolesa8l",
+                        "scorerName": "E. Martínez",
+                        "optaEventId": "1130966501",
+                        "homeScore": 2,
+                        "awayScore": 2
+                    },
+                    {
+                        "contestantId": "1jonibkcr7qa3eozzxh0dcxd5",
+                        "periodId": 2,
+                        "timeMin": 88,
+                        "lastUpdated": "2024-05-06T19:59:03Z",
+                        "type": "G",
+                        "scorerId": "e6uww9a9ssp0n20ksoolesa8l",
+                        "scorerName": "E. Martínez",
+                        "assistPlayerId": "bfye239zrcmh9qcazc71ffzkl",
+                        "assistPlayerName": "A. Martínez",
+                        "optaEventId": "1797588510",
+                        "homeScore": 2,
+                        "awayScore": 3
+                    }
+                ],
+                "card": [
+                    {
+                        "contestantId": "1jonibkcr7qa3eozzxh0dcxd5",
+                        "periodId": 2,
+                        "timeMin": 78,
+                        "lastUpdated": "2024-05-06T19:59:03Z",
+                        "type": "YC",
+                        "playerId": "e6uww9a9ssp0n20ksoolesa8l",
+                        "playerName": "E. Martínez",
+                        "optaEventId": "1660077538",
+                        "cardReason": "Foul"
+                    },
+                    {
+                        "contestantId": "owr9rzdw3sya03gqji66l63q",
+                        "periodId": 2,
+                        "timeMin": 83,
+                        "lastUpdated": "2017-05-18T00:51:46Z",
+                        "type": "YC",
+                        "playerId": "54gxpezgfs4duzbrx1j3k2go9",
+                        "playerName": "D. Siaj",
+                        "optaEventId": "313940926",
+                        "cardReason": "Foul"
+                    },
+                    {
+                        "contestantId": "owr9rzdw3sya03gqji66l63q",
+                        "periodId": 2,
+                        "timeMin": 91,
+                        "lastUpdated": "2017-05-18T00:59:07Z",
+                        "type": "YC",
+                        "playerId": "4fmiqgv73n4vt4d8gy5qp94o9",
+                        "playerName": "D. Oliveira",
+                        "optaEventId": "1541898966",
+                        "cardReason": "Foul"
+                    }
+                ],
+                "substitute": [
+                    {
+                        "contestantId": "owr9rzdw3sya03gqji66l63q",
+                        "periodId": 2,
+                        "timeMin": 60,
+                        "lastUpdated": "2023-05-03T07:10:59Z",
+                        "playerOnId": "44pwzvzu6nd6b6kgpb1ymzhex",
+                        "playerOnName": "L. Moreland",
+                        "playerOffId": "958wc13l27lc366zeyo7opfxl",
+                        "playerOffName": "D. Koloko",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "1jonibkcr7qa3eozzxh0dcxd5",
+                        "periodId": 2,
+                        "timeMin": 64,
+                        "lastUpdated": "2023-05-08T16:02:55Z",
+                        "playerOnId": "bfye239zrcmh9qcazc71ffzkl",
+                        "playerOnName": "A. Martínez",
+                        "playerOffId": "cj59tqtux7qdih4d7fq2zwmhh",
+                        "playerOffName": "D. Spies",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "1jonibkcr7qa3eozzxh0dcxd5",
+                        "periodId": 2,
+                        "timeMin": 72,
+                        "lastUpdated": "2024-05-06T19:59:03Z",
+                        "playerOnId": "e6uww9a9ssp0n20ksoolesa8l",
+                        "playerOnName": "E. Martínez",
+                        "playerOffId": "1zs9knt17zjeb0huwrxyonvu1",
+                        "playerOffName": "Jaime Siaj",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "1jonibkcr7qa3eozzxh0dcxd5",
+                        "periodId": 2,
+                        "timeMin": 89,
+                        "lastUpdated": "2024-08-18T21:47:26Z",
+                        "playerOnId": "7mbwt78vow5s9u7h7tuqjjw7p",
+                        "playerOnName": "J. Herrera",
+                        "playerOffId": "e713wiuacxmyjksikowzv46hh",
+                        "playerOffName": "C. Townsend",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "owr9rzdw3sya03gqji66l63q",
+                        "periodId": 2,
+                        "timeMin": 92,
+                        "lastUpdated": "2017-09-17T09:12:02Z",
+                        "playerOnId": "4d6m7hvmk98l229zbfr9axzop",
+                        "playerOnName": "A. Sibisi",
+                        "playerOffId": "42q0a5w0alxek7xlds7fgqdw5",
+                        "playerOffName": "H. Pyle",
+                        "subReason": "Tactical"
+                    }
+                ],
+                "matchDetailsExtra": {
+                    "attendance": "602",
+                    "matchOfficial": [
+                        {
+                            "id": "21v678au93ha60a6yo0lr3get",
+                            "type": "Main",
+                            "firstName": "Patrick",
+                            "lastName": "Schmidt",
+                            "shortFirstName": "Patrick",
+                            "shortLastName": "Schmidt"
+                        },
+                        {
+                            "id": "52jl46yb7q3c7hwn4nikyyl0p",
+                            "type": "Assistant referee 1",
+                            "firstName": "Jordan",
+                            "lastName": "Davis",
+                            "shortFirstName": "Jordan",
+                            "shortLastName": "Davis"
+                        },
+                        {
+                            "id": "19xw5oxdypnal9j9qju3eskix",
+                            "type": "Assistant referee 2",
+                            "firstName": "Gregory",
+                            "lastName": "Brigman",
+                            "shortFirstName": "Gregory",
+                            "shortLastName": "Brigman"
+                        },
+                        {
+                            "id": "aybivet23yirkqoqj83bk8jit",
+                            "type": "Fourth official",
+                            "firstName": "Larry",
+                            "lastName": "Williams",
+                            "shortFirstName": "Larry",
+                            "shortLastName": "Williams"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "matchInfo": {
+                "id": "9uufj9cdpb8u8d3kuse9e7d9l",
+                "coverageLevel": "5",
+                "date": "2017-05-10Z",
+                "time": "23:00:00Z",
+                "localDate": "2017-05-10",
+                "localTime": "19:00:00",
+                "numberOfPeriods": 2,
+                "periodLength": 45,
+                "overtimeLength": 15,
+                "lastUpdated": "2025-01-08T23:22:24Z",
+                "description": "Charlotte Eagles vs Chattanooga",
+                "sport": {
+                    "id": "289u5typ3vp4ifwh5thalohmq",
+                    "name": "Soccer"
+                },
+                "ruleset": {
+                    "id": "79plas4983031idr6vw83nuel",
+                    "name": "Men"
+                },
+                "competition": {
+                    "id": "2bmwykmdlcc2u1c40ytoc39vy",
+                    "name": "US Open Cup",
+                    "knownName": "US Open Cup",
+                    "competitionCode": "UOC",
+                    "competitionFormat": "Domestic cup",
+                    "country": {
+                        "id": "7hr2f89v44y65dyu9k92vprwn",
+                        "name": "USA"
+                    }
+                },
+                "tournamentCalendar": {
+                    "id": "cd8sfgfqq5fv387wemrjmlrl5",
+                    "startDate": "2017-05-10Z",
+                    "endDate": "2017-09-21Z",
+                    "name": "2017"
+                },
+                "stage": {
+                    "id": "dwf4efh4l95r19bgkpqa8igpg",
+                    "formatId": "3ad6z07rilk8flizkw1bhv179",
+                    "startDate": "2017-05-10Z",
+                    "endDate": "2017-05-12Z",
+                    "name": "1st Round"
+                },
+                "contestant": [
+                    {
+                        "id": "owr9rzdw3sya03gqji66l63q",
+                        "name": "Charlotte Eagles",
+                        "shortName": "Eagles",
+                        "officialName": "Charlotte Eagles",
+                        "code": "CHE",
+                        "position": "home",
+                        "country": {
+                            "id": "7hr2f89v44y65dyu9k92vprwn",
+                            "name": "USA"
+                        }
+                    },
+                    {
+                        "id": "cwnjxlibb02fuh0vwgvac6h45",
+                        "name": "Chattanooga",
+                        "shortName": "Chattanooga",
+                        "officialName": "Chattanooga FC",
+                        "code": "CFC",
+                        "position": "away",
+                        "country": {
+                            "id": "7hr2f89v44y65dyu9k92vprwn",
+                            "name": "USA"
+                        }
+                    }
+                ],
+                "venue": {
+                    "id": "12jktkxwtuysht4nkg61zgo2d",
+                    "neutral": "no",
+                    "longName": "Charlotte Christian Stadium",
+                    "shortName": "Charlotte Christian Stadium"
+                }
+            },
+            "liveData": {
+                "matchDetails": {
+                    "periodId": 14,
+                    "matchStatus": "Played",
+                    "winner": "home",
+                    "scores": {
+                        "ht": {
+                            "home": 0,
+                            "away": 0
+                        },
+                        "ft": {
+                            "home": 2,
+                            "away": 0
+                        },
+                        "total": {
+                            "home": 2,
+                            "away": 0
+                        }
+                    }
+                },
+                "goal": [
+                    {
+                        "contestantId": "owr9rzdw3sya03gqji66l63q",
+                        "periodId": 2,
+                        "timeMin": 72,
+                        "lastUpdated": "2017-07-26T23:37:40Z",
+                        "type": "G",
+                        "scorerId": "2mhznqi8v5sem2vzrnpy11cyx",
+                        "scorerName": "K. Omondi",
+                        "homeScore": 1,
+                        "awayScore": 0
+                    },
+                    {
+                        "contestantId": "owr9rzdw3sya03gqji66l63q",
+                        "periodId": 2,
+                        "timeMin": 89,
+                        "lastUpdated": "2017-07-26T23:37:49Z",
+                        "type": "G",
+                        "scorerId": "42163v34kyksrpoqoyv5d2msp",
+                        "scorerName": "J. Costa",
+                        "homeScore": 2,
+                        "awayScore": 0
+                    }
+                ]
+            }
+        }
+    ]
+}

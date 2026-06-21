@@ -1,0 +1,339 @@
+{
+    "match": [
+        {
+            "matchInfo": {
+                "id": "97l9t276897vpyo3rw7h9jd3o",
+                "coverageLevel": "13",
+                "date": "2024-03-19Z",
+                "time": "22:00:00Z",
+                "localDate": "2024-03-19",
+                "localTime": "18:00:00",
+                "numberOfPeriods": 2,
+                "periodLength": 45,
+                "overtimeLength": 15,
+                "lastUpdated": "2025-11-11T20:38:28Z",
+                "description": "Chattanooga vs Miami United",
+                "sport": {
+                    "id": "289u5typ3vp4ifwh5thalohmq",
+                    "name": "Soccer"
+                },
+                "ruleset": {
+                    "id": "79plas4983031idr6vw83nuel",
+                    "name": "Men"
+                },
+                "competition": {
+                    "id": "2bmwykmdlcc2u1c40ytoc39vy",
+                    "name": "US Open Cup",
+                    "knownName": "US Open Cup",
+                    "competitionCode": "UOC",
+                    "competitionFormat": "Domestic cup",
+                    "country": {
+                        "id": "7hr2f89v44y65dyu9k92vprwn",
+                        "name": "USA"
+                    }
+                },
+                "tournamentCalendar": {
+                    "id": "dh2sb8k8qnboef5ev5p1a01lg",
+                    "startDate": "2024-03-19Z",
+                    "endDate": "2024-09-26Z",
+                    "name": "2024"
+                },
+                "stage": {
+                    "id": "dhvsqfg349rsoveyfwigy2txw",
+                    "formatId": "3ad6z07rilk8flizkw1bhv179",
+                    "startDate": "2024-03-19Z",
+                    "endDate": "2024-03-22Z",
+                    "name": "1st Round"
+                },
+                "contestant": [
+                    {
+                        "id": "cwnjxlibb02fuh0vwgvac6h45",
+                        "name": "Chattanooga",
+                        "shortName": "Chattanooga",
+                        "officialName": "Chattanooga FC",
+                        "code": "CFC",
+                        "position": "home",
+                        "country": {
+                            "id": "7hr2f89v44y65dyu9k92vprwn",
+                            "name": "USA"
+                        }
+                    },
+                    {
+                        "id": "3c717zr92019fw41phkujcoa1",
+                        "name": "Miami United",
+                        "shortName": "Miami United",
+                        "officialName": "Miami United FC",
+                        "code": "MIU",
+                        "position": "away",
+                        "country": {
+                            "id": "7hr2f89v44y65dyu9k92vprwn",
+                            "name": "USA"
+                        }
+                    }
+                ],
+                "venue": {
+                    "id": "1c198u9apt4ctebwlk6lihbeb",
+                    "neutral": "no",
+                    "longName": "Finley Stadium",
+                    "shortName": "Finley Stadium",
+                    "latitude": "35.036327184",
+                    "longitude": "-85.315683203"
+                }
+            },
+            "liveData": {
+                "matchDetails": {
+                    "periodId": 14,
+                    "matchStatus": "Played",
+                    "winner": "away",
+                    "matchLengthMin": 101,
+                    "matchLengthSec": 28,
+                    "period": [
+                        {
+                            "id": 1,
+                            "start": "2024-03-19T22:04:34Z",
+                            "end": "2024-03-19T22:52:41Z",
+                            "lengthMin": 48,
+                            "lengthSec": 7,
+                            "announcedInjuryTime": 120
+                        },
+                        {
+                            "id": 2,
+                            "start": "2024-03-19T23:08:40Z",
+                            "end": "2024-03-20T00:02:01Z",
+                            "lengthMin": 53,
+                            "lengthSec": 21,
+                            "announcedInjuryTime": 420
+                        }
+                    ],
+                    "scores": {
+                        "ht": {
+                            "home": 0,
+                            "away": 1
+                        },
+                        "ft": {
+                            "home": 0,
+                            "away": 1
+                        },
+                        "total": {
+                            "home": 0,
+                            "away": 1
+                        }
+                    }
+                },
+                "goal": [
+                    {
+                        "contestantId": "3c717zr92019fw41phkujcoa1",
+                        "periodId": 1,
+                        "timeMin": 12,
+                        "timeMinSec": "11:40",
+                        "lastUpdated": "2024-04-15T09:49:58Z",
+                        "timestamp": "2024-03-19T22:16:14Z",
+                        "type": "G",
+                        "scorerId": "2nwb0i2s9gg9etdrpxcwbwz4l",
+                        "scorerName": "J. Pajoy",
+                        "optaEventId": "2661969021",
+                        "homeScore": 0,
+                        "awayScore": 1
+                    }
+                ],
+                "card": [
+                    {
+                        "contestantId": "3c717zr92019fw41phkujcoa1",
+                        "periodId": 1,
+                        "timeMin": 47,
+                        "timeMinSec": "46:35",
+                        "lastUpdated": "2024-03-19T22:51:19Z",
+                        "timestamp": "2024-03-19T22:51:10Z",
+                        "type": "YC",
+                        "playerId": "3zc1t8xtm3m49qy07qh1c5jah",
+                        "playerName": "D. Daza",
+                        "optaEventId": "2661975263",
+                        "cardReason": "Persistent Infringement"
+                    },
+                    {
+                        "contestantId": "3c717zr92019fw41phkujcoa1",
+                        "periodId": 2,
+                        "timeMin": 58,
+                        "timeMinSec": "57:31",
+                        "lastUpdated": "2024-03-19T23:21:50Z",
+                        "timestamp": "2024-03-19T23:21:12Z",
+                        "type": "YC",
+                        "playerId": "63p6v5ag5425nb6ojcuc29hey",
+                        "playerName": "R. Insúa",
+                        "optaEventId": "2661981179",
+                        "cardReason": "Not Retreating"
+                    },
+                    {
+                        "contestantId": "3c717zr92019fw41phkujcoa1",
+                        "periodId": 2,
+                        "timeMin": 72,
+                        "timeMinSec": "71:53",
+                        "lastUpdated": "2025-03-14T20:34:32Z",
+                        "timestamp": "2024-03-19T23:35:34Z",
+                        "type": "YC",
+                        "playerId": "1lxdmz6m5h6g68a3187dmtgfe",
+                        "playerName": "A. Callejas",
+                        "optaEventId": "2661984867",
+                        "cardReason": "Dissent"
+                    },
+                    {
+                        "contestantId": "cwnjxlibb02fuh0vwgvac6h45",
+                        "periodId": 2,
+                        "timeMin": 89,
+                        "timeMinSec": "88:30",
+                        "lastUpdated": "2025-03-05T10:29:23Z",
+                        "timestamp": "2024-03-19T23:52:11Z",
+                        "type": "YC",
+                        "playerId": "cpbyoj822ivx6qrqbkun1zr3d",
+                        "playerName": "A. Prepeliţă",
+                        "optaEventId": "2661989507",
+                        "cardReason": "Foul"
+                    }
+                ],
+                "substitute": [
+                    {
+                        "contestantId": "cwnjxlibb02fuh0vwgvac6h45",
+                        "periodId": 2,
+                        "timeMin": 63,
+                        "timeMinSec": "62:25",
+                        "lastUpdated": "2024-12-06T19:26:21Z",
+                        "timestamp": "2024-03-19T23:26:06Z",
+                        "playerOnId": "a3eln6gas8765a3pn6ecqjvxm",
+                        "playerOnName": "M. Ouamri",
+                        "playerOffId": "9gk1m714ni2m8n26uybsgadey",
+                        "playerOffName": "E. Koren",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "3c717zr92019fw41phkujcoa1",
+                        "periodId": 2,
+                        "timeMin": 64,
+                        "timeMinSec": "63:07",
+                        "lastUpdated": "2025-03-14T18:59:37Z",
+                        "timestamp": "2024-03-19T23:26:48Z",
+                        "playerOnId": "c9h3nkvn337r5egh8xbokjo45",
+                        "playerOnName": "A. Mazzeta",
+                        "playerOffId": "8c7faqe7vxn1k53e65ustahw4",
+                        "playerOffName": "A. Melo Fernandez",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "cwnjxlibb02fuh0vwgvac6h45",
+                        "periodId": 2,
+                        "timeMin": 69,
+                        "timeMinSec": "68:51",
+                        "lastUpdated": "2024-12-06T19:17:39Z",
+                        "timestamp": "2024-03-19T23:32:32Z",
+                        "playerOnId": "5m8hxfvza21t4wfe6v0a18etw",
+                        "playerOnName": "L. García",
+                        "playerOffId": "6zbb5xiauoixj3clxdgud8lxw",
+                        "playerOffName": "C. Watson",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "3c717zr92019fw41phkujcoa1",
+                        "periodId": 2,
+                        "timeMin": 70,
+                        "timeMinSec": "69:10",
+                        "lastUpdated": "2024-04-15T11:05:45Z",
+                        "timestamp": "2024-03-19T23:32:51Z",
+                        "playerOnId": "6nj7226lmjqoo32wgapjmhudw",
+                        "playerOnName": "J. Hurtado Bello",
+                        "playerOffId": "3zc1t8xtm3m49qy07qh1c5jah",
+                        "playerOffName": "D. Daza",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "3c717zr92019fw41phkujcoa1",
+                        "periodId": 2,
+                        "timeMin": 80,
+                        "timeMinSec": "79:21",
+                        "lastUpdated": "2024-03-19T23:43:11Z",
+                        "timestamp": "2024-03-19T23:43:02Z",
+                        "playerOnId": "acxssj9v69pk19wx74gcwqcmi",
+                        "playerOnName": "M. Barraza",
+                        "playerOffId": "63p6v5ag5425nb6ojcuc29hey",
+                        "playerOffName": "R. Insúa",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "3c717zr92019fw41phkujcoa1",
+                        "periodId": 2,
+                        "timeMin": 80,
+                        "timeMinSec": "79:26",
+                        "lastUpdated": "2025-03-14T19:19:06Z",
+                        "timestamp": "2024-03-19T23:43:07Z",
+                        "playerOnId": "cr30kkfz4mchw2v18l3wuxo2c",
+                        "playerOnName": "M. Benito",
+                        "playerOffId": "2nwb0i2s9gg9etdrpxcwbwz4l",
+                        "playerOffName": "J. Pajoy",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "cwnjxlibb02fuh0vwgvac6h45",
+                        "periodId": 2,
+                        "timeMin": 80,
+                        "timeMinSec": "79:44",
+                        "lastUpdated": "2024-04-17T11:28:00Z",
+                        "timestamp": "2024-03-19T23:43:25Z",
+                        "playerOnId": "82uh6ad46fvub9b0vfapw2vze",
+                        "playerOnName": "J. James",
+                        "playerOffId": "jb43adjmhnwysrrwwmvuojfu",
+                        "playerOffName": "R. Screen",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "cwnjxlibb02fuh0vwgvac6h45",
+                        "periodId": 2,
+                        "timeMin": 80,
+                        "timeMinSec": "80:00",
+                        "lastUpdated": "2025-03-05T19:37:45Z",
+                        "timestamp": "2024-03-19T23:43:41Z",
+                        "playerOnId": "adfocor2tbcmxo03ednm8vywa",
+                        "playerOnName": "J. Ibarra",
+                        "playerOffId": "1h5rgsol19v1pcl5ksstrv9t6",
+                        "playerOffName": "M. Garvanian",
+                        "subReason": "Tactical"
+                    }
+                ],
+                "matchDetailsExtra": {
+                    "attendance": "2312",
+                    "matchOfficial": [
+                        {
+                            "id": "7b1nr3e5ajzcc1efsi30my2ac",
+                            "type": "Main",
+                            "firstName": "Promise",
+                            "lastName": "Adebayo-Ige",
+                            "shortFirstName": "Promise",
+                            "shortLastName": "Adebayo-Ige"
+                        },
+                        {
+                            "id": "dp1908cvz5g6vo69itflwcnis",
+                            "type": "Assistant referee 1",
+                            "firstName": "Tarver",
+                            "lastName": "Pyke",
+                            "shortFirstName": "Tarver",
+                            "shortLastName": "Pyke"
+                        },
+                        {
+                            "id": "7b2rf1ar0gq6whm5pkp4ex7je",
+                            "type": "Assistant referee 2",
+                            "firstName": "Kris",
+                            "lastName": "Fabick",
+                            "shortFirstName": "Kris",
+                            "shortLastName": "Fabick"
+                        },
+                        {
+                            "id": "5ad1p724njogfbg4xutvxywic",
+                            "type": "Fourth official",
+                            "firstName": "Adam",
+                            "lastName": "Rogers",
+                            "shortFirstName": "Adam",
+                            "shortLastName": "Rogers"
+                        }
+                    ]
+                }
+            }
+        }
+    ]
+}

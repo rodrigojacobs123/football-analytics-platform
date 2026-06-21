@@ -1,0 +1,551 @@
+{
+    "match": [
+        {
+            "matchInfo": {
+                "id": "488akyaeqiamcurc849dfbr3d",
+                "coverageLevel": "8",
+                "date": "2016-06-02Z",
+                "time": "01:00:00Z",
+                "localDate": "2016-06-01",
+                "localTime": "20:00:00",
+                "numberOfPeriods": 2,
+                "periodLength": 45,
+                "overtimeLength": 15,
+                "lastUpdated": "2025-03-14T17:33:34Z",
+                "description": "Des Moines Menace vs San Antonio",
+                "sport": {
+                    "id": "289u5typ3vp4ifwh5thalohmq",
+                    "name": "Soccer"
+                },
+                "ruleset": {
+                    "id": "79plas4983031idr6vw83nuel",
+                    "name": "Men"
+                },
+                "competition": {
+                    "id": "2bmwykmdlcc2u1c40ytoc39vy",
+                    "name": "US Open Cup",
+                    "knownName": "US Open Cup",
+                    "competitionCode": "UOC",
+                    "competitionFormat": "Domestic cup",
+                    "country": {
+                        "id": "7hr2f89v44y65dyu9k92vprwn",
+                        "name": "USA"
+                    }
+                },
+                "tournamentCalendar": {
+                    "id": "jd3ycveqnkjvntl7b8wndb6x",
+                    "startDate": "2016-05-11Z",
+                    "endDate": "2016-09-14Z",
+                    "name": "2016"
+                },
+                "stage": {
+                    "id": "9140icljpobjkx61oap478o9e",
+                    "formatId": "emn81yxry3kpgybjulh9yzq39",
+                    "startDate": "2016-06-01Z",
+                    "endDate": "2016-06-02Z",
+                    "name": "3rd Round"
+                },
+                "contestant": [
+                    {
+                        "id": "77k3yfob2ydz0q9fo19jomp1q",
+                        "name": "Des Moines Menace",
+                        "shortName": "Des Moines",
+                        "officialName": "Des Moines Menace",
+                        "code": "DMM",
+                        "position": "home",
+                        "country": {
+                            "id": "7hr2f89v44y65dyu9k92vprwn",
+                            "name": "USA"
+                        }
+                    },
+                    {
+                        "id": "87c66ubwpzykovmkaf1t46bis",
+                        "name": "San Antonio",
+                        "shortName": "San Antonio",
+                        "officialName": "San Antonio FC",
+                        "code": "SA",
+                        "position": "away",
+                        "country": {
+                            "id": "7hr2f89v44y65dyu9k92vprwn",
+                            "name": "USA"
+                        }
+                    }
+                ],
+                "venue": {
+                    "id": "2ehrm9jv27e8nfoj6w8vv0n4b",
+                    "neutral": "no",
+                    "longName": "Valley Stadium",
+                    "shortName": "Valley Stadium"
+                }
+            },
+            "liveData": {
+                "matchDetails": {
+                    "periodId": 14,
+                    "matchStatus": "Played",
+                    "winner": "away",
+                    "scores": {
+                        "ht": {
+                            "home": 0,
+                            "away": 0
+                        },
+                        "ft": {
+                            "home": 1,
+                            "away": 2
+                        },
+                        "total": {
+                            "home": 1,
+                            "away": 2
+                        }
+                    }
+                },
+                "goal": [
+                    {
+                        "contestantId": "77k3yfob2ydz0q9fo19jomp1q",
+                        "periodId": 2,
+                        "timeMin": 58,
+                        "lastUpdated": "2016-06-02T02:24:43Z",
+                        "type": "G",
+                        "scorerId": "enu70zkrln7mu3qu0aoxxks89",
+                        "scorerName": "C. Flath",
+                        "homeScore": 1,
+                        "awayScore": 0
+                    },
+                    {
+                        "contestantId": "87c66ubwpzykovmkaf1t46bis",
+                        "periodId": 2,
+                        "timeMin": 72,
+                        "lastUpdated": "2016-06-15T08:52:23Z",
+                        "type": "G",
+                        "scorerId": "atil8rmb2eh0ueld58kvtprl5",
+                        "scorerName": "S. McBride",
+                        "homeScore": 1,
+                        "awayScore": 1
+                    },
+                    {
+                        "contestantId": "87c66ubwpzykovmkaf1t46bis",
+                        "periodId": 2,
+                        "timeMin": 81,
+                        "lastUpdated": "2021-01-10T18:31:41Z",
+                        "type": "G",
+                        "scorerId": "8g5mwr1evdkinyk7mwbpkogdl",
+                        "scorerName": "J. Francois",
+                        "homeScore": 1,
+                        "awayScore": 2
+                    }
+                ],
+                "card": [
+                    {
+                        "contestantId": "87c66ubwpzykovmkaf1t46bis",
+                        "periodId": 2,
+                        "timeMin": 57,
+                        "lastUpdated": "2018-04-17T17:52:45Z",
+                        "type": "YC",
+                        "playerId": "5w2crade404p7fipy43yul5g5",
+                        "playerName": "C. Alvarez",
+                        "cardReason": "Foul"
+                    },
+                    {
+                        "contestantId": "77k3yfob2ydz0q9fo19jomp1q",
+                        "periodId": 2,
+                        "timeMin": 71,
+                        "lastUpdated": "2020-03-05T17:23:18Z",
+                        "type": "YC",
+                        "playerId": "c595ibg51cg31gpoct1hx1149",
+                        "playerName": "A. Ledbetter",
+                        "cardReason": "Foul"
+                    },
+                    {
+                        "contestantId": "87c66ubwpzykovmkaf1t46bis",
+                        "periodId": 2,
+                        "timeMin": 88,
+                        "lastUpdated": "2016-06-07T09:17:11Z",
+                        "type": "YC",
+                        "playerId": "f149n1tslt3wqg9r6gk2y8edx",
+                        "playerName": "D. Garcia",
+                        "cardReason": "Foul"
+                    },
+                    {
+                        "contestantId": "77k3yfob2ydz0q9fo19jomp1q",
+                        "periodId": 2,
+                        "timeMin": 90,
+                        "lastUpdated": "2020-03-07T13:50:27Z",
+                        "type": "RC",
+                        "playerId": "a3zyl5d1ocssew4uzhw90hsyx",
+                        "playerName": "E. Ibisevic",
+                        "cardReason": "Foul"
+                    },
+                    {
+                        "contestantId": "87c66ubwpzykovmkaf1t46bis",
+                        "periodId": 2,
+                        "timeMin": 90,
+                        "lastUpdated": "2021-01-10T18:31:41Z",
+                        "type": "YC",
+                        "playerId": "8g5mwr1evdkinyk7mwbpkogdl",
+                        "playerName": "J. Francois",
+                        "cardReason": "Foul"
+                    }
+                ],
+                "substitute": [
+                    {
+                        "contestantId": "87c66ubwpzykovmkaf1t46bis",
+                        "periodId": 2,
+                        "timeMin": 65,
+                        "lastUpdated": "2016-06-02T15:31:42Z",
+                        "playerOnId": "f149n1tslt3wqg9r6gk2y8edx",
+                        "playerOnName": "D. Garcia",
+                        "playerOffId": "5n6o15aaim7xji8hhgcgl56fp",
+                        "playerOffName": "Kaka",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "87c66ubwpzykovmkaf1t46bis",
+                        "periodId": 2,
+                        "timeMin": 65,
+                        "lastUpdated": "2019-09-11T12:30:31Z",
+                        "playerOnId": "96rwby52revtrjo0wfnmysez9",
+                        "playerOnName": "S. Chin",
+                        "playerOffId": "c3sqpjyct9tlb3p8wna17db6d",
+                        "playerOffName": "J. Johnson",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "77k3yfob2ydz0q9fo19jomp1q",
+                        "periodId": 2,
+                        "timeMin": 67,
+                        "lastUpdated": "2020-03-07T13:50:27Z",
+                        "playerOnId": "a3zyl5d1ocssew4uzhw90hsyx",
+                        "playerOnName": "E. Ibisevic",
+                        "playerOffId": "5mlb8gmahsuqedawyil2tmz8p",
+                        "playerOffName": "R. Howell",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "77k3yfob2ydz0q9fo19jomp1q",
+                        "periodId": 2,
+                        "timeMin": 76,
+                        "lastUpdated": "2020-05-13T08:12:27Z",
+                        "playerOnId": "bmmeqqxkl3uull5wb8pcg98t1",
+                        "playerOnName": "S. Hoek",
+                        "playerOffId": "enu70zkrln7mu3qu0aoxxks89",
+                        "playerOffName": "C. Flath",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "77k3yfob2ydz0q9fo19jomp1q",
+                        "periodId": 2,
+                        "timeMin": 82,
+                        "lastUpdated": "2019-09-11T12:32:34Z",
+                        "playerOnId": "c641p4si1i7tw9oxwnhu1wcmh",
+                        "playerOnName": "C. Okeke",
+                        "playerOffId": "1ps6i34rrv4sxwor3cblv2vvt",
+                        "playerOffName": "J. Griffin",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "87c66ubwpzykovmkaf1t46bis",
+                        "periodId": 2,
+                        "timeMin": 91,
+                        "lastUpdated": "2017-11-10T07:15:31Z",
+                        "playerOnId": "e6uyjjtysn5kmskkqckum0tsl",
+                        "playerOnName": "B. Bradnock-Brennan",
+                        "playerOffId": "5w2crade404p7fipy43yul5g5",
+                        "playerOffName": "C. Alvarez",
+                        "subReason": "Tactical"
+                    }
+                ],
+                "matchDetailsExtra": {
+                    "attendance": "1754",
+                    "matchOfficial": [
+                        {
+                            "id": "88fn51ej6je3mjdpza7ea2dw5",
+                            "type": "Main",
+                            "firstName": "Kyle",
+                            "lastName": "Burkhardt",
+                            "shortFirstName": "Kyle",
+                            "shortLastName": "Burkhardt"
+                        },
+                        {
+                            "id": "by1ffd1ang9f4a7x2rxdd98lx",
+                            "type": "Assistant referee 1",
+                            "firstName": "Justin",
+                            "lastName": "Mack",
+                            "shortFirstName": "Justin",
+                            "shortLastName": "Mack"
+                        },
+                        {
+                            "id": "8rwdrz98mnmte43550u6vkmad",
+                            "type": "Assistant referee 2",
+                            "firstName": "Thomas",
+                            "lastName": "McCulloh"
+                        },
+                        {
+                            "id": "arzj48rtgibh3xd0j3vqlh1wp",
+                            "type": "Fourth official",
+                            "firstName": "Trent",
+                            "lastName": "Payne"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "matchInfo": {
+                "id": "beipj82f3h4tpkvn0tsh9o2qx",
+                "coverageLevel": "5",
+                "date": "2016-05-19Z",
+                "time": "00:30:00Z",
+                "localDate": "2016-05-18",
+                "localTime": "19:30:00",
+                "numberOfPeriods": 2,
+                "periodLength": 45,
+                "overtimeLength": 15,
+                "lastUpdated": "2025-03-14T17:33:34Z",
+                "description": "Des Moines Menace vs FC Tulsa",
+                "sport": {
+                    "id": "289u5typ3vp4ifwh5thalohmq",
+                    "name": "Soccer"
+                },
+                "ruleset": {
+                    "id": "79plas4983031idr6vw83nuel",
+                    "name": "Men"
+                },
+                "competition": {
+                    "id": "2bmwykmdlcc2u1c40ytoc39vy",
+                    "name": "US Open Cup",
+                    "knownName": "US Open Cup",
+                    "competitionCode": "UOC",
+                    "competitionFormat": "Domestic cup",
+                    "country": {
+                        "id": "7hr2f89v44y65dyu9k92vprwn",
+                        "name": "USA"
+                    }
+                },
+                "tournamentCalendar": {
+                    "id": "jd3ycveqnkjvntl7b8wndb6x",
+                    "startDate": "2016-05-11Z",
+                    "endDate": "2016-09-14Z",
+                    "name": "2016"
+                },
+                "stage": {
+                    "id": "dsdnnige4ewix5rkr2ox65x8f",
+                    "formatId": "8cdpi9d29bu9gim4bl5m8ijth",
+                    "startDate": "2016-05-19Z",
+                    "endDate": "2016-05-20Z",
+                    "name": "2nd Round"
+                },
+                "contestant": [
+                    {
+                        "id": "77k3yfob2ydz0q9fo19jomp1q",
+                        "name": "Des Moines Menace",
+                        "shortName": "Des Moines",
+                        "officialName": "Des Moines Menace",
+                        "code": "DMM",
+                        "position": "home",
+                        "country": {
+                            "id": "7hr2f89v44y65dyu9k92vprwn",
+                            "name": "USA"
+                        }
+                    },
+                    {
+                        "id": "aj8ytsr2ap33tod0hd8ofzaw9",
+                        "name": "FC Tulsa",
+                        "shortName": "Tulsa",
+                        "officialName": "FC Tulsa",
+                        "code": "TUL",
+                        "position": "away",
+                        "country": {
+                            "id": "7hr2f89v44y65dyu9k92vprwn",
+                            "name": "USA"
+                        }
+                    }
+                ],
+                "venue": {
+                    "id": "2ehrm9jv27e8nfoj6w8vv0n4b",
+                    "neutral": "no",
+                    "longName": "Valley Stadium",
+                    "shortName": "Valley Stadium"
+                }
+            },
+            "liveData": {
+                "matchDetails": {
+                    "periodId": 14,
+                    "matchStatus": "Played",
+                    "winner": "home",
+                    "scores": {
+                        "ht": {
+                            "home": 0,
+                            "away": 0
+                        },
+                        "ft": {
+                            "home": 2,
+                            "away": 0
+                        },
+                        "total": {
+                            "home": 2,
+                            "away": 0
+                        }
+                    }
+                },
+                "goal": [
+                    {
+                        "contestantId": "77k3yfob2ydz0q9fo19jomp1q",
+                        "periodId": 2,
+                        "timeMin": 59,
+                        "lastUpdated": "2020-05-13T08:12:27Z",
+                        "type": "G",
+                        "scorerId": "bmmeqqxkl3uull5wb8pcg98t1",
+                        "scorerName": "S. Hoek",
+                        "homeScore": 1,
+                        "awayScore": 0
+                    },
+                    {
+                        "contestantId": "77k3yfob2ydz0q9fo19jomp1q",
+                        "periodId": 2,
+                        "timeMin": 81,
+                        "lastUpdated": "2020-03-07T13:50:27Z",
+                        "type": "G",
+                        "scorerId": "a3zyl5d1ocssew4uzhw90hsyx",
+                        "scorerName": "E. Ibisevic",
+                        "homeScore": 2,
+                        "awayScore": 0
+                    }
+                ]
+            }
+        },
+        {
+            "matchInfo": {
+                "id": "5ga3dehoi1chqor1cp2pd2zft",
+                "coverageLevel": "5",
+                "date": "2016-05-12Z",
+                "time": "00:05:00Z",
+                "localDate": "2016-05-11",
+                "localTime": "19:05:00",
+                "numberOfPeriods": 2,
+                "periodLength": 45,
+                "overtimeLength": 15,
+                "lastUpdated": "2025-03-14T17:33:34Z",
+                "description": "Wichita vs Des Moines Menace",
+                "sport": {
+                    "id": "289u5typ3vp4ifwh5thalohmq",
+                    "name": "Soccer"
+                },
+                "ruleset": {
+                    "id": "79plas4983031idr6vw83nuel",
+                    "name": "Men"
+                },
+                "competition": {
+                    "id": "2bmwykmdlcc2u1c40ytoc39vy",
+                    "name": "US Open Cup",
+                    "knownName": "US Open Cup",
+                    "competitionCode": "UOC",
+                    "competitionFormat": "Domestic cup",
+                    "country": {
+                        "id": "7hr2f89v44y65dyu9k92vprwn",
+                        "name": "USA"
+                    }
+                },
+                "tournamentCalendar": {
+                    "id": "jd3ycveqnkjvntl7b8wndb6x",
+                    "startDate": "2016-05-11Z",
+                    "endDate": "2016-09-14Z",
+                    "name": "2016"
+                },
+                "stage": {
+                    "id": "97pjbwgwkqb1li7lp9wmsmuu6",
+                    "formatId": "3ad6z07rilk8flizkw1bhv179",
+                    "startDate": "2016-05-11Z",
+                    "endDate": "2016-05-12Z",
+                    "name": "1st Round"
+                },
+                "contestant": [
+                    {
+                        "id": "f00i60lejesxg74bqexekx4h5",
+                        "name": "Wichita",
+                        "shortName": "Wichita",
+                        "officialName": "FC Wichita",
+                        "code": "WIC",
+                        "position": "home",
+                        "country": {
+                            "id": "7hr2f89v44y65dyu9k92vprwn",
+                            "name": "USA"
+                        }
+                    },
+                    {
+                        "id": "77k3yfob2ydz0q9fo19jomp1q",
+                        "name": "Des Moines Menace",
+                        "shortName": "Des Moines",
+                        "officialName": "Des Moines Menace",
+                        "code": "DMM",
+                        "position": "away",
+                        "country": {
+                            "id": "7hr2f89v44y65dyu9k92vprwn",
+                            "name": "USA"
+                        }
+                    }
+                ],
+                "venue": {
+                    "id": "3aqy6srm3ma117ormw7p7f7xl",
+                    "neutral": "no",
+                    "longName": "Stryker Soccer Complex",
+                    "shortName": "Stryker Soccer Complex"
+                }
+            },
+            "liveData": {
+                "matchDetails": {
+                    "periodId": 14,
+                    "matchStatus": "Played",
+                    "winner": "away",
+                    "scores": {
+                        "ht": {
+                            "home": 0,
+                            "away": 0
+                        },
+                        "ft": {
+                            "home": 1,
+                            "away": 2
+                        },
+                        "total": {
+                            "home": 1,
+                            "away": 2
+                        }
+                    }
+                },
+                "goal": [
+                    {
+                        "contestantId": "f00i60lejesxg74bqexekx4h5",
+                        "periodId": 2,
+                        "timeMin": 46,
+                        "lastUpdated": "2016-05-30T18:13:52Z",
+                        "type": "G",
+                        "scorerId": "5zcba8q1fdpcbpind2ma3rf8p",
+                        "scorerName": "C. Contreras",
+                        "homeScore": 1,
+                        "awayScore": 0
+                    },
+                    {
+                        "contestantId": "77k3yfob2ydz0q9fo19jomp1q",
+                        "periodId": 2,
+                        "timeMin": 56,
+                        "lastUpdated": "2016-05-30T18:14:58Z",
+                        "type": "G",
+                        "scorerId": "7h3ehcio9sz7d7kfxw8jrmj1l",
+                        "scorerName": "M. Preston",
+                        "homeScore": 1,
+                        "awayScore": 1
+                    },
+                    {
+                        "contestantId": "77k3yfob2ydz0q9fo19jomp1q",
+                        "periodId": 2,
+                        "timeMin": 86,
+                        "lastUpdated": "2021-06-14T00:00:19Z",
+                        "type": "G",
+                        "scorerId": "83l43ej952qb2nu8ovyp2hm95",
+                        "scorerName": "L. Veidman",
+                        "homeScore": 1,
+                        "awayScore": 2
+                    }
+                ]
+            }
+        }
+    ]
+}

@@ -1,0 +1,562 @@
+{
+    "match": [
+        {
+            "matchInfo": {
+                "id": "cf8xw62oyyolfx7u8c9klsj4l",
+                "coverageLevel": "8",
+                "date": "2014-06-25Z",
+                "time": "00:30:00Z",
+                "localDate": "2014-06-24",
+                "localTime": "19:30:00",
+                "numberOfPeriods": 2,
+                "periodLength": 45,
+                "overtimeLength": 15,
+                "lastUpdated": "2025-04-02T17:00:17Z",
+                "description": "Sporting KC vs Portland Timbers",
+                "sport": {
+                    "id": "289u5typ3vp4ifwh5thalohmq",
+                    "name": "Soccer"
+                },
+                "ruleset": {
+                    "id": "79plas4983031idr6vw83nuel",
+                    "name": "Men"
+                },
+                "competition": {
+                    "id": "2bmwykmdlcc2u1c40ytoc39vy",
+                    "name": "US Open Cup",
+                    "knownName": "US Open Cup",
+                    "competitionCode": "UOC",
+                    "competitionFormat": "Domestic cup",
+                    "country": {
+                        "id": "7hr2f89v44y65dyu9k92vprwn",
+                        "name": "USA"
+                    }
+                },
+                "tournamentCalendar": {
+                    "id": "9dix6hbqctygcjh4rk65f7qda",
+                    "startDate": "2014-05-08Z",
+                    "endDate": "2014-09-17Z",
+                    "name": "2014"
+                },
+                "stage": {
+                    "id": "22mtfor7jsmz0atk3i8j5tcaw",
+                    "formatId": "3sc02t0s5s6yl19j9qflb4c0l",
+                    "startDate": "2014-06-25Z",
+                    "endDate": "2014-06-26Z",
+                    "name": "5th Round"
+                },
+                "contestant": [
+                    {
+                        "id": "3olfhpj6emfhceudd95ytb9gy",
+                        "name": "Sporting KC",
+                        "shortName": "Sporting KC",
+                        "officialName": "Sporting Kansas City",
+                        "code": "SKC",
+                        "position": "home",
+                        "country": {
+                            "id": "7hr2f89v44y65dyu9k92vprwn",
+                            "name": "USA"
+                        }
+                    },
+                    {
+                        "id": "77o8sorlijzpr0t4s7231zzxp",
+                        "name": "Portland Timbers",
+                        "shortName": "Portland",
+                        "officialName": "Portland Timbers",
+                        "code": "POR",
+                        "position": "away",
+                        "country": {
+                            "id": "7hr2f89v44y65dyu9k92vprwn",
+                            "name": "USA"
+                        }
+                    }
+                ],
+                "venue": {
+                    "id": "duapp260gx6pst1uw9lq3aemn",
+                    "neutral": "no",
+                    "longName": "Children's Mercy Park",
+                    "shortName": "Children's Mercy Park"
+                }
+            },
+            "liveData": {
+                "matchDetails": {
+                    "periodId": 14,
+                    "matchStatus": "Played",
+                    "winner": "away",
+                    "matchLengthMin": 95,
+                    "matchLengthSec": 26,
+                    "period": [
+                        {
+                            "id": 1,
+                            "start": "2014-06-25T00:38:52Z",
+                            "end": "2014-06-25T01:25:31Z",
+                            "lengthMin": 46,
+                            "lengthSec": 39
+                        },
+                        {
+                            "id": 2,
+                            "start": "2014-06-25T01:41:38Z",
+                            "end": "2014-06-25T02:30:25Z",
+                            "lengthMin": 48,
+                            "lengthSec": 47
+                        }
+                    ],
+                    "scores": {
+                        "ht": {
+                            "home": 0,
+                            "away": 1
+                        },
+                        "ft": {
+                            "home": 1,
+                            "away": 3
+                        },
+                        "total": {
+                            "home": 1,
+                            "away": 3
+                        }
+                    }
+                },
+                "goal": [
+                    {
+                        "contestantId": "77o8sorlijzpr0t4s7231zzxp",
+                        "periodId": 1,
+                        "timeMin": 30,
+                        "lastUpdated": "2015-03-04T23:51:11Z",
+                        "type": "G",
+                        "scorerId": "30mf2cmoib6i6we7zlz5w4e6t",
+                        "scorerName": "G. Fernández",
+                        "homeScore": 0,
+                        "awayScore": 1
+                    },
+                    {
+                        "contestantId": "77o8sorlijzpr0t4s7231zzxp",
+                        "periodId": 2,
+                        "timeMin": 57,
+                        "lastUpdated": "2020-02-28T05:05:46Z",
+                        "type": "PG",
+                        "scorerId": "4fxnafz5s1b6djxhipp4rsul1",
+                        "scorerName": "W. Johnson",
+                        "homeScore": 0,
+                        "awayScore": 2
+                    },
+                    {
+                        "contestantId": "77o8sorlijzpr0t4s7231zzxp",
+                        "periodId": 2,
+                        "timeMin": 68,
+                        "lastUpdated": "2015-03-04T23:51:11Z",
+                        "type": "G",
+                        "scorerId": "30mf2cmoib6i6we7zlz5w4e6t",
+                        "scorerName": "G. Fernández",
+                        "homeScore": 0,
+                        "awayScore": 3
+                    },
+                    {
+                        "contestantId": "3olfhpj6emfhceudd95ytb9gy",
+                        "periodId": 2,
+                        "timeMin": 73,
+                        "lastUpdated": "2024-01-12T10:56:04Z",
+                        "type": "PG",
+                        "scorerId": "un7mf28faj9yeihpofnkgct1",
+                        "scorerName": "Soony Saad",
+                        "homeScore": 1,
+                        "awayScore": 3
+                    }
+                ],
+                "card": [
+                    {
+                        "contestantId": "3olfhpj6emfhceudd95ytb9gy",
+                        "periodId": 2,
+                        "timeMin": 59,
+                        "lastUpdated": "2017-03-01T17:28:52Z",
+                        "type": "YC",
+                        "playerId": "6p163a141a95x53qat9wers2d",
+                        "playerName": "A. Collin",
+                        "cardReason": "Foul"
+                    },
+                    {
+                        "contestantId": "77o8sorlijzpr0t4s7231zzxp",
+                        "periodId": 2,
+                        "timeMin": 85,
+                        "lastUpdated": "2024-11-25T12:09:36Z",
+                        "type": "YC",
+                        "playerId": "3qzhn017ek7vg09glq2vleqd",
+                        "playerName": "K. Alhassan",
+                        "cardReason": "Foul"
+                    }
+                ],
+                "substitute": [
+                    {
+                        "contestantId": "77o8sorlijzpr0t4s7231zzxp",
+                        "periodId": 1,
+                        "timeMin": 29,
+                        "lastUpdated": "2015-04-04T00:51:34Z",
+                        "playerOnId": "cblfj2ztxm1etd4ntpe50n9p1",
+                        "playerOnName": "R. McKenzie",
+                        "playerOffId": "ecisv2x3d2cixow7mrf0ba8k5",
+                        "playerOffName": "N. Paparatto",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "3olfhpj6emfhceudd95ytb9gy",
+                        "periodId": 2,
+                        "timeMin": 60,
+                        "lastUpdated": "2014-06-25T01:55:30Z",
+                        "playerOnId": "6gn9rhfehy2nokzl9jfqz3kd1",
+                        "playerOnName": "J. Peterson",
+                        "playerOffId": "e5943gbco6auoe61tswisvyl1",
+                        "playerOffName": "S. Zizzo",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "77o8sorlijzpr0t4s7231zzxp",
+                        "periodId": 2,
+                        "timeMin": 65,
+                        "lastUpdated": "2021-06-01T02:09:25Z",
+                        "playerOnId": "6w4gqs4wnryzo59te2tmm6j85",
+                        "playerOnName": "M. Harrington",
+                        "playerOffId": "ar74fkd6mw5pav65oujrsr3yt",
+                        "playerOffName": "S. Zakuani",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "3olfhpj6emfhceudd95ytb9gy",
+                        "periodId": 2,
+                        "timeMin": 71,
+                        "lastUpdated": "2023-02-24T14:53:32Z",
+                        "playerOnId": "co3niwple5xj0c14t3ydz3rh1",
+                        "playerOnName": "C. Sapong",
+                        "playerOffId": "4e3ftvuylhjgw7bxo9dljlo7p",
+                        "playerOffName": "D. Dwyer",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "77o8sorlijzpr0t4s7231zzxp",
+                        "periodId": 2,
+                        "timeMin": 82,
+                        "lastUpdated": "2024-04-21T21:40:16Z",
+                        "playerOnId": "ejmps4o7wp1pqmx1727prw91x",
+                        "playerOnName": "F. Adi",
+                        "playerOffId": "30mf2cmoib6i6we7zlz5w4e6t",
+                        "playerOffName": "G. Fernández",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "3olfhpj6emfhceudd95ytb9gy",
+                        "periodId": 2,
+                        "timeMin": 84,
+                        "lastUpdated": "2023-05-08T16:02:55Z",
+                        "playerOnId": "bfye239zrcmh9qcazc71ffzkl",
+                        "playerOnName": "A. Martínez",
+                        "playerOffId": "1yh0h1t66koqvoxsqfo11y8k5",
+                        "playerOffName": "Paulo Nagamura",
+                        "subReason": "Tactical"
+                    }
+                ],
+                "matchDetailsExtra": {
+                    "attendance": "11138",
+                    "matchOfficial": [
+                        {
+                            "id": "bcephxc9jktzoea69824m8y51",
+                            "type": "Main",
+                            "firstName": "Ricardo",
+                            "lastName": "Salazar",
+                            "shortFirstName": "Ricardo",
+                            "shortLastName": "Salazar"
+                        },
+                        {
+                            "id": "dyk9qlbanxciy5lk1om9059sl",
+                            "type": "Assistant referee 1",
+                            "firstName": "Frank",
+                            "lastName": "Anderson",
+                            "shortFirstName": "Frank",
+                            "shortLastName": "Anderson"
+                        },
+                        {
+                            "id": "6i1w6ur67l44fymxbc601b2z9",
+                            "type": "Assistant referee 2",
+                            "firstName": "Mark",
+                            "lastName": "Boyko"
+                        },
+                        {
+                            "id": "7nosewyegnswatj65famu26s5",
+                            "type": "Fourth official",
+                            "firstName": "Hilario",
+                            "lastName": "Grajeda",
+                            "shortFirstName": "Hilario",
+                            "shortLastName": "Grajeda"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "matchInfo": {
+                "id": "anupvon7ccdtiypovfy4shgvh",
+                "coverageLevel": "8",
+                "date": "2014-06-19Z",
+                "time": "00:30:00Z",
+                "localDate": "2014-06-18",
+                "localTime": "19:30:00",
+                "numberOfPeriods": 2,
+                "periodLength": 45,
+                "overtimeLength": 15,
+                "lastUpdated": "2025-03-31T16:46:58Z",
+                "description": "Sporting KC vs Minnesota United",
+                "sport": {
+                    "id": "289u5typ3vp4ifwh5thalohmq",
+                    "name": "Soccer"
+                },
+                "ruleset": {
+                    "id": "79plas4983031idr6vw83nuel",
+                    "name": "Men"
+                },
+                "competition": {
+                    "id": "2bmwykmdlcc2u1c40ytoc39vy",
+                    "name": "US Open Cup",
+                    "knownName": "US Open Cup",
+                    "competitionCode": "UOC",
+                    "competitionFormat": "Domestic cup",
+                    "country": {
+                        "id": "7hr2f89v44y65dyu9k92vprwn",
+                        "name": "USA"
+                    }
+                },
+                "tournamentCalendar": {
+                    "id": "9dix6hbqctygcjh4rk65f7qda",
+                    "startDate": "2014-05-08Z",
+                    "endDate": "2014-09-17Z",
+                    "name": "2014"
+                },
+                "stage": {
+                    "id": "11xmb4t9daosrr99e439ynbp5",
+                    "formatId": "1nwzmep86chmczxs7a7iu97md",
+                    "startDate": "2014-06-12Z",
+                    "endDate": "2014-06-19Z",
+                    "name": "4th Round"
+                },
+                "contestant": [
+                    {
+                        "id": "3olfhpj6emfhceudd95ytb9gy",
+                        "name": "Sporting KC",
+                        "shortName": "Sporting KC",
+                        "officialName": "Sporting Kansas City",
+                        "code": "SKC",
+                        "position": "home",
+                        "country": {
+                            "id": "7hr2f89v44y65dyu9k92vprwn",
+                            "name": "USA"
+                        }
+                    },
+                    {
+                        "id": "dna80a164iz5ta6pp6ivk64rx",
+                        "name": "Minnesota United",
+                        "shortName": "Minnesota",
+                        "officialName": "Minnesota United FC",
+                        "code": "MIN",
+                        "position": "away",
+                        "country": {
+                            "id": "7hr2f89v44y65dyu9k92vprwn",
+                            "name": "USA"
+                        }
+                    }
+                ],
+                "venue": {
+                    "id": "duapp260gx6pst1uw9lq3aemn",
+                    "neutral": "no",
+                    "longName": "Children's Mercy Park",
+                    "shortName": "Children's Mercy Park"
+                }
+            },
+            "liveData": {
+                "matchDetails": {
+                    "periodId": 14,
+                    "matchStatus": "Played",
+                    "winner": "home",
+                    "matchLengthMin": 98,
+                    "matchLengthSec": 5,
+                    "period": [
+                        {
+                            "id": 1,
+                            "start": "2014-06-19T00:38:00Z",
+                            "end": "2014-06-19T01:25:47Z",
+                            "lengthMin": 47,
+                            "lengthSec": 47
+                        },
+                        {
+                            "id": 2,
+                            "start": "2014-06-19T01:42:32Z",
+                            "end": "2014-06-19T02:32:50Z",
+                            "lengthMin": 50,
+                            "lengthSec": 18
+                        }
+                    ],
+                    "scores": {
+                        "ht": {
+                            "home": 0,
+                            "away": 0
+                        },
+                        "ft": {
+                            "home": 2,
+                            "away": 0
+                        },
+                        "total": {
+                            "home": 2,
+                            "away": 0
+                        }
+                    }
+                },
+                "goal": [
+                    {
+                        "contestantId": "3olfhpj6emfhceudd95ytb9gy",
+                        "periodId": 2,
+                        "timeMin": 76,
+                        "lastUpdated": "2024-01-12T10:56:04Z",
+                        "type": "G",
+                        "scorerId": "un7mf28faj9yeihpofnkgct1",
+                        "scorerName": "Soony Saad",
+                        "homeScore": 1,
+                        "awayScore": 0
+                    },
+                    {
+                        "contestantId": "3olfhpj6emfhceudd95ytb9gy",
+                        "periodId": 2,
+                        "timeMin": 87,
+                        "lastUpdated": "2023-05-08T16:02:55Z",
+                        "type": "G",
+                        "scorerId": "bfye239zrcmh9qcazc71ffzkl",
+                        "scorerName": "A. Martínez",
+                        "homeScore": 2,
+                        "awayScore": 0
+                    }
+                ],
+                "card": [
+                    {
+                        "contestantId": "dna80a164iz5ta6pp6ivk64rx",
+                        "periodId": 1,
+                        "timeMin": 29,
+                        "lastUpdated": "2020-10-05T16:03:12Z",
+                        "type": "YC",
+                        "playerId": "34tcen5i5e5vlsvy04n63ja39",
+                        "playerName": "G. Jordan",
+                        "cardReason": "Foul"
+                    },
+                    {
+                        "contestantId": "dna80a164iz5ta6pp6ivk64rx",
+                        "periodId": 2,
+                        "timeMin": 50,
+                        "lastUpdated": "2016-02-19T09:49:15Z",
+                        "type": "RC",
+                        "playerId": "753u4vbq6928aj46aalpey2tx",
+                        "playerName": "Cristiano Dias",
+                        "cardReason": "Foul"
+                    },
+                    {
+                        "contestantId": "3olfhpj6emfhceudd95ytb9gy",
+                        "periodId": 2,
+                        "timeMin": 82,
+                        "lastUpdated": "2022-02-24T16:25:19Z",
+                        "type": "YC",
+                        "playerId": "4e3ftvuylhjgw7bxo9dljlo7p",
+                        "playerName": "D. Dwyer",
+                        "cardReason": "Foul"
+                    }
+                ],
+                "substitute": [
+                    {
+                        "contestantId": "3olfhpj6emfhceudd95ytb9gy",
+                        "periodId": 1,
+                        "timeMin": 36,
+                        "lastUpdated": "2023-05-08T16:02:55Z",
+                        "playerOnId": "bfye239zrcmh9qcazc71ffzkl",
+                        "playerOnName": "A. Martínez",
+                        "playerOffId": "26jbaug84xjj6p6osqdlcnahh",
+                        "playerOffName": "Victor Muñoz",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "3olfhpj6emfhceudd95ytb9gy",
+                        "periodId": 2,
+                        "timeMin": 63,
+                        "lastUpdated": "2021-06-23T23:48:43Z",
+                        "playerOnId": "e5943gbco6auoe61tswisvyl1",
+                        "playerOnName": "S. Zizzo",
+                        "playerOffId": "eo6l41k1jxgca7hljrwvqxm8l",
+                        "playerOffName": "C. Bieler",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "dna80a164iz5ta6pp6ivk64rx",
+                        "periodId": 2,
+                        "timeMin": 73,
+                        "lastUpdated": "2021-06-01T02:09:37Z",
+                        "playerOnId": "d3srpna3pzk1afx7kgjf3a4lx",
+                        "playerOnName": "F. Franks",
+                        "playerOffId": "7muaf1r989nnw4a7c5zlz9tjp",
+                        "playerOffName": "Daniel Mendes",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "dna80a164iz5ta6pp6ivk64rx",
+                        "periodId": 2,
+                        "timeMin": 80,
+                        "lastUpdated": "2015-07-04T00:17:12Z",
+                        "playerOnId": "1ul1k5145eruiha996z3hnb2t",
+                        "playerOnName": "O. Daley",
+                        "playerOffId": "85ub2lgf78xegy3qks6k0gfyt",
+                        "playerOffName": "Juliano",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "dna80a164iz5ta6pp6ivk64rx",
+                        "periodId": 2,
+                        "timeMin": 83,
+                        "lastUpdated": "2015-06-30T03:17:11Z",
+                        "playerOnId": "8n79z33bz6bjg4ybo8fmbdyvp",
+                        "playerOnName": "J. Watson",
+                        "playerOffId": "13eclvq1nld5l5jewx1hvcwyd",
+                        "playerOffName": "J. Davis",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "3olfhpj6emfhceudd95ytb9gy",
+                        "periodId": 2,
+                        "timeMin": 88,
+                        "lastUpdated": "2023-02-24T14:53:32Z",
+                        "playerOnId": "co3niwple5xj0c14t3ydz3rh1",
+                        "playerOnName": "C. Sapong",
+                        "playerOffId": "un7mf28faj9yeihpofnkgct1",
+                        "playerOffName": "Soony Saad",
+                        "subReason": "Tactical"
+                    }
+                ],
+                "matchDetailsExtra": {
+                    "attendance": "15307",
+                    "matchOfficial": [
+                        {
+                            "id": "awetrz8b2rq5szx5gnjapnmxh",
+                            "type": "Main",
+                            "firstName": "Tyler",
+                            "lastName": "Ploeger"
+                        },
+                        {
+                            "id": "4zczemvpdlwpi0w5vc5102q51",
+                            "type": "Assistant referee 1",
+                            "firstName": "Paul",
+                            "lastName": "Scott",
+                            "shortFirstName": "Paul",
+                            "shortLastName": "Scott"
+                        },
+                        {
+                            "id": "ct1fvcl3sbe71bwqmj70g7xed",
+                            "type": "Assistant referee 2",
+                            "firstName": "Kyle",
+                            "lastName": "Atkins",
+                            "shortFirstName": "Kyle",
+                            "shortLastName": "Atkins"
+                        }
+                    ]
+                }
+            }
+        }
+    ]
+}

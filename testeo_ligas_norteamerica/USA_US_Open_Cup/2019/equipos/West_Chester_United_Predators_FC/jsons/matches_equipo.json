@@ -1,0 +1,769 @@
+{
+    "match": [
+        {
+            "matchInfo": {
+                "id": "ard1a965abdcqun18eroqx8bu",
+                "coverageLevel": "13",
+                "date": "2019-05-16Z",
+                "time": "00:00:00Z",
+                "localDate": "2019-05-15",
+                "localTime": "19:00:00",
+                "numberOfPeriods": 2,
+                "periodLength": 45,
+                "overtimeLength": 15,
+                "lastUpdated": "2025-04-17T02:12:38Z",
+                "description": "Birmingham Legion vs West Chester United",
+                "sport": {
+                    "id": "289u5typ3vp4ifwh5thalohmq",
+                    "name": "Soccer"
+                },
+                "ruleset": {
+                    "id": "79plas4983031idr6vw83nuel",
+                    "name": "Men"
+                },
+                "competition": {
+                    "id": "2bmwykmdlcc2u1c40ytoc39vy",
+                    "name": "US Open Cup",
+                    "knownName": "US Open Cup",
+                    "competitionCode": "UOC",
+                    "competitionFormat": "Domestic cup",
+                    "country": {
+                        "id": "7hr2f89v44y65dyu9k92vprwn",
+                        "name": "USA"
+                    }
+                },
+                "tournamentCalendar": {
+                    "id": "c7tmg7pxkutef9ymogovz4huy",
+                    "startDate": "2019-05-08Z",
+                    "endDate": "2019-08-28Z",
+                    "name": "2019"
+                },
+                "stage": {
+                    "id": "c8l1yjl6nu5vyvc2t9dfiub8q",
+                    "formatId": "8cdpi9d29bu9gim4bl5m8ijth",
+                    "startDate": "2019-05-15Z",
+                    "endDate": "2019-05-16Z",
+                    "name": "2nd Round"
+                },
+                "contestant": [
+                    {
+                        "id": "c9xffml4i7ihblp1qhus9w3fu",
+                        "name": "Birmingham Legion",
+                        "shortName": "Legion",
+                        "officialName": "Birmingham Legion FC",
+                        "code": "BHM",
+                        "position": "home",
+                        "country": {
+                            "id": "7hr2f89v44y65dyu9k92vprwn",
+                            "name": "USA"
+                        }
+                    },
+                    {
+                        "id": "dgqs7v3qwwn8e2ojp4qa34o8s",
+                        "name": "West Chester United",
+                        "shortName": "Predators",
+                        "officialName": "West Chester United Predators FC",
+                        "code": "WCU",
+                        "position": "away",
+                        "country": {
+                            "id": "7hr2f89v44y65dyu9k92vprwn",
+                            "name": "USA"
+                        }
+                    }
+                ],
+                "venue": {
+                    "id": "ch39ki5yyosxo8vo14tnua1yi",
+                    "neutral": "no",
+                    "longName": "PNC Field",
+                    "shortName": "PNC Field"
+                }
+            },
+            "liveData": {
+                "matchDetails": {
+                    "periodId": 14,
+                    "matchStatus": "Played",
+                    "winner": "home",
+                    "matchLengthMin": 95,
+                    "matchLengthSec": 26,
+                    "period": [
+                        {
+                            "id": 1,
+                            "start": "2019-05-16T00:06:31Z",
+                            "end": "2019-05-16T00:52:35Z",
+                            "lengthMin": 46,
+                            "lengthSec": 4
+                        },
+                        {
+                            "id": 2,
+                            "start": "2019-05-16T01:09:35Z",
+                            "end": "2019-05-16T01:58:57Z",
+                            "lengthMin": 49,
+                            "lengthSec": 22
+                        }
+                    ],
+                    "scores": {
+                        "ht": {
+                            "home": 2,
+                            "away": 0
+                        },
+                        "ft": {
+                            "home": 4,
+                            "away": 1
+                        },
+                        "total": {
+                            "home": 4,
+                            "away": 1
+                        }
+                    }
+                },
+                "goal": [
+                    {
+                        "contestantId": "c9xffml4i7ihblp1qhus9w3fu",
+                        "periodId": 1,
+                        "timeMin": 22,
+                        "timeMinSec": "21:41",
+                        "lastUpdated": "2020-08-08T13:26:42Z",
+                        "type": "PG",
+                        "scorerId": "erqnzr02gtr24102568719ivp",
+                        "scorerName": "C. Hoffman",
+                        "optaEventId": "1082771094",
+                        "homeScore": 1,
+                        "awayScore": 0
+                    },
+                    {
+                        "contestantId": "c9xffml4i7ihblp1qhus9w3fu",
+                        "periodId": 1,
+                        "timeMin": 38,
+                        "timeMinSec": "37:04",
+                        "lastUpdated": "2019-05-16T00:44:26Z",
+                        "type": "G",
+                        "scorerId": "cdr7bcw07yznz732rxpcii2uh",
+                        "scorerName": "F. Hollinger-Janzen",
+                        "assistPlayerId": "isqannovafuhzuze1ob0t6ju",
+                        "assistPlayerName": "E. Opoku",
+                        "optaEventId": "1822252962",
+                        "homeScore": 2,
+                        "awayScore": 0
+                    },
+                    {
+                        "contestantId": "c9xffml4i7ihblp1qhus9w3fu",
+                        "periodId": 2,
+                        "timeMin": 51,
+                        "timeMinSec": "51:00",
+                        "lastUpdated": "2025-03-15T23:44:38Z",
+                        "type": "G",
+                        "scorerId": "bi0hhtxpz0xvq0xfpj0otoc89",
+                        "scorerName": "P. Kasim",
+                        "assistPlayerId": "isqannovafuhzuze1ob0t6ju",
+                        "assistPlayerName": "E. Opoku",
+                        "optaEventId": "2014135819",
+                        "homeScore": 3,
+                        "awayScore": 0
+                    },
+                    {
+                        "contestantId": "dgqs7v3qwwn8e2ojp4qa34o8s",
+                        "periodId": 2,
+                        "timeMin": 61,
+                        "timeMinSec": "61:00",
+                        "lastUpdated": "2024-03-17T18:26:42Z",
+                        "type": "G",
+                        "scorerId": "bqqs3czkg70ou4hfdxrjsjgiy",
+                        "scorerName": "C. Wilson",
+                        "optaEventId": "1469511526",
+                        "homeScore": 3,
+                        "awayScore": 1
+                    },
+                    {
+                        "contestantId": "c9xffml4i7ihblp1qhus9w3fu",
+                        "periodId": 2,
+                        "timeMin": 89,
+                        "timeMinSec": "88:31",
+                        "lastUpdated": "2019-05-16T01:53:46Z",
+                        "type": "G",
+                        "scorerId": "isqannovafuhzuze1ob0t6ju",
+                        "scorerName": "E. Opoku",
+                        "assistPlayerId": "c4kcn2iaq5d03c36u9tfbob11",
+                        "assistPlayerName": "D. Johnson",
+                        "optaEventId": "1438373340",
+                        "homeScore": 4,
+                        "awayScore": 1
+                    }
+                ],
+                "substitute": [
+                    {
+                        "contestantId": "c9xffml4i7ihblp1qhus9w3fu",
+                        "periodId": 2,
+                        "timeMin": 58,
+                        "timeMinSec": "57:45",
+                        "lastUpdated": "2020-11-11T08:46:49Z",
+                        "playerOnId": "7x9bokhuj46xf49f8o2a2mmdx",
+                        "playerOnName": "M. Laurent",
+                        "playerOffId": "7ql3tsg3xtutycxsm8fp6jm5l",
+                        "playerOffName": "K. Culbertson",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "c9xffml4i7ihblp1qhus9w3fu",
+                        "periodId": 2,
+                        "timeMin": 62,
+                        "timeMinSec": "61:30",
+                        "lastUpdated": "2019-10-19T14:46:24Z",
+                        "playerOnId": "c4kcn2iaq5d03c36u9tfbob11",
+                        "playerOnName": "D. Johnson",
+                        "playerOffId": "bi0hhtxpz0xvq0xfpj0otoc89",
+                        "playerOffName": "P. Kasim",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "dgqs7v3qwwn8e2ojp4qa34o8s",
+                        "periodId": 2,
+                        "timeMin": 62,
+                        "timeMinSec": "61:30",
+                        "lastUpdated": "2019-09-11T12:36:48Z",
+                        "playerOnId": "yoy8di2kz9n1i159aas9ywkq",
+                        "playerOnName": "K. Hoops",
+                        "playerOffId": "6j9efsqupieb3p2bgarhp6p9m",
+                        "playerOffName": "S. Phelps",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "dgqs7v3qwwn8e2ojp4qa34o8s",
+                        "periodId": 2,
+                        "timeMin": 62,
+                        "timeMinSec": "61:31",
+                        "lastUpdated": "2019-09-11T12:36:51Z",
+                        "playerOnId": "95bxtlbipjp2mtc49p1mu61d6",
+                        "playerOnName": "A. Bishop",
+                        "playerOffId": "c0jhh9nbbjvhmskl6ed95ve5m",
+                        "playerOffName": "C. Poarch",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "dgqs7v3qwwn8e2ojp4qa34o8s",
+                        "periodId": 2,
+                        "timeMin": 69,
+                        "timeMinSec": "68:01",
+                        "lastUpdated": "2019-09-11T12:36:47Z",
+                        "playerOnId": "9f44zl8tut4mh6gx4j9cjvrze",
+                        "playerOnName": "A. Kades",
+                        "playerOffId": "d1phfdvf4cxyeo4i4z1cljxed",
+                        "playerOffName": "A. Bartosinski",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "c9xffml4i7ihblp1qhus9w3fu",
+                        "periodId": 2,
+                        "timeMin": 75,
+                        "timeMinSec": "75:00",
+                        "lastUpdated": "2025-04-17T02:12:11Z",
+                        "playerOnId": "8awbkk7bj19pveupybyo5d23t",
+                        "playerOnName": "J. Holland",
+                        "playerOffId": "cijslwbc730evygvnzcqzuimt",
+                        "playerOffName": "E. Ávila",
+                        "subReason": "Tactical"
+                    }
+                ],
+                "matchDetailsExtra": {
+                    "attendance": "3307",
+                    "matchOfficial": [
+                        {
+                            "id": "a0w65ztovn6kv3tgizwv2atm2",
+                            "type": "Main",
+                            "firstName": "Sergii",
+                            "lastName": "Demianchuk",
+                            "shortFirstName": "Sergii",
+                            "shortLastName": "Demianchuk"
+                        },
+                        {
+                            "id": "9ple04tuie8q3wsfm4bzxc8dm",
+                            "type": "Assistant referee 1",
+                            "firstName": "Kyle",
+                            "lastName": "Johnston",
+                            "shortFirstName": "Kyle",
+                            "shortLastName": "Johnston"
+                        },
+                        {
+                            "id": "atqe13vyq6he6g1kus100lsa2",
+                            "type": "Assistant referee 2",
+                            "firstName": "Tiffini",
+                            "lastName": "Turpin",
+                            "shortFirstName": "Tiffini",
+                            "shortLastName": "Turpin"
+                        },
+                        {
+                            "id": "8a9frcq10tl15xq9l286s060a",
+                            "type": "Fourth official",
+                            "firstName": "Austin",
+                            "lastName": "Holt",
+                            "shortFirstName": "Austin",
+                            "shortLastName": "Holt"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "matchInfo": {
+                "id": "ekk4k31ihcky23rfv5i5nx1t6",
+                "coverageLevel": "13",
+                "date": "2019-05-07Z",
+                "time": "23:45:00Z",
+                "localDate": "2019-05-07",
+                "localTime": "19:45:00",
+                "numberOfPeriods": 2,
+                "periodLength": 45,
+                "overtimeLength": 15,
+                "lastUpdated": "2025-03-14T19:04:28Z",
+                "description": "FC Baltimore vs West Chester United",
+                "sport": {
+                    "id": "289u5typ3vp4ifwh5thalohmq",
+                    "name": "Soccer"
+                },
+                "ruleset": {
+                    "id": "79plas4983031idr6vw83nuel",
+                    "name": "Men"
+                },
+                "competition": {
+                    "id": "2bmwykmdlcc2u1c40ytoc39vy",
+                    "name": "US Open Cup",
+                    "knownName": "US Open Cup",
+                    "competitionCode": "UOC",
+                    "competitionFormat": "Domestic cup",
+                    "country": {
+                        "id": "7hr2f89v44y65dyu9k92vprwn",
+                        "name": "USA"
+                    }
+                },
+                "tournamentCalendar": {
+                    "id": "c7tmg7pxkutef9ymogovz4huy",
+                    "startDate": "2019-05-08Z",
+                    "endDate": "2019-08-28Z",
+                    "name": "2019"
+                },
+                "stage": {
+                    "id": "c8hc5gwyib3kl7l7egddfl2ei",
+                    "formatId": "3ad6z07rilk8flizkw1bhv179",
+                    "startDate": "2019-05-08Z",
+                    "endDate": "2019-05-09Z",
+                    "name": "1st Round"
+                },
+                "contestant": [
+                    {
+                        "id": "981v4bjlhoq3n67zq90uw2s16",
+                        "name": "FC Baltimore",
+                        "shortName": "Baltimore",
+                        "officialName": "FC Baltimore Christos",
+                        "code": "BAL",
+                        "position": "home",
+                        "country": {
+                            "id": "7hr2f89v44y65dyu9k92vprwn",
+                            "name": "USA"
+                        }
+                    },
+                    {
+                        "id": "dgqs7v3qwwn8e2ojp4qa34o8s",
+                        "name": "West Chester United",
+                        "shortName": "Predators",
+                        "officialName": "West Chester United Predators FC",
+                        "code": "WCU",
+                        "position": "away",
+                        "country": {
+                            "id": "7hr2f89v44y65dyu9k92vprwn",
+                            "name": "USA"
+                        }
+                    }
+                ],
+                "venue": {
+                    "id": "bkpqt7j2q8ydxxbuse56sa9gq",
+                    "neutral": "no",
+                    "longName": "Homewood Field",
+                    "shortName": "Homewood Field"
+                }
+            },
+            "liveData": {
+                "matchDetails": {
+                    "periodId": 14,
+                    "matchStatus": "Played",
+                    "winner": "away",
+                    "matchLengthMin": 126,
+                    "matchLengthSec": 19,
+                    "period": [
+                        {
+                            "id": 1,
+                            "start": "2019-05-07T23:53:11Z",
+                            "end": "2019-05-08T00:39:09Z",
+                            "lengthMin": 45,
+                            "lengthSec": 58
+                        },
+                        {
+                            "id": 2,
+                            "start": "2019-05-08T00:56:36Z",
+                            "end": "2019-05-08T01:43:46Z",
+                            "lengthMin": 47,
+                            "lengthSec": 10
+                        },
+                        {
+                            "id": 3,
+                            "start": "2019-05-08T01:49:55Z",
+                            "end": "2019-05-08T02:07:07Z",
+                            "lengthMin": 17,
+                            "lengthSec": 12
+                        },
+                        {
+                            "id": 4,
+                            "start": "2019-05-08T02:09:45Z",
+                            "end": "2019-05-08T02:25:44Z",
+                            "lengthMin": 15,
+                            "lengthSec": 59
+                        }
+                    ],
+                    "scores": {
+                        "ht": {
+                            "home": 0,
+                            "away": 1
+                        },
+                        "ft": {
+                            "home": 1,
+                            "away": 1
+                        },
+                        "et": {
+                            "home": 1,
+                            "away": 1
+                        },
+                        "pen": {
+                            "home": 4,
+                            "away": 5
+                        },
+                        "total": {
+                            "home": 5,
+                            "away": 6
+                        }
+                    }
+                },
+                "goal": [
+                    {
+                        "contestantId": "dgqs7v3qwwn8e2ojp4qa34o8s",
+                        "periodId": 1,
+                        "timeMin": 2,
+                        "timeMinSec": "1:03",
+                        "lastUpdated": "2022-03-18T19:33:48Z",
+                        "type": "G",
+                        "scorerId": "cp6xsx4c1ahdfm4dkncq37rl6",
+                        "scorerName": "T. Amspacher",
+                        "assistPlayerId": "d1phfdvf4cxyeo4i4z1cljxed",
+                        "assistPlayerName": "A. Bartosinski",
+                        "optaEventId": "1094576011",
+                        "homeScore": 0,
+                        "awayScore": 1
+                    },
+                    {
+                        "contestantId": "981v4bjlhoq3n67zq90uw2s16",
+                        "periodId": 2,
+                        "timeMin": 56,
+                        "timeMinSec": "55:59",
+                        "lastUpdated": "2019-09-11T12:21:31Z",
+                        "type": "G",
+                        "scorerId": "5lfsx6h5cktgy9mbk5hg6mt0q",
+                        "scorerName": "J. Dengler",
+                        "assistPlayerId": "7kp16w0df6gxulvvq1qo6vo8a",
+                        "assistPlayerName": "E. Rodriguez",
+                        "optaEventId": "1741576399",
+                        "homeScore": 1,
+                        "awayScore": 1
+                    }
+                ],
+                "card": [
+                    {
+                        "contestantId": "dgqs7v3qwwn8e2ojp4qa34o8s",
+                        "periodId": 2,
+                        "timeMin": 82,
+                        "timeMinSec": "81:17",
+                        "lastUpdated": "2019-09-11T12:36:36Z",
+                        "type": "YC",
+                        "playerId": "2smfre43nrrzetr2u1f8zzx05",
+                        "playerName": "E. O'Neill",
+                        "optaEventId": "1969045939",
+                        "cardReason": "Foul"
+                    }
+                ],
+                "substitute": [
+                    {
+                        "contestantId": "981v4bjlhoq3n67zq90uw2s16",
+                        "periodId": 2,
+                        "timeMin": 46,
+                        "timeMinSec": "45:00",
+                        "lastUpdated": "2019-09-11T12:21:38Z",
+                        "playerOnId": "1knzbp6dhqd5ypo6qppjpp3e2",
+                        "playerOnName": "N. Richardson",
+                        "playerOffId": "6o5w04531uojtb7z6kmqytpwq",
+                        "playerOffName": "J. Sousa",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "dgqs7v3qwwn8e2ojp4qa34o8s",
+                        "periodId": 2,
+                        "timeMin": 53,
+                        "timeMinSec": "52:55",
+                        "lastUpdated": "2019-09-11T12:36:51Z",
+                        "playerOnId": "95bxtlbipjp2mtc49p1mu61d6",
+                        "playerOnName": "A. Bishop",
+                        "playerOffId": "c0jhh9nbbjvhmskl6ed95ve5m",
+                        "playerOffName": "C. Poarch",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "981v4bjlhoq3n67zq90uw2s16",
+                        "periodId": 2,
+                        "timeMin": 62,
+                        "timeMinSec": "61:16",
+                        "lastUpdated": "2019-09-11T12:21:40Z",
+                        "playerOnId": "407a6nq1y7apn5duwcjffeiy2",
+                        "playerOnName": "T. Pulliam",
+                        "playerOffId": "1ok5uqb34rffq0y6ywzd1971l",
+                        "playerOffName": "J. Mesias",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "dgqs7v3qwwn8e2ojp4qa34o8s",
+                        "periodId": 2,
+                        "timeMin": 66,
+                        "timeMinSec": "65:33",
+                        "lastUpdated": "2019-09-11T12:36:47Z",
+                        "playerOnId": "9f44zl8tut4mh6gx4j9cjvrze",
+                        "playerOnName": "A. Kades",
+                        "playerOffId": "6u9qpqlzhyog0y7rj90lzgnl6",
+                        "playerOffName": "J. Poarch",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "981v4bjlhoq3n67zq90uw2s16",
+                        "periodId": 2,
+                        "timeMin": 81,
+                        "timeMinSec": "80:55",
+                        "lastUpdated": "2019-09-11T12:21:41Z",
+                        "playerOnId": "amg304opfal5d0s8lc2x5jw4q",
+                        "playerOnName": "J. Gielen",
+                        "playerOffId": "7kp16w0df6gxulvvq1qo6vo8a",
+                        "playerOffName": "E. Rodriguez",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "dgqs7v3qwwn8e2ojp4qa34o8s",
+                        "periodId": 2,
+                        "timeMin": 86,
+                        "timeMinSec": "85:07",
+                        "lastUpdated": "2019-09-11T12:36:54Z",
+                        "playerOnId": "6j9efsqupieb3p2bgarhp6p9m",
+                        "playerOnName": "S. Phelps",
+                        "playerOffId": "7rj3dcrevwt3hp1awmliv58q2",
+                        "playerOffName": "C. Osborne",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "981v4bjlhoq3n67zq90uw2s16",
+                        "periodId": 3,
+                        "timeMin": 97,
+                        "timeMinSec": "96:02",
+                        "lastUpdated": "2019-09-11T12:21:44Z",
+                        "playerOnId": "4udb8mvb2dx6ymgt8o2mnrxpm",
+                        "playerOnName": "N. Gumbs",
+                        "playerOffId": "tikbhhxvfk3045yhqwf6t27e",
+                        "playerOffName": "C. Marconi",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "dgqs7v3qwwn8e2ojp4qa34o8s",
+                        "periodId": 4,
+                        "timeMin": 106,
+                        "timeMinSec": "105:10",
+                        "lastUpdated": "2019-09-11T12:36:48Z",
+                        "playerOnId": "yoy8di2kz9n1i159aas9ywkq",
+                        "playerOnName": "K. Hoops",
+                        "playerOffId": "95bxtlbipjp2mtc49p1mu61d6",
+                        "playerOffName": "A. Bishop",
+                        "subReason": "Tactical"
+                    }
+                ],
+                "penaltyShot": [
+                    {
+                        "contestantId": "dgqs7v3qwwn8e2ojp4qa34o8s",
+                        "timeMin": 121,
+                        "lastUpdated": "2023-03-21T00:12:55Z",
+                        "outcome": "scored",
+                        "playerId": "b72cmbto4qc7ei6khzr9q9uui",
+                        "scorerName": "M. Gonzalez",
+                        "teamPenaltyNumber": 1,
+                        "optaEventId": "2073810251"
+                    },
+                    {
+                        "contestantId": "981v4bjlhoq3n67zq90uw2s16",
+                        "timeMin": 121,
+                        "lastUpdated": "2019-09-11T12:21:41Z",
+                        "outcome": "scored",
+                        "playerId": "amg304opfal5d0s8lc2x5jw4q",
+                        "scorerName": "J. Gielen",
+                        "teamPenaltyNumber": 1,
+                        "optaEventId": "1793367596"
+                    },
+                    {
+                        "contestantId": "dgqs7v3qwwn8e2ojp4qa34o8s",
+                        "timeMin": 122,
+                        "lastUpdated": "2019-09-11T12:36:39Z",
+                        "outcome": "scored",
+                        "playerId": "82fz4kbz79jjvj999fco2ohuy",
+                        "scorerName": "S. Bollinger",
+                        "teamPenaltyNumber": 2,
+                        "optaEventId": "1716257918"
+                    },
+                    {
+                        "contestantId": "981v4bjlhoq3n67zq90uw2s16",
+                        "timeMin": 122,
+                        "lastUpdated": "2025-03-05T02:18:00Z",
+                        "outcome": "scored",
+                        "playerId": "bvo0lutc8fj0e99abi34x3luy",
+                        "scorerName": "D. Mason",
+                        "teamPenaltyNumber": 2,
+                        "optaEventId": "1672036795"
+                    },
+                    {
+                        "contestantId": "dgqs7v3qwwn8e2ojp4qa34o8s",
+                        "timeMin": 123,
+                        "lastUpdated": "2019-09-11T12:36:47Z",
+                        "outcome": "saved",
+                        "playerId": "9f44zl8tut4mh6gx4j9cjvrze",
+                        "scorerName": "A. Kades",
+                        "teamPenaltyNumber": 3,
+                        "optaEventId": "1109409502"
+                    },
+                    {
+                        "contestantId": "981v4bjlhoq3n67zq90uw2s16",
+                        "timeMin": 123,
+                        "lastUpdated": "2024-03-07T23:47:04Z",
+                        "outcome": "missed",
+                        "playerId": "9m2l2wpu8cht54izobml845t6",
+                        "scorerName": "N. Brown",
+                        "teamPenaltyNumber": 3,
+                        "optaEventId": "1327673564"
+                    },
+                    {
+                        "contestantId": "dgqs7v3qwwn8e2ojp4qa34o8s",
+                        "timeMin": 124,
+                        "lastUpdated": "2019-09-11T12:36:48Z",
+                        "outcome": "scored",
+                        "playerId": "yoy8di2kz9n1i159aas9ywkq",
+                        "scorerName": "K. Hoops",
+                        "teamPenaltyNumber": 4,
+                        "optaEventId": "1406664755"
+                    },
+                    {
+                        "contestantId": "981v4bjlhoq3n67zq90uw2s16",
+                        "timeMin": 124,
+                        "lastUpdated": "2019-09-11T12:21:31Z",
+                        "outcome": "scored",
+                        "playerId": "5lfsx6h5cktgy9mbk5hg6mt0q",
+                        "scorerName": "J. Dengler",
+                        "teamPenaltyNumber": 4,
+                        "optaEventId": "1793973510"
+                    },
+                    {
+                        "contestantId": "dgqs7v3qwwn8e2ojp4qa34o8s",
+                        "timeMin": 125,
+                        "lastUpdated": "2019-09-11T12:36:37Z",
+                        "outcome": "scored",
+                        "playerId": "18yeoal5nxsfsvo3buhorul0p",
+                        "scorerName": "J. Nolan",
+                        "teamPenaltyNumber": 5,
+                        "optaEventId": "1874967309"
+                    },
+                    {
+                        "contestantId": "981v4bjlhoq3n67zq90uw2s16",
+                        "timeMin": 125,
+                        "lastUpdated": "2019-09-11T12:21:44Z",
+                        "outcome": "scored",
+                        "playerId": "4udb8mvb2dx6ymgt8o2mnrxpm",
+                        "scorerName": "N. Gumbs",
+                        "teamPenaltyNumber": 5,
+                        "optaEventId": "1632037687"
+                    },
+                    {
+                        "contestantId": "dgqs7v3qwwn8e2ojp4qa34o8s",
+                        "timeMin": 126,
+                        "lastUpdated": "2024-03-17T18:26:42Z",
+                        "outcome": "missed",
+                        "playerId": "bqqs3czkg70ou4hfdxrjsjgiy",
+                        "scorerName": "C. Wilson",
+                        "teamPenaltyNumber": 6,
+                        "optaEventId": "2053929747"
+                    },
+                    {
+                        "contestantId": "981v4bjlhoq3n67zq90uw2s16",
+                        "timeMin": 126,
+                        "lastUpdated": "2019-09-11T12:21:38Z",
+                        "outcome": "saved",
+                        "playerId": "1knzbp6dhqd5ypo6qppjpp3e2",
+                        "scorerName": "N. Richardson",
+                        "teamPenaltyNumber": 6,
+                        "optaEventId": "1312011493"
+                    },
+                    {
+                        "contestantId": "dgqs7v3qwwn8e2ojp4qa34o8s",
+                        "timeMin": 127,
+                        "lastUpdated": "2019-09-11T12:36:54Z",
+                        "outcome": "scored",
+                        "playerId": "6j9efsqupieb3p2bgarhp6p9m",
+                        "scorerName": "S. Phelps",
+                        "teamPenaltyNumber": 7,
+                        "optaEventId": "1442721573"
+                    },
+                    {
+                        "contestantId": "981v4bjlhoq3n67zq90uw2s16",
+                        "timeMin": 127,
+                        "lastUpdated": "2019-09-11T12:21:40Z",
+                        "outcome": "missed",
+                        "playerId": "407a6nq1y7apn5duwcjffeiy2",
+                        "scorerName": "T. Pulliam",
+                        "teamPenaltyNumber": 7,
+                        "optaEventId": "1568463076"
+                    }
+                ],
+                "matchDetailsExtra": {
+                    "attendance": "400",
+                    "matchOfficial": [
+                        {
+                            "id": "yizo78q42dvkt6yfrr1ly44q",
+                            "type": "Main",
+                            "firstName": "Sergio",
+                            "lastName": "Gonzalez",
+                            "shortFirstName": "Sergio",
+                            "shortLastName": "Gonzalez"
+                        },
+                        {
+                            "id": "5bqzdv8kf0ok2jkw2ffn4vskq",
+                            "type": "Assistant referee 1",
+                            "firstName": "Patrick",
+                            "lastName": "Slane",
+                            "shortFirstName": "Patrick",
+                            "shortLastName": "Slane"
+                        },
+                        {
+                            "id": "73avi756fu70o6a1a9d34qsfe",
+                            "type": "Assistant referee 2",
+                            "firstName": "Dustin",
+                            "lastName": "Schulman",
+                            "shortFirstName": "Dustin",
+                            "shortLastName": "Schulman"
+                        },
+                        {
+                            "id": "agkftqnrluwhrwyvpd7m9qve2",
+                            "type": "Fourth official",
+                            "firstName": "Alla",
+                            "lastName": "Stepanov",
+                            "shortFirstName": "Alla",
+                            "shortLastName": "Stepanov"
+                        }
+                    ]
+                }
+            }
+        }
+    ]
+}

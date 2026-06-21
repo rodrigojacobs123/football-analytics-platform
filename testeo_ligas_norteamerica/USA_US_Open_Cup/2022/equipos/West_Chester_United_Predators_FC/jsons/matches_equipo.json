@@ -1,0 +1,401 @@
+{
+    "match": [
+        {
+            "matchInfo": {
+                "id": "1azmn4y64vmeomwkvd4mhlr84",
+                "coverageLevel": "13",
+                "date": "2022-04-01Z",
+                "time": "23:30:00Z",
+                "localDate": "2022-04-01",
+                "localTime": "19:30:00",
+                "numberOfPeriods": 2,
+                "periodLength": 45,
+                "overtimeLength": 15,
+                "lastUpdated": "2025-03-14T19:04:30Z",
+                "description": "FC Motown vs West Chester United",
+                "sport": {
+                    "id": "289u5typ3vp4ifwh5thalohmq",
+                    "name": "Soccer"
+                },
+                "ruleset": {
+                    "id": "79plas4983031idr6vw83nuel",
+                    "name": "Men"
+                },
+                "competition": {
+                    "id": "2bmwykmdlcc2u1c40ytoc39vy",
+                    "name": "US Open Cup",
+                    "knownName": "US Open Cup",
+                    "competitionCode": "UOC",
+                    "competitionFormat": "Domestic cup",
+                    "country": {
+                        "id": "7hr2f89v44y65dyu9k92vprwn",
+                        "name": "USA"
+                    }
+                },
+                "tournamentCalendar": {
+                    "id": "dhzyoostrc6so36xhzo5l1kb8",
+                    "startDate": "2022-03-23Z",
+                    "endDate": "2022-09-08Z",
+                    "name": "2022"
+                },
+                "stage": {
+                    "id": "cqeq75f1pvj1vmmfy6qlpvkes",
+                    "formatId": "3ad6z07rilk8flizkw1bhv179",
+                    "startDate": "2022-03-23Z",
+                    "endDate": "2022-04-02Z",
+                    "name": "1st Round"
+                },
+                "contestant": [
+                    {
+                        "id": "d92k7lnokv77sirkh65nbwmd7",
+                        "name": "FC Motown",
+                        "shortName": "FC Motown",
+                        "officialName": "FC Motown",
+                        "code": "MOT",
+                        "position": "home",
+                        "country": {
+                            "id": "7hr2f89v44y65dyu9k92vprwn",
+                            "name": "USA"
+                        }
+                    },
+                    {
+                        "id": "dgqs7v3qwwn8e2ojp4qa34o8s",
+                        "name": "West Chester United",
+                        "shortName": "Predators",
+                        "officialName": "West Chester United Predators FC",
+                        "code": "WCU",
+                        "position": "away",
+                        "country": {
+                            "id": "7hr2f89v44y65dyu9k92vprwn",
+                            "name": "USA"
+                        }
+                    }
+                ],
+                "venue": {
+                    "id": "5zpkymvtm3r6571ego2kfqnp1",
+                    "neutral": "no",
+                    "longName": "MSU Soccer Park at Pittser Field",
+                    "shortName": "MSU Soccer Park at Pittser Field"
+                }
+            },
+            "liveData": {
+                "matchDetails": {
+                    "periodId": 14,
+                    "matchStatus": "Played",
+                    "winner": "home",
+                    "matchLengthMin": 97,
+                    "matchLengthSec": 58,
+                    "period": [
+                        {
+                            "id": 1,
+                            "start": "2022-04-01T23:33:48Z",
+                            "end": "2022-04-02T00:19:56Z",
+                            "lengthMin": 46,
+                            "lengthSec": 8
+                        },
+                        {
+                            "id": 2,
+                            "start": "2022-04-02T00:37:52Z",
+                            "end": "2022-04-02T01:29:42Z",
+                            "lengthMin": 51,
+                            "lengthSec": 50
+                        }
+                    ],
+                    "scores": {
+                        "ht": {
+                            "home": 0,
+                            "away": 0
+                        },
+                        "ft": {
+                            "home": 1,
+                            "away": 0
+                        },
+                        "total": {
+                            "home": 1,
+                            "away": 0
+                        }
+                    }
+                },
+                "goal": [
+                    {
+                        "contestantId": "d92k7lnokv77sirkh65nbwmd7",
+                        "periodId": 2,
+                        "timeMin": 91,
+                        "timeMinSec": "90:22",
+                        "lastUpdated": "2024-03-20T01:32:56Z",
+                        "timestamp": "2022-04-02T01:23:14Z",
+                        "type": "G",
+                        "scorerId": "e7oxay50ng600nxt9v5qtjai1",
+                        "scorerName": "R. Peterson",
+                        "assistPlayerId": "4r6gk3l04kxlhw9ba0vkynjkl",
+                        "assistPlayerName": "J. Pieles",
+                        "optaEventId": "2400131491",
+                        "homeScore": 1,
+                        "awayScore": 0
+                    }
+                ],
+                "card": [
+                    {
+                        "contestantId": "d92k7lnokv77sirkh65nbwmd7",
+                        "periodId": 2,
+                        "timeMin": 54,
+                        "timeMinSec": "54:00",
+                        "lastUpdated": "2022-04-02T01:53:22Z",
+                        "timestamp": "2022-04-02T00:46:52Z",
+                        "type": "YC",
+                        "playerId": "6rd0z4mah4adr3jjf68bnmk4q",
+                        "playerName": "K. Alberto",
+                        "optaEventId": "2400124315",
+                        "cardReason": "Foul"
+                    }
+                ],
+                "substitute": [
+                    {
+                        "contestantId": "dgqs7v3qwwn8e2ojp4qa34o8s",
+                        "periodId": 1,
+                        "timeMin": 40,
+                        "timeMinSec": "39:05",
+                        "lastUpdated": "2022-12-15T18:41:11Z",
+                        "timestamp": "2022-04-02T00:12:53Z",
+                        "playerOnId": "69a3q4rxpq0kf3hgjs7k0251w",
+                        "playerOnName": "J. Gosselin",
+                        "playerOffId": "bqqs3czkg70ou4hfdxrjsjgiy",
+                        "playerOffName": "C. Wilson",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "d92k7lnokv77sirkh65nbwmd7",
+                        "periodId": 2,
+                        "timeMin": 64,
+                        "timeMinSec": "63:51",
+                        "lastUpdated": "2022-12-15T18:41:12Z",
+                        "timestamp": "2022-04-02T00:56:43Z",
+                        "playerOnId": "25r3bmw4y3ruv3w74nfhn81sk",
+                        "playerOnName": "H. Criollo",
+                        "playerOffId": "fumvse37mzst4pm8muq78mei",
+                        "playerOffName": "J. Fala",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "d92k7lnokv77sirkh65nbwmd7",
+                        "periodId": 2,
+                        "timeMin": 69,
+                        "timeMinSec": "68:50",
+                        "lastUpdated": "2022-12-15T18:41:11Z",
+                        "timestamp": "2022-04-02T01:01:42Z",
+                        "playerOnId": "7lpmq79by97yjkwxq15wm6zt",
+                        "playerOnName": "F. De Oliveira",
+                        "playerOffId": "bzzb9m0dj8p6aqj6fr5bvr3dh",
+                        "playerOffName": "N. Saint-Vil",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "d92k7lnokv77sirkh65nbwmd7",
+                        "periodId": 2,
+                        "timeMin": 76,
+                        "timeMinSec": "75:15",
+                        "lastUpdated": "2022-12-15T18:41:12Z",
+                        "timestamp": "2022-04-02T01:08:07Z",
+                        "playerOnId": "4r6gk3l04kxlhw9ba0vkynjkl",
+                        "playerOnName": "J. Pieles",
+                        "playerOffId": "42xbviu1celrq1fh9ci55zphx",
+                        "playerOffName": "D. Duka",
+                        "subReason": "Injury"
+                    },
+                    {
+                        "contestantId": "dgqs7v3qwwn8e2ojp4qa34o8s",
+                        "periodId": 2,
+                        "timeMin": 79,
+                        "timeMinSec": "78:30",
+                        "lastUpdated": "2022-12-15T18:41:12Z",
+                        "timestamp": "2022-04-02T01:11:22Z",
+                        "playerOnId": "ctosvt49vv614a0pojj7owo44",
+                        "playerOnName": "D. Ramirez",
+                        "playerOffId": "75tx1tm50to7as95gsdvpeane",
+                        "playerOffName": "S. Burkhardt",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "dgqs7v3qwwn8e2ojp4qa34o8s",
+                        "periodId": 2,
+                        "timeMin": 79,
+                        "timeMinSec": "78:40",
+                        "lastUpdated": "2022-12-22T09:24:15Z",
+                        "timestamp": "2022-04-02T01:11:32Z",
+                        "playerOnId": "3hjeu6ijptk7ks7ffsdua6978",
+                        "playerOnName": "S. Brown",
+                        "playerOffId": "8mjwuanoqxlj0yzcu3r7pa0ic",
+                        "playerOffName": "C. Burris",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "dgqs7v3qwwn8e2ojp4qa34o8s",
+                        "periodId": 2,
+                        "timeMin": 91,
+                        "timeMinSec": "91:00",
+                        "lastUpdated": "2022-05-19T16:21:02Z",
+                        "timestamp": "2022-04-02T01:23:52Z",
+                        "playerOnId": "dmbx7nu1c4rj5i7vh8uo1m1ka",
+                        "playerOnName": "J. Jaime",
+                        "playerOffId": "cfku7daqgyf9md40q61j9ptec",
+                        "playerOffName": "R. Fincher",
+                        "subReason": "Tactical"
+                    }
+                ],
+                "matchDetailsExtra": {
+                    "attendance": "176",
+                    "matchOfficial": [
+                        {
+                            "id": "9daw94ok4ltnlvp81iwejh2lm",
+                            "type": "Main",
+                            "firstName": "Justin",
+                            "lastName": "Saporito",
+                            "shortFirstName": "Justin",
+                            "shortLastName": "Saporito"
+                        },
+                        {
+                            "id": "bc146mxtdcmy8zyvgkdd1774l",
+                            "type": "Assistant referee 1",
+                            "firstName": "Jacqueline",
+                            "lastName": "Amaya",
+                            "shortFirstName": "Jacqueline",
+                            "shortLastName": "Amaya"
+                        },
+                        {
+                            "id": "dqlamv8ih0l6hmvv1ivxhkdg4",
+                            "type": "Assistant referee 2",
+                            "firstName": "Josiah",
+                            "lastName": "Firl",
+                            "shortFirstName": "Josiah",
+                            "shortLastName": "Firl"
+                        },
+                        {
+                            "id": "4spzckbwu0g2p0t2lrlgxztre",
+                            "type": "Fourth official",
+                            "firstName": "Rafael",
+                            "lastName": "Martinez",
+                            "shortFirstName": "Rafael",
+                            "shortLastName": "Martinez"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "matchInfo": {
+                "id": "djd6gi9qrb8hfyh21lrdvpatw",
+                "coverageLevel": "13",
+                "date": "2022-03-22Z",
+                "time": "23:00:00Z",
+                "localDate": "2022-03-22",
+                "localTime": "19:00:00",
+                "numberOfPeriods": 2,
+                "periodLength": 45,
+                "overtimeLength": 15,
+                "lastUpdated": "2025-03-14T19:04:28Z",
+                "description": "FC Motown vs West Chester United",
+                "sport": {
+                    "id": "289u5typ3vp4ifwh5thalohmq",
+                    "name": "Soccer"
+                },
+                "ruleset": {
+                    "id": "79plas4983031idr6vw83nuel",
+                    "name": "Men"
+                },
+                "competition": {
+                    "id": "2bmwykmdlcc2u1c40ytoc39vy",
+                    "name": "US Open Cup",
+                    "knownName": "US Open Cup",
+                    "competitionCode": "UOC",
+                    "competitionFormat": "Domestic cup",
+                    "country": {
+                        "id": "7hr2f89v44y65dyu9k92vprwn",
+                        "name": "USA"
+                    }
+                },
+                "tournamentCalendar": {
+                    "id": "dhzyoostrc6so36xhzo5l1kb8",
+                    "startDate": "2022-03-23Z",
+                    "endDate": "2022-09-08Z",
+                    "name": "2022"
+                },
+                "stage": {
+                    "id": "cqeq75f1pvj1vmmfy6qlpvkes",
+                    "formatId": "3ad6z07rilk8flizkw1bhv179",
+                    "startDate": "2022-03-23Z",
+                    "endDate": "2022-04-02Z",
+                    "name": "1st Round"
+                },
+                "contestant": [
+                    {
+                        "id": "d92k7lnokv77sirkh65nbwmd7",
+                        "name": "FC Motown",
+                        "shortName": "FC Motown",
+                        "officialName": "FC Motown",
+                        "code": "MOT",
+                        "position": "home",
+                        "country": {
+                            "id": "7hr2f89v44y65dyu9k92vprwn",
+                            "name": "USA"
+                        }
+                    },
+                    {
+                        "id": "dgqs7v3qwwn8e2ojp4qa34o8s",
+                        "name": "West Chester United",
+                        "shortName": "Predators",
+                        "officialName": "West Chester United Predators FC",
+                        "code": "WCU",
+                        "position": "away",
+                        "country": {
+                            "id": "7hr2f89v44y65dyu9k92vprwn",
+                            "name": "USA"
+                        }
+                    }
+                ],
+                "venue": {
+                    "id": "5zpkymvtm3r6571ego2kfqnp1",
+                    "neutral": "no",
+                    "longName": "MSU Soccer Park at Pittser Field",
+                    "shortName": "MSU Soccer Park at Pittser Field"
+                }
+            },
+            "liveData": {
+                "matchDetails": {
+                    "matchStatus": "Cancelled",
+                    "matchLengthMin": 129,
+                    "matchLengthSec": 6,
+                    "period": [
+                        {
+                            "id": 1,
+                            "start": "2022-03-22T23:03:41Z",
+                            "end": "2022-03-22T23:50:58Z",
+                            "lengthMin": 47,
+                            "lengthSec": 17
+                        },
+                        {
+                            "id": 2,
+                            "start": "2022-03-23T00:08:40Z",
+                            "end": "2022-03-23T00:57:48Z",
+                            "lengthMin": 49,
+                            "lengthSec": 8
+                        },
+                        {
+                            "id": 3,
+                            "start": "2022-03-23T01:04:27Z",
+                            "end": "2022-03-23T01:19:47Z",
+                            "lengthMin": 15,
+                            "lengthSec": 20
+                        },
+                        {
+                            "id": 4,
+                            "start": "2022-03-23T01:23:55Z",
+                            "end": "2022-03-23T01:41:16Z",
+                            "lengthMin": 17,
+                            "lengthSec": 21
+                        }
+                    ]
+                }
+            }
+        }
+    ]
+}

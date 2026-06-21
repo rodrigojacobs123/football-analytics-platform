@@ -1,0 +1,832 @@
+{
+    "match": [
+        {
+            "matchInfo": {
+                "id": "1wj9drsfgeworctf53tbnyktl",
+                "coverageLevel": "13",
+                "date": "2016-07-21Z",
+                "time": "00:30:00Z",
+                "localDate": "2016-07-20",
+                "localTime": "19:30:00",
+                "numberOfPeriods": 2,
+                "periodLength": 45,
+                "overtimeLength": 15,
+                "lastUpdated": "2025-04-05T09:48:03Z",
+                "nextMatchWinnerId": "78cv7qgd5x2max44b5q1wqrc9",
+                "description": "Houston Dynamo vs Dallas",
+                "sport": {
+                    "id": "289u5typ3vp4ifwh5thalohmq",
+                    "name": "Soccer"
+                },
+                "ruleset": {
+                    "id": "79plas4983031idr6vw83nuel",
+                    "name": "Men"
+                },
+                "competition": {
+                    "id": "2bmwykmdlcc2u1c40ytoc39vy",
+                    "name": "US Open Cup",
+                    "knownName": "US Open Cup",
+                    "competitionCode": "UOC",
+                    "competitionFormat": "Domestic cup",
+                    "country": {
+                        "id": "7hr2f89v44y65dyu9k92vprwn",
+                        "name": "USA"
+                    }
+                },
+                "tournamentCalendar": {
+                    "id": "jd3ycveqnkjvntl7b8wndb6x",
+                    "startDate": "2016-05-11Z",
+                    "endDate": "2016-09-14Z",
+                    "name": "2016"
+                },
+                "stage": {
+                    "id": "an96fg07hmw0ojv49p3pyp6us",
+                    "formatId": "7qvlyz9cxqznk08pldz0fs4id",
+                    "startDate": "2016-07-21Z",
+                    "endDate": "2016-07-21Z",
+                    "name": "Quarter-finals"
+                },
+                "contestant": [
+                    {
+                        "id": "69m5c06m9up1j8vf8ulnb80xu",
+                        "name": "Houston Dynamo",
+                        "shortName": "Houston",
+                        "officialName": "Houston Dynamo FC",
+                        "code": "HOU",
+                        "position": "home",
+                        "country": {
+                            "id": "7hr2f89v44y65dyu9k92vprwn",
+                            "name": "USA"
+                        }
+                    },
+                    {
+                        "id": "4gi4qw4gt6nfq0c6r8y574qgp",
+                        "name": "Dallas",
+                        "shortName": "Dallas",
+                        "officialName": "FC Dallas",
+                        "code": "DAL",
+                        "position": "away",
+                        "country": {
+                            "id": "7hr2f89v44y65dyu9k92vprwn",
+                            "name": "USA"
+                        }
+                    }
+                ],
+                "venue": {
+                    "id": "8whv5an4m1lrhqng92x3m4l3f",
+                    "neutral": "no",
+                    "longName": "Shell Energy Stadium",
+                    "shortName": "Shell Energy Stadium"
+                }
+            },
+            "liveData": {
+                "matchDetails": {
+                    "periodId": 14,
+                    "matchStatus": "Played",
+                    "winner": "away",
+                    "matchLengthMin": 96,
+                    "matchLengthSec": 13,
+                    "period": [
+                        {
+                            "id": 1,
+                            "start": "2016-07-21T00:34:11Z",
+                            "end": "2016-07-21T01:21:09Z",
+                            "lengthMin": 46,
+                            "lengthSec": 58
+                        },
+                        {
+                            "id": 2,
+                            "start": "2016-07-21T01:38:19Z",
+                            "end": "2016-07-21T02:27:34Z",
+                            "lengthMin": 49,
+                            "lengthSec": 15
+                        }
+                    ],
+                    "scores": {
+                        "ht": {
+                            "home": 0,
+                            "away": 0
+                        },
+                        "ft": {
+                            "home": 0,
+                            "away": 1
+                        },
+                        "total": {
+                            "home": 0,
+                            "away": 1
+                        }
+                    }
+                },
+                "goal": [
+                    {
+                        "contestantId": "4gi4qw4gt6nfq0c6r8y574qgp",
+                        "periodId": 2,
+                        "timeMin": 91,
+                        "lastUpdated": "2024-07-23T00:55:27Z",
+                        "type": "G",
+                        "scorerId": "awagggfalu3hw3eysu28ygiqd",
+                        "scorerName": "F. Castillo",
+                        "optaEventId": "1730004580",
+                        "homeScore": 0,
+                        "awayScore": 1
+                    }
+                ],
+                "card": [
+                    {
+                        "contestantId": "69m5c06m9up1j8vf8ulnb80xu",
+                        "periodId": 1,
+                        "timeMin": 23,
+                        "lastUpdated": "2020-09-25T22:27:47Z",
+                        "type": "YC",
+                        "playerId": "8swufhwyim1itr5o9xrv0v1ed",
+                        "playerName": "M. Manotas",
+                        "optaEventId": "36639732",
+                        "cardReason": "Foul"
+                    },
+                    {
+                        "contestantId": "69m5c06m9up1j8vf8ulnb80xu",
+                        "periodId": 2,
+                        "timeMin": 71,
+                        "lastUpdated": "2022-01-31T11:35:41Z",
+                        "type": "YC",
+                        "playerId": "8i548jt5cee1vc5woeh5zmmz9",
+                        "playerName": "R. Clark",
+                        "optaEventId": "283436947",
+                        "cardReason": "Foul"
+                    },
+                    {
+                        "contestantId": "4gi4qw4gt6nfq0c6r8y574qgp",
+                        "periodId": 2,
+                        "timeMin": 77,
+                        "lastUpdated": "2020-08-09T09:09:18Z",
+                        "type": "YC",
+                        "playerId": "8mzf1lhkgv7obfx70f45f3651",
+                        "playerName": "A. Harris",
+                        "optaEventId": "1981494579",
+                        "cardReason": "Foul"
+                    },
+                    {
+                        "contestantId": "69m5c06m9up1j8vf8ulnb80xu",
+                        "periodId": 2,
+                        "timeMin": 83,
+                        "lastUpdated": "2022-04-18T13:57:37Z",
+                        "type": "YC",
+                        "playerId": "ccneomdrmaqlv1o1amv9waml1",
+                        "playerName": "A. Mansally",
+                        "optaEventId": "1050357421",
+                        "cardReason": "Foul"
+                    }
+                ],
+                "substitute": [
+                    {
+                        "contestantId": "4gi4qw4gt6nfq0c6r8y574qgp",
+                        "periodId": 2,
+                        "timeMin": 63,
+                        "lastUpdated": "2022-02-24T12:24:42Z",
+                        "playerOnId": "82sayfife5cfdk9isox5gg8ut",
+                        "playerOnName": "R. Hollingshead",
+                        "playerOffId": "1k3vd2f0e8r92fqkg5981y66t",
+                        "playerOffName": "M. Barrios",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "69m5c06m9up1j8vf8ulnb80xu",
+                        "periodId": 2,
+                        "timeMin": 68,
+                        "lastUpdated": "2021-05-12T23:00:40Z",
+                        "playerOnId": "15kop7o6luu9ppzl283ixra39",
+                        "playerOnName": "B. García",
+                        "playerOffId": "covdroh3u0yk1g5d6uofqi5zp",
+                        "playerOffName": "A. Wenger",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "4gi4qw4gt6nfq0c6r8y574qgp",
+                        "periodId": 2,
+                        "timeMin": 85,
+                        "lastUpdated": "2020-09-26T01:05:26Z",
+                        "playerOnId": "83180uf8plty9hjlnxzqg9gph",
+                        "playerOnName": "T. Akindele",
+                        "playerOffId": "a6zfgjf17p31522rdkrofzob9",
+                        "playerOffName": "M. Urruti",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "69m5c06m9up1j8vf8ulnb80xu",
+                        "periodId": 2,
+                        "timeMin": 85,
+                        "lastUpdated": "2024-05-06T10:57:48Z",
+                        "playerOnId": "tyov0w4vvjp4v8w9rw4fl9zp",
+                        "playerOnName": "Alex",
+                        "playerOffId": "ba0arukvcwn1gagiglyxqz5jp",
+                        "playerOffName": "G. Barnes",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "69m5c06m9up1j8vf8ulnb80xu",
+                        "periodId": 2,
+                        "timeMin": 93,
+                        "lastUpdated": "2024-02-20T17:53:57Z",
+                        "playerOnId": "dut4jl28mnzev74hm4pc9s2j9",
+                        "playerOnName": "W. Bruin",
+                        "playerOffId": "ccneomdrmaqlv1o1amv9waml1",
+                        "playerOffName": "A. Mansally",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "4gi4qw4gt6nfq0c6r8y574qgp",
+                        "periodId": 2,
+                        "timeMin": 93,
+                        "lastUpdated": "2023-05-05T15:53:00Z",
+                        "playerOnId": "hko74gjxp71eto4a30f86bpx",
+                        "playerOnName": "V. Ulloa",
+                        "playerOffId": "d5hgq9en54sht3iy363fe2imt",
+                        "playerOffName": "M. Díaz",
+                        "subReason": "Tactical"
+                    }
+                ],
+                "matchDetailsExtra": {
+                    "attendance": "10150",
+                    "matchOfficial": [
+                        {
+                            "id": "70h9fcv1jnfx6ozaw2jtbt39x",
+                            "type": "Main",
+                            "firstName": "Nima",
+                            "lastName": "Saghafi",
+                            "shortFirstName": "Nima",
+                            "shortLastName": "Saghafi"
+                        },
+                        {
+                            "id": "3p8zp0sldswl2ad1lrv0jpn85",
+                            "type": "Assistant referee 1",
+                            "firstName": "Jeffrey",
+                            "lastName": "Greeson",
+                            "shortFirstName": "Jeffrey",
+                            "shortLastName": "Greeson"
+                        },
+                        {
+                            "id": "3av0yx09ilhirlm524j5tpdd5",
+                            "type": "Assistant referee 2",
+                            "firstName": "Jeremy",
+                            "lastName": "Weed",
+                            "shortFirstName": "Jeremy",
+                            "shortLastName": "Weed"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "matchInfo": {
+                "id": "ar3r2gu3q5ocndstclkkl5uy1",
+                "coverageLevel": "13",
+                "date": "2016-06-29Z",
+                "time": "23:00:00Z",
+                "localDate": "2016-06-29",
+                "localTime": "18:00:00",
+                "numberOfPeriods": 2,
+                "periodLength": 45,
+                "overtimeLength": 15,
+                "lastUpdated": "2025-03-31T16:47:01Z",
+                "description": "Houston Dynamo vs Sporting KC",
+                "sport": {
+                    "id": "289u5typ3vp4ifwh5thalohmq",
+                    "name": "Soccer"
+                },
+                "ruleset": {
+                    "id": "79plas4983031idr6vw83nuel",
+                    "name": "Men"
+                },
+                "competition": {
+                    "id": "2bmwykmdlcc2u1c40ytoc39vy",
+                    "name": "US Open Cup",
+                    "knownName": "US Open Cup",
+                    "competitionCode": "UOC",
+                    "competitionFormat": "Domestic cup",
+                    "country": {
+                        "id": "7hr2f89v44y65dyu9k92vprwn",
+                        "name": "USA"
+                    }
+                },
+                "tournamentCalendar": {
+                    "id": "jd3ycveqnkjvntl7b8wndb6x",
+                    "startDate": "2016-05-11Z",
+                    "endDate": "2016-09-14Z",
+                    "name": "2016"
+                },
+                "stage": {
+                    "id": "c8lm0pxkcwy4ggzmprr0rveno",
+                    "formatId": "614sqb9421oaflw5mpvvm9uj9",
+                    "startDate": "2016-06-29Z",
+                    "endDate": "2016-06-30Z",
+                    "name": "8th Finals"
+                },
+                "contestant": [
+                    {
+                        "id": "69m5c06m9up1j8vf8ulnb80xu",
+                        "name": "Houston Dynamo",
+                        "shortName": "Houston",
+                        "officialName": "Houston Dynamo FC",
+                        "code": "HOU",
+                        "position": "home",
+                        "country": {
+                            "id": "7hr2f89v44y65dyu9k92vprwn",
+                            "name": "USA"
+                        }
+                    },
+                    {
+                        "id": "3olfhpj6emfhceudd95ytb9gy",
+                        "name": "Sporting KC",
+                        "shortName": "Sporting KC",
+                        "officialName": "Sporting Kansas City",
+                        "code": "SKC",
+                        "position": "away",
+                        "country": {
+                            "id": "7hr2f89v44y65dyu9k92vprwn",
+                            "name": "USA"
+                        }
+                    }
+                ],
+                "venue": {
+                    "id": "8whv5an4m1lrhqng92x3m4l3f",
+                    "neutral": "no",
+                    "longName": "Shell Energy Stadium",
+                    "shortName": "Shell Energy Stadium"
+                }
+            },
+            "liveData": {
+                "matchDetails": {
+                    "periodId": 14,
+                    "matchStatus": "Played",
+                    "winner": "home",
+                    "matchLengthMin": 96,
+                    "matchLengthSec": 1,
+                    "period": [
+                        {
+                            "id": 1,
+                            "start": "2016-06-29T23:11:36Z",
+                            "end": "2016-06-29T23:59:37Z",
+                            "lengthMin": 48,
+                            "lengthSec": 1
+                        },
+                        {
+                            "id": 2,
+                            "start": "2016-06-30T00:18:22Z",
+                            "end": "2016-06-30T01:06:22Z",
+                            "lengthMin": 48,
+                            "lengthSec": 0
+                        }
+                    ],
+                    "scores": {
+                        "ht": {
+                            "home": 1,
+                            "away": 0
+                        },
+                        "ft": {
+                            "home": 3,
+                            "away": 1
+                        },
+                        "total": {
+                            "home": 3,
+                            "away": 1
+                        }
+                    }
+                },
+                "goal": [
+                    {
+                        "contestantId": "69m5c06m9up1j8vf8ulnb80xu",
+                        "periodId": 1,
+                        "timeMin": 7,
+                        "lastUpdated": "2020-09-25T22:27:47Z",
+                        "type": "G",
+                        "scorerId": "8swufhwyim1itr5o9xrv0v1ed",
+                        "scorerName": "M. Manotas",
+                        "optaEventId": "2050626420",
+                        "homeScore": 1,
+                        "awayScore": 0
+                    },
+                    {
+                        "contestantId": "69m5c06m9up1j8vf8ulnb80xu",
+                        "periodId": 2,
+                        "timeMin": 55,
+                        "lastUpdated": "2024-05-06T10:57:48Z",
+                        "type": "G",
+                        "scorerId": "tyov0w4vvjp4v8w9rw4fl9zp",
+                        "scorerName": "Alex",
+                        "optaEventId": "1107515829",
+                        "homeScore": 2,
+                        "awayScore": 0
+                    },
+                    {
+                        "contestantId": "3olfhpj6emfhceudd95ytb9gy",
+                        "periodId": 2,
+                        "timeMin": 61,
+                        "lastUpdated": "2017-02-10T14:55:15Z",
+                        "type": "G",
+                        "scorerId": "4r3fr3tjt1koc5zoel1q2ufo5",
+                        "scorerName": "B. Davis",
+                        "optaEventId": "788185749",
+                        "homeScore": 2,
+                        "awayScore": 1
+                    },
+                    {
+                        "contestantId": "69m5c06m9up1j8vf8ulnb80xu",
+                        "periodId": 2,
+                        "timeMin": 84,
+                        "lastUpdated": "2020-09-25T22:27:47Z",
+                        "type": "G",
+                        "scorerId": "8swufhwyim1itr5o9xrv0v1ed",
+                        "scorerName": "M. Manotas",
+                        "optaEventId": "220448810",
+                        "homeScore": 3,
+                        "awayScore": 1
+                    }
+                ],
+                "card": [
+                    {
+                        "contestantId": "69m5c06m9up1j8vf8ulnb80xu",
+                        "periodId": 2,
+                        "timeMin": 52,
+                        "lastUpdated": "2019-05-15T07:56:54Z",
+                        "type": "YC",
+                        "playerId": "cfucb8do9rkxdk9381cinmqd",
+                        "playerName": "J. Anibaba",
+                        "optaEventId": "1535372197",
+                        "cardReason": "Foul"
+                    },
+                    {
+                        "contestantId": "3olfhpj6emfhceudd95ytb9gy",
+                        "periodId": 2,
+                        "timeMin": 88,
+                        "lastUpdated": "2022-12-20T14:32:50Z",
+                        "type": "YC",
+                        "playerId": "16dmszlgoxqwzncidglrv9j9x",
+                        "playerName": "R. Espinoza",
+                        "optaEventId": "325747609",
+                        "cardReason": "Foul"
+                    },
+                    {
+                        "contestantId": "69m5c06m9up1j8vf8ulnb80xu",
+                        "periodId": 2,
+                        "timeMin": 88,
+                        "lastUpdated": "2024-07-29T14:35:11Z",
+                        "type": "YC",
+                        "playerId": "241n038j8171d06j7y97ug4id",
+                        "playerName": "J. Willis",
+                        "optaEventId": "543550629",
+                        "cardReason": "Foul"
+                    }
+                ],
+                "substitute": [
+                    {
+                        "contestantId": "69m5c06m9up1j8vf8ulnb80xu",
+                        "periodId": 2,
+                        "timeMin": 46,
+                        "lastUpdated": "2019-05-15T07:56:54Z",
+                        "playerOnId": "cfucb8do9rkxdk9381cinmqd",
+                        "playerOnName": "J. Anibaba",
+                        "playerOffId": "ccneomdrmaqlv1o1amv9waml1",
+                        "playerOffName": "A. Mansally",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "3olfhpj6emfhceudd95ytb9gy",
+                        "periodId": 2,
+                        "timeMin": 58,
+                        "lastUpdated": "2017-02-10T14:55:15Z",
+                        "playerOnId": "4r3fr3tjt1koc5zoel1q2ufo5",
+                        "playerOnName": "B. Davis",
+                        "playerOffId": "1pm2su08il1sf2497f9dtgvkl",
+                        "playerOffName": "S. Mustivar",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "69m5c06m9up1j8vf8ulnb80xu",
+                        "periodId": 2,
+                        "timeMin": 67,
+                        "lastUpdated": "2023-09-16T00:24:12Z",
+                        "playerOnId": "b6qcbypqd6eicmvpvp1ivu9xx",
+                        "playerOnName": "C. Warner",
+                        "playerOffId": "d150zy8ipfswazbvh2ckyg2xh",
+                        "playerOffName": "C. Maidana",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "3olfhpj6emfhceudd95ytb9gy",
+                        "periodId": 2,
+                        "timeMin": 71,
+                        "lastUpdated": "2022-02-24T16:25:19Z",
+                        "playerOnId": "4e3ftvuylhjgw7bxo9dljlo7p",
+                        "playerOnName": "D. Dwyer",
+                        "playerOffId": "3z2lh52s6xpulwxm636h31e51",
+                        "playerOffName": "D. Rubio",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "69m5c06m9up1j8vf8ulnb80xu",
+                        "periodId": 2,
+                        "timeMin": 77,
+                        "lastUpdated": "2021-05-12T23:00:40Z",
+                        "playerOnId": "15kop7o6luu9ppzl283ixra39",
+                        "playerOnName": "B. García",
+                        "playerOffId": "covdroh3u0yk1g5d6uofqi5zp",
+                        "playerOffName": "A. Wenger",
+                        "subReason": "Tactical"
+                    }
+                ],
+                "matchDetailsExtra": {
+                    "attendance": "6371",
+                    "matchOfficial": [
+                        {
+                            "id": "4gysbxojeyfc92b5qcnjrsiqd",
+                            "type": "Main",
+                            "firstName": "Allen",
+                            "lastName": "Chapman",
+                            "shortFirstName": "Allen",
+                            "shortLastName": "Chapman"
+                        },
+                        {
+                            "id": "4dyqam4f7hzx73x929l6hubxl",
+                            "type": "Assistant referee 1",
+                            "firstName": "Francisco",
+                            "lastName": "Bermudez",
+                            "shortFirstName": "Francisco",
+                            "shortLastName": "Bermudez"
+                        },
+                        {
+                            "id": "4t7zn1chak2osjr2pzxb636c5",
+                            "type": "Assistant referee 2",
+                            "firstName": "Tony",
+                            "lastName": "Obas",
+                            "shortFirstName": "Tony",
+                            "shortLastName": "Obas"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "matchInfo": {
+                "id": "4v7d8m6g28t5jtyvm85ojuz8p",
+                "coverageLevel": "13",
+                "date": "2016-06-16Z",
+                "time": "00:30:00Z",
+                "localDate": "2016-06-15",
+                "localTime": "19:30:00",
+                "numberOfPeriods": 2,
+                "periodLength": 45,
+                "overtimeLength": 15,
+                "lastUpdated": "2025-03-10T21:24:18Z",
+                "description": "Houston Dynamo vs San Antonio",
+                "sport": {
+                    "id": "289u5typ3vp4ifwh5thalohmq",
+                    "name": "Soccer"
+                },
+                "ruleset": {
+                    "id": "79plas4983031idr6vw83nuel",
+                    "name": "Men"
+                },
+                "competition": {
+                    "id": "2bmwykmdlcc2u1c40ytoc39vy",
+                    "name": "US Open Cup",
+                    "knownName": "US Open Cup",
+                    "competitionCode": "UOC",
+                    "competitionFormat": "Domestic cup",
+                    "country": {
+                        "id": "7hr2f89v44y65dyu9k92vprwn",
+                        "name": "USA"
+                    }
+                },
+                "tournamentCalendar": {
+                    "id": "jd3ycveqnkjvntl7b8wndb6x",
+                    "startDate": "2016-05-11Z",
+                    "endDate": "2016-09-14Z",
+                    "name": "2016"
+                },
+                "stage": {
+                    "id": "cydco29zqhmjq7cfepkv94zf7",
+                    "formatId": "1nwzmep86chmczxs7a7iu97md",
+                    "startDate": "2016-06-15Z",
+                    "endDate": "2016-06-16Z",
+                    "name": "4th Round"
+                },
+                "contestant": [
+                    {
+                        "id": "69m5c06m9up1j8vf8ulnb80xu",
+                        "name": "Houston Dynamo",
+                        "shortName": "Houston",
+                        "officialName": "Houston Dynamo FC",
+                        "code": "HOU",
+                        "position": "home",
+                        "country": {
+                            "id": "7hr2f89v44y65dyu9k92vprwn",
+                            "name": "USA"
+                        }
+                    },
+                    {
+                        "id": "87c66ubwpzykovmkaf1t46bis",
+                        "name": "San Antonio",
+                        "shortName": "San Antonio",
+                        "officialName": "San Antonio FC",
+                        "code": "SA",
+                        "position": "away",
+                        "country": {
+                            "id": "7hr2f89v44y65dyu9k92vprwn",
+                            "name": "USA"
+                        }
+                    }
+                ],
+                "venue": {
+                    "id": "8whv5an4m1lrhqng92x3m4l3f",
+                    "neutral": "no",
+                    "longName": "Shell Energy Stadium",
+                    "shortName": "Shell Energy Stadium"
+                }
+            },
+            "liveData": {
+                "matchDetails": {
+                    "periodId": 14,
+                    "matchStatus": "Played",
+                    "winner": "home",
+                    "matchLengthMin": 95,
+                    "matchLengthSec": 5,
+                    "period": [
+                        {
+                            "id": 1,
+                            "start": "2016-06-16T00:34:25Z",
+                            "end": "2016-06-16T01:24:15Z",
+                            "lengthMin": 49,
+                            "lengthSec": 50
+                        },
+                        {
+                            "id": 2,
+                            "start": "2016-06-16T01:41:11Z",
+                            "end": "2016-06-16T02:26:26Z",
+                            "lengthMin": 45,
+                            "lengthSec": 15
+                        }
+                    ],
+                    "scores": {
+                        "ht": {
+                            "home": 2,
+                            "away": 0
+                        },
+                        "ft": {
+                            "home": 4,
+                            "away": 0
+                        },
+                        "total": {
+                            "home": 4,
+                            "away": 0
+                        }
+                    }
+                },
+                "goal": [
+                    {
+                        "contestantId": "69m5c06m9up1j8vf8ulnb80xu",
+                        "periodId": 1,
+                        "timeMin": 39,
+                        "lastUpdated": "2020-09-25T22:27:47Z",
+                        "type": "G",
+                        "scorerId": "8swufhwyim1itr5o9xrv0v1ed",
+                        "scorerName": "M. Manotas",
+                        "optaEventId": "1094811549",
+                        "homeScore": 1,
+                        "awayScore": 0
+                    },
+                    {
+                        "contestantId": "69m5c06m9up1j8vf8ulnb80xu",
+                        "periodId": 1,
+                        "timeMin": 50,
+                        "lastUpdated": "2024-05-06T10:57:48Z",
+                        "type": "G",
+                        "scorerId": "tyov0w4vvjp4v8w9rw4fl9zp",
+                        "scorerName": "Alex",
+                        "optaEventId": "1184138718",
+                        "homeScore": 2,
+                        "awayScore": 0
+                    },
+                    {
+                        "contestantId": "69m5c06m9up1j8vf8ulnb80xu",
+                        "periodId": 2,
+                        "timeMin": 60,
+                        "lastUpdated": "2016-06-16T01:55:54Z",
+                        "type": "G",
+                        "scorerId": "daq8tc04crdc740jz6kwn326t",
+                        "scorerName": "Raúl Rodríguez",
+                        "optaEventId": "1608734071",
+                        "homeScore": 3,
+                        "awayScore": 0
+                    },
+                    {
+                        "contestantId": "69m5c06m9up1j8vf8ulnb80xu",
+                        "periodId": 2,
+                        "timeMin": 66,
+                        "lastUpdated": "2016-06-16T02:01:25Z",
+                        "type": "G",
+                        "scorerId": "3egw8vgvwd0nj4xseubfemvv9",
+                        "scorerName": "L. Miranda",
+                        "optaEventId": "802972322",
+                        "homeScore": 4,
+                        "awayScore": 0
+                    }
+                ],
+                "substitute": [
+                    {
+                        "contestantId": "87c66ubwpzykovmkaf1t46bis",
+                        "periodId": 1,
+                        "timeMin": 46,
+                        "lastUpdated": "2021-01-10T18:31:41Z",
+                        "playerOnId": "8g5mwr1evdkinyk7mwbpkogdl",
+                        "playerOnName": "J. Francois",
+                        "playerOffId": "96rwby52revtrjo0wfnmysez9",
+                        "playerOffName": "S. Chin",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "69m5c06m9up1j8vf8ulnb80xu",
+                        "periodId": 2,
+                        "timeMin": 46,
+                        "lastUpdated": "2016-06-16T01:42:54Z",
+                        "playerOnId": "daq8tc04crdc740jz6kwn326t",
+                        "playerOnName": "Raúl Rodríguez",
+                        "playerOffId": "c7wtw0lejf07dv7ubm7ox3yz9",
+                        "playerOffName": "D. Horst",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "69m5c06m9up1j8vf8ulnb80xu",
+                        "periodId": 2,
+                        "timeMin": 62,
+                        "lastUpdated": "2019-09-26T01:12:21Z",
+                        "playerOnId": "d150zy8ipfswazbvh2ckyg2xh",
+                        "playerOnName": "C. Maidana",
+                        "playerOffId": "15kop7o6luu9ppzl283ixra39",
+                        "playerOffName": "B. García",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "87c66ubwpzykovmkaf1t46bis",
+                        "periodId": 2,
+                        "timeMin": 62,
+                        "lastUpdated": "2016-06-16T02:06:51Z",
+                        "playerOnId": "5n6o15aaim7xji8hhgcgl56fp",
+                        "playerOnName": "Kaka",
+                        "playerOffId": "f149n1tslt3wqg9r6gk2y8edx",
+                        "playerOffName": "D. Garcia",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "69m5c06m9up1j8vf8ulnb80xu",
+                        "periodId": 2,
+                        "timeMin": 71,
+                        "lastUpdated": "2017-03-29T16:33:40Z",
+                        "playerOnId": "boikvurf3t5v7rteeu92o8s89",
+                        "playerOnName": "R. Casner",
+                        "playerOffId": "1knx6w8nx8sd81peciwtes3x1",
+                        "playerOffName": "D. Beasley",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "87c66ubwpzykovmkaf1t46bis",
+                        "periodId": 2,
+                        "timeMin": 74,
+                        "lastUpdated": "2017-11-10T07:15:31Z",
+                        "playerOnId": "e6uyjjtysn5kmskkqckum0tsl",
+                        "playerOnName": "B. Bradnock-Brennan",
+                        "playerOffId": "2561le0zovboqhnxnmn80p1p1",
+                        "playerOffName": "Milton Palacios",
+                        "subReason": "Tactical"
+                    }
+                ],
+                "matchDetailsExtra": {
+                    "attendance": "5807",
+                    "matchOfficial": [
+                        {
+                            "id": "aa5s80rnisj4n58nccft1qc45",
+                            "type": "Main",
+                            "firstName": "Leszek",
+                            "lastName": "Stalmach"
+                        },
+                        {
+                            "id": "3av0yx09ilhirlm524j5tpdd5",
+                            "type": "Assistant referee 1",
+                            "firstName": "Jeremy",
+                            "lastName": "Weed",
+                            "shortFirstName": "Jeremy",
+                            "shortLastName": "Weed"
+                        },
+                        {
+                            "id": "2r2j1hx42hkxorawh2v2v6jt",
+                            "type": "Assistant referee 2",
+                            "firstName": "Diego",
+                            "lastName": "Blas",
+                            "shortFirstName": "Diego",
+                            "shortLastName": "Blas"
+                        }
+                    ]
+                }
+            }
+        }
+    ]
+}

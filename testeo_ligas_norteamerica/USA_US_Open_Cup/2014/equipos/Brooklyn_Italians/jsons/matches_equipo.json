@@ -1,0 +1,482 @@
+{
+    "match": [
+        {
+            "matchInfo": {
+                "id": "4lqzger1tz432kvivqhpm9tza",
+                "coverageLevel": "8",
+                "date": "2014-05-28Z",
+                "time": "23:30:00Z",
+                "localDate": "2014-05-28",
+                "localTime": "19:30:00",
+                "numberOfPeriods": 2,
+                "periodLength": 45,
+                "overtimeLength": 15,
+                "lastUpdated": "2024-11-14T15:25:59Z",
+                "description": "NY Cosmos vs Brooklyn Italians",
+                "sport": {
+                    "id": "289u5typ3vp4ifwh5thalohmq",
+                    "name": "Soccer"
+                },
+                "ruleset": {
+                    "id": "79plas4983031idr6vw83nuel",
+                    "name": "Men"
+                },
+                "competition": {
+                    "id": "2bmwykmdlcc2u1c40ytoc39vy",
+                    "name": "US Open Cup",
+                    "knownName": "US Open Cup",
+                    "competitionCode": "UOC",
+                    "competitionFormat": "Domestic cup",
+                    "country": {
+                        "id": "7hr2f89v44y65dyu9k92vprwn",
+                        "name": "USA"
+                    }
+                },
+                "tournamentCalendar": {
+                    "id": "9dix6hbqctygcjh4rk65f7qda",
+                    "startDate": "2014-05-08Z",
+                    "endDate": "2014-09-17Z",
+                    "name": "2014"
+                },
+                "stage": {
+                    "id": "6nffmhm0pvquoexpu76b7wjm0",
+                    "formatId": "emn81yxry3kpgybjulh9yzq39",
+                    "startDate": "2014-05-28Z",
+                    "endDate": "2014-05-29Z",
+                    "name": "3rd Round"
+                },
+                "contestant": [
+                    {
+                        "id": "18zyeenk8h3o5rwrmkjvnhsv5",
+                        "name": "NY Cosmos",
+                        "shortName": "Cosmos",
+                        "officialName": "New York Cosmos",
+                        "code": "NYC",
+                        "position": "home",
+                        "country": {
+                            "id": "7hr2f89v44y65dyu9k92vprwn",
+                            "name": "USA"
+                        }
+                    },
+                    {
+                        "id": "3shxifr1px969vi99pjbuuphr",
+                        "name": "Brooklyn Italians",
+                        "shortName": "Brooklyn",
+                        "officialName": "Brooklyn Italians",
+                        "code": "BRO",
+                        "position": "away",
+                        "country": {
+                            "id": "7hr2f89v44y65dyu9k92vprwn",
+                            "name": "USA"
+                        }
+                    }
+                ],
+                "venue": {
+                    "id": "b4u0pn6jgqj5zvq4qzq7ars41",
+                    "neutral": "no",
+                    "longName": "Belson Stadium",
+                    "shortName": "Belson Stadium"
+                }
+            },
+            "liveData": {
+                "matchDetails": {
+                    "periodId": 14,
+                    "matchStatus": "Played",
+                    "winner": "home",
+                    "matchLengthMin": 95,
+                    "matchLengthSec": 17,
+                    "period": [
+                        {
+                            "id": 1,
+                            "start": "2014-05-28T23:30:23Z",
+                            "end": "2014-05-29T00:17:34Z",
+                            "lengthMin": 47,
+                            "lengthSec": 11
+                        },
+                        {
+                            "id": 2,
+                            "start": "2014-05-29T00:34:24Z",
+                            "end": "2014-05-29T01:22:30Z",
+                            "lengthMin": 48,
+                            "lengthSec": 6
+                        }
+                    ],
+                    "scores": {
+                        "ht": {
+                            "home": 2,
+                            "away": 0
+                        },
+                        "ft": {
+                            "home": 2,
+                            "away": 0
+                        },
+                        "total": {
+                            "home": 2,
+                            "away": 0
+                        }
+                    }
+                },
+                "goal": [
+                    {
+                        "contestantId": "18zyeenk8h3o5rwrmkjvnhsv5",
+                        "periodId": 1,
+                        "timeMin": 16,
+                        "lastUpdated": "2023-03-13T15:21:19Z",
+                        "type": "G",
+                        "scorerId": "bsjndgdwmdwekzhz7c1s7g53p",
+                        "scorerName": "J. Ockford",
+                        "homeScore": 1,
+                        "awayScore": 0
+                    },
+                    {
+                        "contestantId": "18zyeenk8h3o5rwrmkjvnhsv5",
+                        "periodId": 1,
+                        "timeMin": 30,
+                        "lastUpdated": "2015-07-09T16:17:13Z",
+                        "type": "G",
+                        "scorerId": "3rtzffylrahmil3qg3t4f4onp",
+                        "scorerName": "H. Chirishian",
+                        "homeScore": 2,
+                        "awayScore": 0
+                    }
+                ],
+                "card": [
+                    {
+                        "contestantId": "18zyeenk8h3o5rwrmkjvnhsv5",
+                        "periodId": 1,
+                        "timeMin": 4,
+                        "lastUpdated": "2015-07-09T16:17:13Z",
+                        "type": "YC",
+                        "playerId": "3rtzffylrahmil3qg3t4f4onp",
+                        "playerName": "H. Chirishian",
+                        "cardReason": "Foul"
+                    },
+                    {
+                        "contestantId": "3shxifr1px969vi99pjbuuphr",
+                        "periodId": 1,
+                        "timeMin": 39,
+                        "lastUpdated": "2014-06-27T02:14:26Z",
+                        "type": "YC",
+                        "playerId": "bjtqqitg34l3tlfqfk2ywupjp",
+                        "playerName": "Y. Diese",
+                        "cardReason": "Foul"
+                    },
+                    {
+                        "contestantId": "3shxifr1px969vi99pjbuuphr",
+                        "periodId": 2,
+                        "timeMin": 52,
+                        "lastUpdated": "2019-09-11T12:31:48Z",
+                        "type": "YC",
+                        "playerId": "bjkvcd8dq5149ev3i669hsvrp",
+                        "playerName": "S. Barone",
+                        "cardReason": "Foul"
+                    },
+                    {
+                        "contestantId": "3shxifr1px969vi99pjbuuphr",
+                        "periodId": 2,
+                        "timeMin": 53,
+                        "lastUpdated": "2019-09-11T12:31:48Z",
+                        "type": "Y2C",
+                        "playerId": "bjkvcd8dq5149ev3i669hsvrp",
+                        "playerName": "S. Barone",
+                        "cardReason": "Foul"
+                    },
+                    {
+                        "contestantId": "18zyeenk8h3o5rwrmkjvnhsv5",
+                        "periodId": 2,
+                        "timeMin": 54,
+                        "lastUpdated": "2019-09-11T12:31:38Z",
+                        "type": "YC",
+                        "playerId": "9bn2ed42gx6wmxii43jihjahh",
+                        "playerName": "D. Szetela",
+                        "cardReason": "Foul"
+                    },
+                    {
+                        "contestantId": "18zyeenk8h3o5rwrmkjvnhsv5",
+                        "periodId": 2,
+                        "timeMin": 69,
+                        "lastUpdated": "2021-06-01T02:09:32Z",
+                        "type": "YC",
+                        "playerId": "cvwo0opezib9oohvg3uvbaitx",
+                        "playerName": "H. Freeman",
+                        "cardReason": "Foul"
+                    },
+                    {
+                        "contestantId": "3shxifr1px969vi99pjbuuphr",
+                        "periodId": 2,
+                        "timeMin": 82,
+                        "lastUpdated": "2014-06-27T02:14:26Z",
+                        "type": "Y2C",
+                        "playerId": "bjtqqitg34l3tlfqfk2ywupjp",
+                        "playerName": "Y. Diese",
+                        "cardReason": "Foul"
+                    }
+                ],
+                "substitute": [
+                    {
+                        "contestantId": "3shxifr1px969vi99pjbuuphr",
+                        "periodId": 1,
+                        "timeMin": 45,
+                        "lastUpdated": "2014-06-01T10:27:50Z",
+                        "playerOnId": "369rn5bv7choa5ctxg16g5ihh",
+                        "playerOnName": "J. Aguiar",
+                        "playerOffId": "bjb79rrqvrxuklp5smb4jtrrp",
+                        "playerOffName": "D. Zuniga",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "18zyeenk8h3o5rwrmkjvnhsv5",
+                        "periodId": 2,
+                        "timeMin": 58,
+                        "lastUpdated": "2021-06-01T02:09:32Z",
+                        "playerOnId": "cvwo0opezib9oohvg3uvbaitx",
+                        "playerOnName": "H. Freeman",
+                        "playerOffId": "dl7ha327gcy54bxffnx8vpxhx",
+                        "playerOffName": "Ayoze García",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "3shxifr1px969vi99pjbuuphr",
+                        "periodId": 2,
+                        "timeMin": 70,
+                        "lastUpdated": "2023-04-25T23:01:12Z",
+                        "playerOnId": "bkbqk3p63hkxfbf7msrhdh1w5",
+                        "playerOnName": "M. Conteh",
+                        "playerOffId": "cf3vtwmqlpumz2be7pken45p1",
+                        "playerOffName": "K. Joachim",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "3shxifr1px969vi99pjbuuphr",
+                        "periodId": 2,
+                        "timeMin": 75,
+                        "lastUpdated": "2014-06-27T02:14:26Z",
+                        "playerOnId": "bkwmtayh3rckvuppge27s5v4l",
+                        "playerOnName": "C. Uy",
+                        "playerOffId": "a71221ez60ru670h0g6fhms45",
+                        "playerOffName": "C. Turizo",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "18zyeenk8h3o5rwrmkjvnhsv5",
+                        "periodId": 2,
+                        "timeMin": 76,
+                        "lastUpdated": "2015-07-06T07:17:18Z",
+                        "playerOnId": "96ci3reb8071ujwnpuattqmdx",
+                        "playerOnName": "H. Denissen",
+                        "playerOffId": "7gg3a9cnjbgkhuo1x5mak4m39",
+                        "playerOffName": "S. Dimitrov",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "18zyeenk8h3o5rwrmkjvnhsv5",
+                        "periodId": 2,
+                        "timeMin": 79,
+                        "lastUpdated": "2023-04-24T15:44:20Z",
+                        "playerOnId": "dys5amseelexajp5gn82b3fmd",
+                        "playerOnName": "J. Nane",
+                        "playerOffId": "9bn2ed42gx6wmxii43jihjahh",
+                        "playerOffName": "D. Szetela",
+                        "subReason": "Tactical"
+                    }
+                ],
+                "matchDetailsExtra": {
+                    "attendance": "1851",
+                    "matchOfficial": [
+                        {
+                            "id": "3lqmrzwctg1v01647emkr4j4l",
+                            "type": "Main",
+                            "firstName": "Andres",
+                            "lastName": "Pfefferkorn",
+                            "shortFirstName": "Andres",
+                            "shortLastName": "Pfefferkorn"
+                        },
+                        {
+                            "id": "76mgya2g69ais1zq8lxb71l91",
+                            "type": "Assistant referee 1",
+                            "firstName": "Ernie",
+                            "lastName": "Constantine",
+                            "shortFirstName": "Ernie",
+                            "shortLastName": "Constantine"
+                        },
+                        {
+                            "id": "btyiudg8j1zxh4b7idgglzdn9",
+                            "type": "Assistant referee 2",
+                            "firstName": "Ernie",
+                            "lastName": "Brown"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "matchInfo": {
+                "id": "8rix8ktcgmpsmgnr033vfk09o",
+                "coverageLevel": "5",
+                "date": "2014-05-15Z",
+                "time": "00:00:00Z",
+                "localDate": "2014-05-14",
+                "localTime": "20:00:00",
+                "numberOfPeriods": 2,
+                "periodLength": 45,
+                "overtimeLength": 15,
+                "lastUpdated": "2024-03-19T13:32:09Z",
+                "nextMatchWinnerId": "4lqzger1tz432kvivqhpm9tza",
+                "description": "Jersey Express vs Brooklyn Italians",
+                "sport": {
+                    "id": "289u5typ3vp4ifwh5thalohmq",
+                    "name": "Soccer"
+                },
+                "ruleset": {
+                    "id": "79plas4983031idr6vw83nuel",
+                    "name": "Men"
+                },
+                "competition": {
+                    "id": "2bmwykmdlcc2u1c40ytoc39vy",
+                    "name": "US Open Cup",
+                    "knownName": "US Open Cup",
+                    "competitionCode": "UOC",
+                    "competitionFormat": "Domestic cup",
+                    "country": {
+                        "id": "7hr2f89v44y65dyu9k92vprwn",
+                        "name": "USA"
+                    }
+                },
+                "tournamentCalendar": {
+                    "id": "9dix6hbqctygcjh4rk65f7qda",
+                    "startDate": "2014-05-08Z",
+                    "endDate": "2014-09-17Z",
+                    "name": "2014"
+                },
+                "stage": {
+                    "id": "dwemqq53779fcytlhd646weun",
+                    "formatId": "8cdpi9d29bu9gim4bl5m8ijth",
+                    "startDate": "2014-05-14Z",
+                    "endDate": "2014-05-15Z",
+                    "name": "2nd Round"
+                },
+                "contestant": [
+                    {
+                        "id": "efj2pd6487j105gf2hrc04i16",
+                        "name": "Jersey Express",
+                        "shortName": "Jersey Express",
+                        "officialName": "Jersey Express SC",
+                        "code": "JEX",
+                        "position": "home",
+                        "country": {
+                            "id": "7hr2f89v44y65dyu9k92vprwn",
+                            "name": "USA"
+                        }
+                    },
+                    {
+                        "id": "3shxifr1px969vi99pjbuuphr",
+                        "name": "Brooklyn Italians",
+                        "shortName": "Brooklyn",
+                        "officialName": "Brooklyn Italians",
+                        "code": "BRO",
+                        "position": "away",
+                        "country": {
+                            "id": "7hr2f89v44y65dyu9k92vprwn",
+                            "name": "USA"
+                        }
+                    }
+                ],
+                "venue": {
+                    "id": "dwq2dev7cpivt4dwlzwqa5qcc",
+                    "neutral": "no",
+                    "longName": "Lubetkin Field",
+                    "shortName": "Lubetkin Field"
+                }
+            },
+            "liveData": {
+                "matchDetails": {
+                    "periodId": 14,
+                    "matchStatus": "Played",
+                    "winner": "away",
+                    "scores": {
+                        "ht": {
+                            "home": 1,
+                            "away": 0
+                        },
+                        "ft": {
+                            "home": 2,
+                            "away": 4
+                        },
+                        "total": {
+                            "home": 2,
+                            "away": 4
+                        }
+                    }
+                },
+                "goal": [
+                    {
+                        "contestantId": "efj2pd6487j105gf2hrc04i16",
+                        "periodId": 1,
+                        "timeMin": 12,
+                        "lastUpdated": "2022-03-18T17:47:46Z",
+                        "type": "G",
+                        "scorerId": "3qqxutlybmdt2zz6a2bge0wyd",
+                        "scorerName": "M. Hackett",
+                        "homeScore": 1,
+                        "awayScore": 0
+                    },
+                    {
+                        "contestantId": "3shxifr1px969vi99pjbuuphr",
+                        "periodId": 2,
+                        "timeMin": 48,
+                        "lastUpdated": "2023-04-03T15:03:23Z",
+                        "type": "G",
+                        "scorerId": "6uel6zsun3pauqodkwbl7ir4l",
+                        "scorerName": "J. Barriga Toyama",
+                        "homeScore": 1,
+                        "awayScore": 1
+                    },
+                    {
+                        "contestantId": "efj2pd6487j105gf2hrc04i16",
+                        "periodId": 2,
+                        "timeMin": 62,
+                        "lastUpdated": "2016-06-01T16:30:41Z",
+                        "type": "G",
+                        "scorerId": "1wuvhwgnx6aunflo91yzc9785",
+                        "scorerName": "C. Karcz",
+                        "homeScore": 2,
+                        "awayScore": 1
+                    },
+                    {
+                        "contestantId": "3shxifr1px969vi99pjbuuphr",
+                        "periodId": 2,
+                        "timeMin": 73,
+                        "lastUpdated": "2019-09-11T12:31:48Z",
+                        "type": "PG",
+                        "scorerId": "bjkvcd8dq5149ev3i669hsvrp",
+                        "scorerName": "S. Barone",
+                        "homeScore": 2,
+                        "awayScore": 2
+                    },
+                    {
+                        "contestantId": "3shxifr1px969vi99pjbuuphr",
+                        "periodId": 2,
+                        "timeMin": 81,
+                        "lastUpdated": "2014-10-08T11:16:19Z",
+                        "type": "G",
+                        "scorerId": "e12h1thlpks9f5ah4qz03liol",
+                        "scorerName": "Y. Guerrier",
+                        "homeScore": 2,
+                        "awayScore": 3
+                    },
+                    {
+                        "contestantId": "3shxifr1px969vi99pjbuuphr",
+                        "periodId": 2,
+                        "timeMin": 92,
+                        "lastUpdated": "2014-10-08T11:16:19Z",
+                        "type": "G",
+                        "scorerId": "e12h1thlpks9f5ah4qz03liol",
+                        "scorerName": "Y. Guerrier",
+                        "homeScore": 2,
+                        "awayScore": 4
+                    }
+                ]
+            }
+        }
+    ]
+}

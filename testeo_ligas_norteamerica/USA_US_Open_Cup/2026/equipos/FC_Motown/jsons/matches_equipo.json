@@ -1,0 +1,355 @@
+{
+    "match": [
+        {
+            "matchInfo": {
+                "id": "7zrly7i3ebde48q48e535w5qs",
+                "coverageLevel": "13",
+                "date": "2026-03-18Z",
+                "time": "23:00:00Z",
+                "localDate": "2026-03-18",
+                "localTime": "19:00:00",
+                "numberOfPeriods": 2,
+                "periodLength": 45,
+                "overtimeLength": 15,
+                "lastUpdated": "2026-05-16T18:18:13Z",
+                "description": "FC Motown vs Hartford Athletic",
+                "sport": {
+                    "id": "289u5typ3vp4ifwh5thalohmq",
+                    "name": "Soccer"
+                },
+                "ruleset": {
+                    "id": "79plas4983031idr6vw83nuel",
+                    "name": "Men"
+                },
+                "competition": {
+                    "id": "2bmwykmdlcc2u1c40ytoc39vy",
+                    "name": "US Open Cup",
+                    "knownName": "US Open Cup",
+                    "competitionCode": "UOC",
+                    "competitionFormat": "Domestic cup",
+                    "country": {
+                        "id": "7hr2f89v44y65dyu9k92vprwn",
+                        "name": "USA"
+                    }
+                },
+                "tournamentCalendar": {
+                    "id": "5e1xetw29nk8519zs133hf28k",
+                    "startDate": "2026-03-17Z",
+                    "endDate": "2026-10-21Z",
+                    "name": "2026"
+                },
+                "stage": {
+                    "id": "5et8c7h4rm6n54zsv1wq0jh90",
+                    "formatId": "3ad6z07rilk8flizkw1bhv179",
+                    "startDate": "2026-03-17Z",
+                    "endDate": "2026-03-26Z",
+                    "name": "1st Round"
+                },
+                "contestant": [
+                    {
+                        "id": "d92k7lnokv77sirkh65nbwmd7",
+                        "name": "FC Motown",
+                        "shortName": "FC Motown",
+                        "officialName": "FC Motown",
+                        "code": "MOT",
+                        "position": "home",
+                        "country": {
+                            "id": "7hr2f89v44y65dyu9k92vprwn",
+                            "name": "USA"
+                        }
+                    },
+                    {
+                        "id": "2n3wgr89m7jl8tmioemit2pgq",
+                        "name": "Hartford Athletic",
+                        "shortName": "Hartford Ath",
+                        "officialName": "Hartford Athletic",
+                        "code": "HFD",
+                        "position": "away",
+                        "country": {
+                            "id": "7hr2f89v44y65dyu9k92vprwn",
+                            "name": "USA"
+                        }
+                    }
+                ],
+                "venue": {
+                    "id": "dwq2dev7cpivt4dwlzwqa5qcc",
+                    "neutral": "no",
+                    "longName": "Lubetkin Field",
+                    "shortName": "Lubetkin Field",
+                    "latitude": "40.742375844",
+                    "longitude": "-74.180352688"
+                }
+            },
+            "liveData": {
+                "matchDetails": {
+                    "periodId": 14,
+                    "matchStatus": "Played",
+                    "winner": "away",
+                    "matchLengthMin": 97,
+                    "matchLengthSec": 37,
+                    "period": [
+                        {
+                            "id": 1,
+                            "start": "2026-03-18T23:06:29Z",
+                            "end": "2026-03-18T23:53:30Z",
+                            "lengthMin": 47,
+                            "lengthSec": 1,
+                            "announcedInjuryTime": 120
+                        },
+                        {
+                            "id": 2,
+                            "start": "2026-03-19T00:11:27Z",
+                            "end": "2026-03-19T01:02:03Z",
+                            "lengthMin": 50,
+                            "lengthSec": 36,
+                            "announcedInjuryTime": 300
+                        }
+                    ],
+                    "scores": {
+                        "ht": {
+                            "home": 0,
+                            "away": 1
+                        },
+                        "ft": {
+                            "home": 0,
+                            "away": 2
+                        },
+                        "total": {
+                            "home": 0,
+                            "away": 2
+                        }
+                    }
+                },
+                "goal": [
+                    {
+                        "contestantId": "2n3wgr89m7jl8tmioemit2pgq",
+                        "periodId": 1,
+                        "timeMin": 33,
+                        "timeMinSec": "32:01",
+                        "lastUpdated": "2026-03-27T09:57:19Z",
+                        "timestamp": "2026-03-18T23:38:30Z",
+                        "type": "G",
+                        "scorerId": "c7q476j0dkl7e4fhqqlsp5rai",
+                        "scorerName": "T. Presthus",
+                        "assistPlayerId": "2nq2msqwp3fp9a45yt65ig1nu",
+                        "assistPlayerName": "A. Hernández",
+                        "optaEventId": "2913502217",
+                        "homeScore": 0,
+                        "awayScore": 1
+                    },
+                    {
+                        "contestantId": "2n3wgr89m7jl8tmioemit2pgq",
+                        "periodId": 2,
+                        "timeMin": 51,
+                        "timeMinSec": "50:01",
+                        "lastUpdated": "2026-03-27T09:48:07Z",
+                        "timestamp": "2026-03-19T00:16:29Z",
+                        "type": "G",
+                        "scorerId": "2nq2msqwp3fp9a45yt65ig1nu",
+                        "scorerName": "A. Hernández",
+                        "optaEventId": "2913525541",
+                        "homeScore": 0,
+                        "awayScore": 2
+                    }
+                ],
+                "card": [
+                    {
+                        "contestantId": "d92k7lnokv77sirkh65nbwmd7",
+                        "periodId": 1,
+                        "timeMin": 4,
+                        "timeMinSec": "3:52",
+                        "lastUpdated": "2026-03-18T23:10:27Z",
+                        "timestamp": "2026-03-18T23:10:22Z",
+                        "type": "YC",
+                        "playerId": "4i9d1idklcavbwgdif028ror8",
+                        "playerName": "E. Hope",
+                        "optaEventId": "2913484525",
+                        "cardReason": "Foul"
+                    },
+                    {
+                        "contestantId": "2n3wgr89m7jl8tmioemit2pgq",
+                        "periodId": 1,
+                        "timeMin": 43,
+                        "timeMinSec": "42:53",
+                        "lastUpdated": "2026-04-11T20:26:19Z",
+                        "timestamp": "2026-03-18T23:49:23Z",
+                        "type": "YC",
+                        "playerId": "1eya9wjh3yxzbups6a6q26puy",
+                        "playerName": "G. Flynn",
+                        "optaEventId": "2913509519",
+                        "cardReason": "Foul"
+                    },
+                    {
+                        "contestantId": "d92k7lnokv77sirkh65nbwmd7",
+                        "periodId": 2,
+                        "timeMin": 83,
+                        "timeMinSec": "82:11",
+                        "lastUpdated": "2026-03-19T00:48:48Z",
+                        "timestamp": "2026-03-19T00:48:39Z",
+                        "type": "YC",
+                        "playerId": "6optlc6h7odi85x0vh6g47k7o",
+                        "playerName": "R. Pierre-Louis",
+                        "optaEventId": "2913545263",
+                        "cardReason": "Foul"
+                    }
+                ],
+                "substitute": [
+                    {
+                        "contestantId": "2n3wgr89m7jl8tmioemit2pgq",
+                        "periodId": 2,
+                        "timeMin": 46,
+                        "timeMinSec": "45:00",
+                        "lastUpdated": "2026-03-19T00:10:44Z",
+                        "timestamp": "2026-03-19T00:11:17Z",
+                        "playerOnId": "984jr9d6sbi5l5vt9ct1b6cph",
+                        "playerOnName": "A. Diz",
+                        "playerOffId": "38ghqgck8fwnxap6em08avzs9",
+                        "playerOffName": "J. Scarlett",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "2n3wgr89m7jl8tmioemit2pgq",
+                        "periodId": 2,
+                        "timeMin": 55,
+                        "timeMinSec": "54:15",
+                        "lastUpdated": "2026-03-19T00:20:48Z",
+                        "timestamp": "2026-03-19T00:20:43Z",
+                        "playerOnId": "16si0dgkuqvahp0x1bjr37xuc",
+                        "playerOnName": "Junior Moreira",
+                        "playerOffId": "5vnwvsze01ja9eiy6p2v7jkoa",
+                        "playerOffName": "B. Coffey",
+                        "subReason": "Injury"
+                    },
+                    {
+                        "contestantId": "d92k7lnokv77sirkh65nbwmd7",
+                        "periodId": 2,
+                        "timeMin": 61,
+                        "timeMinSec": "60:54",
+                        "lastUpdated": "2026-03-19T00:27:28Z",
+                        "timestamp": "2026-03-19T00:27:22Z",
+                        "playerOnId": "fumvse37mzst4pm8muq78mei",
+                        "playerOnName": "J. Fala",
+                        "playerOffId": "or8vgbs7g8rllenpzaaa3ii2",
+                        "playerOffName": "J. Bailon",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "d92k7lnokv77sirkh65nbwmd7",
+                        "periodId": 2,
+                        "timeMin": 61,
+                        "timeMinSec": "60:54",
+                        "lastUpdated": "2026-03-19T01:12:15Z",
+                        "timestamp": "2026-03-19T00:27:21Z",
+                        "playerOnId": "6vn4zjif2p7hj4j1janwmr3vu",
+                        "playerOnName": "J. Krongold",
+                        "playerOffId": "9wmomnvu4vbho6qouj4bnmk4q",
+                        "playerOffName": "N. Thanhofer",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "2n3wgr89m7jl8tmioemit2pgq",
+                        "periodId": 2,
+                        "timeMin": 65,
+                        "timeMinSec": "64:18",
+                        "lastUpdated": "2026-03-27T09:50:34Z",
+                        "timestamp": "2026-03-19T00:30:46Z",
+                        "playerOnId": "9blzzcpytqe7o9rdte1s6mw6i",
+                        "playerOnName": "B. Makangila",
+                        "playerOffId": "62edndzpe08hs1vlt0ejkqwb8",
+                        "playerOffName": "S. Canada",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "d92k7lnokv77sirkh65nbwmd7",
+                        "periodId": 2,
+                        "timeMin": 67,
+                        "timeMinSec": "66:06",
+                        "lastUpdated": "2026-03-19T00:32:40Z",
+                        "timestamp": "2026-03-19T00:32:34Z",
+                        "playerOnId": "dokvihfznn6m11rcoonhp589g",
+                        "playerOnName": "H. Weston",
+                        "playerOffId": "6tzlquo1jkhqmp996ow79kjro",
+                        "playerOffName": "L. Sanchez",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "d92k7lnokv77sirkh65nbwmd7",
+                        "periodId": 2,
+                        "timeMin": 67,
+                        "timeMinSec": "66:21",
+                        "lastUpdated": "2026-03-19T00:32:55Z",
+                        "timestamp": "2026-03-19T00:32:49Z",
+                        "playerOnId": "7ms01xknl2y1qmaw6j37dxyj8",
+                        "playerOnName": "P. Tolkin",
+                        "playerOffId": "4i9d1idklcavbwgdif028ror8",
+                        "playerOffName": "E. Hope",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "d92k7lnokv77sirkh65nbwmd7",
+                        "periodId": 2,
+                        "timeMin": 77,
+                        "timeMinSec": "76:30",
+                        "lastUpdated": "2026-03-19T00:43:04Z",
+                        "timestamp": "2026-03-19T00:42:58Z",
+                        "playerOnId": "87bm867yym0r1uv22zzymbjmc",
+                        "playerOnName": "T. Jansen",
+                        "playerOffId": "1wjru6qfjqk2dhkcari94oqvo",
+                        "playerOffName": "K. Baffour",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "2n3wgr89m7jl8tmioemit2pgq",
+                        "periodId": 2,
+                        "timeMin": 80,
+                        "timeMinSec": "79:19",
+                        "lastUpdated": "2026-03-19T00:45:51Z",
+                        "timestamp": "2026-03-19T00:45:47Z",
+                        "playerOnId": "9jfh2t3w4aqc4o4rvjfk7xey1",
+                        "playerOnName": "A. Williams",
+                        "playerOffId": "2nq2msqwp3fp9a45yt65ig1nu",
+                        "playerOffName": "A. Hernández",
+                        "subReason": "Tactical"
+                    }
+                ],
+                "matchDetailsExtra": {
+                    "attendance": "206",
+                    "matchOfficial": [
+                        {
+                            "id": "aldhwmu7l7uwq9n17wro4pk44",
+                            "type": "Main",
+                            "firstName": "Devin",
+                            "lastName": "Dragon",
+                            "shortFirstName": "Devin",
+                            "shortLastName": "Dragon"
+                        },
+                        {
+                            "id": "9daw94ok4ltnlvp81iwejh2lm",
+                            "type": "Assistant referee 1",
+                            "firstName": "Justin",
+                            "lastName": "Saporito",
+                            "shortFirstName": "Justin",
+                            "shortLastName": "Saporito"
+                        },
+                        {
+                            "id": "4f1pjm3ato492y7r38ujwy9uy",
+                            "type": "Assistant referee 2",
+                            "firstName": "Kevin",
+                            "lastName": "Cavalcanti",
+                            "shortFirstName": "Kevin",
+                            "shortLastName": "Cavalcanti"
+                        },
+                        {
+                            "id": "1cimfzry4yr14zvkku78i8z6c",
+                            "type": "Fourth official",
+                            "firstName": "Leonel",
+                            "lastName": "Brito",
+                            "shortFirstName": "Leonel",
+                            "shortLastName": "Brito"
+                        }
+                    ]
+                }
+            }
+        }
+    ]
+}

@@ -1,0 +1,316 @@
+{
+    "match": [
+        {
+            "matchInfo": {
+                "id": "7hbh8wo4dl6in2mwcgll9cui2",
+                "coverageLevel": "13",
+                "date": "2019-06-13Z",
+                "time": "02:30:00Z",
+                "localDate": "2019-06-12",
+                "localTime": "19:30:00",
+                "numberOfPeriods": 2,
+                "periodLength": 45,
+                "overtimeLength": 15,
+                "lastUpdated": "2025-04-02T17:00:26Z",
+                "description": "Seattle Sounders vs Portland Timbers",
+                "sport": {
+                    "id": "289u5typ3vp4ifwh5thalohmq",
+                    "name": "Soccer"
+                },
+                "ruleset": {
+                    "id": "79plas4983031idr6vw83nuel",
+                    "name": "Men"
+                },
+                "competition": {
+                    "id": "2bmwykmdlcc2u1c40ytoc39vy",
+                    "name": "US Open Cup",
+                    "knownName": "US Open Cup",
+                    "competitionCode": "UOC",
+                    "competitionFormat": "Domestic cup",
+                    "country": {
+                        "id": "7hr2f89v44y65dyu9k92vprwn",
+                        "name": "USA"
+                    }
+                },
+                "tournamentCalendar": {
+                    "id": "c7tmg7pxkutef9ymogovz4huy",
+                    "startDate": "2019-05-08Z",
+                    "endDate": "2019-08-28Z",
+                    "name": "2019"
+                },
+                "stage": {
+                    "id": "c8rvjojfkx2aounmoug6soqy2",
+                    "formatId": "1nwzmep86chmczxs7a7iu97md",
+                    "startDate": "2019-06-12Z",
+                    "endDate": "2019-06-14Z",
+                    "name": "4th Round"
+                },
+                "contestant": [
+                    {
+                        "id": "3st9rj62b3qnni6uolw0lwaqn",
+                        "name": "Seattle Sounders",
+                        "shortName": "Sounders",
+                        "officialName": "Seattle Sounders FC",
+                        "code": "SEA",
+                        "position": "home",
+                        "country": {
+                            "id": "7hr2f89v44y65dyu9k92vprwn",
+                            "name": "USA"
+                        }
+                    },
+                    {
+                        "id": "77o8sorlijzpr0t4s7231zzxp",
+                        "name": "Portland Timbers",
+                        "shortName": "Portland",
+                        "officialName": "Portland Timbers",
+                        "code": "POR",
+                        "position": "away",
+                        "country": {
+                            "id": "7hr2f89v44y65dyu9k92vprwn",
+                            "name": "USA"
+                        }
+                    }
+                ],
+                "venue": {
+                    "id": "35nngkco54lii3p4v1yz4r1wq",
+                    "neutral": "no",
+                    "longName": "Cheney Stadium",
+                    "shortName": "Cheney Stadium"
+                }
+            },
+            "liveData": {
+                "matchDetails": {
+                    "periodId": 14,
+                    "matchStatus": "Played",
+                    "winner": "away",
+                    "matchLengthMin": 96,
+                    "matchLengthSec": 34,
+                    "period": [
+                        {
+                            "id": 1,
+                            "start": "2019-06-13T02:37:05Z",
+                            "end": "2019-06-13T03:25:20Z",
+                            "lengthMin": 48,
+                            "lengthSec": 15
+                        },
+                        {
+                            "id": 2,
+                            "start": "2019-06-13T03:41:51Z",
+                            "end": "2019-06-13T04:30:10Z",
+                            "lengthMin": 48,
+                            "lengthSec": 19
+                        }
+                    ],
+                    "scores": {
+                        "ht": {
+                            "home": 1,
+                            "away": 1
+                        },
+                        "ft": {
+                            "home": 1,
+                            "away": 2
+                        },
+                        "total": {
+                            "home": 1,
+                            "away": 2
+                        }
+                    }
+                },
+                "goal": [
+                    {
+                        "contestantId": "77o8sorlijzpr0t4s7231zzxp",
+                        "periodId": 1,
+                        "timeMin": 6,
+                        "timeMinSec": "5:49",
+                        "lastUpdated": "2025-01-28T01:00:15Z",
+                        "type": "G",
+                        "scorerId": "6jdawjzbqq54yorulpz98c5w5",
+                        "scorerName": "B. Fernández",
+                        "assistPlayerId": "e5nj82ezbq0x6zdzdh4quyxn9",
+                        "assistPlayerName": "S. Blanco",
+                        "optaEventId": "1679787018",
+                        "homeScore": 0,
+                        "awayScore": 1
+                    },
+                    {
+                        "contestantId": "3st9rj62b3qnni6uolw0lwaqn",
+                        "periodId": 1,
+                        "timeMin": 44,
+                        "timeMinSec": "43:36",
+                        "lastUpdated": "2019-06-13T03:21:01Z",
+                        "type": "G",
+                        "scorerId": "46seb593jc75c0q0vml2ikc7p",
+                        "scorerName": "Víctor Rodríguez",
+                        "optaEventId": "1215043912",
+                        "homeScore": 1,
+                        "awayScore": 1
+                    },
+                    {
+                        "contestantId": "77o8sorlijzpr0t4s7231zzxp",
+                        "periodId": 2,
+                        "timeMin": 50,
+                        "timeMinSec": "49:58",
+                        "lastUpdated": "2025-01-28T01:00:15Z",
+                        "type": "G",
+                        "scorerId": "6jdawjzbqq54yorulpz98c5w5",
+                        "scorerName": "B. Fernández",
+                        "assistPlayerId": "6a6mbb6e462y31yyfprw3br3d",
+                        "assistPlayerName": "J. Ebobisse",
+                        "optaEventId": "2093845584",
+                        "homeScore": 1,
+                        "awayScore": 2
+                    }
+                ],
+                "missedPen": [
+                    {
+                        "contestantId": "3st9rj62b3qnni6uolw0lwaqn",
+                        "periodId": 2,
+                        "timeMin": 79,
+                        "lastUpdated": "2019-06-13T04:16:27Z",
+                        "type": "PM",
+                        "playerId": "46seb593jc75c0q0vml2ikc7p",
+                        "playerName": "Víctor Rodríguez",
+                        "optaEventId": "1523776416"
+                    }
+                ],
+                "card": [
+                    {
+                        "contestantId": "3st9rj62b3qnni6uolw0lwaqn",
+                        "periodId": 1,
+                        "timeMin": 30,
+                        "timeMinSec": "29:24",
+                        "lastUpdated": "2024-05-06T12:58:51Z",
+                        "type": "YC",
+                        "playerId": "7ow3xv8u8vzjfis6fn1p7n4dl",
+                        "playerName": "A. Roldan",
+                        "optaEventId": "1799750696",
+                        "cardReason": "Foul"
+                    },
+                    {
+                        "contestantId": "3st9rj62b3qnni6uolw0lwaqn",
+                        "periodId": 1,
+                        "timeMin": 47,
+                        "timeMinSec": "46:10",
+                        "lastUpdated": "2024-02-20T17:53:57Z",
+                        "type": "YC",
+                        "playerId": "dut4jl28mnzev74hm4pc9s2j9",
+                        "playerName": "W. Bruin",
+                        "optaEventId": "1195921151",
+                        "cardReason": "Foul"
+                    }
+                ],
+                "substitute": [
+                    {
+                        "contestantId": "3st9rj62b3qnni6uolw0lwaqn",
+                        "periodId": 2,
+                        "timeMin": 58,
+                        "timeMinSec": "57:06",
+                        "lastUpdated": "2023-07-09T11:31:31Z",
+                        "playerOnId": "5wzjiocild0uj4d0ctq5ipz9x",
+                        "playerOnName": "H. Wingo",
+                        "playerOffId": "8t08t0apxw269hv16vhxaycbt",
+                        "playerOffName": "H. Bwana",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "77o8sorlijzpr0t4s7231zzxp",
+                        "periodId": 2,
+                        "timeMin": 75,
+                        "timeMinSec": "74:10",
+                        "lastUpdated": "2019-11-15T17:50:06Z",
+                        "playerOnId": "2vi0jnzpu8uxqpkdwo0xcl2p5",
+                        "playerOnName": "C. Paredes",
+                        "playerOffId": "9eaqna3khzf89iafqbjz69hw5",
+                        "playerOffName": "R. Zambrano",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "3st9rj62b3qnni6uolw0lwaqn",
+                        "periodId": 2,
+                        "timeMin": 81,
+                        "timeMinSec": "80:35",
+                        "lastUpdated": "2024-02-18T19:29:17Z",
+                        "playerOnId": "90ij057q6p0us957s28gx1905",
+                        "playerOnName": "B. Smith",
+                        "playerOffId": "46seb593jc75c0q0vml2ikc7p",
+                        "playerOffName": "Víctor Rodríguez",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "3st9rj62b3qnni6uolw0lwaqn",
+                        "periodId": 2,
+                        "timeMin": 84,
+                        "timeMinSec": "83:18",
+                        "lastUpdated": "2020-07-22T04:12:19Z",
+                        "playerOnId": "a70dmnhf6bzfnd4pinxyhln1l",
+                        "playerOnName": "S. Hopeau",
+                        "playerOffId": "4ctqowp9o7mwhajsc4gucql0p",
+                        "playerOffName": "N. Tolo",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "77o8sorlijzpr0t4s7231zzxp",
+                        "periodId": 2,
+                        "timeMin": 86,
+                        "timeMinSec": "85:30",
+                        "lastUpdated": "2023-03-22T03:44:02Z",
+                        "playerOnId": "7pyr8pgr06dm8leeji7nqp3o5",
+                        "playerOnName": "C. Dielna",
+                        "playerOffId": "6jdawjzbqq54yorulpz98c5w5",
+                        "playerOffName": "B. Fernández",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "77o8sorlijzpr0t4s7231zzxp",
+                        "periodId": 2,
+                        "timeMin": 90,
+                        "timeMinSec": "89:57",
+                        "lastUpdated": "2024-08-26T04:16:57Z",
+                        "playerOnId": "d6vfmln3oxuel34y15hnp8bft",
+                        "playerOnName": "T. Conechny",
+                        "playerOffId": "e5d62a8i9q48nxddohhp80r11",
+                        "playerOffName": "D. Valeri",
+                        "subReason": "Tactical"
+                    }
+                ],
+                "matchDetailsExtra": {
+                    "attendance": "6280",
+                    "matchOfficial": [
+                        {
+                            "id": "by74g1urvx67zi7hsxcv5nq39",
+                            "type": "Main",
+                            "firstName": "Alex",
+                            "lastName": "Chilowicz",
+                            "shortFirstName": "Alex",
+                            "shortLastName": "Chilowicz"
+                        },
+                        {
+                            "id": "4zpd0h1svcxdufgaiys4hr8id",
+                            "type": "Assistant referee 1",
+                            "firstName": "Baboucarr",
+                            "lastName": "Jallow",
+                            "shortFirstName": "Baboucarr",
+                            "shortLastName": "Jallow"
+                        },
+                        {
+                            "id": "8lxlxz2qvpxa0kn1dzzopymsp",
+                            "type": "Assistant referee 2",
+                            "firstName": "Cameron",
+                            "lastName": "Siler",
+                            "shortFirstName": "Cameron",
+                            "shortLastName": "Siler"
+                        },
+                        {
+                            "id": "650lw2k9ct97g87f4ur3hmlsl",
+                            "type": "Fourth official",
+                            "firstName": "Chipalo",
+                            "lastName": "Street",
+                            "shortFirstName": "Chipalo",
+                            "shortLastName": "Street"
+                        }
+                    ]
+                }
+            }
+        }
+    ]
+}

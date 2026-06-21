@@ -1,0 +1,339 @@
+{
+    "match": [
+        {
+            "matchInfo": {
+                "id": "auox8kgsgv0s0vsnt0gxfbims",
+                "coverageLevel": "13",
+                "date": "2025-03-20Z",
+                "time": "00:00:00Z",
+                "localDate": "2025-03-19",
+                "localTime": "19:00:00",
+                "numberOfPeriods": 2,
+                "periodLength": 45,
+                "overtimeLength": 15,
+                "lastUpdated": "2025-09-19T05:22:12Z",
+                "description": "Little Rock Rangers vs Birmingham Legion",
+                "sport": {
+                    "id": "289u5typ3vp4ifwh5thalohmq",
+                    "name": "Soccer"
+                },
+                "ruleset": {
+                    "id": "79plas4983031idr6vw83nuel",
+                    "name": "Men"
+                },
+                "competition": {
+                    "id": "2bmwykmdlcc2u1c40ytoc39vy",
+                    "name": "US Open Cup",
+                    "knownName": "US Open Cup",
+                    "competitionCode": "UOC",
+                    "competitionFormat": "Domestic cup",
+                    "country": {
+                        "id": "7hr2f89v44y65dyu9k92vprwn",
+                        "name": "USA"
+                    }
+                },
+                "tournamentCalendar": {
+                    "id": "cg9jkml9zkekrf2j9pv5s3w9g",
+                    "startDate": "2025-03-18Z",
+                    "endDate": "2025-10-02Z",
+                    "name": "2025"
+                },
+                "stage": {
+                    "id": "ch349ac5072p4li41yf41v3tg",
+                    "formatId": "3ad6z07rilk8flizkw1bhv179",
+                    "startDate": "2025-03-18Z",
+                    "endDate": "2025-03-22Z",
+                    "name": "1st Round"
+                },
+                "contestant": [
+                    {
+                        "id": "b09tzvfsvzb1uww75lefq3hpm",
+                        "name": "Little Rock Rangers",
+                        "shortName": "Little Rock R.",
+                        "officialName": "Little Rock Rangers SC",
+                        "code": "LRR",
+                        "position": "home",
+                        "country": {
+                            "id": "7hr2f89v44y65dyu9k92vprwn",
+                            "name": "USA"
+                        }
+                    },
+                    {
+                        "id": "c9xffml4i7ihblp1qhus9w3fu",
+                        "name": "Birmingham Legion",
+                        "shortName": "Legion",
+                        "officialName": "Birmingham Legion FC",
+                        "code": "BHM",
+                        "position": "away",
+                        "country": {
+                            "id": "7hr2f89v44y65dyu9k92vprwn",
+                            "name": "USA"
+                        }
+                    }
+                ],
+                "venue": {
+                    "id": "15k4i4nyeihtmr2tb1hsnw3u2",
+                    "neutral": "no",
+                    "longName": "Episcopal Collegiate School",
+                    "shortName": "Episcopal Collegiate School",
+                    "latitude": "34.751559026",
+                    "longitude": "-92.288421400"
+                }
+            },
+            "liveData": {
+                "matchDetails": {
+                    "periodId": 14,
+                    "matchStatus": "Played",
+                    "winner": "home",
+                    "matchLengthMin": 98,
+                    "matchLengthSec": 7,
+                    "period": [
+                        {
+                            "id": 1,
+                            "start": "2025-03-20T00:04:08Z",
+                            "end": "2025-03-20T00:51:04Z",
+                            "lengthMin": 46,
+                            "lengthSec": 56,
+                            "announcedInjuryTime": 120
+                        },
+                        {
+                            "id": 2,
+                            "start": "2025-03-20T01:10:08Z",
+                            "end": "2025-03-20T02:01:19Z",
+                            "lengthMin": 51,
+                            "lengthSec": 11,
+                            "announcedInjuryTime": 360
+                        }
+                    ],
+                    "scores": {
+                        "ht": {
+                            "home": 0,
+                            "away": 0
+                        },
+                        "ft": {
+                            "home": 1,
+                            "away": 0
+                        },
+                        "total": {
+                            "home": 1,
+                            "away": 0
+                        }
+                    }
+                },
+                "goal": [
+                    {
+                        "contestantId": "b09tzvfsvzb1uww75lefq3hpm",
+                        "periodId": 2,
+                        "timeMin": 48,
+                        "timeMinSec": "47:50",
+                        "lastUpdated": "2025-03-20T01:13:38Z",
+                        "timestamp": "2025-03-20T01:12:58Z",
+                        "type": "G",
+                        "scorerId": "79bmc1damt7n1rl4q4nemtylm",
+                        "scorerName": "C. McConnell",
+                        "optaEventId": "2790347493",
+                        "homeScore": 1,
+                        "awayScore": 0
+                    }
+                ],
+                "missedPen": [
+                    {
+                        "contestantId": "b09tzvfsvzb1uww75lefq3hpm",
+                        "periodId": 1,
+                        "timeMin": 24,
+                        "timeMinSec": "23:27",
+                        "lastUpdated": "2025-03-20T00:27:50Z",
+                        "timestamp": "2025-03-20T00:27:35Z",
+                        "type": "PS",
+                        "playerId": "crx31m3bxl31bcvlfyysjqxux",
+                        "playerName": "T. Wróblewski",
+                        "optaEventId": "2790336203"
+                    },
+                    {
+                        "contestantId": "c9xffml4i7ihblp1qhus9w3fu",
+                        "periodId": 1,
+                        "timeMin": 24,
+                        "timeMinSec": "23:27",
+                        "lastUpdated": "2025-05-18T21:40:09Z",
+                        "timestamp": "2025-03-20T00:27:35Z",
+                        "type": "PM",
+                        "playerId": "18wgo4h0t9f3tbt8iq0tmkl7u",
+                        "playerName": "L. Dourado",
+                        "optaEventId": "2790336193"
+                    }
+                ],
+                "card": [
+                    {
+                        "contestantId": "c9xffml4i7ihblp1qhus9w3fu",
+                        "periodId": 1,
+                        "timeMin": 39,
+                        "timeMinSec": "38:04",
+                        "lastUpdated": "2025-03-20T00:42:25Z",
+                        "timestamp": "2025-03-20T00:42:12Z",
+                        "type": "YC",
+                        "playerId": "8t6b8q53ovws370a1b27s85jo",
+                        "playerName": "R. Torres",
+                        "optaEventId": "2790339551",
+                        "cardReason": "Foul"
+                    },
+                    {
+                        "contestantId": "b09tzvfsvzb1uww75lefq3hpm",
+                        "periodId": 1,
+                        "timeMin": 44,
+                        "timeMinSec": "43:50",
+                        "lastUpdated": "2025-03-20T00:48:07Z",
+                        "timestamp": "2025-03-20T00:47:58Z",
+                        "type": "YC",
+                        "playerId": "ed08m0e0qdzyic5pa8hmtkb8",
+                        "playerName": "D. Burko",
+                        "optaEventId": "2790341411",
+                        "cardReason": "Foul"
+                    }
+                ],
+                "substitute": [
+                    {
+                        "contestantId": "c9xffml4i7ihblp1qhus9w3fu",
+                        "periodId": 2,
+                        "timeMin": 46,
+                        "timeMinSec": "45:00",
+                        "lastUpdated": "2025-03-20T01:09:43Z",
+                        "timestamp": "2025-03-20T01:09:38Z",
+                        "playerOnId": "5uv1a9rj5wot3wcgefjoxhkdm",
+                        "playerOnName": "J. Rufe",
+                        "playerOffId": "beq6yluq1raxsrvxo77qlrf56",
+                        "playerOffName": "S. Turnbull",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "c9xffml4i7ihblp1qhus9w3fu",
+                        "periodId": 2,
+                        "timeMin": 60,
+                        "timeMinSec": "59:40",
+                        "lastUpdated": "2025-03-20T01:25:25Z",
+                        "timestamp": "2025-03-20T01:24:49Z",
+                        "playerOnId": "dlhfyk6fgvqt3zrr5qfj7c6w9",
+                        "playerOnName": "D. McCartney",
+                        "playerOffId": "86fbk8r7wsy14weicjdxj76z8",
+                        "playerOffName": "F. Calloway",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "c9xffml4i7ihblp1qhus9w3fu",
+                        "periodId": 2,
+                        "timeMin": 60,
+                        "timeMinSec": "59:42",
+                        "lastUpdated": "2025-03-20T01:24:58Z",
+                        "timestamp": "2025-03-20T01:24:51Z",
+                        "playerOnId": "272w5ezobn1o53b3yxnbgjckq",
+                        "playerOnName": "K. Hernández-Foster",
+                        "playerOffId": "8t6b8q53ovws370a1b27s85jo",
+                        "playerOffName": "R. Torres",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "c9xffml4i7ihblp1qhus9w3fu",
+                        "periodId": 2,
+                        "timeMin": 60,
+                        "timeMinSec": "59:48",
+                        "lastUpdated": "2025-03-20T01:25:01Z",
+                        "timestamp": "2025-03-20T01:24:56Z",
+                        "playerOnId": "2rsduabh7r8i29f9i6znwbfu1",
+                        "playerOnName": "R. Damus",
+                        "playerOffId": "18wgo4h0t9f3tbt8iq0tmkl7u",
+                        "playerOffName": "L. Dourado",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "c9xffml4i7ihblp1qhus9w3fu",
+                        "periodId": 2,
+                        "timeMin": 71,
+                        "timeMinSec": "70:44",
+                        "lastUpdated": "2025-03-20T01:35:58Z",
+                        "timestamp": "2025-03-20T01:35:53Z",
+                        "playerOnId": "ece6sffb02drwz4brwndn0rh0",
+                        "playerOnName": "R. Hamouda",
+                        "playerOffId": "5iuzoq7alcxdn37rp7lvqyexg",
+                        "playerOffName": "T. Ereku",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "b09tzvfsvzb1uww75lefq3hpm",
+                        "periodId": 2,
+                        "timeMin": 77,
+                        "timeMinSec": "76:50",
+                        "lastUpdated": "2025-07-25T02:26:08Z",
+                        "timestamp": "2025-03-20T01:41:58Z",
+                        "playerOnId": "f0wgaj9man021lplzv3e3gjmy",
+                        "playerOnName": "A. Padilla",
+                        "playerOffId": "98yn26c80yqseclnvdyrc644q",
+                        "playerOffName": "K. Ventura",
+                        "subReason": "Injury"
+                    },
+                    {
+                        "contestantId": "b09tzvfsvzb1uww75lefq3hpm",
+                        "periodId": 2,
+                        "timeMin": 85,
+                        "timeMinSec": "84:15",
+                        "lastUpdated": "2025-03-20T01:49:58Z",
+                        "timestamp": "2025-03-20T01:49:24Z",
+                        "playerOnId": "7j8667tkqa8q49bt72uc4e1d6",
+                        "playerOnName": "L. Crabtree",
+                        "playerOffId": "58o2dmtoy4txkfjjjy7fwo0t0",
+                        "playerOffName": "Jon Coca",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "b09tzvfsvzb1uww75lefq3hpm",
+                        "periodId": 2,
+                        "timeMin": 89,
+                        "timeMinSec": "89:00",
+                        "lastUpdated": "2025-03-20T01:54:16Z",
+                        "timestamp": "2025-03-20T01:54:08Z",
+                        "playerOnId": "b5lhfxfe8u4k7wt6i22a03uok",
+                        "playerOnName": "I. Jones",
+                        "playerOffId": "e1kj1ki3qicm5ke2ciolas4yc",
+                        "playerOffName": "E. Blake",
+                        "subReason": "Tactical"
+                    }
+                ],
+                "matchDetailsExtra": {
+                    "attendance": "1328",
+                    "matchOfficial": [
+                        {
+                            "id": "2jtpbfqpgzk7xxyzt0vv9txxw",
+                            "type": "Main",
+                            "firstName": "DeShun",
+                            "lastName": "Beard",
+                            "shortFirstName": "DeShun",
+                            "shortLastName": "Beard"
+                        },
+                        {
+                            "id": "5lp9m4urv616kdr9zh00gkb9w",
+                            "type": "Assistant referee 1",
+                            "firstName": "Chris",
+                            "lastName": "Thresher",
+                            "shortFirstName": "Chris",
+                            "shortLastName": "Thresher"
+                        },
+                        {
+                            "id": "74skk1ng35fxvr1hpy7wttcoa",
+                            "type": "Assistant referee 2",
+                            "firstName": "Robert",
+                            "lastName": "Lilly",
+                            "shortFirstName": "Robert",
+                            "shortLastName": "Lilly"
+                        },
+                        {
+                            "id": "o360qk22h8thrzbkoftey2cq",
+                            "type": "Fourth official",
+                            "firstName": "Albert",
+                            "lastName": "Kyei-Mensah",
+                            "shortFirstName": "Albert",
+                            "shortLastName": "Kyei-Mensah"
+                        }
+                    ]
+                }
+            }
+        }
+    ]
+}
