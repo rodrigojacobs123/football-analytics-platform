@@ -19,14 +19,40 @@ from data.event_parser import (
     extract_ball_recoveries, extract_tackles, extract_interceptions,
     extract_clearances, extract_shots,
 )
-from config import EVENT_GOAL, EVENT_MISS, EVENT_POST, EVENT_ATTEMPT_SAVED
+from config import EVENT_GOAL, EVENT_MISS, EVENT_POST, EVENT_ATTEMPT_SAVED, EVENT_PASS
 
 
 SHOT_TYPES = {EVENT_GOAL, EVENT_MISS, EVENT_POST, EVENT_ATTEMPT_SAVED}
 
+# Possession-adjustment baseline: a neutral team spends 50 % of the game out of
+# possession.  Defensive volume scales with time out of possession, so we
+# rescale to this baseline to compare teams on a like-for-like basis.
+PADJ_BASELINE = 0.5
+# Clamp the multiplier so an extreme blow-out match can't explode the numbers.
+PADJ_FACTOR_BOUNDS = (0.5, 2.0)
+
 
 def _seconds(ev: dict) -> float:
     return int(ev.get("timeMin", 0)) * 60 + int(ev.get("timeSec", 0))
+
+
+def possession_adjust(raw: float, out_of_poss_share: float,
+                      baseline: float = PADJ_BASELINE) -> float:
+    """Scale a raw defensive count to a neutral out-of-possession baseline.
+
+    A team that sees little of the opponent on the ball (it dominates
+    possession) records fewer defensive actions purely through lack of
+    opportunity.  ``PAdj = raw · baseline / out_of_poss_share`` credits those
+    actions at their true per-opportunity rate.  The multiplier is clamped to
+    ``PADJ_FACTOR_BOUNDS`` so a lop-sided match can't distort the figure.
+
+    Reference: StatsBomb / The Analyst possession-adjusted defensive metrics.
+    """
+    if out_of_poss_share <= 0:
+        return raw
+    factor = baseline / out_of_poss_share
+    lo, hi = PADJ_FACTOR_BOUNDS
+    return raw * max(lo, min(hi, factor))
 
 
 def compute_pressure_metrics(events: list[dict], team_id: str,
@@ -36,6 +62,15 @@ def compute_pressure_metrics(events: list[dict], team_id: str,
     tackles     = extract_tackles(events, team_id)
     intercepts  = extract_interceptions(events, team_id)
     clearances  = extract_clearances(events, team_id)
+
+    # ── Possession share (pass-count proxy) ──────────────────────────────
+    team_passes = sum(1 for e in events
+                      if e.get("typeId") == EVENT_PASS and e.get("contestantId") == team_id)
+    opp_passes = sum(1 for e in events
+                     if e.get("typeId") == EVENT_PASS and e.get("contestantId") == opp_id)
+    total_passes = team_passes + opp_passes
+    possession_pct = round(100 * team_passes / total_passes, 1) if total_passes else 50.0
+    out_of_poss_share = (opp_passes / total_passes) if total_passes else 0.5
 
     # ── Ball recovery height ─────────────────────────────────────────────
     ball_recovery_height = (
@@ -99,6 +134,15 @@ def compute_pressure_metrics(events: list[dict], team_id: str,
                 pressure_regains += 1
             last_opp_pass_t = None
 
+    # ── Possession-adjusted defensive volume ─────────────────────────────
+    # Total defensive actions = tackles + interceptions + clearances + recoveries.
+    total_def_actions = (len(tackles) + len(intercepts) + len(clearances)
+                         + len(recoveries))
+    padj_def_actions = round(
+        possession_adjust(total_def_actions, out_of_poss_share), 1)
+    padj_high_turnovers = round(
+        possession_adjust(high_turnovers, out_of_poss_share), 1)
+
     return {
         "ball_recovery_height":     ball_recovery_height,
         "def_line_height":          def_line_height,
@@ -106,6 +150,10 @@ def compute_pressure_metrics(events: list[dict], team_id: str,
         "shot_ending_high_turnovers": shot_ending_htos,
         "pressure_regains_5s":      pressure_regains,
         "total_recoveries":         len(recoveries),
+        "possession_pct":           possession_pct,
+        "total_def_actions":        total_def_actions,
+        "padj_def_actions":         padj_def_actions,
+        "padj_high_turnovers":      padj_high_turnovers,
         "recoveries_df":            recoveries,
         "def_actions_df":           def_actions,
     }
@@ -174,6 +222,10 @@ def compute_season_pressure(league: str, season: str, team_id: str,
             "high_turnovers": m["high_turnovers"],
             "shot_ending_high_turnovers": m["shot_ending_high_turnovers"],
             "pressure_regains_5s": m["pressure_regains_5s"],
+            "possession_pct": m["possession_pct"],
+            "total_def_actions": m["total_def_actions"],
+            "padj_def_actions": m["padj_def_actions"],
+            "padj_high_turnovers": m["padj_high_turnovers"],
         })
 
     if match_num == 0:
@@ -187,5 +239,9 @@ def compute_season_pressure(league: str, season: str, team_id: str,
         "high_turnovers_per_match": round(df["high_turnovers"].mean(), 1),
         "shot_ending_htos_total": int(df["shot_ending_high_turnovers"].sum()),
         "pressure_regains_per_match": round(df["pressure_regains_5s"].mean(), 1),
+        "avg_possession_pct": round(df["possession_pct"].mean(), 1),
+        "def_actions_per_match": round(df["total_def_actions"].mean(), 1),
+        "padj_def_actions_per_match": round(df["padj_def_actions"].mean(), 1),
+        "padj_high_turnovers_per_match": round(df["padj_high_turnovers"].mean(), 1),
         "per_match": df,
     }

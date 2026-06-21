@@ -9,6 +9,7 @@ from config import (
     EVENT_BALL_RECOVERY, EVENT_CLEARANCE, EVENT_CORNER, EVENT_FOUL,
     EVENT_AERIAL, EVENT_SAVE,
     SHOT_TYPE_IDS, QUAL_XG, QUAL_BODY_PART, QUAL_SHOT_DISTANCE, QUAL_SHOT_ANGLE,
+    QUAL_GOALMOUTH_Y, QUAL_GOALMOUTH_Z,
     QUAL_ASSIST, QUAL_PENALTY, QUAL_OWN_GOAL, QUAL_PASS_END_X, QUAL_PASS_END_Y,
     QUAL_FORMATION, QUAL_FORMATION_TYPE, QUAL_PLAYER_IDS, QUAL_SHIRT_NUMBERS,
     QUAL_PLAYER_POSITION,
@@ -96,6 +97,7 @@ def extract_shots(events: list[dict], team_id: str | None = None) -> pd.DataFram
         sy = float(e.get("y", 0))
         is_header = _has_qualifier(quals, QUAL_HEAD)
         is_own_goal = _has_qualifier(quals, QUAL_OWN_GOAL)
+        is_penalty = _has_qualifier(quals, QUAL_PENALTY)
 
         # ── Resolve xG ─────────────────────────────────────────────
         xg_raw = _get_qualifier(quals, QUAL_XG)
@@ -111,6 +113,15 @@ def extract_shots(events: list[dict], team_id: str | None = None) -> pd.DataFram
         body = _get_qualifier(quals, QUAL_ZONE)
         distance = _get_qualifier(quals, QUAL_SHOT_DISTANCE)
         angle = _get_qualifier(quals, QUAL_SHOT_ANGLE)
+
+        # ── Goalmouth landing point (on-target shots only) ─────────────
+        # Opta records where the ball crossed the goal-line plane via
+        # qualifier 102 (y, width) and 103 (z, height). Present on goals
+        # (16) and saved attempts (15); absent on misses/posts/blocks.
+        # These feed the xGOT / post-shot model in processing/xgot.py.
+        gm_y = _get_qualifier(quals, QUAL_GOALMOUTH_Y)
+        gm_z = _get_qualifier(quals, QUAL_GOALMOUTH_Z)
+        on_target = (tid in (EVENT_GOAL, EVENT_ATTEMPT_SAVED)) and gm_y is not None
 
         rows.append({
             "event_id": e.get("eventId"),
@@ -129,7 +140,11 @@ def extract_shots(events: list[dict], team_id: str | None = None) -> pd.DataFram
             "angle": float(angle) if angle else None,
             "is_header": is_header,
             "is_own_goal": is_own_goal,
+            "is_penalty": is_penalty,
             "period": int(e.get("periodId", 0)),
+            "goalmouth_y": float(gm_y) if gm_y is not None else None,
+            "goalmouth_z": float(gm_z) if gm_z is not None else None,
+            "on_target": on_target,
         })
     return pd.DataFrame(rows)
 

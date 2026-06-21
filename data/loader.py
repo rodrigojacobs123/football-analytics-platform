@@ -407,6 +407,7 @@ def load_all_season_results(league: str, season: str,
             continue
         if info["home_score"] is not None:
             rows.append({
+                "match_id":   info["match_id"],
                 "date":       info["date"],
                 "matchday":   info["matchday"],
                 "stage_name": info.get("stage_name", ""),
@@ -441,6 +442,7 @@ def load_all_season_results(league: str, season: str,
                 continue
             if info["home_score"] is not None:
                 rows.append({
+                    "match_id":   info["match_id"],
                     "date":       info["date"],
                     "matchday":   info["matchday"],
                     "stage_name": info.get("stage_name", ""),
@@ -491,108 +493,40 @@ def load_club_match_list(league: str, season: str,
         else ("D" if r["club_score"] == r["opp_score"] else "L"),
         axis=1,
     )
-    club_matches["match_id"] = club_matches.apply(
-        lambda r: _find_match_id_for_row(league, season, r), axis=1
-    )
+    # match_id is now carried through load_all_season_results. Resolve only the
+    # rare empties (e.g. a result that came from matches.json with no id) via the
+    # ID-keyed match index — never by fuzzy name matching.
+    if "match_id" not in club_matches.columns:
+        club_matches["match_id"] = ""
+    empty = club_matches["match_id"].fillna("").astype(str) == ""
+    if empty.any():
+        club_matches.loc[empty, "match_id"] = club_matches.loc[empty].apply(
+            lambda r: _find_match_id_for_row(league, season, r), axis=1
+        )
     return club_matches.reset_index(drop=True)
 
 
 def _find_match_id_for_row(league: str, season: str, row) -> str:
-    """Find match_id by scanning matches_ids.csv for matching matchday + teams.
+    """Resolve a match_id for a results row by EXACT team-ID join.
 
-    Handles matchday format mismatch: matches.json stores week as int (e.g. 38),
-    while matches_ids.csv stores "Matchday 38".
+    Kept as a stable entry point (imported by pages); the old fuzzy
+    name-matching implementation has been replaced by the ID-keyed match
+    index in ``data.match_index``. If the row already carries a non-empty
+    ``match_id`` (the common case), it is returned as-is.
     """
-    idx = load_matches_index(league, season)
-    if idx.empty:
-        # Fallback: try to find by filename in partidos/
-        return _find_match_id_from_files(league, season, row)
+    from data.match_index import get_match_id
 
-    matchday = row["matchday"]
-    # matches_ids.csv has "Matchday N" format
-    md_str = f"Matchday {matchday}"
-    mask = idx["matchday"].astype(str) == md_str
-    if mask.sum() == 0:
-        # Try direct numeric match in case format varies
-        mask = idx["matchday"].astype(str) == str(matchday)
+    existing = str(row.get("match_id", "") or "")
+    if existing:
+        return existing
 
-    home = row["home_team"]
-    away = row["away_team"]
-
-    for _, m in idx[mask].iterrows():
-        local = str(m.get("equipo_local", ""))
-        visitor = str(m.get("equipo_visitante", ""))
-        # Check if team names match (partial match for short names)
-        if (_team_name_match(home, local) and _team_name_match(away, visitor)):
-            return str(m.get("id", ""))
-
-    # Fallback: search partidos/ filenames directly
-    return _find_match_id_from_files(league, season, row)
-
-
-def _team_name_match(full_name: str, short_name: str) -> bool:
-    """Check if a full team name matches a short/abbreviated name."""
-    if not full_name or not short_name:
-        return False
-    full_lower = full_name.lower().replace(" fc", "").strip()
-    short_lower = short_name.lower().replace(" fc", "").strip()
-    # Exact match
-    if full_lower == short_lower:
-        return True
-    # One contains the other
-    if short_lower in full_lower or full_lower in short_lower:
-        return True
-    # Common abbreviation: check first significant word
-    # Check first significant word
-    full_words = full_lower.split()
-    short_words = short_lower.split()
-    if full_words and short_words and full_words[0][:3] == short_words[0][:3]:
-        return True
-    return False
-
-
-def _find_match_id_from_files(league: str, season: str, row) -> str:
-    """Fallback: find match ID by scanning partidos/ filenames directly."""
-    pdir = partidos_dir(league, season)
-    if not pdir.exists():
-        return ""
-    matchday = int(row["matchday"])
-    home = row["home_team"]
-
-    # Build short name variants for matching filenames
-    home_short = _short_team_name(home)
-
-    prefix = f"{matchday}_"
-    for f in pdir.iterdir():
-        if f.suffix == ".json" and f.name.startswith(prefix):
-            # filename: "1_HomeTeam_AwayTeam_matchid.json"
-            parts = f.stem.split("_")
-            if len(parts) >= 4:
-                # Extract the hash (last part)
-                file_id = parts[-1]
-                # Check if home team appears in filename
-                file_teams = "_".join(parts[1:-1]).lower()
-                if home_short.lower() in file_teams:
-                    return file_id
-    return ""
-
-
-def _short_team_name(name: str) -> str:
-    """Convert full team name to the short form used in filenames."""
-    # Common mappings
-    shorts = {
-        "CF América": "América",
-        "CD Guadalajara": "Guadalajara",
-        "Club Tigres UANL": "Tigres",
-        "CF Cruz Azul": "Cruz Azul",
-        "CF Monterrey": "Monterrey",
-        "CF Pachuca": "Pachuca",
-        "Club Santos Laguna": "Santos",
-        "Club León": "León",
-        "Deportivo Toluca": "Toluca",
-    }
-    clean = name.replace(" FC", "").strip()
-    return shorts.get(clean, clean)
+    return get_match_id(
+        league, season,
+        str(row.get("home_id", "")),
+        str(row.get("away_id", "")),
+        date=row.get("date"),
+        matchday=row.get("matchday"),
+    )
 
 
 # ── Data source diagnostics ─────────────────────────────────────────────────

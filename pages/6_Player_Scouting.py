@@ -8,9 +8,10 @@ from viz.kpi_cards import section_header, kpi_card, metric_highlight, page_heade
 from viz.radar import fc_radar, position_radar
 from viz.pizza import pizza_chart
 from viz.tables import styled_dataframe
-from viz.xt import xt_top_contributors_bar
+from viz.xt import xt_top_contributors_bar, xdef_top_defenders_bar
 from data.loader import load_all_player_season_stats, load_player_events_season, list_standings_stages
 from processing.xt import compute_season_xt
+from processing.xdef import compute_season_xdef
 from processing.player_ratings import (
     compute_fc_ratings, POSITION_ATTR_KEYS, POSITION_CATEGORY_DISPLAY,
     get_position_attrs, get_position_display_names,
@@ -202,6 +203,62 @@ if league in AME_LEAGUES:
 else:
     st.info(
         f"Season xT leaderboard is computed for {AME_TEAM_NAME} only "
+        f"(in its competitions: {', '.join(AME_LEAGUES)})."
+    )
+
+
+# ═══════════════════════════════════════════════════════════════════════════
+# § 2c  EXPECTED DEFENSIVE THREAT (xDEF) — SEASON THREAT-DENIAL LEADERS
+# ═══════════════════════════════════════════════════════════════════════════
+# The defensive mirror of the xT leaders above: who extinguished the most
+# attacking threat through tackles, interceptions, clearances & recoveries.
+# Same Club-América scoping rationale as xT (an all-league scan is too heavy).
+st.markdown("---")
+section_header("Expected Defensive Threat (xDEF) — Threat-Denial Leaders")
+if league in AME_LEAGUES:
+    st.caption(
+        f"Season xDEF per player ({AME_TEAM_NAME}) — attacking threat *denied* by "
+        f"defensive actions, priced on the same Karun-Singh grid as xT "
+        f"(deeper interventions cancel more danger). These are Opta F24 "
+        f"**approximations** — Opta has no native 'pressure' event. "
+        f"Minimum {MIN_APPEARANCES_FOR_RATING} appearances to filter cameo noise."
+    )
+    _xdef_scout = compute_season_xdef(
+        league, season, AME_TEAM_ID,
+        min_appearances=MIN_APPEARANCES_FOR_RATING,
+    )
+    _dlb = _xdef_scout.get("leaderboard", pd.DataFrame()) if _xdef_scout else pd.DataFrame()
+    if not _dlb.empty:
+        dcol1, dcol2 = st.columns([3, 2])
+        with dcol1:
+            st.plotly_chart(
+                xdef_top_defenders_bar(
+                    _dlb.head(10),
+                    title=f"{AME_TEAM_NAME} — Top Threat-Denial Defenders",
+                    color=AME_BLUE),
+                use_container_width=True,
+            )
+        with dcol2:
+            _dtable = _dlb.rename(columns={
+                "player_name": "Player", "xdef": "xDEF",
+                "xdef_per_match": "xDEF/Match", "actions": "Def. Actions",
+                "apps": "Apps",
+            })
+            styled_dataframe(_dtable, height=380)
+        _ba = _xdef_scout.get("by_action", {})
+        if _ba:
+            _ba_txt = " · ".join(
+                f"{a.replace('_', ' ')}: {v:.2f}"
+                for a, v in sorted(_ba.items(), key=lambda kv: -kv[1])
+            )
+            st.caption(f"Threat denied by action type — {_ba_txt}")
+    else:
+        st.info(
+            f"Season xDEF requires per-match files in partidos/ for {AME_TEAM_NAME}."
+        )
+else:
+    st.info(
+        f"Season xDEF leaderboard is computed for {AME_TEAM_NAME} only "
         f"(in its competitions: {', '.join(AME_LEAGUES)})."
     )
 

@@ -2,7 +2,7 @@ from __future__ import annotations
 """Path builder for the europa/ directory structure."""
 
 from pathlib import Path
-from config import DATA_ROOT
+from config import DATA_ROOT, CACHE_ROOT
 
 
 def league_dir(league: str) -> Path:
@@ -51,6 +51,17 @@ def jugadores_csv(league: str, season: str, team_folder: str) -> Path:
 
 def jugadores_seasonstats_csv(league: str, season: str, team_folder: str) -> Path:
     return team_dir(league, season, team_folder) / f"{team_folder}_jugadores_seasonstats.csv"
+
+
+# ── Derived/cache artifacts (outside the raw data tree) ──────────────────────
+
+def match_index_parquet(league: str, season: str) -> Path:
+    """Path to the cached, ID-keyed match index for a league/season.
+
+    Lives under CACHE_ROOT, mirroring the <league>/<season> layout, so the
+    raw Opta dataset under DATA_ROOT is never written to.
+    """
+    return CACHE_ROOT / "match_index" / league / f"{season}.parquet"
 
 
 def find_match_file(league: str, season: str, match_id: str) -> Path | None:

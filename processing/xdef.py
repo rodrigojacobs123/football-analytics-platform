@@ -31,11 +31,15 @@ The action is then scaled by:
   • whether the action succeeded (failed tackles deny nothing).
 """
 
-import pandas as pd
+import json
 
+import pandas as pd
+import streamlit as st
+
+from data.paths import partidos_dir
 from data.event_parser import (
     extract_tackles, extract_interceptions, extract_clearances,
-    extract_ball_recoveries,
+    extract_ball_recoveries, parse_match_info,
 )
 from processing.xt import xt_value
 
@@ -159,4 +163,101 @@ def xdef_summary(events: list[dict], team_id: str) -> dict:
         "by_action": by_action,
         "top_defenders": top_defenders,
         "actions_df": df,
+    }
+
+
+@st.cache_data(ttl=3600, show_spinner="Computing season Expected Defensive Threat (xDEF)...")
+def compute_season_xdef(league: str, season: str, team_id: str,
+                        stage_filter: str = "",
+                        min_appearances: int = 1) -> dict:
+    """Season-aggregated xDEF for one team — the defensive mirror of
+    ``processing.xt.compute_season_xt``.
+
+    Scans partidos/ (deep tier, cached), accumulating each player's credited
+    threat-denial so we can rank ball-winners / danger-clearers over a full
+    season.  Players below ``min_appearances`` are dropped to filter cameo
+    noise — symmetric with the xT leaderboard (respects
+    MIN_APPEARANCES_FOR_RATING when callers pass it).
+
+    Returns {} if no matches found, else {
+        matches, total_xdef, xdef_per_match,
+        by_action (dict), leaderboard (DataFrame),
+    }.
+    ``leaderboard`` columns: player_name, xdef, actions, apps, xdef_per_match.
+    """
+    pdir = partidos_dir(league, season)
+    if not pdir.exists():
+        return {}
+
+    player_acc: dict[str, dict] = {}
+    by_action_acc: dict[str, float] = {}
+    total = 0.0
+    match_num = 0
+
+    for fpath in sorted(pdir.iterdir()):
+        if fpath.suffix != ".json":
+            continue
+        try:
+            with open(fpath, "r", encoding="utf-8") as f:
+                raw = json.load(f)
+        except (json.JSONDecodeError, OSError):
+            continue
+
+        info = parse_match_info(raw)
+        home_id, away_id = info["home_id"], info["away_id"]
+        if team_id not in (home_id, away_id):
+            continue
+        if stage_filter:
+            sn = info.get("stage_name", "")
+            if not sn.lower().startswith(stage_filter.lower().strip()):
+                continue
+
+        events = raw.get("liveData", {}).get("event", [])
+        df = defensive_actions_xdef(events, team_id=team_id)
+        match_num += 1
+        if df.empty:
+            continue
+
+        credited = df[df["xdef"] > 0]
+        if credited.empty:
+            continue
+        total += float(credited["xdef"].sum())
+
+        for action, v in credited.groupby("action")["xdef"].sum().items():
+            by_action_acc[action] = by_action_acc.get(action, 0.0) + float(v)
+
+        if "player_name" in credited.columns:
+            grp = credited.groupby("player_name").agg(
+                xdef=("xdef", "sum"), actions=("xdef", "size"))
+            for name, r in grp.iterrows():
+                acc = player_acc.setdefault(
+                    name, {"xdef": 0.0, "actions": 0, "apps": 0})
+                acc["xdef"] += float(r["xdef"])
+                acc["actions"] += int(r["actions"])
+                acc["apps"] += 1
+
+    if match_num == 0:
+        return {}
+
+    leaderboard = pd.DataFrame([
+        {
+            "player_name": n,
+            "xdef": round(v["xdef"], 3),
+            "actions": v["actions"],
+            "apps": v["apps"],
+            "xdef_per_match": round(v["xdef"] / v["apps"], 3),
+        }
+        for n, v in player_acc.items() if v["apps"] >= min_appearances
+    ])
+    if not leaderboard.empty:
+        leaderboard = (leaderboard
+                       .sort_values("xdef", ascending=False)
+                       .reset_index(drop=True))
+
+    return {
+        "matches": match_num,
+        "total_xdef": round(total, 2),
+        "xdef_per_match": round(total / match_num, 3),
+        "by_action": {k: round(v, 3) for k, v in by_action_acc.items()},
+        "leaderboard": leaderboard,
     }

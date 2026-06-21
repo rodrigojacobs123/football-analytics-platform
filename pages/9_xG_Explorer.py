@@ -6,10 +6,13 @@ import pandas as pd
 from components.sidebar import render_sidebar
 from viz.kpi_cards import section_header, kpi_row, page_header, ame_section
 from viz.pitch import plot_shot_map
-from viz.charts import bar_chart, donut_chart, histogram
+from viz.charts import bar_chart, donut_chart, histogram, goalmouth_shot_map
 from viz.tables import styled_dataframe
 from data.loader import load_club_match_list, load_match_raw, build_player_name_map
 from data.event_parser import extract_shots, parse_match_info
+from processing.xgot import (
+    add_xgot, player_finishing, keeper_shot_stopping, XGOT_DISCLAIMER,
+)
 from config import AME_TEAM_ID, AME_TEAM_NAME, AME_YELLOW, AME_BLUE
 
 apply_theme()
@@ -45,7 +48,9 @@ def load_season_shots(_league: str, _season: str) -> pd.DataFrame:
             shots["date"] = info["date"]
             all_shots.append(shots)
 
-    return pd.concat(all_shots, ignore_index=True) if all_shots else pd.DataFrame()
+    if not all_shots:
+        return pd.DataFrame()
+    return add_xgot(pd.concat(all_shots, ignore_index=True))
 
 
 with st.spinner("Loading season shot data..."):
@@ -99,9 +104,14 @@ kpi_row([
     {"label": "Conversion %", "value": f"{conversion:.1f}%"},
 ])
 st.markdown("")
-col1, col2 = st.columns(2)
+on_target = filtered[filtered.get("on_target", False) & filtered["xgot"].notna()] \
+    if "xgot" in filtered.columns else filtered.iloc[0:0]
+total_xgot = on_target["xgot"].sum()
+col1, col2, col3 = st.columns(3)
 col1.metric("Goals - xG", f"{xg_diff:+.2f}")
 col2.metric("Avg xG/Shot", f"{(total_xg / len(filtered)):.3f}" if len(filtered) > 0 else "0")
+col3.metric("Total xGOT (on-target)", f"{total_xgot:.2f}",
+            help="Post-shot xG — chance quality combined with shot placement.")
 
 # ── Shot Map ────────────────────────────────────────────────────────────────
 st.markdown("---")
@@ -135,6 +145,44 @@ section_header("xG Distribution")
 fig = histogram(filtered["xg"], title="Distribution of xG Values",
                 x_label="xG", nbins=25)
 st.plotly_chart(fig, width="stretch")
+
+# ── Finishing Quality (xGOT / Post-Shot xG) ─────────────────────────────────
+st.markdown("---")
+section_header("Finishing Quality — xGOT (Post-Shot xG)")
+st.caption(XGOT_DISCLAIMER)
+
+gm_col, fin_col = st.columns([1, 1])
+with gm_col:
+    fig = goalmouth_shot_map(on_target, title="Where on-target shots were placed")
+    st.plotly_chart(fig, width="stretch")
+with fin_col:
+    finishing = player_finishing(filtered)
+    if not finishing.empty:
+        finishing["player_display"] = finishing["player_id"].map(name_map).fillna(
+            finishing["player_name"])
+        fin_tbl = finishing[finishing["shots_on_target"] >= 3][[
+            "player_display", "shots_on_target", "goals", "xgot", "finishing"
+        ]].copy()
+        fin_tbl.columns = ["Player", "On-Target", "Goals", "xGOT", "Finishing (xGOT-xG)"]
+        fin_tbl["xGOT"] = fin_tbl["xGOT"].round(2)
+        fin_tbl["Finishing (xGOT-xG)"] = fin_tbl["Finishing (xGOT-xG)"].round(2)
+        st.markdown("**Finishing leaderboard** (min 3 on-target shots)")
+        styled_dataframe(fin_tbl.head(15), height=460)
+    else:
+        st.info("No on-target shots with goal-mouth data in the current filter.")
+
+# ── Goalkeeper Shot-Stopping ─────────────────────────────────────────────────
+section_header("Goalkeeper Shot-Stopping")
+ks = keeper_shot_stopping(season_shots, AME_TEAM_ID)
+k1, k2, k3, k4 = st.columns(4)
+k1.metric("Shots on Target Faced", ks["shots_faced"])
+k2.metric("Goals Conceded", ks["goals_conceded"])
+k3.metric("PSxG Faced", f"{ks['psxg_faced']:.2f}",
+          help="Post-shot xG of shots faced — goals an average keeper would concede.")
+k4.metric("Shot-Stopping +/-", f"{ks['shot_stopping']:+.2f}",
+          help="PSxG faced minus goals conceded. Positive = saved more than expected.")
+st.caption(f"{AME_TEAM_NAME} goalkeeping over the season "
+           "(open-play on-target shots; penalties excluded).")
 
 # ── Player xG Leaderboard ──────────────────────────────────────────────────
 st.markdown("---")

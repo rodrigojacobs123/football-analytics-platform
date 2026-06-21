@@ -457,8 +457,8 @@ def compute_second_ball_control(
             if et - clearance_t > window:
                 break
             tid = e.get("typeId")
-            if tid in (EVENT_PASS, EVENT_BALL_RECOVERY, EVENT_TACKLE,
-                        EVENT_CLEARANCE, EVENT_INTERCEPTION) | set(SHOT_TYPE_IDS):
+            if tid in {EVENT_PASS, EVENT_BALL_RECOVERY, EVENT_TACKLE,
+                       EVENT_CLEARANCE, EVENT_INTERCEPTION} | set(SHOT_TYPE_IDS):
                 second_ball_winner = e.get("contestantId")
                 second_event = e
                 break

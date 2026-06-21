@@ -8,7 +8,6 @@ from data.event_parser import parse_match_info, extract_passes, extract_corners,
 from processing.formations import compute_tactical_kpis, get_match_formations
 from processing.set_pieces import compute_set_piece_stats
 from processing.xt import passes_xt
-from processing.xdef import defensive_actions_xdef
 
 
 @st.cache_data(ttl=3600, show_spinner="Loading season tactical data...")

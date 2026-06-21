@@ -11,7 +11,7 @@ from viz.charts import (
     tactical_progression_chart, formation_donut, multi_line_chart,
     grouped_bar_chart, bar_chart,
     ppda_trend_chart, dual_axis_trend_chart,
-    donut_chart, histogram,
+    donut_chart, histogram, style_quadrant_chart,
 )
 from viz.radar import team_radar
 from viz.pitch import plot_shot_map, plot_formation_shape
@@ -33,6 +33,7 @@ from processing.manager_stats import (
     compute_goals_timeline, compute_recent_form,
 )
 from processing.pressure import compute_season_pressure
+from processing.sequences import compute_season_sequences
 from config import AME_TEAM_NAME, AME_YELLOW, AME_BLUE, AME_DARK_BG
 
 apply_theme()
@@ -397,9 +398,21 @@ if press and press.get("matches", 0) > 0:
     with pc4:
         kpi_card("Shot-Ending HTOs", press["shot_ending_htos_total"])
 
-    pc5, _, _, _ = st.columns(4)
+    pc5, pc6, pc7, pc8 = st.columns(4)
     with pc5:
         kpi_card("Pressure Regains / Match", f"{press['pressure_regains_per_match']:.1f}")
+    with pc6:
+        kpi_card("Avg Possession", f"{press.get('avg_possession_pct', 0):.0f}%")
+    with pc7:
+        kpi_card("Def. Actions / Match", f"{press.get('def_actions_per_match', 0):.0f}")
+    with pc8:
+        kpi_card("PAdj Def. Actions / Match",
+                 f"{press.get('padj_def_actions_per_match', 0):.0f}")
+    st.caption(
+        "**PAdj** = possession-adjusted — defensive actions rescaled to a neutral "
+        "50%-possession baseline so high-possession sides aren't undercounted for "
+        "having fewer defensive opportunities."
+    )
 
     # 5-match rolling averages so the chart draws bold trend lines
     per_match = compute_rolling_averages(
@@ -423,6 +436,40 @@ if press and press.get("matches", 0) > 0:
         st.plotly_chart(fig_press, use_container_width=True)
 else:
     st.info("Pressing metrics require per-match files in partidos/.")
+
+
+# ═══════════════════════════════════════════════════════════════════════════
+# § 3b  PLAYING STYLE — possession sequences
+# ═══════════════════════════════════════════════════════════════════════════
+st.markdown("---")
+section_header("Playing Style — Possession Sequences")
+st.caption(
+    "Sequences are passages of play ending in a turnover, stoppage or shot. "
+    "**Directness** = upfield progress ÷ ball-path length; **direct speed** = "
+    "m/s toward goal. The quadrant splits the league at its medians."
+)
+
+style_df = compute_season_sequences(league, season, stage_filter=_stage_filter)
+if not style_df.empty and team_id in set(style_df["team_id"]):
+    me = style_df[style_df["team_id"] == team_id].iloc[0]
+    sc1, sc2, sc3, sc4 = st.columns(4)
+    with sc1:
+        kpi_card("Passes / Sequence", f"{me['avg_passes_per_seq']:.1f}")
+    with sc2:
+        kpi_card("Directness", f"{me['avg_directness']:.2f}")
+    with sc3:
+        kpi_card("Direct Speed", f"{me['avg_direct_speed']:.2f} m/s")
+    with sc4:
+        sps = me["sequences_per_shot"]
+        kpi_card("Sequences / Shot", f"{sps:.1f}" if sps else "—")
+
+    fig_style = style_quadrant_chart(
+        style_df, highlight_id=team_id,
+        title=f"{league.replace('_', ' ')} — Playing-Style Quadrant",
+    )
+    st.plotly_chart(fig_style, use_container_width=True)
+else:
+    st.info("Playing-style sequences require per-match files in partidos/.")
 
 
 # ═══════════════════════════════════════════════════════════════════════════

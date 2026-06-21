@@ -554,3 +554,125 @@ def formation_donut(formations: list[dict], title: str = "Formation Usage") -> g
     ))
     fig.update_layout(title=title, showlegend=True, template="ame_dark")
     return fig
+
+
+def goalmouth_shot_map(shots: pd.DataFrame, title: str = "Goal-Mouth Placement",
+                       color_by: str = "xgot") -> go.Figure:
+    """Plot on-target shots on the goal frame, coloured by xGOT (post-shot xG).
+
+    Expects the columns from ``data.event_parser.extract_shots`` plus an
+    ``xgot`` column (see ``processing.xgot.add_xgot``).  The x-axis is the
+    goal-mouth width (Opta y, posts ≈ 44.6 / 55.4) and the y-axis the height
+    (Opta z, crossbar ≈ 38).  Shots whose height was not recorded by the feed
+    (placeholder z ≈ 19) are excluded from this view — they have no meaningful
+    height to plot — and the count is annotated so nothing is hidden silently.
+
+    Goals are drawn as filled stars, saved shots as circles.
+    """
+    # Goal-frame display geometry (mirrors constants in processing/xgot.py)
+    LEFT_POST, RIGHT_POST, CROSSBAR = 44.62, 55.38, 38.0
+    Z_PLACEHOLDER = 19.0
+
+    fig = go.Figure()
+
+    if shots is None or shots.empty or "goalmouth_y" not in shots.columns:
+        fig.update_layout(title=title, template="ame_dark")
+        return fig
+
+    df = shots[shots.get("on_target", False) & shots["goalmouth_y"].notna()
+               & shots["goalmouth_z"].notna()].copy()
+    n_total = len(df)
+    df = df[(df["goalmouth_z"] - Z_PLACEHOLDER).abs() > 0.2]   # drop placeholder-height
+    n_hidden = n_total - len(df)
+
+    # ── Draw the goal frame ────────────────────────────────────────────────
+    frame = dict(color=AME_WHITE, width=3)
+    fig.add_shape(type="line", x0=LEFT_POST, y0=0, x1=LEFT_POST, y1=CROSSBAR, line=frame)
+    fig.add_shape(type="line", x0=RIGHT_POST, y0=0, x1=RIGHT_POST, y1=CROSSBAR, line=frame)
+    fig.add_shape(type="line", x0=LEFT_POST, y0=CROSSBAR, x1=RIGHT_POST, y1=CROSSBAR, line=frame)
+    fig.add_shape(type="line", x0=LEFT_POST - 2, y0=0, x1=RIGHT_POST + 2, y1=0,
+                  line=dict(color=AME_GRID, width=2))
+
+    if not df.empty:
+        goals = df[df["outcome"] == "Goal"]
+        saves = df[df["outcome"] != "Goal"]
+        for sub, symbol, name in [(saves, "circle", "Saved"), (goals, "star", "Goal")]:
+            if sub.empty:
+                continue
+            cval = sub[color_by] if color_by in sub.columns else sub["xg"]
+            fig.add_trace(go.Scatter(
+                x=sub["goalmouth_y"], y=sub["goalmouth_z"],
+                mode="markers", name=name,
+                marker=dict(
+                    symbol=symbol, size=14 if symbol == "star" else 11,
+                    color=cval, colorscale="YlOrRd", cmin=0, cmax=1,
+                    line=dict(color=AME_DARK_BG, width=1),
+                    colorbar=dict(title="xGOT"),
+                    showscale=(name == "Saved" or goals.empty),
+                ),
+                text=sub.get("player_name", ""),
+                customdata=np.c_[cval, sub["xg"]],
+                hovertemplate=("%{text}<br>xGOT %{customdata[0]:.2f} · "
+                               "xG %{customdata[1]:.2f}<extra>" + name + "</extra>"),
+            ))
+
+    note = f"  ·  {n_hidden} shot(s) with unrecorded height omitted" if n_hidden else ""
+    fig.update_layout(
+        title=title + note, template="ame_dark", showlegend=True,
+        xaxis=dict(title="Goal width", range=[LEFT_POST - 4, RIGHT_POST + 4],
+                   showgrid=False, zeroline=False),
+        yaxis=dict(title="Height", range=[-2, CROSSBAR + 6],
+                   showgrid=False, zeroline=False, scaleanchor=None),
+    )
+    return fig
+
+
+def style_quadrant_chart(df: pd.DataFrame, highlight_id: str | None = None,
+                         x_col: str = "avg_direct_speed",
+                         y_col: str = "avg_passes_per_seq",
+                         title: str = "Playing-Style Quadrant") -> go.Figure:
+    """Team playing-style quadrant: direct speed (x) vs passes per sequence (y).
+
+    Each team is a point; the team whose id matches ``highlight_id`` is drawn in
+    América yellow.  Quadrant guide-lines at the league medians split the plane
+    into patient-possession / controlled-build-up / direct / long-ball styles.
+    Built on ``processing.sequences.compute_season_sequences``.
+    """
+    fig = go.Figure()
+    if df is None or df.empty or x_col not in df.columns or y_col not in df.columns:
+        fig.update_layout(title=title, template="ame_dark")
+        return fig
+
+    xmed, ymed = df[x_col].median(), df[y_col].median()
+    others = df[df["team_id"] != highlight_id] if highlight_id else df
+    home = df[df["team_id"] == highlight_id] if highlight_id else df.iloc[0:0]
+
+    fig.add_vline(x=xmed, line=dict(color=AME_GRID, width=1, dash="dash"))
+    fig.add_hline(y=ymed, line=dict(color=AME_GRID, width=1, dash="dash"))
+
+    fig.add_trace(go.Scatter(
+        x=others[x_col], y=others[y_col], mode="markers+text",
+        text=others.get("team_name", ""), textposition="top center",
+        textfont=dict(size=9, color="#8FA3C8"),
+        marker=dict(size=10, color=AME_BLUE, opacity=0.75,
+                    line=dict(color=AME_DARK_BG, width=1)),
+        name="Teams",
+        hovertemplate="%{text}<br>direct speed %{x:.2f} m/s · %{y:.1f} passes/seq<extra></extra>",
+    ))
+    if not home.empty:
+        fig.add_trace(go.Scatter(
+            x=home[x_col], y=home[y_col], mode="markers+text",
+            text=home.get("team_name", ""), textposition="top center",
+            textfont=dict(size=11, color=AME_YELLOW),
+            marker=dict(size=16, color=AME_YELLOW, symbol="star",
+                        line=dict(color=AME_DARK_BG, width=1)),
+            name="Selected",
+            hovertemplate="%{text}<br>direct speed %{x:.2f} m/s · %{y:.1f} passes/seq<extra></extra>",
+        ))
+
+    fig.update_layout(
+        title=title, template="ame_dark", showlegend=False,
+        xaxis_title="Direct speed (m/s toward goal)  →  more direct",
+        yaxis_title="Passes per sequence  →  more patient",
+    )
+    return fig

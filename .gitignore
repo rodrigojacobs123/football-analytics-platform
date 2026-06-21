@@ -57,3 +57,6 @@ CLAUDE.md
 *.log
 *.tmp
 /tmp/
+
+# Derived analytics cache (Parquet match index, etc.)
+.cache/

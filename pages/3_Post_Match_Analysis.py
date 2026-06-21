@@ -52,6 +52,41 @@ from config import AME_TEAM_ID, AME_YELLOW, AME_BLUE, AME_DARK_BG
 # Guarantee CSS is injected — matches apply_theme() in app.py but needed as safety net
 apply_theme()
 
+
+@st.cache_data(ttl=3600, show_spinner="Parsing match…")
+def _match_overview(league: str, season: str, match_id: str) -> dict | None:
+    """Period-invariant per-match aggregates, cached on the lightweight
+    ``match_id`` — NOT on the parsed events list.
+
+    Streamlit re-runs the whole page script on every widget interaction (the
+    period selector, tab clicks…). Without this, the expensive event parsing
+    below (xG timeline, match stats, shot extraction) re-ran on every click.
+    Keying the cache on the cheap string id (events are loaded *inside* via the
+    already-cached ``load_match_raw``) means the heavy parse happens once per
+    match and is reused across reruns. Only metrics that do NOT depend on the
+    half/period filter live here; period-dependent ones stay live below.
+    """
+    raw = load_match_raw(league, season, match_id)
+    if not raw:
+        return None
+    events = raw.get("liveData", {}).get("event", [])
+    info = parse_match_info(raw)
+    h, a = info["home_id"], info["away_id"]
+    return {
+        "raw": raw,
+        "events": events,
+        "info": info,
+        "home_xg": compute_match_xg(events, h),
+        "away_xg": compute_match_xg(events, a),
+        "match_stats": compute_match_stats(events, h, a),
+        "timeline": compute_xg_timeline(events, h, a),
+        "goals": extract_goals(events),
+        "key_events": extract_key_events(events),
+        "home_shots": extract_shots(events, h),
+        "away_shots": extract_shots(events, a),
+    }
+
+
 league, season = render_sidebar()
 
 # ── Tournament Stage Selector (Liga MX / bi-annual leagues) ────────────────
@@ -77,14 +112,15 @@ if not match_id:
     st.warning("Match ID not found. Select a different match.")
     st.stop()
 
-# Load full match data
-raw = load_match_raw(league, season, match_id)
-if not raw:
+# Load full match data + period-invariant aggregates (cached on match_id)
+_ov = _match_overview(league, season, match_id)
+if not _ov:
     st.error("Could not load match data.")
     st.stop()
 
-info = parse_match_info(raw)
-events = raw.get("liveData", {}).get("event", [])
+raw = _ov["raw"]
+info = _ov["info"]
+events = _ov["events"]
 name_map = build_player_name_map(league, season)
 
 home_team = info["home_team"]
@@ -92,9 +128,9 @@ away_team = info["away_team"]
 home_id = info["home_id"]
 away_id = info["away_id"]
 
-# Pre-compute xG for hero
-home_xg = compute_match_xg(events, home_id)
-away_xg = compute_match_xg(events, away_id)
+# Pre-computed xG for hero (from the cached overview)
+home_xg = _ov["home_xg"]
+away_xg = _ov["away_xg"]
 
 # ── V3 Stadium Energy Hero ────────────────────────────────────────────────
 match_hero_v3(
@@ -108,7 +144,7 @@ match_hero_v3(
 
 # ── Stats Comparison Bars ─────────────────────────────────────────────────
 v3_section_header("THE NUMBERS", "Match Statistics")
-match_stats = compute_match_stats(events, home_id, away_id)
+match_stats = _ov["match_stats"]
 v3_stats_table(match_stats)
 
 # ── xG Race + Key Events (side by side) ──────────────────────────────────
@@ -116,19 +152,19 @@ v3_section_header("xG FLOW", "Momentum & Key Events")
 col1, col2 = st.columns([3, 2])
 
 with col1:
-    timeline = compute_xg_timeline(events, home_id, away_id)
-    goals = extract_goals(events)
+    timeline = _ov["timeline"]
+    goals = _ov["goals"]
     fig = xg_race_chart(timeline, home_team, away_team, goals)
     st.plotly_chart(fig, width="stretch")
 
 with col2:
-    key_events = extract_key_events(events)
+    key_events = _ov["key_events"]
     key_events_timeline(key_events, home_team, away_team, home_id, away_id)
 
 # ── Shot Maps ─────────────────────────────────────────────────────────────
 v3_section_header("SHOT MAPS", "Where the Chances Came From")
-home_shots = extract_shots(events, home_id)
-away_shots = extract_shots(events, away_id)
+home_shots = _ov["home_shots"]
+away_shots = _ov["away_shots"]
 col1, col2 = st.columns(2)
 with col1:
     plot_shot_map(home_shots, title=f"{home_team} Shots")

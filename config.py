@@ -8,6 +8,11 @@ DATA_ROOT = Path(os.environ.get("AME_DATA_ROOT", "/Users/rodrigojacobs/Desktop/F
 DEFAULT_LEAGUE = "Mexico_Liga_MX"
 DEFAULT_SEASON = "2025-2026"
 
+# Derived/cached artifacts (Parquet indexes, etc.) live OUTSIDE the raw data
+# tree so the Opta dataset stays pristine and read-only. Overridable for
+# containerised/CI deployments where the project dir may be immutable.
+CACHE_ROOT = Path(os.environ.get("AME_CACHE_ROOT", str(Path(__file__).parent / ".cache")))
+
 # ── Club América identifiers ─────────────────────────────────────────────────
 AME_TEAM_ID = "eu8c408f59yx7egaqossbv25e"
 AME_TEAM_CODE = "AME"
@@ -76,6 +81,8 @@ QUAL_PASS_END_X = 140
 QUAL_PASS_END_Y = 141
 QUAL_SHOT_DISTANCE = 230
 QUAL_SHOT_ANGLE = 231
+QUAL_GOALMOUTH_Y = 102      # where the shot crossed the goal line (width, 0-100 like y)
+QUAL_GOALMOUTH_Z = 103      # height the shot crossed the goal line (Opta z scale)
 QUAL_FORMATION = 44
 QUAL_FORMATION_TYPE = 130
 QUAL_PLAYER_IDS = 30

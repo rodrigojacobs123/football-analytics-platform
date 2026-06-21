@@ -110,3 +110,40 @@ def xt_top_contributors_bar(top_df: pd.DataFrame, title: str = "",
         showlegend=False,
     )
     return fig
+
+
+def xdef_top_defenders_bar(top_df: pd.DataFrame, title: str = "",
+                           color: str = AME_BLUE) -> go.Figure:
+    """Horizontal bar chart of top xDEF (defensive threat denied) defenders.
+
+    Defensive twin of ``xt_top_contributors_bar``. Expects columns
+    ``player_name``, ``xdef`` and ``actions`` (as produced by
+    ``processing.xdef.compute_season_xdef``'s leaderboard).
+    """
+    fig = go.Figure()
+    if top_df.empty:
+        fig.update_layout(paper_bgcolor=AME_DARK_BG)
+        return fig
+
+    df = top_df.iloc[::-1]   # highest sits at the top of the chart
+    fig.add_trace(go.Bar(
+        x=df["xdef"], y=df["player_name"],
+        orientation="h", marker_color=color,
+        text=df.apply(lambda r: f" {r['xdef']:.2f}  ({int(r['actions'])})", axis=1),
+        textposition="outside", textfont=dict(color=AME_WHITE, size=11),
+        hovertemplate="<b>%{y}</b><br>xDEF (threat denied): %{x:.3f}<br>"
+                      "actions: %{customdata}<extra></extra>",
+        customdata=df["actions"],
+    ))
+    fig.update_layout(
+        title=dict(text=title, x=0.5, xanchor="center",
+                   font=dict(color=AME_WHITE, size=13)),
+        height=320, paper_bgcolor=AME_DARK_BG, plot_bgcolor=AME_DARK_BG,
+        margin=dict(l=10, r=70, t=40, b=20),
+        xaxis=dict(title="xDEF (threat denied)", gridcolor="#333",
+                   tickfont=dict(color=AME_WHITE, size=10)),
+        yaxis=dict(tickfont=dict(color=AME_WHITE, size=11)),
+        font=dict(color=AME_WHITE),
+        showlegend=False,
+    )
+    return fig
