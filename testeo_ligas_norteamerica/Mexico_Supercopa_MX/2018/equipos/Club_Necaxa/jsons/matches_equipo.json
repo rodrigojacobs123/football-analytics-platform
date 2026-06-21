@@ -1,0 +1,275 @@
+{
+    "match": [
+        {
+            "matchInfo": {
+                "id": "80lagj1b3wmwkzyphmixeb8mi",
+                "coverageLevel": "13",
+                "date": "2018-07-15Z",
+                "time": "22:00:00Z",
+                "localDate": "2018-07-15",
+                "localTime": "15:00:00",
+                "numberOfPeriods": 2,
+                "periodLength": 45,
+                "overtimeLength": 15,
+                "lastUpdated": "2025-04-02T20:54:11Z",
+                "description": "Monterrey vs Necaxa",
+                "sport": {
+                    "id": "289u5typ3vp4ifwh5thalohmq",
+                    "name": "Soccer"
+                },
+                "ruleset": {
+                    "id": "79plas4983031idr6vw83nuel",
+                    "name": "Men"
+                },
+                "competition": {
+                    "id": "aoptcrsdi34eue1fnlk38ivo5",
+                    "name": "Supercopa MX",
+                    "knownName": "Supercopa Mexico",
+                    "competitionCode": "SMX",
+                    "competitionFormat": "Domestic super cup",
+                    "country": {
+                        "id": "5trdr3jf42i20zj1hnkvcytr6",
+                        "name": "Mexico"
+                    }
+                },
+                "tournamentCalendar": {
+                    "id": "9sd31bfww5p23ipxgkqge2noq",
+                    "startDate": "2018-07-16Z",
+                    "endDate": "2018-07-16Z",
+                    "name": "2018"
+                },
+                "stage": {
+                    "id": "9t0e09u8elqamsovr3ygmgb56",
+                    "formatId": "dg3v7qo5acoprtjj4ozm9meol",
+                    "startDate": "2018-07-16Z",
+                    "endDate": "2018-07-16Z",
+                    "name": "Final"
+                },
+                "contestant": [
+                    {
+                        "id": "233335xtoe3e3phg3hp91xguq",
+                        "name": "Monterrey",
+                        "shortName": "Monterrey",
+                        "officialName": "CF Monterrey",
+                        "code": "MTY",
+                        "position": "home",
+                        "country": {
+                            "id": "5trdr3jf42i20zj1hnkvcytr6",
+                            "name": "Mexico"
+                        }
+                    },
+                    {
+                        "id": "b7hn6knkuxbpj1i8rmzapns7b",
+                        "name": "Necaxa",
+                        "shortName": "Necaxa",
+                        "officialName": "Club Necaxa",
+                        "code": "NCX",
+                        "position": "away",
+                        "country": {
+                            "id": "5trdr3jf42i20zj1hnkvcytr6",
+                            "name": "Mexico"
+                        }
+                    }
+                ],
+                "venue": {
+                    "id": "l7dgi0nyxlitlqy6pmy0yi71",
+                    "neutral": "yes",
+                    "longName": "Dignity Health Sports Park",
+                    "shortName": "Dignity Health Sports Park"
+                }
+            },
+            "liveData": {
+                "matchDetails": {
+                    "periodId": 14,
+                    "matchStatus": "Played",
+                    "winner": "away",
+                    "matchLengthMin": 99,
+                    "matchLengthSec": 8,
+                    "period": [
+                        {
+                            "id": 1,
+                            "start": "2018-07-15T22:08:32Z",
+                            "end": "2018-07-15T22:56:52Z",
+                            "lengthMin": 48,
+                            "lengthSec": 20
+                        },
+                        {
+                            "id": 2,
+                            "start": "2018-07-15T23:13:01Z",
+                            "end": "2018-07-16T00:03:49Z",
+                            "lengthMin": 50,
+                            "lengthSec": 48
+                        }
+                    ],
+                    "scores": {
+                        "ht": {
+                            "home": 0,
+                            "away": 1
+                        },
+                        "ft": {
+                            "home": 0,
+                            "away": 1
+                        },
+                        "total": {
+                            "home": 0,
+                            "away": 1
+                        }
+                    }
+                },
+                "goal": [
+                    {
+                        "contestantId": "b7hn6knkuxbpj1i8rmzapns7b",
+                        "periodId": 1,
+                        "timeMin": 25,
+                        "timeMinSec": "24:54",
+                        "lastUpdated": "2023-06-01T12:35:34Z",
+                        "type": "G",
+                        "scorerId": "dta2hcu8sq62dx9diax5shk9",
+                        "scorerName": "S. Córdova",
+                        "assistPlayerId": "evsi15yzlgsbn8fj4phrhi39",
+                        "assistPlayerName": "R. González",
+                        "optaEventId": "1836906457",
+                        "homeScore": 0,
+                        "awayScore": 1
+                    }
+                ],
+                "card": [
+                    {
+                        "contestantId": "233335xtoe3e3phg3hp91xguq",
+                        "periodId": 2,
+                        "timeMin": 60,
+                        "timeMinSec": "59:57",
+                        "lastUpdated": "2018-07-15T23:28:02Z",
+                        "type": "YC",
+                        "playerId": "algbhkns08ibwpdc4sehpem6t",
+                        "playerName": "J. Basanta",
+                        "optaEventId": "1227916525",
+                        "cardReason": "Foul"
+                    },
+                    {
+                        "contestantId": "233335xtoe3e3phg3hp91xguq",
+                        "periodId": 2,
+                        "timeMin": 85,
+                        "timeMinSec": "84:26",
+                        "lastUpdated": "2024-10-14T16:43:59Z",
+                        "type": "YC",
+                        "playerId": "8ccew21ghurfiznopilx1wqtx",
+                        "playerName": "N. Sánchez",
+                        "optaEventId": "1510943841",
+                        "cardReason": "Foul"
+                    }
+                ],
+                "substitute": [
+                    {
+                        "contestantId": "233335xtoe3e3phg3hp91xguq",
+                        "periodId": 2,
+                        "timeMin": 46,
+                        "timeMinSec": "45:00",
+                        "lastUpdated": "2024-07-05T10:26:58Z",
+                        "playerOnId": "dj0mnh206bmg6g2980038frp",
+                        "playerOnName": "A. González",
+                        "playerOffId": "ecc0z4kvkeg894k4zbnc6pmmt",
+                        "playerOffName": "J. Molina",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "233335xtoe3e3phg3hp91xguq",
+                        "periodId": 2,
+                        "timeMin": 61,
+                        "timeMinSec": "60:53",
+                        "lastUpdated": "2019-09-12T19:46:03Z",
+                        "playerOnId": "4ja8rwp6x8ddabb6dsewgn45x",
+                        "playerOnName": "G. Madrigal",
+                        "playerOffId": "11n67yqbyrtjbupvquahzb1sl",
+                        "playerOffName": "J. Benítez",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "b7hn6knkuxbpj1i8rmzapns7b",
+                        "periodId": 2,
+                        "timeMin": 71,
+                        "timeMinSec": "70:51",
+                        "lastUpdated": "2023-01-07T22:00:07Z",
+                        "playerOnId": "812w5nzemdj9bi101mlewuvv9",
+                        "playerOnName": "D. Álvarez",
+                        "playerOffId": "diauyo66kudxbolux358mjhed",
+                        "playerOffName": "M. Fernández",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "233335xtoe3e3phg3hp91xguq",
+                        "periodId": 2,
+                        "timeMin": 73,
+                        "timeMinSec": "72:36",
+                        "lastUpdated": "2023-07-24T14:29:01Z",
+                        "playerOnId": "5zuetzoqduux3tt31yu74lsr9",
+                        "playerOnName": "É. Gutiérrez",
+                        "playerOffId": "avklyjdqb9280ejj78gwtsb85",
+                        "playerOffName": "S. Medina",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "b7hn6knkuxbpj1i8rmzapns7b",
+                        "periodId": 2,
+                        "timeMin": 77,
+                        "timeMinSec": "76:08",
+                        "lastUpdated": "2018-07-15T23:44:32Z",
+                        "playerOnId": "6cixm7u6txk9qnnhen5ju84wl",
+                        "playerOnName": "L. Pérez",
+                        "playerOffId": "31v8oj4g71deihi2p1qw8r36x",
+                        "playerOffName": "M. Allende",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "b7hn6knkuxbpj1i8rmzapns7b",
+                        "periodId": 2,
+                        "timeMin": 81,
+                        "timeMinSec": "80:51",
+                        "lastUpdated": "2018-07-15T23:49:27Z",
+                        "playerOnId": "adm0uiif0vbbs4p72edizgwr9",
+                        "playerOnName": "C. Riaño",
+                        "playerOffId": "30q9d8i2c8kgscpgze0x5h0b9",
+                        "playerOffName": "V. Dávila",
+                        "subReason": "Tactical"
+                    }
+                ],
+                "matchDetailsExtra": {
+                    "matchOfficial": [
+                        {
+                            "id": "a982bvkbzmwyiregl9voqs2c5",
+                            "type": "Main",
+                            "firstName": "Marco Antonio",
+                            "lastName": "Ortíz Nava",
+                            "shortFirstName": "Marco Antonio",
+                            "shortLastName": "Ortiz Nava"
+                        },
+                        {
+                            "id": "curncoplcr3kw0reot1ag76j9",
+                            "type": "Assistant referee 1",
+                            "firstName": "José Luis",
+                            "lastName": "Camargo Callado",
+                            "shortFirstName": "José Luis",
+                            "shortLastName": "Camargo Callado"
+                        },
+                        {
+                            "id": "5nlsby2hfaw95zz89hemew4id",
+                            "type": "Assistant referee 2",
+                            "firstName": "Mario Jesús",
+                            "lastName": "López Carrillo",
+                            "shortFirstName": "Mario Jesús",
+                            "shortLastName": "López Carrillo"
+                        },
+                        {
+                            "id": "9wk7bujcx7wzs3qwhkqwag4id",
+                            "type": "Fourth official",
+                            "firstName": "Fernando",
+                            "lastName": "Guerrero Ramírez",
+                            "shortFirstName": "Fernando",
+                            "shortLastName": "Guerrero Ramírez"
+                        }
+                    ]
+                }
+            }
+        }
+    ]
+}

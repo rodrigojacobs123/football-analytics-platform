@@ -1,0 +1,784 @@
+{
+    "match": [
+        {
+            "matchInfo": {
+                "id": "4ri0ylt54ux3baqfeg7q8ymfo",
+                "coverageLevel": "13",
+                "date": "2025-02-12Z",
+                "time": "03:00:00Z",
+                "localDate": "2025-02-11",
+                "localTime": "21:00:00",
+                "numberOfPeriods": 2,
+                "periodLength": 45,
+                "overtimeLength": 15,
+                "var": "1",
+                "lastUpdated": "2025-04-16T11:09:34Z",
+                "description": "Cruz Azul vs Real Hope",
+                "sport": {
+                    "id": "289u5typ3vp4ifwh5thalohmq",
+                    "name": "Soccer"
+                },
+                "ruleset": {
+                    "id": "79plas4983031idr6vw83nuel",
+                    "name": "Men"
+                },
+                "competition": {
+                    "id": "e6rl4hongahbihxd3tpudespd",
+                    "name": "Concacaf Champions Cup",
+                    "knownName": "Concacaf Champions Cup",
+                    "competitionCode": "CCC",
+                    "competitionFormat": "International cup",
+                    "country": {
+                        "id": "7yfrmldo7ozpwui3n6wfcy1n9",
+                        "name": "N/C America"
+                    }
+                },
+                "tournamentCalendar": {
+                    "id": "2gj8eldctlh5kua3vdf9loqok",
+                    "startDate": "2025-02-05Z",
+                    "endDate": "2025-06-01Z",
+                    "name": "2025"
+                },
+                "stage": {
+                    "id": "2h859mu7t2dipzu8w399spel0",
+                    "formatId": "3ad6z07rilk8flizkw1bhv179",
+                    "startDate": "2025-02-05Z",
+                    "endDate": "2025-02-28Z",
+                    "name": "1st Round"
+                },
+                "contestant": [
+                    {
+                        "id": "1aw67co8uut64yckd3wbhy9t2",
+                        "name": "Cruz Azul",
+                        "shortName": "Cruz Azul",
+                        "officialName": "CF Cruz Azul",
+                        "code": "CAZ",
+                        "position": "home",
+                        "country": {
+                            "id": "5trdr3jf42i20zj1hnkvcytr6",
+                            "name": "Mexico"
+                        }
+                    },
+                    {
+                        "id": "c8mv1gwqxjatk4l5vxzyl05uh",
+                        "name": "Real Hope",
+                        "shortName": "Real Hope",
+                        "officialName": "Real Hope FA",
+                        "code": "RHA",
+                        "position": "away",
+                        "country": {
+                            "id": "5mp58o38d0mr5qt8g4o6l7efg",
+                            "name": "Haiti"
+                        }
+                    }
+                ],
+                "venue": {
+                    "id": "78113wsj5mbr2k5bjshddlosk",
+                    "neutral": "no",
+                    "longName": "Estadio Olímpico Universitario",
+                    "shortName": "Estadio Olímpico Universitario"
+                }
+            },
+            "liveData": {
+                "matchDetails": {
+                    "periodId": 14,
+                    "matchStatus": "Played",
+                    "winner": "home",
+                    "leg": 2,
+                    "relatedMatchId": "4ru4alxz0pwdr21j29n75kb2s",
+                    "aggregateWinnerId": "1aw67co8uut64yckd3wbhy9t2",
+                    "matchLengthMin": 91,
+                    "matchLengthSec": 38,
+                    "period": [
+                        {
+                            "id": 1,
+                            "start": "2025-02-12T03:06:14Z",
+                            "end": "2025-02-12T03:52:33Z",
+                            "lengthMin": 46,
+                            "lengthSec": 19,
+                            "announcedInjuryTime": 60
+                        },
+                        {
+                            "id": 2,
+                            "start": "2025-02-12T04:07:35Z",
+                            "end": "2025-02-12T04:52:54Z",
+                            "lengthMin": 45,
+                            "lengthSec": 19
+                        }
+                    ],
+                    "scores": {
+                        "ht": {
+                            "home": 3,
+                            "away": 0
+                        },
+                        "ft": {
+                            "home": 5,
+                            "away": 0
+                        },
+                        "total": {
+                            "home": 5,
+                            "away": 0
+                        },
+                        "aggregate": {
+                            "home": 7,
+                            "away": 0
+                        }
+                    }
+                },
+                "goal": [
+                    {
+                        "contestantId": "1aw67co8uut64yckd3wbhy9t2",
+                        "periodId": 1,
+                        "timeMin": 21,
+                        "timeMinSec": "20:23",
+                        "lastUpdated": "2025-02-12T03:27:01Z",
+                        "timestamp": "2025-02-12T03:26:37Z",
+                        "type": "G",
+                        "scorerId": "a6mh5ij486h2r0swzinbrkyxh",
+                        "scorerName": "Á. Sepúlveda",
+                        "assistPlayerId": "399pgumsrvtb9kcx58vw5cmlm",
+                        "assistPlayerName": "M. Bogusz",
+                        "optaEventId": "2775287601",
+                        "homeScore": 1,
+                        "awayScore": 0
+                    },
+                    {
+                        "contestantId": "1aw67co8uut64yckd3wbhy9t2",
+                        "periodId": 1,
+                        "timeMin": 24,
+                        "timeMinSec": "23:17",
+                        "lastUpdated": "2025-02-12T03:30:37Z",
+                        "timestamp": "2025-02-12T03:29:31Z",
+                        "type": "G",
+                        "scorerId": "a6mh5ij486h2r0swzinbrkyxh",
+                        "scorerName": "Á. Sepúlveda",
+                        "assistPlayerId": "8e0we3usnv24xj6ejm5drax1x",
+                        "assistPlayerName": "I. Rivero",
+                        "secondAssistPlayerId": "ebkkhbtt1kvxn9agafp2jil1w",
+                        "ocSecondAssistPlayerId": "820131",
+                        "opSecondAssistPlayerId": "571958",
+                        "secondAssistPlayerName": "A. Montaño",
+                        "optaEventId": "2775287681",
+                        "homeScore": 2,
+                        "awayScore": 0
+                    },
+                    {
+                        "contestantId": "1aw67co8uut64yckd3wbhy9t2",
+                        "periodId": 1,
+                        "timeMin": 26,
+                        "timeMinSec": "25:13",
+                        "lastUpdated": "2025-02-12T03:31:56Z",
+                        "timestamp": "2025-02-12T03:31:27Z",
+                        "type": "G",
+                        "scorerId": "bc4lkvpu7xma5dejq23ikv1ed",
+                        "scorerName": "G. Fernández",
+                        "assistPlayerId": "399pgumsrvtb9kcx58vw5cmlm",
+                        "assistPlayerName": "M. Bogusz",
+                        "optaEventId": "2775287755",
+                        "homeScore": 3,
+                        "awayScore": 0
+                    },
+                    {
+                        "contestantId": "1aw67co8uut64yckd3wbhy9t2",
+                        "periodId": 2,
+                        "timeMin": 60,
+                        "timeMinSec": "59:23",
+                        "lastUpdated": "2025-02-12T04:22:27Z",
+                        "timestamp": "2025-02-12T04:21:59Z",
+                        "type": "G",
+                        "scorerId": "ebkkhbtt1kvxn9agafp2jil1w",
+                        "scorerName": "A. Montaño",
+                        "assistPlayerId": "1rsxl4i0kp86goczaq7aok4yc",
+                        "assistPlayerName": "J. Suárez",
+                        "optaEventId": "2775290195",
+                        "homeScore": 4,
+                        "awayScore": 0
+                    },
+                    {
+                        "contestantId": "1aw67co8uut64yckd3wbhy9t2",
+                        "periodId": 2,
+                        "timeMin": 75,
+                        "timeMinSec": "74:13",
+                        "lastUpdated": "2025-02-12T04:37:27Z",
+                        "timestamp": "2025-02-12T04:36:49Z",
+                        "type": "G",
+                        "scorerId": "bc4lkvpu7xma5dejq23ikv1ed",
+                        "scorerName": "G. Fernández",
+                        "assistPlayerId": "a6mh5ij486h2r0swzinbrkyxh",
+                        "assistPlayerName": "Á. Sepúlveda",
+                        "optaEventId": "2775292211",
+                        "homeScore": 5,
+                        "awayScore": 0
+                    }
+                ],
+                "missedPen": [
+                    {
+                        "contestantId": "1aw67co8uut64yckd3wbhy9t2",
+                        "periodId": 1,
+                        "timeMin": 46,
+                        "timeMinSec": "45:36",
+                        "lastUpdated": "2025-02-12T03:52:03Z",
+                        "timestamp": "2025-02-12T03:51:50Z",
+                        "type": "PS",
+                        "playerId": "d35wc44m5l0437fxr39o4ss15",
+                        "playerName": "A. Gudiño",
+                        "optaEventId": "2775288481"
+                    },
+                    {
+                        "contestantId": "c8mv1gwqxjatk4l5vxzyl05uh",
+                        "periodId": 1,
+                        "timeMin": 46,
+                        "timeMinSec": "45:36",
+                        "lastUpdated": "2025-02-12T03:52:03Z",
+                        "timestamp": "2025-02-12T03:51:50Z",
+                        "type": "PM",
+                        "playerId": "cluixmvrd84ojtts5pvhl9444",
+                        "playerName": "A. Éxilus",
+                        "optaEventId": "2775288477"
+                    }
+                ],
+                "substitute": [
+                    {
+                        "contestantId": "c8mv1gwqxjatk4l5vxzyl05uh",
+                        "periodId": 2,
+                        "timeMin": 51,
+                        "timeMinSec": "50:34",
+                        "lastUpdated": "2025-02-12T04:13:16Z",
+                        "timestamp": "2025-02-12T04:13:10Z",
+                        "playerOnId": "2m14iyra311o3gmeyqgqx2m8k",
+                        "playerOnName": "W. Leazard",
+                        "playerOffId": "8a8620mu0ochz5z6m8dfj1uqx",
+                        "playerOffName": "D. Ulysse",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "c8mv1gwqxjatk4l5vxzyl05uh",
+                        "periodId": 2,
+                        "timeMin": 51,
+                        "timeMinSec": "50:46",
+                        "lastUpdated": "2025-02-12T04:13:28Z",
+                        "timestamp": "2025-02-12T04:13:22Z",
+                        "playerOnId": "aj532s4hy4eg8qkiso6jd8hzo",
+                        "playerOnName": "E. Duce",
+                        "playerOffId": "eia5cc0pfhrzoo4irx4gpoavo",
+                        "playerOffName": "S. Joseph",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "c8mv1gwqxjatk4l5vxzyl05uh",
+                        "periodId": 2,
+                        "timeMin": 51,
+                        "timeMinSec": "50:48",
+                        "lastUpdated": "2025-02-12T04:13:34Z",
+                        "timestamp": "2025-02-12T04:13:24Z",
+                        "playerOnId": "8gx43mauga4w8hzhavpuy6pk9",
+                        "playerOnName": "S. Mondestin",
+                        "playerOffId": "csglgcuq283od9sbkvjr4s4k4",
+                        "playerOffName": "R. Intervil",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "1aw67co8uut64yckd3wbhy9t2",
+                        "periodId": 2,
+                        "timeMin": 57,
+                        "timeMinSec": "56:37",
+                        "lastUpdated": "2025-02-12T04:19:16Z",
+                        "timestamp": "2025-02-12T04:19:12Z",
+                        "playerOnId": "2yb5ohfkaeqz1fj4yecac7tp0",
+                        "playerOnName": "B. Gamboa",
+                        "playerOffId": "399pgumsrvtb9kcx58vw5cmlm",
+                        "playerOffName": "M. Bogusz",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "1aw67co8uut64yckd3wbhy9t2",
+                        "periodId": 2,
+                        "timeMin": 57,
+                        "timeMinSec": "56:49",
+                        "lastUpdated": "2025-02-12T04:19:26Z",
+                        "timestamp": "2025-02-12T04:19:25Z",
+                        "playerOnId": "dugp1r54ch8rsnyifhaopp05w",
+                        "playerOnName": "K. Velázquez",
+                        "playerOffId": "esdoy89wccl0e2kjw0tj6o2j9",
+                        "playerOffName": "G. Piovi",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "1aw67co8uut64yckd3wbhy9t2",
+                        "periodId": 2,
+                        "timeMin": 58,
+                        "timeMinSec": "57:12",
+                        "lastUpdated": "2025-02-12T04:19:56Z",
+                        "timestamp": "2025-02-12T04:19:48Z",
+                        "playerOnId": "1rsxl4i0kp86goczaq7aok4yc",
+                        "playerOnName": "J. Suárez",
+                        "playerOffId": "8e0we3usnv24xj6ejm5drax1x",
+                        "playerOffName": "I. Rivero",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "c8mv1gwqxjatk4l5vxzyl05uh",
+                        "periodId": 2,
+                        "timeMin": 58,
+                        "timeMinSec": "57:30",
+                        "lastUpdated": "2025-02-12T04:20:14Z",
+                        "timestamp": "2025-02-12T04:20:06Z",
+                        "playerOnId": "6dvsfz9ua9cczqawqrikn7w9g",
+                        "playerOnName": "M. Colo",
+                        "playerOffId": "93506bsoup1axtfmreosyv97u",
+                        "playerOffName": "P. Pierre-Louis",
+                        "subReason": "Injury"
+                    },
+                    {
+                        "contestantId": "1aw67co8uut64yckd3wbhy9t2",
+                        "periodId": 2,
+                        "timeMin": 64,
+                        "timeMinSec": "63:44",
+                        "lastUpdated": "2025-02-12T04:26:26Z",
+                        "timestamp": "2025-02-12T04:26:19Z",
+                        "playerOnId": "1yaltijxes8x1ftlfs9aawwyx",
+                        "playerOnName": "A. Gutiérrez",
+                        "playerOffId": "64p7y8y2gxzz8fmunj9lcj2s5",
+                        "playerOffName": "L. Faravelli",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "1aw67co8uut64yckd3wbhy9t2",
+                        "periodId": 2,
+                        "timeMin": 64,
+                        "timeMinSec": "63:50",
+                        "lastUpdated": "2025-02-12T04:26:35Z",
+                        "timestamp": "2025-02-12T04:26:26Z",
+                        "playerOnId": "e9ku3q311eg5t8lrxfcof65m1",
+                        "playerOnName": "C. Rotondi",
+                        "playerOffId": "21pcsi974pxn7yx4uf5w6sphw",
+                        "playerOffName": "O. Campos",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "c8mv1gwqxjatk4l5vxzyl05uh",
+                        "periodId": 2,
+                        "timeMin": 78,
+                        "timeMinSec": "77:25",
+                        "lastUpdated": "2025-02-12T04:40:07Z",
+                        "timestamp": "2025-02-12T04:40:01Z",
+                        "playerOnId": "d7wh7le28dvuw76g3ctdeavop",
+                        "playerOnName": "S. Lucien",
+                        "playerOffId": "5th479ae1en53imans1rb7fqi",
+                        "playerOffName": "J. Jeudy",
+                        "subReason": "Tactical"
+                    }
+                ],
+                "matchDetailsExtra": {
+                    "matchOfficial": [
+                        {
+                            "id": "5gx31m23i4suhx6mxeunjgc89",
+                            "type": "Main",
+                            "firstName": "Julio César",
+                            "lastName": "de Jesús Luna Guzmán",
+                            "shortFirstName": "Julio",
+                            "shortLastName": "Luna Guzmán"
+                        },
+                        {
+                            "id": "agnwdka2ktftdgr97tvx51pm1",
+                            "type": "Assistant referee 1",
+                            "firstName": "Luis Haroldo",
+                            "lastName": "Ventura Chacón",
+                            "shortFirstName": "Luis Aroldo",
+                            "shortLastName": "Ventura"
+                        },
+                        {
+                            "id": "36zva2sdw27gbr5t946bolbe1",
+                            "type": "Assistant referee 2",
+                            "firstName": "Humberto",
+                            "lastName": "Panjoj",
+                            "shortFirstName": "Humberto",
+                            "shortLastName": "Panjoj"
+                        },
+                        {
+                            "id": "eajvb56f6uwk8rww2sofef4yx",
+                            "type": "Fourth official",
+                            "firstName": "Sergio Armando",
+                            "lastName": "Reyna Moller",
+                            "shortFirstName": "Sergio",
+                            "shortLastName": "Reyna"
+                        },
+                        {
+                            "id": "bh1wx3zg1pqwa3iq4qv984yz8",
+                            "type": "Video Assistant Referee",
+                            "firstName": "Benjamin Michael",
+                            "lastName": "Whitty",
+                            "shortFirstName": "Benjamin",
+                            "shortLastName": "Whitty"
+                        },
+                        {
+                            "id": "7pvqanp8ktfdgy2p796ri54np",
+                            "type": "Assistant VAR Official",
+                            "firstName": "Chris",
+                            "lastName": "Penso",
+                            "shortFirstName": "Chris",
+                            "shortLastName": "Penso"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "matchInfo": {
+                "id": "4ru4alxz0pwdr21j29n75kb2s",
+                "coverageLevel": "13",
+                "date": "2025-02-05Z",
+                "time": "01:00:00Z",
+                "localDate": "2025-02-04",
+                "localTime": "21:00:00",
+                "numberOfPeriods": 2,
+                "periodLength": 45,
+                "overtimeLength": 15,
+                "var": "1",
+                "lastUpdated": "2025-04-16T11:09:34Z",
+                "description": "Real Hope vs Cruz Azul",
+                "sport": {
+                    "id": "289u5typ3vp4ifwh5thalohmq",
+                    "name": "Soccer"
+                },
+                "ruleset": {
+                    "id": "79plas4983031idr6vw83nuel",
+                    "name": "Men"
+                },
+                "competition": {
+                    "id": "e6rl4hongahbihxd3tpudespd",
+                    "name": "Concacaf Champions Cup",
+                    "knownName": "Concacaf Champions Cup",
+                    "competitionCode": "CCC",
+                    "competitionFormat": "International cup",
+                    "country": {
+                        "id": "7yfrmldo7ozpwui3n6wfcy1n9",
+                        "name": "N/C America"
+                    }
+                },
+                "tournamentCalendar": {
+                    "id": "2gj8eldctlh5kua3vdf9loqok",
+                    "startDate": "2025-02-05Z",
+                    "endDate": "2025-06-01Z",
+                    "name": "2025"
+                },
+                "stage": {
+                    "id": "2h859mu7t2dipzu8w399spel0",
+                    "formatId": "3ad6z07rilk8flizkw1bhv179",
+                    "startDate": "2025-02-05Z",
+                    "endDate": "2025-02-28Z",
+                    "name": "1st Round"
+                },
+                "contestant": [
+                    {
+                        "id": "c8mv1gwqxjatk4l5vxzyl05uh",
+                        "name": "Real Hope",
+                        "shortName": "Real Hope",
+                        "officialName": "Real Hope FA",
+                        "code": "RHA",
+                        "position": "home",
+                        "country": {
+                            "id": "5mp58o38d0mr5qt8g4o6l7efg",
+                            "name": "Haiti"
+                        }
+                    },
+                    {
+                        "id": "1aw67co8uut64yckd3wbhy9t2",
+                        "name": "Cruz Azul",
+                        "shortName": "Cruz Azul",
+                        "officialName": "CF Cruz Azul",
+                        "code": "CAZ",
+                        "position": "away",
+                        "country": {
+                            "id": "5trdr3jf42i20zj1hnkvcytr6",
+                            "name": "Mexico"
+                        }
+                    }
+                ],
+                "venue": {
+                    "id": "2k79o6sphf55cbp8ij54sah2h",
+                    "neutral": "no",
+                    "longName": "Estadio Cibao",
+                    "shortName": "Estadio Cibao"
+                }
+            },
+            "liveData": {
+                "matchDetails": {
+                    "periodId": 14,
+                    "matchStatus": "Played",
+                    "winner": "away",
+                    "leg": 1,
+                    "relatedMatchId": "4ri0ylt54ux3baqfeg7q8ymfo",
+                    "aggregateWinnerId": "1aw67co8uut64yckd3wbhy9t2",
+                    "matchLengthMin": 99,
+                    "matchLengthSec": 19,
+                    "period": [
+                        {
+                            "id": 1,
+                            "start": "2025-02-05T01:06:37Z",
+                            "end": "2025-02-05T01:55:52Z",
+                            "lengthMin": 49,
+                            "lengthSec": 15,
+                            "announcedInjuryTime": 240
+                        },
+                        {
+                            "id": 2,
+                            "start": "2025-02-05T02:10:56Z",
+                            "end": "2025-02-05T03:01:00Z",
+                            "lengthMin": 50,
+                            "lengthSec": 4,
+                            "announcedInjuryTime": 300
+                        }
+                    ],
+                    "scores": {
+                        "ht": {
+                            "home": 0,
+                            "away": 1
+                        },
+                        "ft": {
+                            "home": 0,
+                            "away": 2
+                        },
+                        "total": {
+                            "home": 0,
+                            "away": 2
+                        },
+                        "aggregate": {
+                            "home": 0,
+                            "away": 7
+                        }
+                    }
+                },
+                "goal": [
+                    {
+                        "contestantId": "1aw67co8uut64yckd3wbhy9t2",
+                        "periodId": 1,
+                        "timeMin": 38,
+                        "timeMinSec": "37:34",
+                        "lastUpdated": "2025-02-05T01:44:50Z",
+                        "timestamp": "2025-02-05T01:44:12Z",
+                        "type": "G",
+                        "scorerId": "a6mh5ij486h2r0swzinbrkyxh",
+                        "scorerName": "Á. Sepúlveda",
+                        "optaEventId": "2772676943",
+                        "homeScore": 0,
+                        "awayScore": 1
+                    },
+                    {
+                        "contestantId": "c8mv1gwqxjatk4l5vxzyl05uh",
+                        "periodId": 2,
+                        "timeMin": 83,
+                        "timeMinSec": "82:40",
+                        "lastUpdated": "2025-02-05T11:05:46Z",
+                        "timestamp": "2025-02-05T02:48:36Z",
+                        "type": "OG",
+                        "scorerId": "75yf3v7jqbe0mtzjerm4feui1",
+                        "scorerName": "J. Guillaume",
+                        "optaEventId": "2772683119",
+                        "homeScore": 0,
+                        "awayScore": 2
+                    }
+                ],
+                "card": [
+                    {
+                        "contestantId": "c8mv1gwqxjatk4l5vxzyl05uh",
+                        "periodId": 1,
+                        "timeMin": 2,
+                        "timeMinSec": "1:43",
+                        "lastUpdated": "2025-02-05T01:08:29Z",
+                        "timestamp": "2025-02-05T01:08:20Z",
+                        "type": "YC",
+                        "playerId": "ebj3xpy5m35hcp906a3kmo7l6",
+                        "playerName": "H. Michel",
+                        "optaEventId": "2772671747",
+                        "cardReason": "Foul"
+                    },
+                    {
+                        "contestantId": "1aw67co8uut64yckd3wbhy9t2",
+                        "periodId": 2,
+                        "timeMin": 93,
+                        "timeMinSec": "92:55",
+                        "lastUpdated": "2025-02-05T02:59:06Z",
+                        "timestamp": "2025-02-05T02:58:52Z",
+                        "type": "YC",
+                        "playerId": "5yc9y7f8aoxptz1o4ieu22ezu",
+                        "playerName": "A. García",
+                        "optaEventId": "2772683741",
+                        "cardReason": "Foul"
+                    }
+                ],
+                "substitute": [
+                    {
+                        "contestantId": "1aw67co8uut64yckd3wbhy9t2",
+                        "periodId": 2,
+                        "timeMin": 54,
+                        "timeMinSec": "53:50",
+                        "lastUpdated": "2025-02-05T02:19:54Z",
+                        "timestamp": "2025-02-05T02:19:46Z",
+                        "playerOnId": "ebkkhbtt1kvxn9agafp2jil1w",
+                        "playerOnName": "A. Montaño",
+                        "playerOffId": "77x0j0keofxem6m9oddlfyvbo",
+                        "playerOffName": "A. Morales",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "1aw67co8uut64yckd3wbhy9t2",
+                        "periodId": 2,
+                        "timeMin": 55,
+                        "timeMinSec": "54:56",
+                        "lastUpdated": "2025-02-05T02:21:00Z",
+                        "timestamp": "2025-02-05T02:20:52Z",
+                        "playerOnId": "41apdbiwn1i5hg4qu305dkkk4",
+                        "playerOnName": "C. Valdivia",
+                        "playerOffId": "6eb3jpi6t6z2ergmgzcpckdpm",
+                        "playerOffName": "L. Romero",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "1aw67co8uut64yckd3wbhy9t2",
+                        "periodId": 2,
+                        "timeMin": 56,
+                        "timeMinSec": "55:13",
+                        "lastUpdated": "2025-02-05T02:21:16Z",
+                        "timestamp": "2025-02-05T02:21:09Z",
+                        "playerOnId": "bc4lkvpu7xma5dejq23ikv1ed",
+                        "playerOnName": "G. Fernández",
+                        "playerOffId": "64p7y8y2gxzz8fmunj9lcj2s5",
+                        "playerOffName": "L. Faravelli",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "c8mv1gwqxjatk4l5vxzyl05uh",
+                        "periodId": 2,
+                        "timeMin": 60,
+                        "timeMinSec": "59:20",
+                        "lastUpdated": "2025-02-05T02:25:24Z",
+                        "timestamp": "2025-02-05T02:25:16Z",
+                        "playerOnId": "eia5cc0pfhrzoo4irx4gpoavo",
+                        "playerOnName": "S. Joseph",
+                        "playerOffId": "2m14iyra311o3gmeyqgqx2m8k",
+                        "playerOffName": "W. Leazard",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "c8mv1gwqxjatk4l5vxzyl05uh",
+                        "periodId": 2,
+                        "timeMin": 60,
+                        "timeMinSec": "59:25",
+                        "lastUpdated": "2025-02-05T02:25:27Z",
+                        "timestamp": "2025-02-05T02:25:21Z",
+                        "playerOnId": "csglgcuq283od9sbkvjr4s4k4",
+                        "playerOnName": "R. Intervil",
+                        "playerOffId": "8gx43mauga4w8hzhavpuy6pk9",
+                        "playerOffName": "S. Mondestin",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "c8mv1gwqxjatk4l5vxzyl05uh",
+                        "periodId": 2,
+                        "timeMin": 64,
+                        "timeMinSec": "63:42",
+                        "lastUpdated": "2025-02-05T02:29:45Z",
+                        "timestamp": "2025-02-05T02:29:38Z",
+                        "playerOnId": "az064s2shojxd57c4txxnqhhw",
+                        "playerOnName": "R. Chéry",
+                        "playerOffId": "8cp09du9ccdq10gaebl98us5w",
+                        "playerOffName": "W. Pierre",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "1aw67co8uut64yckd3wbhy9t2",
+                        "periodId": 2,
+                        "timeMin": 68,
+                        "timeMinSec": "67:28",
+                        "lastUpdated": "2025-02-05T02:33:32Z",
+                        "timestamp": "2025-02-05T02:33:24Z",
+                        "playerOnId": "5yc9y7f8aoxptz1o4ieu22ezu",
+                        "playerOnName": "A. García",
+                        "playerOffId": "1yaltijxes8x1ftlfs9aawwyx",
+                        "playerOffName": "A. Gutiérrez",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "c8mv1gwqxjatk4l5vxzyl05uh",
+                        "periodId": 2,
+                        "timeMin": 79,
+                        "timeMinSec": "78:30",
+                        "lastUpdated": "2025-02-05T02:44:33Z",
+                        "timestamp": "2025-02-05T02:44:26Z",
+                        "playerOnId": "75yf3v7jqbe0mtzjerm4feui1",
+                        "playerOnName": "J. Guillaume",
+                        "playerOffId": "aj532s4hy4eg8qkiso6jd8hzo",
+                        "playerOffName": "E. Duce",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "1aw67co8uut64yckd3wbhy9t2",
+                        "periodId": 2,
+                        "timeMin": 80,
+                        "timeMinSec": "79:25",
+                        "lastUpdated": "2025-02-05T02:45:28Z",
+                        "timestamp": "2025-02-05T02:45:21Z",
+                        "playerOnId": "dmtsbln16ttjoymm2rqfuyw2x",
+                        "playerOnName": "C. Rodríguez",
+                        "playerOffId": "a6mh5ij486h2r0swzinbrkyxh",
+                        "playerOffName": "Á. Sepúlveda",
+                        "subReason": "Tactical"
+                    }
+                ],
+                "matchDetailsExtra": {
+                    "matchOfficial": [
+                        {
+                            "id": "1bq5379a5k04ukbk06qkwudpl",
+                            "type": "Main",
+                            "firstName": "Natalie",
+                            "lastName": "Simon",
+                            "shortFirstName": "Natalie",
+                            "shortLastName": "Simon"
+                        },
+                        {
+                            "id": "4gw7tbfw8c7xge6tc2anceqc5",
+                            "type": "Assistant referee 1",
+                            "firstName": "Zachari",
+                            "lastName": "Zeegelaar",
+                            "shortFirstName": "Zachari",
+                            "shortLastName": "Zeegelaar"
+                        },
+                        {
+                            "id": "7k106lol310fo0bepusw22d49",
+                            "type": "Assistant referee 2",
+                            "firstName": "Stephanie",
+                            "lastName": "Dale Yee Sing",
+                            "shortFirstName": "Stephanie",
+                            "shortLastName": "Dale Yee Sing"
+                        },
+                        {
+                            "id": "2m2brlpbqd8k005l5x1is060a",
+                            "type": "Fourth official",
+                            "firstName": "Christopher",
+                            "lastName": "Mason",
+                            "shortFirstName": "Christopher",
+                            "shortLastName": "Mason"
+                        },
+                        {
+                            "id": "da09t5frhzaukxs5be4ur82cp",
+                            "type": "Video Assistant Referee",
+                            "firstName": "Daneon",
+                            "lastName": "Parchment",
+                            "shortFirstName": "Daneon",
+                            "shortLastName": "Parchment"
+                        },
+                        {
+                            "id": "8hgbrv1atkj72o4nylv9zkoo9",
+                            "type": "Assistant VAR Official",
+                            "firstName": "Oshane Anthony",
+                            "lastName": "Nation",
+                            "shortFirstName": "Oshane",
+                            "shortLastName": "Nation"
+                        }
+                    ]
+                }
+            }
+        }
+    ]
+}

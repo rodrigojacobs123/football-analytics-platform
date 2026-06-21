@@ -1,0 +1,804 @@
+{
+    "match": [
+        {
+            "matchInfo": {
+                "id": "4ostvgzd82f39878tr68ia49g",
+                "coverageLevel": "13",
+                "date": "2025-02-12Z",
+                "time": "01:00:00Z",
+                "localDate": "2025-02-11",
+                "localTime": "19:00:00",
+                "numberOfPeriods": 2,
+                "periodLength": 45,
+                "overtimeLength": 15,
+                "var": "1",
+                "lastUpdated": "2025-04-17T00:20:22Z",
+                "description": "Monterrey vs Forge",
+                "sport": {
+                    "id": "289u5typ3vp4ifwh5thalohmq",
+                    "name": "Soccer"
+                },
+                "ruleset": {
+                    "id": "79plas4983031idr6vw83nuel",
+                    "name": "Men"
+                },
+                "competition": {
+                    "id": "e6rl4hongahbihxd3tpudespd",
+                    "name": "Concacaf Champions Cup",
+                    "knownName": "Concacaf Champions Cup",
+                    "competitionCode": "CCC",
+                    "competitionFormat": "International cup",
+                    "country": {
+                        "id": "7yfrmldo7ozpwui3n6wfcy1n9",
+                        "name": "N/C America"
+                    }
+                },
+                "tournamentCalendar": {
+                    "id": "2gj8eldctlh5kua3vdf9loqok",
+                    "startDate": "2025-02-05Z",
+                    "endDate": "2025-06-01Z",
+                    "name": "2025"
+                },
+                "stage": {
+                    "id": "2h859mu7t2dipzu8w399spel0",
+                    "formatId": "3ad6z07rilk8flizkw1bhv179",
+                    "startDate": "2025-02-05Z",
+                    "endDate": "2025-02-28Z",
+                    "name": "1st Round"
+                },
+                "contestant": [
+                    {
+                        "id": "233335xtoe3e3phg3hp91xguq",
+                        "name": "Monterrey",
+                        "shortName": "Monterrey",
+                        "officialName": "CF Monterrey",
+                        "code": "MTY",
+                        "position": "home",
+                        "country": {
+                            "id": "5trdr3jf42i20zj1hnkvcytr6",
+                            "name": "Mexico"
+                        }
+                    },
+                    {
+                        "id": "c2pdzdl3dgf5b0siidn2ay5ii",
+                        "name": "Forge",
+                        "shortName": "Forge",
+                        "officialName": "Forge FC",
+                        "code": "FOR",
+                        "position": "away",
+                        "country": {
+                            "id": "1iaoypzp6syf32cz9l15pzp7e",
+                            "name": "Canada"
+                        }
+                    }
+                ],
+                "venue": {
+                    "id": "647q7it5oqj8ieeo9hwcpjpih",
+                    "neutral": "no",
+                    "longName": "Estadio BBVA",
+                    "shortName": "Estadio BBVA"
+                }
+            },
+            "liveData": {
+                "matchDetails": {
+                    "periodId": 14,
+                    "matchStatus": "Played",
+                    "winner": "home",
+                    "leg": 2,
+                    "relatedMatchId": "4p4r409fxu2m6gnak6lfgegb8",
+                    "aggregateWinnerId": "233335xtoe3e3phg3hp91xguq",
+                    "matchLengthMin": 91,
+                    "matchLengthSec": 31,
+                    "period": [
+                        {
+                            "id": 1,
+                            "start": "2025-02-12T01:06:54Z",
+                            "end": "2025-02-12T01:53:18Z",
+                            "lengthMin": 46,
+                            "lengthSec": 24,
+                            "announcedInjuryTime": 60
+                        },
+                        {
+                            "id": 2,
+                            "start": "2025-02-12T02:09:18Z",
+                            "end": "2025-02-12T02:54:25Z",
+                            "lengthMin": 45,
+                            "lengthSec": 7
+                        }
+                    ],
+                    "scores": {
+                        "ht": {
+                            "home": 1,
+                            "away": 0
+                        },
+                        "ft": {
+                            "home": 3,
+                            "away": 0
+                        },
+                        "total": {
+                            "home": 3,
+                            "away": 0
+                        },
+                        "aggregate": {
+                            "home": 5,
+                            "away": 0
+                        }
+                    }
+                },
+                "goal": [
+                    {
+                        "contestantId": "233335xtoe3e3phg3hp91xguq",
+                        "periodId": 1,
+                        "timeMin": 19,
+                        "timeMinSec": "18:27",
+                        "lastUpdated": "2025-02-12T01:26:22Z",
+                        "timestamp": "2025-02-12T01:25:22Z",
+                        "type": "G",
+                        "scorerId": "bfwr4kqbk0sqnlv8he4hyezft",
+                        "scorerName": "G. Berterame",
+                        "assistPlayerId": "75079gtd2efpviyo605ozsd79",
+                        "assistPlayerName": "Sergio Canales",
+                        "optaEventId": "2775269165",
+                        "homeScore": 1,
+                        "awayScore": 0
+                    },
+                    {
+                        "contestantId": "233335xtoe3e3phg3hp91xguq",
+                        "periodId": 2,
+                        "timeMin": 48,
+                        "timeMinSec": "47:22",
+                        "lastUpdated": "2025-02-12T02:12:56Z",
+                        "timestamp": "2025-02-12T02:11:41Z",
+                        "type": "G",
+                        "scorerId": "eycdwe8plhkcxgo1bjyq4q6sp",
+                        "scorerName": "J. Cortizo",
+                        "assistPlayerId": "8n4f10q0l2wjhhfdkpp8kfzdh",
+                        "assistPlayerName": "Óliver Torres",
+                        "optaEventId": "2775278607",
+                        "homeScore": 2,
+                        "awayScore": 0
+                    },
+                    {
+                        "contestantId": "233335xtoe3e3phg3hp91xguq",
+                        "periodId": 2,
+                        "timeMin": 58,
+                        "timeMinSec": "57:10",
+                        "lastUpdated": "2025-02-12T02:22:39Z",
+                        "timestamp": "2025-02-12T02:21:29Z",
+                        "type": "G",
+                        "scorerId": "bfwr4kqbk0sqnlv8he4hyezft",
+                        "scorerName": "G. Berterame",
+                        "assistPlayerId": "8n4f10q0l2wjhhfdkpp8kfzdh",
+                        "assistPlayerName": "Óliver Torres",
+                        "optaEventId": "2775280691",
+                        "homeScore": 3,
+                        "awayScore": 0
+                    }
+                ],
+                "card": [
+                    {
+                        "contestantId": "c2pdzdl3dgf5b0siidn2ay5ii",
+                        "periodId": 1,
+                        "timeMin": 18,
+                        "timeMinSec": "17:45",
+                        "lastUpdated": "2025-02-12T01:24:50Z",
+                        "timestamp": "2025-02-12T01:24:39Z",
+                        "type": "YC",
+                        "playerId": "6d56vy4w9i65ye4c5t5txgkix",
+                        "playerName": "T. Borges",
+                        "optaEventId": "2775269039",
+                        "cardReason": "Foul"
+                    },
+                    {
+                        "contestantId": "233335xtoe3e3phg3hp91xguq",
+                        "periodId": 1,
+                        "timeMin": 31,
+                        "timeMinSec": "30:14",
+                        "lastUpdated": "2025-02-12T01:37:19Z",
+                        "timestamp": "2025-02-12T01:37:09Z",
+                        "type": "YC",
+                        "playerId": "72pvwj4z6j8xwsgs6zlhr5e6s",
+                        "playerName": "N. Deossa",
+                        "optaEventId": "2775271383",
+                        "cardReason": "Foul"
+                    },
+                    {
+                        "contestantId": "c2pdzdl3dgf5b0siidn2ay5ii",
+                        "periodId": 2,
+                        "timeMin": 70,
+                        "timeMinSec": "69:50",
+                        "lastUpdated": "2025-02-12T02:34:22Z",
+                        "timestamp": "2025-02-12T02:34:09Z",
+                        "type": "YC",
+                        "playerId": "6r8emgp7oeom6yyibdb4g77c9",
+                        "playerName": "D. Choinière",
+                        "optaEventId": "2775282969",
+                        "cardReason": "Foul"
+                    },
+                    {
+                        "contestantId": "233335xtoe3e3phg3hp91xguq",
+                        "periodId": 2,
+                        "timeMin": 81,
+                        "timeMinSec": "80:33",
+                        "lastUpdated": "2025-02-12T02:45:05Z",
+                        "timestamp": "2025-02-12T02:44:52Z",
+                        "type": "YC",
+                        "playerId": "avklyjdqb9280ejj78gwtsb85",
+                        "playerName": "S. Medina",
+                        "optaEventId": "2775284589",
+                        "cardReason": "Foul"
+                    },
+                    {
+                        "contestantId": "233335xtoe3e3phg3hp91xguq",
+                        "periodId": 2,
+                        "timeMin": 83,
+                        "timeMinSec": "82:34",
+                        "lastUpdated": "2025-02-12T02:47:05Z",
+                        "timestamp": "2025-02-12T02:46:53Z",
+                        "type": "YC",
+                        "playerId": "a5qby7wb1rlyure9ivdqfillh",
+                        "playerName": "J. Rodríguez",
+                        "optaEventId": "2775284919",
+                        "cardReason": "Foul"
+                    }
+                ],
+                "substitute": [
+                    {
+                        "contestantId": "233335xtoe3e3phg3hp91xguq",
+                        "periodId": 2,
+                        "timeMin": 46,
+                        "timeMinSec": "45:00",
+                        "lastUpdated": "2025-02-12T02:08:53Z",
+                        "timestamp": "2025-02-12T02:08:49Z",
+                        "playerOnId": "8n4f10q0l2wjhhfdkpp8kfzdh",
+                        "playerOnName": "Óliver Torres",
+                        "playerOffId": "d1x4vhct28s8ugrijv2hhvcic",
+                        "playerOffName": "I. Fimbres",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "233335xtoe3e3phg3hp91xguq",
+                        "periodId": 2,
+                        "timeMin": 46,
+                        "timeMinSec": "45:00",
+                        "lastUpdated": "2025-02-12T02:08:59Z",
+                        "timestamp": "2025-02-12T02:08:49Z",
+                        "playerOnId": "eycdwe8plhkcxgo1bjyq4q6sp",
+                        "playerOnName": "J. Cortizo",
+                        "playerOffId": "75079gtd2efpviyo605ozsd79",
+                        "playerOffName": "Sergio Canales",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "233335xtoe3e3phg3hp91xguq",
+                        "periodId": 2,
+                        "timeMin": 46,
+                        "timeMinSec": "45:00",
+                        "lastUpdated": "2025-02-12T02:09:06Z",
+                        "timestamp": "2025-02-12T02:08:49Z",
+                        "playerOnId": "49nmw51e8wugq19hetjh18650",
+                        "playerOnName": "F. Valenzuela",
+                        "playerOffId": "aaw54l5a40rviv8w0um4h12ol",
+                        "playerOffName": "J. Corona",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "233335xtoe3e3phg3hp91xguq",
+                        "periodId": 2,
+                        "timeMin": 46,
+                        "timeMinSec": "45:00",
+                        "lastUpdated": "2025-02-12T02:09:15Z",
+                        "timestamp": "2025-02-12T02:08:49Z",
+                        "playerOnId": "avklyjdqb9280ejj78gwtsb85",
+                        "playerOnName": "S. Medina",
+                        "playerOffId": "ctiesvd76yq85nbnwfxvll39x",
+                        "playerOffName": "R. Chávez",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "c2pdzdl3dgf5b0siidn2ay5ii",
+                        "periodId": 2,
+                        "timeMin": 56,
+                        "timeMinSec": "55:05",
+                        "lastUpdated": "2025-04-03T22:38:13Z",
+                        "timestamp": "2025-02-12T02:19:24Z",
+                        "playerOnId": "c8d4kyelee6gyrnupxkeh6has",
+                        "playerOnName": "N. Jensen",
+                        "playerOffId": "cfffc2qdknupbftpqye1cbf1l",
+                        "playerOffName": "Mo Babouli",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "233335xtoe3e3phg3hp91xguq",
+                        "periodId": 2,
+                        "timeMin": 62,
+                        "timeMinSec": "61:07",
+                        "lastUpdated": "2025-02-12T02:25:33Z",
+                        "timestamp": "2025-02-12T02:25:26Z",
+                        "playerOnId": "bq8o0fj3sxzoqs0mlq0rbqnl5",
+                        "playerOnName": "R. de la Rosa",
+                        "playerOffId": "bfwr4kqbk0sqnlv8he4hyezft",
+                        "playerOffName": "G. Berterame",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "c2pdzdl3dgf5b0siidn2ay5ii",
+                        "periodId": 2,
+                        "timeMin": 71,
+                        "timeMinSec": "70:31",
+                        "lastUpdated": "2025-04-03T22:23:55Z",
+                        "timestamp": "2025-02-12T02:34:50Z",
+                        "playerOnId": "15hi8mubhtoknpf0jjvjnu4no",
+                        "playerOnName": "A. Koné",
+                        "playerOffId": "6r8emgp7oeom6yyibdb4g77c9",
+                        "playerOffName": "D. Choinière",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "c2pdzdl3dgf5b0siidn2ay5ii",
+                        "periodId": 2,
+                        "timeMin": 71,
+                        "timeMinSec": "70:36",
+                        "lastUpdated": "2025-04-04T17:30:30Z",
+                        "timestamp": "2025-02-12T02:34:55Z",
+                        "playerOnId": "631zrdzlwdl3vr58yrqlbjpck",
+                        "playerOnName": "M. Filion",
+                        "playerOffId": "bri3rn6ch0k8k4q9mpjc8q19l",
+                        "playerOffName": "B. Wright",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "c2pdzdl3dgf5b0siidn2ay5ii",
+                        "periodId": 2,
+                        "timeMin": 71,
+                        "timeMinSec": "70:48",
+                        "lastUpdated": "2025-02-12T02:35:15Z",
+                        "timestamp": "2025-02-12T02:35:07Z",
+                        "playerOnId": "4e644yd0r3wsm9b87m0ff1q8k",
+                        "playerOnName": "K. Kane",
+                        "playerOffId": "2zedqkn15thv6wx5xmgv48gd1",
+                        "playerOffName": "K. Bekker",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "c2pdzdl3dgf5b0siidn2ay5ii",
+                        "periodId": 2,
+                        "timeMin": 79,
+                        "timeMinSec": "78:08",
+                        "lastUpdated": "2025-02-12T02:42:34Z",
+                        "timestamp": "2025-02-12T02:42:27Z",
+                        "playerOnId": "bpbwue9gbmi9dd3wf7klkgdm1",
+                        "playerOnName": "B. Paton",
+                        "playerOffId": "4xsc616w7mz1xw45ofyivm6eh",
+                        "playerOffName": "R. Rama",
+                        "subReason": "Tactical"
+                    }
+                ],
+                "matchDetailsExtra": {
+                    "matchOfficial": [
+                        {
+                            "id": "62xzcmw566m97kaba6ch9brp",
+                            "type": "Main",
+                            "firstName": "Walter Alexander",
+                            "lastName": "López Castellanos",
+                            "shortFirstName": "Walter",
+                            "shortLastName": "López Castellanos"
+                        },
+                        {
+                            "id": "b4q09931koizbvsfxvcu3k2j9",
+                            "type": "Assistant referee 1",
+                            "firstName": "Keytzel Raul",
+                            "lastName": "Corrales Mojica",
+                            "shortFirstName": "Keytzel",
+                            "shortLastName": "Corrales"
+                        },
+                        {
+                            "id": "echkxq2qqo6f0g1bu0d38nluy",
+                            "type": "Assistant referee 2",
+                            "firstName": "Helpys Raymundo",
+                            "lastName": "Feliz Cuevas",
+                            "shortFirstName": "Helpys",
+                            "shortLastName": "Feliz"
+                        },
+                        {
+                            "id": "683nh6h7orwc1sf0q32stj9xw",
+                            "type": "Fourth official",
+                            "firstName": "Adonis",
+                            "lastName": "Carrasco Garcia",
+                            "shortFirstName": "Adonis",
+                            "shortLastName": "Carrasco"
+                        },
+                        {
+                            "id": "7qjgn8lczql47rdyiuvalyw9h",
+                            "type": "Video Assistant Referee",
+                            "firstName": "Tatiana",
+                            "lastName": "Guzman",
+                            "shortFirstName": "Tatiana",
+                            "shortLastName": "Guzman"
+                        },
+                        {
+                            "id": "3qsgv70sysqnsoptm0telrsic",
+                            "type": "Assistant VAR Official",
+                            "firstName": "Dilia",
+                            "lastName": "Bradley",
+                            "shortFirstName": "Dilia",
+                            "shortLastName": "Bradley"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "matchInfo": {
+                "id": "4p4r409fxu2m6gnak6lfgegb8",
+                "coverageLevel": "13",
+                "date": "2025-02-06Z",
+                "time": "01:00:00Z",
+                "localDate": "2025-02-05",
+                "localTime": "20:00:00",
+                "numberOfPeriods": 2,
+                "periodLength": 45,
+                "overtimeLength": 15,
+                "var": "1",
+                "lastUpdated": "2025-04-17T00:20:22Z",
+                "description": "Forge vs Monterrey",
+                "sport": {
+                    "id": "289u5typ3vp4ifwh5thalohmq",
+                    "name": "Soccer"
+                },
+                "ruleset": {
+                    "id": "79plas4983031idr6vw83nuel",
+                    "name": "Men"
+                },
+                "competition": {
+                    "id": "e6rl4hongahbihxd3tpudespd",
+                    "name": "Concacaf Champions Cup",
+                    "knownName": "Concacaf Champions Cup",
+                    "competitionCode": "CCC",
+                    "competitionFormat": "International cup",
+                    "country": {
+                        "id": "7yfrmldo7ozpwui3n6wfcy1n9",
+                        "name": "N/C America"
+                    }
+                },
+                "tournamentCalendar": {
+                    "id": "2gj8eldctlh5kua3vdf9loqok",
+                    "startDate": "2025-02-05Z",
+                    "endDate": "2025-06-01Z",
+                    "name": "2025"
+                },
+                "stage": {
+                    "id": "2h859mu7t2dipzu8w399spel0",
+                    "formatId": "3ad6z07rilk8flizkw1bhv179",
+                    "startDate": "2025-02-05Z",
+                    "endDate": "2025-02-28Z",
+                    "name": "1st Round"
+                },
+                "contestant": [
+                    {
+                        "id": "c2pdzdl3dgf5b0siidn2ay5ii",
+                        "name": "Forge",
+                        "shortName": "Forge",
+                        "officialName": "Forge FC",
+                        "code": "FOR",
+                        "position": "home",
+                        "country": {
+                            "id": "1iaoypzp6syf32cz9l15pzp7e",
+                            "name": "Canada"
+                        }
+                    },
+                    {
+                        "id": "233335xtoe3e3phg3hp91xguq",
+                        "name": "Monterrey",
+                        "shortName": "Monterrey",
+                        "officialName": "CF Monterrey",
+                        "code": "MTY",
+                        "position": "away",
+                        "country": {
+                            "id": "5trdr3jf42i20zj1hnkvcytr6",
+                            "name": "Mexico"
+                        }
+                    }
+                ],
+                "venue": {
+                    "id": "91k6sj2j7cn8scgeg77d2z015",
+                    "neutral": "no",
+                    "longName": "Hamilton Stadium",
+                    "shortName": "Hamilton Stadium"
+                }
+            },
+            "liveData": {
+                "matchDetails": {
+                    "periodId": 14,
+                    "matchStatus": "Played",
+                    "winner": "away",
+                    "leg": 1,
+                    "relatedMatchId": "4ostvgzd82f39878tr68ia49g",
+                    "aggregateWinnerId": "233335xtoe3e3phg3hp91xguq",
+                    "matchLengthMin": 94,
+                    "matchLengthSec": 22,
+                    "period": [
+                        {
+                            "id": 1,
+                            "start": "2025-02-06T01:06:21Z",
+                            "end": "2025-02-06T01:52:26Z",
+                            "lengthMin": 46,
+                            "lengthSec": 5,
+                            "announcedInjuryTime": 60
+                        },
+                        {
+                            "id": 2,
+                            "start": "2025-02-06T02:07:51Z",
+                            "end": "2025-02-06T02:56:08Z",
+                            "lengthMin": 48,
+                            "lengthSec": 17,
+                            "announcedInjuryTime": 180
+                        }
+                    ],
+                    "scores": {
+                        "ht": {
+                            "home": 0,
+                            "away": 0
+                        },
+                        "ft": {
+                            "home": 0,
+                            "away": 2
+                        },
+                        "total": {
+                            "home": 0,
+                            "away": 2
+                        },
+                        "aggregate": {
+                            "home": 0,
+                            "away": 5
+                        }
+                    }
+                },
+                "goal": [
+                    {
+                        "contestantId": "233335xtoe3e3phg3hp91xguq",
+                        "periodId": 2,
+                        "timeMin": 53,
+                        "timeMinSec": "52:52",
+                        "lastUpdated": "2025-02-06T02:16:39Z",
+                        "timestamp": "2025-02-06T02:15:43Z",
+                        "type": "G",
+                        "scorerId": "72pvwj4z6j8xwsgs6zlhr5e6s",
+                        "scorerName": "N. Deossa",
+                        "assistPlayerId": "bq8o0fj3sxzoqs0mlq0rbqnl5",
+                        "assistPlayerName": "R. de la Rosa",
+                        "optaEventId": "2772859707",
+                        "homeScore": 0,
+                        "awayScore": 1
+                    },
+                    {
+                        "contestantId": "233335xtoe3e3phg3hp91xguq",
+                        "periodId": 2,
+                        "timeMin": 66,
+                        "timeMinSec": "65:21",
+                        "lastUpdated": "2025-02-06T02:28:39Z",
+                        "timestamp": "2025-02-06T02:28:12Z",
+                        "type": "G",
+                        "scorerId": "eycdwe8plhkcxgo1bjyq4q6sp",
+                        "scorerName": "J. Cortizo",
+                        "optaEventId": "2772861261",
+                        "homeScore": 0,
+                        "awayScore": 2
+                    }
+                ],
+                "card": [
+                    {
+                        "contestantId": "233335xtoe3e3phg3hp91xguq",
+                        "periodId": 2,
+                        "timeMin": 81,
+                        "timeMinSec": "80:01",
+                        "lastUpdated": "2025-02-06T02:43:06Z",
+                        "timestamp": "2025-02-06T02:42:52Z",
+                        "type": "YC",
+                        "playerId": "ctiesvd76yq85nbnwfxvll39x",
+                        "playerName": "R. Chávez",
+                        "optaEventId": "2772862537",
+                        "cardReason": "Foul"
+                    },
+                    {
+                        "contestantId": "233335xtoe3e3phg3hp91xguq",
+                        "periodId": 2,
+                        "timeMin": 89,
+                        "timeMinSec": "88:43",
+                        "lastUpdated": "2025-02-06T02:51:52Z",
+                        "timestamp": "2025-02-06T02:51:34Z",
+                        "type": "YC",
+                        "playerId": "71ogvrwuco3kvi2l5uipur28k",
+                        "playerName": "O. Soto",
+                        "optaEventId": "2772863089",
+                        "cardReason": "Foul"
+                    }
+                ],
+                "substitute": [
+                    {
+                        "contestantId": "233335xtoe3e3phg3hp91xguq",
+                        "periodId": 2,
+                        "timeMin": 46,
+                        "timeMinSec": "45:00",
+                        "lastUpdated": "2025-02-06T02:07:35Z",
+                        "timestamp": "2025-02-06T02:07:31Z",
+                        "playerOnId": "a5qby7wb1rlyure9ivdqfillh",
+                        "playerOnName": "J. Rodríguez",
+                        "playerOffId": "54kqv02lgadahlv9is64l2ggl",
+                        "playerOffName": "H. Moreno",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "233335xtoe3e3phg3hp91xguq",
+                        "periodId": 2,
+                        "timeMin": 64,
+                        "timeMinSec": "63:57",
+                        "lastUpdated": "2025-02-06T02:26:58Z",
+                        "timestamp": "2025-02-06T02:26:49Z",
+                        "playerOnId": "4kcb2tbdazorfc5fqejh8sbo4",
+                        "playerOnName": "L. Basulto",
+                        "playerOffId": "72pvwj4z6j8xwsgs6zlhr5e6s",
+                        "playerOffName": "N. Deossa",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "233335xtoe3e3phg3hp91xguq",
+                        "periodId": 2,
+                        "timeMin": 64,
+                        "timeMinSec": "63:58",
+                        "lastUpdated": "2025-02-06T02:27:13Z",
+                        "timestamp": "2025-02-06T02:26:49Z",
+                        "playerOnId": "eycdwe8plhkcxgo1bjyq4q6sp",
+                        "playerOnName": "J. Cortizo",
+                        "playerOffId": "8n4f10q0l2wjhhfdkpp8kfzdh",
+                        "playerOffName": "Óliver Torres",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "233335xtoe3e3phg3hp91xguq",
+                        "periodId": 2,
+                        "timeMin": 76,
+                        "timeMinSec": "75:19",
+                        "lastUpdated": "2025-02-06T02:38:19Z",
+                        "timestamp": "2025-02-06T02:38:10Z",
+                        "playerOnId": "71ogvrwuco3kvi2l5uipur28k",
+                        "playerOnName": "O. Soto",
+                        "playerOffId": "2ufp5icqczg2wvcxl5axnxu96",
+                        "playerOffName": "F. Ambríz",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "c2pdzdl3dgf5b0siidn2ay5ii",
+                        "periodId": 2,
+                        "timeMin": 76,
+                        "timeMinSec": "75:20",
+                        "lastUpdated": "2025-04-03T22:38:13Z",
+                        "timestamp": "2025-02-06T02:38:11Z",
+                        "playerOnId": "c8d4kyelee6gyrnupxkeh6has",
+                        "playerOnName": "N. Jensen",
+                        "playerOffId": "6r8emgp7oeom6yyibdb4g77c9",
+                        "playerOffName": "D. Choinière",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "c2pdzdl3dgf5b0siidn2ay5ii",
+                        "periodId": 2,
+                        "timeMin": 76,
+                        "timeMinSec": "75:26",
+                        "lastUpdated": "2025-04-04T17:30:30Z",
+                        "timestamp": "2025-02-06T02:38:17Z",
+                        "playerOnId": "631zrdzlwdl3vr58yrqlbjpck",
+                        "playerOnName": "M. Filion",
+                        "playerOffId": "bri3rn6ch0k8k4q9mpjc8q19l",
+                        "playerOffName": "B. Wright",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "233335xtoe3e3phg3hp91xguq",
+                        "periodId": 2,
+                        "timeMin": 82,
+                        "timeMinSec": "81:22",
+                        "lastUpdated": "2025-02-06T02:44:21Z",
+                        "timestamp": "2025-02-06T02:44:13Z",
+                        "playerOnId": "75079gtd2efpviyo605ozsd79",
+                        "playerOnName": "Sergio Canales",
+                        "playerOffId": "d1x4vhct28s8ugrijv2hhvcic",
+                        "playerOffName": "I. Fimbres",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "c2pdzdl3dgf5b0siidn2ay5ii",
+                        "periodId": 2,
+                        "timeMin": 83,
+                        "timeMinSec": "82:59",
+                        "lastUpdated": "2025-02-06T02:46:54Z",
+                        "timestamp": "2025-02-06T02:45:50Z",
+                        "playerOnId": "bpbwue9gbmi9dd3wf7klkgdm1",
+                        "playerOnName": "B. Paton",
+                        "playerOffId": "94s5ga28gk42oj4d2kpca01nu",
+                        "playerOffName": "M. Jevremović",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "c2pdzdl3dgf5b0siidn2ay5ii",
+                        "periodId": 2,
+                        "timeMin": 84,
+                        "timeMinSec": "83:05",
+                        "lastUpdated": "2025-02-06T02:46:25Z",
+                        "timestamp": "2025-02-06T02:45:56Z",
+                        "playerOnId": "mno6n0h2ckafrv84gqcl31t5",
+                        "playerOnName": "N. Ampomah",
+                        "playerOffId": "2zedqkn15thv6wx5xmgv48gd1",
+                        "playerOffName": "K. Bekker",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "c2pdzdl3dgf5b0siidn2ay5ii",
+                        "periodId": 2,
+                        "timeMin": 91,
+                        "timeMinSec": "90:41",
+                        "lastUpdated": "2025-02-06T02:53:40Z",
+                        "timestamp": "2025-02-06T02:53:32Z",
+                        "playerOnId": "4e644yd0r3wsm9b87m0ff1q8k",
+                        "playerOnName": "K. Kane",
+                        "playerOffId": "4xsc616w7mz1xw45ofyivm6eh",
+                        "playerOffName": "R. Rama",
+                        "subReason": "Tactical"
+                    }
+                ],
+                "matchDetailsExtra": {
+                    "matchOfficial": [
+                        {
+                            "id": "b3ibcv3zbd96uxhtipyifodex",
+                            "type": "Main",
+                            "firstName": "Lukasz",
+                            "lastName": "Szpala",
+                            "shortFirstName": "Lukasz",
+                            "shortLastName": "Szpala"
+                        },
+                        {
+                            "id": "18rio8qj7pm66a2wovm7zin6d",
+                            "type": "Assistant referee 1",
+                            "firstName": "Cory",
+                            "lastName": "Richardson",
+                            "shortFirstName": "Cory",
+                            "shortLastName": "Richardson"
+                        },
+                        {
+                            "id": "1clzs9s1qtw1a7hgd8wa2iaqx",
+                            "type": "Assistant referee 2",
+                            "firstName": "Jeremy",
+                            "lastName": "Kieso",
+                            "shortFirstName": "Jeremy",
+                            "shortLastName": "Kieso"
+                        },
+                        {
+                            "id": "9qtz7hd3yf0necdq7qy8x1yad",
+                            "type": "Fourth official",
+                            "firstName": "Ekaterina",
+                            "lastName": "Koroleva",
+                            "shortFirstName": "Ekaterina",
+                            "shortLastName": "Koroleva"
+                        },
+                        {
+                            "id": "ey0p2g417l70870tffjy9kdzp",
+                            "type": "Video Assistant Referee",
+                            "firstName": "Edvin",
+                            "lastName": "Jurisevic",
+                            "shortFirstName": "Edvin",
+                            "shortLastName": "Jurisevic"
+                        },
+                        {
+                            "id": "4gysbxojeyfc92b5qcnjrsiqd",
+                            "type": "Assistant VAR Official",
+                            "firstName": "Allen",
+                            "lastName": "Chapman",
+                            "shortFirstName": "Allen",
+                            "shortLastName": "Chapman"
+                        }
+                    ]
+                }
+            }
+        }
+    ]
+}

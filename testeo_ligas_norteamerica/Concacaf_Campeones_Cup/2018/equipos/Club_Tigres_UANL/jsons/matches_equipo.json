@@ -1,0 +1,289 @@
+{
+    "match": [
+        {
+            "matchInfo": {
+                "id": "c9y2xlcfli022ty4h4v2fcj1m",
+                "coverageLevel": "13",
+                "date": "2018-09-20Z",
+                "time": "00:15:00Z",
+                "localDate": "2018-09-19",
+                "localTime": "20:15:00",
+                "numberOfPeriods": 2,
+                "periodLength": 45,
+                "overtimeLength": 15,
+                "lastUpdated": "2025-03-06T01:05:36Z",
+                "description": "Toronto vs Tigres UANL",
+                "sport": {
+                    "id": "289u5typ3vp4ifwh5thalohmq",
+                    "name": "Soccer"
+                },
+                "ruleset": {
+                    "id": "79plas4983031idr6vw83nuel",
+                    "name": "Men"
+                },
+                "competition": {
+                    "id": "7e40n755cyscgjpgf4jnjkoa",
+                    "name": "Campeones Cup",
+                    "knownName": "Campeones Cup",
+                    "competitionCode": "CAM",
+                    "competitionFormat": "International super cup",
+                    "country": {
+                        "id": "7yfrmldo7ozpwui3n6wfcy1n9",
+                        "name": "N/C America"
+                    }
+                },
+                "tournamentCalendar": {
+                    "id": "4d6jb2pyclg9k0mq2qw8rs1nu",
+                    "startDate": "2018-09-20Z",
+                    "endDate": "2018-09-20Z",
+                    "name": "2018"
+                },
+                "stage": {
+                    "id": "889z4l5rjfz6soi6wadq48ju2",
+                    "formatId": "dg3v7qo5acoprtjj4ozm9meol",
+                    "startDate": "2018-09-20Z",
+                    "endDate": "2018-09-20Z",
+                    "name": "Final"
+                },
+                "contestant": [
+                    {
+                        "id": "28teusnamw1ujgh5di1auf2f7",
+                        "name": "Toronto",
+                        "shortName": "Toronto",
+                        "officialName": "Toronto FC",
+                        "code": "TOR",
+                        "position": "home",
+                        "country": {
+                            "id": "1iaoypzp6syf32cz9l15pzp7e",
+                            "name": "Canada"
+                        }
+                    },
+                    {
+                        "id": "6hmo9mrlz73nwxkshwuu5vsfm",
+                        "name": "Tigres UANL",
+                        "shortName": "Tigres",
+                        "officialName": "Club Tigres UANL",
+                        "code": "TIG",
+                        "position": "away",
+                        "country": {
+                            "id": "5trdr3jf42i20zj1hnkvcytr6",
+                            "name": "Mexico"
+                        }
+                    }
+                ],
+                "venue": {
+                    "id": "6bnxwxygeyhx36kq28xs0qk8s",
+                    "neutral": "no",
+                    "longName": "BMO Field",
+                    "shortName": "BMO Field"
+                }
+            },
+            "liveData": {
+                "matchDetails": {
+                    "periodId": 14,
+                    "matchStatus": "Played",
+                    "winner": "away",
+                    "matchLengthMin": 93,
+                    "matchLengthSec": 58,
+                    "period": [
+                        {
+                            "id": 1,
+                            "start": "2018-09-20T00:40:58Z",
+                            "end": "2018-09-20T01:26:59Z",
+                            "lengthMin": 46,
+                            "lengthSec": 1
+                        },
+                        {
+                            "id": 2,
+                            "start": "2018-09-20T01:42:38Z",
+                            "end": "2018-09-20T02:30:35Z",
+                            "lengthMin": 47,
+                            "lengthSec": 57
+                        }
+                    ],
+                    "scores": {
+                        "ht": {
+                            "home": 0,
+                            "away": 1
+                        },
+                        "ft": {
+                            "home": 1,
+                            "away": 3
+                        },
+                        "total": {
+                            "home": 1,
+                            "away": 3
+                        }
+                    }
+                },
+                "goal": [
+                    {
+                        "contestantId": "6hmo9mrlz73nwxkshwuu5vsfm",
+                        "periodId": 1,
+                        "timeMin": 36,
+                        "timeMinSec": "35:42",
+                        "lastUpdated": "2020-07-18T11:53:13Z",
+                        "type": "G",
+                        "scorerId": "ebd087qhfyhs6i8k2442xgb11",
+                        "scorerName": "J. Dueñas",
+                        "assistPlayerId": "6ibclg8sdwhfalu6l1lli26s5",
+                        "assistPlayerName": "Juninho",
+                        "optaEventId": "1436689441",
+                        "homeScore": 0,
+                        "awayScore": 1
+                    },
+                    {
+                        "contestantId": "6hmo9mrlz73nwxkshwuu5vsfm",
+                        "periodId": 2,
+                        "timeMin": 64,
+                        "timeMinSec": "63:37",
+                        "lastUpdated": "2020-07-18T11:53:13Z",
+                        "type": "G",
+                        "scorerId": "ebd087qhfyhs6i8k2442xgb11",
+                        "scorerName": "J. Dueñas",
+                        "optaEventId": "1119623295",
+                        "homeScore": 0,
+                        "awayScore": 2
+                    },
+                    {
+                        "contestantId": "28teusnamw1ujgh5di1auf2f7",
+                        "periodId": 2,
+                        "timeMin": 66,
+                        "timeMinSec": "65:26",
+                        "lastUpdated": "2024-02-23T12:01:14Z",
+                        "type": "OG",
+                        "scorerId": "45vy8s9kzx0k094lg2cicj1zp",
+                        "scorerName": "E. Zavaleta",
+                        "optaEventId": "1758010228",
+                        "homeScore": 0,
+                        "awayScore": 3
+                    },
+                    {
+                        "contestantId": "28teusnamw1ujgh5di1auf2f7",
+                        "periodId": 2,
+                        "timeMin": 86,
+                        "timeMinSec": "85:56",
+                        "lastUpdated": "2019-09-10T21:53:59Z",
+                        "type": "PG",
+                        "scorerId": "d09fymrh879d93982fastvdud",
+                        "scorerName": "L. Janson",
+                        "optaEventId": "1250887915",
+                        "homeScore": 1,
+                        "awayScore": 3
+                    }
+                ],
+                "substitute": [
+                    {
+                        "contestantId": "28teusnamw1ujgh5di1auf2f7",
+                        "periodId": 1,
+                        "timeMin": 40,
+                        "timeMinSec": "39:47",
+                        "lastUpdated": "2019-09-10T21:53:59Z",
+                        "playerOnId": "d09fymrh879d93982fastvdud",
+                        "playerOnName": "L. Janson",
+                        "playerOffId": "a4ho0enrp6omdbdplkf1hly39",
+                        "playerOffName": "S. Giovinco",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "28teusnamw1ujgh5di1auf2f7",
+                        "periodId": 2,
+                        "timeMin": 57,
+                        "timeMinSec": "56:49",
+                        "lastUpdated": "2022-02-24T15:07:12Z",
+                        "playerOnId": "68oxh92004pbiboo5b5bf4pg5",
+                        "playerOnName": "T. Ricketts",
+                        "playerOffId": "cvz7rxusmcxxv17fij7dxx6mt",
+                        "playerOffName": "J. Altidore",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "6hmo9mrlz73nwxkshwuu5vsfm",
+                        "periodId": 2,
+                        "timeMin": 64,
+                        "timeMinSec": "63:20",
+                        "lastUpdated": "2023-08-28T07:23:43Z",
+                        "playerOnId": "5e0oab3nztsl617zjkxi0d2ad",
+                        "playerOnName": "E. Valencia",
+                        "playerOffId": "8vzp8ywd7n1bhtmncdca1gno5",
+                        "playerOffName": "E. Vargas",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "28teusnamw1ujgh5di1auf2f7",
+                        "periodId": 2,
+                        "timeMin": 65,
+                        "timeMinSec": "64:41",
+                        "lastUpdated": "2024-02-28T08:14:51Z",
+                        "playerOnId": "45ovlkdfdnizixhst51gto0d1",
+                        "playerOnName": "Auro",
+                        "playerOffId": "3bq1nw2l97vl5q0pw8gg6f9p1",
+                        "playerOffName": "G. van der Wiel",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "6hmo9mrlz73nwxkshwuu5vsfm",
+                        "periodId": 2,
+                        "timeMin": 85,
+                        "timeMinSec": "84:03",
+                        "lastUpdated": "2024-01-10T16:49:22Z",
+                        "playerOnId": "evk0esdocrzt5zxqmv4ostdcl",
+                        "playerOnName": "J. Damm",
+                        "playerOffId": "casil63kq0cfbxw6sr0q9unrp",
+                        "playerOffName": "G. Pizarro",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "6hmo9mrlz73nwxkshwuu5vsfm",
+                        "periodId": 2,
+                        "timeMin": 88,
+                        "timeMinSec": "87:33",
+                        "lastUpdated": "2024-02-14T14:55:18Z",
+                        "playerOnId": "7wjutd5juh4jgfh0w3jx6s5hx",
+                        "playerOnName": "I. Sosa",
+                        "playerOffId": "d8htrjr6ponlb7rlw9fywp045",
+                        "playerOffName": "L. Zelarayán",
+                        "subReason": "Tactical"
+                    }
+                ],
+                "matchDetailsExtra": {
+                    "attendance": "14823",
+                    "matchOfficial": [
+                        {
+                            "id": "1uc5ki71u2bzls20kjar8mqqd",
+                            "type": "Main",
+                            "firstName": "Ricardo",
+                            "lastName": "Montero",
+                            "shortFirstName": "Ricardo",
+                            "shortLastName": "Montero"
+                        },
+                        {
+                            "id": "86upnncbw6025lv113o1gb5jp",
+                            "type": "Assistant referee 1",
+                            "firstName": "Juan Carlos",
+                            "lastName": "Mora",
+                            "shortFirstName": "Juan Carlos",
+                            "shortLastName": "Mora"
+                        },
+                        {
+                            "id": "768hpv2lt1d1kmzfjtlfi0kb9",
+                            "type": "Assistant referee 2",
+                            "firstName": "Octavio",
+                            "lastName": "Jara",
+                            "shortFirstName": "Octavio",
+                            "shortLastName": "Jara"
+                        },
+                        {
+                            "id": "9a7cskhsgzcylqclgsnu4qaqd",
+                            "type": "Fourth official",
+                            "firstName": "Henry",
+                            "lastName": "Bejarano",
+                            "shortFirstName": "Henry",
+                            "shortLastName": "Bejarano"
+                        }
+                    ]
+                }
+            }
+        }
+    ]
+}

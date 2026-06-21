@@ -1,0 +1,349 @@
+{
+    "match": [
+        {
+            "matchInfo": {
+                "id": "2g2uonqxubm85qzcer76cv6dw",
+                "coverageLevel": "13",
+                "date": "2022-09-14Z",
+                "time": "23:30:00Z",
+                "localDate": "2022-09-14",
+                "localTime": "19:30:00",
+                "numberOfPeriods": 2,
+                "periodLength": 45,
+                "overtimeLength": 15,
+                "lastUpdated": "2025-02-23T12:56:36Z",
+                "description": "New York City vs Atlas",
+                "sport": {
+                    "id": "289u5typ3vp4ifwh5thalohmq",
+                    "name": "Soccer"
+                },
+                "ruleset": {
+                    "id": "79plas4983031idr6vw83nuel",
+                    "name": "Men"
+                },
+                "competition": {
+                    "id": "7e40n755cyscgjpgf4jnjkoa",
+                    "name": "Campeones Cup",
+                    "knownName": "Campeones Cup",
+                    "competitionCode": "CAM",
+                    "competitionFormat": "International super cup",
+                    "country": {
+                        "id": "7yfrmldo7ozpwui3n6wfcy1n9",
+                        "name": "N/C America"
+                    }
+                },
+                "tournamentCalendar": {
+                    "id": "2y9kv6v42eo1jpkj158e34g7o",
+                    "startDate": "2022-09-15Z",
+                    "endDate": "2022-09-15Z",
+                    "name": "2022"
+                },
+                "stage": {
+                    "id": "2yfancnenid2amuefno3gltsk",
+                    "formatId": "dg3v7qo5acoprtjj4ozm9meol",
+                    "startDate": "2022-09-15Z",
+                    "endDate": "2022-09-15Z",
+                    "name": "Final"
+                },
+                "contestant": [
+                    {
+                        "id": "1bksy4rix8pm8rjve81uqo8ut",
+                        "name": "New York City",
+                        "shortName": "NYCFC",
+                        "officialName": "New York City Football Club",
+                        "code": "NYC",
+                        "position": "home",
+                        "country": {
+                            "id": "7hr2f89v44y65dyu9k92vprwn",
+                            "name": "USA"
+                        }
+                    },
+                    {
+                        "id": "8jjxbd5vr23vhu1v5r21rzkrn",
+                        "name": "Atlas",
+                        "shortName": "Atlas",
+                        "officialName": "Atlas FC",
+                        "code": "ATS",
+                        "position": "away",
+                        "country": {
+                            "id": "5trdr3jf42i20zj1hnkvcytr6",
+                            "name": "Mexico"
+                        }
+                    }
+                ],
+                "venue": {
+                    "id": "si9et5igwa9do353zyrices8",
+                    "neutral": "no",
+                    "longName": "Yankee Stadium",
+                    "shortName": "Yankee Stadium"
+                }
+            },
+            "liveData": {
+                "matchDetails": {
+                    "periodId": 14,
+                    "matchStatus": "Played",
+                    "winner": "home",
+                    "matchLengthMin": 96,
+                    "matchLengthSec": 57,
+                    "period": [
+                        {
+                            "id": 1,
+                            "start": "2022-09-14T23:47:14Z",
+                            "end": "2022-09-15T00:35:16Z",
+                            "lengthMin": 48,
+                            "lengthSec": 2
+                        },
+                        {
+                            "id": 2,
+                            "start": "2022-09-15T00:54:34Z",
+                            "end": "2022-09-15T01:43:29Z",
+                            "lengthMin": 48,
+                            "lengthSec": 55
+                        }
+                    ],
+                    "scores": {
+                        "ht": {
+                            "home": 1,
+                            "away": 0
+                        },
+                        "ft": {
+                            "home": 2,
+                            "away": 0
+                        },
+                        "total": {
+                            "home": 2,
+                            "away": 0
+                        }
+                    }
+                },
+                "goal": [
+                    {
+                        "contestantId": "1bksy4rix8pm8rjve81uqo8ut",
+                        "periodId": 1,
+                        "timeMin": 4,
+                        "timeMinSec": "3:50",
+                        "lastUpdated": "2024-05-27T19:04:08Z",
+                        "timestamp": "2022-09-14T23:51:05Z",
+                        "type": "G",
+                        "scorerId": "cabhrleu1pd1z0aarmf1zgkwl",
+                        "scorerName": "A. Callens",
+                        "optaEventId": "2460015785",
+                        "homeScore": 1,
+                        "awayScore": 0
+                    },
+                    {
+                        "contestantId": "1bksy4rix8pm8rjve81uqo8ut",
+                        "periodId": 2,
+                        "timeMin": 49,
+                        "timeMinSec": "48:05",
+                        "lastUpdated": "2025-02-17T15:17:29Z",
+                        "timestamp": "2022-09-15T00:57:40Z",
+                        "type": "G",
+                        "scorerId": "btfy1un7vibi2pb5y6uxp9ck5",
+                        "scorerName": "M. Moralez",
+                        "optaEventId": "2460033515",
+                        "homeScore": 2,
+                        "awayScore": 0
+                    }
+                ],
+                "card": [
+                    {
+                        "contestantId": "1bksy4rix8pm8rjve81uqo8ut",
+                        "periodId": 1,
+                        "timeMin": 42,
+                        "timeMinSec": "41:10",
+                        "lastUpdated": "2024-11-13T04:20:26Z",
+                        "timestamp": "2022-09-15T00:28:25Z",
+                        "type": "YC",
+                        "playerId": "3dt4cojmf1ahkayoeob2ryl4a",
+                        "playerName": "T. Gray",
+                        "optaEventId": "2460024449",
+                        "cardReason": "Simulation"
+                    },
+                    {
+                        "contestantId": "1bksy4rix8pm8rjve81uqo8ut",
+                        "periodId": 2,
+                        "timeMin": 80,
+                        "timeMinSec": "79:12",
+                        "lastUpdated": "2024-05-27T19:04:08Z",
+                        "timestamp": "2022-09-15T01:28:46Z",
+                        "type": "YC",
+                        "playerId": "cabhrleu1pd1z0aarmf1zgkwl",
+                        "playerName": "A. Callens",
+                        "optaEventId": "2460041949",
+                        "cardReason": "Time wasting"
+                    },
+                    {
+                        "contestantId": "1bksy4rix8pm8rjve81uqo8ut",
+                        "periodId": 2,
+                        "timeMin": 83,
+                        "timeMinSec": "82:49",
+                        "lastUpdated": "2025-02-17T15:17:29Z",
+                        "timestamp": "2022-09-15T01:32:23Z",
+                        "type": "YC",
+                        "playerId": "btfy1un7vibi2pb5y6uxp9ck5",
+                        "playerName": "M. Moralez",
+                        "optaEventId": "2460043171",
+                        "cardReason": "Foul"
+                    },
+                    {
+                        "contestantId": "8jjxbd5vr23vhu1v5r21rzkrn",
+                        "periodId": 2,
+                        "timeMin": 89,
+                        "timeMinSec": "88:19",
+                        "lastUpdated": "2025-01-09T15:41:44Z",
+                        "timestamp": "2022-09-15T01:37:54Z",
+                        "type": "YC",
+                        "playerId": "21051apcxzotsbfnwivngarbp",
+                        "playerName": "L. Reyes",
+                        "optaEventId": "2460044985",
+                        "cardReason": "Foul"
+                    },
+                    {
+                        "contestantId": "8jjxbd5vr23vhu1v5r21rzkrn",
+                        "periodId": 2,
+                        "timeMin": 92,
+                        "timeMinSec": "91:44",
+                        "lastUpdated": "2023-01-07T01:00:30Z",
+                        "timestamp": "2022-09-15T01:41:18Z",
+                        "type": "YC",
+                        "playerId": "aa53igsrv81m9zy3ub1ri4v6d",
+                        "playerName": "M. Nervo",
+                        "optaEventId": "2460046061",
+                        "cardReason": "Foul"
+                    }
+                ],
+                "substitute": [
+                    {
+                        "contestantId": "1bksy4rix8pm8rjve81uqo8ut",
+                        "periodId": 1,
+                        "timeMin": 29,
+                        "timeMinSec": "28:53",
+                        "lastUpdated": "2022-09-15T00:16:18Z",
+                        "timestamp": "2022-09-15T00:16:08Z",
+                        "playerOnId": "8rxwwv5nvmf9rd4oesd4rh5re",
+                        "playerOnName": "Talles Magno",
+                        "playerOffId": "cnkf5c3rncn9is1s7h81m7yl1",
+                        "playerOffName": "Héber",
+                        "subReason": "Injury"
+                    },
+                    {
+                        "contestantId": "8jjxbd5vr23vhu1v5r21rzkrn",
+                        "periodId": 2,
+                        "timeMin": 59,
+                        "timeMinSec": "58:53",
+                        "lastUpdated": "2024-01-15T13:43:57Z",
+                        "timestamp": "2022-09-15T01:08:28Z",
+                        "playerOnId": "l4rbm35vbn136hutia3pksiy",
+                        "playerOnName": "O. Herrera",
+                        "playerOffId": "bux3qj934czxv2imllf9o6t3p",
+                        "playerOffName": "A. Chalá",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "8jjxbd5vr23vhu1v5r21rzkrn",
+                        "periodId": 2,
+                        "timeMin": 70,
+                        "timeMinSec": "69:06",
+                        "lastUpdated": "2024-01-12T13:30:32Z",
+                        "timestamp": "2022-09-15T01:18:41Z",
+                        "playerOnId": "7ot6emo291avsnjabzt36a9uy",
+                        "playerOnName": "C. Trejo",
+                        "playerOffId": "dsif2f4ny3beg21vrvnociwru",
+                        "playerOffName": "J. Márquez",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "1bksy4rix8pm8rjve81uqo8ut",
+                        "periodId": 2,
+                        "timeMin": 74,
+                        "timeMinSec": "73:18",
+                        "lastUpdated": "2024-03-07T05:09:54Z",
+                        "timestamp": "2022-09-15T01:22:53Z",
+                        "playerOnId": "dp1dk9lwp5qa4sussjrgwp89g",
+                        "playerOnName": "Thiago Andrade",
+                        "playerOffId": "eteojj0lkz20ip5zxfrg7sxrd",
+                        "playerOffName": "S. Rodríguez",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "1bksy4rix8pm8rjve81uqo8ut",
+                        "periodId": 2,
+                        "timeMin": 85,
+                        "timeMinSec": "84:50",
+                        "lastUpdated": "2022-09-15T01:34:30Z",
+                        "timestamp": "2022-09-15T01:34:25Z",
+                        "playerOnId": "85pd2dxhy1gjhzm2mvnkdak15",
+                        "playerOnName": "K. Parks",
+                        "playerOffId": "btfy1un7vibi2pb5y6uxp9ck5",
+                        "playerOffName": "M. Moralez",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "1bksy4rix8pm8rjve81uqo8ut",
+                        "periodId": 2,
+                        "timeMin": 86,
+                        "timeMinSec": "85:01",
+                        "lastUpdated": "2022-09-15T01:34:41Z",
+                        "timestamp": "2022-09-15T01:34:35Z",
+                        "playerOnId": "bb31x0lmvx07e83d344y8byay",
+                        "playerOnName": "J. Haak",
+                        "playerOffId": "6rwoy67xc63esstfeg2horc6i",
+                        "playerOffName": "N. Acevedo",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "8jjxbd5vr23vhu1v5r21rzkrn",
+                        "periodId": 2,
+                        "timeMin": 89,
+                        "timeMinSec": "88:20",
+                        "lastUpdated": "2025-01-23T09:00:06Z",
+                        "timestamp": "2022-09-15T01:37:54Z",
+                        "playerOnId": "5mlvsyrovx07gvivuj643nvje",
+                        "playerOnName": "L. Rodríguez",
+                        "playerOffId": "9ilhjiaswd1oqx4xhf7wd01jp",
+                        "playerOffName": "É. Flores",
+                        "subReason": "Tactical"
+                    }
+                ],
+                "matchDetailsExtra": {
+                    "attendance": "24823",
+                    "matchOfficial": [
+                        {
+                            "id": "2pe2gu62w98s1qkwfv35v0d05",
+                            "type": "Main",
+                            "firstName": "Héctor Said",
+                            "lastName": "Martínez Sorto",
+                            "shortFirstName": "Said",
+                            "shortLastName": "Martinez"
+                        },
+                        {
+                            "id": "2q8xf1ozy5q8uueu022li94gl",
+                            "type": "Assistant referee 1",
+                            "firstName": "Walter Enrique",
+                            "lastName": "López Ramos",
+                            "shortFirstName": "Walter",
+                            "shortLastName": "López"
+                        },
+                        {
+                            "id": "echkxq2qqo6f0g1bu0d38nluy",
+                            "type": "Assistant referee 2",
+                            "firstName": "Helpys Raymundo",
+                            "lastName": "Feliz Cuevas",
+                            "shortFirstName": "Helpys",
+                            "shortLastName": "Feliz"
+                        },
+                        {
+                            "id": "bjzr41ustvd4v696c4sfth9sl",
+                            "type": "Fourth official",
+                            "firstName": "Keylor",
+                            "lastName": "Herrera",
+                            "shortFirstName": "Keylor",
+                            "shortLastName": "Herrera Villalobos"
+                        }
+                    ]
+                }
+            }
+        }
+    ]
+}

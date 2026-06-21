@@ -1,0 +1,906 @@
+{
+    "match": [
+        {
+            "matchInfo": {
+                "id": "ajy3qh725imhk47eqkx5ou2vo",
+                "coverageLevel": "13",
+                "date": "2024-08-04Z",
+                "time": "02:00:00Z",
+                "localDate": "2024-08-03",
+                "localTime": "19:00:00",
+                "week": "3",
+                "numberOfPeriods": 2,
+                "periodLength": 45,
+                "var": "1",
+                "lastUpdated": "2025-04-02T10:00:17Z",
+                "description": "Vancouver Whitecaps vs Tijuana",
+                "sport": {
+                    "id": "289u5typ3vp4ifwh5thalohmq",
+                    "name": "Soccer"
+                },
+                "ruleset": {
+                    "id": "79plas4983031idr6vw83nuel",
+                    "name": "Men"
+                },
+                "competition": {
+                    "id": "9fuwphq8kvugrlc3ckm7k8wes",
+                    "name": "Leagues Cup",
+                    "knownName": "Leagues Cup",
+                    "competitionCode": "LGE",
+                    "competitionFormat": "International cup",
+                    "country": {
+                        "id": "7yfrmldo7ozpwui3n6wfcy1n9",
+                        "name": "N/C America"
+                    }
+                },
+                "tournamentCalendar": {
+                    "id": "dxtsvs4kf27q91wspgd71i1p0",
+                    "startDate": "2024-07-27Z",
+                    "endDate": "2024-08-26Z",
+                    "name": "2024"
+                },
+                "stage": {
+                    "id": "dzchqy8zt5y8e7kjrvjoxuhp0",
+                    "formatId": "86p6pz5rcsdbz4cklvfwtzrv9",
+                    "startDate": "2024-07-27Z",
+                    "endDate": "2024-08-07Z",
+                    "name": "Group Stage"
+                },
+                "series": {
+                    "id": "e0la23chxn112tfsahnl2bris",
+                    "formatId": "cjk9a9vbr67t1bi130ybh2olw",
+                    "name": "West 7"
+                },
+                "contestant": [
+                    {
+                        "id": "cdmq2tqfwo5td2ztv1s62bqlf",
+                        "name": "Vancouver Whitecaps",
+                        "shortName": "Whitecaps",
+                        "officialName": "Vancouver Whitecaps FC",
+                        "code": "VAN",
+                        "position": "home",
+                        "country": {
+                            "id": "1iaoypzp6syf32cz9l15pzp7e",
+                            "name": "Canada"
+                        }
+                    },
+                    {
+                        "id": "c1wcescnsnfuyv06enhwaoqr6",
+                        "name": "Tijuana",
+                        "shortName": "Tijuana",
+                        "officialName": "Club Tijuana Xoloitzcuintles de Caliente",
+                        "code": "CTJ",
+                        "position": "away",
+                        "country": {
+                            "id": "5trdr3jf42i20zj1hnkvcytr6",
+                            "name": "Mexico"
+                        }
+                    }
+                ],
+                "venue": {
+                    "id": "30n9kml9necgq641jla4r6iiu",
+                    "neutral": "yes",
+                    "longName": "BC Place",
+                    "shortName": "BC Place"
+                }
+            },
+            "liveData": {
+                "matchDetails": {
+                    "periodId": 14,
+                    "matchStatus": "Played",
+                    "winner": "home",
+                    "matchLengthMin": 102,
+                    "matchLengthSec": 1,
+                    "period": [
+                        {
+                            "id": 1,
+                            "start": "2024-08-04T02:10:33Z",
+                            "end": "2024-08-04T02:57:33Z",
+                            "lengthMin": 47,
+                            "lengthSec": 0,
+                            "announcedInjuryTime": 120
+                        },
+                        {
+                            "id": 2,
+                            "start": "2024-08-04T03:14:09Z",
+                            "end": "2024-08-04T04:09:10Z",
+                            "lengthMin": 55,
+                            "lengthSec": 1,
+                            "announcedInjuryTime": 600
+                        }
+                    ],
+                    "scores": {
+                        "ht": {
+                            "home": 0,
+                            "away": 1
+                        },
+                        "ft": {
+                            "home": 3,
+                            "away": 1
+                        },
+                        "total": {
+                            "home": 3,
+                            "away": 1
+                        }
+                    }
+                },
+                "goal": [
+                    {
+                        "contestantId": "c1wcescnsnfuyv06enhwaoqr6",
+                        "periodId": 1,
+                        "timeMin": 8,
+                        "timeMinSec": "7:30",
+                        "lastUpdated": "2024-08-04T02:19:04Z",
+                        "timestamp": "2024-08-04T02:18:03Z",
+                        "type": "G",
+                        "scorerId": "qsce60rnyzjufjqdvdvnouay",
+                        "scorerName": "K. Castañeda",
+                        "assistPlayerId": "cxktd9vpx9m7gmgdfcy9v4n3d",
+                        "assistPlayerName": "D. Barbosa",
+                        "optaEventId": "2705815287",
+                        "homeScore": 0,
+                        "awayScore": 1
+                    },
+                    {
+                        "contestantId": "cdmq2tqfwo5td2ztv1s62bqlf",
+                        "periodId": 2,
+                        "timeMin": 49,
+                        "timeMinSec": "48:50",
+                        "lastUpdated": "2024-08-04T03:19:14Z",
+                        "timestamp": "2024-08-04T03:18:00Z",
+                        "type": "G",
+                        "scorerId": "ba2aut8k62b83ca053l5bf1lh",
+                        "scorerName": "F. Picault",
+                        "assistPlayerId": "b74yslq3huyhvwrhrebz0o3ys",
+                        "assistPlayerName": "L. Johnson",
+                        "optaEventId": "2705836951",
+                        "homeScore": 1,
+                        "awayScore": 1
+                    },
+                    {
+                        "contestantId": "cdmq2tqfwo5td2ztv1s62bqlf",
+                        "periodId": 2,
+                        "timeMin": 77,
+                        "timeMinSec": "76:42",
+                        "lastUpdated": "2025-03-06T19:49:25Z",
+                        "timestamp": "2024-08-04T03:45:51Z",
+                        "type": "G",
+                        "scorerId": "b74yslq3huyhvwrhrebz0o3ys",
+                        "scorerName": "L. Johnson",
+                        "assistPlayerId": "8yu7irbyel9lwn1l3u7oke1ud",
+                        "assistPlayerName": "A. Cubas",
+                        "optaEventId": "2705843615",
+                        "homeScore": 2,
+                        "awayScore": 1
+                    },
+                    {
+                        "contestantId": "cdmq2tqfwo5td2ztv1s62bqlf",
+                        "periodId": 2,
+                        "timeMin": 83,
+                        "timeMinSec": "82:26",
+                        "lastUpdated": "2025-02-21T11:58:50Z",
+                        "timestamp": "2024-08-04T03:51:36Z",
+                        "type": "G",
+                        "scorerId": "3ofmkgwa01yv4wcsvgk208hgq",
+                        "scorerName": "P. Vite",
+                        "assistPlayerId": "ba2aut8k62b83ca053l5bf1lh",
+                        "assistPlayerName": "F. Picault",
+                        "optaEventId": "2705845217",
+                        "homeScore": 3,
+                        "awayScore": 1
+                    }
+                ],
+                "card": [
+                    {
+                        "contestantId": "c1wcescnsnfuyv06enhwaoqr6",
+                        "periodId": 1,
+                        "timeMin": 25,
+                        "timeMinSec": "24:43",
+                        "lastUpdated": "2024-08-04T02:36:19Z",
+                        "timestamp": "2024-08-04T02:35:16Z",
+                        "type": "YC",
+                        "playerId": "qsce60rnyzjufjqdvdvnouay",
+                        "playerName": "K. Castañeda",
+                        "optaEventId": "2705824543",
+                        "cardReason": "Not Retreating"
+                    },
+                    {
+                        "contestantId": "c1wcescnsnfuyv06enhwaoqr6",
+                        "periodId": 2,
+                        "timeMin": 75,
+                        "timeMinSec": "74:14",
+                        "lastUpdated": "2024-08-04T03:43:36Z",
+                        "timestamp": "2024-08-04T03:43:24Z",
+                        "type": "YC",
+                        "playerId": "69fnat87plv2mxsyivi1n0twq",
+                        "playerName": "A. Gómez",
+                        "optaEventId": "2705842971",
+                        "cardReason": "Foul"
+                    },
+                    {
+                        "contestantId": "c1wcescnsnfuyv06enhwaoqr6",
+                        "periodId": 2,
+                        "timeMin": 81,
+                        "timeMinSec": "80:13",
+                        "lastUpdated": "2024-08-04T03:49:54Z",
+                        "timestamp": "2024-08-04T03:49:23Z",
+                        "type": "RC",
+                        "playerId": "eas9sbgf80oyr7hn9blnlkgoa",
+                        "playerName": "A. Mejía",
+                        "optaEventId": "2705844583",
+                        "cardReason": "Professional Foul Last Player"
+                    }
+                ],
+                "substitute": [
+                    {
+                        "contestantId": "cdmq2tqfwo5td2ztv1s62bqlf",
+                        "periodId": 2,
+                        "timeMin": 46,
+                        "timeMinSec": "45:00",
+                        "lastUpdated": "2025-02-21T11:58:50Z",
+                        "timestamp": "2024-08-04T03:13:48Z",
+                        "playerOnId": "3ofmkgwa01yv4wcsvgk208hgq",
+                        "playerOnName": "P. Vite",
+                        "playerOffId": "asfp0raljd6unoqtw4fq1c6hh",
+                        "playerOffName": "A. Schöpf",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "cdmq2tqfwo5td2ztv1s62bqlf",
+                        "periodId": 2,
+                        "timeMin": 46,
+                        "timeMinSec": "45:00",
+                        "lastUpdated": "2025-03-06T19:49:25Z",
+                        "timestamp": "2024-08-04T03:13:48Z",
+                        "playerOnId": "b74yslq3huyhvwrhrebz0o3ys",
+                        "playerOnName": "L. Johnson",
+                        "playerOffId": "34wufspo6zerdhewo82hbszmy",
+                        "playerOffName": "R. Priso",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "c1wcescnsnfuyv06enhwaoqr6",
+                        "periodId": 2,
+                        "timeMin": 50,
+                        "timeMinSec": "49:54",
+                        "lastUpdated": "2024-08-04T03:19:44Z",
+                        "timestamp": "2024-08-04T03:19:03Z",
+                        "playerOnId": "e70lu0n1at0xx7lf5z0niukq2",
+                        "playerOnName": "R. Fernández",
+                        "playerOffId": "qsce60rnyzjufjqdvdvnouay",
+                        "playerOffName": "K. Castañeda",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "c1wcescnsnfuyv06enhwaoqr6",
+                        "periodId": 2,
+                        "timeMin": 61,
+                        "timeMinSec": "60:31",
+                        "lastUpdated": "2024-08-04T03:29:49Z",
+                        "timestamp": "2024-08-04T03:29:41Z",
+                        "playerOnId": "2d9lqkbc4bcotrr4mtf19fuok",
+                        "playerOnName": "J. Álvarez",
+                        "playerOffId": "49knget07fr822bqlusq7tv8q",
+                        "playerOffName": "A. Vega",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "c1wcescnsnfuyv06enhwaoqr6",
+                        "periodId": 2,
+                        "timeMin": 62,
+                        "timeMinSec": "61:27",
+                        "lastUpdated": "2024-08-04T03:30:46Z",
+                        "timestamp": "2024-08-04T03:30:37Z",
+                        "playerOnId": "2lsqo8x3mbz4shb8nuv5catp1",
+                        "playerOnName": "José Corona",
+                        "playerOffId": "4hxcnch5nam895sdszm41rhzp",
+                        "playerOffName": "A. Rodríguez",
+                        "subReason": "Injury"
+                    },
+                    {
+                        "contestantId": "c1wcescnsnfuyv06enhwaoqr6",
+                        "periodId": 2,
+                        "timeMin": 87,
+                        "timeMinSec": "86:18",
+                        "lastUpdated": "2024-08-04T03:55:40Z",
+                        "timestamp": "2024-08-04T03:55:27Z",
+                        "playerOnId": "3scc8412czpvj9epquykrd0x5",
+                        "playerOnName": "F. Contreras",
+                        "playerOffId": "69fnat87plv2mxsyivi1n0twq",
+                        "playerOffName": "A. Gómez",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "c1wcescnsnfuyv06enhwaoqr6",
+                        "periodId": 2,
+                        "timeMin": 87,
+                        "timeMinSec": "86:26",
+                        "lastUpdated": "2024-08-04T03:55:49Z",
+                        "timestamp": "2024-08-04T03:55:36Z",
+                        "playerOnId": "95yyq4j1ym21hffmhapal9oq2",
+                        "playerOnName": "I. Tona",
+                        "playerOffId": "8ti2mugerx496c81p6p5okez9",
+                        "playerOffName": "C. González",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "cdmq2tqfwo5td2ztv1s62bqlf",
+                        "periodId": 2,
+                        "timeMin": 89,
+                        "timeMinSec": "88:23",
+                        "lastUpdated": "2025-02-21T11:13:53Z",
+                        "timestamp": "2024-08-04T03:57:32Z",
+                        "playerOnId": "5k3ijtizx5ten8jeqlji4mvpw",
+                        "playerOnName": "G. Bovalina",
+                        "playerOffId": "ba2aut8k62b83ca053l5bf1lh",
+                        "playerOffName": "F. Picault",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "cdmq2tqfwo5td2ztv1s62bqlf",
+                        "periodId": 2,
+                        "timeMin": 89,
+                        "timeMinSec": "88:41",
+                        "lastUpdated": "2025-02-21T11:27:30Z",
+                        "timestamp": "2024-08-04T03:57:51Z",
+                        "playerOnId": "2oniw9tmxdoq1lsfhf61i14ut",
+                        "playerOnName": "D. Kreilach",
+                        "playerOffId": "f5i3q488txatpqe9tvmc0838q",
+                        "playerOffName": "B. White",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "cdmq2tqfwo5td2ztv1s62bqlf",
+                        "periodId": 2,
+                        "timeMin": 95,
+                        "timeMinSec": "94:16",
+                        "lastUpdated": "2024-08-04T04:03:39Z",
+                        "timestamp": "2024-08-04T04:03:26Z",
+                        "playerOnId": "3yk1gwm7jptmbal0vcwr24is4",
+                        "playerOnName": "F. Linder",
+                        "playerOffId": "em4xzelxkreypf32epcy6cnze",
+                        "playerOffName": "Belal Halbouni",
+                        "subReason": "Injury"
+                    },
+                    {
+                        "contestantId": "cdmq2tqfwo5td2ztv1s62bqlf",
+                        "periodId": 2,
+                        "timeMin": 98,
+                        "timeMinSec": "97:11",
+                        "lastUpdated": "2025-02-27T00:30:14Z",
+                        "timestamp": "2024-08-04T04:06:21Z",
+                        "playerOnId": "441plehxckmdj5gb2mr6y8ne2",
+                        "playerOnName": "E. Goldthorp",
+                        "playerOffId": "bialn02i06gihzao8dsjvmc8a",
+                        "playerOffName": "R. Raposo",
+                        "subReason": "Tactical"
+                    }
+                ],
+                "matchDetailsExtra": {
+                    "attendance": "18896",
+                    "matchOfficial": [
+                        {
+                            "id": "a982bvkbzmwyiregl9voqs2c5",
+                            "type": "Main",
+                            "firstName": "Marco Antonio",
+                            "lastName": "Ortíz Nava",
+                            "shortFirstName": "Marco Antonio",
+                            "shortLastName": "Ortiz Nava"
+                        },
+                        {
+                            "id": "6gyezgpljecwroprbhecr8kid",
+                            "type": "Assistant referee 1",
+                            "firstName": "Christian Kiabek",
+                            "lastName": "Espinosa Zavala",
+                            "shortFirstName": "Christian Kiabek",
+                            "shortLastName": "Espinosa Zavala"
+                        },
+                        {
+                            "id": "19lf1c5aio0yr6crulrgsxe96",
+                            "type": "Assistant referee 2",
+                            "firstName": "Jorge Antonio",
+                            "lastName": "Sánchez Espinoza",
+                            "shortFirstName": "Jorge Antonio",
+                            "shortLastName": "Sánchez Espinoza"
+                        },
+                        {
+                            "id": "em7k10thvyxur87arftqpc4fe",
+                            "type": "Fourth official",
+                            "firstName": "Daniel",
+                            "lastName": "Quintero Huittrón",
+                            "shortFirstName": "Daniel",
+                            "shortLastName": "Quintero Huitrón"
+                        },
+                        {
+                            "id": "9qtz7hd3yf0necdq7qy8x1yad",
+                            "type": "Video Assistant Referee",
+                            "firstName": "Ekaterina",
+                            "lastName": "Koroleva",
+                            "shortFirstName": "Ekaterina",
+                            "shortLastName": "Koroleva"
+                        },
+                        {
+                            "id": "9am3qfuhuqd78l9aybw5aaqxh",
+                            "type": "Assistant VAR Official",
+                            "firstName": "Daniel",
+                            "lastName": "Radford",
+                            "shortFirstName": "Daniel",
+                            "shortLastName": "Radford"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "matchInfo": {
+                "id": "6qjzx6pordkn529dun8gxx1ck",
+                "coverageLevel": "13",
+                "date": "2024-07-27Z",
+                "time": "03:00:00Z",
+                "localDate": "2024-07-26",
+                "localTime": "20:00:00",
+                "week": "1",
+                "numberOfPeriods": 2,
+                "periodLength": 45,
+                "var": "1",
+                "lastUpdated": "2025-03-26T21:19:03Z",
+                "description": "Los Angeles vs Tijuana",
+                "sport": {
+                    "id": "289u5typ3vp4ifwh5thalohmq",
+                    "name": "Soccer"
+                },
+                "ruleset": {
+                    "id": "79plas4983031idr6vw83nuel",
+                    "name": "Men"
+                },
+                "competition": {
+                    "id": "9fuwphq8kvugrlc3ckm7k8wes",
+                    "name": "Leagues Cup",
+                    "knownName": "Leagues Cup",
+                    "competitionCode": "LGE",
+                    "competitionFormat": "International cup",
+                    "country": {
+                        "id": "7yfrmldo7ozpwui3n6wfcy1n9",
+                        "name": "N/C America"
+                    }
+                },
+                "tournamentCalendar": {
+                    "id": "dxtsvs4kf27q91wspgd71i1p0",
+                    "startDate": "2024-07-27Z",
+                    "endDate": "2024-08-26Z",
+                    "name": "2024"
+                },
+                "stage": {
+                    "id": "dzchqy8zt5y8e7kjrvjoxuhp0",
+                    "formatId": "86p6pz5rcsdbz4cklvfwtzrv9",
+                    "startDate": "2024-07-27Z",
+                    "endDate": "2024-08-07Z",
+                    "name": "Group Stage"
+                },
+                "series": {
+                    "id": "e0la23chxn112tfsahnl2bris",
+                    "formatId": "cjk9a9vbr67t1bi130ybh2olw",
+                    "name": "West 7"
+                },
+                "contestant": [
+                    {
+                        "id": "c6e7kqqrkt389ysrth6yy6puy",
+                        "name": "Los Angeles",
+                        "shortName": "LAFC",
+                        "officialName": "Los Angeles FC",
+                        "code": "LAF",
+                        "position": "home",
+                        "country": {
+                            "id": "7hr2f89v44y65dyu9k92vprwn",
+                            "name": "USA"
+                        }
+                    },
+                    {
+                        "id": "c1wcescnsnfuyv06enhwaoqr6",
+                        "name": "Tijuana",
+                        "shortName": "Tijuana",
+                        "officialName": "Club Tijuana Xoloitzcuintles de Caliente",
+                        "code": "CTJ",
+                        "position": "away",
+                        "country": {
+                            "id": "5trdr3jf42i20zj1hnkvcytr6",
+                            "name": "Mexico"
+                        }
+                    }
+                ],
+                "venue": {
+                    "id": "9aesa07actm6ekfy9u5c5rzoq",
+                    "neutral": "yes",
+                    "longName": "BMO Stadium",
+                    "shortName": "BMO Stadium"
+                }
+            },
+            "liveData": {
+                "matchDetails": {
+                    "periodId": 14,
+                    "matchStatus": "Played",
+                    "winner": "home",
+                    "matchLengthMin": 103,
+                    "matchLengthSec": 22,
+                    "period": [
+                        {
+                            "id": 1,
+                            "start": "2024-07-27T03:10:30Z",
+                            "end": "2024-07-27T04:06:38Z",
+                            "lengthMin": 56,
+                            "lengthSec": 8,
+                            "announcedInjuryTime": 600
+                        },
+                        {
+                            "id": 2,
+                            "start": "2024-07-27T04:23:03Z",
+                            "end": "2024-07-27T05:10:17Z",
+                            "lengthMin": 47,
+                            "lengthSec": 14,
+                            "announcedInjuryTime": 120
+                        }
+                    ],
+                    "scores": {
+                        "ht": {
+                            "home": 2,
+                            "away": 0
+                        },
+                        "ft": {
+                            "home": 3,
+                            "away": 0
+                        },
+                        "total": {
+                            "home": 3,
+                            "away": 0
+                        }
+                    }
+                },
+                "goal": [
+                    {
+                        "contestantId": "c6e7kqqrkt389ysrth6yy6puy",
+                        "periodId": 1,
+                        "timeMin": 9,
+                        "timeMinSec": "8:19",
+                        "lastUpdated": "2024-07-27T03:19:44Z",
+                        "timestamp": "2024-07-27T03:18:50Z",
+                        "type": "G",
+                        "scorerId": "cqwdk0w7mxdt5xs3kefcp2f6y",
+                        "scorerName": "C. Olivera",
+                        "assistPlayerId": "9bsl9l00l69qc7odmqzez5xp1",
+                        "assistPlayerName": "D. Bouanga",
+                        "optaEventId": "2703559303",
+                        "homeScore": 1,
+                        "awayScore": 0
+                    },
+                    {
+                        "contestantId": "c6e7kqqrkt389ysrth6yy6puy",
+                        "periodId": 1,
+                        "timeMin": 43,
+                        "timeMinSec": "42:39",
+                        "lastUpdated": "2024-07-27T03:54:25Z",
+                        "timestamp": "2024-07-27T03:53:10Z",
+                        "type": "G",
+                        "scorerId": "9bsl9l00l69qc7odmqzez5xp1",
+                        "scorerName": "D. Bouanga",
+                        "assistPlayerId": "cqwdk0w7mxdt5xs3kefcp2f6y",
+                        "assistPlayerName": "C. Olivera",
+                        "optaEventId": "2703565057",
+                        "homeScore": 2,
+                        "awayScore": 0
+                    },
+                    {
+                        "contestantId": "c6e7kqqrkt389ysrth6yy6puy",
+                        "periodId": 2,
+                        "timeMin": 51,
+                        "timeMinSec": "50:21",
+                        "lastUpdated": "2024-07-27T04:29:41Z",
+                        "timestamp": "2024-07-27T04:28:24Z",
+                        "type": "G",
+                        "scorerId": "cqwdk0w7mxdt5xs3kefcp2f6y",
+                        "scorerName": "C. Olivera",
+                        "assistPlayerId": "9bsl9l00l69qc7odmqzez5xp1",
+                        "assistPlayerName": "D. Bouanga",
+                        "optaEventId": "2703570205",
+                        "homeScore": 3,
+                        "awayScore": 0
+                    }
+                ],
+                "card": [
+                    {
+                        "contestantId": "c6e7kqqrkt389ysrth6yy6puy",
+                        "periodId": 1,
+                        "timeMin": 15,
+                        "timeMinSec": "14:25",
+                        "lastUpdated": "2024-07-27T03:25:39Z",
+                        "timestamp": "2024-07-27T03:24:55Z",
+                        "type": "YC",
+                        "playerId": "8b81chchn3min9a8uk8wkipcl",
+                        "playerName": "E. Segura",
+                        "optaEventId": "2703560347",
+                        "cardReason": "Foul"
+                    },
+                    {
+                        "contestantId": "c1wcescnsnfuyv06enhwaoqr6",
+                        "periodId": 1,
+                        "timeMin": 26,
+                        "timeMinSec": "26:00",
+                        "lastUpdated": "2024-07-27T03:36:35Z",
+                        "timestamp": "2024-07-27T03:36:31Z",
+                        "type": "YC",
+                        "playerId": "4h09e5cjwdxlps0hhr89rry6t",
+                        "playerName": "K. Balanta",
+                        "optaEventId": "2703562019",
+                        "cardReason": "Foul"
+                    },
+                    {
+                        "contestantId": "c6e7kqqrkt389ysrth6yy6puy",
+                        "periodId": 1,
+                        "timeMin": 37,
+                        "timeMinSec": "36:25",
+                        "lastUpdated": "2024-07-27T03:47:54Z",
+                        "timestamp": "2024-07-27T03:46:56Z",
+                        "type": "YC",
+                        "playerId": "21pcsi974pxn7yx4uf5w6sphw",
+                        "playerName": "O. Campos",
+                        "optaEventId": "2703563983",
+                        "cardReason": "Foul"
+                    },
+                    {
+                        "contestantId": "c6e7kqqrkt389ysrth6yy6puy",
+                        "periodId": 1,
+                        "timeMin": 55,
+                        "timeMinSec": "54:27",
+                        "lastUpdated": "2024-07-27T04:05:13Z",
+                        "timestamp": "2024-07-27T04:04:57Z",
+                        "type": "YC",
+                        "playerId": "cgq6c4c89nrl1nfucnb6x785",
+                        "playerName": "A. Long",
+                        "optaEventId": "2703567133",
+                        "cardReason": "Foul"
+                    },
+                    {
+                        "contestantId": "c1wcescnsnfuyv06enhwaoqr6",
+                        "periodId": 2,
+                        "timeMin": 56,
+                        "timeMinSec": "55:40",
+                        "lastUpdated": "2025-01-08T19:13:59Z",
+                        "timestamp": "2024-07-27T04:33:43Z",
+                        "type": "YC",
+                        "playerId": "dvjwtt5v39s05c5cbd5e25hbd",
+                        "playerName": "N. Díaz",
+                        "optaEventId": "2703570957",
+                        "cardReason": "Foul"
+                    },
+                    {
+                        "contestantId": "c6e7kqqrkt389ysrth6yy6puy",
+                        "periodId": 2,
+                        "timeMin": 69,
+                        "timeMinSec": "68:01",
+                        "lastUpdated": "2024-07-27T04:46:17Z",
+                        "timestamp": "2024-07-27T04:46:04Z",
+                        "type": "YC",
+                        "playerId": "1ulponxwggurn592nk3rqcfs9",
+                        "playerName": "E. Atuesta",
+                        "optaEventId": "2703572283",
+                        "cardReason": "Dissent"
+                    },
+                    {
+                        "contestantId": "c1wcescnsnfuyv06enhwaoqr6",
+                        "periodId": 1,
+                        "timeMin": 13,
+                        "timeMinSec": "12:23",
+                        "lastUpdated": "2024-07-27T03:26:30Z",
+                        "timestamp": "2024-07-27T03:22:54Z",
+                        "type": "RC",
+                        "teamOfficialId": "4b0a1oosdlltwt0p69nyz90b9",
+                        "officialName": "J. Osorio",
+                        "optaEventId": "2703560163",
+                        "cardReason": "Foul and Abusive Language"
+                    }
+                ],
+                "substitute": [
+                    {
+                        "contestantId": "c1wcescnsnfuyv06enhwaoqr6",
+                        "periodId": 1,
+                        "timeMin": 19,
+                        "timeMinSec": "18:33",
+                        "lastUpdated": "2024-07-27T03:29:10Z",
+                        "timestamp": "2024-07-27T03:29:04Z",
+                        "playerOnId": "c1pfk47z2ozitpqhxmbe98jbp",
+                        "playerOnName": "Joe Corona",
+                        "playerOffId": "1g7yu60q1d52ihwhqdlfc6zft",
+                        "playerOffName": "C. Rivera",
+                        "subReason": "Injury"
+                    },
+                    {
+                        "contestantId": "c6e7kqqrkt389ysrth6yy6puy",
+                        "periodId": 2,
+                        "timeMin": 46,
+                        "timeMinSec": "45:00",
+                        "lastUpdated": "2024-07-27T04:22:12Z",
+                        "timestamp": "2024-07-27T04:22:02Z",
+                        "playerOnId": "399pgumsrvtb9kcx58vw5cmlm",
+                        "playerOnName": "M. Bogusz",
+                        "playerOffId": "77bfpxhy1oo4cz9txm88qlnmd",
+                        "playerOffName": "K. Kamara",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "c6e7kqqrkt389ysrth6yy6puy",
+                        "periodId": 2,
+                        "timeMin": 46,
+                        "timeMinSec": "45:00",
+                        "lastUpdated": "2024-07-27T04:22:16Z",
+                        "timestamp": "2024-07-27T04:22:02Z",
+                        "playerOnId": "1ulponxwggurn592nk3rqcfs9",
+                        "playerOnName": "E. Atuesta",
+                        "playerOffId": "8b81chchn3min9a8uk8wkipcl",
+                        "playerOffName": "E. Segura",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "c1wcescnsnfuyv06enhwaoqr6",
+                        "periodId": 2,
+                        "timeMin": 55,
+                        "timeMinSec": "54:41",
+                        "lastUpdated": "2024-07-27T04:35:26Z",
+                        "timestamp": "2024-07-27T04:32:44Z",
+                        "playerOnId": "7d1jfc7l2m4ealyyzey3c7p0q",
+                        "playerOnName": "J. Hernández",
+                        "playerOffId": "dx6uqnml4itbr426gs12udln9",
+                        "playerOffName": "D. Blanco",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "c1wcescnsnfuyv06enhwaoqr6",
+                        "periodId": 2,
+                        "timeMin": 55,
+                        "timeMinSec": "54:56",
+                        "lastUpdated": "2024-07-27T04:33:07Z",
+                        "timestamp": "2024-07-27T04:32:59Z",
+                        "playerOnId": "8jy8xfnfg54d6ooy5cayqcdpm",
+                        "playerOnName": "R. Zúñiga",
+                        "playerOffId": "8ti2mugerx496c81p6p5okez9",
+                        "playerOffName": "C. González",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "c1wcescnsnfuyv06enhwaoqr6",
+                        "periodId": 2,
+                        "timeMin": 55,
+                        "timeMinSec": "55:00",
+                        "lastUpdated": "2024-07-27T04:37:06Z",
+                        "timestamp": "2024-07-27T04:33:03Z",
+                        "playerOnId": "2d9lqkbc4bcotrr4mtf19fuok",
+                        "playerOnName": "J. Álvarez",
+                        "playerOffId": "bnlubsib3z6lqaqcyc98lx9be",
+                        "playerOffName": "E. Álvarez",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "c1wcescnsnfuyv06enhwaoqr6",
+                        "periodId": 2,
+                        "timeMin": 63,
+                        "timeMinSec": "62:21",
+                        "lastUpdated": "2024-07-27T04:40:32Z",
+                        "timestamp": "2024-07-27T04:40:24Z",
+                        "playerOnId": "61inkxpun49cj9nxwgeyu0iqd",
+                        "playerOnName": "F. Madrigal",
+                        "playerOffId": "e70lu0n1at0xx7lf5z0niukq2",
+                        "playerOffName": "R. Fernández",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "c6e7kqqrkt389ysrth6yy6puy",
+                        "periodId": 2,
+                        "timeMin": 63,
+                        "timeMinSec": "62:51",
+                        "lastUpdated": "2024-07-27T04:40:47Z",
+                        "timestamp": "2024-07-27T04:40:54Z",
+                        "playerOnId": "82sayfife5cfdk9isox5gg8ut",
+                        "playerOnName": "R. Hollingshead",
+                        "playerOffId": "bhs4ewg9udrhs2cqw4617hivp",
+                        "playerOffName": "Sergi Palencia",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "c6e7kqqrkt389ysrth6yy6puy",
+                        "periodId": 2,
+                        "timeMin": 63,
+                        "timeMinSec": "62:53",
+                        "lastUpdated": "2024-07-27T04:40:42Z",
+                        "timestamp": "2024-07-27T04:40:56Z",
+                        "playerOnId": "39gpds71l6v25ba420on2k26s",
+                        "playerOnName": "D. Martínez",
+                        "playerOffId": "9bsl9l00l69qc7odmqzez5xp1",
+                        "playerOffName": "D. Bouanga",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "c6e7kqqrkt389ysrth6yy6puy",
+                        "periodId": 2,
+                        "timeMin": 64,
+                        "timeMinSec": "63:06",
+                        "lastUpdated": "2025-02-20T17:09:54Z",
+                        "timestamp": "2024-07-27T04:41:09Z",
+                        "playerOnId": "er0xm9k5zv8kcvcy7bnwp086i",
+                        "playerOnName": "E. Dueñas",
+                        "playerOffId": "bdwbbro06256s61ed42kejvmd",
+                        "playerOffName": "Ilie Sánchez",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "c1wcescnsnfuyv06enhwaoqr6",
+                        "periodId": 2,
+                        "timeMin": 71,
+                        "timeMinSec": "71:00",
+                        "lastUpdated": "2024-07-27T04:49:12Z",
+                        "timestamp": "2024-07-27T04:49:03Z",
+                        "playerOnId": "3scc8412czpvj9epquykrd0x5",
+                        "playerOnName": "F. Contreras",
+                        "playerOffId": "dvjwtt5v39s05c5cbd5e25hbd",
+                        "playerOffName": "N. Díaz",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "c6e7kqqrkt389ysrth6yy6puy",
+                        "periodId": 2,
+                        "timeMin": 83,
+                        "timeMinSec": "82:25",
+                        "lastUpdated": "2025-02-14T16:41:10Z",
+                        "timestamp": "2024-07-27T05:00:28Z",
+                        "playerOnId": "36e17qrefearxp7lxb1eibwbu",
+                        "playerOnName": "N. Ordaz",
+                        "playerOffId": "cqwdk0w7mxdt5xs3kefcp2f6y",
+                        "playerOffName": "C. Olivera",
+                        "subReason": "Tactical"
+                    }
+                ],
+                "matchDetailsExtra": {
+                    "matchOfficial": [
+                        {
+                            "id": "e17h4eh3xhnceikodp9v7m7yt",
+                            "type": "Main",
+                            "firstName": "Iván Arcides",
+                            "lastName": "Barton Cisneros",
+                            "shortFirstName": "Iván Arcides",
+                            "shortLastName": "Barton Cisneros"
+                        },
+                        {
+                            "id": "8r058qs9fmcuqljoiq48h2zft",
+                            "type": "Assistant referee 1",
+                            "firstName": "David Jonathan",
+                            "lastName": "Morán Santos",
+                            "shortFirstName": "David",
+                            "shortLastName": "Moran"
+                        },
+                        {
+                            "id": "9qpw6x4tmpj05fum1vv9sqg9h",
+                            "type": "Assistant referee 2",
+                            "firstName": "Henri Antonio",
+                            "lastName": "Pupiro Esquivel",
+                            "shortFirstName": "Henry Antonio",
+                            "shortLastName": "Pupiro"
+                        },
+                        {
+                            "id": "cwkvvprw84xkv9ncwnjx98h78",
+                            "type": "Fourth official",
+                            "firstName": "Vimarest",
+                            "lastName": "Diaz",
+                            "shortFirstName": "Vimarest",
+                            "shortLastName": "Diaz"
+                        },
+                        {
+                            "id": "1uc5ki71u2bzls20kjar8mqqd",
+                            "type": "Video Assistant Referee",
+                            "firstName": "Ricardo",
+                            "lastName": "Montero",
+                            "shortFirstName": "Ricardo",
+                            "shortLastName": "Montero"
+                        }
+                    ]
+                }
+            }
+        }
+    ]
+}

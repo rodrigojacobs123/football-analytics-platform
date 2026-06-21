@@ -1,0 +1,971 @@
+{
+    "match": [
+        {
+            "matchInfo": {
+                "id": "anyb5ramejctzj6kyvj3va4x6",
+                "coverageLevel": "13",
+                "date": "2020-12-17Z",
+                "time": "03:30:00Z",
+                "localDate": "2020-12-16",
+                "localTime": "22:30:00",
+                "attendanceInfoId": "1",
+                "attendanceInfo": "Behind Closed Doors",
+                "numberOfPeriods": 2,
+                "periodLength": 45,
+                "lastUpdated": "2025-02-21T11:09:08Z",
+                "description": "Los Angeles vs Cruz Azul",
+                "sport": {
+                    "id": "289u5typ3vp4ifwh5thalohmq",
+                    "name": "Soccer"
+                },
+                "ruleset": {
+                    "id": "79plas4983031idr6vw83nuel",
+                    "name": "Men"
+                },
+                "competition": {
+                    "id": "e6rl4hongahbihxd3tpudespd",
+                    "name": "Concacaf Champions Cup",
+                    "knownName": "Concacaf Champions Cup",
+                    "competitionCode": "CCC",
+                    "competitionFormat": "International cup",
+                    "country": {
+                        "id": "7yfrmldo7ozpwui3n6wfcy1n9",
+                        "name": "N/C America"
+                    }
+                },
+                "tournamentCalendar": {
+                    "id": "8093hqpyqbxw8ot6xk7ep91t6",
+                    "startDate": "2020-02-19Z",
+                    "endDate": "2020-12-23Z",
+                    "name": "2020"
+                },
+                "stage": {
+                    "id": "80tzleh99vvsxsyx7ap7yx7je",
+                    "formatId": "7qvlyz9cxqznk08pldz0fs4id",
+                    "startDate": "2020-03-11Z",
+                    "endDate": "2020-12-17Z",
+                    "name": "Quarter-finals"
+                },
+                "contestant": [
+                    {
+                        "id": "c6e7kqqrkt389ysrth6yy6puy",
+                        "name": "Los Angeles",
+                        "shortName": "LAFC",
+                        "officialName": "Los Angeles FC",
+                        "code": "LAF",
+                        "position": "home",
+                        "country": {
+                            "id": "7hr2f89v44y65dyu9k92vprwn",
+                            "name": "USA"
+                        }
+                    },
+                    {
+                        "id": "1aw67co8uut64yckd3wbhy9t2",
+                        "name": "Cruz Azul",
+                        "shortName": "Cruz Azul",
+                        "officialName": "CF Cruz Azul",
+                        "code": "CAZ",
+                        "position": "away",
+                        "country": {
+                            "id": "5trdr3jf42i20zj1hnkvcytr6",
+                            "name": "Mexico"
+                        }
+                    }
+                ],
+                "venue": {
+                    "id": "3udn5yhh0bcxwmjokvt4xnm5l",
+                    "neutral": "yes",
+                    "longName": "Inter&Co Stadium",
+                    "shortName": "Inter&Co Stadium"
+                }
+            },
+            "liveData": {
+                "matchDetails": {
+                    "periodId": 14,
+                    "matchStatus": "Played",
+                    "winner": "home",
+                    "matchLengthMin": 95,
+                    "matchLengthSec": 13,
+                    "period": [
+                        {
+                            "id": 1,
+                            "start": "2020-12-17T03:37:00Z",
+                            "end": "2020-12-17T04:22:06Z",
+                            "lengthMin": 45,
+                            "lengthSec": 6
+                        },
+                        {
+                            "id": 2,
+                            "start": "2020-12-17T04:37:23Z",
+                            "end": "2020-12-17T05:27:30Z",
+                            "lengthMin": 50,
+                            "lengthSec": 7
+                        }
+                    ],
+                    "scores": {
+                        "ht": {
+                            "home": 1,
+                            "away": 1
+                        },
+                        "ft": {
+                            "home": 2,
+                            "away": 1
+                        },
+                        "total": {
+                            "home": 2,
+                            "away": 1
+                        }
+                    }
+                },
+                "goal": [
+                    {
+                        "contestantId": "1aw67co8uut64yckd3wbhy9t2",
+                        "periodId": 1,
+                        "timeMin": 15,
+                        "timeMinSec": "14:43",
+                        "lastUpdated": "2023-08-20T09:38:35Z",
+                        "timestamp": "2020-12-17T03:51:43Z",
+                        "type": "PG",
+                        "scorerId": "dqq19igp5rfd0zu25a4ojxgid",
+                        "scorerName": "Y. Yotún",
+                        "optaEventId": "2245808787",
+                        "homeScore": 0,
+                        "awayScore": 1
+                    },
+                    {
+                        "contestantId": "c6e7kqqrkt389ysrth6yy6puy",
+                        "periodId": 1,
+                        "timeMin": 38,
+                        "timeMinSec": "37:14",
+                        "lastUpdated": "2023-07-31T14:21:11Z",
+                        "timestamp": "2020-12-17T04:14:15Z",
+                        "type": "PG",
+                        "scorerId": "2w5xjif5lfjq0qhwox0ha11x",
+                        "scorerName": "C. Vela",
+                        "optaEventId": "2245813627",
+                        "homeScore": 1,
+                        "awayScore": 1
+                    },
+                    {
+                        "contestantId": "c6e7kqqrkt389ysrth6yy6puy",
+                        "periodId": 2,
+                        "timeMin": 71,
+                        "timeMinSec": "70:03",
+                        "lastUpdated": "2025-02-18T14:43:06Z",
+                        "timestamp": "2020-12-17T05:02:27Z",
+                        "type": "G",
+                        "scorerId": "a4628r4lcbkmv2ax3r69q7rpw",
+                        "scorerName": "K. Opoku",
+                        "assistPlayerId": "8b81chchn3min9a8uk8wkipcl",
+                        "assistPlayerName": "E. Segura",
+                        "secondAssistPlayerId": "2w5xjif5lfjq0qhwox0ha11x",
+                        "ocSecondAssistPlayerId": "3370",
+                        "opSecondAssistPlayerId": "38401",
+                        "secondAssistPlayerName": "C. Vela",
+                        "optaEventId": "2245825463",
+                        "homeScore": 2,
+                        "awayScore": 1
+                    }
+                ],
+                "card": [
+                    {
+                        "contestantId": "1aw67co8uut64yckd3wbhy9t2",
+                        "periodId": 1,
+                        "timeMin": 41,
+                        "timeMinSec": "40:27",
+                        "lastUpdated": "2024-01-23T04:49:52Z",
+                        "timestamp": "2020-12-17T04:17:27Z",
+                        "type": "YC",
+                        "playerId": "14bw0a2azjioiorlbhhhbul05",
+                        "playerName": "P. Aguilar",
+                        "optaEventId": "2245814205",
+                        "cardReason": "Foul"
+                    },
+                    {
+                        "contestantId": "1aw67co8uut64yckd3wbhy9t2",
+                        "periodId": 2,
+                        "timeMin": 83,
+                        "timeMinSec": "82:15",
+                        "lastUpdated": "2023-08-20T09:38:35Z",
+                        "timestamp": "2020-12-17T05:14:39Z",
+                        "type": "YC",
+                        "playerId": "dqq19igp5rfd0zu25a4ojxgid",
+                        "playerName": "Y. Yotún",
+                        "optaEventId": "2245828419",
+                        "cardReason": "Foul"
+                    }
+                ],
+                "substitute": [
+                    {
+                        "contestantId": "1aw67co8uut64yckd3wbhy9t2",
+                        "periodId": 2,
+                        "timeMin": 51,
+                        "timeMinSec": "50:37",
+                        "lastUpdated": "2020-12-17T04:43:07Z",
+                        "timestamp": "2020-12-17T04:43:00Z",
+                        "playerOnId": "bd9ov8z9402i9cceuu4dv4nv9",
+                        "playerOnName": "A. Aldrete",
+                        "playerOffId": "5jm6s85v4f9w6fgk3t23p9nmd",
+                        "playerOffName": "E. Hernández",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "1aw67co8uut64yckd3wbhy9t2",
+                        "periodId": 2,
+                        "timeMin": 51,
+                        "timeMinSec": "50:45",
+                        "lastUpdated": "2020-12-17T04:43:16Z",
+                        "timestamp": "2020-12-17T04:43:08Z",
+                        "playerOnId": "bgzncyc6929doqcjo47z4stlh",
+                        "playerOnName": "M. Caraglio",
+                        "playerOffId": "aboxil79ulfa73pckzsdnwp62",
+                        "playerOffName": "S. Giménez",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "c6e7kqqrkt389ysrth6yy6puy",
+                        "periodId": 2,
+                        "timeMin": 58,
+                        "timeMinSec": "57:26",
+                        "lastUpdated": "2025-02-18T14:43:06Z",
+                        "timestamp": "2020-12-17T04:49:49Z",
+                        "playerOnId": "a4628r4lcbkmv2ax3r69q7rpw",
+                        "playerOnName": "K. Opoku",
+                        "playerOffId": "9pij37xod9240dolmvy6wrvmx",
+                        "playerOffName": "D. Musovski",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "c6e7kqqrkt389ysrth6yy6puy",
+                        "periodId": 2,
+                        "timeMin": 80,
+                        "timeMinSec": "79:10",
+                        "lastUpdated": "2024-06-28T14:00:46Z",
+                        "timestamp": "2020-12-17T05:11:33Z",
+                        "playerOnId": "euha4w0awkqy0zo5rktvje57t",
+                        "playerOnName": "B. Rodríguez",
+                        "playerOffId": "677wll2p2i6pyzpq2sugger55",
+                        "playerOffName": "D. Rossi",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "c6e7kqqrkt389ysrth6yy6puy",
+                        "periodId": 2,
+                        "timeMin": 80,
+                        "timeMinSec": "79:18",
+                        "lastUpdated": "2023-04-20T17:02:40Z",
+                        "timestamp": "2020-12-17T05:11:42Z",
+                        "playerOnId": "6fnojo4m3daqz5moaa9yu1dk9",
+                        "playerOnName": "L. Blessing",
+                        "playerOffId": "1wa6jf39zdyi462b1fk50vl61",
+                        "playerOffName": "J. Cifuentes",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "1aw67co8uut64yckd3wbhy9t2",
+                        "periodId": 2,
+                        "timeMin": 83,
+                        "timeMinSec": "82:22",
+                        "lastUpdated": "2020-12-17T05:17:57Z",
+                        "timestamp": "2020-12-17T05:14:45Z",
+                        "playerOnId": "8e0we3usnv24xj6ejm5drax1x",
+                        "playerOnName": "I. Rivero",
+                        "playerOffId": "9vvleh9yqqcm955432lsl8c7p",
+                        "playerOffName": "R. Alvarado",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "1aw67co8uut64yckd3wbhy9t2",
+                        "periodId": 2,
+                        "timeMin": 83,
+                        "timeMinSec": "82:30",
+                        "lastUpdated": "2022-01-06T18:15:25Z",
+                        "timestamp": "2020-12-17T05:14:53Z",
+                        "playerOnId": "8urkitc19yftx182gfaa8may1",
+                        "playerOnName": "M. Domínguez",
+                        "playerOffId": "axrchx0095dg0ydpb1ajj19ed",
+                        "playerOffName": "O. Pineda",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "c6e7kqqrkt389ysrth6yy6puy",
+                        "periodId": 2,
+                        "timeMin": 88,
+                        "timeMinSec": "87:27",
+                        "lastUpdated": "2023-07-25T17:15:43Z",
+                        "timestamp": "2020-12-17T05:19:50Z",
+                        "playerOnId": "1a2903ylmdc3vmdps0u619lh",
+                        "playerOnName": "Mohammed El Munir",
+                        "playerOffId": "3qw81ws1dvf6ye83m2sd9vje1",
+                        "playerOffName": "T. Blackmon",
+                        "subReason": "Injury"
+                    }
+                ],
+                "matchDetailsExtra": {
+                    "matchOfficial": [
+                        {
+                            "id": "2pe2gu62w98s1qkwfv35v0d05",
+                            "type": "Main",
+                            "firstName": "Héctor Said",
+                            "lastName": "Martínez Sorto",
+                            "shortFirstName": "Said",
+                            "shortLastName": "Martinez"
+                        },
+                        {
+                            "id": "2q8xf1ozy5q8uueu022li94gl",
+                            "type": "Assistant referee 1",
+                            "firstName": "Walter Enrique",
+                            "lastName": "López Ramos",
+                            "shortFirstName": "Walter",
+                            "shortLastName": "López"
+                        },
+                        {
+                            "id": "2o3hbmia5h0e6uisojipqgd79",
+                            "type": "Assistant referee 2",
+                            "firstName": "Christian Jesús",
+                            "lastName": "Ramírez Soto",
+                            "shortFirstName": "Christian",
+                            "shortLastName": "Ramirez"
+                        },
+                        {
+                            "id": "4y20eza6i9l92huyxbcg8s91x",
+                            "type": "Fourth official",
+                            "firstName": "Mario Alberto",
+                            "lastName": "Escobar Toca",
+                            "shortFirstName": "Mario",
+                            "shortLastName": "Escobar"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "matchInfo": {
+                "id": "99sc0p1gt36x1cww44gii10fe",
+                "coverageLevel": "13",
+                "date": "2020-02-26Z",
+                "time": "03:00:00Z",
+                "localDate": "2020-02-25",
+                "localTime": "21:00:00",
+                "numberOfPeriods": 2,
+                "periodLength": 45,
+                "overtimeLength": 15,
+                "lastUpdated": "2025-03-18T09:46:03Z",
+                "description": "Cruz Azul vs Portmore United",
+                "sport": {
+                    "id": "289u5typ3vp4ifwh5thalohmq",
+                    "name": "Soccer"
+                },
+                "ruleset": {
+                    "id": "79plas4983031idr6vw83nuel",
+                    "name": "Men"
+                },
+                "competition": {
+                    "id": "e6rl4hongahbihxd3tpudespd",
+                    "name": "Concacaf Champions Cup",
+                    "knownName": "Concacaf Champions Cup",
+                    "competitionCode": "CCC",
+                    "competitionFormat": "International cup",
+                    "country": {
+                        "id": "7yfrmldo7ozpwui3n6wfcy1n9",
+                        "name": "N/C America"
+                    }
+                },
+                "tournamentCalendar": {
+                    "id": "8093hqpyqbxw8ot6xk7ep91t6",
+                    "startDate": "2020-02-19Z",
+                    "endDate": "2020-12-23Z",
+                    "name": "2020"
+                },
+                "stage": {
+                    "id": "80nf8uyon87c728h0ev5j1dnu",
+                    "formatId": "614sqb9421oaflw5mpvvm9uj9",
+                    "startDate": "2020-02-19Z",
+                    "endDate": "2020-02-28Z",
+                    "name": "8th Finals"
+                },
+                "contestant": [
+                    {
+                        "id": "1aw67co8uut64yckd3wbhy9t2",
+                        "name": "Cruz Azul",
+                        "shortName": "Cruz Azul",
+                        "officialName": "CF Cruz Azul",
+                        "code": "CAZ",
+                        "position": "home",
+                        "country": {
+                            "id": "5trdr3jf42i20zj1hnkvcytr6",
+                            "name": "Mexico"
+                        }
+                    },
+                    {
+                        "id": "6g7gropq1hjqf4tumpj5f41sn",
+                        "name": "Portmore United",
+                        "shortName": "Portmore",
+                        "officialName": "Portmore United FC",
+                        "code": "POR",
+                        "position": "away",
+                        "country": {
+                            "id": "gimxu1vjwoa2xrecyd9gtyoc",
+                            "name": "Jamaica"
+                        }
+                    }
+                ],
+                "venue": {
+                    "id": "1z26ptjg3kg7fpitq54sj7z44",
+                    "neutral": "no",
+                    "longName": "Estadio Banorte",
+                    "shortName": "Estadio Banorte"
+                }
+            },
+            "liveData": {
+                "matchDetails": {
+                    "periodId": 14,
+                    "matchStatus": "Played",
+                    "winner": "home",
+                    "leg": 2,
+                    "relatedMatchId": "98m9xerunkdal3t4rzt9vkpre",
+                    "aggregateWinnerId": "1aw67co8uut64yckd3wbhy9t2",
+                    "matchLengthMin": 95,
+                    "matchLengthSec": 11,
+                    "period": [
+                        {
+                            "id": 1,
+                            "start": "2020-02-26T03:17:30Z",
+                            "end": "2020-02-26T04:07:31Z",
+                            "lengthMin": 50,
+                            "lengthSec": 1
+                        },
+                        {
+                            "id": 2,
+                            "start": "2020-02-26T04:22:55Z",
+                            "end": "2020-02-26T05:08:05Z",
+                            "lengthMin": 45,
+                            "lengthSec": 10
+                        }
+                    ],
+                    "scores": {
+                        "ht": {
+                            "home": 1,
+                            "away": 0
+                        },
+                        "ft": {
+                            "home": 4,
+                            "away": 0
+                        },
+                        "total": {
+                            "home": 4,
+                            "away": 0
+                        },
+                        "aggregate": {
+                            "home": 6,
+                            "away": 1
+                        }
+                    }
+                },
+                "goal": [
+                    {
+                        "contestantId": "1aw67co8uut64yckd3wbhy9t2",
+                        "periodId": 1,
+                        "timeMin": 22,
+                        "timeMinSec": "21:09",
+                        "lastUpdated": "2024-05-15T13:30:38Z",
+                        "timestamp": "2020-02-26T03:38:40Z",
+                        "type": "G",
+                        "scorerId": "axrchx0095dg0ydpb1ajj19ed",
+                        "scorerName": "O. Pineda",
+                        "assistPlayerId": "35qgvl9ukqvibir1nohf8jhbe",
+                        "assistPlayerName": "J. García",
+                        "optaEventId": "2186726961",
+                        "homeScore": 1,
+                        "awayScore": 0
+                    },
+                    {
+                        "contestantId": "1aw67co8uut64yckd3wbhy9t2",
+                        "periodId": 2,
+                        "timeMin": 59,
+                        "timeMinSec": "58:35",
+                        "lastUpdated": "2024-03-31T09:10:23Z",
+                        "timestamp": "2020-02-26T04:36:30Z",
+                        "type": "G",
+                        "scorerId": "8fkw7uuaou3ytw58cw78k3v85",
+                        "scorerName": "L. Passerini",
+                        "assistPlayerId": "d18b8xc8rayaqaf0toqknkru1",
+                        "assistPlayerName": "J. Jiménez",
+                        "optaEventId": "2186728351",
+                        "homeScore": 2,
+                        "awayScore": 0
+                    },
+                    {
+                        "contestantId": "1aw67co8uut64yckd3wbhy9t2",
+                        "periodId": 2,
+                        "timeMin": 76,
+                        "timeMinSec": "75:52",
+                        "lastUpdated": "2024-02-19T09:22:24Z",
+                        "timestamp": "2020-02-26T04:53:47Z",
+                        "type": "PG",
+                        "scorerId": "7l6fskoo4ftq4qkgmwwsvoixh",
+                        "scorerName": "P. Ceppelini",
+                        "optaEventId": "2186728865",
+                        "homeScore": 3,
+                        "awayScore": 0
+                    },
+                    {
+                        "contestantId": "1aw67co8uut64yckd3wbhy9t2",
+                        "periodId": 2,
+                        "timeMin": 90,
+                        "timeMinSec": "89:19",
+                        "lastUpdated": "2020-07-18T12:14:16Z",
+                        "timestamp": "2020-02-26T05:07:15Z",
+                        "type": "G",
+                        "scorerId": "bnnrd87r5v0vlz8cfuq1zbefp",
+                        "scorerName": "J. Borja",
+                        "assistPlayerId": "8urkitc19yftx182gfaa8may1",
+                        "assistPlayerName": "M. Domínguez",
+                        "secondAssistPlayerId": "d18b8xc8rayaqaf0toqknkru1",
+                        "ocSecondAssistPlayerId": "411235",
+                        "opSecondAssistPlayerId": "214120",
+                        "secondAssistPlayerName": "J. Jiménez",
+                        "optaEventId": "2186729339",
+                        "homeScore": 4,
+                        "awayScore": 0
+                    }
+                ],
+                "substitute": [
+                    {
+                        "contestantId": "6g7gropq1hjqf4tumpj5f41sn",
+                        "periodId": 2,
+                        "timeMin": 46,
+                        "timeMinSec": "45:00",
+                        "lastUpdated": "2023-03-23T20:22:34Z",
+                        "timestamp": "2020-02-26T04:22:49Z",
+                        "playerOnId": "1010l8zp3uci66qt3gmkb990p",
+                        "playerOnName": "C. Willis",
+                        "playerOffId": "bgeenpckzwo50rj3fp5z3bo5",
+                        "playerOffName": "S. Knight",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "6g7gropq1hjqf4tumpj5f41sn",
+                        "periodId": 2,
+                        "timeMin": 58,
+                        "timeMinSec": "57:32",
+                        "lastUpdated": "2020-07-22T03:50:25Z",
+                        "timestamp": "2020-02-26T04:35:28Z",
+                        "playerOnId": "ek4tsxa118h2hmxfskqp8b9ih",
+                        "playerOnName": "D. Solomon",
+                        "playerOffId": "6xv62z5puz1vl97cy5d5cml79",
+                        "playerOffName": "R. Wellington",
+                        "subReason": "Injury"
+                    },
+                    {
+                        "contestantId": "1aw67co8uut64yckd3wbhy9t2",
+                        "periodId": 2,
+                        "timeMin": 66,
+                        "timeMinSec": "65:48",
+                        "lastUpdated": "2023-08-20T09:38:35Z",
+                        "timestamp": "2020-02-26T04:43:44Z",
+                        "playerOnId": "dqq19igp5rfd0zu25a4ojxgid",
+                        "playerOnName": "Y. Yotún",
+                        "playerOffId": "f47fwbxgm35jx628hwpmfdrrp",
+                        "playerOffName": "R. Baca",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "6g7gropq1hjqf4tumpj5f41sn",
+                        "periodId": 2,
+                        "timeMin": 67,
+                        "timeMinSec": "66:07",
+                        "lastUpdated": "2020-07-22T03:50:26Z",
+                        "timestamp": "2020-02-26T04:44:03Z",
+                        "playerOnId": "bnk1meadf9g9675g7fdqkul4a",
+                        "playerOnName": "R. Mitchell",
+                        "playerOffId": "4yvcxpxidirl8znsf54oihduy",
+                        "playerOffName": "R. Smith",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "1aw67co8uut64yckd3wbhy9t2",
+                        "periodId": 2,
+                        "timeMin": 71,
+                        "timeMinSec": "70:46",
+                        "lastUpdated": "2022-01-06T18:15:25Z",
+                        "timestamp": "2020-02-26T04:48:42Z",
+                        "playerOnId": "8urkitc19yftx182gfaa8may1",
+                        "playerOnName": "M. Domínguez",
+                        "playerOffId": "axrchx0095dg0ydpb1ajj19ed",
+                        "playerOffName": "O. Pineda",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "1aw67co8uut64yckd3wbhy9t2",
+                        "periodId": 2,
+                        "timeMin": 82,
+                        "timeMinSec": "81:46",
+                        "lastUpdated": "2020-02-26T04:59:48Z",
+                        "timestamp": "2020-02-26T04:59:42Z",
+                        "playerOnId": "ckzax09balqgqb55giz7i0416",
+                        "playerOnName": "D. Barraza",
+                        "playerOffId": "1cyhpfi77dom7gmpuownxlcrt",
+                        "playerOffName": "L. Romo",
+                        "subReason": "Tactical"
+                    }
+                ],
+                "matchDetailsExtra": {
+                    "matchOfficial": [
+                        {
+                            "id": "2a5i4mjk23svyhplzcghaj9hx",
+                            "type": "Main",
+                            "firstName": "Drew",
+                            "lastName": "Fischer",
+                            "shortFirstName": "Drew",
+                            "shortLastName": "Fischer"
+                        },
+                        {
+                            "id": "a6iit3l8jnh2zrvlodi2qp4gl",
+                            "type": "Assistant referee 1",
+                            "firstName": "Chris",
+                            "lastName": "Wattam",
+                            "shortFirstName": "Chris",
+                            "shortLastName": "Wattam"
+                        },
+                        {
+                            "id": "7nkx2e6ubyf75nvscbyi8n45x",
+                            "type": "Assistant referee 2",
+                            "firstName": "Philippe",
+                            "lastName": "Briere",
+                            "shortFirstName": "Philippe",
+                            "shortLastName": "Briere"
+                        },
+                        {
+                            "id": "314izlea7i8i8jleyevson2l1",
+                            "type": "Fourth official",
+                            "firstName": "David",
+                            "lastName": "Gantar",
+                            "shortFirstName": "David",
+                            "shortLastName": "Gantar"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "matchInfo": {
+                "id": "98m9xerunkdal3t4rzt9vkpre",
+                "coverageLevel": "13",
+                "date": "2020-02-19Z",
+                "time": "01:00:00Z",
+                "localDate": "2020-02-18",
+                "localTime": "20:00:00",
+                "numberOfPeriods": 2,
+                "periodLength": 45,
+                "overtimeLength": 15,
+                "lastUpdated": "2025-02-19T13:30:54Z",
+                "description": "Portmore United vs Cruz Azul",
+                "sport": {
+                    "id": "289u5typ3vp4ifwh5thalohmq",
+                    "name": "Soccer"
+                },
+                "ruleset": {
+                    "id": "79plas4983031idr6vw83nuel",
+                    "name": "Men"
+                },
+                "competition": {
+                    "id": "e6rl4hongahbihxd3tpudespd",
+                    "name": "Concacaf Champions Cup",
+                    "knownName": "Concacaf Champions Cup",
+                    "competitionCode": "CCC",
+                    "competitionFormat": "International cup",
+                    "country": {
+                        "id": "7yfrmldo7ozpwui3n6wfcy1n9",
+                        "name": "N/C America"
+                    }
+                },
+                "tournamentCalendar": {
+                    "id": "8093hqpyqbxw8ot6xk7ep91t6",
+                    "startDate": "2020-02-19Z",
+                    "endDate": "2020-12-23Z",
+                    "name": "2020"
+                },
+                "stage": {
+                    "id": "80nf8uyon87c728h0ev5j1dnu",
+                    "formatId": "614sqb9421oaflw5mpvvm9uj9",
+                    "startDate": "2020-02-19Z",
+                    "endDate": "2020-02-28Z",
+                    "name": "8th Finals"
+                },
+                "contestant": [
+                    {
+                        "id": "6g7gropq1hjqf4tumpj5f41sn",
+                        "name": "Portmore United",
+                        "shortName": "Portmore",
+                        "officialName": "Portmore United FC",
+                        "code": "POR",
+                        "position": "home",
+                        "country": {
+                            "id": "gimxu1vjwoa2xrecyd9gtyoc",
+                            "name": "Jamaica"
+                        }
+                    },
+                    {
+                        "id": "1aw67co8uut64yckd3wbhy9t2",
+                        "name": "Cruz Azul",
+                        "shortName": "Cruz Azul",
+                        "officialName": "CF Cruz Azul",
+                        "code": "CAZ",
+                        "position": "away",
+                        "country": {
+                            "id": "5trdr3jf42i20zj1hnkvcytr6",
+                            "name": "Mexico"
+                        }
+                    }
+                ],
+                "venue": {
+                    "id": "c4xzw4pu0xeljntmgmnx4h8zk",
+                    "neutral": "no",
+                    "longName": "Independence Park",
+                    "shortName": "Independence Park"
+                }
+            },
+            "liveData": {
+                "matchDetails": {
+                    "periodId": 14,
+                    "matchStatus": "Played",
+                    "winner": "away",
+                    "leg": 1,
+                    "relatedMatchId": "99sc0p1gt36x1cww44gii10fe",
+                    "aggregateWinnerId": "1aw67co8uut64yckd3wbhy9t2",
+                    "matchLengthMin": 101,
+                    "matchLengthSec": 6,
+                    "period": [
+                        {
+                            "id": 1,
+                            "start": "2020-02-19T01:06:32Z",
+                            "end": "2020-02-19T01:53:32Z",
+                            "lengthMin": 47,
+                            "lengthSec": 0
+                        },
+                        {
+                            "id": 2,
+                            "start": "2020-02-19T02:08:48Z",
+                            "end": "2020-02-19T03:02:54Z",
+                            "lengthMin": 54,
+                            "lengthSec": 6
+                        }
+                    ],
+                    "scores": {
+                        "ht": {
+                            "home": 0,
+                            "away": 0
+                        },
+                        "ft": {
+                            "home": 1,
+                            "away": 2
+                        },
+                        "total": {
+                            "home": 1,
+                            "away": 2
+                        },
+                        "aggregate": {
+                            "home": 1,
+                            "away": 6
+                        }
+                    }
+                },
+                "goal": [
+                    {
+                        "contestantId": "6g7gropq1hjqf4tumpj5f41sn",
+                        "periodId": 2,
+                        "timeMin": 74,
+                        "timeMinSec": "73:45",
+                        "lastUpdated": "2020-07-22T03:50:26Z",
+                        "timestamp": "2020-02-19T02:37:33Z",
+                        "type": "G",
+                        "scorerId": "4yvcxpxidirl8znsf54oihduy",
+                        "scorerName": "R. Smith",
+                        "assistPlayerId": "fwvuutl63pkjjrbsirkp9sdl",
+                        "assistPlayerName": "O. Ricketts",
+                        "optaEventId": "2184897925",
+                        "homeScore": 1,
+                        "awayScore": 0
+                    },
+                    {
+                        "contestantId": "1aw67co8uut64yckd3wbhy9t2",
+                        "periodId": 2,
+                        "timeMin": 95,
+                        "timeMinSec": "94:35",
+                        "lastUpdated": "2024-03-31T09:10:23Z",
+                        "timestamp": "2020-02-19T02:58:23Z",
+                        "type": "G",
+                        "scorerId": "8fkw7uuaou3ytw58cw78k3v85",
+                        "scorerName": "L. Passerini",
+                        "assistPlayerId": "f47fwbxgm35jx628hwpmfdrrp",
+                        "assistPlayerName": "R. Baca",
+                        "optaEventId": "2184898567",
+                        "homeScore": 1,
+                        "awayScore": 1
+                    },
+                    {
+                        "contestantId": "1aw67co8uut64yckd3wbhy9t2",
+                        "periodId": 2,
+                        "timeMin": 99,
+                        "timeMinSec": "98:04",
+                        "lastUpdated": "2024-07-26T21:45:14Z",
+                        "timestamp": "2020-02-19T03:01:52Z",
+                        "type": "G",
+                        "scorerId": "bepgomq3u5u8e6d4qrsj0frh1",
+                        "scorerName": "J. Rodríguez",
+                        "assistPlayerId": "8fkw7uuaou3ytw58cw78k3v85",
+                        "assistPlayerName": "L. Passerini",
+                        "optaEventId": "2184898697",
+                        "homeScore": 1,
+                        "awayScore": 2
+                    }
+                ],
+                "card": [
+                    {
+                        "contestantId": "1aw67co8uut64yckd3wbhy9t2",
+                        "periodId": 2,
+                        "timeMin": 79,
+                        "timeMinSec": "78:40",
+                        "lastUpdated": "2023-10-12T19:56:56Z",
+                        "timestamp": "2020-02-19T02:42:28Z",
+                        "type": "YC",
+                        "playerId": "aboxil79ulfa73pckzsdnwp62",
+                        "playerName": "S. Giménez",
+                        "optaEventId": "2184898053",
+                        "cardReason": "Foul"
+                    },
+                    {
+                        "contestantId": "6g7gropq1hjqf4tumpj5f41sn",
+                        "periodId": 2,
+                        "timeMin": 88,
+                        "timeMinSec": "87:36",
+                        "lastUpdated": "2022-11-04T07:08:53Z",
+                        "timestamp": "2020-02-19T02:51:24Z",
+                        "type": "YC",
+                        "playerId": "co6rf02wfkxsbwax78ywgec45",
+                        "playerName": "K. Farquharson",
+                        "optaEventId": "2184898353",
+                        "cardReason": "Foul"
+                    }
+                ],
+                "substitute": [
+                    {
+                        "contestantId": "1aw67co8uut64yckd3wbhy9t2",
+                        "periodId": 2,
+                        "timeMin": 62,
+                        "timeMinSec": "61:35",
+                        "lastUpdated": "2024-07-26T21:45:14Z",
+                        "timestamp": "2020-02-19T02:25:23Z",
+                        "playerOnId": "bepgomq3u5u8e6d4qrsj0frh1",
+                        "playerOnName": "J. Rodríguez",
+                        "playerOffId": "bnnrd87r5v0vlz8cfuq1zbefp",
+                        "playerOffName": "J. Borja",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "1aw67co8uut64yckd3wbhy9t2",
+                        "periodId": 2,
+                        "timeMin": 62,
+                        "timeMinSec": "61:40",
+                        "lastUpdated": "2024-02-05T23:41:31Z",
+                        "timestamp": "2020-02-19T02:25:28Z",
+                        "playerOnId": "9vvleh9yqqcm955432lsl8c7p",
+                        "playerOnName": "R. Alvarado",
+                        "playerOffId": "axrchx0095dg0ydpb1ajj19ed",
+                        "playerOffName": "O. Pineda",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "6g7gropq1hjqf4tumpj5f41sn",
+                        "periodId": 2,
+                        "timeMin": 72,
+                        "timeMinSec": "71:22",
+                        "lastUpdated": "2020-07-22T03:50:25Z",
+                        "timestamp": "2020-02-19T02:35:10Z",
+                        "playerOnId": "9ebo92ex6kgf10a4mt3dmwpud",
+                        "playerOnName": "C. Pryce",
+                        "playerOffId": "bz0r4lrnytznb6ov5ysipmqjt",
+                        "playerOffName": "S. Smith",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "1aw67co8uut64yckd3wbhy9t2",
+                        "periodId": 2,
+                        "timeMin": 78,
+                        "timeMinSec": "77:10",
+                        "lastUpdated": "2023-10-12T19:56:56Z",
+                        "timestamp": "2020-02-19T02:40:58Z",
+                        "playerOnId": "aboxil79ulfa73pckzsdnwp62",
+                        "playerOnName": "S. Giménez",
+                        "playerOffId": "7l6fskoo4ftq4qkgmwwsvoixh",
+                        "playerOffName": "P. Ceppelini",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "6g7gropq1hjqf4tumpj5f41sn",
+                        "periodId": 2,
+                        "timeMin": 82,
+                        "timeMinSec": "81:59",
+                        "lastUpdated": "2022-11-04T07:08:53Z",
+                        "timestamp": "2020-02-19T02:45:47Z",
+                        "playerOnId": "co6rf02wfkxsbwax78ywgec45",
+                        "playerOnName": "K. Farquharson",
+                        "playerOffId": "4yvcxpxidirl8znsf54oihduy",
+                        "playerOffName": "R. Smith",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "6g7gropq1hjqf4tumpj5f41sn",
+                        "periodId": 2,
+                        "timeMin": 96,
+                        "timeMinSec": "95:38",
+                        "lastUpdated": "2020-07-22T03:50:25Z",
+                        "timestamp": "2020-02-19T02:59:26Z",
+                        "playerOnId": "b94672anjq9m7dmu87huzp2ol",
+                        "playerOnName": "R. Harriott",
+                        "playerOffId": "1010l8zp3uci66qt3gmkb990p",
+                        "playerOffName": "C. Willis",
+                        "subReason": "Tactical"
+                    }
+                ],
+                "matchDetailsExtra": {
+                    "matchOfficial": [
+                        {
+                            "id": "f1cnq3qh3lvz6qirahsnky2qy",
+                            "type": "Main",
+                            "firstName": "Reon",
+                            "lastName": "Radix",
+                            "shortFirstName": "Reon",
+                            "shortLastName": "Radix"
+                        },
+                        {
+                            "id": "d768iuuz4oes54ow1fmb9xsr9",
+                            "type": "Assistant referee 1",
+                            "firstName": "Michael",
+                            "lastName": "Barwegen",
+                            "shortFirstName": "Michael",
+                            "shortLastName": "Barwegen"
+                        },
+                        {
+                            "id": "2mgn805bx5kmci2yeauyrm4t1",
+                            "type": "Assistant referee 2",
+                            "firstName": "Ainsley",
+                            "lastName": "Rochard",
+                            "shortFirstName": "Ainsley",
+                            "shortLastName": "Rochard"
+                        },
+                        {
+                            "id": "cv632y9125jzypnp1a079o89h",
+                            "type": "Fourth official",
+                            "firstName": "Armando",
+                            "lastName": "Villarreal",
+                            "shortFirstName": "Armando",
+                            "shortLastName": "Villarreal"
+                        }
+                    ]
+                }
+            }
+        }
+    ]
+}

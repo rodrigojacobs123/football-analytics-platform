@@ -1,0 +1,595 @@
+{
+    "match": [
+        {
+            "matchInfo": {
+                "id": "alapzakvozs1yvi66gitp788a",
+                "coverageLevel": "13",
+                "date": "2019-02-28Z",
+                "time": "01:00:00Z",
+                "localDate": "2019-02-27",
+                "localTime": "20:00:00",
+                "numberOfPeriods": 2,
+                "periodLength": 45,
+                "overtimeLength": 15,
+                "lastUpdated": "2025-03-30T16:21:05Z",
+                "description": "New York RB vs Atlético Pantoja",
+                "sport": {
+                    "id": "289u5typ3vp4ifwh5thalohmq",
+                    "name": "Soccer"
+                },
+                "ruleset": {
+                    "id": "79plas4983031idr6vw83nuel",
+                    "name": "Men"
+                },
+                "competition": {
+                    "id": "e6rl4hongahbihxd3tpudespd",
+                    "name": "Concacaf Champions Cup",
+                    "knownName": "Concacaf Champions Cup",
+                    "competitionCode": "CCC",
+                    "competitionFormat": "International cup",
+                    "country": {
+                        "id": "7yfrmldo7ozpwui3n6wfcy1n9",
+                        "name": "N/C America"
+                    }
+                },
+                "tournamentCalendar": {
+                    "id": "49m6qs7bfor137jilbfgnxy7e",
+                    "startDate": "2019-02-20Z",
+                    "endDate": "2019-05-02Z",
+                    "name": "2019"
+                },
+                "stage": {
+                    "id": "4a1kucqc2g8bvzbwq8fiajeju",
+                    "formatId": "614sqb9421oaflw5mpvvm9uj9",
+                    "startDate": "2019-02-20Z",
+                    "endDate": "2019-03-01Z",
+                    "name": "8th Finals"
+                },
+                "contestant": [
+                    {
+                        "id": "7k329us81r2yiw9pakgo5tp6e",
+                        "name": "New York RB",
+                        "shortName": "New York",
+                        "officialName": "New York Red Bulls",
+                        "code": "NYR",
+                        "position": "home",
+                        "country": {
+                            "id": "7hr2f89v44y65dyu9k92vprwn",
+                            "name": "USA"
+                        }
+                    },
+                    {
+                        "id": "oofxvbs6y39bsrj5n8xlelpe",
+                        "name": "Atlético Pantoja",
+                        "shortName": "CA Pantoja",
+                        "officialName": "Club Atlético Pantoja",
+                        "code": "PAN",
+                        "position": "away",
+                        "country": {
+                            "id": "za9wn9847gulllfsey917tmk",
+                            "name": "Dominican Republic"
+                        }
+                    }
+                ],
+                "venue": {
+                    "id": "6gieymk0udgvk6gh9ds0pp96p",
+                    "neutral": "no",
+                    "longName": "Sports Illustrated Stadium",
+                    "shortName": "Sports Illustrated Stadium"
+                }
+            },
+            "liveData": {
+                "matchDetails": {
+                    "periodId": 14,
+                    "matchStatus": "Played",
+                    "winner": "home",
+                    "leg": 2,
+                    "relatedMatchId": "aklv297tk76iqstjkkrg8nbl6",
+                    "aggregateWinnerId": "7k329us81r2yiw9pakgo5tp6e",
+                    "matchLengthMin": 93,
+                    "matchLengthSec": 56,
+                    "period": [
+                        {
+                            "id": 1,
+                            "start": "2019-02-28T01:07:36Z",
+                            "end": "2019-02-28T01:53:34Z",
+                            "lengthMin": 45,
+                            "lengthSec": 58
+                        },
+                        {
+                            "id": 2,
+                            "start": "2019-02-28T02:09:35Z",
+                            "end": "2019-02-28T02:57:33Z",
+                            "lengthMin": 47,
+                            "lengthSec": 58
+                        }
+                    ],
+                    "scores": {
+                        "ht": {
+                            "home": 2,
+                            "away": 0
+                        },
+                        "ft": {
+                            "home": 3,
+                            "away": 0
+                        },
+                        "total": {
+                            "home": 3,
+                            "away": 0
+                        },
+                        "aggregate": {
+                            "home": 5,
+                            "away": 0
+                        }
+                    }
+                },
+                "goal": [
+                    {
+                        "contestantId": "7k329us81r2yiw9pakgo5tp6e",
+                        "periodId": 1,
+                        "timeMin": 27,
+                        "timeMinSec": "26:36",
+                        "lastUpdated": "2025-03-30T16:11:24Z",
+                        "type": "G",
+                        "scorerId": "4wy7kbv694s6xrm3tfsyl4hyh",
+                        "scorerName": "S. Davis",
+                        "optaEventId": "1848476466",
+                        "homeScore": 1,
+                        "awayScore": 0
+                    },
+                    {
+                        "contestantId": "7k329us81r2yiw9pakgo5tp6e",
+                        "periodId": 1,
+                        "timeMin": 32,
+                        "timeMinSec": "31:23",
+                        "lastUpdated": "2019-02-28T01:39:35Z",
+                        "type": "PG",
+                        "scorerId": "d9yyl291mkmq386x6ub23bzrp",
+                        "scorerName": "D. Royer",
+                        "optaEventId": "1291924333",
+                        "homeScore": 2,
+                        "awayScore": 0
+                    },
+                    {
+                        "contestantId": "7k329us81r2yiw9pakgo5tp6e",
+                        "periodId": 2,
+                        "timeMin": 75,
+                        "timeMinSec": "74:08",
+                        "lastUpdated": "2024-10-30T06:53:34Z",
+                        "type": "G",
+                        "scorerId": "58c19piq01hbllnokygtm5l91",
+                        "scorerName": "A. Ivan",
+                        "optaEventId": "1716866476",
+                        "homeScore": 3,
+                        "awayScore": 0
+                    }
+                ],
+                "card": [
+                    {
+                        "contestantId": "oofxvbs6y39bsrj5n8xlelpe",
+                        "periodId": 1,
+                        "timeMin": 21,
+                        "timeMinSec": "20:17",
+                        "lastUpdated": "2025-01-31T21:55:18Z",
+                        "type": "YC",
+                        "playerId": "3jq6uutsv2zlvr5rtefo44q21",
+                        "playerName": "E. Trinidad",
+                        "optaEventId": "1902050451",
+                        "cardReason": "Foul"
+                    },
+                    {
+                        "contestantId": "oofxvbs6y39bsrj5n8xlelpe",
+                        "periodId": 1,
+                        "timeMin": 31,
+                        "timeMinSec": "30:24",
+                        "lastUpdated": "2021-02-11T01:31:07Z",
+                        "type": "YC",
+                        "playerId": "6o3e89kkture5pzzgzry8djo5",
+                        "playerName": "D. Batista",
+                        "optaEventId": "1625523693",
+                        "cardReason": "Foul"
+                    },
+                    {
+                        "contestantId": "7k329us81r2yiw9pakgo5tp6e",
+                        "periodId": 2,
+                        "timeMin": 49,
+                        "timeMinSec": "48:30",
+                        "lastUpdated": "2024-10-02T15:04:08Z",
+                        "type": "YC",
+                        "playerId": "b3vvxolwxcukqk76hb4scvh79",
+                        "playerName": "M. Murillo",
+                        "optaEventId": "1562036453",
+                        "cardReason": "Foul"
+                    }
+                ],
+                "substitute": [
+                    {
+                        "contestantId": "oofxvbs6y39bsrj5n8xlelpe",
+                        "periodId": 2,
+                        "timeMin": 46,
+                        "timeMinSec": "45:00",
+                        "lastUpdated": "2021-01-23T12:45:40Z",
+                        "playerOnId": "8kfp50u6n00gd2s7speku9i7e",
+                        "playerOnName": "R. Vásquez",
+                        "playerOffId": "f3gi86mrnqbwfipbdo9rpliad",
+                        "playerOffName": "J. López",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "oofxvbs6y39bsrj5n8xlelpe",
+                        "periodId": 2,
+                        "timeMin": 46,
+                        "timeMinSec": "45:00",
+                        "lastUpdated": "2021-04-09T06:28:52Z",
+                        "playerOnId": "2fb77cyefzoq0ktpant4h3vca",
+                        "playerOnName": "R. Rosado",
+                        "playerOffId": "6o3e89kkture5pzzgzry8djo5",
+                        "playerOffName": "D. Batista",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "7k329us81r2yiw9pakgo5tp6e",
+                        "periodId": 2,
+                        "timeMin": 54,
+                        "timeMinSec": "53:54",
+                        "lastUpdated": "2023-05-05T15:42:39Z",
+                        "playerOnId": "dzajdpdijdact32okns0mveg9",
+                        "playerOnName": "S. Nealis",
+                        "playerOffId": "cgq6c4c89nrl1nfucnb6x785",
+                        "playerOffName": "A. Long",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "7k329us81r2yiw9pakgo5tp6e",
+                        "periodId": 2,
+                        "timeMin": 59,
+                        "timeMinSec": "58:16",
+                        "lastUpdated": "2025-02-25T16:59:04Z",
+                        "playerOnId": "1o6ncw2f6h5uodlhavzsswvrp",
+                        "playerOnName": "K. Duncan",
+                        "playerOffId": "b3vvxolwxcukqk76hb4scvh79",
+                        "playerOffName": "M. Murillo",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "7k329us81r2yiw9pakgo5tp6e",
+                        "periodId": 2,
+                        "timeMin": 67,
+                        "timeMinSec": "66:57",
+                        "lastUpdated": "2024-10-30T06:53:34Z",
+                        "playerOnId": "58c19piq01hbllnokygtm5l91",
+                        "playerOnName": "A. Ivan",
+                        "playerOffId": "f393lhns0ptvcs7cj0t07f00l",
+                        "playerOffName": "B. Wright-Phillips",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "oofxvbs6y39bsrj5n8xlelpe",
+                        "periodId": 2,
+                        "timeMin": 80,
+                        "timeMinSec": "79:48",
+                        "lastUpdated": "2021-02-11T01:31:12Z",
+                        "playerOnId": "ay7qd2ijzgp6g28jx3po7ye0a",
+                        "playerOnName": "V. Tavras",
+                        "playerOffId": "2ruvwbb7da2ybsovhed91duui",
+                        "playerOffName": "C. Rossell",
+                        "subReason": "Tactical"
+                    }
+                ],
+                "matchDetailsExtra": {
+                    "matchOfficial": [
+                        {
+                            "id": "e62zp7cxs3g8el1se69ol1r6d",
+                            "type": "Main",
+                            "firstName": "John Francis",
+                            "lastName": "Pitti Hernández",
+                            "shortFirstName": "John",
+                            "shortLastName": "Pitti"
+                        },
+                        {
+                            "id": "ez582gamo3dg0sv8g9ogs60np",
+                            "type": "Assistant referee 1",
+                            "firstName": "Alejandro Ameth",
+                            "lastName": "Camarena Ayala",
+                            "shortFirstName": "Alejandro",
+                            "shortLastName": "Camarena"
+                        },
+                        {
+                            "id": "2o3hbmia5h0e6uisojipqgd79",
+                            "type": "Assistant referee 2",
+                            "firstName": "Christian Jesús",
+                            "lastName": "Ramírez Soto",
+                            "shortFirstName": "Christian",
+                            "shortLastName": "Ramirez"
+                        },
+                        {
+                            "id": "3np2esgwibt574rgjjyshvg7p",
+                            "type": "Fourth official",
+                            "firstName": "José Antonio",
+                            "lastName": "Kellys Marquez"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "matchInfo": {
+                "id": "aklv297tk76iqstjkkrg8nbl6",
+                "coverageLevel": "10",
+                "date": "2019-02-21Z",
+                "time": "01:00:00Z",
+                "localDate": "2019-02-20",
+                "localTime": "21:00:00",
+                "numberOfPeriods": 2,
+                "periodLength": 45,
+                "overtimeLength": 15,
+                "lastUpdated": "2025-03-30T16:21:00Z",
+                "description": "Atlético Pantoja vs New York RB",
+                "sport": {
+                    "id": "289u5typ3vp4ifwh5thalohmq",
+                    "name": "Soccer"
+                },
+                "ruleset": {
+                    "id": "79plas4983031idr6vw83nuel",
+                    "name": "Men"
+                },
+                "competition": {
+                    "id": "e6rl4hongahbihxd3tpudespd",
+                    "name": "Concacaf Champions Cup",
+                    "knownName": "Concacaf Champions Cup",
+                    "competitionCode": "CCC",
+                    "competitionFormat": "International cup",
+                    "country": {
+                        "id": "7yfrmldo7ozpwui3n6wfcy1n9",
+                        "name": "N/C America"
+                    }
+                },
+                "tournamentCalendar": {
+                    "id": "49m6qs7bfor137jilbfgnxy7e",
+                    "startDate": "2019-02-20Z",
+                    "endDate": "2019-05-02Z",
+                    "name": "2019"
+                },
+                "stage": {
+                    "id": "4a1kucqc2g8bvzbwq8fiajeju",
+                    "formatId": "614sqb9421oaflw5mpvvm9uj9",
+                    "startDate": "2019-02-20Z",
+                    "endDate": "2019-03-01Z",
+                    "name": "8th Finals"
+                },
+                "contestant": [
+                    {
+                        "id": "oofxvbs6y39bsrj5n8xlelpe",
+                        "name": "Atlético Pantoja",
+                        "shortName": "CA Pantoja",
+                        "officialName": "Club Atlético Pantoja",
+                        "code": "PAN",
+                        "position": "home",
+                        "country": {
+                            "id": "za9wn9847gulllfsey917tmk",
+                            "name": "Dominican Republic"
+                        }
+                    },
+                    {
+                        "id": "7k329us81r2yiw9pakgo5tp6e",
+                        "name": "New York RB",
+                        "shortName": "New York",
+                        "officialName": "New York Red Bulls",
+                        "code": "NYR",
+                        "position": "away",
+                        "country": {
+                            "id": "7hr2f89v44y65dyu9k92vprwn",
+                            "name": "USA"
+                        }
+                    }
+                ],
+                "venue": {
+                    "id": "5u8pdre7akpvywu9gavlq9cd1",
+                    "neutral": "no",
+                    "longName": "Estadio Olímpico Félix Sánchez",
+                    "shortName": "Estadio Olímpico Félix Sánchez"
+                }
+            },
+            "liveData": {
+                "matchDetails": {
+                    "periodId": 14,
+                    "matchStatus": "Played",
+                    "winner": "away",
+                    "leg": 1,
+                    "relatedMatchId": "alapzakvozs1yvi66gitp788a",
+                    "aggregateWinnerId": "7k329us81r2yiw9pakgo5tp6e",
+                    "matchLengthMin": 93,
+                    "matchLengthSec": 16,
+                    "period": [
+                        {
+                            "id": 1,
+                            "start": "2019-02-26T17:16:00Z",
+                            "end": "2019-02-26T18:02:08Z",
+                            "lengthMin": 46,
+                            "lengthSec": 8
+                        },
+                        {
+                            "id": 2,
+                            "start": "2019-02-26T18:48:06Z",
+                            "end": "2019-02-26T19:35:14Z",
+                            "lengthMin": 47,
+                            "lengthSec": 8
+                        }
+                    ],
+                    "scores": {
+                        "ht": {
+                            "home": 0,
+                            "away": 1
+                        },
+                        "ft": {
+                            "home": 0,
+                            "away": 2
+                        },
+                        "total": {
+                            "home": 0,
+                            "away": 2
+                        },
+                        "aggregate": {
+                            "home": 0,
+                            "away": 5
+                        }
+                    }
+                },
+                "goal": [
+                    {
+                        "contestantId": "oofxvbs6y39bsrj5n8xlelpe",
+                        "periodId": 1,
+                        "timeMin": 39,
+                        "timeMinSec": "38:08",
+                        "lastUpdated": "2021-02-11T01:31:14Z",
+                        "type": "OG",
+                        "scorerId": "ba7kumnj5n4s5grq9kc7eakx6",
+                        "scorerName": "J. Innocent",
+                        "optaEventId": "1310477309",
+                        "homeScore": 0,
+                        "awayScore": 1
+                    },
+                    {
+                        "contestantId": "7k329us81r2yiw9pakgo5tp6e",
+                        "periodId": 2,
+                        "timeMin": 67,
+                        "timeMinSec": "66:22",
+                        "lastUpdated": "2019-02-26T21:12:52Z",
+                        "type": "G",
+                        "scorerId": "d9yyl291mkmq386x6ub23bzrp",
+                        "scorerName": "D. Royer",
+                        "assistPlayerId": "2xkudoxz92f1vgbjlsbfum3f9",
+                        "assistPlayerName": "Alejandro Romero",
+                        "optaEventId": "1649468555",
+                        "homeScore": 0,
+                        "awayScore": 2
+                    }
+                ],
+                "card": [
+                    {
+                        "contestantId": "7k329us81r2yiw9pakgo5tp6e",
+                        "periodId": 2,
+                        "timeMin": 66,
+                        "timeMinSec": "65:08",
+                        "lastUpdated": "2024-10-02T15:04:08Z",
+                        "type": "YC",
+                        "playerId": "b3vvxolwxcukqk76hb4scvh79",
+                        "playerName": "M. Murillo",
+                        "optaEventId": "1114998336",
+                        "cardReason": "Foul"
+                    }
+                ],
+                "substitute": [
+                    {
+                        "contestantId": "7k329us81r2yiw9pakgo5tp6e",
+                        "periodId": 2,
+                        "timeMin": 46,
+                        "timeMinSec": "45:00",
+                        "lastUpdated": "2020-11-26T19:34:35Z",
+                        "playerOnId": "ctcf8m5r0uqvzgtr0qkfbnc9h",
+                        "playerOnName": "K. Lawrence",
+                        "playerOffId": "5fhps8g0dwc8a7saixxrmoic5",
+                        "playerOffName": "C. Lade",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "oofxvbs6y39bsrj5n8xlelpe",
+                        "periodId": 2,
+                        "timeMin": 55,
+                        "timeMinSec": "54:40",
+                        "lastUpdated": "2022-03-18T17:48:16Z",
+                        "playerOnId": "bzzb9m0dj8p6aqj6fr5bvr3dh",
+                        "playerOnName": "N. Saint-Vil",
+                        "playerOffId": "aoba6yb2whykmz9jw4lbzsjjd",
+                        "playerOffName": "P. Marisi",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "oofxvbs6y39bsrj5n8xlelpe",
+                        "periodId": 2,
+                        "timeMin": 74,
+                        "timeMinSec": "73:47",
+                        "lastUpdated": "2021-04-02T00:00:19Z",
+                        "playerOnId": "cjj9u2d8oi12wvtmhmbg3vpat",
+                        "playerOnName": "P. Martinez",
+                        "playerOffId": "8kfp50u6n00gd2s7speku9i7e",
+                        "playerOffName": "R. Vásquez",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "7k329us81r2yiw9pakgo5tp6e",
+                        "periodId": 2,
+                        "timeMin": 75,
+                        "timeMinSec": "74:01",
+                        "lastUpdated": "2024-07-30T12:58:41Z",
+                        "playerOnId": "7yfqbj33r0hi0scz89ckt9bs9",
+                        "playerOnName": "O. Fernandez",
+                        "playerOffId": "64vrzsvixp5cvq9b7ol723zkl",
+                        "playerOffName": "A. Muyl",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "oofxvbs6y39bsrj5n8xlelpe",
+                        "periodId": 2,
+                        "timeMin": 80,
+                        "timeMinSec": "79:30",
+                        "lastUpdated": "2021-02-11T01:31:07Z",
+                        "playerOnId": "6o3e89kkture5pzzgzry8djo5",
+                        "playerOnName": "D. Batista",
+                        "playerOffId": "2czj1cnra7ldhrhait1d0fcru",
+                        "playerOffName": "L. Polanco",
+                        "subReason": "Tactical"
+                    },
+                    {
+                        "contestantId": "7k329us81r2yiw9pakgo5tp6e",
+                        "periodId": 2,
+                        "timeMin": 83,
+                        "timeMinSec": "82:35",
+                        "lastUpdated": "2025-02-21T12:00:03Z",
+                        "playerOnId": "f5i3q488txatpqe9tvmc0838q",
+                        "playerOnName": "B. White",
+                        "playerOffId": "f393lhns0ptvcs7cj0t07f00l",
+                        "playerOffName": "B. Wright-Phillips",
+                        "subReason": "Tactical"
+                    }
+                ],
+                "matchDetailsExtra": {
+                    "matchOfficial": [
+                        {
+                            "id": "9p86kqo7jgb2bfp8i18wlka1h",
+                            "type": "Main",
+                            "firstName": "Ismael Alexander",
+                            "lastName": "Cornejo Meléndez",
+                            "shortFirstName": "Ismael",
+                            "shortLastName": "Cornejo"
+                        },
+                        {
+                            "id": "bpk418jczhwku86qc99k6g5at",
+                            "type": "Assistant referee 1",
+                            "firstName": "José Antonio",
+                            "lastName": "Mangandi Artero",
+                            "shortFirstName": "Jose",
+                            "shortLastName": "Mangandi"
+                        },
+                        {
+                            "id": "1p6htgi6tz64de5a3szfslr6d",
+                            "type": "Assistant referee 2",
+                            "firstName": "Douglas",
+                            "lastName": "Bermudez",
+                            "shortFirstName": "Douglas",
+                            "shortLastName": "Bermudez"
+                        },
+                        {
+                            "id": "93ftavp5mvd682vyu4z7gqwut",
+                            "type": "Fourth official",
+                            "firstName": "Jaime Alfredo",
+                            "lastName": "Herrera Bonilla",
+                            "shortFirstName": "Jaime Alfredo",
+                            "shortLastName": "Herrera"
+                        }
+                    ]
+                }
+            }
+        }
+    ]
+}
