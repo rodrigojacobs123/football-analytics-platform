@@ -7,6 +7,8 @@ from data.paths import partidos_dir, team_jsons_dir
 from data.event_parser import parse_match_info, extract_passes, extract_corners, extract_shots
 from processing.formations import compute_tactical_kpis, get_match_formations
 from processing.set_pieces import compute_set_piece_stats
+from processing.xt import passes_xt
+from processing.xdef import defensive_actions_xdef
 
 
 @st.cache_data(ttl=3600, show_spinner="Loading season tactical data...")
@@ -114,6 +116,85 @@ def compute_season_tactical_progression(
     # Sort by matchday/match_num
     df = df.sort_values("match_num").reset_index(drop=True)
     return df
+
+
+@st.cache_data(ttl=3600, show_spinner="Computing season Expected Threat (xT)...")
+def compute_season_xt(
+    league: str, season: str, team_id: str, stage_filter: str = "",
+    top_n: int = 12,
+) -> dict:
+    """Aggregate per-player Expected Threat (xT) added by passes over a season.
+
+    Reuses ``processing.xt.passes_xt`` per match — the same function that powers
+    the per-match Post-Match view — so the xT definition lives in one place.
+    This is the "deep tier": it loads individual match JSONs from partidos/.
+
+    Returns dict with:
+        leaders     DataFrame[player_name, xt_added, passes]  (top ``top_n``,
+                    ranked by total xT added — consistent with the per-match
+                    leaderboard; rewards volume, not per-90 efficiency)
+        all_passes  concatenated passes DataFrame (with xt_added) for the heatmap
+        total_xt    season total xT added by passes (float, rounded)
+        matches     number of matches aggregated (for sample-size context)
+    """
+    empty = {"leaders": pd.DataFrame(), "all_passes": pd.DataFrame(),
+             "total_xt": 0.0, "matches": 0}
+
+    pdir = partidos_dir(league, season)
+    if not pdir.exists():
+        return empty
+
+    frames: list[pd.DataFrame] = []
+    matches = 0
+
+    for fpath in sorted(pdir.iterdir()):
+        if fpath.suffix != ".json":
+            continue
+        try:
+            with open(fpath, "r", encoding="utf-8") as f:
+                raw = json.load(f)
+        except (json.JSONDecodeError, OSError):
+            continue
+
+        info = parse_match_info(raw)
+        if team_id not in (info["home_id"], info["away_id"]):
+            continue
+
+        # Stage filter — prefix match (mirrors compute_season_tactical_progression)
+        if stage_filter:
+            sn = info.get("stage_name", "")
+            if not sn.lower().startswith(stage_filter.lower().strip()):
+                continue
+
+        events = raw.get("liveData", {}).get("event", [])
+        p = passes_xt(events, team_id=team_id)
+        if not p.empty:
+            frames.append(p)
+        matches += 1
+
+    if not frames:
+        return {**empty, "matches": matches}
+
+    passes_df = pd.concat(frames, ignore_index=True)
+    progressive = passes_df[passes_df["xt_added"] > 0]
+
+    leaders = pd.DataFrame()
+    if not progressive.empty and "player_name" in progressive.columns:
+        leaders = (
+            progressive.groupby("player_name")
+            .agg(xt_added=("xt_added", "sum"), passes=("xt_added", "size"))
+            .sort_values("xt_added", ascending=False)
+            .head(top_n)
+            .reset_index()
+        )
+        leaders["xt_added"] = leaders["xt_added"].round(3)
+
+    return {
+        "leaders": leaders,
+        "all_passes": passes_df,
+        "total_xt": round(float(passes_df["xt_added"].sum()), 2),
+        "matches": matches,
+    }
 
 
 def load_team_season_agg(league: str, season: str, team_folder: str) -> dict:

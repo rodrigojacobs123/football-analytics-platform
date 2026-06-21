@@ -4,13 +4,13 @@ import streamlit as st
 from viz.theme import apply_theme
 import pandas as pd
 from components.sidebar import render_sidebar
-from viz.kpi_cards import section_header, kpi_row, page_header, mu_section
+from viz.kpi_cards import section_header, kpi_row, page_header, ame_section
 from viz.pitch import plot_shot_map
 from viz.charts import bar_chart, donut_chart, histogram
 from viz.tables import styled_dataframe
-from data.loader import load_mu_match_list, load_match_raw, build_player_name_map
+from data.loader import load_club_match_list, load_match_raw, build_player_name_map
 from data.event_parser import extract_shots, parse_match_info
-from config import MU_TEAM_ID, MU_TEAM_NAME, MU_RED, MU_GOLD
+from config import AME_TEAM_ID, AME_TEAM_NAME, AME_YELLOW, AME_BLUE
 
 apply_theme()
 
@@ -18,11 +18,11 @@ league, season = render_sidebar()
 
 page_header("xG Explorer", subtitle="Interactive shot analysis across the season")
 
-# ── Load all MU shots for the season ────────────────────────────────────────
+# ── Load all club shots for the season ────────────────────────────────────────
 @st.cache_data(ttl=3600)
 def load_season_shots(_league: str, _season: str) -> pd.DataFrame:
-    """Load all shots from MU matches for the season."""
-    matches = load_mu_match_list(_league, _season)
+    """Load all shots from club matches for the season."""
+    matches = load_club_match_list(_league, _season)
     if matches.empty:
         return pd.DataFrame()
 
@@ -65,7 +65,7 @@ section_header("Filters")
 col1, col2, col3, col4 = st.columns(4)
 
 with col1:
-    team_filter = st.selectbox("Team", ["All", MU_TEAM_NAME, "Opponents"], key="xg_team")
+    team_filter = st.selectbox("Team", ["All", AME_TEAM_NAME, "Opponents"], key="xg_team")
 with col2:
     outcomes = season_shots["outcome"].unique().tolist()
     outcome_filter = st.multiselect("Outcome", outcomes, default=outcomes, key="xg_outcome")
@@ -78,10 +78,10 @@ with col4:
 
 # Apply filters
 filtered = season_shots.copy()
-if team_filter == MU_TEAM_NAME:
-    filtered = filtered[filtered["team_id"] == MU_TEAM_ID]
+if team_filter == AME_TEAM_NAME:
+    filtered = filtered[filtered["team_id"] == AME_TEAM_ID]
 elif team_filter == "Opponents":
-    filtered = filtered[filtered["team_id"] != MU_TEAM_ID]
+    filtered = filtered[filtered["team_id"] != AME_TEAM_ID]
 filtered = filtered[filtered["outcome"].isin(outcome_filter)]
 filtered = filtered[filtered["body_part"].isin(body_filter)]
 filtered = filtered[(filtered["minute"] >= min_range[0]) & (filtered["minute"] <= min_range[1])]
@@ -117,7 +117,7 @@ with col1:
     fig = donut_chart(
         outcome_counts.index.tolist(), outcome_counts.values.tolist(),
         title="Shot Outcomes",
-        colors=[MU_RED, MU_GOLD, "#888888", "#FF9800", "#42A5F5"],
+        colors=[AME_YELLOW, AME_BLUE, "#888888", "#FF9800", "#42A5F5"],
     )
     st.plotly_chart(fig, width="stretch")
 

@@ -1,3 +1,4 @@
+from __future__ import annotations
 """Set-piece analysis: corners, free kicks, and their outcomes."""
 
 import pandas as pd

@@ -1,3 +1,4 @@
+from __future__ import annotations
 """Elo rating computation from historical match results (2008–2025).
 
 Enhanced with cross-competition Elo lookup for UEFA competitions —
@@ -80,7 +81,7 @@ def get_current_elo(elo_history: dict[str, list], team: str) -> float:
     if team in elo_history and elo_history[team]:
         return elo_history[team][-1][1]
 
-    # Try aliases: "Manchester United FC" → "Manchester United", etc.
+    # Try aliases: "CF América" → "Club América", etc.
     for alias in _team_name_aliases(team):
         if alias in elo_history and elo_history[alias]:
             return elo_history[alias][-1][1]

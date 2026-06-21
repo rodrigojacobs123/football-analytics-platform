@@ -1,3 +1,4 @@
+from __future__ import annotations
 """Goal build-up sequence extraction — traces each goal back to its origin."""
 
 import pandas as pd

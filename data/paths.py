@@ -1,3 +1,4 @@
+from __future__ import annotations
 """Path builder for the europa/ directory structure."""
 
 from pathlib import Path

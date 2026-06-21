@@ -1,9 +1,10 @@
+from __future__ import annotations
 """Phase & transition visualizations — donut, side-by-side bars, KPI cards."""
 
 import pandas as pd
 import plotly.graph_objects as go
 from processing.game_phases import PHASES, PHASE_LABELS, PHASE_COLORS
-from config import MU_DARK_BG, MU_WHITE, MU_RED, MU_GOLD
+from config import AME_DARK_BG, AME_WHITE, AME_YELLOW, AME_BLUE
 
 
 # Group phases for charts (display grouping ≠ classification)
@@ -61,22 +62,22 @@ def phase_donut(distribution: dict[str, dict], title: str = "") -> go.Figure:
     fig.add_annotation(
         text=f"<b>{total_events}</b><br><span style='font-size:9px'>events</span>",
         x=0.5, y=0.5, showarrow=False,
-        font=dict(size=14, color=MU_WHITE),
+        font=dict(size=14, color=AME_WHITE),
         align="center",
     )
 
     fig.update_layout(
         title=dict(text=title, x=0.5, xanchor="center",
-                   font=dict(size=13, color=MU_WHITE)),
+                   font=dict(size=13, color=AME_WHITE)),
         height=400,
         margin=dict(l=10, r=10, t=44, b=10),
         legend=dict(
             orientation="v", yanchor="middle", y=0.5, xanchor="left", x=1.01,
-            font=dict(color=MU_WHITE, size=10),
+            font=dict(color=AME_WHITE, size=10),
             bgcolor="rgba(0,0,0,0)",
         ),
-        paper_bgcolor=MU_DARK_BG,
-        plot_bgcolor=MU_DARK_BG,
+        paper_bgcolor=AME_DARK_BG,
+        plot_bgcolor=AME_DARK_BG,
         showlegend=True,
     )
     return fig
@@ -101,7 +102,7 @@ def phase_compare_bars(home_dist: dict, away_dist: dict,
     fig = go.Figure()
     fig.add_trace(go.Bar(
         y=df["phase"], x=-df["home_pct"], name=home_name,
-        orientation="h", marker_color=MU_RED,
+        orientation="h", marker_color=AME_YELLOW,
         hovertemplate=f"<b>{home_name}</b><br>%{{y}}: %{{customdata:.1f}}%<extra></extra>",
         customdata=df["home_pct"],
         text=df["home_pct"].apply(lambda v: f"{v:.1f}%" if v > 0 else ""),
@@ -109,7 +110,7 @@ def phase_compare_bars(home_dist: dict, away_dist: dict,
     ))
     fig.add_trace(go.Bar(
         y=df["phase"], x=df["away_pct"], name=away_name,
-        orientation="h", marker_color=MU_GOLD,
+        orientation="h", marker_color=AME_BLUE,
         hovertemplate=f"<b>{away_name}</b><br>%{{y}}: %{{x:.1f}}%<extra></extra>",
         text=df["away_pct"].apply(lambda v: f"{v:.1f}%" if v > 0 else ""),
         textposition="inside",
@@ -127,8 +128,8 @@ def phase_compare_bars(home_dist: dict, away_dist: dict,
                              f"{max_v/2:.0f}%", f"{max_v:.0f}%"],
                    gridcolor="#333"),
         yaxis=dict(autorange="reversed", gridcolor="#333"),
-        paper_bgcolor=MU_DARK_BG, plot_bgcolor=MU_DARK_BG,
-        font=dict(color=MU_WHITE),
+        paper_bgcolor=AME_DARK_BG, plot_bgcolor=AME_DARK_BG,
+        font=dict(color=AME_WHITE),
         legend=dict(orientation="h", yanchor="bottom", y=1.02, xanchor="center", x=0.5),
     )
     fig.add_vline(x=0, line_color="#666", line_width=1)
@@ -153,9 +154,9 @@ def transition_matrix(chain_with_phases: pd.DataFrame, team_id: str,
     if own.empty or len(own) < 2:
         fig = go.Figure()
         fig.update_layout(
-            paper_bgcolor=MU_DARK_BG, plot_bgcolor=MU_DARK_BG,
+            paper_bgcolor=AME_DARK_BG, plot_bgcolor=AME_DARK_BG,
             annotations=[dict(text="No data for phase transitions",
-                              showarrow=False, font=dict(color=MU_WHITE))]
+                              showarrow=False, font=dict(color=AME_WHITE))]
         )
         return fig
 
@@ -169,7 +170,7 @@ def transition_matrix(chain_with_phases: pd.DataFrame, team_id: str,
                    if p in set(flows["phase"]).union(flows["next_phase"])]
     if len(phases_used) < 2:
         fig = go.Figure()
-        fig.update_layout(paper_bgcolor=MU_DARK_BG, plot_bgcolor=MU_DARK_BG)
+        fig.update_layout(paper_bgcolor=AME_DARK_BG, plot_bgcolor=AME_DARK_BG)
         return fig
 
     # Build raw count matrix, then normalise rows to %
@@ -204,18 +205,18 @@ def transition_matrix(chain_with_phases: pd.DataFrame, team_id: str,
         colorscale=[[0, "#0E1117"], [0.25, "#3E1B1B"], [0.5, "#7A2A2A"],
                     [0.75, "#C62828"], [1, "#FF5252"]],
         zmin=0, zmax=60,   # cap so a 100% diag-skip cell doesn't wash everything else out
-        colorbar=dict(title=dict(text="% of exits", font=dict(color=MU_WHITE, size=10)),
-                      tickfont=dict(color=MU_WHITE, size=9), thickness=10, len=0.7),
+        colorbar=dict(title=dict(text="% of exits", font=dict(color=AME_WHITE, size=10)),
+                      tickfont=dict(color=AME_WHITE, size=9), thickness=10, len=0.7),
         hovertemplate="<b>From</b> %{y}<br><b>To</b> %{x}<br>%{z:.1f}% of exits<extra></extra>",
     ))
 
     fig.update_layout(
         title=dict(text=title, x=0.5, xanchor="center",
-                   font=dict(size=13, color=MU_WHITE)),
+                   font=dict(size=13, color=AME_WHITE)),
         height=460,
         margin=dict(l=10, r=10, t=50, b=40),
-        paper_bgcolor=MU_DARK_BG, plot_bgcolor=MU_DARK_BG,
-        font=dict(color=MU_WHITE, size=11),
+        paper_bgcolor=AME_DARK_BG, plot_bgcolor=AME_DARK_BG,
+        font=dict(color=AME_WHITE, size=11),
         xaxis=dict(title="Next phase", side="bottom", tickfont=dict(size=10)),
         yaxis=dict(title="From phase", autorange="reversed", tickfont=dict(size=10)),
     )
@@ -242,7 +243,7 @@ def transition_kpi_html(metrics: dict, ppda: float | None = None) -> str:
 
     return f"""
     <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:6px 0;">
-      <div style="background:#1A1A2E;border-left:3px solid {MU_RED};padding:10px;border-radius:4px;">
+      <div style="background:#1A1A2E;border-left:3px solid {AME_YELLOW};padding:10px;border-radius:4px;">
         <div style="font-size:10px;color:#888;text-transform:uppercase;letter-spacing:.5px;">PPDA (Hudl 60%)</div>
         <div style="font-size:22px;font-weight:700;color:#FFF;">{ppda_text}</div>
         <div style="font-size:10px;color:#aaa;">Lower = more press</div>
@@ -262,7 +263,7 @@ def transition_kpi_html(metrics: dict, ppda: float | None = None) -> str:
         <div style="font-size:22px;font-weight:700;color:#FFF;">{rec_text}</div>
         <div style="font-size:10px;color:#aaa;">After losing the ball</div>
       </div>
-      <div style="background:#1A1A2E;border-left:3px solid {MU_GOLD};padding:10px;border-radius:4px;">
+      <div style="background:#1A1A2E;border-left:3px solid {AME_BLUE};padding:10px;border-radius:4px;">
         <div style="font-size:10px;color:#888;text-transform:uppercase;letter-spacing:.5px;">Counter-attack Shots</div>
         <div style="font-size:22px;font-weight:700;color:#FFF;">{ca_sh}</div>
         <div style="font-size:10px;color:#aaa;">Within 10 s of winning ball</div>

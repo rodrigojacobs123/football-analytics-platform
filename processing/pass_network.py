@@ -1,3 +1,4 @@
+from __future__ import annotations
 """Pass network graph computation from successful passes."""
 
 import pandas as pd

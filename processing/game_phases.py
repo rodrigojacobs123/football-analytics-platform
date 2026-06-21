@@ -1,3 +1,4 @@
+from __future__ import annotations
 """Game-phase classification and transition analytics — Hudl/Wyscout style.
 
 Modern tactical analysis splits a match into 4 in-play states + 2 transitions:
@@ -20,7 +21,6 @@ This module:
 3. Aggregates per-team distributions and counter-press / counter-attack outcomes
 """
 
-from __future__ import annotations
 import pandas as pd
 from config import (
     EVENT_PASS, EVENT_TAKE_ON, EVENT_FOUL, EVENT_TACKLE, EVENT_INTERCEPTION,

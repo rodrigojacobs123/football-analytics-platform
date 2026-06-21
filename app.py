@@ -24,6 +24,8 @@ pages = [
     st.Page("pages/10_Injury_Tracker.py", title="Injury Tracker", icon="🏥"),
     st.Page("pages/11_Data_Sources.py", title="Data Sources", icon="💾"),
     st.Page("pages/12_Manager_Profiles.py", title="Manager Profiles", icon="👔"),
+    st.Page("pages/13_Corner_Defense.py", title="Corner Defense Intel", icon="🔵"),
+    st.Page("pages/14_Player_Intelligence.py", title="Player Intelligence", icon="🧬"),
 ]
 
 pg = st.navigation(pages)

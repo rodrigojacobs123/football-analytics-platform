@@ -5,7 +5,7 @@ from viz.theme import apply_theme
 import pandas as pd
 from datetime import datetime
 from components.sidebar import render_sidebar
-from viz.kpi_cards import section_header, kpi_row, page_header, mu_section
+from viz.kpi_cards import section_header, kpi_row, page_header, ame_section
 from viz.tables import styled_dataframe
 from data.loader import get_data_diagnostics
 from data.paths import (

@@ -1,3 +1,4 @@
+from __future__ import annotations
 """Pressure-style defensive metrics (StatsBomb / The Analyst conventions).
 
 Opta F24 doesn't carry a 'pressure' event natively (it's a StatsBomb-specific
@@ -13,7 +14,6 @@ event). We approximate the same insights using events we DO have:
 - "Shot-ending HTOs"      ~  high turnovers that lead to a shot within 10 s.
 """
 
-from __future__ import annotations
 import pandas as pd
 from data.event_parser import (
     extract_ball_recoveries, extract_tackles, extract_interceptions,
@@ -108,4 +108,84 @@ def compute_pressure_metrics(events: list[dict], team_id: str,
         "total_recoveries":         len(recoveries),
         "recoveries_df":            recoveries,
         "def_actions_df":           def_actions,
+    }
+
+
+# ──────────────────────────────────────────────────────────────────────────
+# Season aggregation (cached "deep tier")
+#
+# compute_pressure_metrics() above is pure (events -> dict).  The function
+# below adds the Streamlit-cached scan over partidos/ so the pressing bundle
+# can be surfaced at season level on the Tactics page.  Same pattern as
+# processing/season_tactics.py.
+# ──────────────────────────────────────────────────────────────────────────
+import json
+import streamlit as st
+from data.paths import partidos_dir
+from data.event_parser import parse_match_info
+
+
+@st.cache_data(ttl=3600, show_spinner="Computing pressing metrics…")
+def compute_season_pressure(league: str, season: str, team_id: str,
+                            stage_filter: str = "") -> dict:
+    """Season-aggregated pressing / transition metrics for one team.
+
+    Scans every match the team played in partidos/ and averages the
+    Opta-approximated pressure bundle (these are NOT native StatsBomb pressure
+    events — see module docstring).  Returns {} when no matches found, else a
+    dict of season averages/totals plus a ``per_match`` DataFrame for trends.
+    """
+    pdir = partidos_dir(league, season)
+    if not pdir.exists():
+        return {}
+
+    rows: list[dict] = []
+    match_num = 0
+
+    for fpath in sorted(pdir.iterdir()):
+        if fpath.suffix != ".json":
+            continue
+        try:
+            with open(fpath, "r", encoding="utf-8") as f:
+                raw = json.load(f)
+        except (json.JSONDecodeError, OSError):
+            continue
+
+        info = parse_match_info(raw)
+        home_id, away_id = info["home_id"], info["away_id"]
+        if team_id not in (home_id, away_id):
+            continue
+        if stage_filter:
+            sn = info.get("stage_name", "")
+            if not sn.lower().startswith(stage_filter.lower().strip()):
+                continue
+
+        is_home = team_id == home_id
+        opp_id = away_id if is_home else home_id
+        events = raw.get("liveData", {}).get("event", [])
+        m = compute_pressure_metrics(events, team_id, opp_id)
+        match_num += 1
+        rows.append({
+            "match_num": match_num,
+            "opponent": info["away_team"] if is_home else info["home_team"],
+            "venue": "H" if is_home else "A",
+            "ball_recovery_height": m["ball_recovery_height"],
+            "def_line_height": m["def_line_height"],
+            "high_turnovers": m["high_turnovers"],
+            "shot_ending_high_turnovers": m["shot_ending_high_turnovers"],
+            "pressure_regains_5s": m["pressure_regains_5s"],
+        })
+
+    if match_num == 0:
+        return {}
+
+    df = pd.DataFrame(rows)
+    return {
+        "matches": match_num,
+        "avg_recovery_height": round(df["ball_recovery_height"].mean(), 1),
+        "avg_def_line_height": round(df["def_line_height"].mean(), 1),
+        "high_turnovers_per_match": round(df["high_turnovers"].mean(), 1),
+        "shot_ending_htos_total": int(df["shot_ending_high_turnovers"].sum()),
+        "pressure_regains_per_match": round(df["pressure_regains_5s"].mean(), 1),
+        "per_match": df,
     }

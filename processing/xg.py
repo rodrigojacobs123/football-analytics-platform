@@ -1,3 +1,4 @@
+from __future__ import annotations
 """xG extraction, timelines, and season aggregation.
 
 Methodology
@@ -70,16 +71,16 @@ def compute_shot_map_data(events: list[dict], team_id: str | None = None) -> pd.
 
 
 @st.cache_data(ttl=3600)
-def compute_mu_season_xg(league: str, season: str, mu_team_id: str) -> pd.DataFrame:
-    """Compute xG for all Manchester United matches in a season.
+def compute_club_season_xg(league: str, season: str, club_team_id: str) -> pd.DataFrame:
+    """Compute xG for all Club América matches in a season.
 
-    Iterates through MU match files, extracting shot data.
-    Returns DataFrame: matchday, date, opponent, is_home, mu_xg, opp_xg, mu_goals, opp_goals.
+    Iterates through club match files, extracting shot data.
+    Returns DataFrame: matchday, date, opponent, is_home, club_xg, opp_xg, club_goals, opp_goals.
     """
-    from data.loader import load_mu_match_list, load_match_raw
+    from data.loader import load_club_match_list, load_match_raw
     from data.event_parser import parse_match_info
 
-    matches = load_mu_match_list(league, season)
+    matches = load_club_match_list(league, season)
     if matches.empty:
         return pd.DataFrame()
 
@@ -100,10 +101,10 @@ def compute_mu_season_xg(league: str, season: str, mu_team_id: str) -> pd.DataFr
 
         home_id = info["home_id"]
         away_id = info["away_id"]
-        is_home = home_id == mu_team_id
+        is_home = home_id == club_team_id
         opp_id = away_id if is_home else home_id
 
-        mu_xg = compute_match_xg(events, mu_team_id)
+        club_xg = compute_match_xg(events, club_team_id)
         opp_xg = compute_match_xg(events, opp_id)
 
         rows.append({
@@ -111,9 +112,9 @@ def compute_mu_season_xg(league: str, season: str, mu_team_id: str) -> pd.DataFr
             "date": info["date"],
             "opponent": info["away_team"] if is_home else info["home_team"],
             "is_home": is_home,
-            "mu_xg": round(mu_xg, 2),
+            "club_xg": round(club_xg, 2),
             "opp_xg": round(opp_xg, 2),
-            "mu_goals": match["mu_score"],
+            "club_goals": match["club_score"],
             "opp_goals": match["opp_score"],
         })
 

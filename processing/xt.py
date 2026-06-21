@@ -1,3 +1,4 @@
+from __future__ import annotations
 """Expected Threat (xT) — Karun Singh's published 12 x 8 grid.
 
 xT is the canonical "possession value" metric used by The Analyst, FBref,
@@ -19,7 +20,6 @@ Reference:
     https://karun.in/blog/expected-threat.html
 """
 
-from __future__ import annotations
 import pandas as pd
 from data.event_parser import extract_passes, extract_take_ons, extract_all_touches
 
@@ -179,4 +179,133 @@ def xt_summary(events: list[dict], team_id: str) -> dict:
         "total_xt": round(total_p + total_c, 2),
         "top_passers": top_passers,
         "passes_df": p,
+    }
+
+
+# ──────────────────────────────────────────────────────────────────────────
+# Season / single-match aggregation (cached "deep tier")
+#
+# xt_summary() above is pure (events -> dict).  The two functions below add
+# the Streamlit-cached I/O layer so xT can be surfaced beyond a single match
+# without recomputing on every rerun.  Same caching pattern as
+# processing/season_tactics.py.
+# ──────────────────────────────────────────────────────────────────────────
+import json
+import streamlit as st
+from data.paths import partidos_dir
+from data.event_parser import parse_match_info
+from data.loader import load_match_events
+
+
+@st.cache_data(ttl=3600, show_spinner=False)
+def match_xt_summary(league: str, season: str, match_id: str,
+                     team_id: str) -> dict:
+    """Cached single-match xT summary, keyed on (league, season, match_id, team_id).
+
+    Wraps xt_summary() so the heavy per-event xT computation (passes + carry
+    look-ahead) is memoised and does NOT re-run on every Streamlit rerun —
+    only when the selected match changes.  Used by Post-Match Analysis.
+    """
+    events = load_match_events(league, season, match_id)
+    return xt_summary(events, team_id)
+
+
+@st.cache_data(ttl=3600, show_spinner="Computing season xT…")
+def compute_season_xt(league: str, season: str, team_id: str,
+                      stage_filter: str = "",
+                      min_appearances: int = 1) -> dict:
+    """Season-aggregated xT for one team across all of its matches.
+
+    Scans partidos/ (deep tier, cached), sums each match's team xT and
+    accumulates per-player xT-added so we can rank ball progressors over a
+    full season — not just one game.  Players below ``min_appearances`` are
+    dropped from the leaderboard to avoid early-season / cameo noise
+    (respects MIN_APPEARANCES_FOR_RATING when callers pass it).
+
+    Returns {} if no matches found, else {
+        matches, total_xt, total_xt_passes, total_xt_carries, xt_per_match,
+        per_match (DataFrame), leaderboard (DataFrame),
+    }.
+    """
+    pdir = partidos_dir(league, season)
+    if not pdir.exists():
+        return {}
+
+    rows: list[dict] = []
+    player_acc: dict[str, dict] = {}
+    total_p = total_c = 0.0
+    match_num = 0
+
+    for fpath in sorted(pdir.iterdir()):
+        if fpath.suffix != ".json":
+            continue
+        try:
+            with open(fpath, "r", encoding="utf-8") as f:
+                raw = json.load(f)
+        except (json.JSONDecodeError, OSError):
+            continue
+
+        info = parse_match_info(raw)
+        home_id, away_id = info["home_id"], info["away_id"]
+        if team_id not in (home_id, away_id):
+            continue
+        if stage_filter:
+            sn = info.get("stage_name", "")
+            if not sn.lower().startswith(stage_filter.lower().strip()):
+                continue
+
+        events = raw.get("liveData", {}).get("event", [])
+        summ = xt_summary(events, team_id)
+        match_num += 1
+        total_p += summ["total_xt_passes"]
+        total_c += summ["total_xt_carries"]
+
+        is_home = team_id == home_id
+        rows.append({
+            "match_num": match_num,
+            "opponent": info["away_team"] if is_home else info["home_team"],
+            "venue": "H" if is_home else "A",
+            "xt": summ["total_xt"],
+        })
+
+        # Per-player accumulation (passes — the dimension xt_summary ranks)
+        p = summ["passes_df"]
+        if not p.empty and "player_name" in p.columns:
+            prog = p[p["xt_added"] > 0]
+            if not prog.empty:
+                grp = prog.groupby("player_name").agg(
+                    xt_added=("xt_added", "sum"), passes=("xt_added", "size"))
+                for name, r in grp.iterrows():
+                    acc = player_acc.setdefault(
+                        name, {"xt_added": 0.0, "passes": 0, "apps": 0})
+                    acc["xt_added"] += float(r["xt_added"])
+                    acc["passes"] += int(r["passes"])
+                    acc["apps"] += 1
+
+    if match_num == 0:
+        return {}
+
+    leaderboard = pd.DataFrame([
+        {
+            "player_name": n,
+            "xt_added": round(v["xt_added"], 2),
+            "passes": v["passes"],
+            "apps": v["apps"],
+            "xt_per_match": round(v["xt_added"] / v["apps"], 3),
+        }
+        for n, v in player_acc.items() if v["apps"] >= min_appearances
+    ])
+    if not leaderboard.empty:
+        leaderboard = (leaderboard
+                       .sort_values("xt_added", ascending=False)
+                       .reset_index(drop=True))
+
+    return {
+        "matches": match_num,
+        "total_xt": round(total_p + total_c, 2),
+        "total_xt_passes": round(total_p, 2),
+        "total_xt_carries": round(total_c, 2),
+        "xt_per_match": round((total_p + total_c) / match_num, 2),
+        "per_match": pd.DataFrame(rows),
+        "leaderboard": leaderboard,
     }

@@ -2,7 +2,7 @@
 
 import streamlit as st
 from data.loader import load_standings
-from config import MU_TEAM_NAME, BIG_SIX
+from config import AME_TEAM_NAME, BIG_SIX
 
 
 def team_selector(league: str, season: str, key: str = "team_sel",
@@ -11,7 +11,7 @@ def team_selector(league: str, season: str, key: str = "team_sel",
     """Render a team selector. Returns list of team_names."""
     standings = load_standings(league, season)
     if standings.empty:
-        return [MU_TEAM_NAME]
+        return [AME_TEAM_NAME]
 
     teams = sorted(standings["team_name"].tolist())
 
@@ -28,12 +28,12 @@ def team_selector(league: str, season: str, key: str = "team_sel",
             if not defaults:
                 defaults = teams[:6]
         else:
-            defaults = [MU_TEAM_NAME] if MU_TEAM_NAME in teams else teams[:1]
+            defaults = [AME_TEAM_NAME] if AME_TEAM_NAME in teams else teams[:1]
         defaults = [d for d in defaults if d in teams]
         selected = st.multiselect(label, teams, default=defaults, key=key)
         return selected if selected else teams[:1]
     else:
-        idx = teams.index(MU_TEAM_NAME) if MU_TEAM_NAME in teams else 0
+        idx = teams.index(AME_TEAM_NAME) if AME_TEAM_NAME in teams else 0
         selected = st.selectbox(label, teams, index=idx, key=key)
         return [selected] if selected else teams[:1]
 
@@ -44,16 +44,16 @@ def two_team_selector(league: str, season: str, key: str = "two_team_sel",
     """Select two teams for head-to-head comparison.
 
     Works across any competition — defaults to first two teams in standings
-    when MU is not present.
+    when club is not present.
     """
     standings = load_standings(league, season)
     if standings.empty:
-        return MU_TEAM_NAME, "Liverpool FC"
+        return AME_TEAM_NAME, "Liverpool FC"
 
     teams = sorted(standings["team_name"].tolist())
 
-    # Smart defaults: MU if present, else first team in standings
-    default_home = MU_TEAM_NAME if MU_TEAM_NAME in teams else teams[0]
+    # Smart defaults: club if present, else first team in standings
+    default_home = AME_TEAM_NAME if AME_TEAM_NAME in teams else teams[0]
     home_idx = teams.index(default_home)
 
     col1, col2 = st.columns(2)

@@ -1,3 +1,4 @@
+from __future__ import annotations
 """Per-match player performance ratings — position-aware scoring.
 
 Unlike season-level ratings (percentile-based), match ratings use an

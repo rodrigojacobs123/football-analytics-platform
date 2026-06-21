@@ -1,3 +1,4 @@
+from __future__ import annotations
 """Pre-Match Analysis — Enhanced multi-factor Poisson model + Monte Carlo simulation.
 
 Uses xG regression, Elo ratings, recent form, tactical dominance,
@@ -10,7 +11,7 @@ import numpy as np
 import pandas as pd
 from components.sidebar import render_sidebar
 from components.team_selector import two_team_selector
-from viz.kpi_cards import section_header, kpi_row, metric_highlight, form_badges, page_header, mu_section
+from viz.kpi_cards import section_header, kpi_row, metric_highlight, form_badges, page_header, ame_section
 from viz.charts import (
     heatmap_grid, probability_bars, monte_carlo_histogram, donut_chart,
 )
@@ -36,7 +37,7 @@ from processing.game_phases import compute_team_phase_report
 from viz.phases import (
     phase_donut, phase_compare_bars, transition_matrix, transition_kpi_html,
 )
-from config import MU_RED, MU_GOLD
+from config import AME_YELLOW, AME_BLUE
 
 apply_theme()
 
@@ -131,7 +132,7 @@ col1, col2, col3 = st.columns([1, 1, 1])
 home_elo = ctx.get("home_elo", 1500)
 away_elo = ctx.get("away_elo", 1500)
 with col1:
-    metric_highlight(home_team, f"{home_elo:.0f}", MU_RED)
+    metric_highlight(home_team, f"{home_elo:.0f}", AME_YELLOW)
 with col2:
     diff = home_elo - away_elo
     adv_color = "#4CAF50" if diff > 0 else ("#F44336" if diff < 0 else "#888888")
@@ -171,7 +172,7 @@ if total_h2h > 0:
             [f"{home_team} Win", "Draw", f"{away_team} Win"],
             [h2h["wins"], h2h["draws"], h2h["losses"]],
             title="H2H Distribution",
-            colors=[MU_RED, "#888888", "#42A5F5"],
+            colors=[AME_YELLOW, "#888888", "#42A5F5"],
         )
         st.plotly_chart(fig, use_container_width=True)
 
@@ -804,7 +805,7 @@ if home_events_5 and away_events_5 and home_tid and away_tid:
             f'<span style="color:{primary_color};font-size:1.4rem;'
             f'font-weight:700;">{n_c}</span>'
             f'<span style="color:#888;font-size:0.8rem;"> corners &rarr; </span>'
-            f'<span style="color:{MU_GOLD};font-size:1.4rem;'
+            f'<span style="color:{AME_BLUE};font-size:1.4rem;'
             f'font-weight:700;">{n_s}</span>'
             f'<span style="color:#888;font-size:0.8rem;"> shots &rarr; </span>'
             f'<span style="color:#4CAF50;font-size:1.4rem;'
@@ -820,7 +821,7 @@ if home_events_5 and away_events_5 and home_tid and away_tid:
     fc1, fc2 = st.columns(2)
     with fc1:
         if not h_corners_det.empty:
-            _render_funnel(h_corners_det, h_corner_shots, MU_RED)
+            _render_funnel(h_corners_det, h_corner_shots, AME_YELLOW)
         else:
             st.info(f"No corner data for {home_team}.")
     with fc2:
@@ -834,7 +835,7 @@ if home_events_5 and away_events_5 and home_tid and away_tid:
     with cp1:
         plot_corner_shot_panels(
             h_corners_det, h_corner_shots,
-            team_name=home_team, team_color=MU_RED,
+            team_name=home_team, team_color=AME_YELLOW,
             n_matches=home_n,
         )
     with cp2:

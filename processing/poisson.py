@@ -1,3 +1,4 @@
+from __future__ import annotations
 """Poisson model + Monte Carlo simulation for match prediction.
 
 Enhanced multi-factor model with Dixon-Coles correction,
@@ -877,7 +878,7 @@ def _get_team_id(results: pd.DataFrame, standings: pd.DataFrame, team_name: str)
         if not away_rows.empty:
             return away_rows.iloc[0]["away_id"]
 
-        # Try aliases (e.g., "Manchester United FC" → "Manchester United")
+        # Try aliases (e.g., "CF América" → "Club América")
         for alias in _team_name_aliases(team_name):
             home_rows = results[results["home_team"] == alias]
             if not home_rows.empty:
@@ -893,8 +894,8 @@ def _resolve_team_in_results(results: pd.DataFrame, team_name: str,
                              team_id: str | None = None) -> str:
     """Find the actual name used for a team in the results DataFrame.
 
-    The team selector uses standings names (e.g., "Manchester United FC")
-    but results from partidos/ may use shorter names ("Manchester United").
+    The team selector uses standings names (e.g., "CF América")
+    but results from partidos/ may use shorter names.
     This resolves the mismatch by checking team_id or aliases.
     """
     # Direct match

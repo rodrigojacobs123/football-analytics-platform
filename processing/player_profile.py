@@ -1,3 +1,4 @@
+from __future__ import annotations
 """Athletic-style player profile: dimension ratings, archetypes, and similarity search.
 
 Replicates the card format from The Athletic / Opta SkillCorner:
@@ -9,7 +10,6 @@ Data source: jugadores_seasonstats.csv (aggregated per season, no tracking data)
 Press resistance is approximated from pass-completion rates — we don't have SkillCorner.
 """
 
-from __future__ import annotations
 
 import numpy as np
 import pandas as pd

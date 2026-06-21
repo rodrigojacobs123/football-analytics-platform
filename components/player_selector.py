@@ -1,12 +1,13 @@
+from __future__ import annotations
 """Player selector with position filter."""
 
 import streamlit as st
 import pandas as pd
 from data.loader import load_squad_roster, load_player_season_stats
-from config import MU_TEAM_ID, MU_TEAM_FOLDER
+from config import AME_TEAM_ID, AME_TEAM_FOLDER
 
 
-def player_selector(league: str, season: str, team_folder: str = MU_TEAM_FOLDER,
+def player_selector(league: str, season: str, team_folder: str = AME_TEAM_FOLDER,
                     key: str = "player_sel", multi: bool = False,
                     label: str = "Select Player") -> str | list[str] | None:
     """Render a player selector. Returns player_id or list of player_ids."""

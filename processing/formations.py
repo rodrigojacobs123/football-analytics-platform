@@ -1,3 +1,4 @@
+from __future__ import annotations
 """Formation extraction, change detection, and tactical metrics from Opta events."""
 
 from collections import Counter

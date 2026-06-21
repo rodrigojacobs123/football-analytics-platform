@@ -1,31 +1,32 @@
+from __future__ import annotations
 """Dashboard KPI card components rendered as HTML."""
 
 import streamlit as st
 import pandas as pd
-from config import MU_RED, MU_GOLD
+from config import AME_YELLOW, AME_BLUE
 from processing.match_stats import crest_url
 
 
 # ── Page-level branding ──────────────────────────────────────────────────────
 
 def page_header(title: str, subtitle: str = "", badge: str = "") -> None:
-    """Render a branded MU Analytics page header bar."""
+    """Render a branded Club Analytics page header bar."""
     badge_html = (
-        f'<span style="font-family:var(--mono);font-size:0.6rem;letter-spacing:0.18em;'
-        f'color:#0E0E14;background:var(--mu-red);padding:2px 8px;border-radius:2px;'
+        f'<span style="font-family:var(--body);font-size:0.6rem;font-weight:700;letter-spacing:0.12em;'
+        f'color:#0D1117;background:var(--ame-primary);padding:3px 10px;border-radius:12px;'
         f'text-transform:uppercase;margin-left:10px;">{badge}</span>'
         if badge else ""
     )
     sub_html = (
-        f'<div class="mu-page-sub">{subtitle}</div>'
+        f'<div class="ame-page-sub">{subtitle}</div>'
         if subtitle else ""
     )
     html = (
-        f'<div class="mu-page-bar">'
-        f'<div class="mu-page-bar-accent"></div>'
+        f'<div class="ame-page-bar">'
+        f'<div class="ame-page-bar-accent"></div>'
         f'<div>'
         f'<div style="display:flex;align-items:baseline;gap:8px;">'
-        f'<div class="mu-page-title">{title}</div>{badge_html}'
+        f'<div class="ame-page-title">{title}</div>{badge_html}'
         f'</div>'
         f'{sub_html}'
         f'</div>'
@@ -34,40 +35,40 @@ def page_header(title: str, subtitle: str = "", badge: str = "") -> None:
     st.markdown(html, unsafe_allow_html=True)
 
 
-def mu_section(label: str, title: str) -> None:
+def ame_section(label: str, title: str) -> None:
     """Render a section header with label + display title."""
     html = (
-        f'<div class="mu-section">'
-        f'<div class="mu-section-label">━━ {label} ━━</div>'
-        f'<div class="mu-section-title">{title}</div>'
+        f'<div class="ame-section">'
+        f'<div class="ame-section-label">━━ {label} ━━</div>'
+        f'<div class="ame-section-title">{title}</div>'
         f'</div>'
     )
     st.markdown(html, unsafe_allow_html=True)
 
 
-def mu_tile_row(metrics: list[dict]) -> None:
+def ame_tile_row(metrics: list[dict]) -> None:
     """Render compact KPI tiles in the V2 stat-strip style.
 
     Each dict: {label, value, sub (optional)}
     """
     tiles = []
     for m in metrics:
-        sub_html = f'<div class="mu-tile-sub">{m["sub"]}</div>' if m.get("sub") else ""
+        sub_html = f'<div class="ame-tile-sub">{m["sub"]}</div>' if m.get("sub") else ""
         tiles.append(
-            f'<div class="mu-tile">'
-            f'<div class="mu-tile-label">{m["label"]}</div>'
-            f'<div class="mu-tile-value">{m["value"]}</div>'
+            f'<div class="ame-tile">'
+            f'<div class="ame-tile-label">{m["label"]}</div>'
+            f'<div class="ame-tile-value">{m["value"]}</div>'
             f'{sub_html}'
             f'</div>'
         )
-    html = '<div class="mu-tile-grid">' + "".join(tiles) + "</div>"
+    html = '<div class="ame-tile-grid">' + "".join(tiles) + "</div>"
     st.markdown(html, unsafe_allow_html=True)
 
 
 def mu_card_header(label: str) -> None:
     """Render a card container header label."""
     st.markdown(
-        f'<div class="mu-card-title">{label}</div>',
+        f'<div class="ame-card-title">{label}</div>',
         unsafe_allow_html=True,
     )
 
@@ -124,19 +125,19 @@ def form_badges(results: list[str]) -> str:
 def section_header(text: str):
     """Render a styled section header."""
     st.markdown(
-        f'<div class="mu-section">'
-        f'<div class="mu-section-title">{text}</div>'
+        f'<div class="ame-section">'
+        f'<div class="ame-section-title">{text}</div>'
         f'</div>',
         unsafe_allow_html=True,
     )
 
 
-def metric_highlight(label: str, value, color: str = MU_RED):
+def metric_highlight(label: str, value, color: str = AME_YELLOW):
     """Render a single large highlighted metric."""
     html = f"""
     <div style="text-align:center;padding:1rem;">
-        <p style="color:#999;font-size:0.85rem;text-transform:uppercase;margin:0;">{label}</p>
-        <p style="color:{color};font-size:3rem;font-weight:700;margin:0;">{value}</p>
+        <p style="color:var(--text-dim);font-size:0.85rem;text-transform:uppercase;margin:0;">{label}</p>
+        <p style="color:{color};font-size:3rem;font-weight:700;margin:0;font-family:var(--mono);">{value}</p>
     </div>
     """
     st.markdown(html, unsafe_allow_html=True)
@@ -370,7 +371,7 @@ def key_events_timeline(
     items = []
     for _, ev in events_df.sort_values("minute").iterrows():
         is_home = ev["team_id"] == home_id
-        color = MU_RED if is_home else "#42A5F5"
+        color = AME_YELLOW if is_home else "#42A5F5"
         team = home_team if is_home else away_team
         icon = icon_map.get(ev["event_type"], "&#8226;")
         player = ev.get("player_name", "")

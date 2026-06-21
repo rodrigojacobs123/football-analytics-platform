@@ -1,3 +1,4 @@
+from __future__ import annotations
 """Opta event JSON parser — extracts shots, passes, tackles, etc. into DataFrames."""
 
 import pandas as pd

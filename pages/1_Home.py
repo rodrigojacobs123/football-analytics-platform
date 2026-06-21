@@ -6,20 +6,23 @@ import pandas as pd
 import plotly.graph_objects as go
 import plotly.express as px
 from components.sidebar import render_sidebar
-from viz.kpi_cards import kpi_row, section_header, form_badges, page_header, mu_section
+from viz.kpi_cards import kpi_row, section_header, form_badges, page_header, ame_section
 from viz.tables import styled_league_table
 from viz.charts import line_chart, grouped_bar_chart
+from viz.kpi_cards import kpi_card
+from viz.xt import xt_top_contributors_bar
 from data.loader import (
-    load_standings, load_mu_match_list, load_all_season_results,
+    load_standings, load_club_match_list, load_all_season_results,
     load_player_season_stats, list_standings_stages,
 )
 from processing.team_stats import compute_points_by_matchday, compute_standings_from_results
 from processing.poisson import _resolve_team_in_results
+from processing.xt import compute_season_xt
 from data.paths import list_seasons
 from config import (
-    MU_TEAM_NAME, MU_TEAM_ID, MU_TEAM_FOLDER, MU_RED, MU_GOLD,
-    MU_DARK_BG, MU_CARD_BG, MU_WHITE,
-    DEFAULT_LEAGUE, COMPETITIONS, MU_LEAGUES,
+    AME_TEAM_NAME, AME_TEAM_ID, AME_TEAM_FOLDER, AME_YELLOW, AME_BLUE,
+    AME_DARK_BG, AME_CARD_BG, AME_WHITE,
+    DEFAULT_LEAGUE, COMPETITIONS, AME_LEAGUES,
 )
 
 apply_theme()
@@ -67,25 +70,25 @@ if (not _has_stages
 else:
     standings = _json_standings
 
-is_mu_league = league in MU_LEAGUES
+is_ame_league = league in AME_LEAGUES
 # For bi-annual leagues pass the selected tournament as a stage filter so
 # W/D/L, GF/GA and rank all reflect the correct Apertura or Clausura only.
-mu_matches = (
-    load_mu_match_list(league, season, stage_filter=_selected_stage)
-    if is_mu_league else pd.DataFrame()
+club_matches = (
+    load_club_match_list(league, season, stage_filter=_selected_stage)
+    if is_ame_league else pd.DataFrame()
 )
 
-if not mu_matches.empty:
-    wins = int((mu_matches["result"] == "W").sum())
-    draws = int((mu_matches["result"] == "D").sum())
-    losses = int((mu_matches["result"] == "L").sum())
-    gf = int(mu_matches["mu_score"].sum())
-    ga = int(mu_matches["opp_score"].sum())
+if not club_matches.empty:
+    wins = int((club_matches["result"] == "W").sum())
+    draws = int((club_matches["result"] == "D").sum())
+    losses = int((club_matches["result"] == "L").sum())
+    gf = int(club_matches["club_score"].sum())
+    ga = int(club_matches["opp_score"].sum())
     gd = gf - ga
-    played = len(mu_matches)
+    played = len(club_matches)
     points = wins * 3 + draws
 
-    # Compute rank from all match results — same stage filter as mu_matches
+    # Compute rank from all match results — same stage filter as club_matches
     rank = "–"
     all_results = load_all_season_results(league, season, stage_filter=_selected_stage)
     if not all_results.empty:
@@ -102,10 +105,10 @@ if not mu_matches.empty:
             else:
                 team_points[at] = team_points.get(at, 0) + 3
                 team_points[ht] = team_points.get(ht, 0)
-        mu_resolved = _resolve_team_in_results(all_results, MU_TEAM_NAME, MU_TEAM_ID)
+        ame_resolved = _resolve_team_in_results(all_results, AME_TEAM_NAME, AME_TEAM_ID)
         sorted_teams = sorted(team_points.items(), key=lambda x: -x[1])
         for i, (t, _) in enumerate(sorted_teams, 1):
-            if t == mu_resolved:
+            if t == ame_resolved:
                 rank = f"#{i}"
                 break
 
@@ -123,25 +126,25 @@ if not mu_matches.empty:
     col3.metric("Goals Against", ga)
     col4.metric("Points/Match", round(points / max(played, 1), 2))
 
-    form_list = list(mu_matches["result"].tail(6))
+    form_list = list(club_matches["result"].tail(6))
     if form_list:
         st.markdown("**Recent Form:** " + form_badges(form_list), unsafe_allow_html=True)
 
-elif not standings.empty and MU_TEAM_NAME in standings["team_name"].values:
-    mu_row = standings[standings["team_name"] == MU_TEAM_NAME].iloc[0]
+elif not standings.empty and AME_TEAM_NAME in standings["team_name"].values:
+    ame_row = standings[standings["team_name"] == AME_TEAM_NAME].iloc[0]
     kpi_row([
-        {"label": "League Position", "value": f"#{int(mu_row['rank'])}"},
-        {"label": "Points", "value": int(mu_row["points"])},
-        {"label": "Record (W-D-L)", "value": f"{int(mu_row['won'])}-{int(mu_row['drawn'])}-{int(mu_row['lost'])}"},
-        {"label": "Goal Difference", "value": f"{int(mu_row['gd']):+d}", "delta": int(mu_row["gd"])},
+        {"label": "League Position", "value": f"#{int(ame_row['rank'])}"},
+        {"label": "Points", "value": int(ame_row["points"])},
+        {"label": "Record (W-D-L)", "value": f"{int(ame_row['won'])}-{int(ame_row['drawn'])}-{int(ame_row['lost'])}"},
+        {"label": "Goal Difference", "value": f"{int(ame_row['gd']):+d}", "delta": int(ame_row["gd"])},
     ])
     st.markdown("")
     col1, col2, col3, col4 = st.columns(4)
-    col1.metric("Matches", int(mu_row["played"]))
-    col2.metric("Goals For", int(mu_row["gf"]))
-    col3.metric("Goals Against", int(mu_row["ga"]))
-    col4.metric("Points/Match", round(mu_row["points"] / max(mu_row["played"], 1), 2))
-    last_six = mu_row.get("last_six", "")
+    col1.metric("Matches", int(ame_row["played"]))
+    col2.metric("Goals For", int(ame_row["gf"]))
+    col3.metric("Goals Against", int(ame_row["ga"]))
+    col4.metric("Points/Match", round(ame_row["points"] / max(ame_row["played"], 1), 2))
+    last_six = ame_row.get("last_six", "")
     if last_six:
         form_list = list(last_six.replace(",", ""))
         st.markdown("**Recent Form:** " + form_badges(form_list), unsafe_allow_html=True)
@@ -164,11 +167,11 @@ for s in all_seasons:
         if (not comp_df.empty
                 and (st_df.empty or comp_df["played"].max() > st_df["played"].max())):
             st_df = comp_df
-    if st_df.empty or MU_TEAM_NAME not in st_df["team_name"].values:
+    if st_df.empty or AME_TEAM_NAME not in st_df["team_name"].values:
         continue
-    row = st_df[st_df["team_name"] == MU_TEAM_NAME].iloc[0]
+    row = st_df[st_df["team_name"] == AME_TEAM_NAME].iloc[0]
     # Also try to get aggregated player stats for assists & saves
-    pstats = load_player_season_stats(league, s, MU_TEAM_FOLDER)
+    pstats = load_player_season_stats(league, s, AME_TEAM_FOLDER)
     total_assists = 0
     total_saves = 0
     if not pstats.empty:
@@ -213,11 +216,11 @@ with col_results:
         ))
         fig.add_trace(go.Bar(
             x=plot_df["season"], y=plot_df["draws"],
-            name="Draws", marker_color=MU_GOLD,
+            name="Draws", marker_color=AME_BLUE,
         ))
         fig.add_trace(go.Bar(
             x=plot_df["season"], y=plot_df["losses"],
-            name="Losses", marker_color=MU_RED,
+            name="Losses", marker_color=AME_YELLOW,
         ))
         fig.update_layout(
             barmode="group",
@@ -245,7 +248,7 @@ with col_results:
         ))
         fig.add_trace(go.Bar(
             x=plot_df["season"], y=plot_df["assists"],
-            name="Assists", marker_color=MU_GOLD,
+            name="Assists", marker_color=AME_BLUE,
         ))
         fig.add_trace(go.Bar(
             x=plot_df["season"], y=plot_df["ga"],
@@ -263,7 +266,7 @@ with col_results:
 # ── Right: Player Stats Table ────────────────────────────────────────────
 with col_player:
     section_header("Player Statistics")
-    pstats = load_player_season_stats(league, season, MU_TEAM_FOLDER)
+    pstats = load_player_season_stats(league, season, AME_TEAM_FOLDER)
     if not pstats.empty:
         # Build display table with key metrics
         cols_map = {
@@ -340,6 +343,39 @@ with col_player:
 
 
 # ═══════════════════════════════════════════════════════════════════════════
+# § 2b  BALL PROGRESSION — EXPECTED THREAT (xT)
+# ═══════════════════════════════════════════════════════════════════════════
+# América only plays AME_LEAGUES (Liga MX + CONCACAF), so the season xT scan
+# is only meaningful there.
+if league in AME_LEAGUES:
+    st.markdown("---")
+    section_header("Ball Progression — Expected Threat (xT)")
+    st.caption(
+        "Season-aggregated xT: the threat each player *adds* by moving the ball "
+        "into more dangerous zones (passes + carries). Karun-Singh 12×8 grid."
+    )
+    _xt = compute_season_xt(league, season, AME_TEAM_ID)
+    if _xt and _xt.get("matches", 0) > 0:
+        xc1, xc2, xc3 = st.columns(3)
+        with xc1:
+            kpi_card("Season xT", f"+{_xt['total_xt']:.1f}")
+        with xc2:
+            kpi_card("xT / Match", f"+{_xt['xt_per_match']:.2f}")
+        with xc3:
+            kpi_card("Matches", _xt["matches"])
+        lb = _xt["leaderboard"]
+        if not lb.empty:
+            st.plotly_chart(
+                xt_top_contributors_bar(
+                    lb.head(8), title=f"{AME_TEAM_NAME} — Top xT Contributors",
+                    color=AME_YELLOW),
+                use_container_width=True,
+            )
+    else:
+        st.info("Season xT requires per-match files in partidos/.")
+
+
+# ═══════════════════════════════════════════════════════════════════════════
 # § 3  HISTORICAL POSITION TABLE + SCATTER PLOTS
 # ═══════════════════════════════════════════════════════════════════════════
 st.markdown("---")
@@ -386,7 +422,7 @@ with col_scatter1:
         # Filter to players with at least some minutes
         scatter_df = scatter_df[scatter_df["Minutes"] > 0]
 
-        pos_colors = {"GK": "#888888", "DF": "#42A5F5", "MF": MU_RED, "FW": MU_GOLD}
+        pos_colors = {"GK": "#888888", "DF": "#42A5F5", "MF": AME_YELLOW, "FW": AME_BLUE}
 
         fig = px.scatter(
             scatter_df,
@@ -397,7 +433,7 @@ with col_scatter1:
             size_max=25,
             hover_name="Player",
             color_discrete_map=pos_colors,
-            template="mu_dark",
+            template="ame_dark",
         )
         # Add average reference lines
         avg_mins = scatter_df["Minutes"].mean()
@@ -461,7 +497,7 @@ with col_scatter2:
         perf_df["Position"] = perf_df["posicion"].map(pos_map).fillna("?")
         perf_df = perf_df[perf_df["Position"] != "GK"]  # Exclude GKs from performance map
 
-        pos_colors = {"DF": "#42A5F5", "MF": MU_RED, "FW": MU_GOLD}
+        pos_colors = {"DF": "#42A5F5", "MF": AME_YELLOW, "FW": AME_BLUE}
 
         fig = px.scatter(
             perf_df,
@@ -472,7 +508,7 @@ with col_scatter2:
             size_max=30,
             hover_name="Player",
             color_discrete_map=pos_colors,
-            template="mu_dark",
+            template="ame_dark",
         )
         fig.update_layout(
             height=420,
@@ -494,14 +530,14 @@ section_header("Season Results")
 
 results = load_all_season_results(league, season, stage_filter=_selected_stage)
 
-if is_mu_league and not results.empty:
-    if not mu_matches.empty:
-        display_df = mu_matches[["matchday", "date", "opponent", "is_home",
-                                  "mu_score", "opp_score", "result"]].copy()
+if is_ame_league and not results.empty:
+    if not club_matches.empty:
+        display_df = club_matches[["matchday", "date", "opponent", "is_home",
+                                  "club_score", "opp_score", "result"]].copy()
         display_df["date"] = pd.to_datetime(display_df["date"], errors="coerce").dt.strftime("%Y-%m-%d")
         display_df["Venue"] = display_df["is_home"].map({True: "Home", False: "Away"})
         display_df["Score"] = display_df.apply(
-            lambda r: f"{int(r['mu_score'])}-{int(r['opp_score'])}", axis=1
+            lambda r: f"{int(r['club_score'])}-{int(r['opp_score'])}", axis=1
         )
         display_df["Result"] = display_df["result"]
         display_df = display_df.rename(columns={
@@ -515,7 +551,7 @@ if is_mu_league and not results.empty:
                 "Result": st.column_config.TextColumn("Result", width="small"),
             },
         )
-        st.caption(f"{len(mu_matches)} matches played")
+        st.caption(f"{len(club_matches)} matches played")
     else:
         st.info("No match results available for CF América in this competition.")
 elif not results.empty:
@@ -550,7 +586,7 @@ with col_table:
 
 with col_chart:
     section_header("Points Progression")
-    pts_df = compute_points_by_matchday(league, season, MU_TEAM_NAME, team_id=MU_TEAM_ID)
+    pts_df = compute_points_by_matchday(league, season, AME_TEAM_NAME, team_id=AME_TEAM_ID)
     if not pts_df.empty:
         fig = line_chart(pts_df, x="matchday", y="cumulative_points",
                          title="Cumulative Points", y_label="Points",

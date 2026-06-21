@@ -4,31 +4,31 @@ import os
 from pathlib import Path
 
 # ── Data paths ──────────────────────────────────────────────────────────────
-DATA_ROOT = Path(os.environ.get("MU_DATA_ROOT", "/Users/rodrigojacobs/Desktop/Final Project/testeo_ligas_norteamerica"))
+DATA_ROOT = Path(os.environ.get("AME_DATA_ROOT", "/Users/rodrigojacobs/Desktop/Final Project/testeo_ligas_norteamerica"))
 DEFAULT_LEAGUE = "Mexico_Liga_MX"
 DEFAULT_SEASON = "2025-2026"
 
 # ── Club América identifiers ─────────────────────────────────────────────────
-MU_TEAM_ID = "eu8c408f59yx7egaqossbv25e"
-MU_TEAM_CODE = "AME"
-MU_TEAM_NAME = "CF América"
-MU_TEAM_FOLDER = "CF_América"
-MU_VENUE = "Estadio Azteca"
-MU_VENUE_ID = ""
-MU_CREST_URL = (
+AME_TEAM_ID = "eu8c408f59yx7egaqossbv25e"
+AME_TEAM_CODE = "AME"
+AME_TEAM_NAME = "CF América"
+AME_TEAM_FOLDER = "CF_América"
+AME_VENUE = "Estadio Azteca"
+AME_VENUE_ID = ""
+AME_CREST_URL = (
     "https://omo.akamai.opta.net/image.php?h=www.scoresway.com"
     "&sport=football&entity=team&description=badges&dimensions=150"
-    f"&id={MU_TEAM_ID}"
+    f"&id={AME_TEAM_ID}"
 )
 
-# ── Visual identity (Club América — Amarillo y Azul) ───────────────────────
-MU_RED = "#FFCD00"       # América primary yellow (replaces MU red as main accent)
-MU_BLACK = "#000000"
-MU_GOLD = "#003366"      # América navy blue (secondary accent)
-MU_WHITE = "#FFFFFF"
-MU_DARK_BG = "#0E1117"
-MU_CARD_BG = "#1A1A2E"
-MU_GRID = "#333333"
+# ── Visual identity — synced with viz/theme.py THEMES["america"] ─────────
+AME_YELLOW = "#FFD100"       # Primary (amarillo América)
+AME_BLACK = "#04132E"        # Background (navy)
+AME_BLUE = "#2E6BD6"         # Accent blue
+AME_WHITE = "#EAF0FA"        # Text primary
+AME_DARK_BG = "#04132E"      # Same as bg
+AME_CARD_BG = "#0A1F44"      # Surface
+AME_GRID = "#1E3461"         # Border / grid lines
 
 # ── Opta event type IDs ────────────────────────────────────────────────────
 EVENT_PASS = 1
@@ -90,8 +90,7 @@ QUAL_RELATED_EVENT = 55
 QUAL_ZONE = 56
 
 # ── Opta formation type ID → formation string (qualifier 130) ────────
-# Empirically validated against 2025-26 EPL: Arsenal=4-3-3 (type 4),
-# Liverpool/City=4-2-3-1 (type 8), Man United/Palace=3-4-2-1 (type 17).
+# Empirically validated against Opta formation type mappings.
 OPTA_FORMATION_MAP = {
     "1": "4-4-2",
     "2": "4-4-1-1",
@@ -205,7 +204,7 @@ COMPETITIONS = {
 }
 
 # Competitions where Club América participates (for page guards)
-MU_LEAGUES = {
+AME_LEAGUES = {
     "Mexico_Liga_MX",
     "Mexico_Copa_MX",
     "Mexico_Supercopa_MX",

@@ -1,3 +1,4 @@
+from __future__ import annotations
 """mplsoccer pitch visualizations — shot maps, pass networks, heatmaps, lineups."""
 
 import matplotlib.pyplot as plt
@@ -8,8 +9,8 @@ from collections import defaultdict
 from mplsoccer import Pitch, VerticalPitch
 import streamlit as st
 
-from config import MU_RED, MU_GOLD, MU_DARK_BG, EVENT_PASS, EVENT_GOAL
-from viz.theme import PITCH_KWARGS, HALF_PITCH_KWARGS, MU_CMAP
+from config import AME_YELLOW, AME_BLUE, AME_DARK_BG, EVENT_PASS, EVENT_GOAL
+from viz.theme import PITCH_KWARGS, HALF_PITCH_KWARGS, AME_CMAP
 
 # ── mplsoccer formation string aliases (Opta "4-3-3" → mplsoccer "433") ──────
 _FORMATION_ALIASES = {
@@ -36,7 +37,7 @@ _MPLSOCCER_FORMATIONS = {
 def _draw_pitch(pitch, figsize=(12, 8)):
     """Draw pitch and set dark background on the figure."""
     fig, ax = pitch.draw(figsize=figsize)
-    fig.set_facecolor(MU_DARK_BG)
+    fig.set_facecolor(AME_DARK_BG)
     return fig, ax
 
 
@@ -63,7 +64,7 @@ def plot_shot_map(shots: pd.DataFrame, title: str = "Shot Map",
 
     outcome_colors = {
         "Goal": "#4CAF50",
-        "Saved": MU_GOLD,
+        "Saved": AME_BLUE,
         "Missed": "#888888",
         "Post": "#FF9800",
         "Unknown": "#555555",
@@ -82,14 +83,14 @@ def plot_shot_map(shots: pd.DataFrame, title: str = "Shot Map",
                           edgecolors="white", linewidth=0.5, alpha=0.8,
                           label=outcome, ax=ax, zorder=5)
 
-    ax.legend(loc="lower left", fontsize=9, facecolor=MU_DARK_BG,
+    ax.legend(loc="lower left", fontsize=9, facecolor=AME_DARK_BG,
               edgecolor="#444", labelcolor="white")
     _show_fig(fig)
 
 
 def plot_pass_network(nodes: pd.DataFrame, edges: pd.DataFrame,
                       title: str = "Pass Network",
-                      node_color: str = MU_RED) -> None:
+                      node_color: str = AME_YELLOW) -> None:
     """Pass network on a proper mplsoccer VerticalPitch.
 
     Players are placed at their average touch position on a real pitch outline.
@@ -121,7 +122,7 @@ def plot_pass_network(nodes: pd.DataFrame, edges: pd.DataFrame,
         pad_top=4, pad_bottom=4, pad_left=2, pad_right=2,
     )
     fig, ax = pitch.draw(figsize=(6, 9))
-    fig.set_facecolor(MU_DARK_BG)
+    fig.set_facecolor(AME_DARK_BG)
     ax.set_facecolor("#0D1117")
 
     # Title
@@ -151,7 +152,7 @@ def plot_pass_network(nodes: pd.DataFrame, edges: pd.DataFrame,
             alpha = float(np.clip(ratio * 0.65 + 0.15, 0.12, 0.90))
 
             ax.plot([fx, tx], [fy, ty],
-                    color=MU_GOLD, linewidth=lw,
+                    color=AME_BLUE, linewidth=lw,
                     alpha=alpha, solid_capstyle="round",
                     transform=ax.transData, zorder=2)
 
@@ -161,7 +162,7 @@ def plot_pass_network(nodes: pd.DataFrame, edges: pd.DataFrame,
                 ax.text(mx, my, str(int(edge["pass_count"])),
                         ha="center", va="center", fontsize=7,
                         fontweight="bold", color="white",
-                        bbox=dict(facecolor="#000000CC", edgecolor=MU_GOLD,
+                        bbox=dict(facecolor="#000000CC", edgecolor=AME_BLUE,
                                   linewidth=0.8, boxstyle="round,pad=0.25"),
                         zorder=6)
 
@@ -256,7 +257,7 @@ def plot_lineup(
         pad_top=6, pad_bottom=6, pad_left=4, pad_right=4,
     )
     fig, ax = pitch.draw(figsize=(5, 8))
-    fig.set_facecolor(MU_DARK_BG)
+    fig.set_facecolor(AME_DARK_BG)
     ax.set_facecolor("#0D1117")
     if title:
         ax.set_title(title, color="white", fontsize=12, fontweight="bold", pad=10,
@@ -317,7 +318,7 @@ def plot_lineup(
         is_sub = pid in sub_ids
 
         circle_color = primary_color
-        edge_color   = MU_GOLD if is_sub else "white"
+        edge_color   = AME_BLUE if is_sub else "white"
         edge_width   = 2.5 if is_sub else 1.8
 
         # Shadow / glow
@@ -345,7 +346,7 @@ def plot_lineup(
         legend_patches = [
             mpatches.Patch(facecolor=primary_color, edgecolor="white",
                            linewidth=1.5, label="Starter"),
-            mpatches.Patch(facecolor=primary_color, edgecolor=MU_GOLD,
+            mpatches.Patch(facecolor=primary_color, edgecolor=AME_BLUE,
                            linewidth=2.5, label="Came on (sub)"),
         ]
         ax.legend(handles=legend_patches, loc="upper center",
@@ -356,7 +357,7 @@ def plot_lineup(
     # Formation string annotation
     ax.text(50, 3, formation_str,
             ha="center", va="center", fontsize=11, fontweight="bold",
-            color=MU_GOLD, alpha=0.8, zorder=6)
+            color=AME_BLUE, alpha=0.8, zorder=6)
 
     st.pyplot(fig, use_container_width=True)
     plt.close(fig)
@@ -373,7 +374,7 @@ def plot_heatmap(touches: pd.DataFrame, title: str = "Touch Heatmap") -> None:
     ax.set_title(title, color="white", fontsize=14, pad=10)
 
     pitch.kdeplot(touches["x"], touches["y"], ax=ax,
-                  cmap=MU_CMAP, fill=True, levels=50, thresh=0.05,
+                  cmap=AME_CMAP, fill=True, levels=50, thresh=0.05,
                   alpha=0.7, zorder=2)
 
     _show_fig(fig)
@@ -381,18 +382,22 @@ def plot_heatmap(touches: pd.DataFrame, title: str = "Touch Heatmap") -> None:
 
 def plot_formation(formation: dict, player_names: dict[str, str],
                    title: str = "Formation",
-                   primary_color: str = MU_RED,
+                   primary_color: str = AME_YELLOW,
                    ratings: dict[str, float] | None = None,
-                   events_list: list[dict] | None = None) -> None:
+                   events_list: list[dict] | None = None,
+                   use_avg_positions: bool = False,
+                   team_id: str = "") -> None:
     """Plot starting XI on a horizontal Plotly pitch (GK left → FWD right).
 
-    Lateral player ordering uses average y-position from match events when
-    events_list is provided (Opta y=0 = right touchline → y=100 = left
-    touchline), giving accurate left/right positioning.  Falls back to
-    qualifier 44 order_in_row when events_list is absent.
+    Uses the tactical_positions engine for accurate per-role placement.
+    When use_avg_positions=True and events_list is provided, overlays
+    median event positions for maximum fidelity.
     """
     import plotly.graph_objects as go
-    from collections import defaultdict
+    from processing.tactical_positions import (
+        get_formation_positions, average_player_positions,
+        merge_canonical_with_averages,
+    )
 
     if not formation:
         st.info("No formation data available.")
@@ -404,69 +409,24 @@ def plot_formation(formation: dict, player_names: dict[str, str],
         return
 
     form_str = formation.get("formation_str", "")
-    try:
-        row_sizes = [int(x) for x in form_str.split("-")]
-    except (ValueError, AttributeError):
-        row_sizes = []
 
-    # Separate GK (row 1) from outfield players (rows 2-4)
-    gk_players = [s for s in starters if s["position_row"] == 1]
-    field_players = [s for s in starters if s["position_row"] >= 2]
-    # Sort by depth first, then qualifier order as tiebreak
-    field_players.sort(key=lambda p: (p["position_row"], p["order_in_row"]))
+    # ── Resolve player positions via tactical engine ────────────────────
+    positioned = get_formation_positions(formation, player_names)
 
-    # Build display columns GK → DEF → MID(s) → FWD
-    display_rows: list[list[dict]] = []
-    if gk_players:
-        display_rows.append(gk_players)
-
-    if row_sizes and sum(row_sizes) == len(field_players):
-        idx = 0
-        for size in row_sizes:
-            display_rows.append(field_players[idx: idx + size])
-            idx += size
-    else:
-        for row_val in sorted(set(p["position_row"] for p in field_players)):
-            display_rows.append([p for p in field_players
-                                  if p["position_row"] == row_val])
-
-    # ── Lateral ordering: sort each row by avg touch y-position ─────────
-    # Opta y=0 = right touchline, y=100 = left touchline.
-    # Low avg_y → right flank (bottom of horizontal pitch).
-    # High avg_y → left flank (top of horizontal pitch).
-    if events_list:
-        bucket: dict[str, list[float]] = defaultdict(list)
-        for ev in events_list:
-            pid = ev.get("playerId", "")
-            y_val = ev.get("y")
-            if pid and y_val is not None:
-                try:
-                    bucket[pid].append(float(y_val))
-                except (ValueError, TypeError):
-                    pass
-        avg_y_map: dict[str, float] = {
-            pid: sum(ys) / len(ys) for pid, ys in bucket.items() if ys
-        }
-        # Sort each row ascending by avg_y (right → left)
-        for i, row in enumerate(display_rows):
-            if len(row) > 1:
-                display_rows[i] = sorted(
-                    row,
-                    key=lambda p: avg_y_map.get(p["player_id"], 50.0),
-                )
-
-    n_rows = len(display_rows)
+    if use_avg_positions and events_list and team_id:
+        avg_pos = average_player_positions(events_list, team_id)
+        if avg_pos:
+            positioned = merge_canonical_with_averages(positioned, avg_pos)
 
     # ── Pitch geometry (standard 105 × 68 m) ────────────────────────────
     PW, PH = 105.0, 68.0
-    BG           = "#0E0E14"
-    STRIPE_DARK  = "#0E0E14"
+    BG           = "#0D1117"
+    STRIPE_DARK  = "#0D1117"
     STRIPE_LIGHT = "#111119"
-    LINE_CLR     = "#2A2A38"
+    LINE_CLR     = "#30363D"
 
     shapes: list[dict] = []
 
-    # Alternating vertical pitch stripes
     for i in range(10):
         shapes.append(dict(
             type="rect",
@@ -476,23 +436,17 @@ def plot_formation(formation: dict, player_names: dict[str, str],
             line_width=0, layer="below",
         ))
 
-    # Pitch outline
     shapes.append(dict(type="rect", x0=0, y0=0, x1=PW, y1=PH,
                        line=dict(color=LINE_CLR, width=2),
                        fillcolor="rgba(0,0,0,0)"))
-
-    # Halfway line
     shapes.append(dict(type="line", x0=PW / 2, y0=0, x1=PW / 2, y1=PH,
                        line=dict(color=LINE_CLR, width=1.5)))
-
-    # Centre circle (r = 9.15 m)
     shapes.append(dict(type="circle",
                        x0=PW / 2 - 9.15, y0=PH / 2 - 9.15,
                        x1=PW / 2 + 9.15, y1=PH / 2 + 9.15,
                        line=dict(color=LINE_CLR, width=1.5),
                        fillcolor="rgba(0,0,0,0)"))
 
-    # Penalty areas (16.5 m deep, 40.32 m wide → y 13.84–54.16)
     pa_y0, pa_y1 = 13.84, 54.16
     shapes += [
         dict(type="rect", x0=0,         y0=pa_y0, x1=16.5,      y1=pa_y1,
@@ -501,7 +455,6 @@ def plot_formation(formation: dict, player_names: dict[str, str],
              line=dict(color=LINE_CLR, width=1.5), fillcolor="rgba(0,0,0,0)"),
     ]
 
-    # 6-yard boxes (5.5 m deep, 18.32 m wide → y 24.84–43.16)
     sb_y0, sb_y1 = 24.84, 43.16
     shapes += [
         dict(type="rect", x0=0,        y0=sb_y0, x1=5.5,  y1=sb_y1,
@@ -510,7 +463,6 @@ def plot_formation(formation: dict, player_names: dict[str, str],
              line=dict(color=LINE_CLR, width=1), fillcolor="rgba(0,0,0,0)"),
     ]
 
-    # Goals (7.32 m wide, drawn outside pitch for reference)
     g_y0, g_y1 = 30.34, 37.66
     shapes += [
         dict(type="rect", x0=-2,   y0=g_y0, x1=0,      y1=g_y1,
@@ -521,17 +473,9 @@ def plot_formation(formation: dict, player_names: dict[str, str],
              fillcolor="rgba(255,255,255,0.04)"),
     ]
 
-    # ── Player coordinates ───────────────────────────────────────────────
-    # x: GK at 8, last row at 97 — left=own goal, right=opponent goal
-    x_gk, x_fwd = 8.0, 97.0
-    row_xs = [
-        x_gk + j * (x_fwd - x_gk) / max(n_rows - 1, 1)
-        for j in range(n_rows)
-    ]
-
-    # y: order_in_row=0 (RB/RW) at bottom (y=5), last (LB/LW) at top (y=63)
-    y_lo, y_hi = 5.0, 63.0
-
+    # ── Convert normalised 0-100 coords → pitch metres ──────────────────
+    # x_norm (0=own goal, 100=opp goal) → pitch x (0 to 105)
+    # y_norm (0=right, 100=left) → pitch y (0 to 68)
     pxs: list[float] = []
     pys: list[float] = []
     shirts: list[str] = []
@@ -539,22 +483,20 @@ def plot_formation(formation: dict, player_names: dict[str, str],
     pids: list[str] = []
     pratings: list[float | None] = []
 
-    for col_idx, players in enumerate(display_rows):
-        x = row_xs[col_idx]
-        n = len(players)
-        for i, p in enumerate(players):
-            y = (y_lo + y_hi) / 2 if n == 1 else y_lo + i * (y_hi - y_lo) / (n - 1)
-            pid = p["player_id"]
-            shirt = p.get("shirt", "")
-            full_name = player_names.get(pid, "")
-            last = full_name.split()[-1] if " " in full_name else (full_name or shirt)
-            rating = ratings.get(pid) if ratings else None
-            pxs.append(x)
-            pys.append(y)
-            shirts.append(shirt)
-            lastnames.append(last)
-            pids.append(pid)
-            pratings.append(rating)
+    for p in positioned:
+        px = p["x"] / 100.0 * PW
+        py = p["y"] / 100.0 * PH
+        pid = p["player_id"]
+        shirt = p["jersey_number"]
+        full_name = p["player_name"] or player_names.get(pid, "")
+        last = full_name.split()[-1] if " " in full_name else (full_name or shirt)
+        rating = ratings.get(pid) if ratings else None
+        pxs.append(px)
+        pys.append(py)
+        shirts.append(shirt)
+        lastnames.append(last)
+        pids.append(pid)
+        pratings.append(rating)
 
     # ── Build figure ─────────────────────────────────────────────────────
     fig = go.Figure()
@@ -638,7 +580,7 @@ def plot_formation(formation: dict, player_names: dict[str, str],
 
 
 def plot_formation_shape(formation_str: str, title: str = "",
-                         primary_color: str = MU_RED,
+                         primary_color: str = AME_YELLOW,
                          pct: float | None = None) -> None:
     """Draw the tactical shape of a formation on a half-pitch.
 
@@ -733,10 +675,10 @@ def plot_defensive_actions(tackles: pd.DataFrame, interceptions: pd.DataFrame,
 
     if not interceptions.empty:
         pitch.scatter(interceptions["x"], interceptions["y"], s=80,
-                      c=MU_GOLD, edgecolors="white", linewidth=0.5,
+                      c=AME_BLUE, edgecolors="white", linewidth=0.5,
                       alpha=0.7, label="Interceptions", ax=ax, zorder=4)
 
-    ax.legend(loc="lower left", fontsize=9, facecolor=MU_DARK_BG,
+    ax.legend(loc="lower left", fontsize=9, facecolor=AME_DARK_BG,
               edgecolor="#444", labelcolor="white")
     _show_fig(fig)
 
@@ -754,10 +696,10 @@ def _draw_prog_arrows(ax, pitch, df: "pd.DataFrame", label_suffix: str = "") -> 
     if not incomplete.empty:
         pitch.arrows(incomplete["x"], incomplete["y"],
                      incomplete["end_x"], incomplete["end_y"],
-                     color=MU_RED, alpha=0.45, width=1, headwidth=4,
+                     color=AME_YELLOW, alpha=0.45, width=1, headwidth=4,
                      headlength=3, ax=ax, zorder=3,
                      label=f"Incomplete{label_suffix}")
-    ax.legend(loc="lower left", fontsize=9, facecolor=MU_DARK_BG,
+    ax.legend(loc="lower left", fontsize=9, facecolor=AME_DARK_BG,
               edgecolor="#444", labelcolor="white")
 
 
@@ -849,10 +791,10 @@ def plot_pass_map(passes: pd.DataFrame,
     if not incomplete.empty:
         pitch.arrows(incomplete["x"], incomplete["y"],
                      incomplete["end_x"], incomplete["end_y"],
-                     color=MU_RED, alpha=0.35, width=1, headwidth=4,
+                     color=AME_YELLOW, alpha=0.35, width=1, headwidth=4,
                      headlength=3, ax=ax, zorder=3, label="Incomplete")
 
-    ax.legend(loc="lower left", fontsize=9, facecolor=MU_DARK_BG,
+    ax.legend(loc="lower left", fontsize=9, facecolor=AME_DARK_BG,
               edgecolor="#444", labelcolor="white")
     _show_fig(fig)
 
@@ -860,9 +802,9 @@ def plot_pass_map(passes: pd.DataFrame,
 def plot_set_piece_map(
     df: pd.DataFrame,
     title: str = "Set Pieces",
-    color: str = MU_RED,
+    color: str = AME_YELLOW,
     highlight_col: str | None = None,
-    highlight_color: str = MU_GOLD,
+    highlight_color: str = AME_BLUE,
     highlight_label: str = "Dangerous",
     default_label: str = "Normal",
     color_by: str | None = None,
@@ -938,7 +880,7 @@ def plot_set_piece_map(
                       edgecolors="white", linewidth=0.5, alpha=0.7,
                       ax=ax, zorder=4)
 
-    ax.legend(loc="lower left", fontsize=9, facecolor=MU_DARK_BG,
+    ax.legend(loc="lower left", fontsize=9, facecolor=AME_DARK_BG,
               edgecolor="#444", labelcolor="white")
     _show_fig(fig)
 
@@ -947,7 +889,7 @@ def plot_corner_shot_panels(
     corners_df: pd.DataFrame,
     shots_df: pd.DataFrame,
     team_name: str,
-    team_color: str = MU_RED,
+    team_color: str = AME_YELLOW,
     n_matches: int | None = None,
 ) -> None:
     """Two-panel half-pitch showing shot locations after corners by side.
@@ -961,7 +903,7 @@ def plot_corner_shot_panels(
 
     sides = ["Left Corner", "Right Corner"]
     fig, axes = plt.subplots(1, 2, figsize=(12, 7))
-    fig.set_facecolor(MU_DARK_BG)
+    fig.set_facecolor(AME_DARK_BG)
     fig.suptitle(f"{team_name} — Corner Analysis", color="white",
                  fontsize=14, fontweight="bold", y=0.97)
 
@@ -969,7 +911,7 @@ def plot_corner_shot_panels(
         ax = axes[idx]
         pitch = VerticalPitch(**HALF_PITCH_KWARGS)
         pitch.draw(ax=ax)
-        ax.set_facecolor(MU_DARK_BG)
+        ax.set_facecolor(AME_DARK_BG)
 
         side_corners = corners_df[corners_df["corner_side"] == side]
         n_corners = len(side_corners)
@@ -1001,7 +943,7 @@ def plot_corner_shot_panels(
             if n_deliveries >= 5:
                 pitch.kdeplot(deliveries["delivery_x"],
                               deliveries["delivery_y"], ax=ax,
-                              cmap=MU_CMAP, fill=True, levels=40,
+                              cmap=AME_CMAP, fill=True, levels=40,
                               thresh=0.05, alpha=0.3, zorder=2)
 
             # Delivery destination markers — small circles, low alpha
@@ -1056,7 +998,7 @@ def plot_corner_shot_panels(
                    markersize=12, linestyle="None", label="Goal"),
     ]
     fig.legend(handles=legend_elements, loc="lower center", ncol=3,
-               fontsize=9, facecolor=MU_DARK_BG, edgecolor="#444",
+               fontsize=9, facecolor=AME_DARK_BG, edgecolor="#444",
                labelcolor="white", framealpha=0.9)
 
     fig.tight_layout(rect=[0, 0.06, 1, 0.95])
@@ -1066,7 +1008,7 @@ def plot_corner_shot_panels(
 def plot_ball_win_height(tackles: pd.DataFrame, interceptions: pd.DataFrame,
                          recoveries: pd.DataFrame,
                          title: str = "Ball Win Height",
-                         color: str = MU_RED) -> None:
+                         color: str = AME_YELLOW) -> None:
     """Plot KDE heatmap of ball wins with average height line.
 
     Ball wins = tackles + interceptions + ball recoveries.
@@ -1089,7 +1031,7 @@ def plot_ball_win_height(tackles: pd.DataFrame, interceptions: pd.DataFrame,
 
     # KDE heatmap
     pitch.kdeplot(ball_wins["x"], ball_wins["y"], ax=ax,
-                  cmap=MU_CMAP, fill=True, levels=50, thresh=0.05,
+                  cmap=AME_CMAP, fill=True, levels=50, thresh=0.05,
                   alpha=0.7, zorder=2)
 
     # Average ball win height — vertical line at mean x position
@@ -1122,7 +1064,7 @@ CORNER_SIDE_COLORS = {
 
 
 ZONE_ACTION_COLORS = {
-    "Shot":         MU_GOLD,
+    "Shot":         AME_BLUE,
     "Tackle":       "#009688",   # teal
     "Interception": "#9C27B0",   # purple
     "Recovery":     "#2196F3",   # blue
@@ -1202,7 +1144,7 @@ def plot_dominant_actions_by_zone(actions: pd.DataFrame,
     ]
     if legend_elements:
         ax.legend(handles=legend_elements, loc="lower left", fontsize=8,
-                  facecolor=MU_DARK_BG, edgecolor="#444", labelcolor="white")
+                  facecolor=AME_DARK_BG, edgecolor="#444", labelcolor="white")
 
     _show_fig(fig)
 
@@ -1226,7 +1168,7 @@ _ORIGIN_LABELS = {
 }
 
 
-def plot_goal_buildup(buildup: dict, team_color: str = MU_RED) -> None:
+def plot_goal_buildup(buildup: dict, team_color: str = AME_YELLOW) -> None:
     """Plot a single goal build-up sequence on a full pitch.
 
     ``buildup`` is one dict from ``extract_goal_buildups()`` containing
@@ -1277,12 +1219,12 @@ def plot_goal_buildup(buildup: dict, team_color: str = MU_RED) -> None:
         if is_goal:
             pitch.scatter(
                 ex, ey, s=600, marker="*",
-                c=MU_GOLD, edgecolors="white", linewidth=1,
+                c=AME_BLUE, edgecolors="white", linewidth=1,
                 ax=ax, zorder=6,
             )
             ax.annotate(
                 "GOAL", xy=(ex, ey), fontsize=8, fontweight="bold",
-                color=MU_GOLD, ha="center", va="bottom",
+                color=AME_BLUE, ha="center", va="bottom",
                 xytext=(0, 12), textcoords="offset points",
                 zorder=7,
             )

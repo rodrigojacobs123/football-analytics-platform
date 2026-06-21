@@ -1,3 +1,4 @@
+from __future__ import annotations
 """Core data loading module with Streamlit caching."""
 
 import json
@@ -5,7 +6,7 @@ import pandas as pd
 import streamlit as st
 from pathlib import Path
 
-from config import MU_TEAM_ID, MU_TEAM_NAME, MU_TEAM_FOLDER
+from config import AME_TEAM_ID, AME_TEAM_NAME, AME_TEAM_FOLDER
 from data.paths import (
     jsons_dir, partidos_dir, equipos_dir, team_dir, team_jsons_dir,
     find_match_file, list_match_files, list_team_folders, list_seasons,
@@ -460,10 +461,10 @@ def load_all_season_results(league: str, season: str,
     return df
 
 
-# ── MU-specific helpers ─────────────────────────────────────────────────────
+# ── Club-specific helpers ──────────────────────────────────────────────────
 
 @st.cache_data(ttl=3600)
-def load_mu_match_list(league: str, season: str,
+def load_club_match_list(league: str, season: str,
                        stage_filter: str = "") -> pd.DataFrame:
     """Get CF América match list — optionally filtered to one tournament stage.
 
@@ -472,28 +473,28 @@ def load_mu_match_list(league: str, season: str,
     results = load_all_season_results(league, season, stage_filter=stage_filter)
     if results.empty:
         return results
-    mu_matches = results[
-        (results["home_id"] == MU_TEAM_ID) | (results["away_id"] == MU_TEAM_ID)
+    club_matches = results[
+        (results["home_id"] == AME_TEAM_ID) | (results["away_id"] == AME_TEAM_ID)
     ].copy()
-    mu_matches["is_home"] = mu_matches["home_id"] == MU_TEAM_ID
-    mu_matches["opponent"] = mu_matches.apply(
+    club_matches["is_home"] = club_matches["home_id"] == AME_TEAM_ID
+    club_matches["opponent"] = club_matches.apply(
         lambda r: r["away_team"] if r["is_home"] else r["home_team"], axis=1
     )
-    mu_matches["mu_score"] = mu_matches.apply(
+    club_matches["club_score"] = club_matches.apply(
         lambda r: r["home_score"] if r["is_home"] else r["away_score"], axis=1
     )
-    mu_matches["opp_score"] = mu_matches.apply(
+    club_matches["opp_score"] = club_matches.apply(
         lambda r: r["away_score"] if r["is_home"] else r["home_score"], axis=1
     )
-    mu_matches["result"] = mu_matches.apply(
-        lambda r: "W" if r["mu_score"] > r["opp_score"]
-        else ("D" if r["mu_score"] == r["opp_score"] else "L"),
+    club_matches["result"] = club_matches.apply(
+        lambda r: "W" if r["club_score"] > r["opp_score"]
+        else ("D" if r["club_score"] == r["opp_score"] else "L"),
         axis=1,
     )
-    mu_matches["match_id"] = mu_matches.apply(
+    club_matches["match_id"] = club_matches.apply(
         lambda r: _find_match_id_for_row(league, season, r), axis=1
     )
-    return mu_matches.reset_index(drop=True)
+    return club_matches.reset_index(drop=True)
 
 
 def _find_match_id_for_row(league: str, season: str, row) -> str:
@@ -541,7 +542,7 @@ def _team_name_match(full_name: str, short_name: str) -> bool:
     # One contains the other
     if short_lower in full_lower or full_lower in short_lower:
         return True
-    # Common abbreviation: "Manchester United" → "Man Utd"
+    # Common abbreviation: check first significant word
     # Check first significant word
     full_words = full_lower.split()
     short_words = short_lower.split()
@@ -564,7 +565,7 @@ def _find_match_id_from_files(league: str, season: str, row) -> str:
     prefix = f"{matchday}_"
     for f in pdir.iterdir():
         if f.suffix == ".json" and f.name.startswith(prefix):
-            # filename: "1_Man Utd_Fulham_9x16f7izg27mw8l6rxtehfitw.json"
+            # filename: "1_HomeTeam_AwayTeam_matchid.json"
             parts = f.stem.split("_")
             if len(parts) >= 4:
                 # Extract the hash (last part)
@@ -580,17 +581,15 @@ def _short_team_name(name: str) -> str:
     """Convert full team name to the short form used in filenames."""
     # Common mappings
     shorts = {
-        "Manchester United": "Man Utd",
-        "Manchester City": "Man City",
-        "Wolverhampton Wanderers": "Wolves",
-        "West Ham United": "West Ham",
-        "Tottenham Hotspur": "Tottenham",
-        "Brighton and Hove Albion": "Brighton",
-        "Nottingham Forest": "Nott'm Forest",
-        "Newcastle United": "Newcastle",
-        "Leicester City": "Leicester",
-        "Crystal Palace": "Crystal Palace",
-        "Aston Villa": "Aston Villa",
+        "CF América": "América",
+        "CD Guadalajara": "Guadalajara",
+        "Club Tigres UANL": "Tigres",
+        "CF Cruz Azul": "Cruz Azul",
+        "CF Monterrey": "Monterrey",
+        "CF Pachuca": "Pachuca",
+        "Club Santos Laguna": "Santos",
+        "Club León": "León",
+        "Deportivo Toluca": "Toluca",
     }
     clean = name.replace(" FC", "").strip()
     return shorts.get(clean, clean)

@@ -1,3 +1,4 @@
+from __future__ import annotations
 """Visualization components for The Athletic-style player profile cards.
 
 Components:
@@ -9,7 +10,6 @@ Components:
   - similar_players_figure: Plotly horizontal bar of similarity scores
 """
 
-from __future__ import annotations
 
 import math
 import io
@@ -23,7 +23,7 @@ import pandas as pd
 import plotly.graph_objects as go
 from mplsoccer import Pitch, VerticalPitch
 
-from config import MU_RED, MU_GOLD, MU_DARK_BG, MU_CARD_BG
+from config import AME_YELLOW, AME_BLUE, AME_DARK_BG, AME_CARD_BG
 
 # Shared dark theme colours
 _BG = "#0E1117"
@@ -37,7 +37,7 @@ _EMPTY_SQUARE = "#2A2A3E"
 
 def style_matrix_figure(
     dimensions: dict[str, int],
-    position_color: str = MU_RED,
+    position_color: str = AME_YELLOW,
 ) -> go.Figure:
     """Render a 5-row × 5-column coloured-square matrix as a Plotly figure.
 
@@ -147,7 +147,7 @@ def shot_map_figure(
         pitch.scatter(
             goals["x"], goals["y"],
             s=(xg_vals * dot_scale).clip(30, 450),
-            color=MU_RED,
+            color=AME_YELLOW,
             edgecolors="#FF8888",
             linewidth=1.2,
             alpha=0.95,
@@ -160,7 +160,7 @@ def shot_map_figure(
                 color="#4A90D9", fontsize=14, fontweight="bold")
     if goals_total is not None:
         ax.text(75, 52, f"Goals\n{goals_total}", ha="center", va="center",
-                color=MU_RED, fontsize=14, fontweight="bold")
+                color=AME_YELLOW, fontsize=14, fontweight="bold")
 
     fig.tight_layout(pad=0.5)
     return fig
@@ -306,7 +306,7 @@ def chance_creation_figure(keypasses_df: pd.DataFrame) -> plt.Figure:
     )
     pitch.scatter(
         keypasses_df["x"], keypasses_df["y"],
-        s=20, color=MU_GOLD, alpha=0.9, ax=ax,
+        s=20, color=AME_BLUE, alpha=0.9, ax=ax,
     )
 
     # Label xA and assists if present
@@ -317,7 +317,7 @@ def chance_creation_figure(keypasses_df: pd.DataFrame) -> plt.Figure:
                 color="#4A90D9", fontsize=13, fontweight="bold")
     if assists > 0:
         ax.text(80, 5, f"Assists\n{assists}", ha="center", va="bottom",
-                color=MU_RED, fontsize=13, fontweight="bold")
+                color=AME_YELLOW, fontsize=13, fontweight="bold")
 
     fig.tight_layout(pad=0.5)
     return fig
@@ -325,7 +325,7 @@ def chance_creation_figure(keypasses_df: pd.DataFrame) -> plt.Figure:
 
 # ── Season Heatmap ────────────────────────────────────────────────────────────
 
-def heatmap_figure(events_df: pd.DataFrame, team_color: str = MU_RED) -> plt.Figure:
+def heatmap_figure(events_df: pd.DataFrame, team_color: str = AME_YELLOW) -> plt.Figure:
     """mplsoccer KDE touch density heatmap (open play only).
 
     Args:
@@ -373,7 +373,7 @@ def heatmap_figure(events_df: pd.DataFrame, team_color: str = MU_RED) -> plt.Fig
 
 def similar_players_figure(
     similar_df: pd.DataFrame,
-    position_color: str = MU_RED,
+    position_color: str = AME_YELLOW,
 ) -> go.Figure:
     """Horizontal bar chart of top-N similar players with similarity %.
 
@@ -477,7 +477,7 @@ def positions_played_figure(position_pcts: dict[str, float]) -> plt.Figure:
         size = max(pct * 12, 120)
         alpha = 0.5 + pct / 200
 
-        ax.scatter(x, y, s=size, c=MU_RED, alpha=alpha,
+        ax.scatter(x, y, s=size, c=AME_YELLOW, alpha=alpha,
                    zorder=5, edgecolors="white", linewidths=0.6)
         ax.text(x, y, f"{int(pct)}%", ha="center", va="center",
                 color="white", fontsize=7, fontweight="bold", zorder=6)

@@ -1,3 +1,4 @@
+from __future__ import annotations
 """Rule-based play-style classification from player percentile stats."""
 
 PLAY_STYLES = {

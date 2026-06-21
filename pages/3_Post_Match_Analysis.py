@@ -9,7 +9,7 @@ from viz.kpi_cards import (
     section_header, match_header_card, stats_comparison_table,
     key_events_timeline, kpi_card, kpi_row,
     match_hero_v3, v3_section_header, v3_stats_table, v3_rating_grid,
-    page_header, mu_section, mu_tile_row,
+    page_header, ame_section, ame_tile_row,
 )
 from viz.pitch import (
     plot_shot_map, plot_heatmap,
@@ -45,9 +45,9 @@ from processing.formations import (
 )
 from processing.match_ratings import compute_match_ratings, rating_color
 from processing.game_phases import compute_team_phase_report
-from processing.xt import xt_summary
+from processing.xt import xt_summary, match_xt_summary
 from processing.pressure import compute_pressure_metrics
-from config import MU_TEAM_ID, MU_RED, MU_GOLD, MU_DARK_BG
+from config import AME_TEAM_ID, AME_YELLOW, AME_BLUE, AME_DARK_BG
 
 # Guarantee CSS is injected — matches apply_theme() in app.py but needed as safety net
 apply_theme()
@@ -192,19 +192,31 @@ formations = get_match_formations(events, home_id, away_id)
 home_formation = formations["home"]
 away_formation = formations["away"]
 
+_pos_mode = st.radio(
+    "Position mode",
+    options=["Canonical (formation)", "Average (events)"],
+    horizontal=True,
+    key="formation_pos_mode",
+)
+_use_avg = _pos_mode.startswith("Average")
+
 fcol1, fcol2 = st.columns(2)
 with fcol1:
-    primary_home = MU_RED if home_id == MU_TEAM_ID else "#42A5F5"
+    primary_home = AME_YELLOW if home_id == AME_TEAM_ID else "#4DA8DA"
     plot_formation(home_formation, name_map,
                    title=f"{home_team}",
                    primary_color=primary_home,
-                   events_list=events)
+                   events_list=events,
+                   use_avg_positions=_use_avg,
+                   team_id=home_id)
 with fcol2:
-    primary_away = MU_RED if away_id == MU_TEAM_ID else "#42A5F5"
+    primary_away = AME_YELLOW if away_id == AME_TEAM_ID else "#4DA8DA"
     plot_formation(away_formation, name_map,
                    title=f"{away_team}",
                    primary_color=primary_away,
-                   events_list=events)
+                   events_list=events,
+                   use_avg_positions=_use_avg,
+                   team_id=away_id)
 
 # Formation change detection
 home_changes = detect_formation_changes(events, home_id)
@@ -277,7 +289,7 @@ else:
 
         # Render each build-up — full width for clearer view
         for b in filtered:
-            t_color = MU_RED if b["team_id"] == MU_TEAM_ID else (
+            t_color = AME_YELLOW if b["team_id"] == AME_TEAM_ID else (
                 "#42A5F5" if b["team_id"] == home_id else "#FF9800"
             )
             plot_goal_buildup(b, team_color=t_color)
@@ -295,8 +307,8 @@ zones_away = compute_possession_zones(events, away_id, period)
 # Visual third-by-third bars
 def _zone_bar(label, home_val, away_val, home_team_name, away_team_name):
     """Render a zone comparison bar."""
-    h_color = MU_RED if home_id == MU_TEAM_ID else "#42A5F5"
-    a_color = MU_RED if away_id == MU_TEAM_ID else "#FF9800"
+    h_color = AME_YELLOW if home_id == AME_TEAM_ID else "#42A5F5"
+    a_color = AME_YELLOW if away_id == AME_TEAM_ID else "#FF9800"
     st.markdown(f"""
     <div style="margin: 0.6rem 0;">
         <div style="display:flex;justify-content:space-between;margin-bottom:4px;">
@@ -354,9 +366,9 @@ st.markdown(f"""
         Field Tilt
     </span>
     <div style="display:flex;justify-content:center;align-items:center;gap:2rem;margin-top:0.3rem;">
-        <span style="color:{MU_RED if home_id == MU_TEAM_ID else '#42A5F5'};font-size:1.4rem;font-weight:700;">{ft_home}%</span>
+        <span style="color:{AME_YELLOW if home_id == AME_TEAM_ID else '#42A5F5'};font-size:1.4rem;font-weight:700;">{ft_home}%</span>
         <span style="color:#555;font-size:0.9rem;">vs</span>
-        <span style="color:{MU_RED if away_id == MU_TEAM_ID else '#FF9800'};font-size:1.4rem;font-weight:700;">{ft_away}%</span>
+        <span style="color:{AME_YELLOW if away_id == AME_TEAM_ID else '#FF9800'};font-size:1.4rem;font-weight:700;">{ft_away}%</span>
     </div>
 </div>
 """, unsafe_allow_html=True)
@@ -378,7 +390,7 @@ with pcol1:
         <p style="color:#888;font-size:0.75rem;text-transform:uppercase;margin:0;">
             {home_team} PPDA
         </p>
-        <p style="color:{MU_RED if home_id == MU_TEAM_ID else '#42A5F5'};font-size:2rem;font-weight:700;margin:0;">
+        <p style="color:{AME_YELLOW if home_id == AME_TEAM_ID else '#42A5F5'};font-size:2rem;font-weight:700;margin:0;">
             {ppda_home}
         </p>
         <p style="color:#666;font-size:0.75rem;margin:0;">
@@ -392,7 +404,7 @@ with pcol3:
         <p style="color:#888;font-size:0.75rem;text-transform:uppercase;margin:0;">
             {away_team} PPDA
         </p>
-        <p style="color:{MU_RED if away_id == MU_TEAM_ID else '#FF9800'};font-size:2rem;font-weight:700;margin:0;">
+        <p style="color:{AME_YELLOW if away_id == AME_TEAM_ID else '#FF9800'};font-size:2rem;font-weight:700;margin:0;">
             {ppda_away}
         </p>
         <p style="color:#666;font-size:0.75rem;margin:0;">
@@ -406,7 +418,7 @@ with pcol2:
     <div style="padding:0.8rem;background:#1A1A2E;border-radius:8px;font-size:0.8rem;color:#999;">
         <p style="margin:0 0 0.5rem;color:#ccc;font-weight:600;">PPDA Guide</p>
         <p style="margin:0.2rem 0;"><b style="color:#4CAF50;">&lt; 9</b> — Intense high press</p>
-        <p style="margin:0.2rem 0;"><b style="color:{MU_GOLD};">9 – 13</b> — Moderate pressing</p>
+        <p style="margin:0.2rem 0;"><b style="color:{AME_BLUE};">9 – 13</b> — Moderate pressing</p>
         <p style="margin:0.2rem 0;"><b style="color:#888;">&gt; 13</b> — Low block / counter-attack</p>
         <p style="margin:0.5rem 0 0;color:#666;font-size:0.7rem;">
             <b>Hudl-style PPDA</b>: opponent passes in their defensive 60% ÷
@@ -573,8 +585,10 @@ st.markdown("""
 </div>
 """, unsafe_allow_html=True)
 
-home_xt = xt_summary(events, home_id)
-away_xt = xt_summary(events, away_id)
+# Cached per (league, season, match_id, team) — avoids recomputing the heavy
+# per-event xT (passes + carry look-ahead) on every Streamlit rerun.
+home_xt = match_xt_summary(league, season, match_id, home_id)
+away_xt = match_xt_summary(league, season, match_id, away_id)
 
 xc1, xc2, xc3 = st.columns([1, 1, 1])
 xc1.metric(f"{home_team} xT", f"{home_xt['total_xt']:.2f}")
@@ -592,7 +606,7 @@ with xt1:
         xt_top_contributors_bar(
             home_xt["top_passers"],
             title=f"{home_team} · Top xT contributors",
-            color=MU_RED),
+            color=AME_YELLOW),
         use_container_width=True)
 with xt2:
     st.plotly_chart(
@@ -641,7 +655,7 @@ def _pressure_card_html(name: str, m: dict, accent: str) -> str:
 
 pc1, pc2 = st.columns(2)
 with pc1:
-    st.markdown(_pressure_card_html(home_team, home_pr, MU_RED),
+    st.markdown(_pressure_card_html(home_team, home_pr, AME_YELLOW),
                 unsafe_allow_html=True)
 with pc2:
     st.markdown(_pressure_card_html(away_team, away_pr, "#42A5F5"),
@@ -946,8 +960,8 @@ sp_h = sp_stats["home"]
 sp_a = sp_stats["away"]
 
 # ── 9a: Set-Piece Overview KPIs ──────────────────────────────────────────
-h_sp_color = MU_RED if home_id == MU_TEAM_ID else "#42A5F5"
-a_sp_color = MU_RED if away_id == MU_TEAM_ID else "#FF9800"
+h_sp_color = AME_YELLOW if home_id == AME_TEAM_ID else "#42A5F5"
+a_sp_color = AME_YELLOW if away_id == AME_TEAM_ID else "#FF9800"
 
 st.markdown(f"""
 <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin:0.5rem 0 1.5rem;">
@@ -1027,7 +1041,7 @@ def _corner_funnel(corners_df, shots_detail, team_name, color):
 <div style="text-align:center;padding:0.6rem;background:#1A1A2E;border-radius:8px;margin-bottom:0.5rem;">
 <span style="color:{color};font-size:1.6rem;font-weight:700;">{n}</span>
 <span style="color:#888;font-size:0.8rem;"> corners &rarr; </span>
-<span style="color:{MU_GOLD};font-size:1.6rem;font-weight:700;">{shots}</span>
+<span style="color:{AME_BLUE};font-size:1.6rem;font-weight:700;">{shots}</span>
 <span style="color:#888;font-size:0.8rem;"> shots &rarr; </span>
 <span style="color:#4CAF50;font-size:1.6rem;font-weight:700;">{goals}</span>
 <span style="color:#888;font-size:0.8rem;"> goals</span>
@@ -1118,14 +1132,14 @@ with fk_map1:
     plot_set_piece_map(
         fk_h, title=f"{home_team} FK Won",
         color=h_sp_color, highlight_col="dangerous",
-        highlight_color=MU_GOLD,
+        highlight_color=AME_BLUE,
         highlight_label="Final Third", default_label="Other",
     )
 with fk_map2:
     plot_set_piece_map(
         fk_a, title=f"{away_team} FK Won",
         color=a_sp_color, highlight_col="dangerous",
-        highlight_color=MU_GOLD,
+        highlight_color=AME_BLUE,
         highlight_label="Final Third", default_label="Other",
     )
 

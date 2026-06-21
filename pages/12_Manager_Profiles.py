@@ -5,7 +5,7 @@ from viz.theme import apply_theme
 import pandas as pd
 import plotly.graph_objects as go
 from components.sidebar import render_sidebar
-from viz.kpi_cards import section_header, kpi_row, form_badges, page_header, mu_section
+from viz.kpi_cards import section_header, kpi_row, form_badges, page_header, ame_section
 from viz.charts import donut_chart, bar_chart
 from processing.match_stats import crest_url
 from processing.manager_stats import (
@@ -14,7 +14,7 @@ from processing.manager_stats import (
     compute_goals_timeline, compare_managers,
 )
 from data.loader import load_standings, list_standings_stages
-from config import MU_RED, MU_GOLD, MU_DARK_BG
+from config import AME_YELLOW, AME_BLUE, AME_DARK_BG
 
 apply_theme()
 
@@ -64,7 +64,7 @@ for idx, c in enumerate(team_coaches):
     start = c.get("start_date", "")[:10] or "?"
     end = c.get("end_date", "")[:10] or "Present"
     is_active = c["active"]
-    bg = MU_RED if is_active else "#333"
+    bg = AME_YELLOW if is_active else "#333"
     border_left = "" if idx == 0 else "border-left:2px solid #555;"
 
     timeline_html += (
@@ -120,11 +120,11 @@ profile_html = (
     f'{selected_team} &middot; Head Coach</p>'
     f'<div style="display:flex;gap:1.5rem;margin-top:0.7rem;flex-wrap:wrap;">'
     f'<span style="color:#BBB;font-size:0.85rem;">'
-    f'<strong style="color:{MU_RED};">Nationality:</strong> {coach["nationality"]}</span>'
+    f'<strong style="color:{AME_YELLOW};">Nationality:</strong> {coach["nationality"]}</span>'
     f'<span style="color:#BBB;font-size:0.85rem;">'
-    f'<strong style="color:{MU_RED};">Birthplace:</strong> {coach["place_of_birth"] or "N/A"}</span>'
+    f'<strong style="color:{AME_YELLOW};">Birthplace:</strong> {coach["place_of_birth"] or "N/A"}</span>'
     f'<span style="color:#BBB;font-size:0.85rem;">'
-    f'<strong style="color:{MU_RED};">Appointed:</strong> {tenure_start}</span>'
+    f'<strong style="color:{AME_YELLOW};">Appointed:</strong> {tenure_start}</span>'
     f'<span style="color:#BBB;font-size:0.85rem;">'
     f'<strong style="color:{status_color};">Status:</strong> {status}</span>'
     f'</div>'
@@ -195,7 +195,7 @@ if record["played"] > 0:
             y=["Wins", "Draws", "Losses"],
             x=[record["won"], record["drawn"], record["lost"]],
             orientation="h",
-            marker_color=["#4CAF50", "#FFC107", MU_RED],
+            marker_color=["#4CAF50", "#FFC107", AME_YELLOW],
             text=[f"{record['won']}  ({wdl_pcts[0]:.0f}%)",
                   f"{record['drawn']}  ({wdl_pcts[1]:.0f}%)",
                   f"{record['lost']}  ({wdl_pcts[2]:.0f}%)"],
@@ -205,7 +205,7 @@ if record["played"] > 0:
             title=dict(text=f"Results — {coach['name']}", x=0.5, xanchor="center",
                        font=dict(color="white", size=14)),
             height=260, margin=dict(l=10, r=80, t=40, b=20),
-            template="mu_dark",
+            template="ame_dark",
             xaxis=dict(title="", gridcolor="#1F1F2A",
                        tickfont=dict(color="white", size=10)),
             yaxis=dict(autorange="reversed", tickfont=dict(color="white", size=12)),
@@ -219,7 +219,7 @@ if record["played"] > 0:
         fig_goals.add_trace(go.Bar(
             x=["Goals For", "Goals Against"],
             y=[record["gf"], record["ga"]],
-            marker_color=[MU_RED, "#42A5F5"],
+            marker_color=[AME_YELLOW, "#42A5F5"],
             text=[record["gf"], record["ga"]],
             textposition="auto",
         ))
@@ -228,7 +228,7 @@ if record["played"] > 0:
             yaxis_title="Goals",
             showlegend=False,
             height=380,
-            template="mu_dark",
+            template="ame_dark",
         )
         st.plotly_chart(fig_goals, use_container_width=True)
 
@@ -285,7 +285,7 @@ if formations:
         fig_fm.add_trace(go.Bar(
             x=fm_df["formation"],
             y=fm_df["count"],
-            marker_color=MU_RED,
+            marker_color=AME_YELLOW,
             text=fm_df.apply(lambda r: f"{r['count']} ({r['pct']:.0f}%)", axis=1),
             textposition="auto",
         ))
@@ -294,7 +294,7 @@ if formations:
             xaxis_title="Formation",
             yaxis_title="Matches",
             height=380,
-            template="mu_dark",
+            template="ame_dark",
         )
         st.plotly_chart(fig_fm, use_container_width=True)
 
@@ -303,7 +303,7 @@ if formations:
         primary = formations[0]
         st.markdown(
             f'<div style="text-align:center;padding:1.5rem;">'
-            f'<p style="font-size:3rem;font-weight:800;color:{MU_RED};margin:0;">'
+            f'<p style="font-size:3rem;font-weight:800;color:{AME_YELLOW};margin:0;">'
             f'{primary["formation"]}</p>'
             f'<p style="color:#999;font-size:0.85rem;margin:0.3rem 0 0;">'
             f'Used in {primary["pct"]:.0f}% of matches</p>'
@@ -334,8 +334,8 @@ if not timeline.empty:
         x=timeline["match_num"],
         y=timeline["gd_cumulative"],
         mode="lines+markers",
-        line=dict(color=MU_RED, width=3),
-        marker=dict(size=6, color=MU_RED),
+        line=dict(color=AME_YELLOW, width=3),
+        marker=dict(size=6, color=AME_YELLOW),
         fill="tozeroy",
         fillcolor="rgba(218,41,28,0.15)",
         name="Cumulative GD",
@@ -346,7 +346,7 @@ if not timeline.empty:
         xaxis_title="Match Number",
         yaxis_title="Cumulative Goal Difference",
         height=380,
-        template="mu_dark",
+        template="ame_dark",
     )
     st.plotly_chart(fig_gd, use_container_width=True)
 
@@ -369,7 +369,7 @@ if n_coaches >= 2:
 
         # ── Side-by-side visual comparison ───────────────────────────────
         st.markdown("---")
-        compare_colors = [MU_RED, "#42A5F5", MU_GOLD, "#4CAF50"]
+        compare_colors = [AME_YELLOW, "#42A5F5", AME_BLUE, "#4CAF50"]
 
         # PPG comparison bar chart
         fig_ppg = go.Figure()
@@ -387,7 +387,7 @@ if n_coaches >= 2:
             title="Points Per Game",
             yaxis_title="PPG",
             height=350,
-            template="mu_dark",
+            template="ame_dark",
         )
 
         # Win % comparison
@@ -406,7 +406,7 @@ if n_coaches >= 2:
             title="Win Rate",
             yaxis_title="Win %",
             height=350,
-            template="mu_dark",
+            template="ame_dark",
         )
 
         col1, col2 = st.columns(2)
@@ -427,7 +427,7 @@ if n_coaches >= 2:
         ))
         fig_wdl.add_trace(go.Bar(
             name="Lost", x=comp_df["Manager"], y=comp_df["L"],
-            marker_color=MU_RED,
+            marker_color=AME_YELLOW,
         ))
         fig_wdl.update_layout(
             barmode="stack",
@@ -436,7 +436,7 @@ if n_coaches >= 2:
             height=380,
             legend=dict(orientation="h", yanchor="bottom", y=1.02,
                         xanchor="center", x=0.5),
-            template="mu_dark",
+            template="ame_dark",
         )
         st.plotly_chart(fig_wdl, use_container_width=True)
 
@@ -459,7 +459,7 @@ if n_coaches >= 2:
             height=380,
             legend=dict(orientation="h", yanchor="bottom", y=1.02,
                         xanchor="center", x=0.5),
-            template="mu_dark",
+            template="ame_dark",
         )
         st.plotly_chart(fig_gfga, use_container_width=True)
 

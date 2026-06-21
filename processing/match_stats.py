@@ -1,3 +1,4 @@
+from __future__ import annotations
 """Match-level stat aggregation for comparison bars."""
 
 from data.event_parser import (

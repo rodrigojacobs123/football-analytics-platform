@@ -5,12 +5,12 @@ from viz.theme import apply_theme
 import pandas as pd
 import plotly.express as px
 from components.sidebar import render_sidebar
-from viz.kpi_cards import section_header, kpi_row, page_header, mu_section
+from viz.kpi_cards import section_header, kpi_row, page_header, ame_section
 from viz.charts import bar_chart, donut_chart
 from viz.tables import styled_dataframe
 from data.loader import load_squad_roster
 from processing.injuries_synthetic import generate_synthetic_injuries
-from config import MU_TEAM_NAME, MU_TEAM_ID, MU_RED, MU_GOLD
+from config import AME_TEAM_NAME, AME_TEAM_ID, AME_YELLOW, AME_BLUE
 
 apply_theme()
 
@@ -28,7 +28,7 @@ st.warning(
 # ── Generate Synthetic Injuries ─────────────────────────────────────────────
 roster = load_squad_roster(league, season)
 mu_roster = {pid: info for pid, info in roster.items()
-             if MU_TEAM_NAME in info.get("team", "") or "CF América" in info.get("team", "")}
+             if AME_TEAM_NAME in info.get("team", "") or "CF América" in info.get("team", "")}
 
 if not mu_roster:
     st.error("No roster data available.")

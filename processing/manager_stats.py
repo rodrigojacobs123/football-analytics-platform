@@ -1,3 +1,4 @@
+from __future__ import annotations
 """Manager profile statistics — record, formations, tactical tendencies.
 
 Supports tenure-aware filtering: pass start_date/end_date to scope stats

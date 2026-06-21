@@ -1,3 +1,4 @@
+from __future__ import annotations
 """Pizza / percentile-pie charts — scouted.football & FBref scouting standard.
 
 A pizza chart is a polar bar chart where each slice represents one attribute
@@ -6,7 +7,7 @@ possession / defending). It's the canonical scouting visualization.
 """
 
 import plotly.graph_objects as go
-from config import MU_DARK_BG, MU_WHITE, MU_RED, MU_GOLD
+from config import AME_DARK_BG, AME_WHITE, AME_YELLOW, AME_BLUE
 
 
 CATEGORY_COLORS = {
@@ -32,7 +33,7 @@ def pizza_chart(
     """
     if not metrics:
         fig = go.Figure()
-        fig.update_layout(paper_bgcolor=MU_DARK_BG)
+        fig.update_layout(paper_bgcolor=AME_DARK_BG)
         return fig
 
     # Normalise values to 0–100
@@ -45,7 +46,7 @@ def pizza_chart(
 
     labels = [m["label"] for m in metrics]
     cats   = [m.get("category", "Possess") for m in metrics]
-    colors = [CATEGORY_COLORS.get(c, MU_GOLD) for c in cats]
+    colors = [CATEGORY_COLORS.get(c, AME_BLUE) for c in cats]
 
     n = len(metrics)
     width = 360 / n   # equal-angle slices
@@ -59,7 +60,7 @@ def pizza_chart(
         r=values, theta=theta, width=[width * 0.95] * n,
         marker=dict(
             color=colors,
-            line=dict(color=MU_DARK_BG, width=2),
+            line=dict(color=AME_DARK_BG, width=2),
         ),
         opacity=0.92,
         hovertemplate="<b>%{customdata[0]}</b><br>%{customdata[1]}<br>"
@@ -87,19 +88,19 @@ def pizza_chart(
     fig.update_layout(
         title=dict(text=f"{player_name}<br><sub style='color:#aaa;font-size:11px;'>"
                         f"{title_suffix}</sub>",
-                   x=0.5, xanchor="center", font=dict(color=MU_WHITE, size=15)),
+                   x=0.5, xanchor="center", font=dict(color=AME_WHITE, size=15)),
         polar=dict(
-            bgcolor=MU_DARK_BG,
+            bgcolor=AME_DARK_BG,
             radialaxis=dict(range=[0, 100], showticklabels=False, ticks="",
                             gridcolor="rgba(255,255,255,0.1)"),
             angularaxis=dict(
                 tickmode="array", tickvals=theta, ticktext=labels,
                 rotation=90, direction="clockwise",
                 gridcolor="rgba(255,255,255,0.1)",
-                tickfont=dict(color=MU_WHITE, size=10),
+                tickfont=dict(color=AME_WHITE, size=10),
             ),
         ),
-        paper_bgcolor=MU_DARK_BG,
+        paper_bgcolor=AME_DARK_BG,
         height=520,
         margin=dict(l=20, r=20, t=80, b=20),
         showlegend=False,

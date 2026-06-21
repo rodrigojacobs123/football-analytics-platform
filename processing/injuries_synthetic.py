@@ -1,3 +1,4 @@
+from __future__ import annotations
 """Deterministic synthetic injury data generator."""
 
 import hashlib
@@ -38,7 +39,7 @@ POSITION_INJURY_WEIGHTS = {
 
 @st.cache_data(ttl=7200)
 def generate_synthetic_injuries(squad: dict[str, dict], season: str,
-                                 seed_salt: str = "mu_analytics") -> pd.DataFrame:
+                                 seed_salt: str = "ame_analytics") -> pd.DataFrame:
     """Generate deterministic synthetic injury data for a squad.
 
     Args:

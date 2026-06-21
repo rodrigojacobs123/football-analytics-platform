@@ -3,7 +3,7 @@
 import pandas as pd
 import plotly.graph_objects as go
 from processing.xt import XT_GRID, N_COLS, N_ROWS
-from config import MU_DARK_BG, MU_WHITE, MU_RED, MU_GOLD
+from config import AME_DARK_BG, AME_WHITE, AME_YELLOW, AME_BLUE
 
 
 def xt_grid_heatmap(title: str = "Expected Threat (xT) Grid") -> go.Figure:
@@ -16,14 +16,14 @@ def xt_grid_heatmap(title: str = "Expected Threat (xT) Grid") -> go.Figure:
         x=[f"{int(i / N_COLS * 100)}%" for i in range(N_COLS)],
         y=[f"{int(i / N_ROWS * 100)}%" for i in range(N_ROWS)],
         colorscale="Viridis",
-        colorbar=dict(title=dict(text="xT", font=dict(color=MU_WHITE)),
-                      tickfont=dict(color=MU_WHITE)),
+        colorbar=dict(title=dict(text="xT", font=dict(color=AME_WHITE)),
+                      tickfont=dict(color=AME_WHITE)),
         hovertemplate="x=%{x} y=%{y}<br>xT=%{z:.4f}<extra></extra>",
     ))
     fig.update_layout(
-        title=dict(text=title, font=dict(color=MU_WHITE)),
-        height=320, paper_bgcolor=MU_DARK_BG, plot_bgcolor=MU_DARK_BG,
-        font=dict(color=MU_WHITE),
+        title=dict(text=title, font=dict(color=AME_WHITE)),
+        height=320, paper_bgcolor=AME_DARK_BG, plot_bgcolor=AME_DARK_BG,
+        font=dict(color=AME_WHITE),
         xaxis=dict(title="Attacking direction →"),
         yaxis=dict(autorange="reversed"),
         margin=dict(l=20, r=20, t=40, b=30),
@@ -38,13 +38,13 @@ def xt_pitch_heatmap(passes_df: pd.DataFrame, title: str = "") -> go.Figure:
     """
     fig = go.Figure()
     if passes_df.empty or "xt_added" not in passes_df.columns:
-        fig.update_layout(paper_bgcolor=MU_DARK_BG)
+        fig.update_layout(paper_bgcolor=AME_DARK_BG)
         return fig
 
     # Aggregate xt_added by start cell of each pass
     df = passes_df[passes_df["xt_added"] > 0].copy()
     if df.empty:
-        fig.update_layout(paper_bgcolor=MU_DARK_BG)
+        fig.update_layout(paper_bgcolor=AME_DARK_BG)
         return fig
 
     df["col"] = (df["x"] / 100.0 * N_COLS).clip(0, N_COLS - 1).astype(int)
@@ -59,8 +59,8 @@ def xt_pitch_heatmap(passes_df: pd.DataFrame, title: str = "") -> go.Figure:
         z=z,
         colorscale=[[0, "rgba(14,17,23,0.0)"], [0.4, "#3E1B1B"], [0.7, "#C62828"], [1, "#FFB74D"]],
         showscale=True,
-        colorbar=dict(title=dict(text="xT added", font=dict(color=MU_WHITE, size=10)),
-                      tickfont=dict(color=MU_WHITE, size=9), thickness=10, len=0.7),
+        colorbar=dict(title=dict(text="xT added", font=dict(color=AME_WHITE, size=10)),
+                      tickfont=dict(color=AME_WHITE, size=9), thickness=10, len=0.7),
         hovertemplate="cell xT %{z:.3f}<extra></extra>",
     ))
     # Pitch outline overlay (simplified — just draw vertical 3rds)
@@ -68,8 +68,8 @@ def xt_pitch_heatmap(passes_df: pd.DataFrame, title: str = "") -> go.Figure:
         fig.add_vline(x=x_third - 0.5, line=dict(color="rgba(255,255,255,0.25)", dash="dot", width=1))
     fig.update_layout(
         title=dict(text=title, x=0.5, xanchor="center",
-                   font=dict(color=MU_WHITE, size=13)),
-        height=320, paper_bgcolor=MU_DARK_BG, plot_bgcolor=MU_DARK_BG,
+                   font=dict(color=AME_WHITE, size=13)),
+        height=320, paper_bgcolor=AME_DARK_BG, plot_bgcolor=AME_DARK_BG,
         margin=dict(l=20, r=20, t=40, b=20),
         xaxis=dict(visible=False, range=[-0.5, N_COLS - 0.5]),
         yaxis=dict(visible=False, range=[N_ROWS - 0.5, -0.5]),
@@ -81,11 +81,11 @@ def xt_pitch_heatmap(passes_df: pd.DataFrame, title: str = "") -> go.Figure:
 
 
 def xt_top_contributors_bar(top_df: pd.DataFrame, title: str = "",
-                            color: str = MU_RED) -> go.Figure:
+                            color: str = AME_YELLOW) -> go.Figure:
     """Horizontal bar chart of top xT contributors."""
     fig = go.Figure()
     if top_df.empty:
-        fig.update_layout(paper_bgcolor=MU_DARK_BG)
+        fig.update_layout(paper_bgcolor=AME_DARK_BG)
         return fig
 
     df = top_df.iloc[::-1]   # so highest sits at the top of the chart
@@ -93,20 +93,20 @@ def xt_top_contributors_bar(top_df: pd.DataFrame, title: str = "",
         x=df["xt_added"], y=df["player_name"],
         orientation="h", marker_color=color,
         text=df.apply(lambda r: f" +{r['xt_added']:.2f}  ({int(r['passes'])})", axis=1),
-        textposition="outside", textfont=dict(color=MU_WHITE, size=11),
+        textposition="outside", textfont=dict(color=AME_WHITE, size=11),
         hovertemplate="<b>%{y}</b><br>xT added: +%{x:.3f}<br>"
                       "passes: %{customdata}<extra></extra>",
         customdata=df["passes"],
     ))
     fig.update_layout(
         title=dict(text=title, x=0.5, xanchor="center",
-                   font=dict(color=MU_WHITE, size=13)),
-        height=320, paper_bgcolor=MU_DARK_BG, plot_bgcolor=MU_DARK_BG,
+                   font=dict(color=AME_WHITE, size=13)),
+        height=320, paper_bgcolor=AME_DARK_BG, plot_bgcolor=AME_DARK_BG,
         margin=dict(l=10, r=70, t=40, b=20),
         xaxis=dict(title="xT added", gridcolor="#333",
-                   tickfont=dict(color=MU_WHITE, size=10)),
-        yaxis=dict(tickfont=dict(color=MU_WHITE, size=11)),
-        font=dict(color=MU_WHITE),
+                   tickfont=dict(color=AME_WHITE, size=10)),
+        yaxis=dict(tickfont=dict(color=AME_WHITE, size=11)),
+        font=dict(color=AME_WHITE),
         showlegend=False,
     )
     return fig

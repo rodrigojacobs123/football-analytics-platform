@@ -1,15 +1,16 @@
+from __future__ import annotations
 """Plotly chart builders — bar, line, scatter, histogram, heatmap, xG race."""
 
 import numpy as np
 import pandas as pd
 import plotly.express as px
 import plotly.graph_objects as go
-from config import MU_RED, MU_GOLD, MU_WHITE, MU_DARK_BG, MU_GRID
+from config import AME_YELLOW, AME_BLUE, AME_WHITE, AME_DARK_BG, AME_GRID
 
 
 def line_chart(df: pd.DataFrame, x: str, y: str, title: str = "",
-               color: str = MU_RED, y_label: str = "", markers: bool = False) -> go.Figure:
-    """Simple line chart with MU theme."""
+               color: str = AME_YELLOW, y_label: str = "", markers: bool = False) -> go.Figure:
+    """Simple line chart with Club América theme."""
     fig = go.Figure()
     fig.add_trace(go.Scatter(
         x=df[x], y=df[y],
@@ -19,7 +20,7 @@ def line_chart(df: pd.DataFrame, x: str, y: str, title: str = "",
         name=y_label or y,
     ))
     fig.update_layout(title=title, xaxis_title=x, yaxis_title=y_label or y,
-                      template="mu_dark")
+                      template="ame_dark")
     return fig
 
 
@@ -28,7 +29,7 @@ def multi_line_chart(df: pd.DataFrame, x: str, y_cols: list[str],
                      y_label: str = "") -> go.Figure:
     """Multiple line series on the same chart."""
     if colors is None:
-        colors = [MU_RED, MU_GOLD, MU_WHITE, "#888888", "#4CAF50", "#2196F3"]
+        colors = [AME_YELLOW, AME_BLUE, AME_WHITE, "#888888", "#4CAF50", "#2196F3"]
     fig = go.Figure()
     for i, col in enumerate(y_cols):
         fig.add_trace(go.Scatter(
@@ -37,22 +38,22 @@ def multi_line_chart(df: pd.DataFrame, x: str, y_cols: list[str],
             line=dict(color=colors[i % len(colors)], width=2.5),
             name=col,
         ))
-    fig.update_layout(title=title, yaxis_title=y_label, template="mu_dark")
+    fig.update_layout(title=title, yaxis_title=y_label, template="ame_dark")
     return fig
 
 
 def bar_chart(df: pd.DataFrame, x: str, y: str, title: str = "",
-              color: str = MU_RED, horizontal: bool = False) -> go.Figure:
+              color: str = AME_YELLOW, horizontal: bool = False) -> go.Figure:
     """Single-series bar chart."""
     if horizontal:
         fig = go.Figure(go.Bar(x=df[y], y=df[x], orientation="h",
                                marker_color=color))
         fig.update_layout(title=title, xaxis_title=y, yaxis_title=x,
-                          template="mu_dark")
+                          template="ame_dark")
     else:
         fig = go.Figure(go.Bar(x=df[x], y=df[y], marker_color=color))
         fig.update_layout(title=title, xaxis_title=x, yaxis_title=y,
-                          template="mu_dark")
+                          template="ame_dark")
     return fig
 
 
@@ -61,7 +62,7 @@ def grouped_bar_chart(df: pd.DataFrame, x: str, y_cols: list[str],
                       bar_names: list[str] | None = None) -> go.Figure:
     """Grouped bar chart with multiple series."""
     if colors is None:
-        colors = [MU_RED, MU_GOLD, MU_WHITE, "#888"]
+        colors = [AME_YELLOW, AME_BLUE, AME_WHITE, "#888"]
     if bar_names is None:
         bar_names = y_cols
     fig = go.Figure()
@@ -71,7 +72,7 @@ def grouped_bar_chart(df: pd.DataFrame, x: str, y_cols: list[str],
             name=bar_names[i],
             marker_color=colors[i % len(colors)],
         ))
-    fig.update_layout(title=title, barmode="group", template="mu_dark")
+    fig.update_layout(title=title, barmode="group", template="ame_dark")
     return fig
 
 
@@ -81,7 +82,7 @@ def scatter_chart(df: pd.DataFrame, x: str, y: str, title: str = "",
     """Scatter plot with optional size, color, and text."""
     fig = px.scatter(
         df, x=x, y=y, size=size, color=color, text=text,
-        title=title, template="mu_dark",
+        title=title, template="ame_dark",
     )
     if add_diagonal:
         min_val = min(df[x].min(), df[y].min())
@@ -95,11 +96,11 @@ def scatter_chart(df: pd.DataFrame, x: str, y: str, title: str = "",
 
 
 def histogram(values: pd.Series | np.ndarray, title: str = "",
-              x_label: str = "", color: str = MU_RED, nbins: int = 30) -> go.Figure:
+              x_label: str = "", color: str = AME_YELLOW, nbins: int = 30) -> go.Figure:
     """Histogram chart."""
     fig = go.Figure(go.Histogram(x=values, nbinsx=nbins, marker_color=color))
     fig.update_layout(title=title, xaxis_title=x_label, yaxis_title="Frequency",
-                      template="mu_dark")
+                      template="ame_dark")
     return fig
 
 
@@ -107,7 +108,7 @@ def donut_chart(labels: list[str], values: list[float], title: str = "",
                 colors: list[str] | None = None) -> go.Figure:
     """Donut / pie chart."""
     if colors is None:
-        colors = [MU_RED, MU_GOLD, "#888888", "#4CAF50", "#2196F3"]
+        colors = [AME_YELLOW, AME_BLUE, "#888888", "#4CAF50", "#2196F3"]
     fig = go.Figure(go.Pie(
         labels=labels, values=values,
         hole=0.5,
@@ -115,7 +116,7 @@ def donut_chart(labels: list[str], values: list[float], title: str = "",
         textinfo="label+percent",
         textfont=dict(size=12),
     ))
-    fig.update_layout(title=title, showlegend=True, template="mu_dark")
+    fig.update_layout(title=title, showlegend=True, template="ame_dark")
     return fig
 
 
@@ -131,7 +132,7 @@ def heatmap_grid(matrix: np.ndarray, x_labels: list[str], y_labels: list[str],
         z=matrix,
         x=x_labels,
         y=y_labels,
-        colorscale=[[0, MU_DARK_BG], [0.3, "#3D0A0A"], [0.6, MU_RED], [1.0, MU_GOLD]],
+        colorscale=[[0, AME_DARK_BG], [0.3, "#3D0A0A"], [0.6, AME_YELLOW], [1.0, AME_BLUE]],
         text=text_matrix,
         texttemplate="%{text}",
         textfont=dict(size=11),
@@ -143,7 +144,7 @@ def heatmap_grid(matrix: np.ndarray, x_labels: list[str], y_labels: list[str],
         yaxis_title=y_title,
         xaxis=dict(dtick=1),
         yaxis=dict(dtick=1, autorange="reversed"),
-        template="mu_dark",
+        template="ame_dark",
     )
     return fig
 
@@ -156,7 +157,7 @@ def xg_race_chart(xg_timeline: pd.DataFrame, home_team: str, away_team: str,
     # Home team xG line
     fig.add_trace(go.Scatter(
         x=xg_timeline["minute"], y=xg_timeline["home_xg"],
-        mode="lines", line=dict(color=MU_RED, width=2.5, shape="hv"),
+        mode="lines", line=dict(color=AME_YELLOW, width=2.5, shape="hv"),
         name=f"{home_team} xG", fill="tozeroy",
         fillcolor="rgba(218,41,28,0.08)",
     ))
@@ -182,7 +183,7 @@ def xg_race_chart(xg_timeline: pd.DataFrame, home_team: str, away_team: str,
     if goals is not None and not goals.empty:
         for _, g in goals.iterrows():
             is_home = g.get("team_id") == xg_timeline.attrs.get("home_id", "")
-            team_color = MU_RED if is_home else "#42A5F5"
+            team_color = AME_YELLOW if is_home else "#42A5F5"
             fig.add_vline(
                 x=g["minute"], line_dash="dot",
                 line_color=team_color, opacity=0.5,
@@ -205,7 +206,7 @@ def xg_race_chart(xg_timeline: pd.DataFrame, home_team: str, away_team: str,
         yaxis_title="Cumulative xG",
         xaxis=dict(range=[0, 95]),
         hovermode="x unified",
-        template="mu_dark",
+        template="ame_dark",
     )
     return fig
 
@@ -216,7 +217,7 @@ def probability_bars(home_prob: float, draw_prob: float, away_prob: float,
     fig = go.Figure()
     fig.add_trace(go.Bar(
         y=["Outcome"], x=[home_prob * 100], orientation="h",
-        marker_color=MU_RED, name=f"{home_team} Win",
+        marker_color=AME_YELLOW, name=f"{home_team} Win",
         text=f"{home_prob:.0%}", textposition="inside",
     ))
     fig.add_trace(go.Bar(
@@ -233,7 +234,7 @@ def probability_bars(home_prob: float, draw_prob: float, away_prob: float,
         barmode="stack", showlegend=True,
         height=120, margin=dict(l=10, r=10, t=10, b=10),
         xaxis=dict(visible=False), yaxis=dict(visible=False),
-        template="mu_dark",
+        template="ame_dark",
     )
     return fig
 
@@ -242,16 +243,16 @@ def goals_by_matchday(df: pd.DataFrame, title: str = "Goals by Matchday") -> go.
     """Bar chart of goals scored vs conceded per matchday."""
     fig = go.Figure()
     fig.add_trace(go.Bar(
-        x=df["matchday"], y=df["mu_score"],
+        x=df["matchday"], y=df["club_score"],
         name="Scored", marker_color="#4CAF50",
     ))
     fig.add_trace(go.Bar(
         x=df["matchday"], y=df["opp_score"],
-        name="Conceded", marker_color=MU_RED,
+        name="Conceded", marker_color=AME_YELLOW,
     ))
     fig.update_layout(title=title, barmode="group",
                       xaxis_title="Matchday", yaxis_title="Goals",
-                      template="mu_dark")
+                      template="ame_dark")
     return fig
 
 
@@ -269,7 +270,7 @@ def monte_carlo_histogram(simulations: np.ndarray, home_team: str, away_team: st
 
     fig.add_trace(go.Histogram(
         x=home_wins, name=f"{home_team} Win",
-        marker_color=MU_RED, xbins=bins_range,
+        marker_color=AME_YELLOW, xbins=bins_range,
     ))
     fig.add_trace(go.Histogram(
         x=draws, name="Draw",
@@ -285,7 +286,7 @@ def monte_carlo_histogram(simulations: np.ndarray, home_team: str, away_team: st
         xaxis_title="Goal Difference (Home - Away)",
         yaxis_title="Frequency",
         barmode="stack",
-        template="mu_dark",
+        template="ame_dark",
     )
     return fig
 
@@ -312,7 +313,7 @@ def tactical_progression_chart(
     matchday_col : column for x-axis
     """
     if colors is None:
-        colors = [MU_RED, MU_GOLD, "#42A5F5", "#4CAF50", "#FF9800"]
+        colors = [AME_YELLOW, AME_BLUE, "#42A5F5", "#4CAF50", "#FF9800"]
 
     RESULT_COLORS = {"W": "#4CAF50", "D": "#FFC107", "L": "#F44336"}
 
@@ -362,7 +363,7 @@ def tactical_progression_chart(
         yaxis_title=y_label,
         hovermode="x unified",
         legend=dict(orientation="h", yanchor="bottom", y=1.02),
-        template="mu_dark",
+        template="ame_dark",
     )
     return fig
 
@@ -402,7 +403,7 @@ def ppda_trend_chart(
     fig.add_trace(go.Scatter(
         x=df[matchday_col], y=df["ppda"],
         mode="markers",
-        marker=dict(size=7, color=MU_GOLD, opacity=0.35),
+        marker=dict(size=7, color=AME_BLUE, opacity=0.35),
         name="Per Match",
         showlegend=False,
     ))
@@ -413,7 +414,7 @@ def ppda_trend_chart(
         fig.add_trace(go.Scatter(
             x=df[matchday_col], y=df[r_col],
             mode="lines",
-            line=dict(color=MU_GOLD, width=3),
+            line=dict(color=AME_BLUE, width=3),
             name="5-Match Avg",
         ))
 
@@ -439,7 +440,7 @@ def ppda_trend_chart(
         yaxis=dict(range=[0, max(df["ppda"].max() + 5, 25)]),
         hovermode="x unified",
         legend=dict(orientation="h", yanchor="bottom", y=1.02),
-        template="mu_dark",
+        template="ame_dark",
     )
     return fig
 
@@ -451,7 +452,7 @@ def dual_axis_trend_chart(
     right_metric: str = "",
     left_rolling: str = "",
     right_rolling: str = "",
-    left_color: str = MU_GOLD,
+    left_color: str = AME_BLUE,
     right_color: str = "#42A5F5",
     left_label: str = "",
     right_label: str = "",
@@ -512,9 +513,9 @@ def dual_axis_trend_chart(
         xaxis_title="Match",
         hovermode="x unified",
         legend=dict(orientation="h", yanchor="bottom", y=1.02),
-        template="mu_dark",
-        paper_bgcolor=MU_DARK_BG,
-        plot_bgcolor=MU_DARK_BG,
+        template="ame_dark",
+        paper_bgcolor=AME_DARK_BG,
+        plot_bgcolor=AME_DARK_BG,
         font=dict(color="#FAFAFA"),
     )
     fig.update_yaxes(title_text=left_label, secondary_y=False,
@@ -540,7 +541,7 @@ def formation_donut(formations: list[dict], title: str = "Formation Usage") -> g
     labels = [f["formation"] for f in formations]
     values = [f["count"] for f in formations]
 
-    top_colors = [MU_RED, MU_GOLD, "#42A5F5", "#4CAF50", "#FF9800", "#9C27B0", "#888"]
+    top_colors = [AME_YELLOW, AME_BLUE, "#42A5F5", "#4CAF50", "#FF9800", "#9C27B0", "#888"]
     chart_colors = top_colors[:len(labels)]
 
     fig = go.Figure(go.Pie(
@@ -551,5 +552,5 @@ def formation_donut(formations: list[dict], title: str = "Formation Usage") -> g
         textfont=dict(size=12),
         hovertemplate="%{label}: %{value} matches (%{percent})<extra></extra>",
     ))
-    fig.update_layout(title=title, showlegend=True, template="mu_dark")
+    fig.update_layout(title=title, showlegend=True, template="ame_dark")
     return fig

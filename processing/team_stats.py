@@ -1,3 +1,4 @@
+from __future__ import annotations
 """Aggregated team stat computation for radar charts and comparisons."""
 
 import unicodedata
@@ -5,7 +6,7 @@ import pandas as pd
 import streamlit as st
 from data.loader import load_team_season_stats, load_standings, load_all_season_results
 from data.paths import list_team_folders
-from config import MU_TEAM_FOLDER
+from config import AME_TEAM_FOLDER
 
 
 def _nfc(text: str) -> str:
@@ -188,7 +189,7 @@ def compute_standings_from_results(league: str, season: str) -> pd.DataFrame:
 
     # Also build an ID→name mapping from the JSON standings so we can
     # enrich our computed table with the "official" long names (e.g.
-    # "Manchester United FC" instead of the short "Manchester United").
+    # "CF América" instead of a shorter variant).
     json_st = load_standings(league, season)
     id_to_official: dict[str, str] = {}
     if not json_st.empty and "team_id" in json_st.columns:
@@ -236,7 +237,7 @@ def compute_points_by_matchday(league: str, season: str, team_name: str,
     if results.empty:
         return pd.DataFrame()
 
-    # Resolve name: standings may use "Manchester United FC" but results have "Manchester United"
+    # Resolve name: standings may use full name but results use a shorter variant
     from processing.poisson import _resolve_team_in_results, _get_team_id
     if not team_id:
         standings = load_standings(league, season)

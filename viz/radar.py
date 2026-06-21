@@ -1,7 +1,8 @@
+from __future__ import annotations
 """Plotly scatterpolar radar chart builder."""
 
 import plotly.graph_objects as go
-from config import MU_RED, MU_GOLD, MU_WHITE
+from config import AME_YELLOW, AME_BLUE, AME_WHITE
 
 
 def _hex_to_rgba(hex_color: str, alpha: float) -> str:
@@ -24,7 +25,7 @@ def radar_chart(categories: list[str], values_dict: dict[str, list[float]],
         colors: list of colors per trace
     """
     if colors is None:
-        colors = [MU_RED, MU_GOLD, "#42A5F5", "#4CAF50", MU_WHITE, "#FF9800"]
+        colors = [AME_YELLOW, AME_BLUE, "#42A5F5", "#4CAF50", AME_WHITE, "#FF9800"]
 
     fig = go.Figure()
 

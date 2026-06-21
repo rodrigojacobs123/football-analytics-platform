@@ -6,7 +6,7 @@ from viz.theme import apply_theme
 import pandas as pd
 from components.sidebar import render_sidebar
 from components.team_selector import team_selector
-from viz.kpi_cards import section_header, kpi_card, kpi_row, page_header, mu_section
+from viz.kpi_cards import section_header, kpi_card, kpi_row, page_header, ame_section
 from viz.charts import (
     tactical_progression_chart, formation_donut, multi_line_chart,
     grouped_bar_chart, bar_chart,
@@ -16,12 +16,13 @@ from viz.charts import (
 from viz.radar import team_radar
 from viz.pitch import plot_shot_map, plot_formation_shape
 from viz.tables import styled_dataframe
+from viz.xt import xt_pitch_heatmap, xt_top_contributors_bar
 from data.loader import load_standings, load_team_season_stats, build_player_name_map, list_standings_stages
 from data.event_parser import extract_shots, parse_match_info
 from data.paths import list_team_folders, partidos_dir
 from processing.season_tactics import (
     compute_season_tactical_progression, load_team_season_agg,
-    compute_rolling_averages,
+    compute_rolling_averages, compute_season_xt,
 )
 from processing.team_stats import (
     compute_team_radar_data, RADAR_CATEGORIES, get_team_folder_map,
@@ -31,7 +32,8 @@ from processing.manager_stats import (
     compute_formation_usage, compute_home_away_split,
     compute_goals_timeline, compute_recent_form,
 )
-from config import MU_TEAM_NAME, MU_RED, MU_GOLD, MU_DARK_BG
+from processing.pressure import compute_season_pressure
+from config import AME_TEAM_NAME, AME_YELLOW, AME_BLUE, AME_DARK_BG
 
 apply_theme()
 
@@ -54,7 +56,7 @@ if len(_stage_names) > 1:
 # ── Team Selector ──────────────────────────────────────────────────────────
 selected = team_selector(league, season, key="season_tactics_sel",
                          multi=False, label="Select Team")
-team_name = selected[0] if selected else MU_TEAM_NAME
+team_name = selected[0] if selected else AME_TEAM_NAME
 
 # Resolve team_id and folder
 standings = load_standings(league, season)
@@ -128,7 +130,7 @@ if has_progression:
 
     st.markdown(f"""
     <div style="text-align:center;padding:0.6rem;margin:0.5rem 0 1rem;
-         background:#1A1A2E;border-radius:8px;border-left:4px solid {MU_RED};">
+         background:#1A1A2E;border-radius:8px;border-left:4px solid {AME_YELLOW};">
         <span style="font-size:1.6rem;">{style_icon}</span>
         <span style="color:#ccc;font-size:1.1rem;font-weight:600;margin-left:0.5rem;">
             Tactical Style: {style}
@@ -196,7 +198,7 @@ if formations:
     top_formations = formations[:3]
     n_forms = len(top_formations)
     form_cols = st.columns(n_forms)
-    form_colors = [MU_RED, "#42A5F5", "#4CAF50"]
+    form_colors = [AME_YELLOW, "#42A5F5", "#4CAF50"]
     for i, f_data in enumerate(top_formations):
         with form_cols[i]:
             plot_formation_shape(
@@ -261,7 +263,7 @@ if has_progression:
         prog_with_rolling,
         metrics=["possession", "field_tilt"],
         rolling_cols=["possession_rolling", "field_tilt_rolling"],
-        colors=[MU_RED, "#42A5F5"],
+        colors=[AME_YELLOW, "#42A5F5"],
         title=f"{team_name} — Possession & Territory (%)",
         y_label="% (both on same scale)",
     )
@@ -284,7 +286,7 @@ if has_progression:
         right_metric="progressive_passes",
         left_rolling="pass_accuracy_rolling",
         right_rolling="progressive_passes_rolling",
-        left_color=MU_GOLD,
+        left_color=AME_BLUE,
         right_color="#42A5F5",
         left_label="Pass Accuracy %",
         right_label="Progressive Passes",
@@ -307,7 +309,7 @@ if has_progression:
         prog_dir = "increasing" if prog_end > prog_start else "decreasing"
 
         st.markdown(f"""
-        <div style="padding:0.8rem;background:#1A1A2E;border-radius:8px;border-left:4px solid {MU_GOLD};
+        <div style="padding:0.8rem;background:#1A1A2E;border-radius:8px;border-left:4px solid {AME_BLUE};
              margin:0.5rem 0;">
             <span style="color:#ccc;font-size:0.9rem;">
                 <b>📊 Trend Analysis:</b><br>
@@ -319,6 +321,108 @@ if has_progression:
         """, unsafe_allow_html=True)
 else:
     st.info("Per-match tactical progression requires match files in partidos/.")
+
+
+# ═══════════════════════════════════════════════════════════════════════════
+# § 3b  EXPECTED THREAT (xT)
+# ═══════════════════════════════════════════════════════════════════════════
+st.markdown("---")
+section_header("Expected Threat (xT)")
+st.caption(
+    "**xT** measures *possession value* — the probability of scoring within the "
+    "next few actions from each pitch zone. A pass's xT-added is the value it "
+    "gains by moving the ball into a more dangerous zone. "
+    "Grid: [Karun Singh's published 12×8 model](https://karun.in/blog/expected-threat.html). "
+    "Open-play passes only; ranked by total xT added across the season."
+)
+
+season_xt = compute_season_xt(league, season, team_id, stage_filter=_stage_filter)
+
+if not season_xt["leaders"].empty:
+    n_matches = season_xt["matches"]
+    if n_matches < 5:
+        st.caption(
+            f"⚠️ Low sample — only {n_matches} match(es) aggregated. "
+            "Early-season xT totals are volatile."
+        )
+
+    xk1, xk2, xk3 = st.columns(3)
+    with xk1:
+        kpi_card("Season xT (passes)", f"+{season_xt['total_xt']:.2f}")
+    with xk2:
+        kpi_card("Matches", n_matches)
+    with xk3:
+        per_match = season_xt["total_xt"] / n_matches if n_matches else 0
+        kpi_card("xT / Match", f"+{per_match:.2f}")
+
+    xc1, xc2 = st.columns(2)
+    with xc1:
+        st.plotly_chart(
+            xt_pitch_heatmap(season_xt["all_passes"],
+                             title="Where Threat Is Created"),
+            use_container_width=True,
+        )
+    with xc2:
+        st.plotly_chart(
+            xt_top_contributors_bar(season_xt["leaders"],
+                                    title="Top xT Contributors", color=AME_YELLOW),
+            use_container_width=True,
+        )
+else:
+    st.info("Season xT requires match files in partidos/.")
+
+
+# ═══════════════════════════════════════════════════════════════════════════
+# § 3c  PRESSING & TRANSITIONS
+# ═══════════════════════════════════════════════════════════════════════════
+st.markdown("---")
+section_header("Pressing & Transitions")
+st.caption(
+    "Opta F24 has no native 'pressure' event, so these are **approximations** "
+    "of StatsBomb/The-Analyst pressing metrics derived from recoveries, tackles, "
+    "interceptions & clearances. *Pitch height is on the 0–100 scale (higher = "
+    "further upfield = more aggressive).*"
+)
+
+press = compute_season_pressure(league, season, team_id, stage_filter=_stage_filter)
+
+if press and press.get("matches", 0) > 0:
+    pc1, pc2, pc3, pc4 = st.columns(4)
+    with pc1:
+        kpi_card("Ball-Recovery Height", f"{press['avg_recovery_height']:.1f}")
+    with pc2:
+        kpi_card("Defensive-Line Height", f"{press['avg_def_line_height']:.1f}")
+    with pc3:
+        kpi_card("High Turnovers / Match", f"{press['high_turnovers_per_match']:.1f}")
+    with pc4:
+        kpi_card("Shot-Ending HTOs", press["shot_ending_htos_total"])
+
+    pc5, _, _, _ = st.columns(4)
+    with pc5:
+        kpi_card("Pressure Regains / Match", f"{press['pressure_regains_per_match']:.1f}")
+
+    # 5-match rolling averages so the chart draws bold trend lines
+    per_match = compute_rolling_averages(
+        press["per_match"],
+        ["ball_recovery_height", "def_line_height"], window=5,
+    )
+    if len(per_match) >= 2:
+        fig_press = tactical_progression_chart(
+            per_match,
+            metrics=["ball_recovery_height", "def_line_height"],
+            colors=[AME_YELLOW, AME_BLUE],
+            title=f"{team_name} — Recovery & Defensive-Line Height Over Season",
+            y_label="Pitch x (0–100)",
+        )
+        # Rename legend labels for clarity
+        for trace in fig_press.data:
+            if trace.name == "Ball Recovery Height":
+                trace.name = "Ball-Recovery Height"
+            elif trace.name == "Def Line Height":
+                trace.name = "Defensive-Line Height"
+        st.plotly_chart(fig_press, use_container_width=True)
+else:
+    st.info("Pressing metrics require per-match files in partidos/.")
 
 
 # ═══════════════════════════════════════════════════════════════════════════
@@ -373,7 +477,7 @@ ha_df = pd.DataFrame({
 })
 
 fig = grouped_bar_chart(ha_df, x="Metric", y_cols=["Home", "Away"],
-                        colors=[MU_RED, "#42A5F5"],
+                        colors=[AME_YELLOW, "#42A5F5"],
                         title=f"{team_name} — Home vs Away",
                         bar_names=["Home", "Away"])
 st.plotly_chart(fig, width="stretch")
@@ -406,7 +510,7 @@ if has_progression and "sp_shots" in progression.columns:
         sp_trend,
         metrics=["sp_shots", "corners_won"],
         title=f"{team_name} — Set-Piece Threat Over Season",
-        colors=["#4CAF50", MU_GOLD],
+        colors=["#4CAF50", AME_BLUE],
         y_label="Count",
     )
     st.plotly_chart(fig, width="stretch")
@@ -443,7 +547,7 @@ if agg:
         })
         fig = bar_chart(pass_dist, x="Type", y="Count",
                         title=f"{team_name} — Pass Type Distribution",
-                        color=MU_RED)
+                        color=AME_YELLOW)
         st.plotly_chart(fig, width="stretch")
 
     # Possession stats
@@ -472,7 +576,7 @@ if not goals_df.empty:
     fig = multi_line_chart(
         goals_df, x="match_num",
         y_cols=["gd_cumulative"],
-        colors=[MU_RED],
+        colors=[AME_YELLOW],
         title=f"{team_name} — Cumulative Goal Difference",
         y_label="Goal Difference",
     )

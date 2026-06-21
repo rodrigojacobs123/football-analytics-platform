@@ -1,13 +1,14 @@
+from __future__ import annotations
 """Styled DataFrame renderers for league tables and data displays."""
 
 import pandas as pd
 import streamlit as st
-from config import MU_RED, MU_TEAM_NAME, MU_DARK_BG
+from config import AME_YELLOW, AME_TEAM_NAME, AME_DARK_BG
 
 
 def styled_league_table(
     df: pd.DataFrame,
-    highlight_team: str = MU_TEAM_NAME,
+    highlight_team: str = AME_TEAM_NAME,
     league: str = "",
 ) -> None:
     """Render a league table with the specified team highlighted.
@@ -56,7 +57,7 @@ def styled_league_table(
                 base_bg = "background-color: #B7000022;"   # red — Relegation
 
         if is_highlighted:
-            return [f"background-color: {MU_RED}44; font-weight: bold"] * len(row)
+            return [f"background-color: {AME_YELLOW}44; font-weight: bold"] * len(row)
 
         return [base_bg] * len(row)
 

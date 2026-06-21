@@ -64,7 +64,7 @@ app.py                          # Streamlit entry point + page registry
 │   ├── set_pieces.py
 │   └── ...
 ├── viz/
-│   ├── theme.py                # Global CSS design system (dark MU palette)
+│   ├── theme.py                # Global CSS design system (dark Club América palette)
 │   ├── charts.py               # Plotly chart library
 │   ├── pitch.py                # mplsoccer + Plotly pitch visualizations
 │   ├── kpi_cards.py            # HTML KPI card components
@@ -118,7 +118,7 @@ cd football-analytics-platform
 pip install -r requirements.txt
 
 # Point the app at your data
-export MU_DATA_ROOT=/path/to/your/opta-data
+export AME_DATA_ROOT=/path/to/your/opta-data
 
 streamlit run app.py
 # → http://localhost:8501
