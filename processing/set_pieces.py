@@ -8,6 +8,12 @@ from config import (
     CORNER_TYPE_LABELS, SET_PIECE_WINDOW_SECS,
 )
 
+# A set-piece shot inside this many seconds of the delivery is the *first phase*
+# (the initial routine / first contact); later shots in the 45-s attribution
+# window are *second phase* (the recycled / second-ball attack).  The elite
+# 2025-26 edge sits in the second phase, so the two are reported separately.
+FIRST_CONTACT_SECS = 6
+
 
 def _to_total_seconds(minute: int, second: int, period: int) -> float:
     """Convert match time to a continuous total-seconds value.
@@ -362,3 +368,229 @@ def compute_dangerous_fk_zones(
     df["y"] = 100 - df["y"]
     df["dangerous"] = df["x"] > 66
     return df
+
+
+# ─────────────────────────────────────────────────────────────────────────────
+# Set-piece SECOND-PHASE value  (xG + Shot/Goal Ratio per routine)
+# ─────────────────────────────────────────────────────────────────────────────
+# The existing functions above attribute the *first* shot after a set piece.
+# These add the StatsBomb HOPS-style split the 2025-26 set-piece revolution
+# turns on: per corner routine, how much xG comes from the initial delivery
+# (≤6 s) vs the recycled second phase (6-45 s), plus Shot Ratio (% of routines
+# that produce a shot) and Goal Ratio.  Corners are the routine source because
+# their delivery type (qualifier 56) is the most reliable in the feed; free
+# kicks have no clean routine tag and are left for a later pass.
+
+# Event types to skip when locating a corner's delivery contact (admin / mirror
+# events, cards, subs) — mirrors compute_corner_shot_detail's _SKIP_TYPES.
+_DELIVERY_SKIP_TYPES = {6, 30, 32, 34, 40, 17, 18, 19, 20}
+
+
+def _corner_delivery_times(events: list[dict], team_id: str) -> list[tuple]:
+    """For each of ``team_id``'s corners, the (award_t, delivery_t, label) tuple.
+
+    Opta timestamps a corner at the moment it is *awarded*, not when it is taken
+    (there is often a 15-40 s gap). To split first vs second phase correctly we
+    anchor on the **delivery contact** — the first real touch after the corner —
+    not the award. ``delivery_t`` falls back to ``award_t`` if no touch is found.
+    """
+    out = []
+    for i, e in enumerate(events):
+        if e.get("typeId") != EVENT_CORNER or e.get("contestantId") != team_id:
+            continue
+        award_t = _to_total_seconds(int(e.get("timeMin", 0)),
+                                    int(e.get("timeSec", 0)),
+                                    int(e.get("periodId", 0)))
+        label = CORNER_TYPE_LABELS.get(
+            _get_corner_label(e), _get_corner_label(e))
+        delivery_t = award_t
+        for j in range(i + 1, min(i + 80, len(events))):
+            nxt = events[j]
+            if nxt.get("typeId") in _DELIVERY_SKIP_TYPES:
+                continue
+            nx, ny = float(nxt.get("x", 0)), float(nxt.get("y", 0))
+            if nx == 0 and ny == 0:
+                continue
+            t = _to_total_seconds(int(nxt.get("timeMin", 0)),
+                                  int(nxt.get("timeSec", 0)),
+                                  int(nxt.get("periodId", 0)))
+            if t - award_t < 0 or t - award_t > 60:
+                break
+            delivery_t = t
+            break
+        out.append((award_t, delivery_t, label))
+    return out
+
+
+def _get_corner_label(e: dict) -> str:
+    """Corner delivery type (qualifier 56) for a raw corner event."""
+    from config import QUAL_CORNER_TYPE
+    for q in e.get("qualifier", []):
+        if q.get("qualifierId") == QUAL_CORNER_TYPE:
+            return q.get("value", "Unknown")
+    return "Unknown"
+
+
+def _corner_phase_frame(events: list[dict], team_id: str) -> pd.DataFrame:
+    """One row per corner with first/second-phase xG and shot/goal flags.
+
+    Each of the team's shots is attributed to the most-recent preceding corner
+    whose *award* was within ``SET_PIECE_WINDOW_SECS``, then split by its gap
+    from the corner's **delivery contact**: first phase (≤ ``FIRST_CONTACT_SECS``)
+    vs second phase.  Columns: delivery_label, first_xg, second_xg, first_shot,
+    second_shot, had_shot, had_goal.
+    """
+    deliveries = _corner_delivery_times(events, team_id)
+    if not deliveries:
+        return pd.DataFrame()
+
+    shots = extract_shots(events, team_id)
+
+    n = len(deliveries)
+    labels = [d[2] for d in deliveries]
+    first_xg = [0.0] * n
+    second_xg = [0.0] * n
+    first_shot = [False] * n
+    second_shot = [False] * n
+    had_goal = [False] * n
+
+    if not shots.empty:
+        for _, s in shots.iterrows():
+            s_t = _to_total_seconds(s["minute"], s["second"], s.get("period", 1))
+            # most-recent preceding corner within the attribution window (by award)
+            best_i, best_gap = -1, SET_PIECE_WINDOW_SECS + 1
+            for ci, (award_t, _deliv_t, _lbl) in enumerate(deliveries):
+                gap = s_t - award_t
+                if 0 < gap <= SET_PIECE_WINDOW_SECS and gap < best_gap:
+                    best_gap, best_i = gap, ci
+            if best_i < 0:
+                continue
+            xg = float(s.get("xg", 0.0) or 0.0)
+            # phase split relative to the DELIVERY contact, not the award
+            since_delivery = s_t - deliveries[best_i][1]
+            if since_delivery <= FIRST_CONTACT_SECS:
+                first_xg[best_i] += xg
+                first_shot[best_i] = True
+            else:
+                second_xg[best_i] += xg
+                second_shot[best_i] = True
+            if s.get("outcome") == "Goal":
+                had_goal[best_i] = True
+
+    return pd.DataFrame({
+        "delivery_label": labels,
+        "first_xg": first_xg,
+        "second_xg": second_xg,
+        "first_shot": first_shot,
+        "second_shot": second_shot,
+        "had_shot": [a or b for a, b in zip(first_shot, second_shot)],
+        "had_goal": had_goal,
+    })
+
+
+def _empty_phase_summary() -> dict:
+    return {
+        "n_set_pieces": 0, "shots": 0, "goals": 0,
+        "first_xg": 0.0, "second_xg": 0.0, "total_xg": 0.0,
+        "shot_ratio": 0.0, "goal_ratio": 0.0, "second_phase_share": 0.0,
+        "by_routine": pd.DataFrame(), "matches": 0,
+    }
+
+
+def _summarize_phases(frame: pd.DataFrame, n_matches: int) -> dict:
+    """Aggregate a per-corner phase frame into headline + per-routine output."""
+    if frame is None or frame.empty:
+        return _empty_phase_summary()
+
+    n = len(frame)
+    first_xg = float(frame["first_xg"].sum())
+    second_xg = float(frame["second_xg"].sum())
+    total_xg = first_xg + second_xg
+    shots = int(frame["had_shot"].sum())
+    goals = int(frame["had_goal"].sum())
+
+    by_routine = (frame.groupby("delivery_label").agg(
+        set_pieces=("had_shot", "size"),
+        with_shot=("had_shot", "sum"),
+        goals=("had_goal", "sum"),
+        first_xg=("first_xg", "sum"),
+        second_xg=("second_xg", "sum"),
+    ).reset_index())
+    if not by_routine.empty:
+        by_routine["total_xg"] = (by_routine["first_xg"] + by_routine["second_xg"]).round(3)
+        by_routine["shot_ratio"] = (by_routine["with_shot"]
+                                    / by_routine["set_pieces"] * 100).round(1)
+        by_routine["first_xg"] = by_routine["first_xg"].round(3)
+        by_routine["second_xg"] = by_routine["second_xg"].round(3)
+        by_routine = by_routine.sort_values("total_xg", ascending=False).reset_index(drop=True)
+
+    return {
+        "n_set_pieces": n,
+        "shots": shots,
+        "goals": goals,
+        "first_xg": round(first_xg, 3),
+        "second_xg": round(second_xg, 3),
+        "total_xg": round(total_xg, 3),
+        "shot_ratio": round(shots / n * 100, 1) if n else 0.0,
+        "goal_ratio": round(goals / n * 100, 1) if n else 0.0,
+        "second_phase_share": round(second_xg / total_xg * 100, 1) if total_xg else 0.0,
+        "by_routine": by_routine,
+        "matches": n_matches,
+    }
+
+
+def compute_set_piece_phase_value(events: list[dict], team_id: str,
+                                  n_matches: int = 1) -> dict:
+    """One-call first/second-phase set-piece value for a team over one match."""
+    if not events or not team_id:
+        return _empty_phase_summary()
+    return _summarize_phases(_corner_phase_frame(events, team_id), n_matches)
+
+
+# ── Season aggregation (cached deep tier) ────────────────────────────────────
+import json
+import streamlit as st
+from data.paths import partidos_dir
+from data.event_parser import parse_match_info
+
+
+@st.cache_data(ttl=3600, show_spinner="Computing set-piece phase value…")
+def compute_season_set_piece_phases(league: str, season: str, team_id: str,
+                                    stage_filter: str = "") -> dict:
+    """Season-aggregated first/second-phase set-piece value for one team.
+
+    Builds the per-corner phase frame **per match** (so a corner never claims
+    another game's shot — minute counters reset each match), concats, and
+    summarises once.  Returns the same dict as ``compute_set_piece_phase_value``.
+    """
+    pdir = partidos_dir(league, season)
+    if not pdir.exists():
+        return _empty_phase_summary()
+
+    frames: list[pd.DataFrame] = []
+    matches = 0
+    for fpath in sorted(pdir.iterdir()):
+        if fpath.suffix != ".json":
+            continue
+        try:
+            with open(fpath, "r", encoding="utf-8") as f:
+                raw = json.load(f)
+        except (json.JSONDecodeError, OSError):
+            continue
+        info = parse_match_info(raw)
+        if team_id not in (info["home_id"], info["away_id"]):
+            continue
+        if stage_filter:
+            sn = info.get("stage_name", "")
+            if not sn.lower().startswith(stage_filter.lower().strip()):
+                continue
+        events = raw.get("liveData", {}).get("event", [])
+        matches += 1
+        f = _corner_phase_frame(events, team_id)
+        if not f.empty:
+            frames.append(f)
+
+    if matches == 0:
+        return _empty_phase_summary()
+    frame = pd.concat(frames, ignore_index=True) if frames else pd.DataFrame()
+    return _summarize_phases(frame, matches)

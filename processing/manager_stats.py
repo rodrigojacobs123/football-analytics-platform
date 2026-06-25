@@ -5,14 +5,18 @@ Supports tenure-aware filtering: pass start_date/end_date to scope stats
 to a specific manager's period in charge.
 """
 
+import numpy as np
 import pandas as pd
+import streamlit as st
+from scipy.stats import poisson
 from collections import Counter
 from data.loader import (
     load_all_season_results, load_season_matches, load_match_raw,
     load_managers, load_standings,
 )
-from data.event_parser import extract_formation, parse_match_info
+from data.event_parser import extract_formation, extract_shots, parse_match_info
 from data.paths import list_match_files
+from config import POISSON_MAX_GOALS
 
 
 # ── Tenure date helpers ──────────────────────────────────────────────────────
@@ -345,6 +349,254 @@ def compare_managers(league: str, season: str, team_id: str,
         })
 
     return pd.DataFrame(rows)
+
+
+# ── Manager Over/Under-achievement (MOU) — expected points vs actual ─────────
+#
+# MOU asks whether a manager's *results* are backed by the underlying chances:
+# convert each match's xG-for and xG-against into an expected-points value
+# (xPts), sum over the tenure, and compare to points actually taken.
+#   MOU = actual_points − expected_points
+# A large positive MOU = over-achieving (clinical, lucky, or great in low-xG
+# moments); negative = under-achieving (creating more than the table shows).
+# Reuses the platform's xG (Σ shot xG per team per match) — no new model.
+
+
+def match_expected_points(xg_for: float, xg_against: float,
+                          *, max_goals: int = POISSON_MAX_GOALS) -> tuple[float, float, float]:
+    """Convert a single match's xG into (P(win), P(draw), P(loss)) for the team.
+
+    Implemented with **Approach A** (closed-form Poisson) below — the choice is
+    documented here because the whole MOU index hangs on how you turn two
+    expected-goal totals into an outcome distribution.  Two defensible
+    approaches, with a real trade-off:
+
+      A) **Closed-form Poisson** (simple, fast, the standard).  Model goals as
+         two independent Poissons: ``G_for ~ Poisson(xg_for)`` and
+         ``G_against ~ Poisson(xg_against)``.  Then
+            P(win)  = Σ_{a>b} pmf(a; xg_for)·pmf(b; xg_against)
+            P(draw) = Σ_{a=b} pmf(a; xg_for)·pmf(b; xg_against)
+            P(loss) = 1 − P(win) − P(draw)
+         Iterate a,b over 0..max_goals.  ``scipy.stats.poisson.pmf`` is already
+         a dependency (see processing/poisson.py).  Cons: treats total xG as if
+         it arrived in one lump — three 0.3-xG shots look identical to one
+         0.9-xG shot, which slightly understates the variance of many small
+         chances.
+
+      B) **Per-shot Bernoulli Monte-Carlo** (more faithful).  Simulate each
+         individual shot as a Bernoulli(shot_xg) and count goals across N sims.
+         Captures that many small chances ≠ one big chance.  Needs the per-shot
+         xG lists passed in (a richer signature) and is slower.
+
+    Approach A is the recommended default — it matches the rest of the app's
+    Poisson machinery and needs only the two aggregate xG numbers this function
+    already receives.  Return the three probabilities; the caller derives
+    ``xPts = 3·P(win) + 1·P(draw)``.
+
+    Approach A naturally handles the degenerate case: with xg ≈ 0 the Poisson
+    mass collapses onto 0 goals, so ``grid[0,0]→1`` and the match reads as a
+    draw.  We renormalise to absorb the truncated tail beyond ``max_goals`` so
+    the three probabilities sum to 1.0.
+    """
+    a = poisson.pmf(np.arange(max_goals + 1), max(xg_for, 1e-9))
+    b = poisson.pmf(np.arange(max_goals + 1), max(xg_against, 1e-9))
+    grid = np.outer(a, b)                      # grid[i, j] = P(for=i, against=j)
+    p_win = float(np.tril(grid, -1).sum())     # for > against
+    p_draw = float(np.trace(grid))             # for == against
+    p_loss = float(np.triu(grid, 1).sum())     # for < against
+    total = p_win + p_draw + p_loss            # < 1.0 by the truncated tail
+    if total > 0:
+        p_win, p_draw, p_loss = p_win / total, p_draw / total, p_loss / total
+    return p_win, p_draw, p_loss
+
+
+def _match_xg_totals(events: list[dict], home_id: str, away_id: str) -> tuple[float, float]:
+    """Sum each side's shot xG for one match → (home_xg, away_xg)."""
+    shots = extract_shots(events)
+    if shots.empty:
+        return 0.0, 0.0
+    home_xg = float(shots.loc[shots["team_id"] == home_id, "xg"].sum())
+    away_xg = float(shots.loc[shots["team_id"] == away_id, "xg"].sum())
+    return home_xg, away_xg
+
+
+def compute_manager_xpts(league: str, season: str, team_id: str,
+                         start_date: str = "", end_date: str = "",
+                         stage_filter: str = "") -> pd.DataFrame:
+    """Per-match xPts vs actual points for ``team_id`` within a tenure window.
+
+    Scans ``partidos/`` (heavy tier — same pattern as ``compute_formation_usage``),
+    aggregates each match's xG-for / xG-against, and calls
+    ``match_expected_points`` to get the outcome distribution.  Returns one row
+    per match with: opponent, venue, xg_for, xg_against, actual_pts, xpts,
+    plus running totals available via ``.sum()`` by the caller.
+
+    Returns an empty frame if no matches match the filters.
+    """
+    import json
+    from data.paths import partidos_dir
+
+    start = _parse_date(start_date)
+    end = _parse_date(end_date)
+
+    pdir = partidos_dir(league, season)
+    if not pdir.exists():
+        return pd.DataFrame()
+
+    rows: list[dict] = []
+    for fpath in sorted(pdir.iterdir()):
+        if fpath.suffix != ".json":
+            continue
+        try:
+            with open(fpath, "r", encoding="utf-8") as f:
+                raw = json.load(f)
+        except (json.JSONDecodeError, OSError):
+            continue
+
+        info = parse_match_info(raw)
+        home_id, away_id = info["home_id"], info["away_id"]
+        if team_id not in (home_id, away_id):
+            continue
+        if info.get("match_status") != "Played":
+            continue
+        if stage_filter:
+            sn = info.get("stage_name", "")
+            if not sn.lower().startswith(stage_filter.lower().strip()):
+                continue
+        if start or end:
+            md = _parse_date(info.get("date", ""))
+            if md and ((start and md < start) or (end and md > end)):
+                continue
+
+        events = raw.get("liveData", {}).get("event", [])
+        home_xg, away_xg = _match_xg_totals(events, home_id, away_id)
+
+        is_home = team_id == home_id
+        xg_for = home_xg if is_home else away_xg
+        xg_against = away_xg if is_home else home_xg
+        my_goals = info["home_score"] if is_home else info["away_score"]
+        opp_goals = info["away_score"] if is_home else info["home_score"]
+        actual_pts = 3 if my_goals > opp_goals else (1 if my_goals == opp_goals else 0)
+
+        p_win, p_draw, _ = match_expected_points(xg_for, xg_against)
+        xpts = 3.0 * p_win + 1.0 * p_draw
+
+        rows.append({
+            "date": info.get("date", "")[:10],
+            "opponent": info["away_team"] if is_home else info["home_team"],
+            "venue": "H" if is_home else "A",
+            "xg_for": round(xg_for, 2),
+            "xg_against": round(xg_against, 2),
+            "actual_pts": actual_pts,
+            "xpts": round(xpts, 2),
+        })
+
+    return pd.DataFrame(rows)
+
+
+def compute_mou_index(league: str, season: str, team_id: str,
+                      start_date: str = "", end_date: str = "",
+                      stage_filter: str = "") -> dict:
+    """Manager Over/Under-achievement summary for a tenure window.
+
+    Returns: matches, actual_points, expected_points (xPts), mou (actual −
+    expected), mou_per_game, plus xg_for/xg_against totals.  Empty-safe.
+    Respects ``MIN_MATCHES_FOR_PREDICTION`` is the caller's job — xPts is noisy
+    over a handful of games, so surface the match count alongside MOU.
+    """
+    per_match = compute_manager_xpts(
+        league, season, team_id, start_date, end_date, stage_filter)
+    if per_match.empty:
+        return {"matches": 0, "actual_points": 0, "expected_points": 0.0,
+                "mou": 0.0, "mou_per_game": 0.0, "xg_for": 0.0, "xg_against": 0.0}
+
+    n = len(per_match)
+    actual = int(per_match["actual_pts"].sum())
+    expected = float(per_match["xpts"].sum())
+    return {
+        "matches": n,
+        "actual_points": actual,
+        "expected_points": round(expected, 2),
+        "mou": round(actual - expected, 2),
+        "mou_per_game": round((actual - expected) / n, 3),
+        "xg_for": round(float(per_match["xg_for"].sum()), 2),
+        "xg_against": round(float(per_match["xg_against"].sum()), 2),
+    }
+
+
+@st.cache_data(ttl=3600, show_spinner="Computing league xPts…")
+def compute_league_mou(league: str, season: str, stage_filter: str = "") -> pd.DataFrame:
+    """League-wide xPts vs actual points for every team, in ONE partidos pass.
+
+    Per-team MOU (``compute_mou_index``) scans ``partidos/`` once *per team*;
+    for a league-wide scatter that is N redundant scans, so this walks the
+    folder a single time and accumulates both sides of every match.  Cached, so
+    the All-Coaches scatter recomputes only when the competition changes.
+
+    Returns one row per team: ``team_id, team_name, matches, actual_points,
+    expected_points, ppg, xppg, mou, mou_per_game`` (empty frame if none).
+    The per-team value maps to that team's season head coach in the page.
+    """
+    import json
+    from data.paths import partidos_dir
+
+    pdir = partidos_dir(league, season)
+    if not pdir.exists():
+        return pd.DataFrame()
+
+    acc: dict[str, dict] = {}
+    for fpath in sorted(pdir.iterdir()):
+        if fpath.suffix != ".json":
+            continue
+        try:
+            with open(fpath, "r", encoding="utf-8") as f:
+                raw = json.load(f)
+        except (json.JSONDecodeError, OSError):
+            continue
+
+        info = parse_match_info(raw)
+        if info.get("match_status") != "Played":
+            continue
+        if stage_filter:
+            sn = info.get("stage_name", "")
+            if not sn.lower().startswith(stage_filter.lower().strip()):
+                continue
+
+        home_id, away_id = info["home_id"], info["away_id"]
+        events = raw.get("liveData", {}).get("event", [])
+        home_xg, away_xg = _match_xg_totals(events, home_id, away_id)
+
+        for tid, name, xg_for, xg_against, my_g, opp_g in [
+            (home_id, info["home_team"], home_xg, away_xg, info["home_score"], info["away_score"]),
+            (away_id, info["away_team"], away_xg, home_xg, info["away_score"], info["home_score"]),
+        ]:
+            if not tid:
+                continue
+            a = acc.setdefault(tid, {"team_name": name, "matches": 0,
+                                     "actual_points": 0, "expected_points": 0.0})
+            p_win, p_draw, _ = match_expected_points(xg_for, xg_against)
+            a["matches"] += 1
+            a["actual_points"] += 3 if my_g > opp_g else (1 if my_g == opp_g else 0)
+            a["expected_points"] += 3.0 * p_win + 1.0 * p_draw
+
+    if not acc:
+        return pd.DataFrame()
+
+    rows = []
+    for tid, a in acc.items():
+        n = max(a["matches"], 1)
+        rows.append({
+            "team_id": tid,
+            "team_name": a["team_name"],
+            "matches": a["matches"],
+            "actual_points": a["actual_points"],
+            "expected_points": round(a["expected_points"], 2),
+            "ppg": round(a["actual_points"] / n, 3),
+            "xppg": round(a["expected_points"] / n, 3),
+            "mou": round(a["actual_points"] - a["expected_points"], 2),
+            "mou_per_game": round((a["actual_points"] - a["expected_points"]) / n, 3),
+        })
+    return pd.DataFrame(rows).sort_values("mou", ascending=False).reset_index(drop=True)
 
 
 # ── Internal helpers ─────────────────────────────────────────────────────────

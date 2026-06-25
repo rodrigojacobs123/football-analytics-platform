@@ -261,3 +261,93 @@ def compute_season_xdef(league: str, season: str, team_id: str,
         "by_action": {k: round(v, 3) for k, v in by_action_acc.items()},
         "leaderboard": leaderboard,
     }
+
+
+@st.cache_data(ttl=3600, show_spinner="Computing league-wide xDEF percentiles…")
+def compute_league_xdef(league: str, season: str, stage_filter: str = "",
+                        min_appearances: int = 1) -> pd.DataFrame:
+    """League-wide, **cross-team** player xDEF with percentile ranks.
+
+    ``compute_season_xdef`` above is per-team — useful for an internal ranking,
+    but a DEF rating needs each player benchmarked against *all* defenders in the
+    competition, not just team-mates (see the project note: the DEF rating is a
+    league percentile, and event-derived team-only metrics can't be blended into
+    FC ratings without a league-wide scan).  This is that scan: it walks every
+    match once, credits **both** teams' defensive actions, and percentile-ranks
+    every qualifying player's xDEF-per-match across the whole league.
+
+    Returns a DataFrame ``[player_id, player_name, team_id, team_name, xdef,
+    actions, apps, xdef_per_match, pct]`` sorted by percentile (desc), or an
+    empty frame if no matches.  ``pct`` is 0-100.
+    """
+    pdir = partidos_dir(league, season)
+    if not pdir.exists():
+        return pd.DataFrame()
+
+    acc: dict[str, dict] = {}          # player_id -> accumulator
+    names: dict[str, str] = {}         # team_id -> team_name
+    matches = 0
+
+    for fpath in sorted(pdir.iterdir()):
+        if fpath.suffix != ".json":
+            continue
+        try:
+            with open(fpath, "r", encoding="utf-8") as f:
+                raw = json.load(f)
+        except (json.JSONDecodeError, OSError):
+            continue
+        info = parse_match_info(raw)
+        if stage_filter:
+            sn = info.get("stage_name", "")
+            if not sn.lower().startswith(stage_filter.lower().strip()):
+                continue
+        home_id, away_id = info["home_id"], info["away_id"]
+        if not home_id or not away_id:
+            continue
+        names[home_id] = info["home_team"]
+        names[away_id] = info["away_team"]
+        events = raw.get("liveData", {}).get("event", [])
+        matches += 1
+
+        for tid in (home_id, away_id):
+            df = defensive_actions_xdef(events, team_id=tid)
+            if df.empty:
+                continue
+            credited = df[df["xdef"] > 0]
+            if credited.empty:
+                continue
+            grp = credited.groupby(["player_id", "player_name"]).agg(
+                xdef=("xdef", "sum"), actions=("xdef", "size"))
+            for (pid, pname), r in grp.iterrows():
+                if not pid:
+                    continue
+                a = acc.setdefault(pid, {
+                    "player_name": pname, "team_id": tid,
+                    "xdef": 0.0, "actions": 0, "apps": 0})
+                a["xdef"] += float(r["xdef"])
+                a["actions"] += int(r["actions"])
+                a["apps"] += 1
+                a["team_id"] = tid          # last team seen
+                if pname:
+                    a["player_name"] = pname
+
+    if matches == 0:
+        return pd.DataFrame()
+
+    out = pd.DataFrame([
+        {
+            "player_id": pid,
+            "player_name": a["player_name"],
+            "team_id": a["team_id"],
+            "team_name": names.get(a["team_id"], a["team_id"][:8]),
+            "xdef": round(a["xdef"], 3),
+            "actions": a["actions"],
+            "apps": a["apps"],
+            "xdef_per_match": round(a["xdef"] / a["apps"], 3),
+        }
+        for pid, a in acc.items() if a["apps"] >= min_appearances
+    ])
+    if out.empty:
+        return out
+    out["pct"] = (out["xdef_per_match"].rank(pct=True) * 100).round(1)
+    return out.sort_values("pct", ascending=False).reset_index(drop=True)

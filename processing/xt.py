@@ -183,6 +183,55 @@ def xt_summary(events: list[dict], team_id: str) -> dict:
 
 
 # ──────────────────────────────────────────────────────────────────────────
+# Match-momentum timeline (per-event xT → rolling "who's on top, when")
+# ──────────────────────────────────────────────────────────────────────────
+def compute_xt_momentum(events: list[dict], home_id: str, away_id: str,
+                        window: int = 5) -> pd.DataFrame:
+    """Per-minute rolling xT momentum for a single match.
+
+    For each team we bin **threat created** (positive per-pass ``xt_added``)
+    by minute, smooth it with a centred rolling ``window``-minute sum, then
+    take ``net = home − away``.  Positive net = the home side was the more
+    threatening team in that window; negative = the away side.  This is the
+    per-event companion to the cumulative xG race — it shows *swings*, not
+    totals, so it crosses zero as control changes hands.
+
+    We sum only positive ``xt_added`` (threat generated), not net-of-giveaways,
+    so a team recycling possession sideways doesn't register as "momentum".
+
+    Returns a DataFrame ``[minute, home_xt, away_xt, net]`` (one row per match
+    minute, 0..max).  Empty input → empty frame.
+    """
+    hp = passes_xt(events, team_id=home_id)
+    ap = passes_xt(events, team_id=away_id)
+
+    last_min = 0
+    for df in (hp, ap):
+        if not df.empty:
+            last_min = max(last_min, int(df["minute"].max()))
+    last_min = max(last_min, 90)
+    minutes = list(range(0, last_min + 1))
+
+    def _per_minute(df: pd.DataFrame) -> pd.Series:
+        if df.empty:
+            return pd.Series(0.0, index=minutes)
+        threat = df.assign(t=df["xt_added"].clip(lower=0))
+        s = threat.groupby("minute")["t"].sum()
+        return s.reindex(minutes, fill_value=0.0)
+
+    home = _per_minute(hp).rolling(window, min_periods=1, center=True).sum()
+    away = _per_minute(ap).rolling(window, min_periods=1, center=True).sum()
+
+    out = pd.DataFrame({
+        "minute": minutes,
+        "home_xt": home.to_numpy(),
+        "away_xt": away.to_numpy(),
+    })
+    out["net"] = out["home_xt"] - out["away_xt"]
+    return out
+
+
+# ──────────────────────────────────────────────────────────────────────────
 # Season / single-match aggregation (cached "deep tier")
 #
 # xt_summary() above is pure (events -> dict).  The two functions below add

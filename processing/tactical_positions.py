@@ -485,6 +485,64 @@ def _nudge_overlaps(
                 positions[pids[j]] = (bx + nx, by + ny)
 
 
+def snap_players_to_template(
+    canonical: list[dict],
+    avg_positions: dict[str, tuple[float, float]],
+) -> list[dict]:
+    """Keep the clean formation template but assign the RIGHT player to each slot.
+
+    Opta's q44 row-type + listing order does not reliably encode left-right
+    identity within a row, so the canonical template can place a player on the
+    wrong side (a left-back drawn at right-back).  This re-assigns players to the
+    template's fixed slots by optimal matching of each player's **real average
+    position** (from the match) to the slot coordinates — minimising total
+    squared distance — so the diagram stays tidy but every player sits in the
+    slot that matches where they actually played.
+
+    Players without an average position (too few touches) fall back to their
+    canonical slot via the same cost matrix (their own slot coords).  Returns a
+    new positioned list with the player↔slot assignment corrected.
+    """
+    n = len(canonical)
+    if n == 0 or not avg_positions:
+        return canonical
+
+    slots = [(p["x"], p["y"]) for p in canonical]
+    pcoords = [
+        avg_positions.get(p["player_id"], (p["x"], p["y"]))
+        for p in canonical
+    ]
+
+    # Cost matrix: player i's real position vs slot j's template coords.
+    cost = [[(px - sx) ** 2 + (py - sy) ** 2 for (sx, sy) in slots]
+            for (px, py) in pcoords]
+
+    try:
+        import numpy as np
+        from scipy.optimize import linear_sum_assignment
+        rows, cols = linear_sum_assignment(np.array(cost))
+        assign = dict(zip(rows.tolist(), cols.tolist()))
+    except Exception:
+        # Greedy fallback: claim the cheapest free slot per player.
+        assign, used = {}, set()
+        order = sorted(range(n), key=lambda i: min(cost[i]))
+        for i in order:
+            j = min((c for c in range(n) if c not in used), key=lambda c: cost[i][c])
+            assign[i] = j
+            used.add(j)
+
+    result = []
+    for i, src in enumerate(canonical):
+        slot = canonical[assign[i]]
+        result.append({
+            **src,
+            "x": slot["x"], "y": slot["y"],
+            "position_id": slot["position_id"],
+            "position_name": slot["position_name"],
+        })
+    return result
+
+
 def merge_canonical_with_averages(
     canonical: list[dict],
     avg_positions: dict[str, tuple[float, float]],
