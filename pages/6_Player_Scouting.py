@@ -9,12 +9,15 @@ from viz.radar import fc_radar, position_radar
 from viz.pizza import pizza_chart
 from viz.tables import styled_dataframe
 from viz.xt import xt_top_contributors_bar, xdef_top_defenders_bar, xg_chain_bar, xdef_percentile_bar
-from viz.charts import gvm_bar_chart
+from viz.charts import gvm_bar_chart, pass_risk_reward_scatter
 from data.loader import load_all_player_season_stats, load_player_events_season, list_standings_stages
 from processing.xt import compute_season_xt
 from processing.xg_chain import compute_season_xg_chain
 from processing.xdef import compute_season_xdef, compute_league_xdef
 from processing.gk_value import compute_league_gk_value
+from processing.expected_pass import compute_league_xp
+from processing.action_value import compute_league_obv
+from processing.aerials import compute_league_aerials
 from processing.player_ratings import (
     compute_fc_ratings, POSITION_ATTR_KEYS, POSITION_CATEGORY_DISPLAY,
     get_position_attrs, get_position_display_names,
@@ -357,6 +360,117 @@ if not _league_xdef.empty:
         st.info(f"No qualifying {AME_TEAM_NAME} defenders in the league scan yet.")
 else:
     st.info("League-wide xDEF requires per-match files in partidos/.")
+
+
+# ═══════════════════════════════════════════════════════════════════════════
+# § 2e  PASSING VALUE (xP) — RISK / REWARD vs THE WHOLE COMPETITION
+# ═══════════════════════════════════════════════════════════════════════════
+st.markdown("---")
+section_header("Passing Value (xP) — League Risk / Reward")
+st.caption(
+    "**Expected Pass Completion (xP)** separates a passer's *ambition* from their "
+    "*execution*. Each player is benchmarked league-wide on **pass value** "
+    "(xP-weighted reward − turnover risk) and **passing over-expectation** "
+    "(completion vs xP). The scatter places difficulty (1 − xP) against reward; "
+    f"{AME_TEAM_NAME} passers are starred."
+)
+_league_xp = compute_league_xp(league, season)
+if not _league_xp.empty:
+    _ame_xp = _league_xp[_league_xp["team_id"] == AME_TEAM_ID]
+    if not _ame_xp.empty:
+        st.plotly_chart(
+            pass_risk_reward_scatter(
+                _league_xp, title=f"{league.replace('_', ' ')} — Passing Risk vs Reward",
+                highlight=_ame_xp["player_name"].tolist()),
+            use_container_width=True,
+        )
+        _xptable = _ame_xp.head(15)[
+            ["player_name", "passes", "completion", "xp", "over_exp",
+             "value_pct", "overexp_pct"]
+        ].rename(columns={
+            "player_name": "Player", "passes": "Passes", "completion": "Comp%",
+            "xp": "xP", "over_exp": "Over-exp", "value_pct": "Value Pct",
+            "overexp_pct": "Over-exp Pct",
+        })
+        styled_dataframe(_xptable, height=380)
+        st.caption(
+            f"Benchmarked across **{len(_league_xp)}** qualifying passers "
+            f"(≥200 passes) in {league.replace('_', ' ')}."
+        )
+    else:
+        st.info(f"No qualifying {AME_TEAM_NAME} passers in the league scan yet.")
+else:
+    st.info("League-wide xP requires per-match files in partidos/.")
+
+
+# ═══════════════════════════════════════════════════════════════════════════
+# § 2f  ON-BALL VALUE (OBV) — UNIFIED ACTION VALUE vs THE COMPETITION
+# ═══════════════════════════════════════════════════════════════════════════
+st.markdown("---")
+section_header("On-Ball Value (OBV) — Unified Action Value")
+st.caption(
+    "One number for *everything* a player does on the ball — passing, carrying, "
+    "shooting and defending — each component on an xT/xG scale. Because the four "
+    "live on different natural scales, they are **z-scored across the league and "
+    "blended** (the GVM pattern), so a +2σ playmaker and a +2σ ball-winner rank "
+    "alike. Additive composite (OBV-style); not a trained next-goal VAEP."
+)
+_league_obv = compute_league_obv(league, season, min_appearances=MIN_APPEARANCES_FOR_RATING)
+if not _league_obv.empty:
+    _ame_obv = _league_obv[_league_obv["team_id"] == AME_TEAM_ID]
+    if not _ame_obv.empty:
+        _obvtable = _ame_obv.head(15)[
+            ["player_name", "pct", "obv_score", "pass_value", "carry_value",
+             "shot_value", "def_value", "apps"]
+        ].rename(columns={
+            "player_name": "Player", "pct": "Pct", "obv_score": "OBV (0-100)",
+            "pass_value": "Pass", "carry_value": "Carry", "shot_value": "Shot",
+            "def_value": "Def", "apps": "Apps",
+        })
+        styled_dataframe(_obvtable, height=420)
+        st.caption(
+            f"Benchmarked across **{len(_league_obv)}** qualifying players in "
+            f"{league.replace('_', ' ')}. Raw component sums shown for transparency "
+            f"about where each player's value comes from."
+        )
+    else:
+        st.info(f"No qualifying {AME_TEAM_NAME} players in the OBV scan yet.")
+else:
+    st.info("League-wide OBV requires per-match files in partidos/.")
+
+
+# ═══════════════════════════════════════════════════════════════════════════
+# § 2g  AERIAL DUELS — OPPONENT-ADJUSTED (HOPS-STYLE)
+# ═══════════════════════════════════════════════════════════════════════════
+st.markdown("---")
+section_header("Aerial Duels — Opponent-Adjusted")
+st.caption(
+    "Raw aerial win % flatters whoever jumps against weak opponents. Following "
+    "StatsBomb's HOPS idea, a **Bradley-Terry** model rates each player on *who "
+    "they beat in the air*: **won above expected** = aerials won minus what the "
+    "strength of opponents faced predicts. Positive = a genuine aerial specialist."
+)
+_league_air = compute_league_aerials(league, season)
+if not _league_air.empty:
+    _ame_air = _league_air[_league_air["team_id"] == AME_TEAM_ID]
+    if not _ame_air.empty:
+        _airtable = _ame_air.head(15)[
+            ["player_name", "duels", "wins", "win_pct", "expected_wins",
+             "won_above_expected", "rating_pct"]
+        ].rename(columns={
+            "player_name": "Player", "duels": "Duels", "wins": "Won",
+            "win_pct": "Win%", "expected_wins": "Exp Won",
+            "won_above_expected": "Above Exp", "rating_pct": "Rating Pct",
+        })
+        styled_dataframe(_airtable, height=380)
+        st.caption(
+            f"Benchmarked across **{len(_league_air)}** players with ≥15 aerial "
+            f"duels in {league.replace('_', ' ')}."
+        )
+    else:
+        st.info(f"No qualifying {AME_TEAM_NAME} aerial duellers in the scan yet.")
+else:
+    st.info("League-wide aerial ratings require per-match files in partidos/.")
 
 
 # ═══════════════════════════════════════════════════════════════════════════

@@ -12,7 +12,7 @@ from viz.charts import (
     grouped_bar_chart, bar_chart,
     ppda_trend_chart, dual_axis_trend_chart,
     donut_chart, histogram, style_quadrant_chart, cross_channel_chart,
-    discipline_scatter_chart,
+    discipline_scatter_chart, pass_risk_reward_scatter,
 )
 from viz.radar import team_radar
 from viz.pitch import plot_shot_map, plot_formation_shape, plot_team_shape, plot_heatmap
@@ -39,6 +39,9 @@ from processing.wide_play import compute_season_cross_value, compute_season_thro
 from processing.set_pieces import compute_season_set_piece_phases
 from processing.team_shape import compute_season_team_shape
 from processing.discipline import compute_league_discipline, load_team_foul_locations
+from processing.carries import compute_season_carries
+from processing.expected_pass import compute_season_xp
+from processing.transitions import compute_season_transitions
 from config import AME_TEAM_NAME, AME_YELLOW, AME_BLUE, AME_DARK_BG
 
 apply_theme()
@@ -411,6 +414,110 @@ if not season_xt["leaders"].empty:
         )
 else:
     st.info("Season xT requires match files in partidos/.")
+
+
+# ═══════════════════════════════════════════════════════════════════════════
+# § 3e  BALL CARRIES — PROGRESSION BY DRIVING
+# ═══════════════════════════════════════════════════════════════════════════
+st.markdown("---")
+section_header("Ball Carries")
+st.caption(
+    "Carrying — driving the ball with the feet — is ~25-30% of open-play "
+    "progression and was previously invisible here (we only valued passes and "
+    "shots). Each carry is priced with the same xT grid; **line-breaks** count "
+    "carries crossing a vertical third boundary (an *event-data proxy* for "
+    "bypassing an opponent line — true packing needs tracking data)."
+)
+season_car = compute_season_carries(league, season, team_id, stage_filter=_stage_filter)
+if season_car:
+    ck1, ck2, ck3, ck4 = st.columns(4)
+    with ck1:
+        kpi_card("Carries / season", f"{season_car['carries']:,}")
+    with ck2:
+        kpi_card("Progressive", f"{season_car['progressive']:,}")
+    with ck3:
+        kpi_card("Line-breaks", f"{season_car['line_breaks']:,}")
+    with ck4:
+        kpi_card("Carry xT", f"+{season_car['total_carry_xt']:.2f}")
+    lb = season_car["leaderboard"]
+    if not lb.empty:
+        show = lb[["player_name", "carries", "prog", "line_breaks",
+                   "box_entries", "carry_xt", "distance"]].head(12)
+        styled_dataframe(show.rename(columns={
+            "player_name": "Player", "carries": "Carries", "prog": "Progressive",
+            "line_breaks": "Line-breaks", "box_entries": "Box entries",
+            "carry_xt": "Carry xT", "distance": "Dist (m)"}))
+else:
+    st.info("Carry analysis requires per-match files in partidos/.")
+
+
+# ═══════════════════════════════════════════════════════════════════════════
+# § 3f  PASSING RISK / REWARD — EXPECTED PASS COMPLETION (xP)
+# ═══════════════════════════════════════════════════════════════════════════
+st.markdown("---")
+section_header("Passing Risk / Reward (xP)")
+st.caption(
+    "**xP** models how hard each pass was to complete, separating *ambition* "
+    "from *execution*. **Pass rating** = actual − expected completion (passing "
+    "over expectation). The scatter places each player by difficulty (1 − xP) "
+    "vs reward (xT gained); bubble = volume, colour = net decision value."
+)
+season_xp = compute_season_xp(league, season, team_id, stage_filter=_stage_filter)
+if season_xp:
+    pk1, pk2, pk3, pk4 = st.columns(4)
+    with pk1:
+        kpi_card("Completion", f"{season_xp['completion_pct']:.1f}%")
+    with pk2:
+        kpi_card("Expected (xP)", f"{season_xp['exp_completion_pct']:.1f}%")
+    with pk3:
+        sign = "+" if season_xp["pass_rating"] >= 0 else ""
+        kpi_card("Pass rating", f"{sign}{season_xp['pass_rating']:.1f}")
+    with pk4:
+        kpi_card("Pass value", f"{season_xp['total_pass_value']:.1f}")
+    lb = season_xp["leaderboard"]
+    if not lb.empty:
+        top_names = lb.head(5)["player_name"].tolist()
+        st.plotly_chart(
+            pass_risk_reward_scatter(
+                lb, title=f"{team_name} — Passing Risk vs Reward",
+                highlight=top_names),
+            use_container_width=True,
+        )
+        show = lb[["player_name", "passes", "completion", "xp", "over_exp",
+                   "avg_reward", "avg_risk", "pass_value"]].head(12)
+        styled_dataframe(show.rename(columns={
+            "player_name": "Player", "passes": "Passes", "completion": "Comp%",
+            "xp": "xP", "over_exp": "Over-exp", "avg_reward": "Reward",
+            "avg_risk": "Risk", "pass_value": "Pass value"}))
+else:
+    st.info("xP analysis requires per-match files in partidos/.")
+
+
+# ═══════════════════════════════════════════════════════════════════════════
+# § 3g  TRANSITION CONVERSION — COUNTER-ATTACK LETHALITY
+# ═══════════════════════════════════════════════════════════════════════════
+st.markdown("---")
+section_header("Transition Conversion")
+st.caption(
+    "How lethal is the team *in transition*? For every open-play regain we check "
+    "whether a shot followed within 10s and how good a chance it was, then split "
+    "all shooting into **transition** vs **settled**. A high transition share + "
+    "fast time-to-shot = a counter-attacking identity."
+)
+season_tr = compute_season_transitions(league, season, team_id, stage_filter=_stage_filter)
+if season_tr:
+    tk1, tk2, tk3, tk4 = st.columns(4)
+    with tk1:
+        kpi_card("Transition xG", f"{season_tr['transition_xg']:.2f}")
+    with tk2:
+        kpi_card("% of xG from transition", f"{season_tr['pct_xg_from_transition']:.0f}%")
+    with tk3:
+        kpi_card("Transition shots", f"{season_tr['transition_shots']}")
+    with tk4:
+        tts = season_tr["avg_time_to_shot"]
+        kpi_card("Avg time to shot", f"{tts:.1f}s" if tts is not None else "—")
+else:
+    st.info("Transition analysis requires per-match files in partidos/.")
 
 
 # ═══════════════════════════════════════════════════════════════════════════

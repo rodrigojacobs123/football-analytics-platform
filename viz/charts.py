@@ -1083,3 +1083,66 @@ def style_quadrant_chart(df: pd.DataFrame, highlight_id: str | None = None,
         yaxis_title="Passes per sequence  →  more patient",
     )
     return fig
+
+
+def pass_risk_reward_scatter(df: pd.DataFrame, name_col: str = "player_name",
+                             title: str = "Pass Risk vs Reward",
+                             highlight: list[str] | None = None) -> go.Figure:
+    """Per-player passing risk/reward map.
+
+    x = average pass DIFFICULTY (1 − xP — how hard the player's passes were to
+    complete), y = average REWARD (xT gained per completed pass). Bubble size =
+    pass volume, colour = net decision value (``pass_value``). The plane splits
+    at the population medians into four reads: safe-low-value, safe-creative,
+    ambitious-rewarded, and ambitious-wasteful. Consumes the
+    ``processing.expected_pass.compute_season_xp`` leaderboard
+    (columns: avg_risk, avg_reward, passes, pass_value).
+    """
+    fig = go.Figure()
+    need = {"avg_risk", "avg_reward", "passes"}
+    if df is None or df.empty or not need.issubset(df.columns):
+        fig.update_layout(title=title, template="ame_dark")
+        return fig
+
+    d = df.copy()
+    xmed, ymed = d["avg_risk"].median(), d["avg_reward"].median()
+    fig.add_vline(x=xmed, line=dict(color="#444", dash="dot", width=1))
+    fig.add_hline(y=ymed, line=dict(color="#444", dash="dot", width=1))
+
+    sizes = (d["passes"] / d["passes"].max() * 26 + 6) if d["passes"].max() else 10
+    val = d.get("pass_value", pd.Series(0.0, index=d.index))
+    hl = set(highlight or [])
+    is_hl = d[name_col].isin(hl) if hl else pd.Series(False, index=d.index)
+
+    fig.add_trace(go.Scatter(
+        x=d.loc[~is_hl, "avg_risk"], y=d.loc[~is_hl, "avg_reward"],
+        mode="markers",
+        marker=dict(size=sizes[~is_hl], color=val[~is_hl], colorscale="RdYlGn",
+                    cmid=0, showscale=True, line=dict(color=AME_DARK_BG, width=1),
+                    colorbar=dict(title="pass<br>value")),
+        text=d.loc[~is_hl, name_col],
+        hovertemplate="<b>%{text}</b><br>difficulty %{x:.2f} · reward %{y:.4f}<extra></extra>",
+        name="Players",
+    ))
+    if is_hl.any():
+        fig.add_trace(go.Scatter(
+            x=d.loc[is_hl, "avg_risk"], y=d.loc[is_hl, "avg_reward"],
+            mode="markers+text", text=d.loc[is_hl, name_col],
+            textposition="top center", textfont=dict(size=10, color=AME_YELLOW),
+            marker=dict(size=sizes[is_hl] + 4, color=AME_YELLOW, symbol="star",
+                        line=dict(color=AME_DARK_BG, width=1)),
+            hovertemplate="<b>%{text}</b><br>difficulty %{x:.2f} · reward %{y:.4f}<extra></extra>",
+            name="Highlighted",
+        ))
+
+    fig.add_annotation(x=d["avg_risk"].max(), y=d["avg_reward"].max(),
+                       text="Ambitious & rewarded ◤", showarrow=False,
+                       xanchor="right", yanchor="top",
+                       font=dict(size=10, color="#5F7299"))
+    fig.update_layout(
+        title=f"{title}<br><sup>Bubble = pass volume · colour = net decision value</sup>",
+        template="ame_dark", showlegend=False,
+        xaxis_title="Pass difficulty (1 − xP)  →  more ambitious",
+        yaxis_title="Reward (xT gained per completed pass)  →  more creative",
+    )
+    return fig

@@ -7,12 +7,12 @@ from config import (
     EVENT_TAKE_ON, EVENT_TACKLE, EVENT_INTERCEPTION, EVENT_CARD,
     EVENT_TEAM_SETUP, EVENT_PLAYER_OFF, EVENT_PLAYER_ON,
     EVENT_BALL_RECOVERY, EVENT_CLEARANCE, EVENT_CORNER, EVENT_FOUL,
-    EVENT_AERIAL, EVENT_SAVE,
+    EVENT_AERIAL, EVENT_SAVE, EVENT_START, EVENT_END,
     SHOT_TYPE_IDS, QUAL_XG, QUAL_BODY_PART, QUAL_SHOT_DISTANCE, QUAL_SHOT_ANGLE,
     QUAL_GOALMOUTH_Y, QUAL_GOALMOUTH_Z,
     QUAL_ASSIST, QUAL_PENALTY, QUAL_OWN_GOAL, QUAL_PASS_END_X, QUAL_PASS_END_Y,
     QUAL_FORMATION, QUAL_FORMATION_TYPE, QUAL_PLAYER_IDS, QUAL_SHIRT_NUMBERS,
-    QUAL_PLAYER_POSITION,
+    QUAL_PLAYER_POSITION, QUAL_CROSS, QUAL_LONGBALL, QUAL_THROUGH_BALL,
     QUAL_INVOLVED_PLAYER, QUAL_ZONE, QUAL_HEAD, SHOT_OUTCOME_MAP,
     QUAL_CORNER_TYPE, OPTA_FORMATION_MAP,
 )
@@ -205,6 +205,12 @@ def extract_passes(events: list[dict], team_id: str | None = None,
             "receiver_name": receiver_name,
             "outcome": outcome,
             "period": int(e.get("periodId", 0)),
+            # Pass-ambition flags (consumed by processing/expected_pass.py).
+            # Additive columns — existing callers ignore them.
+            "is_cross": _has_qualifier(quals, QUAL_CROSS),
+            "is_longball": _has_qualifier(quals, QUAL_LONGBALL),
+            "is_through": _has_qualifier(quals, QUAL_THROUGH_BALL),
+            "is_header": _has_qualifier(quals, QUAL_HEAD),
         })
     return pd.DataFrame(rows)
 
@@ -381,6 +387,7 @@ def extract_aerials(events: list[dict], team_id: str | None = None) -> pd.DataFr
             continue
         rows.append({
             "minute": int(e.get("timeMin", 0)),
+            "second": int(e.get("timeSec", 0)),   # needed to pair opposing duels
             "team_id": e.get("contestantId", ""),
             "player_id": e.get("playerId", ""),
             "player_name": e.get("playerName", ""),
@@ -388,6 +395,113 @@ def extract_aerials(events: list[dict], team_id: str | None = None) -> pd.DataFr
             "y": float(e.get("y", 0)),
             "outcome": int(e.get("outcome", 0)),
             "period": int(e.get("periodId", 0)),
+        })
+    return pd.DataFrame(rows)
+
+
+def extract_carries(events: list[dict], team_id: str | None = None,
+                    min_distance: float = 5.0,
+                    max_distance: float = 60.0,
+                    max_gap_secs: float = 5.0) -> pd.DataFrame:
+    """Reconstruct ball *carries* from Opta events.
+
+    Opta has no native "carry" event type — a carry is the ground the ball
+    covers **between the end of one action and the start of the next**, while
+    the same team keeps possession.  This single definition captures both:
+
+      • dribble-carries (same player's two consecutive touches), and
+      • receive-then-drive (player B carries after A's pass reaches them).
+
+    The carrying player is the actor of the *second* event; the carry runs from
+    where the ball was left by the previous event (its pass-end if it was a
+    pass, else its location) to where this player next acts.
+
+    Guards
+    ------
+    • Possession must be retained — previous event's team == this event's team.
+    • Distance ≥ ``min_distance`` (Opta 0-100 units; default ~5 ≈ 5 m) so a
+      stationary touch isn't a "carry".
+    • Time gap ≤ ``max_gap_secs`` — a longer gap means a stoppage / restart, not
+      a continuous carry.
+    • Restarts (corner, free-kick, throw-in, kick-off, GK) and the previous
+      event being a defensive recovery in open play are still valid carry
+      *origins*; only the *destination* being a dead-ball set piece is excluded.
+
+    Returns one row per carry: minute, second, period, team_id, player_id,
+    player_name, x, y (start), end_x, end_y, distance, prog_distance
+    (forward component, opponent goal = +x).
+    """
+    # Stable chronological sort. eventId restarts each period (it is NOT unique
+    # across a match — see extract_passes), so we sort on (period, min, sec)
+    # only and let Python's stable sort preserve within-second file order.
+    ordered = sorted(
+        events,
+        key=lambda e: (int(e.get("periodId", 0)),
+                       int(e.get("timeMin", 0)),
+                       int(e.get("timeSec", 0))),
+    )
+
+    # Event typeIds that, as a carry *destination*, mean "no carry happened"
+    # (the ball was dead and restarted, not driven there).
+    _restart_dest = {EVENT_CORNER, EVENT_TEAM_SETUP, EVENT_PLAYER_ON,
+                     EVENT_PLAYER_OFF, EVENT_START, EVENT_END}
+
+    rows = []
+    for i in range(1, len(ordered)):
+        prev = ordered[i - 1]
+        cur = ordered[i]
+
+        cur_team = cur.get("contestantId", "")
+        if not cur_team or prev.get("contestantId", "") != cur_team:
+            continue  # possession changed hands → not a carry
+        if cur.get("typeId") in _restart_dest:
+            continue
+        pid = cur.get("playerId")
+        if not pid:
+            continue
+        if team_id and cur_team != team_id:
+            continue
+
+        # Same period only, and within the continuous-possession time window.
+        if int(prev.get("periodId", 0)) != int(cur.get("periodId", 0)):
+            continue
+        gap = ((int(cur.get("timeMin", 0)) * 60 + int(cur.get("timeSec", 0)))
+               - (int(prev.get("timeMin", 0)) * 60 + int(prev.get("timeSec", 0))))
+        if gap < 0 or gap > max_gap_secs:
+            continue
+
+        # Carry origin = where the previous event left the ball.
+        if prev.get("typeId") == EVENT_PASS:
+            pquals = prev.get("qualifier", [])
+            sx_raw = _get_qualifier(pquals, QUAL_PASS_END_X)
+            sy_raw = _get_qualifier(pquals, QUAL_PASS_END_Y)
+            sx = float(sx_raw) if sx_raw else float(prev.get("x", 0))
+            sy = float(sy_raw) if sy_raw else float(prev.get("y", 0))
+        else:
+            sx = float(prev.get("x", 0))
+            sy = float(prev.get("y", 0))
+
+        ex = float(cur.get("x", 0))
+        ey = float(cur.get("y", 0))
+        dist = ((ex - sx) ** 2 + (ey - sy) ** 2) ** 0.5
+        if dist < min_distance or dist > max_distance:
+            # Below min = a stationary touch; above max = a pass-end/reception
+            # coordinate mismatch masquerading as an implausible cross-pitch run.
+            continue
+
+        rows.append({
+            "minute": int(cur.get("timeMin", 0)),
+            "second": int(cur.get("timeSec", 0)),
+            "period": int(cur.get("periodId", 0)),
+            "team_id": cur_team,
+            "player_id": pid,
+            "player_name": cur.get("playerName", ""),
+            "x": sx,
+            "y": sy,
+            "end_x": ex,
+            "end_y": ey,
+            "distance": dist,
+            "prog_distance": ex - sx,   # forward component (toward opp goal)
         })
     return pd.DataFrame(rows)
 

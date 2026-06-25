@@ -95,6 +95,9 @@ QUAL_HEAD = 15
 QUAL_RIGHT_FOOT = 72
 QUAL_RELATED_EVENT = 55
 QUAL_ZONE = 56
+QUAL_LONGBALL = 1          # pass flagged "long ball"
+QUAL_CROSS = 2             # pass flagged "cross" (also used by wide_play.py)
+QUAL_THROUGH_BALL = 4      # pass flagged "through ball"
 
 # ── Opta formation type ID → formation string (qualifier 130) ────────
 # Empirically validated against Opta formation type mappings.

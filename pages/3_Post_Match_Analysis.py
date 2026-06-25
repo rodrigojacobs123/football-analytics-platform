@@ -16,9 +16,12 @@ from viz.pitch import (
     plot_formation, plot_defensive_actions,
     plot_progressive_passes, plot_set_piece_map, plot_corner_shot_panels,
     plot_pass_map, plot_ball_win_height, plot_dominant_actions_by_zone,
-    plot_goal_buildup,
+    plot_goal_buildup, plot_carry_map,
     ZONE_ACTION_COLORS, _ORIGIN_LABELS, _ORIGIN_COLORS,
 )
+from viz.sonar import plot_pass_sonars
+from processing.carries import carries_value
+from processing.expected_pass import passes_xp
 from viz.charts import xg_race_chart, momentum_chart
 from viz.phases import phase_family_bars, phase_compare_bars, transition_matrix, transition_kpi_html
 from viz.xt import xt_pitch_heatmap, xt_top_contributors_bar
@@ -326,6 +329,31 @@ if home_changes or away_changes:
                 st.markdown(f"- **{ch['minute']}'** Changed to **{ch['formation_str']}**")
         else:
             st.caption(f"{away_team}: No formation changes")
+
+# ═══════════════════════════════════════════════════════════════════════════
+# § 2a-bis  CARRIES & PASS SONARS (selected team)
+# ═══════════════════════════════════════════════════════════════════════════
+v3_section_header("ON THE BALL", f"Carries & Pass Sonars — {team_choice}")
+st.caption(
+    "**Carry map** — every ball-drive by the selected team, arrows coloured by xT "
+    "added (brighter drove into more danger; thicker = progressive). "
+    "**Pass sonars** — each busy passer's directional rose: forward = right, "
+    "wedge length = mean distance, colour = completion likelihood (green easy → "
+    "red hard). Together they show *how* the team moved the ball, not just where."
+)
+_carries = carries_value(events, team_id=team_id)
+if not _carries.empty:
+    plot_carry_map(_carries, title=f"{team_choice} — Ball Carries")
+else:
+    st.info("No carries reconstructed for this team in this match.")
+
+_pxp = passes_xp(events, team_id=team_id)
+if not _pxp.empty:
+    plot_pass_sonars(_pxp, title=f"{team_choice} — Pass Sonars",
+                     n_players=6, color_by="xp")
+else:
+    st.info("No passes to build sonars from.")
+
 
 # ═══════════════════════════════════════════════════════════════════════════
 # § 2b  GOAL BUILD-UP SEQUENCES

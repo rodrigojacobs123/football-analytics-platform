@@ -1347,3 +1347,46 @@ def plot_team_shape(shape: dict, title: str = "Team Shape & Stretch Index",
 
     st.pyplot(fig, use_container_width=True)
     plt.close(fig)
+
+
+def plot_carry_map(carries: pd.DataFrame, title: str = "Ball Carries") -> None:
+    """Carry map — arrows from carry start to end, coloured by xT added.
+
+    Brighter / yellower arrows drove the ball into more dangerous space; faint
+    arrows are low-value carries. Progressive carries (forward drives) are drawn
+    thicker. Consumes the ``processing.carries.carries_value`` frame (needs x, y,
+    end_x, end_y, carry_xt, progressive). Renders into Streamlit.
+    """
+    if carries is None or carries.empty or "end_x" not in carries.columns:
+        st.info("No carry data to display.")
+        return
+
+    clean = carries.dropna(subset=["end_x", "end_y"]).copy()
+    if clean.empty:
+        st.info("No carry data to display.")
+        return
+
+    pitch = Pitch(**PITCH_KWARGS)
+    fig, ax = _draw_pitch(pitch, figsize=(12, 8))
+    ax.set_title(title, color="white", fontsize=14, pad=10)
+
+    # Colour by carry_xt (yellow = high value), normalised on the match max.
+    xt = clean["carry_xt"].to_numpy()
+    vmax = xt.max() if xt.size and xt.max() > 0 else 1.0
+    import matplotlib.colors as _mcolors
+    norm = _mcolors.Normalize(vmin=0.0, vmax=vmax)
+    cmap = plt.get_cmap("YlOrRd")
+    arrow_colors = cmap(norm(xt))
+
+    prog = clean["progressive"].to_numpy() if "progressive" in clean.columns \
+        else np.zeros(len(clean), dtype=bool)
+    widths = np.where(prog, 2.4, 1.1)
+
+    pitch.arrows(clean["x"], clean["y"], clean["end_x"], clean["end_y"],
+                 color=arrow_colors, width=widths, headwidth=4, headlength=3,
+                 ax=ax, zorder=3, alpha=0.8)
+
+    n_prog = int(prog.sum())
+    _show_fig(fig)
+    st.caption(f"{len(clean)} carries · {n_prog} progressive (thicker) · "
+               f"colour = xT added (brighter = drove into more danger)")
