@@ -50,35 +50,6 @@ THEMES: dict[str, dict] = {
         "pitch_bg": "#04132E",
         "pitch_line": "#1E3461",
     },
-    "man_utd": {
-        "label": "Manchester United",
-        "colors": {
-            "bg":            "#0C0C0C",
-            "surface":       "#1A1A1E",
-            "surface_alt":   "#242428",
-            "border":        "#333340",
-            "primary":       "#DA291C",
-            "primary_hover": "#B71C1C",
-            "accent_blue":   "#FFD700",
-            "cream":         "#F5F5F5",
-            "text":          "#F0F0F5",
-            "text_muted":    "#9E9EA8",
-            "text_dim":      "#5E5E68",
-            "success":       "#3DD68C",
-            "warning":       "#FFB020",
-            "danger":        "#FF5C7A",
-            "info":          "#60A5FA",
-        },
-        "typo": {
-            "font_display": "'Archivo', 'Inter', -apple-system, sans-serif",
-            "font_body":    "'Inter', -apple-system, sans-serif",
-            "font_mono":    "'JetBrains Mono', 'SF Mono', monospace",
-        },
-        "space": {"xs": "4px", "sm": "8px", "md": "16px", "lg": "24px", "xl": "40px"},
-        "radius": {"sm": "6px", "md": "12px", "lg": "20px", "pill": "999px"},
-        "pitch_bg": "#0C0C0C",
-        "pitch_line": "#333340",
-    },
 }
 
 DEFAULT_CLUB = "america"
