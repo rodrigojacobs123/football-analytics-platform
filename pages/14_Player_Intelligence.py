@@ -19,7 +19,7 @@ import pandas as pd
 import plotly.graph_objects as go
 
 from components.sidebar import render_sidebar
-from data.loader import load_all_player_season_stats, list_standings_stages
+from data.loader import load_all_player_season_stats
 from processing.archetypes import (
     compute_per90, assign_archetypes, compute_archetype_compatibility,
     ARCHETYPES, archetypes_for_position, MIN_MINUTES,
@@ -40,17 +40,27 @@ def _hex_to_rgb(hex_color: str) -> str:
     return f"{r},{g},{b}"
 
 
+def _html(block: str) -> str:
+    """Flatten a multi-line HTML f-string for ``st.markdown(unsafe_allow_html=True)``.
+
+    Streamlit renders markdown, and markdown treats any line indented by ≥ 4
+    spaces as a *code block* — so HTML written with Python indentation inside a
+    triple-quoted string leaks to the page as literal ``<div>`` text. Stripping
+    the leading whitespace from every line removes that trigger while leaving the
+    HTML semantically identical (inter-tag whitespace is insignificant).
+    """
+    return "".join(line.strip() for line in block.splitlines())
+
+
 league, season = render_sidebar()
 page_header("Player Intelligence", subtitle=f"Tactical Archetypes · {season}")
 
-# ── Tournament selector ───────────────────────────────────────────────────────
-_stage_names = list_standings_stages(league, season)
-_stage_filter = ""
-if len(_stage_names) > 1:
-    _stage_filter = st.radio(
-        "Tournament", options=_stage_names,
-        index=len(_stage_names) - 1, horizontal=True, key="intel_stage",
-    )
+# NOTE: a per-tournament (Apertura/Clausura) selector used to live here, but
+# `load_all_player_season_stats` only exposes *season-aggregate* player stats —
+# there is no stage-level split in the team CSVs — so the control filtered
+# nothing. It was removed rather than left as a dead widget. If stage-level
+# player stats are added to the loader later, reinstate the radio and pass the
+# chosen stage through to the load call.
 
 # ── Load & classify ───────────────────────────────────────────────────────────
 with st.spinner("Computing per-90 stats and classifying archetypes…"):
@@ -138,7 +148,7 @@ with tab_league:
         margin=dict(l=10, r=50, t=40, b=20),
         xaxis_title="Player Count",
     )
-    st.plotly_chart(fig_freq, use_container_width=True)
+    st.plotly_chart(fig_freq, width="stretch")
 
     # ── Scatter: two key per-90 metrics coloured by archetype ────────────
     st.markdown("#### Archetype Scatter — Pressing vs Creation")
@@ -172,7 +182,7 @@ with tab_league:
             legend=dict(orientation="h", yanchor="bottom", y=1.02,
                         font=dict(size=10)),
         )
-        st.plotly_chart(fig_sc, use_container_width=True)
+        st.plotly_chart(fig_sc, width="stretch")
 
     # ── Player table ──────────────────────────────────────────────────────
     show_cols = ["nombre", "posicion", "equipo", "arch_icon", "archetype",
@@ -187,7 +197,7 @@ with tab_league:
         "aerials_won_p90": "Aer/90",
     }
     table = disp[show_cols].rename(columns=rename).sort_values("Player")
-    st.dataframe(table, use_container_width=True, hide_index=True, height=400)
+    st.dataframe(table, width="stretch", hide_index=True, height=400)
 
 
 # ═══════════════════════════════════════════════════════════════════════════
@@ -197,9 +207,40 @@ with tab_player:
     section_header("Player Profile")
 
     # ── Player picker ─────────────────────────────────────────────────────
+    # Order players by minutes played (desc) so the default landing player is a
+    # *regular* with a real archetype, not the alphabetically-first squad member
+    # (who is often a sub below MIN_MINUTES and shows "Undefined" — the original
+    # "broken first impression" bug). Each option is labelled with its archetype
+    # icon + minutes so the user can see at a glance who is actually classified.
+    _mins_col = "Time Played" if "Time Played" in arch_df.columns else None
+
+    def _ordered_names(frame: pd.DataFrame) -> list[str]:
+        f = frame.dropna(subset=["nombre"]).copy()
+        if _mins_col:
+            f = f.sort_values(_mins_col, ascending=False)
+        # de-dupe preserving the minutes order
+        return list(dict.fromkeys(f["nombre"].tolist()))
+
+    # name -> "icon Archetype · 1,350′" label for the dropdown
+    _label_lookup: dict[str, str] = {}
+    for _, _r in arch_df.dropna(subset=["nombre"]).iterrows():
+        if _r["nombre"] in _label_lookup:
+            continue
+        _icon = _r.get("arch_icon", "❓")
+        _arch = _r.get("archetype", "Undefined")
+        _raw_mins = _r.get(_mins_col, 0) if _mins_col else 0
+        _mins = int(_raw_mins) if pd.notna(_raw_mins) else 0
+        _tag = f"{_icon} {_arch}" if _arch != "Undefined" else "❓ Unclassified"
+        _label_lookup[_r["nombre"]] = (
+            f"{_r['nombre']}  —  {_tag}" + (f" · {_mins:,}′" if _mins else "")
+        )
+
+    def _fmt_player(name: str) -> str:
+        return _label_lookup.get(name, name)
+
     cf_players = arch_df[arch_df["equipo"].str.contains("América", na=False)]
-    all_players = arch_df["nombre"].dropna().sort_values().unique().tolist()
-    cf_names  = cf_players["nombre"].dropna().sort_values().unique().tolist()
+    all_players = _ordered_names(arch_df)
+    cf_names = _ordered_names(cf_players)
 
     scope_col, player_col = st.columns([1, 2])
     with scope_col:
@@ -211,9 +252,21 @@ with tab_player:
         scope_options = ["CF América", "All League"] if cf_names else ["All League"]
         scope = st.radio("Show", scope_options, horizontal=True,
                          key="intel_player_scope")
+        classified_only = st.checkbox(
+            f"Classified only (≥ {MIN_MINUTES} min)", value=True,
+            key="intel_classified_only",
+            help="Hide players below the minutes threshold who have no archetype.",
+        )
     with player_col:
         player_list = cf_names if (scope == "CF América" and cf_names) else all_players
+        if classified_only:
+            _classified = set(
+                arch_df.loc[arch_df["archetype"] != "Undefined", "nombre"]
+            )
+            _filtered = [n for n in player_list if n in _classified]
+            player_list = _filtered or player_list  # never blank the picker
         selected_player = st.selectbox("Select Player", player_list,
+                                       format_func=_fmt_player,
                                        key="intel_player_sel")
 
     # With the scope/player_list fix above, player_list is never empty when the
@@ -232,10 +285,11 @@ with tab_player:
     arch_icon = p.get("arch_icon", "❓")
     arch_color = p.get("arch_color", "#555")
     arch_desc = p.get("arch_desc", "")
-    minutes = float(p.get("Time Played", 0) or 0)
+    _raw_minutes = p.get("Time Played", 0)
+    minutes = float(_raw_minutes) if pd.notna(_raw_minutes) else 0.0
 
     # ── Profile header ────────────────────────────────────────────────────
-    st.markdown(f"""
+    st.markdown(_html(f"""
     <div style="background:#1A1A2E;border-radius:10px;padding:1.2rem 1.5rem;
                 margin-bottom:1rem;border-left:5px solid {arch_color};">
         <div style="display:flex;align-items:center;gap:1rem;">
@@ -256,7 +310,20 @@ with tab_player:
             </div>
         </div>
     </div>
-    """, unsafe_allow_html=True)
+    """), unsafe_allow_html=True)
+
+    # Low-sample / unclassified caveat — shown instead of letting the radar and
+    # signal chips render as confident-looking noise for a player who hasn't met
+    # the minutes threshold (the case that made the page look "broken").
+    if arch == "Undefined" or minutes < MIN_MINUTES:
+        st.warning(
+            f"**{selected_player}** has **{int(minutes):,} min** — below the "
+            f"**{MIN_MINUTES} min** threshold needed for a reliable archetype. "
+            "The profile below is shown for reference only and is statistically "
+            "noisy at this sample size. Pick a higher-minutes player (or untick "
+            "*Classified only*) to compare like-for-like.",
+            icon="⚠️",
+        )
 
     # ── Key per-90 radar (position-specific signals) ──────────────────────
     pos_arch_defs = archetypes_for_position(pos)
@@ -273,11 +340,20 @@ with tab_player:
         radar_vals = []
         radar_labels = []
         for sig in radar_signals:
-            if sig not in pos_group.columns:
+            # Prefer the percentile already computed at classification time
+            # (`{sig}_pct`, ranked within position) so the radar agrees with the
+            # signal-breakdown chips below. Fall back to an inline rank only if
+            # the precomputed column is missing.
+            pct_col = f"{sig}_pct"
+            if pct_col in p.index and pd.notna(p.get(pct_col)):
+                pct = float(p.get(pct_col, 50))
+            elif sig in pos_group.columns:
+                val = float(p.get(sig, 0))
+                league_vals = pos_group[sig].dropna()
+                pct = ((league_vals <= val).sum() / len(league_vals) * 100
+                       if len(league_vals) > 0 else 50)
+            else:
                 continue
-            val = float(p.get(sig, 0))
-            league_vals = pos_group[sig].dropna()
-            pct = (league_vals <= val).sum() / len(league_vals) * 100 if len(league_vals) > 0 else 50
             radar_vals.append(round(pct, 1))
             radar_labels.append(sig.replace("_p90", "").replace("_", " ").title())
 
@@ -314,7 +390,7 @@ with tab_player:
                 title=f"{selected_player} — Percentile Profile vs {pos}s",
                 legend=dict(orientation="h", yanchor="bottom", y=1.05),
             )
-            st.plotly_chart(fig_radar, use_container_width=True)
+            st.plotly_chart(fig_radar, width="stretch")
 
     # ── Archetype signal breakdown ─────────────────────────────────────────
     st.markdown("#### Signal Breakdown — which archetype thresholds you meet")
@@ -351,7 +427,7 @@ with tab_player:
             if is_match else ""
         )
 
-        st.markdown(f"""
+        st.markdown(_html(f"""
         <div style="background:{bg};border:{border};border-radius:8px;
                     padding:0.7rem 1rem;margin:0.4rem 0;">
             <div style="display:flex;align-items:center;gap:0.8rem;margin-bottom:0.4rem;">
@@ -364,7 +440,7 @@ with tab_player:
             </div>
             <div>{chips_html}</div>
         </div>
-        """, unsafe_allow_html=True)
+        """), unsafe_allow_html=True)
 
     # ── Raw stat snapshot ──────────────────────────────────────────────────
     with st.expander("Raw per-90 stats"):
@@ -380,7 +456,7 @@ with tab_player:
         ]:
             if col in p.index:
                 stat_rows.append({"Stat": sig, "Per 90": round(float(p.get(col, 0)), 2)})
-        st.dataframe(pd.DataFrame(stat_rows), use_container_width=True, hide_index=True)
+        st.dataframe(pd.DataFrame(stat_rows), width="stretch", hide_index=True)
 
 
 # ═══════════════════════════════════════════════════════════════════════════
@@ -431,7 +507,7 @@ with tab_compat:
                 height=320,
                 bargap=0.3,
             )
-            st.plotly_chart(fig_squad, use_container_width=True)
+            st.plotly_chart(fig_squad, width="stretch")
 
             # Player's metric vs league baseline
             metric_label = compat_df["metric_label"].iloc[0]
@@ -441,7 +517,7 @@ with tab_compat:
             delta_color = "#4CAF50" if delta >= 0 else AME_YELLOW
             delta_arrow = "↑" if delta >= 0 else "↓"
 
-            st.markdown(f"""
+            st.markdown(_html(f"""
             <div style="background:#1A1A2E;border-radius:8px;padding:1rem 1.2rem;
                         margin:0.8rem 0;border-left:4px solid {delta_color};">
                 <div style="color:#aaa;font-size:0.8rem;text-transform:uppercase;
@@ -467,7 +543,7 @@ with tab_compat:
                     </div>
                 </div>
             </div>
-            """, unsafe_allow_html=True)
+            """), unsafe_allow_html=True)
 
             # Full compatibility table
             st.markdown("#### Full squad archetype breakdown")
@@ -481,7 +557,7 @@ with tab_compat:
                 "league_avg": "League Avg",
                 "delta_vs_league": "Δ vs League",
             })
-            st.dataframe(show_compat, use_container_width=True, hide_index=True)
+            st.dataframe(show_compat, width="stretch", hide_index=True)
 
             # Archetype catalogue for this position
             st.markdown(f"---")
@@ -490,7 +566,7 @@ with tab_compat:
             cols = st.columns(2)
             for i, a in enumerate(arch_list):
                 with cols[i % 2]:
-                    st.markdown(f"""
+                    st.markdown(_html(f"""
                     <div style="background:#1A1A2E;border-left:4px solid {a['color']};
                                 border-radius:6px;padding:0.7rem 1rem;margin:0.3rem 0;">
                         <span style="font-size:1.2rem;">{a['icon']}</span>
@@ -500,7 +576,7 @@ with tab_compat:
                         <br>
                         <span style="color:#888;font-size:0.82rem;">{a['description']}</span>
                     </div>
-                    """, unsafe_allow_html=True)
+                    """), unsafe_allow_html=True)
         else:
             st.info("Compatibility data not available for this player.")
 
