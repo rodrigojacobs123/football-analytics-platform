@@ -259,6 +259,28 @@ def load_all_player_season_stats(league: str, season: str) -> pd.DataFrame:
     return pd.concat(frames, ignore_index=True)
 
 
+# ── Cached analytics wrappers ───────────────────────────────────────────────
+# Architectural rule: pages call these cached loaders, NOT the raw processing.*
+# functions, on the rerun hot path. build_up_report's pass-link aggregation is
+# otherwise recomputed on every widget interaction and independently per page
+# (Pre-Match + Post-Match both use it). st.cache_data memoizes on the hashed
+# `passes` frame, so identical inputs return instantly.
+from processing.buildup_play import build_up_report as _build_up_report
+from processing.attack_play import attack_report as _attack_report
+
+
+@st.cache_data(ttl=3600, show_spinner=False)
+def load_build_up_report(passes: pd.DataFrame, min_link: int = 2) -> dict:
+    """Cached wrapper around ``processing.buildup_play.build_up_report``."""
+    return _build_up_report(passes, min_link)
+
+
+@st.cache_data(ttl=3600, show_spinner=False)
+def load_attack_report(passes: pd.DataFrame, min_link: int = 2) -> dict:
+    """Cached wrapper around ``processing.attack_play.attack_report``."""
+    return _attack_report(passes, min_link)
+
+
 # ── Player event loading (for Athletic-style cards) ─────────────────────────
 
 @st.cache_data(ttl=3600, show_spinner=False)
@@ -283,6 +305,16 @@ def load_player_events_season(
         DataFrame with columns: typeId, x, y, end_x, end_y, outcome,
         periodId, timeMin, qualifiers (dict), and common qualifier values.
     """
+    # Fast path: read the columnar silver event table with a player predicate
+    # instead of re-parsing every partidos JSON (698 MB / season). Falls back to
+    # the JSON scan below if silver can't be built/read (e.g. pyarrow missing,
+    # partial data) — the page must never break over a cache-tier hiccup.
+    try:
+        from data.silver_events import player_events
+        return player_events(league, season, player_id, type_ids)
+    except Exception:
+        pass
+
     import json
 
     p_dir = partidos_dir(league, season)

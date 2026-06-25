@@ -154,7 +154,10 @@ def extract_passes(events: list[dict], team_id: str | None = None,
     """Extract pass events. Receiver inferred from next same-team event."""
     # Build a lookup: for each successful pass, the receiver is the player
     # in the next chronological event from the same team.
-    receiver_map: dict[str, tuple[str, str]] = {}  # event_id -> (player_id, player_name)
+    # NOTE: keyed by the event's list INDEX, not eventId — Opta restarts
+    # eventId numbering each period, so ids are not unique across a match
+    # (keying by eventId leaked ~35% of receivers to the opposing team).
+    receiver_map: dict[int, tuple[str, str]] = {}  # event index -> (player_id, player_name)
     for i, e in enumerate(events):
         if e.get("typeId") != EVENT_PASS:
             continue
@@ -165,13 +168,11 @@ def extract_passes(events: list[dict], team_id: str | None = None,
         for j in range(i + 1, min(i + 6, len(events))):
             nxt = events[j]
             if nxt.get("contestantId") == pass_team and nxt.get("playerId"):
-                eid = e.get("eventId", "")
-                if eid:
-                    receiver_map[eid] = (nxt["playerId"], nxt.get("playerName", ""))
+                receiver_map[i] = (nxt["playerId"], nxt.get("playerName", ""))
                 break
 
     rows = []
-    for e in events:
+    for i, e in enumerate(events):
         if e.get("typeId") != EVENT_PASS:
             continue
         if team_id and e.get("contestantId") != team_id:
@@ -185,8 +186,9 @@ def extract_passes(events: list[dict], team_id: str | None = None,
         end_y = _get_qualifier(quals, QUAL_PASS_END_Y)
 
         eid = e.get("eventId", "")
-        recv = receiver_map.get(eid)
+        recv = receiver_map.get(i)
         receiver_id = recv[0] if recv else None
+        receiver_name = recv[1] if recv else None
 
         rows.append({
             "event_id": eid,
@@ -200,6 +202,7 @@ def extract_passes(events: list[dict], team_id: str | None = None,
             "end_x": float(end_x) if end_x else None,
             "end_y": float(end_y) if end_y else None,
             "receiver_id": receiver_id,
+            "receiver_name": receiver_name,
             "outcome": outcome,
             "period": int(e.get("periodId", 0)),
         })
@@ -602,3 +605,66 @@ def extract_saves(events: list[dict], team_id: str | None = None) -> pd.DataFram
             "period": int(e.get("periodId", 0)),
         })
     return pd.DataFrame(rows)
+
+
+# ── Schema-drift guard ───────────────────────────────────────────────────────
+# config.py encodes Opta semantics but nothing VALIDATES incoming feeds against
+# it. A renamed/dropped qualifier or a new typeId surfaces as a silently wrong
+# number deep in a page, not a load-time failure. This is a DIAGNOSTIC (call it
+# from the Data Sources page or a build step) — not a hot-path guard. With
+# seasons spanning 2015–2026, the odds the spec drifted *somewhere* are real.
+
+# What any genuine Opta feed must contain. Distinguished from per-match RARITY:
+# a single match may have no shot that hits the post (typeId 14), so we never
+# require a *specific* shot type — only that *some* shot type appears. To avoid
+# mistaking rarity for drift, callers should pass events aggregated across
+# several matches (see pages/11_Data_Sources.py).
+_REQUIRED_TYPE_IDS = {EVENT_PASS}                       # thousands per match, always
+_ANY_SHOT_TYPE_IDS = set(SHOT_TYPE_IDS)                 # at least ONE must appear
+_REQUIRED_QUAL_IDS = {QUAL_PASS_END_X, QUAL_PASS_END_Y}  # on every completed pass
+_EXPECTED_QUAL_IDS = {QUAL_XG, QUAL_FORMATION_TYPE}      # xG / formation across a feed
+
+
+def validate_event_schema(events: list[dict], *, sample: int = 20000) -> list[str]:
+    """Check a sample of events against the typeIds/qualifiers config.py assumes.
+
+    Returns a list of human-readable warnings — an empty list means healthy.
+    Designed to catch FEED DRIFT (a renamed/dropped qualifier, a new typeId),
+    not per-match rarity, so pass a multi-match event sample. ``sample`` caps how
+    many events are scanned.
+    """
+    if not events:
+        return ["No events found to validate."]
+
+    seen_types: set = set()
+    seen_quals: set = set()
+    for e in events[:sample]:
+        seen_types.add(e.get("typeId"))
+        for q in e.get("qualifier", []):
+            seen_quals.add(q.get("qualifierId"))
+
+    warnings: list[str] = []
+    missing_types = _REQUIRED_TYPE_IDS - seen_types
+    if missing_types:
+        warnings.append(
+            f"Required event typeIds absent: {sorted(missing_types)} "
+            "— passes may be mis-parsed (check EVENT_PASS)."
+        )
+    if not (_ANY_SHOT_TYPE_IDS & seen_types):
+        warnings.append(
+            f"No shot typeIds {sorted(_ANY_SHOT_TYPE_IDS)} found at all "
+            "— shots may be mis-parsed (check SHOT_TYPE_IDS)."
+        )
+    missing_req_quals = _REQUIRED_QUAL_IDS - seen_quals
+    if missing_req_quals:
+        warnings.append(
+            f"Required qualifier IDs absent: {sorted(missing_req_quals)} "
+            "— pass-end coordinates unavailable (check QUAL_PASS_END_X/Y)."
+        )
+    missing_exp_quals = _EXPECTED_QUAL_IDS - seen_quals
+    if missing_exp_quals:
+        warnings.append(
+            f"Expected qualifier IDs absent across the sample: {sorted(missing_exp_quals)} "
+            "— xG (395) / formation (130) may be unrecorded this season."
+        )
+    return warnings

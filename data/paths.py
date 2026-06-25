@@ -64,6 +64,19 @@ def match_index_parquet(league: str, season: str) -> Path:
     return CACHE_ROOT / "match_index" / league / f"{season}.parquet"
 
 
+def silver_events_parquet(league: str, season: str) -> Path:
+    """Path to the cached, flattened "silver" event table for a league/season.
+
+    One columnar Parquet per (league, season) holding every event flattened to
+    typed rows — the storage tier that lets season-wide scans (e.g. all events
+    for one player) read columns with a predicate instead of re-parsing the
+    nested JSON tree on every call. Lives under CACHE_ROOT alongside the match
+    index, mirroring the <league>/<season> layout, so the raw Opta dataset
+    under DATA_ROOT is never written to. Built by :mod:`data.silver_events`.
+    """
+    return CACHE_ROOT / "silver_events" / league / f"{season}.parquet"
+
+
 def find_match_file(league: str, season: str, match_id: str) -> Path | None:
     """Find a match JSON file by its match ID in the partidos directory."""
     pdir = partidos_dir(league, season)
