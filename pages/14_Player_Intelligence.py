@@ -203,16 +203,26 @@ with tab_player:
 
     scope_col, player_col = st.columns([1, 2])
     with scope_col:
-        scope = st.radio("Show", ["CF América", "All League"], horizontal=True,
+        # Only offer the "CF América" scope when this competition actually has
+        # América players. Most leagues (MLS, USL, most CONCACAF seasons) don't,
+        # and defaulting to an empty CF list left the picker empty — which then
+        # tripped st.stop() below and blanked the whole page, including the
+        # Compatibility tab. Fall back to the full league when there's no squad.
+        scope_options = ["CF América", "All League"] if cf_names else ["All League"]
+        scope = st.radio("Show", scope_options, horizontal=True,
                          key="intel_player_scope")
     with player_col:
-        player_list = cf_names if scope == "CF América" else all_players
+        player_list = cf_names if (scope == "CF América" and cf_names) else all_players
         selected_player = st.selectbox("Select Player", player_list,
                                        key="intel_player_sel")
 
+    # With the scope/player_list fix above, player_list is never empty when the
+    # competition has data, so selected_player is always a real player and this
+    # guard no longer fires for non-América leagues (the original bug). It stays
+    # only as a backstop for a genuinely empty competition.
     player_rows = arch_df[arch_df["nombre"] == selected_player]
-    if player_rows.empty:
-        st.info("Player not found.")
+    if selected_player is None or player_rows.empty:
+        st.info("No players available to profile for this competition.")
         st.stop()
 
     p = player_rows.iloc[0]
