@@ -34,8 +34,11 @@ from processing.set_pieces import compute_corner_breakdown, compute_corner_shot_
 from processing.poisson import compute_enhanced_prediction
 from processing.formations import compute_ppda
 from processing.game_phases import compute_team_phase_report
+from data.loader import load_build_up_report, load_attack_report  # cached wrappers
+from viz.buildup import plot_build_up, build_up_summary_md
+from viz.attack_play import plot_attack, attack_summary_md
 from viz.phases import (
-    phase_donut, phase_compare_bars, transition_matrix, transition_kpi_html,
+    phase_family_bars, phase_compare_bars, transition_matrix, transition_kpi_html,
 )
 from config import AME_YELLOW, AME_BLUE
 
@@ -341,7 +344,12 @@ for col, team, dist in [(col1, home_team, mc["home_goal_dist"]),
 
 st.markdown("---")
 section_header("Probable Starting XI")
-st.caption("Based on most recent match formation for each team")
+st.caption(
+    "Starting XI from each team's most recent match, shown in the formation "
+    "shape. Each player is placed in the slot matching their **actual average "
+    "position** from that game, so left/right and depth reflect how they really "
+    "lined up — not just the raw Opta template."
+)
 
 results_df = load_all_season_results(league, season, stage_filter=_stage_filter_pre)
 name_map = build_player_name_map(league, season)
@@ -358,48 +366,84 @@ _away_resolved = _resolve_team_in_results(
 )
 
 
-def _get_last_formation(team_name: str, resolved_name: str) -> dict | None:
-    """Find the most recent match for a team and extract its formation."""
+def _get_last_formation(team_name: str, resolved_name: str):
+    """Most recent match formation for a team, plus its events and team_id.
+
+    Returns (formation_dict, events_list, team_id) so the caller can place
+    players at their real average positions; (None, None, None) if unavailable.
+    """
     if results_df.empty:
-        return None
+        return None, None, None
     team_matches = results_df[
         (results_df["home_team"] == resolved_name) | (results_df["away_team"] == resolved_name)
     ]
     if team_matches.empty:
-        return None
+        return None, None, None
     last = team_matches.iloc[-1]
 
     from data.loader import _find_match_id_for_row
     mid = _find_match_id_for_row(league, season, last)
     if not mid:
-        return None
+        return None, None, None
 
     raw = load_match_raw(league, season, mid)
     if not raw:
-        return None
+        return None, None, None
 
     info = parse_match_info(raw)
     events = raw.get("liveData", {}).get("event", [])
     # Match by resolved name (what appears in match data)
     team_id = info["home_id"] if info["home_team"] == resolved_name else info["away_id"]
-    return extract_formation(events, team_id)
+    return extract_formation(events, team_id), events, team_id
 
 
 col1, col2 = st.columns(2)
 with col1:
-    home_formation = _get_last_formation(home_team, _home_resolved)
+    home_formation, home_fm_events, home_fm_tid = _get_last_formation(home_team, _home_resolved)
     if home_formation:
-        plot_formation(home_formation, name_map, title=f"{home_team}")
+        plot_formation(home_formation, name_map, title=f"{home_team}",
+                       events_list=home_fm_events, team_id=home_fm_tid,
+                       snap_to_template=True)
     else:
         st.info(f"No formation data for {home_team}.")
 
 with col2:
-    away_formation = _get_last_formation(away_team, _away_resolved)
+    away_formation, away_fm_events, away_fm_tid = _get_last_formation(away_team, _away_resolved)
     if away_formation:
         plot_formation(away_formation, name_map, title=f"{away_team}",
-                       primary_color="#42A5F5")
+                       primary_color="#42A5F5",
+                       events_list=away_fm_events, team_id=away_fm_tid,
+                       snap_to_template=True)
     else:
         st.info(f"No formation data for {away_team}.")
+
+
+# ══════════════════════════════════════════════════════════════════════════════
+# §5b — Attacking Output by Game State
+# ══════════════════════════════════════════════════════════════════════════════
+
+st.markdown("---")
+section_header("Attacking Output by Game State")
+st.caption(
+    "Each side's xG and xT split by scoreline state. Compare the *Level* rows for "
+    "the cleanest read of true attacking level — leading teams cede possession, "
+    "chasing teams inflate xG. Per-90 by minutes spent in each state."
+)
+from processing.game_state import compute_season_game_state
+from viz.tables import game_state_table
+from config import MIN_MATCHES_FOR_PREDICTION as _MIN_GS
+
+_home_tid = _get_team_id(results_df, _standings, home_team)
+_away_tid = _get_team_id(results_df, _standings, away_team)
+gcol1, gcol2 = st.columns(2)
+with gcol1:
+    _gs_home = compute_season_game_state(league, season, _home_tid,
+                                         stage_filter=_stage_filter_pre)
+    game_state_table(_gs_home, home_team, min_matches=_MIN_GS)
+with gcol2:
+    _gs_away = compute_season_game_state(league, season, _away_tid,
+                                         stage_filter=_stage_filter_pre)
+    game_state_table(_gs_away, away_team, min_matches=_MIN_GS)
 
 
 # ══════════════════════════════════════════════════════════════════════════════
@@ -672,6 +716,106 @@ with st.spinner("Loading last 5 matches for each team…"):
     away_events_5, away_tid, away_n = _load_last_n_events(_away_resolved, n=5)
 
 if home_events_5 and away_events_5 and home_tid and away_tid:
+    # ── Key Threats — Danger Men ─────────────────────────────────────────
+    st.subheader("Key Threats — Danger Men")
+    st.caption(
+        "The player on each side the opponent must plan for: most dangerous "
+        "**offensively** (finishing + chance involvement + carrying) and "
+        "**defensively** (ball-winning + duels), over the last 5 matches. "
+        "The threat index is **squad-relative** (0–100 vs. teammates), not an "
+        "absolute league rating."
+    )
+    from processing.player_threats import compute_player_threats
+    from viz.tables import player_threats_panel
+    from viz.charts import threat_quadrant_chart
+
+    # Compute once per team — reused by both the cards and the quadrant chart.
+    home_threats = compute_player_threats(home_events_5, home_tid, home_n)
+    away_threats = compute_player_threats(away_events_5, away_tid, away_n)
+
+    kt1, kt2 = st.columns(2)
+    with kt1:
+        player_threats_panel(home_threats, team_name=home_team, accent=AME_YELLOW)
+    with kt2:
+        player_threats_panel(away_threats, team_name=away_team, accent=AME_BLUE)
+
+    # Two-way threat quadrant — offensive × defensive on one canvas, both squads.
+    st.plotly_chart(
+        threat_quadrant_chart(home_threats, away_threats,
+                              home_team, away_team, home_n, away_n),
+        use_container_width=True,
+    )
+
+    # ── Goalkeeper Matchup ───────────────────────────────────────────────
+    st.subheader("Goalkeeper Matchup")
+    st.caption(
+        "Each keeper's profile over the last 5 — **goals prevented** (xGOT faced "
+        "− conceded), **distribution** threat (xT added by passing), **sweeping** "
+        "(actions outside the box, per 90) and **cross claims** (per 90). "
+        "Event-data only, no keeper tracking. The bullets flag how to beat their "
+        "keeper and what to expect from ours."
+    )
+    from processing.gk_value import goalkeeper_value
+
+    def _gk_name(_events, gk_id):
+        for _e in _events:
+            if _e.get("playerId") == gk_id and _e.get("playerName"):
+                return _e["playerName"]
+        return "Goalkeeper"
+
+    def _gk_prep(gv):
+        """Plain-language prep reads from a keeper's last-5 profile."""
+        reads = []
+        sps = gv["shot_stopping"]
+        if sps >= 1.0:
+            reads.append(f"🧤 **Strong shot-stopper** (+{sps:.1f} goals prevented) — "
+                         "manufacture high-xG chances; long-range efforts likely wasted.")
+        elif sps <= -1.0:
+            reads.append(f"🎯 **Shaky shot-stopping** ({sps:.1f}) — test them early and "
+                         "often; shots on target are paying off.")
+        if gv["claims"] < 3.0:
+            reads.append(f"📦 **Rarely claims crosses** ({gv['claims']:.1f}/90) — load "
+                         "the box on crosses, corners and set-pieces.")
+        if gv["sweeper"] >= 1.5:
+            reads.append(f"🏃 **Aggressive sweeper** ({gv['sweeper']:.1f}/90) — balls in "
+                         "behind are risky; quick transitions can catch them high.")
+        if gv["launch_pct"] >= 0.5:
+            reads.append(f"🦶 **Goes long often** ({gv['launch_pct']*100:.0f}% launches) — "
+                         "press the first phase to force rushed kicks and win second balls.")
+        elif gv["launch_pct"] <= 0.3:
+            reads.append(f"🩴 **Plays out short** ({gv['launch_pct']*100:.0f}% launches) — "
+                         "press their build-up to trap them deep.")
+        return reads or ["Balanced profile over the sample — no standout weakness to target."]
+
+    gk_cols = st.columns(2)
+    for _gcol, _gevents, _gtid, _gname, _gn, _accent in [
+        (gk_cols[0], home_events_5, home_tid, home_team, home_n, AME_YELLOW),
+        (gk_cols[1], away_events_5, away_tid, away_team, away_n, AME_BLUE),
+    ]:
+        with _gcol:
+            gv = goalkeeper_value(_gevents, _gtid, minutes=max(_gn, 1) * 90)
+            if not gv:
+                st.info(f"No goalkeeper events found for {_gname}.")
+                continue
+            st.markdown(
+                f"<span style='color:{_accent};font-weight:700;'>"
+                f"{_gk_name(_gevents, gv['gk_id'])}</span> — {_gname} (last {_gn})",
+                unsafe_allow_html=True,
+            )
+            kpi_row([
+                {"label": "Goals Prevented", "value": f"{gv['shot_stopping']:+.1f}"},
+                {"label": "Distribution xT", "value": f"{gv['distribution']:.2f}"},
+                {"label": "Sweeps /90", "value": f"{gv['sweeper']:.1f}"},
+                {"label": "Claims /90", "value": f"{gv['claims']:.1f}"},
+            ], cols=4)
+            st.caption(
+                f"Faced {gv['shots_faced']} shots on target · conceded "
+                f"{gv['goals_conceded']} · {gv['launch_pct']*100:.0f}% launches · "
+                f"{gv['pass_completion']*100:.0f}% pass completion"
+            )
+            for _r in _gk_prep(gv):
+                st.markdown(f"- {_r}")
+
     # ── Ball Win Height ──────────────────────────────────────────────────
     st.subheader("Ball Win Height")
     bw1, bw2 = st.columns(2)
@@ -962,22 +1106,18 @@ if home_rep and away_rep:
         st.markdown(transition_kpi_html(away_rep["transitions"], ppda=away_rep["ppda_avg"]),
                     unsafe_allow_html=True)
 
-    # ── Side-by-side phase comparison bars ─────────────────────────────────
-    st.markdown("##### Phase distribution — head-to-head")
+    # ── Tactical identity — phases rolled into 3 families (summary) ─────────
+    st.markdown("##### Tactical identity — in possession · out of possession · transition")
+    st.plotly_chart(
+        phase_family_bars(home_rep["distribution"], away_rep["distribution"],
+                          home_team, away_team),
+        use_container_width=True)
+
+    # ── Per-phase head-to-head detail ──────────────────────────────────────
+    st.markdown("##### Phase distribution — head-to-head (per phase)")
     fig = phase_compare_bars(home_rep["distribution"], away_rep["distribution"],
                              home_team, away_team)
     st.plotly_chart(fig, use_container_width=True)
-
-    # ── Per-team donuts + transition Sankeys ───────────────────────────────
-    pc1, pc2 = st.columns(2)
-    with pc1:
-        st.plotly_chart(
-            phase_donut(home_rep["distribution"], title=f"{home_team} · Phase mix"),
-            use_container_width=True)
-    with pc2:
-        st.plotly_chart(
-            phase_donut(away_rep["distribution"], title=f"{away_team} · Phase mix"),
-            use_container_width=True)
 
     st.markdown("##### Phase Transition Matrix — most recent match")
     st.caption(
@@ -999,5 +1139,46 @@ if home_rep and away_rep:
                 transition_matrix(away_rep["chains"][-1], tid_sample,
                                   title=f"{away_team} · Phase transitions"),
                 use_container_width=True)
+
+    # ── Build-up — playing out from the back (last 5 matches) ──────────────
+    st.markdown("##### Build-Up — Playing Out From the Back")
+    st.caption(
+        "How each team takes the ball out of its own defensive third over the "
+        "last 5 matches: exit **channel** (left/central/right), **short** vs "
+        "**long/direct** style, the most common passing link, and the players "
+        "most involved. Arrow width = exit volume; dominant route highlighted."
+    )
+    bu_home = load_build_up_report(extract_passes(home_events_5, home_tid))
+    bu_away = load_build_up_report(extract_passes(away_events_5, away_tid))
+    bc1, bc2 = st.columns(2)
+    with bc1:
+        plot_build_up(bu_home, title=f"{home_team} · Out of the Back",
+                      team_color=AME_YELLOW)
+        st.markdown(build_up_summary_md(bu_home, home_team))
+    with bc2:
+        plot_build_up(bu_away, title=f"{away_team} · Out of the Back",
+                      team_color=AME_BLUE)
+        st.markdown(build_up_summary_md(bu_away, away_team))
+
+    # ── Attack — connecting in the final third (last 5 matches) ────────────
+    st.markdown("##### Attack — Connecting in the Final Third")
+    st.caption(
+        "How each team connects in the attacking third over the last 5 matches: "
+        "connection **channel** (left/central/right), **entries** from outside "
+        "vs **combinations** inside, the most common passing link, and which "
+        "players connect most — with each one's **share (%) of all "
+        "connections**. Arrow width = connection volume; dominant route highlighted."
+    )
+    at_home = load_attack_report(extract_passes(home_events_5, home_tid))
+    at_away = load_attack_report(extract_passes(away_events_5, away_tid))
+    ac1, ac2 = st.columns(2)
+    with ac1:
+        plot_attack(at_home, title=f"{home_team} · Final-Third Connections",
+                    team_color=AME_YELLOW)
+        st.markdown(attack_summary_md(at_home, home_team))
+    with ac2:
+        plot_attack(at_away, title=f"{away_team} · Final-Third Connections",
+                    team_color=AME_BLUE)
+        st.markdown(attack_summary_md(at_away, away_team))
 else:
     st.info("Not enough match data to compute phases & transitions for both teams.")

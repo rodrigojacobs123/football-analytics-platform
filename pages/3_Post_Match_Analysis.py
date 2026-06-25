@@ -19,8 +19,8 @@ from viz.pitch import (
     plot_goal_buildup,
     ZONE_ACTION_COLORS, _ORIGIN_LABELS, _ORIGIN_COLORS,
 )
-from viz.charts import xg_race_chart
-from viz.phases import phase_donut, phase_compare_bars, transition_matrix, transition_kpi_html
+from viz.charts import xg_race_chart, momentum_chart
+from viz.phases import phase_family_bars, phase_compare_bars, transition_matrix, transition_kpi_html
 from viz.xt import xt_pitch_heatmap, xt_top_contributors_bar
 from data.loader import load_match_raw, build_player_name_map, list_standings_stages
 from data.event_parser import (
@@ -45,9 +45,13 @@ from processing.formations import (
 )
 from processing.match_ratings import compute_match_ratings, rating_color
 from processing.game_phases import compute_team_phase_report
-from processing.xt import xt_summary, match_xt_summary
+from data.loader import load_build_up_report, load_attack_report  # cached wrappers
+from viz.buildup import plot_build_up, build_up_summary_md
+from viz.attack_play import plot_attack, attack_summary_md
+from processing.xt import xt_summary, match_xt_summary, compute_xt_momentum
 from processing.pressure import compute_pressure_metrics
-from config import AME_TEAM_ID, AME_YELLOW, AME_BLUE, AME_DARK_BG
+from processing.match_insights import generate_match_insights
+from config import AME_TEAM_ID, AME_YELLOW, AME_BLUE, AME_DARK_BG, COMPETITIONS
 
 # Guarantee CSS is injected — matches apply_theme() in app.py but needed as safety net
 apply_theme()
@@ -140,6 +144,7 @@ match_hero_v3(
     matchday=info["matchday"], date=info["date"], venue=info["venue"],
     ht_home=info["ht_home"], ht_away=info["ht_away"],
     home_xg=home_xg, away_xg=away_xg,
+    competition=COMPETITIONS.get(league, league),
 )
 
 # ── Stats Comparison Bars ─────────────────────────────────────────────────
@@ -160,6 +165,48 @@ with col1:
 with col2:
     key_events = _ov["key_events"]
     key_events_timeline(key_events, home_team, away_team, home_id, away_id)
+
+# ── xT Momentum (who was on top, when) ───────────────────────────────────
+momentum = compute_xt_momentum(events, home_id, away_id)
+st.plotly_chart(
+    momentum_chart(momentum, home_team, away_team, goals, home_id),
+    width="stretch",
+)
+st.caption(
+    "Rolling 5-minute Expected Threat (xT) created by each side. "
+    "Bands above the line favour the home team, below favour the away team — "
+    "the per-event companion to the cumulative xG race above."
+)
+
+# ── Insights of the Game (auto-generated narrative) ───────────────────────
+v3_section_header("INSIGHTS", "Insights of the Game")
+_insights = generate_match_insights(
+    info, home_xg, away_xg, match_stats, goals,
+    _ov["home_shots"], _ov["away_shots"], momentum, home_id, away_id,
+    ame_team_id=AME_TEAM_ID,
+)
+if _insights:
+    _tone_accent = {
+        "good": "#4CAF50", "bad": "#F44336",
+        "neutral": AME_YELLOW, "info": AME_BLUE,
+    }
+    _rows = "".join(
+        f"""<div style="display:flex;align-items:flex-start;gap:0.6rem;
+             padding:0.55rem 0.8rem;margin:0.35rem 0;background:#1A1A2E;
+             border-left:3px solid {_tone_accent.get(i['tone'], AME_YELLOW)};
+             border-radius:6px;">
+            <span style="font-size:1.1rem;line-height:1.3;">{i['icon']}</span>
+            <span style="color:#dcdce6;font-size:0.9rem;line-height:1.4;">{i['text']}</span>
+        </div>"""
+        for i in _insights
+    )
+    st.markdown(_rows, unsafe_allow_html=True)
+    st.caption(
+        "Auto-generated from this match's xG, shots, possession, goals and xT "
+        "momentum. A reading aid — not a substitute for watching the game."
+    )
+else:
+    st.info("Not enough data to generate match insights.")
 
 # ── Shot Maps ─────────────────────────────────────────────────────────────
 v3_section_header("SHOT MAPS", "Where the Chances Came From")
@@ -551,27 +598,23 @@ with hk2:
     st.markdown(transition_kpi_html(away_rep["transitions"], ppda=ppda_away),
                 unsafe_allow_html=True)
 
-# ── Side-by-side phase comparison (diverging bars) ─────────────────────────
-st.markdown("##### Phase Distribution — Head-to-Head")
+# ── Tactical identity — phases rolled into 3 families (summary) ────────────
+st.markdown(
+    "##### Tactical Identity — In Possession · Out of Possession · Transition",
+    help="The 9 phases rolled into the three tactical families. "
+         "Read it as each team's balance: settled attacking, settled defending, "
+         "or in transition (counter-press + counter-attack).",
+)
+st.plotly_chart(
+    phase_family_bars(home_rep["distribution"], away_rep["distribution"],
+                      home_team, away_team),
+    use_container_width=True)
+
+# ── Per-phase head-to-head detail (diverging bars) ─────────────────────────
+st.markdown("##### Phase Distribution — Head-to-Head (per phase)")
 fig_cmp = phase_compare_bars(home_rep["distribution"], away_rep["distribution"],
                               home_team, away_team)
 st.plotly_chart(fig_cmp, use_container_width=True)
-
-# ── Donuts — Phase Mix ─────────────────────────────────────────────────────
-st.markdown(
-    "##### Phase Mix — Share of Match Events per Tactical Phase",
-    help="Each slice = % of that team's logged events in that phase. "
-         "Hover a slice to see the label and exact share.",
-)
-dc1, dc2 = st.columns(2)
-with dc1:
-    st.plotly_chart(
-        phase_donut(home_rep["distribution"], title=f"{home_team} · Phase Mix"),
-        use_container_width=True)
-with dc2:
-    st.plotly_chart(
-        phase_donut(away_rep["distribution"], title=f"{away_team} · Phase Mix"),
-        use_container_width=True)
 
 st.markdown("##### Phase Transition Matrix")
 st.caption(
@@ -590,6 +633,49 @@ with fc2:
         transition_matrix(away_rep["chain"], away_id,
                           title=f"{away_team} · Phase transitions"),
         use_container_width=True)
+
+# ── Build-up — playing out from the back ───────────────────────────────────
+st.markdown("##### Build-Up — Playing Out From the Back")
+st.caption(
+    "How each team takes the ball out of its own defensive third: which "
+    "**channel** (left/central/right) they exit through, whether they play "
+    "**short** or go **long/direct**, the most common passing link, and the "
+    "players most involved. Arrow width = exit volume; the dominant route is "
+    "highlighted in the team colour."
+)
+bu_home = load_build_up_report(extract_passes(events, home_id))
+bu_away = load_build_up_report(extract_passes(events, away_id))
+bc1, bc2 = st.columns(2)
+with bc1:
+    plot_build_up(bu_home, title=f"{home_team} · Out of the Back",
+                  team_color=primary_home)
+    st.markdown(build_up_summary_md(bu_home, home_team))
+with bc2:
+    plot_build_up(bu_away, title=f"{away_team} · Out of the Back",
+                  team_color=primary_away)
+    st.markdown(build_up_summary_md(bu_away, away_team))
+
+
+# ── Attack — connecting in the final third ──────────────────────────────────
+st.markdown("##### Attack — Connecting in the Final Third")
+st.caption(
+    "How each team connects in the attacking third: which **channel** "
+    "(left/central/right) they connect through, whether passes are **entries** "
+    "from outside or **combinations** inside, the most common passing link, and "
+    "which players connect most — each with its **share (%) of all "
+    "connections**. Arrow width = connection volume; dominant route highlighted."
+)
+at_home = load_attack_report(extract_passes(events, home_id))
+at_away = load_attack_report(extract_passes(events, away_id))
+ac1, ac2 = st.columns(2)
+with ac1:
+    plot_attack(at_home, title=f"{home_team} · Final-Third Connections",
+                team_color=primary_home)
+    st.markdown(attack_summary_md(at_home, home_team))
+with ac2:
+    plot_attack(at_away, title=f"{away_team} · Final-Third Connections",
+                team_color=primary_away)
+    st.markdown(attack_summary_md(at_away, away_team))
 
 
 # ═══════════════════════════════════════════════════════════════════════════

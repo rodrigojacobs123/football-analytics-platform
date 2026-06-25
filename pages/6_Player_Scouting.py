@@ -8,10 +8,13 @@ from viz.kpi_cards import section_header, kpi_card, metric_highlight, page_heade
 from viz.radar import fc_radar, position_radar
 from viz.pizza import pizza_chart
 from viz.tables import styled_dataframe
-from viz.xt import xt_top_contributors_bar, xdef_top_defenders_bar
+from viz.xt import xt_top_contributors_bar, xdef_top_defenders_bar, xg_chain_bar, xdef_percentile_bar
+from viz.charts import gvm_bar_chart
 from data.loader import load_all_player_season_stats, load_player_events_season, list_standings_stages
 from processing.xt import compute_season_xt
-from processing.xdef import compute_season_xdef
+from processing.xg_chain import compute_season_xg_chain
+from processing.xdef import compute_season_xdef, compute_league_xdef
+from processing.gk_value import compute_league_gk_value
 from processing.player_ratings import (
     compute_fc_ratings, POSITION_ATTR_KEYS, POSITION_CATEGORY_DISPLAY,
     get_position_attrs, get_position_display_names,
@@ -208,6 +211,52 @@ else:
 
 
 # ═══════════════════════════════════════════════════════════════════════════
+# § 2b  xGChain / xGBuildup — POSSESSION-xG CREDIT (WHO BUILDS THE CHANCES)
+# ═══════════════════════════════════════════════════════════════════════════
+# Credits every shot-ending possession's xG to all players involved. xGChain =
+# full credit; xGBuildup excludes shooter + assister, isolating deep build-up.
+st.markdown("---")
+section_header("xGChain & xGBuildup — Chance-Building Leaders")
+if league in AME_LEAGUES:
+    st.caption(
+        f"Possession-xG credited to {AME_TEAM_NAME} players: every shot-ending "
+        f"move credits its xG to everyone involved (**xGChain**); **xGBuildup** "
+        f"drops the shooter & assister to surface the deep build-up players. "
+        f"Per-match over ≥ {MIN_APPEARANCES_FOR_RATING} appearances."
+    )
+    _xgc = compute_season_xg_chain(
+        league, season, AME_TEAM_ID,
+        min_appearances=MIN_APPEARANCES_FOR_RATING,
+    )
+    _clb = _xgc.get("leaderboard", pd.DataFrame()) if _xgc else pd.DataFrame()
+    if not _clb.empty:
+        ccol1, ccol2 = st.columns([3, 2])
+        with ccol1:
+            st.plotly_chart(
+                xg_chain_bar(
+                    _clb.head(10),
+                    title=f"{AME_TEAM_NAME} — xGChain vs xGBuildup"),
+                use_container_width=True,
+            )
+        with ccol2:
+            _ctable = _clb.rename(columns={
+                "player_name": "Player", "xgchain": "xGChain",
+                "xgbuildup": "xGBuildup", "xgchain_per_match": "xGChain/M",
+                "xgbuildup_per_match": "xGBuildup/M", "apps": "Apps",
+            })[["Player", "xGChain", "xGBuildup", "xGChain/M", "Apps"]]
+            styled_dataframe(_ctable, height=380)
+    else:
+        st.info(
+            f"xGChain requires per-match files in partidos/ for {AME_TEAM_NAME}."
+        )
+else:
+    st.info(
+        f"xGChain leaderboard is computed for {AME_TEAM_NAME} only "
+        f"(in its competitions: {', '.join(AME_LEAGUES)})."
+    )
+
+
+# ═══════════════════════════════════════════════════════════════════════════
 # § 2c  EXPECTED DEFENSIVE THREAT (xDEF) — SEASON THREAT-DENIAL LEADERS
 # ═══════════════════════════════════════════════════════════════════════════
 # The defensive mirror of the xT leaders above: who extinguished the most
@@ -261,6 +310,84 @@ else:
         f"Season xDEF leaderboard is computed for {AME_TEAM_NAME} only "
         f"(in its competitions: {', '.join(AME_LEAGUES)})."
     )
+
+
+# ═══════════════════════════════════════════════════════════════════════════
+# § 2d  xDEF LEAGUE PERCENTILE — DEFENDERS vs THE WHOLE COMPETITION
+# ═══════════════════════════════════════════════════════════════════════════
+# The within-team xDEF leaderboard above ranks team-mates against each other.
+# A DEF rating, though, needs each defender benchmarked against ALL defenders in
+# the competition — a league-wide cross-team scan (see project note: the DEF
+# rating is a league percentile; team-only metrics can't feed it without this).
+st.markdown("---")
+section_header("xDEF League Percentile — vs the Whole Competition")
+st.caption(
+    f"Each {AME_TEAM_NAME} player's threat-denial (xDEF/match) **percentile-ranked "
+    f"against every defender in the competition** — the league-wide scan a DEF "
+    f"rating needs. 99ᵗʰ percentile = best in the league at extinguishing threat. "
+    f"Minimum {MIN_APPEARANCES_FOR_RATING} appearances."
+)
+_league_xdef = compute_league_xdef(
+    league, season, min_appearances=MIN_APPEARANCES_FOR_RATING,
+)
+if not _league_xdef.empty:
+    _ame_xdef = _league_xdef[_league_xdef["team_id"] == AME_TEAM_ID]
+    if not _ame_xdef.empty:
+        pcol1, pcol2 = st.columns([3, 2])
+        with pcol1:
+            st.plotly_chart(
+                xdef_percentile_bar(
+                    _ame_xdef,
+                    title=f"{AME_TEAM_NAME} — xDEF League Percentile"),
+                use_container_width=True,
+            )
+        with pcol2:
+            _ptable = _ame_xdef.head(12)[
+                ["player_name", "pct", "xdef_per_match", "apps"]
+            ].rename(columns={
+                "player_name": "Player", "pct": "Pct",
+                "xdef_per_match": "xDEF/Match", "apps": "Apps",
+            })
+            styled_dataframe(_ptable, height=380)
+        st.caption(
+            f"Benchmarked across **{len(_league_xdef)}** qualifying defenders "
+            f"in {league.replace('_', ' ')}."
+        )
+    else:
+        st.info(f"No qualifying {AME_TEAM_NAME} defenders in the league scan yet.")
+else:
+    st.info("League-wide xDEF requires per-match files in partidos/.")
+
+
+# ═══════════════════════════════════════════════════════════════════════════
+# § 2b  GOALKEEPER VALUE MODEL (GVM)
+# ═══════════════════════════════════════════════════════════════════════════
+st.markdown("---")
+section_header("Goalkeeper Value Model (GVM)")
+st.caption(
+    "A composite keeper rating from Opta events: **shot-stopping** (xGOT faced − "
+    "goals conceded), **distribution** (xT added by the keeper's passing), "
+    "**sweeping** (defensive actions outside the box) and **claims**. Each is "
+    "z-scored across this competition's keepers and blended to 0–100, so it is a "
+    "**relative** rating, not an absolute scale. Event-data only — no keeper "
+    "positioning/tracking."
+)
+_gvm = compute_league_gk_value(league, season)
+if not _gvm.empty:
+    gcol1, gcol2 = st.columns([3, 2])
+    with gcol1:
+        st.plotly_chart(gvm_bar_chart(_gvm, highlight_id=AME_TEAM_ID),
+                        use_container_width=True)
+    with gcol2:
+        _gtable = _gvm[["team_name", "gvm", "shot_stopping", "distribution",
+                        "sweeper", "claims", "goals_conceded"]].rename(columns={
+            "team_name": "Team", "gvm": "GVM", "shot_stopping": "Stop",
+            "distribution": "Dist-xT", "sweeper": "Sweep/90",
+            "claims": "Claims/90", "goals_conceded": "GA",
+        })
+        styled_dataframe(_gtable, height=420)
+else:
+    st.info("GVM requires per-match files in partidos/ for this competition.")
 
 
 # ═══════════════════════════════════════════════════════════════════════════

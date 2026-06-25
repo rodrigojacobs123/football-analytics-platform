@@ -11,10 +11,11 @@ from viz.charts import (
     tactical_progression_chart, formation_donut, multi_line_chart,
     grouped_bar_chart, bar_chart,
     ppda_trend_chart, dual_axis_trend_chart,
-    donut_chart, histogram, style_quadrant_chart,
+    donut_chart, histogram, style_quadrant_chart, cross_channel_chart,
+    discipline_scatter_chart,
 )
 from viz.radar import team_radar
-from viz.pitch import plot_shot_map, plot_formation_shape
+from viz.pitch import plot_shot_map, plot_formation_shape, plot_team_shape, plot_heatmap
 from viz.tables import styled_dataframe
 from viz.xt import xt_pitch_heatmap, xt_top_contributors_bar
 from data.loader import load_standings, load_team_season_stats, build_player_name_map, list_standings_stages
@@ -34,6 +35,10 @@ from processing.manager_stats import (
 )
 from processing.pressure import compute_season_pressure
 from processing.sequences import compute_season_sequences
+from processing.wide_play import compute_season_cross_value, compute_season_throwin_value
+from processing.set_pieces import compute_season_set_piece_phases
+from processing.team_shape import compute_season_team_shape
+from processing.discipline import compute_league_discipline, load_team_foul_locations
 from config import AME_TEAM_NAME, AME_YELLOW, AME_BLUE, AME_DARK_BG
 
 apply_theme()
@@ -232,6 +237,41 @@ if formations:
         )
 else:
     st.info("No formation data found. Ensure match files exist in partidos/.")
+
+
+# ═══════════════════════════════════════════════════════════════════════════
+# § 2b  TEAM SHAPE & COMPACTNESS (Stretch Index)
+# ═══════════════════════════════════════════════════════════════════════════
+st.markdown("---")
+section_header("Team Shape & Compactness")
+st.caption(
+    "Built from season-average positions (an **event-data approximation** of "
+    "true tracking compactness). **Stretch Index** = convex-hull area of the four "
+    "deepest outfielders — small = compact last line, large = stretched. "
+    "**Exposure** = how much space the front three leave in front of the back line."
+)
+
+shape = compute_season_team_shape(league, season, team_id, stage_filter=_stage_filter)
+if shape and shape.get("players"):
+    ts1, ts2 = st.columns([1, 1])
+    with ts1:
+        plot_team_shape(shape, title=f"{team_name} — Average Shape")
+    with ts2:
+        sh1, sh2 = st.columns(2)
+        with sh1:
+            kpi_card("Stretch Index", f"{shape['stretch_index']:.0f}")
+            kpi_card("Line Height", f"{shape['line_height']:.0f}")
+        with sh2:
+            kpi_card("Last-line Exposure", f"{shape['exposure']:.1f}")
+            kpi_card("Block Width", f"{shape['block_width']:.0f}")
+        st.caption(
+            "Stretch Index is in normalised 0-100² pitch units (the back-four "
+            "hull area). A lower number with a high line height = a compact, "
+            "high-pressing block; a high number = a spread-out last line easier "
+            "to play through."
+        )
+else:
+    st.info("Team shape requires per-match files in partidos/.")
 
 
 # ═══════════════════════════════════════════════════════════════════════════
@@ -473,6 +513,98 @@ else:
 
 
 # ═══════════════════════════════════════════════════════════════════════════
+# § 3b  WIDE PLAY — CROSSING & CUTBACKS
+# ═══════════════════════════════════════════════════════════════════════════
+st.markdown("---")
+section_header("Wide Play — Crossing & Cutbacks")
+st.caption(
+    "Each cross is priced by the **xG it creates** — the first shot the team "
+    "takes within ~6s, attributed back to the delivery. **Cutbacks** (pulled "
+    "back from the byline) convert far better than floated crosses, so they are "
+    "flagged separately. xG is linked per match, so a cross never claims another "
+    "game's shot."
+)
+
+cross = compute_season_cross_value(league, season, team_id, stage_filter=_stage_filter)
+if cross and cross.get("crosses", 0) > 0:
+    wc1, wc2, wc3, wc4 = st.columns(4)
+    with wc1:
+        kpi_card("Crosses / Match", cross["per_match"]["crosses"])
+    with wc2:
+        kpi_card("Completion", f"{cross['completion_pct']:.0f}%")
+    with wc3:
+        kpi_card("Cutbacks", cross["cutbacks"])
+    with wc4:
+        kpi_card("xG / Cross", f"{cross['xg_per_cross']:.3f}")
+
+    st.markdown(
+        f"Cutbacks generate **{cross['xg_per_cutback']:.3f} xG each** vs "
+        f"**{cross['xg_per_cross']:.3f}** for an average cross — "
+        f"{cross['xg_generated']:.1f} total xG created from wide deliveries."
+    )
+
+    cw1, cw2 = st.columns([1, 1])
+    with cw1:
+        st.plotly_chart(cross_channel_chart(cross["by_channel"]),
+                        use_container_width=True)
+    with cw2:
+        st.markdown("**Top cross deliverers**")
+        lb = cross["leaderboard"]
+        if not lb.empty:
+            show = lb.head(8)[["player_name", "crosses", "completed",
+                               "cutbacks", "xg_generated"]].rename(columns={
+                "player_name": "Player", "crosses": "Crosses",
+                "completed": "Cmp", "cutbacks": "Cutbacks", "xg_generated": "xG",
+            })
+            st.dataframe(show, hide_index=True, use_container_width=True)
+else:
+    st.info("Crossing analysis requires per-match files in partidos/.")
+
+
+# ═══════════════════════════════════════════════════════════════════════════
+# § 3d  THROW-INS & LONG THROWS
+# ═══════════════════════════════════════════════════════════════════════════
+st.markdown("---")
+section_header("Throw-Ins & Long Throws")
+st.caption(
+    "The breakout 2025-26 trend. A **long throw** is a throw-in delivered into "
+    "the penalty area; each is priced by the **xG it creates** (first shot within "
+    "~6s, linked per match). Long throws convert far better than ordinary throws "
+    "— a near-free set-piece weapon."
+)
+
+throws = compute_season_throwin_value(league, season, team_id, stage_filter=_stage_filter)
+if throws and throws.get("throwins", 0) > 0:
+    tw1, tw2, tw3, tw4 = st.columns(4)
+    with tw1:
+        kpi_card("Throw-ins / Match", throws["per_match"]["throwins"])
+    with tw2:
+        kpi_card("Long Throws", throws["long_throws"])
+    with tw3:
+        kpi_card("xG / Long Throw", f"{throws['xg_per_long_throw']:.3f}")
+    with tw4:
+        kpi_card("xG from Throws", f"{throws['xg_generated']:.2f}")
+
+    if throws["long_throws"] > 0:
+        st.markdown(
+            f"**{throws['long_throws']}** long throws into the box generated "
+            f"**{throws['xg_per_long_throw']:.3f} xG each** — "
+            f"{throws['shots_created']} shots created from throw-ins this season."
+        )
+    lb = throws.get("leaderboard", pd.DataFrame())
+    if not lb.empty:
+        st.markdown("**Top throw-in deliverers**")
+        show = lb.head(6)[["player_name", "throwins", "long_throws",
+                           "xg_generated"]].rename(columns={
+            "player_name": "Player", "throwins": "Throw-ins",
+            "long_throws": "Long", "xg_generated": "xG",
+        })
+        st.dataframe(show, hide_index=True, use_container_width=True)
+else:
+    st.info("Throw-in analysis requires per-match files in partidos/.")
+
+
+# ═══════════════════════════════════════════════════════════════════════════
 # § 4  ATTACKING & DEFENSIVE PROFILE
 # ═══════════════════════════════════════════════════════════════════════════
 st.markdown("---")
@@ -562,6 +694,39 @@ if has_progression and "sp_shots" in progression.columns:
     )
     st.plotly_chart(fig, width="stretch")
 
+# ── Corner first- vs second-phase value (HOPS-style) ────────────────────────
+st.markdown("#### Corner Phases — First Contact vs Second Ball")
+st.caption(
+    "Splits corner xG into the **first phase** (initial delivery, ≤6s) and the "
+    "**second phase** (recycled / second-ball attack, 6-45s). The modern edge "
+    "is the second phase. **Shot Ratio** = % of corners producing a shot."
+)
+phases = compute_season_set_piece_phases(league, season, team_id,
+                                         stage_filter=_stage_filter)
+if phases and phases.get("n_set_pieces", 0) > 0:
+    ph1, ph2, ph3, ph4 = st.columns(4)
+    with ph1:
+        kpi_card("Corners", phases["n_set_pieces"])
+    with ph2:
+        kpi_card("Shot Ratio", f"{phases['shot_ratio']:.0f}%")
+    with ph3:
+        kpi_card("First / Second xG",
+                 f"{phases['first_xg']:.2f} / {phases['second_xg']:.2f}")
+    with ph4:
+        kpi_card("Second-phase Share", f"{phases['second_phase_share']:.0f}%")
+
+    by_r = phases.get("by_routine", pd.DataFrame())
+    if not by_r.empty:
+        fig_ph = grouped_bar_chart(
+            by_r, x="delivery_label", y_cols=["first_xg", "second_xg"],
+            colors=[AME_YELLOW, AME_BLUE],
+            title=f"{team_name} — Corner xG by Phase & Routine",
+            bar_names=["First phase", "Second phase"],
+        )
+        st.plotly_chart(fig_ph, width="stretch")
+else:
+    st.info("Corner-phase analysis requires per-match files in partidos/.")
+
 
 # ═══════════════════════════════════════════════════════════════════════════
 # § 6  PASSING PROFILE
@@ -609,6 +774,63 @@ if agg:
         kpi_card("Fouls Won", int(agg.get("fouls_won", 0)))
 else:
     st.info("Aggregate season stats not available for this team.")
+
+
+# ═══════════════════════════════════════════════════════════════════════════
+# § 6b  DISCIPLINE & FOULING EFFICIENCY (Expected Booking, xB)
+# ═══════════════════════════════════════════════════════════════════════════
+st.markdown("---")
+section_header("Discipline & Fouling Efficiency")
+st.caption(
+    "**Expected Booking (xB)** = the chance a foul earns a card, learned "
+    "empirically from where fouls are committed across the league. A team **above** "
+    "the break-even line is booked more than its foul locations warrant; **below** "
+    "= 'smart foulers'. **Fouls/card** is the efficiency headline."
+)
+
+disc = compute_league_discipline(league, season, stage_filter=_stage_filter)
+disc_team = pd.DataFrame()
+if disc and not disc.get("per_team", pd.DataFrame()).empty:
+    pt = disc["per_team"]
+    disc_team = pt[pt["team_id"] == team_id]
+
+if not disc_team.empty:
+    row = disc_team.iloc[0]
+    dk1, dk2, dk3, dk4 = st.columns(4)
+    with dk1:
+        kpi_card("Fouls / Card", f"{row['fouls_per_card']:.1f}")
+    with dk2:
+        kpi_card("Cards vs Expected", f"{row['cards_vs_expected']:+.1f}")
+    with dk3:
+        kpi_card("Reds", int(row["reds"]))
+    with dk4:
+        kpi_card("Dangerous Fouls Won", int(row["dangerous_fouls_won"]))
+
+    eff = ("more disciplined than their foul locations imply"
+           if row["cards_vs_expected"] < -0.5 else
+           ("booked more than expected — reckless or referee-prone"
+            if row["cards_vs_expected"] > 0.5 else "booked about as expected"))
+    st.markdown(
+        f"{team_name} draw **{int(row['dangerous_fouls_won'])}** fouls in the "
+        f"final third (set-piece value won) and are **{eff}**."
+    )
+
+    dc1, dc2 = st.columns([3, 2])
+    with dc1:
+        st.plotly_chart(
+            discipline_scatter_chart(disc["per_team"], highlight_id=team_id,
+                                     title=f"{league.replace('_', ' ')} — Fouling Efficiency"),
+            use_container_width=True,
+        )
+    with dc2:
+        foul_locs = load_team_foul_locations(league, season, team_id,
+                                             stage_filter=_stage_filter)
+        if not foul_locs.empty:
+            plot_heatmap(foul_locs, title=f"{team_name} — Where They Foul")
+        else:
+            st.info("No foul-location data.")
+else:
+    st.info("Discipline analysis requires per-match files in partidos/.")
 
 
 # ═══════════════════════════════════════════════════════════════════════════

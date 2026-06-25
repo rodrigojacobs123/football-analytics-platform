@@ -6,12 +6,13 @@ import pandas as pd
 import plotly.graph_objects as go
 from components.sidebar import render_sidebar
 from viz.kpi_cards import section_header, kpi_row, form_badges, page_header, ame_section
-from viz.charts import donut_chart, bar_chart
+from viz.charts import donut_chart, bar_chart, mou_scatter_chart
 from processing.match_stats import crest_url
 from processing.manager_stats import (
     get_head_coaches, get_all_team_coaches, compute_manager_record,
     compute_formation_usage, compute_recent_form, compute_home_away_split,
     compute_goals_timeline, compare_managers,
+    compute_mou_index, compute_league_mou,
 )
 from data.loader import load_standings, list_standings_stages
 from config import AME_YELLOW, AME_BLUE, AME_DARK_BG
@@ -158,6 +159,31 @@ if record["played"] > 0:
     ], cols=4)
 else:
     st.info("No match results in this tenure window.")
+
+# ── Over/Under-achievement (xPts) ───────────────────────────────────────────
+mou = compute_mou_index(
+    league, season, team_id,
+    start_date=coach.get("start_date", ""),
+    end_date=coach.get("end_date", ""),
+    stage_filter=_stage_filter_mgr,
+)
+if mou["matches"] > 0:
+    section_header(f"Over/Under-achievement Under {coach['name']}")
+    st.caption(
+        "Expected points (**xPts**) come from match xG via an independent-Poisson "
+        "model — chance quality, not finishing/keeping skill. A positive gap means "
+        "more points were taken than the underlying chances deserved (clinical or "
+        "lucky); negative means the opposite. xPts is noisy over few games — read "
+        "it alongside the match count."
+    )
+    _gap = mou["mou"]
+    _gap_color = "#4CAF50" if _gap >= 0 else "#F44336"
+    kpi_row([
+        {"label": "Actual Points", "value": mou["actual_points"]},
+        {"label": "Expected (xPts)", "value": f"{mou['expected_points']:.1f}"},
+        {"label": "MOU (gap)", "value": f"{_gap:+.1f}"},
+        {"label": "MOU / game", "value": f"{mou['mou_per_game']:+.2f}"},
+    ], cols=4)
 
 # ── Recent Form ─────────────────────────────────────────────────────────────
 form = compute_recent_form(
@@ -471,6 +497,11 @@ st.markdown("---")
 st.markdown("---")
 section_header("All Head Coaches in Competition")
 
+# League-wide xPts in a single cached partidos pass → MOU per team.
+league_mou = compute_league_mou(league, season, stage_filter=_stage_filter_mgr)
+_mou_by_team = (dict(zip(league_mou["team_id"], league_mou["mou"]))
+                if not league_mou.empty else {})
+
 all_coaches = get_head_coaches(league, season)
 all_data = []
 for c in all_coaches:
@@ -487,6 +518,7 @@ for c in all_coaches:
         "Win %": f"{rec['win_pct']:.0f}",
         "Pts": rec["points"],
         "PPG": f"{rec['ppg']:.2f}",
+        "MOU": f"{_mou_by_team.get(c['team_id'], 0.0):+.1f}",
         "GD": rec["gd"],
     })
 
@@ -494,3 +526,17 @@ all_df = pd.DataFrame(all_data)
 if not all_df.empty:
     all_df = all_df.sort_values("Pts", ascending=False).reset_index(drop=True)
     st.dataframe(all_df, hide_index=True, use_container_width=True, height=600)
+
+# ── xPts vs actual scatter — over/under-achievers at a glance ────────────────
+if not league_mou.empty and len(league_mou) >= 2:
+    st.markdown("---")
+    section_header("Who's Over- and Under-achieving? (xPts)")
+    st.caption(
+        "Each team's actual points-per-game vs expected (xPts from xG). Above the "
+        "diagonal = banking more than the chances deserve; below = creating more "
+        "than the table shows. Squad-quality and finishing/keeping skill drive the gap."
+    )
+    st.plotly_chart(
+        mou_scatter_chart(league_mou, highlight_id=team_id),
+        use_container_width=True,
+    )

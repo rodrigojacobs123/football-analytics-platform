@@ -3,15 +3,19 @@
 import streamlit as st
 from viz.theme import apply_theme
 import pandas as pd
+from pathlib import Path
 from datetime import datetime
 from components.sidebar import render_sidebar
 from viz.kpi_cards import section_header, kpi_row, page_header, ame_section
 from viz.tables import styled_dataframe
-from data.loader import get_data_diagnostics
+from data.loader import get_data_diagnostics, load_match_events
+from data.event_parser import validate_event_schema
+from data.match_index import build_match_index
 from data.paths import (
     list_seasons, list_team_folders, list_match_files, league_dir,
     jsons_dir, partidos_dir, equipos_dir,
 )
+from nav import PAGE_SPECS
 from config import DATA_ROOT, DEFAULT_LEAGUE, COMPETITIONS
 
 apply_theme()
@@ -149,13 +153,64 @@ with st.expander("Key Qualifiers"):
 | qualifierId | Meaning |
 |------------|---------|
 | 395 | xG value (divide by 100) |
-| 44 | Formation data |
+| 130 | Formation type (mapped via OPTA_FORMATION_MAP) |
 | 76 | Assist flag |
-| 22 | Penalty flag |
+| 9 | Penalty flag — **NOT 22** (Q22 = "inside penalty area", a different thing; see config.py) |
 | 230 | Shot distance |
 | 231 | Shot angle |
 | 140/141 | Pass end x/y |
     """)
+
+# ── Page Registry (single source of truth: nav.PAGE_SPECS) ───────────────────
+st.markdown("---")
+section_header("Page Registry")
+st.caption(
+    "Live from `nav.PAGE_SPECS` — the one place pages are registered, shared "
+    "with `app.py`. A row marked ✗ MISSING means the nav references a file that "
+    "isn't on disk (app would fail to load it)."
+)
+_project_root = Path(__file__).resolve().parents[1]
+_reg_rows = [
+    {
+        "#": i,
+        "Icon": spec.icon,
+        "Title": spec.title,
+        "File": spec.path,
+        "On disk": "✓" if (_project_root / spec.path).exists() else "✗ MISSING",
+    }
+    for i, spec in enumerate(PAGE_SPECS, start=1)
+]
+st.dataframe(pd.DataFrame(_reg_rows), use_container_width=True, hide_index=True)
+
+# ── Schema Health (guards against Opta feed drift) ───────────────────────────
+st.markdown("---")
+section_header("Schema Health")
+st.caption(
+    "Samples this season's events and checks them against the typeIds / "
+    "qualifiers `config.py` assumes. Catches silent feed drift across the "
+    "2015–2026 range before it becomes a wrong number on a page."
+)
+_idx = build_match_index(league, season)
+_with_file = _idx[_idx["file_name"].astype(str) != ""] if not _idx.empty else _idx
+if _with_file is None or _with_file.empty:
+    st.info("No on-disk match files for this season to validate.")
+else:
+    # Aggregate across several matches: a single match may lack rare-but-valid
+    # IDs (e.g. a shot off the post, or no xG'd shot), which is rarity, not drift.
+    _sample_ids = [str(m) for m in _with_file["match_id"].head(8)]
+    _events: list[dict] = []
+    for _m in _sample_ids:
+        _events.extend(load_match_events(league, season, _m))
+    _warnings = validate_event_schema(_events)
+    if not _warnings:
+        st.success(
+            f"Schema OK — validated {len(_events):,} events across "
+            f"{len(_sample_ids)} matches."
+        )
+    else:
+        st.caption(f"Sampled {len(_events):,} events across {len(_sample_ids)} matches.")
+        for _w in _warnings:
+            st.warning(_w)
 
 # ── Config Panel ────────────────────────────────────────────────────────────
 st.markdown("---")

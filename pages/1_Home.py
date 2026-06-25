@@ -374,6 +374,24 @@ if league in AME_LEAGUES:
     else:
         st.info("Season xT requires per-match files in partidos/.")
 
+    # ── Attacking output by game state ────────────────────────────────────
+    st.markdown("---")
+    section_header("Attacking Output by Game State")
+    st.caption(
+        "xG and xT re-cut by scoreline state. A leading team cedes possession; "
+        "a chasing team inflates xG against an open defence — so the *Level* row "
+        "is the cleanest read of true attacking level. Normalised per-90 by "
+        "minutes actually spent in each state."
+    )
+    from processing.game_state import compute_season_game_state
+    from viz.tables import game_state_table
+    from config import MIN_MATCHES_FOR_PREDICTION
+    _gs = compute_season_game_state(league, season, AME_TEAM_ID)
+    if _gs is not None and not _gs.empty:
+        game_state_table(_gs, AME_TEAM_NAME, min_matches=MIN_MATCHES_FOR_PREDICTION)
+    else:
+        st.info("Game-state split requires per-match files in partidos/.")
+
 
 # ═══════════════════════════════════════════════════════════════════════════
 # § 3  HISTORICAL POSITION TABLE + SCATTER PLOTS
