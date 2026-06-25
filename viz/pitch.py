@@ -386,17 +386,22 @@ def plot_formation(formation: dict, player_names: dict[str, str],
                    ratings: dict[str, float] | None = None,
                    events_list: list[dict] | None = None,
                    use_avg_positions: bool = False,
+                   snap_to_template: bool = False,
                    team_id: str = "") -> None:
     """Plot starting XI on a horizontal Plotly pitch (GK left → FWD right).
 
     Uses the tactical_positions engine for accurate per-role placement.
-    When use_avg_positions=True and events_list is provided, overlays
-    median event positions for maximum fidelity.
+    When ``use_avg_positions=True`` and events_list is provided, overlays median
+    event positions for maximum fidelity (a real, if cloud-like, position map).
+    When ``snap_to_template=True`` instead, players are re-assigned to the clean
+    formation template slots by their real average position — a tidy formation
+    diagram with the correct player in each slot (fixes Opta's left-right
+    identity scramble). ``snap_to_template`` takes precedence if both are set.
     """
     import plotly.graph_objects as go
     from processing.tactical_positions import (
         get_formation_positions, average_player_positions,
-        merge_canonical_with_averages,
+        merge_canonical_with_averages, snap_players_to_template,
     )
 
     if not formation:
@@ -413,10 +418,12 @@ def plot_formation(formation: dict, player_names: dict[str, str],
     # ── Resolve player positions via tactical engine ────────────────────
     positioned = get_formation_positions(formation, player_names)
 
-    if use_avg_positions and events_list and team_id:
+    if (snap_to_template or use_avg_positions) and events_list and team_id:
         avg_pos = average_player_positions(events_list, team_id)
         if avg_pos:
-            positioned = merge_canonical_with_averages(positioned, avg_pos)
+            positioned = (snap_players_to_template(positioned, avg_pos)
+                          if snap_to_template
+                          else merge_canonical_with_averages(positioned, avg_pos))
 
     # ── Pitch geometry (standard 105 × 68 m) ────────────────────────────
     PW, PH = 105.0, 68.0
@@ -1260,3 +1267,83 @@ def plot_goal_buildup(buildup: dict, team_color: str = AME_YELLOW) -> None:
     )
 
     _show_fig(fig)
+
+
+# ── Role → marker colour for the team-shape overlay ──────────────────────────
+_SHAPE_ROLE_COLORS = {
+    "GK":  "#888888",
+    "DEF": AME_YELLOW,
+    "MID": AME_BLUE,
+    "ATT": "#4CAF50",
+}
+
+
+def plot_team_shape(shape: dict, title: str = "Team Shape & Stretch Index",
+                    team_color: str = AME_YELLOW) -> None:
+    """Average-position map with the back-four convex hull (Stretch Index).
+
+    ``shape`` is the dict from ``processing.team_shape`` (keys: players with
+    role GK/DEF/MID/ATT, stretch_index, exposure, line_height, block_width).
+    The four deepest outfielders' hull is shaded — its area IS the Stretch Index.
+    """
+    players = (shape or {}).get("players", [])
+    if not players:
+        st.info("No team-shape data to display.")
+        return
+
+    pitch = VerticalPitch(
+        pitch_type="opta", pitch_color="#0D1117", line_color="#2A3A4A",
+        linewidth=1.2, goal_type="box", corner_arcs=True,
+        pad_top=4, pad_bottom=4, pad_left=2, pad_right=2,
+    )
+    fig, ax = pitch.draw(figsize=(6, 9))
+    fig.set_facecolor(AME_DARK_BG)
+    ax.set_facecolor("#0D1117")
+    ax.set_title(title, color="white", fontsize=13, fontweight="bold", pad=12)
+
+    # Opta normalised → VerticalPitch coords (matches plot_pass_network):
+    #   horizontal = 100 - y_norm  ;  vertical = x_norm
+    def _xy(p):
+        return (100 - p["y"], p["x"])
+
+    # Back-four convex hull = the Stretch Index area.
+    back4 = [p for p in players if p["role"] == "DEF"]
+    if len(back4) >= 3:
+        pts = np.array([_xy(p) for p in back4])
+        try:
+            from scipy.spatial import ConvexHull
+            hull = ConvexHull(pts)
+            poly = pts[hull.vertices]
+        except Exception:
+            poly = pts
+        ax.add_patch(mpatches.Polygon(
+            poly, closed=True, facecolor=team_color, alpha=0.18,
+            edgecolor=team_color, linewidth=1.6, zorder=2))
+
+    # Players.
+    for p in players:
+        hx, vy = _xy(p)
+        c = _SHAPE_ROLE_COLORS.get(p["role"], AME_BLUE)
+        ax.scatter(hx, vy, s=240, c=c, edgecolors="white", linewidths=1.2,
+                   alpha=0.95, zorder=4)
+        ax.text(hx, vy, p["role"][0], ha="center", va="center",
+                fontsize=7, fontweight="bold", color="#0E0E14", zorder=5)
+
+    # Defensive-line height marker.
+    lh = shape.get("line_height")
+    if lh is not None:
+        ax.axhline(y=lh, color="#00E5FF", linestyle="--", linewidth=1.2,
+                   alpha=0.7, zorder=3)
+
+    # Metric annotation.
+    txt = (f"Stretch Index: {shape.get('stretch_index', 0):.0f}   ·   "
+           f"Exposure: {shape.get('exposure', 0):.1f}\n"
+           f"Line height: {shape.get('line_height', 0):.0f}   ·   "
+           f"Block width: {shape.get('block_width', 0):.0f}")
+    ax.annotate(txt, xy=(0.5, -0.02), xycoords="axes fraction",
+                ha="center", va="top", fontsize=9, color="#ccc",
+                bbox=dict(facecolor="#1A1A2E", alpha=0.9, edgecolor="#444",
+                          pad=4, boxstyle="round,pad=0.4"))
+
+    st.pyplot(fig, use_container_width=True)
+    plt.close(fig)

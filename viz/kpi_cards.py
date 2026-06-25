@@ -151,7 +151,7 @@ def match_header_card(
     home_id: str, away_id: str,
     matchday: int, date: str, venue: str,
     ht_home: int = 0, ht_away: int = 0,
-    competition: str = "Premier League",
+    competition: str = "Liga MX",
 ) -> None:
     """Render professional match header with team crests flanking the score."""
     home_crest = crest_url(home_id)
@@ -235,7 +235,7 @@ def match_hero_v3(
     matchday: int, date: str, venue: str,
     ht_home: int = 0, ht_away: int = 0,
     home_xg: float = 0.0, away_xg: float = 0.0,
-    competition: str = "Premier League",
+    competition: str = "Liga MX",
 ) -> None:
     """V3 Stadium Energy cinematic match hero card."""
     home_crest = crest_url(home_id)

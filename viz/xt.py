@@ -112,6 +112,47 @@ def xt_top_contributors_bar(top_df: pd.DataFrame, title: str = "",
     return fig
 
 
+def xg_chain_bar(top_df: pd.DataFrame, title: str = "") -> go.Figure:
+    """Credit-bar: xGChain (full possession credit) vs xGBuildup (excl.
+    shooter + assister) per player.
+
+    ``top_df`` needs columns ``player_name, xgchain, xgbuildup``.  Two bars per
+    player make the gap legible: a long yellow xGChain bar with a shorter blue
+    xGBuildup bar shows a finisher; near-equal bars show a pure deep-build-up
+    player who rarely shoots or assists.
+    """
+    fig = go.Figure()
+    if top_df is None or top_df.empty:
+        fig.update_layout(paper_bgcolor=AME_DARK_BG)
+        return fig
+
+    df = top_df.iloc[::-1]  # highest at the top
+    fig.add_trace(go.Bar(
+        x=df["xgchain"], y=df["player_name"], orientation="h",
+        marker_color=AME_YELLOW, name="xGChain",
+        hovertemplate="<b>%{y}</b><br>xGChain: %{x:.2f}<extra></extra>",
+    ))
+    fig.add_trace(go.Bar(
+        x=df["xgbuildup"], y=df["player_name"], orientation="h",
+        marker_color=AME_BLUE, name="xGBuildup",
+        hovertemplate="<b>%{y}</b><br>xGBuildup: %{x:.2f}<extra></extra>",
+    ))
+    fig.update_layout(
+        title=dict(text=title, x=0.5, xanchor="center",
+                   font=dict(color=AME_WHITE, size=13)),
+        barmode="group", bargap=0.25, bargroupgap=0.05,
+        height=360, paper_bgcolor=AME_DARK_BG, plot_bgcolor=AME_DARK_BG,
+        margin=dict(l=10, r=30, t=40, b=20),
+        xaxis=dict(title="Possession xG credited", gridcolor="#333",
+                   tickfont=dict(color=AME_WHITE, size=10)),
+        yaxis=dict(tickfont=dict(color=AME_WHITE, size=11)),
+        font=dict(color=AME_WHITE),
+        legend=dict(orientation="h", yanchor="bottom", y=1.02,
+                    xanchor="right", x=1, font=dict(color=AME_WHITE, size=10)),
+    )
+    return fig
+
+
 def xdef_top_defenders_bar(top_df: pd.DataFrame, title: str = "",
                            color: str = AME_BLUE) -> go.Figure:
     """Horizontal bar chart of top xDEF (defensive threat denied) defenders.
@@ -145,5 +186,44 @@ def xdef_top_defenders_bar(top_df: pd.DataFrame, title: str = "",
         yaxis=dict(tickfont=dict(color=AME_WHITE, size=11)),
         font=dict(color=AME_WHITE),
         showlegend=False,
+    )
+    return fig
+
+
+def xdef_percentile_bar(df: pd.DataFrame, title: str = "",
+                        top_n: int = 12) -> go.Figure:
+    """Players' **league-wide** xDEF percentile (0-100) as a horizontal bar.
+
+    Unlike ``xdef_top_defenders_bar`` (raw within-team totals), this expects the
+    cross-team frame from ``processing.xdef.compute_league_xdef`` with a ``pct``
+    column, and is meant to be passed a team's players so each is benchmarked
+    against *all* defenders in the competition.  Bars are coloured by percentile
+    (low → high on the América palette).  Empty input → empty dark figure.
+    """
+    fig = go.Figure()
+    if df is None or df.empty or "pct" not in df.columns:
+        fig.update_layout(paper_bgcolor=AME_DARK_BG, title=title)
+        return fig
+
+    d = df.sort_values("pct", ascending=False).head(top_n).iloc[::-1]
+    colors = [AME_YELLOW if p >= 80 else (AME_BLUE if p >= 50 else "#41597F")
+              for p in d["pct"]]
+    fig.add_trace(go.Bar(
+        x=d["pct"], y=d["player_name"], orientation="h", marker_color=colors,
+        text=[f" {p:.0f}ᵗʰ pct" for p in d["pct"]],
+        textposition="outside", textfont=dict(color=AME_WHITE, size=11),
+        customdata=d[["xdef_per_match", "apps"]].to_numpy(),
+        hovertemplate="<b>%{y}</b><br>league percentile %{x:.0f}<br>"
+                      "xDEF/match %{customdata[0]:.3f} · %{customdata[1]} apps<extra></extra>",
+    ))
+    fig.update_layout(
+        title=dict(text=title, x=0.5, xanchor="center",
+                   font=dict(color=AME_WHITE, size=13)),
+        height=340, paper_bgcolor=AME_DARK_BG, plot_bgcolor=AME_DARK_BG,
+        margin=dict(l=10, r=80, t=40, b=20),
+        xaxis=dict(title="League percentile (xDEF / match)", range=[0, 105],
+                   gridcolor="#333", tickfont=dict(color=AME_WHITE, size=10)),
+        yaxis=dict(tickfont=dict(color=AME_WHITE, size=11)),
+        font=dict(color=AME_WHITE), showlegend=False,
     )
     return fig

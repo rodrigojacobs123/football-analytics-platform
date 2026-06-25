@@ -211,6 +211,73 @@ def xg_race_chart(xg_timeline: pd.DataFrame, home_team: str, away_team: str,
     return fig
 
 
+def momentum_chart(momentum: pd.DataFrame, home_team: str, away_team: str,
+                   goals: pd.DataFrame | None = None,
+                   home_id: str | None = None) -> go.Figure:
+    """xT momentum flow: rolling (home − away) threat across the match.
+
+    ``momentum`` is the output of ``processing.xt.compute_xt_momentum``:
+    columns ``minute, home_xt, away_xt, net``.  The single ``net`` series is
+    drawn as a bi-colour area band — above zero shaded in the home colour
+    (América yellow), below zero in the away colour — so a glance reads which
+    side was on top and when.  Goal markers reuse the xG-race convention.
+    """
+    fig = go.Figure()
+
+    if momentum is None or momentum.empty:
+        fig.update_layout(template="ame_dark", title="xT Momentum")
+        return fig
+
+    minute = momentum["minute"]
+    net = momentum["net"]
+
+    # Above-zero band → home; below-zero band → away. Two traces filled to y=0.
+    fig.add_trace(go.Scatter(
+        x=minute, y=net.clip(lower=0),
+        mode="lines", line=dict(color=AME_YELLOW, width=0.5),
+        fill="tozeroy", fillcolor="rgba(255,209,0,0.45)",
+        name=f"{home_team} ▲", hoverinfo="skip",
+    ))
+    fig.add_trace(go.Scatter(
+        x=minute, y=net.clip(upper=0),
+        mode="lines", line=dict(color="#42A5F5", width=0.5),
+        fill="tozeroy", fillcolor="rgba(66,165,245,0.45)",
+        name=f"{away_team} ▼", hoverinfo="skip",
+    ))
+    # Invisible hover line carrying the signed momentum value.
+    fig.add_trace(go.Scatter(
+        x=minute, y=net, mode="lines",
+        line=dict(color="rgba(0,0,0,0)", width=0),
+        name="xT momentum", showlegend=False,
+        hovertemplate="Min %{x}<br>net xT %{y:.3f}<extra></extra>",
+    ))
+
+    fig.add_hline(y=0, line_color="#555555", line_width=1, opacity=0.7)
+    fig.add_vline(x=45, line_dash="dash", line_color="#555555",
+                  line_width=1, opacity=0.7)
+    fig.add_annotation(x=45, y=1.0, yref="paper", yanchor="top",
+                       text="HT", showarrow=False,
+                       font=dict(size=10, color="#888"))
+
+    # Goal markers (vertical lines coloured by scoring team).
+    if goals is not None and not goals.empty and home_id is not None:
+        for _, g in goals.iterrows():
+            is_home = g.get("team_id") == home_id
+            team_color = AME_YELLOW if is_home else "#42A5F5"
+            fig.add_vline(x=g["minute"], line_dash="dot",
+                          line_color=team_color, opacity=0.5)
+
+    fig.update_layout(
+        title="xT Momentum",
+        xaxis_title="Minute",
+        yaxis_title="Rolling xT  (home ▲ / away ▼)",
+        xaxis=dict(range=[0, 95]),
+        hovermode="x unified",
+        template="ame_dark",
+    )
+    return fig
+
+
 def probability_bars(home_prob: float, draw_prob: float, away_prob: float,
                      home_team: str, away_team: str) -> go.Figure:
     """Horizontal stacked bar showing win/draw/loss probabilities."""
@@ -623,6 +690,346 @@ def goalmouth_shot_map(shots: pd.DataFrame, title: str = "Goal-Mouth Placement",
                    showgrid=False, zeroline=False),
         yaxis=dict(title="Height", range=[-2, CROSSBAR + 6],
                    showgrid=False, zeroline=False, scaleanchor=None),
+    )
+    return fig
+
+
+def cross_channel_chart(by_channel: pd.DataFrame,
+                        title: str = "Crossing Value by Channel") -> go.Figure:
+    """xG-per-cross by origin channel (Left / Central / Right).
+
+    Bars are coloured by threat (yellow→ higher xG/cross); each bar is annotated
+    with the cross volume and completion% so low-volume noise is visible.  Takes
+    the ``by_channel`` frame from ``processing.wide_play.compute_cross_value`` /
+    ``compute_season_cross_value``.  Empty input → empty ``ame_dark`` figure.
+    """
+    fig = go.Figure()
+    if by_channel is None or by_channel.empty:
+        fig.update_layout(title=title, template="ame_dark")
+        return fig
+
+    order = ["Left", "Central", "Right"]
+    d = by_channel.set_index("channel").reindex(order).dropna(how="all").reset_index()
+    fig.add_trace(go.Bar(
+        x=d["channel"], y=d["xg_per_cross"], marker_color=AME_YELLOW,
+        text=[f"{int(c)} crosses · {p:.0f}% cmp" for c, p in zip(d["crosses"], d["completion_pct"])],
+        textposition="outside", textfont=dict(size=11, color=AME_WHITE),
+        hovertemplate="%{x}<br>xG/cross %{y:.3f}<extra></extra>",
+    ))
+    fig.update_layout(
+        title=title, template="ame_dark", showlegend=False,
+        xaxis_title="Origin channel (team attacking)",
+        yaxis_title="xG generated per cross",
+    )
+    return fig
+
+
+def gvm_bar_chart(df: pd.DataFrame, highlight_id: str | None = None,
+                  top_n: int = 12, title: str = "Goalkeeper Value Model (GVM)") -> go.Figure:
+    """Horizontal GVM leaderboard — top ``top_n`` teams' keepers by composite.
+
+    The team matching ``highlight_id`` is drawn in América yellow, others in
+    blue.  Takes the frame from ``processing.gk_value.compute_league_gk_value``
+    (needs ``team_name`` + ``gvm``).  The rating is a **squad-relative composite**
+    z-scored across this competition's keepers, not an absolute scale — noted on
+    the figure.  Empty input → empty ``ame_dark`` figure.
+    """
+    fig = go.Figure()
+    if df is None or df.empty or "gvm" not in df.columns:
+        fig.update_layout(title=title, template="ame_dark")
+        return fig
+
+    ranked = df.sort_values("gvm", ascending=False).reset_index(drop=True)
+    d = ranked.head(top_n)
+    # Always surface the highlighted team (e.g. América), even if below the cut.
+    if highlight_id is not None and highlight_id in set(ranked["team_id"]) \
+            and highlight_id not in set(d["team_id"]):
+        d = pd.concat([d, ranked[ranked["team_id"] == highlight_id]], ignore_index=True)
+    d = d.sort_values("gvm", ascending=False).iloc[::-1]
+    colors = [AME_YELLOW if t == highlight_id else AME_BLUE for t in d["team_id"]]
+    fig.add_trace(go.Bar(
+        x=d["gvm"], y=d["team_name"], orientation="h",
+        marker_color=colors, text=d["gvm"], textposition="outside",
+        textfont=dict(size=11, color=AME_WHITE),
+        customdata=np.c_[d["shot_stopping"], d["distribution"], d["sweeper"], d["claims"]],
+        hovertemplate=("%{y}<br>GVM %{x}<br>stop %{customdata[0]:.2f} · "
+                       "dist-xT %{customdata[1]:.3f} · sweep %{customdata[2]:.2f} · "
+                       "claims %{customdata[3]:.2f}<extra></extra>"),
+    ))
+    fig.update_layout(
+        title=f"{title}<br><sup>Composite z-scored across this competition's keepers — relative, not absolute</sup>",
+        template="ame_dark", showlegend=False,
+        xaxis_title="GVM (shot-stopping · distribution · sweeping · claims)",
+        yaxis_title="",
+    )
+    return fig
+
+
+def mou_scatter_chart(df: pd.DataFrame, highlight_id: str | None = None,
+                      title: str = "Manager Over/Under-achievement") -> go.Figure:
+    """xPts-vs-actual scatter — every team a point, break-even diagonal at y=x.
+
+    Plots expected points-per-game (x, from xG) against actual PPG (y).  Points
+    *above* the y=x line over-achieved their underlying chances (clinical or
+    lucky); points *below* under-achieved (created more than the table shows).
+    The team matching ``highlight_id`` is drawn in América yellow.
+
+    Expects the columns from ``processing.manager_stats.compute_league_mou``
+    (``team_id, team_name, ppg, xppg, mou, matches``).  No Streamlit, no parsing.
+
+    CAVEAT (on the figure): xPts is derived from xG via an independent-Poisson
+    model — it measures chance quality, not finishing/keeping skill, which is
+    exactly what the over/under-achievement gap captures.  Empty input → an
+    empty ``ame_dark`` figure with the title.
+    """
+    fig = go.Figure()
+    if df is None or df.empty or "xppg" not in df.columns or "ppg" not in df.columns:
+        fig.update_layout(title=title, template="ame_dark")
+        return fig
+
+    lo = float(min(df["xppg"].min(), df["ppg"].min())) - 0.15
+    hi = float(max(df["xppg"].max(), df["ppg"].max())) + 0.15
+    lo = max(lo, 0.0)
+
+    # Break-even diagonal (deserved == taken).
+    fig.add_trace(go.Scatter(
+        x=[lo, hi], y=[lo, hi], mode="lines",
+        line=dict(color="#666", dash="dash", width=1),
+        hoverinfo="skip", showlegend=False,
+    ))
+    fig.add_annotation(x=lo, y=hi, text="Over-achieving ▲", showarrow=False,
+                       xanchor="left", yanchor="top",
+                       font=dict(size=10, color="#5F7299"))
+    fig.add_annotation(x=hi, y=lo, text="Under-achieving ▼", showarrow=False,
+                       xanchor="right", yanchor="bottom",
+                       font=dict(size=10, color="#5F7299"))
+
+    others = df[df["team_id"] != highlight_id] if highlight_id else df
+    home = df[df["team_id"] == highlight_id] if highlight_id else df.iloc[0:0]
+
+    def _hover(d):
+        return [f"<b>{r.team_name}</b><br>Actual {r.ppg:.2f} PPG · "
+                f"xPts {r.xppg:.2f} PPG<br>MOU {r.mou:+.1f} over {int(r.matches)} matches"
+                for r in d.itertuples()]
+
+    fig.add_trace(go.Scatter(
+        x=others["xppg"], y=others["ppg"], mode="markers+text",
+        text=others.get("team_name", ""), textposition="top center",
+        textfont=dict(size=8, color="#8FA3C8"),
+        marker=dict(size=11, color=AME_BLUE, opacity=0.75,
+                    line=dict(color=AME_DARK_BG, width=1)),
+        name="Teams", hovertext=_hover(others), hoverinfo="text",
+    ))
+    if not home.empty:
+        fig.add_trace(go.Scatter(
+            x=home["xppg"], y=home["ppg"], mode="markers+text",
+            text=home.get("team_name", ""), textposition="top center",
+            textfont=dict(size=11, color=AME_YELLOW),
+            marker=dict(size=17, color=AME_YELLOW, symbol="star",
+                        line=dict(color=AME_DARK_BG, width=1)),
+            name="Selected", hovertext=_hover(home), hoverinfo="text",
+        ))
+
+    fig.update_layout(
+        title=f"{title}<br><sup>xPts from xG (chance quality) vs points actually taken</sup>",
+        template="ame_dark", showlegend=False,
+        xaxis=dict(title="Expected points per game (xPts)", range=[lo, hi]),
+        yaxis=dict(title="Actual points per game", range=[lo, hi]),
+    )
+    return fig
+
+
+def discipline_scatter_chart(df: pd.DataFrame, highlight_id: str | None = None,
+                             title: str = "Fouling Efficiency") -> go.Figure:
+    """Expected vs actual cards per match — the xB break-even diagonal at y=x.
+
+    Each team is a point: x = **expected** cards/match (Σ xB ÷ matches), y =
+    **actual** cards/match.  Points *above* the diagonal are booked more than
+    their fouls' locations warrant ("over-booked" — reckless / referee-prone);
+    *below* the diagonal are "smart foulers" drawing fewer cards than expected.
+    Expects ``processing.discipline.compute_league_discipline``'s ``per_team``
+    frame (``team_id, team_name, exp_cards_per_match, cards_per_match``).
+    """
+    fig = go.Figure()
+    if (df is None or df.empty or "exp_cards_per_match" not in df.columns
+            or "cards_per_match" not in df.columns):
+        fig.update_layout(title=title, template="ame_dark")
+        return fig
+
+    lo = 0.0
+    hi = float(max(df["exp_cards_per_match"].max(), df["cards_per_match"].max())) + 0.3
+
+    fig.add_trace(go.Scatter(
+        x=[lo, hi], y=[lo, hi], mode="lines",
+        line=dict(color="#666", dash="dash", width=1),
+        hoverinfo="skip", showlegend=False,
+    ))
+    fig.add_annotation(x=lo, y=hi, text="Over-booked ▲", showarrow=False,
+                       xanchor="left", yanchor="top",
+                       font=dict(size=10, color="#5F7299"))
+    fig.add_annotation(x=hi, y=lo, text="Smart foulers ▼", showarrow=False,
+                       xanchor="right", yanchor="bottom",
+                       font=dict(size=10, color="#5F7299"))
+
+    others = df[df["team_id"] != highlight_id] if highlight_id else df
+    home = df[df["team_id"] == highlight_id] if highlight_id else df.iloc[0:0]
+
+    def _hover(d):
+        return [f"<b>{r.team_name}</b><br>Actual {r.cards_per_match:.2f} cards/match · "
+                f"xB {r.exp_cards_per_match:.2f}<br>{r.fouls_per_card:.1f} fouls/card · "
+                f"{int(r.reds)} reds" for r in d.itertuples()]
+
+    fig.add_trace(go.Scatter(
+        x=others["exp_cards_per_match"], y=others["cards_per_match"],
+        mode="markers", marker=dict(size=11, color=AME_BLUE, opacity=0.75,
+                                    line=dict(color=AME_DARK_BG, width=1)),
+        name="Teams", hovertext=_hover(others), hoverinfo="text",
+    ))
+    if not home.empty:
+        fig.add_trace(go.Scatter(
+            x=home["exp_cards_per_match"], y=home["cards_per_match"],
+            mode="markers+text", text=home.get("team_name", ""),
+            textposition="top center", textfont=dict(size=11, color=AME_YELLOW),
+            marker=dict(size=17, color=AME_YELLOW, symbol="star",
+                        line=dict(color=AME_DARK_BG, width=1)),
+            name="Selected", hovertext=_hover(home), hoverinfo="text",
+        ))
+
+    fig.update_layout(
+        title=f"{title}<br><sup>Expected cards (xB from foul locations) vs cards actually shown</sup>",
+        template="ame_dark", showlegend=False,
+        xaxis=dict(title="Expected cards per match (xB)", range=[lo, hi]),
+        yaxis=dict(title="Actual cards per match", range=[lo, hi]),
+    )
+    return fig
+
+
+def _merge_team_threats(threats: dict) -> pd.DataFrame:
+    """Join one team's offensive + defensive threat frames into per-player rows.
+
+    Shapes the *already-computed* ``compute_player_threats`` output (no parsing):
+    outer-merges the ``offensive`` and ``defensive`` DataFrames on ``player`` so
+    every player carries both indices.  A player who only registers on one side
+    gets 0 on the other (they did nothing threatening there).  Returns columns
+    ``player, off, def, off_why, def_why`` (empty frame if the team has none).
+    """
+    off = threats.get("offensive")
+    deff = threats.get("defensive")
+    off = off if isinstance(off, pd.DataFrame) else pd.DataFrame()
+    deff = deff if isinstance(deff, pd.DataFrame) else pd.DataFrame()
+
+    o = (off[["player", "threat", "_why"]].rename(columns={"threat": "off", "_why": "off_why"})
+         if not off.empty else pd.DataFrame(columns=["player", "off", "off_why"]))
+    d = (deff[["player", "threat", "_why"]].rename(columns={"threat": "def", "_why": "def_why"})
+         if not deff.empty else pd.DataFrame(columns=["player", "def", "def_why"]))
+    if o.empty and d.empty:
+        return pd.DataFrame(columns=["player", "off", "def", "off_why", "def_why"])
+
+    m = pd.merge(o, d, on="player", how="outer")
+    m["off"] = m["off"].fillna(0.0)
+    m["def"] = m["def"].fillna(0.0)
+    m["off_why"] = m["off_why"].fillna("")
+    m["def_why"] = m["def_why"].fillna("")
+    return m
+
+
+def threat_quadrant_chart(home_threats: dict, away_threats: dict,
+                          home_team: str, away_team: str,
+                          home_n: int = 5, away_n: int = 5,
+                          label_top: int = 3) -> go.Figure:
+    """Two-way threat quadrant: offensive (x) vs defensive (y) threat per player.
+
+    Each marker is one player; both squads are overlaid (home in América yellow
+    circles, away in blue diamonds).  Marker size grows with the player's
+    stronger dimension so the dangerous names pop.  Median guide-lines split the
+    plane into the read the cards/table can't give at a glance:
+      • top-right   → two-way threats (dangerous attacking *and* ball-winning)
+      • bottom-right→ pure attackers · top-left → pure ball-winners/destroyers.
+    The squad's standout attacker and ball-winner (plus the top ``label_top`` by
+    combined threat) are labelled; everyone else is hover-only.
+
+    Inputs are the dicts returned by ``processing.player_threats.compute_player_threats``
+    — one per team (``offensive``/``defensive`` DataFrames with a 0–100 ``threat``
+    column).  No Streamlit, no event parsing; only the supplied frames are reshaped.
+
+    CAVEAT (rendered on the figure): the index is **squad-relative** — 0–100 vs.
+    *teammates* over the last N matches, NOT an absolute league rating — so a
+    home '90' and an away '90' are each "top of their own squad", not equals.
+    Empty/insufficient input → an empty ``ame_dark`` figure with the title.
+    """
+    fig = go.Figure()
+    title = "Two-Way Threat Quadrant"
+    caveat = ("Squad-relative index (0–100 vs. teammates over last 5), "
+              "not an absolute league rating")
+
+    teams = [
+        (home_threats, home_team, home_n, AME_YELLOW, "circle"),
+        (away_threats, away_team, away_n, "#42A5F5", "diamond"),
+    ]
+    merged = [(_merge_team_threats(t or {}), name, n, color, sym)
+              for t, name, n, color, sym in teams]
+
+    if all(m.empty for m, *_ in merged):
+        fig.update_layout(template="ame_dark",
+                          title=f"{title}<br><sup>No qualifying players in the selected window</sup>")
+        return fig
+
+    # Median guide-lines from the combined plotted population — only meaningful
+    # with enough points; with a tiny sample we skip them rather than draw noise.
+    allpts = pd.concat([m for m, *_ in merged if not m.empty], ignore_index=True)
+    if len(allpts) >= 4:
+        xmed, ymed = float(allpts["off"].median()), float(allpts["def"].median())
+        fig.add_vline(x=xmed, line=dict(color=AME_GRID, width=1, dash="dash"))
+        fig.add_hline(y=ymed, line=dict(color=AME_GRID, width=1, dash="dash"))
+        for x, y, txt, xa, ya in [
+            (100, 100, "Two-way threat", "right", "top"),
+            (100, 0, "Pure attacker", "right", "bottom"),
+            (0, 100, "Ball-winner", "left", "top"),
+        ]:
+            fig.add_annotation(x=x, y=y, text=txt, showarrow=False,
+                               xanchor=xa, yanchor=ya,
+                               font=dict(size=10, color="#5F7299"))
+
+    for m, name, n, color, sym in merged:
+        if m.empty:
+            continue
+        m = m.copy()
+        m["_peak"] = m[["off", "def"]].max(axis=1)
+        # Danger-men to label: top-N by combined threat + the off & def leaders.
+        labelled = set(m.sort_values("_peak", ascending=False).head(label_top)["player"])
+        labelled.add(m.loc[m["off"].idxmax(), "player"])
+        labelled.add(m.loc[m["def"].idxmax(), "player"])
+
+        m["_label"] = [p if p in labelled else "" for p in m["player"]]
+        m["_size"] = 9 + (m["_peak"] / 100.0) * 13          # 9 → 22 px
+        # Build hover per row by zipping columns — 'def' is a Python keyword and
+        # can't be reached via itertuples attribute/index access.
+        m["_hover"] = [
+            f"<b>{pl}</b> · {name}<br>"
+            f"Offensive {o:g}  ({ow or '—'})<br>"
+            f"Defensive {d:g}  ({dw or '—'})"
+            for pl, o, ow, d, dw in zip(
+                m["player"], m["off"], m["off_why"], m["def"], m["def_why"])
+        ]
+        few = f"  ·  only {len(m)} qualifying" if len(m) < 3 else ""
+        fig.add_trace(go.Scatter(
+            x=m["off"], y=m["def"], mode="markers+text",
+            text=m["_label"], textposition="top center",
+            textfont=dict(size=10, color=color),
+            marker=dict(size=m["_size"], color=color, symbol=sym, opacity=0.82,
+                        line=dict(color=AME_DARK_BG, width=1)),
+            name=f"{name} (last {n}){few}",
+            hovertext=m["_hover"], hoverinfo="text",
+        ))
+
+    fig.update_layout(
+        title=f"{title}<br><sup>{caveat}</sup>",
+        template="ame_dark",
+        xaxis=dict(title="Offensive threat  →  more dangerous to goal",
+                   range=[-5, 108], zeroline=False),
+        yaxis=dict(title="Defensive threat  →  more ball-winning",
+                   range=[-5, 108], zeroline=False),
+        legend=dict(orientation="h", yanchor="bottom", y=1.02, x=0),
     )
     return fig
 

@@ -83,6 +83,66 @@ def phase_donut(distribution: dict[str, dict], title: str = "") -> go.Figure:
     return fig
 
 
+# Tactical families: (display label, member phases, accent colour for the band)
+PHASE_FAMILIES = [
+    ("In possession",     SETTLED_IN_POSS,   "#2E7D32"),   # green band
+    ("Out of possession", SETTLED_OUT_POSS,  "#C62828"),   # red band
+    ("Transition",        TRANSITIONS_GROUP, "#F57C00"),   # amber band
+]
+
+
+def _family_share(dist: dict, members: list[str]) -> float:
+    """Sum the share_pct of every phase in a tactical family."""
+    return round(sum(dist.get(p, {}).get("share_pct", 0) for p in members), 1)
+
+
+def phase_family_bars(home_dist: dict, away_dist: dict,
+                      home_name: str, away_name: str) -> go.Figure:
+    """Grouped bars rolling the 9 phases into 3 tactical families.
+
+    Answers the headline question a 9-slice donut buries: *what is each
+    team's tactical balance* — settled in possession, settled out of
+    possession, or in transition?  Both teams sit side-by-side per family
+    so the comparison is a single horizontal scan.
+    """
+    families = [f[0] for f in PHASE_FAMILIES]
+    home_vals = [_family_share(home_dist, m) for _, m, _ in PHASE_FAMILIES]
+    away_vals = [_family_share(away_dist, m) for _, m, _ in PHASE_FAMILIES]
+
+    fig = go.Figure()
+    fig.add_trace(go.Bar(
+        x=families, y=home_vals, name=home_name, marker_color=AME_YELLOW,
+        text=[f"{v:.0f}%" for v in home_vals], textposition="outside",
+        textfont=dict(color=AME_WHITE, size=12),
+        hovertemplate=f"<b>{home_name}</b><br>%{{x}}: %{{y:.1f}}%<extra></extra>",
+    ))
+    fig.add_trace(go.Bar(
+        x=families, y=away_vals, name=away_name, marker_color=AME_BLUE,
+        text=[f"{v:.0f}%" for v in away_vals], textposition="outside",
+        textfont=dict(color=AME_WHITE, size=12),
+        hovertemplate=f"<b>{away_name}</b><br>%{{x}}: %{{y:.1f}}%<extra></extra>",
+    ))
+
+    # Faint coloured band behind each family group to encode the tactical dimension
+    for i, (_, _, band) in enumerate(PHASE_FAMILIES):
+        fig.add_vrect(x0=i - 0.5, x1=i + 0.5, line_width=0,
+                      fillcolor=band, opacity=0.10, layer="below")
+
+    top = max(home_vals + away_vals + [10])
+    fig.update_layout(
+        barmode="group", bargap=0.35, bargroupgap=0.08,
+        height=400, margin=dict(l=10, r=10, t=40, b=30),
+        yaxis=dict(title="Share of match events (%)", range=[0, top * 1.18],
+                   gridcolor="#333", zeroline=False),
+        xaxis=dict(tickfont=dict(size=13, color=AME_WHITE)),
+        paper_bgcolor=AME_DARK_BG, plot_bgcolor=AME_DARK_BG,
+        font=dict(color=AME_WHITE),
+        legend=dict(orientation="h", yanchor="bottom", y=1.02,
+                    xanchor="center", x=0.5),
+    )
+    return fig
+
+
 def phase_compare_bars(home_dist: dict, away_dist: dict,
                        home_name: str, away_name: str) -> go.Figure:
     """Diverging horizontal bars — same-phase share for both teams.
