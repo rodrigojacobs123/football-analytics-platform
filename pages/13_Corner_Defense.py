@@ -37,7 +37,7 @@ from config import AME_TEAM_NAME, AME_YELLOW, AME_BLUE, AME_DARK_BG
 apply_theme()
 
 league, season = render_sidebar()
-page_header("Corner Defense Intel", subtitle=f"{season}")
+page_header("Corner Intelligence", subtitle=f"{season}")
 
 # ── Tournament selector ───────────────────────────────────────────────────────
 _stage_names = list_standings_stages(league, season)
@@ -48,10 +48,20 @@ if len(_stage_names) > 1:
         index=len(_stage_names) - 1, horizontal=True, key="corner_stage",
     )
 
-# ── Team selector ─────────────────────────────────────────────────────────────
-selected = team_selector(league, season, key="corner_team_sel",
-                         multi=False, label="Defending Team")
-team_name = selected[0] if selected else AME_TEAM_NAME
+# ── Team selector + mode toggle ───────────────────────────────────────────────
+col_team, col_mode = st.columns([3, 1])
+with col_team:
+    selected = team_selector(league, season, key="corner_team_sel",
+                             multi=False, label="Team")
+    team_name = selected[0] if selected else AME_TEAM_NAME
+with col_mode:
+    corner_mode = st.radio(
+        "Corner mode",
+        options=["🛡️ Defending", "⚔️ Attacking"],
+        index=0, key="corner_mode",
+    )
+is_attack = corner_mode.startswith("⚔️")
+mode_str  = "attack" if is_attack else "defend"
 
 standings = load_standings(league, season, stage_name=_stage_filter)
 team_row = standings[standings["team_name"] == team_name]
@@ -66,43 +76,76 @@ if not pdir.exists():
     st.error("No match files found for this competition/season.")
     st.stop()
 
-# ── Load season corner defense data ──────────────────────────────────────────
-with st.spinner("Scanning all corners across the season…"):
-    data = load_season_corner_defense(league, season, team_id, stage_filter=_stage_filter)
+# ── Load corner data ──────────────────────────────────────────────────────────
+spinner_msg = ("Scanning attacking corners…" if is_attack
+               else "Scanning all corners across the season…")
+with st.spinner(spinner_msg):
+    data = load_season_corner_defense(
+        league, season, team_id,
+        stage_filter=_stage_filter, mode=mode_str,
+    )
 
 if not data.get("all_sequences"):
-    st.info("No corner sequences found. Ensure partidos/ match files exist.")
+    label = "attacking" if is_attack else "opponent"
+    st.info(f"No {label} corner sequences found. Ensure partidos/ match files exist.")
     st.stop()
 
-fc   = data["first_contact"]
-dlv  = data["delivery"]
-sb   = data["second_ball"]
-side = data["side_danger"]
-net  = data["touch_network"]
-seqs = data["all_sequences"]
+fc       = data["first_contact"]
+dlv      = data["delivery"]
+sb       = data["second_ball"]
+side     = data["side_danger"]
+net      = data["touch_network"]
+seqs     = data["all_sequences"]
 name_map = data["name_map"]
+n_goals  = data.get("goals", 0)
+n_shots  = data.get("shots", 0)
 
 # ── Top-level KPIs ────────────────────────────────────────────────────────────
 st.markdown("---")
 total_c = fc.get("total_corners", 0)
-kpi_row([
-    {"label": "Corners Faced",       "value": total_c},
-    {"label": "First Contact Won",   "value": f"{fc.get('win_rate', 0)*100:.0f}%"},
-    {"label": "Delivery Danger Score","value": f"{dlv.get('danger_score', 0)}/100"},
-    {"label": "2nd Ball Won",        "value": f"{sb.get('second_ball_rate', 0)*100:.0f}%"},
-])
-kpi_row([
-    {"label": "Dangerous Deliveries",
-     "value": f"{fc.get('dangerous_rate', 0)*100:.0f}%",
-     "subtitle": "Shots / Goals from corner"},
-    {"label": "Danger Resets",
-     "value": sb.get("danger_resets", 0),
-     "subtitle": "2nd ball won near box by opp."},
-    {"label": "Clearances Tracked",  "value": sb.get("clearances_tracked", 0)},
-    {"label": "Avg Recovery Dist",
-     "value": f"{sb.get('avg_recovery_dist', 0):.0f} u",
-     "subtitle": "from defended goal"},
-])
+
+if is_attack:
+    # Attacking context: "won" = attacker made first contact = good
+    kpi_row([
+        {"label": "Attacking Corners",    "value": total_c},
+        {"label": "First Contact Won",    "value": f"{fc.get('win_rate', 0)*100:.0f}%",
+         "subtitle": "Attacker got first touch"},
+        {"label": "Corners → Shot",       "value": n_shots,
+         "subtitle": f"{n_shots/total_c*100:.0f}% conversion" if total_c else ""},
+        {"label": "Corners → Goal ⚽",    "value": n_goals,
+         "subtitle": f"{n_goals/total_c*100:.1f}% rate" if total_c else ""},
+    ])
+    kpi_row([
+        {"label": "Delivery Danger Score", "value": f"{dlv.get('danger_score', 0)}/100",
+         "subtitle": "Higher = landed in box"},
+        {"label": "2nd Ball Won",          "value": f"{sb.get('second_ball_rate', 0)*100:.0f}%",
+         "subtitle": "Attacker won loose ball"},
+        {"label": "Dangerous Deliveries",  "value": f"{fc.get('dangerous_rate', 0)*100:.0f}%",
+         "subtitle": "Led to shot or goal"},
+        {"label": "Avg Delivery Depth",
+         "value": f"{sb.get('avg_recovery_dist', 0):.0f} u",
+         "subtitle": "From target goal"},
+    ])
+else:
+    # Defending context
+    kpi_row([
+        {"label": "Corners Faced",         "value": total_c},
+        {"label": "First Contact Won",     "value": f"{fc.get('win_rate', 0)*100:.0f}%",
+         "subtitle": "Defender got first touch"},
+        {"label": "Conceded → Shot",       "value": n_shots,
+         "subtitle": f"{n_shots/total_c*100:.0f}% of corners" if total_c else ""},
+        {"label": "Goals Conceded ⚽",     "value": n_goals,
+         "subtitle": f"{n_goals/total_c*100:.1f}% of corners" if total_c else ""},
+    ])
+    kpi_row([
+        {"label": "Delivery Danger Score", "value": f"{dlv.get('danger_score', 0)}/100",
+         "subtitle": "Higher = more dangerous"},
+        {"label": "2nd Ball Won",          "value": f"{sb.get('second_ball_rate', 0)*100:.0f}%",
+         "subtitle": "Defender won loose ball"},
+        {"label": "Dangerous Deliveries",  "value": f"{fc.get('dangerous_rate', 0)*100:.0f}%",
+         "subtitle": "Led to shot or goal"},
+        {"label": "Clearances Tracked",    "value": sb.get("clearances_tracked", 0)},
+    ])
 
 # ─────────────────────────────────────────────────────────────────────────────
 # TABS
@@ -120,17 +163,18 @@ tab1, tab2, tab3, tab4, tab5 = st.tabs([
 # TAB 1 — Interactive sequence explorer
 # ═══════════════════════════════════════════════════════════════════════════
 with tab1:
-    section_header("Corner Sequence Explorer")
+    mode_label = "Attacking" if is_attack else "Defending"
+    section_header(f"Corner Sequence Explorer — {mode_label}")
     st.caption(
         "Select any corner from the season. The pitch shows every event in "
-        "the 12-second window that follows — coloured by which team touched "
-        "the ball and what happened."
+        "the 20-second window that follows — coloured by which team touched "
+        "the ball and what happened. ⚽ = sequence ended in a goal."
     )
 
     # ── Match + corner selector ───────────────────────────────────────────
     match_labels = [m[1] for m in data["match_index"] if m[2] > 0]
     if not match_labels:
-        st.info("No matches with opponent corners found.")
+        st.info(f"No matches with {mode_label.lower()} corners found.")
     else:
         col_match, col_corner = st.columns([2, 1])
         with col_match:
@@ -139,6 +183,7 @@ with tab1:
         match_seqs = [s for s in seqs if s.get("match_label") == selected_match]
         with col_corner:
             corner_labels = [
+                f"{'⚽ ' if s.get('led_to_goal') else ''}"
                 f"Corner {i+1} — MD {s['minute']}' "
                 f"({'L' if s['corner_y'] < 50 else 'R'} side)"
                 for i, s in enumerate(match_seqs)
@@ -153,8 +198,10 @@ with tab1:
                 seq = None
 
     if seq:
+        role_label = "attacking" if is_attack else "defending"
+        goal_badge = " ⚽ GOAL" if seq.get("led_to_goal") else ""
         fig = make_pitch_figure(
-            title=f"Corner at MD {seq['minute']}′ — {team_name} defending",
+            title=f"Corner at MD {seq['minute']}′ — {team_name} {role_label}{goal_badge}",
             height=560,
         )
 
@@ -271,28 +318,48 @@ with tab1:
 # TAB 2 — First Contact Control Index
 # ═══════════════════════════════════════════════════════════════════════════
 with tab2:
-    section_header("First Contact Control Index")
-    st.caption(
-        "After each opponent corner, what was the **first meaningful action**? "
-        "Blue = defending team controlled it. Red = attacker had first contact."
-    )
+    section_header("First Contact Index")
+    if is_attack:
+        st.caption(
+            "After each **attacking** corner, what was the **first meaningful action**? "
+            "🟡 = team made first contact (good). 🔵 = opponent cleared it first."
+        )
+    else:
+        st.caption(
+            "After each **opponent** corner, what was the **first meaningful action**? "
+            "🔵 = defending team controlled it. 🟡 = attacker had first contact (danger)."
+        )
 
     by_type = fc.get("by_type", {})
     if by_type:
         types = list(by_type.keys())
         counts = [by_type[t] for t in types]
 
-        # Red = dangerous for defending team, Blue = defending team wins contact
-        DANGER_TYPES = {"Shot Conceded", "Goal Conceded",
-                        "Corner Retained (Att)", "Recycled / Flick-on"}
-        WON_TYPES    = {"Clearance", "Aerial Duel", "Tackle", "Interception",
-                        "Save", "Keeper Claim", "Recovery", "Ball Out",
-                        "Corner Won (Def)"}
-        bar_colors = [
-            AME_YELLOW if t in DANGER_TYPES
-            else ("#42A5F5" if t in WON_TYPES else "#888")
-            for t in types
-        ]
+        # Colour depends on mode:
+        # defend mode: yellow = danger (attacker got it), blue = we won it
+        # attack mode: yellow = success (we got it), blue = they cleared it
+        if is_attack:
+            GOOD_TYPES   = {"Clearance", "Aerial Duel", "Tackle", "Interception",
+                            "Save", "Keeper Claim", "Recovery", "Ball Out",
+                            "Corner Won (Def)"}   # ← these mean OPPONENT cleared = bad for attacker
+            SUCCESS_TYPES = {"Corner Retained (Att)", "Recycled / Flick-on",
+                             "Shot Conceded", "Goal Conceded"}
+            bar_colors = [
+                AME_YELLOW if t in SUCCESS_TYPES
+                else ("#42A5F5" if t in GOOD_TYPES else "#888")
+                for t in types
+            ]
+        else:
+            DANGER_TYPES = {"Shot Conceded", "Goal Conceded",
+                            "Corner Retained (Att)", "Recycled / Flick-on"}
+            WON_TYPES    = {"Clearance", "Aerial Duel", "Tackle", "Interception",
+                            "Save", "Keeper Claim", "Recovery", "Ball Out",
+                            "Corner Won (Def)"}
+            bar_colors = [
+                AME_YELLOW if t in DANGER_TYPES
+                else ("#42A5F5" if t in WON_TYPES else "#888")
+                for t in types
+            ]
 
         fig_fc = go.Figure(go.Bar(
             y=types, x=counts,
@@ -365,25 +432,37 @@ with tab3:
 
     pts = dlv.get("landing_points", [])
     if pts:
+        # landing_points tuples: (x, y, zone, weight, led_to_goal, led_to_shot)
+        goal_label  = "⚽ Goal" if is_attack else "⚽ Goal Conceded"
+        zone_title  = (f"Corner Landing Zones — {team_name} (⚽ target goal →)"
+                       if is_attack
+                       else f"Corner Landing Zones — {team_name} (🛡️ defended goal →)")
+
         # ── Half-pitch figure (only right half, x = 50–103) ──────────────
-        fig_dlv = make_pitch_figure(
-            title=f"Corner Landing Zones — {team_name} (⚽ defended goal →)",
-            height=520, show_zones=True,
-        )
-        # Restrict view to the attacking/defended half
+        fig_dlv = make_pitch_figure(title=zone_title, height=520, show_zones=True)
         fig_dlv.update_layout(
             xaxis=dict(range=[47, 103], showgrid=False, zeroline=False,
                        visible=False, fixedrange=True),
         )
 
-        # Plot one trace per zone so the legend is clean
         from collections import defaultdict
         by_zone: dict[str, list] = defaultdict(list)
-        for lx_v, ly_v, lz_v, lw_v in pts:
-            by_zone[lz_v].append((lx_v, ly_v, lw_v))
+        goal_pts, shot_pts, normal_pts = [], [], []
+        for tup in pts:
+            lx_v, ly_v, lz_v, lw_v = tup[0], tup[1], tup[2], tup[3]
+            led_goal = tup[4] if len(tup) > 4 else False
+            led_shot = tup[5] if len(tup) > 5 else False
+            by_zone[lz_v].append((lx_v, ly_v, lw_v, led_goal, led_shot))
+            if led_goal:
+                goal_pts.append((lx_v, ly_v))
+            elif led_shot:
+                shot_pts.append((lx_v, ly_v))
+            else:
+                normal_pts.append((lx_v, ly_v, lz_v))
 
+        # Regular zone dots
         for zone in zone_order:
-            items = by_zone.get(zone, [])
+            items = [i for i in by_zone.get(zone, []) if not i[3] and not i[4]]
             if not items:
                 continue
             xs = [i[0] for i in items]
@@ -393,19 +472,42 @@ with tab3:
             fig_dlv.add_trace(go.Scatter(
                 x=xs, y=ys,
                 mode="markers",
-                marker=dict(
-                    color=zone_colors[zone],
-                    size=11, opacity=0.80,
-                    line=dict(color="#000", width=0.8),
-                ),
+                marker=dict(color=zone_colors[zone], size=10, opacity=0.75,
+                            line=dict(color="#000", width=0.8)),
                 text=texts,
                 hovertemplate="%{text}<extra></extra>",
-                name=f"{zone_labels[zone]} ({len(items)})",
+                name=f"{zone_labels[zone]} ({len(by_zone.get(zone,[]))})",
             ))
 
-        # Add a KDE-style density using a 2-D histogram restricted to right half
-        danger_x = [p[0] for p in pts if p[0] >= 50]
-        danger_y = [p[1] for p in pts if p[0] >= 50]
+        # Shot corners (larger dot, ring)
+        if shot_pts:
+            fig_dlv.add_trace(go.Scatter(
+                x=[p[0] for p in shot_pts], y=[p[1] for p in shot_pts],
+                mode="markers",
+                marker=dict(color="#FF6B35", size=16, opacity=0.90,
+                            symbol="circle-open",
+                            line=dict(color="#FF6B35", width=3)),
+                hovertemplate="Shot corner<br>x=%{x:.0f}, y=%{y:.0f}<extra></extra>",
+                name=f"→ Shot ({len(shot_pts)})",
+            ))
+
+        # Goal corners (star marker, gold)
+        if goal_pts:
+            fig_dlv.add_trace(go.Scatter(
+                x=[p[0] for p in goal_pts], y=[p[1] for p in goal_pts],
+                mode="markers+text",
+                marker=dict(color=AME_YELLOW, size=22, symbol="star",
+                            line=dict(color="#000", width=1.5)),
+                text=["⚽"] * len(goal_pts),
+                textposition="top center",
+                textfont=dict(size=14),
+                hovertemplate="GOAL corner<br>x=%{x:.0f}, y=%{y:.0f}<extra></extra>",
+                name=f"{goal_label} ({len(goal_pts)})",
+            ))
+
+        # KDE density (right half only)
+        danger_x = [tup[0] for tup in pts if tup[0] >= 50]
+        danger_y = [tup[1] for tup in pts if tup[0] >= 50]
         if danger_x:
             fig_dlv.add_trace(go.Histogram2dContour(
                 x=danger_x, y=danger_y,

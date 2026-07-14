@@ -378,7 +378,9 @@ def compute_delivery_zones(sequences: list[dict]) -> dict:
         corner_side = "Left" if seq["corner_y"] < 40 else (
             "Right" if seq["corner_y"] > 60 else "Centre")
 
-        points.append((lx, ly, zone, weight))
+        led_to_goal = seq.get("led_to_goal", False)
+        led_to_shot = seq.get("led_to_shot", False)
+        points.append((lx, ly, zone, weight, led_to_goal, led_to_shot))
         zone_counts[zone] = zone_counts.get(zone, 0) + 1
         total_danger += weight
         by_side[corner_side][zone] = by_side[corner_side].get(zone, 0) + 1
@@ -387,7 +389,7 @@ def compute_delivery_zones(sequences: list[dict]) -> dict:
     danger_score = round((total_danger / n) * 100, 1) if n else 0
 
     return {
-        "landing_points": points,
+        "landing_points": points,   # (x, y, zone, weight, led_to_goal, led_to_shot)
         "zone_counts": zone_counts,
         "danger_score": danger_score,
         "by_side": by_side,
@@ -621,8 +623,14 @@ def load_season_corner_defense(
     season: str,
     team_id: str,
     stage_filter: str = "",
+    mode: str = "defend",
 ) -> dict:
-    """Scan all season match files and aggregate corner defense stats.
+    """Scan all season match files and aggregate corner data.
+
+    Parameters
+    ----------
+    mode : "defend" → analyse opponent corners (team defends)
+           "attack" → analyse team's own corners (team attacks)
 
     Returns
     -------
@@ -634,6 +642,7 @@ def load_season_corner_defense(
         touch_network  : dict from build_touch_network(),
         all_sequences  : list[dict],  raw sequences for per-match drill-down
         match_index    : [(match_id, label, n_corners)],
+        mode           : str  — "defend" | "attack"
     }
     """
     pdir = partidos_dir(league, season)
@@ -675,7 +684,7 @@ def load_season_corner_defense(
             if pid and pname:
                 name_map[pid] = pname
 
-        seqs = extract_corner_sequences(events, team_id, opponent_id)
+        seqs = extract_corner_sequences(events, team_id, opponent_id, mode=mode)
 
         label = (f"MD {info['matchday']} — "
                  f"{info['home_team']} {info['home_score']}-{info['away_score']} "
@@ -700,6 +709,9 @@ def load_season_corner_defense(
         "all_sequences":  all_seqs,
         "match_index":    match_index,
         "name_map":       name_map,
+        "mode":           mode,
+        "goals":          sum(1 for s in all_seqs if s.get("led_to_goal")),
+        "shots":          sum(1 for s in all_seqs if s.get("led_to_shot")),
     }
 
 
@@ -707,5 +719,6 @@ def _empty_result() -> dict:
     return {
         "first_contact": {}, "delivery": {}, "second_ball": {},
         "side_danger": {}, "touch_network": {}, "all_sequences": [],
-        "match_index": [], "name_map": {},
+        "match_index": [], "name_map": {}, "mode": "defend",
+        "goals": 0, "shots": 0,
     }
