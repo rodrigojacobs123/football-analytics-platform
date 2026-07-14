@@ -37,6 +37,7 @@ PAGE_SPECS: list[PageSpec] = [
     PageSpec("pages/12_Manager_Profiles.py",   "Manager Profiles",    "👔"),
     PageSpec("pages/13_Corner_Defense.py",     "Corner Defense Intel","🔵"),
     PageSpec("pages/14_Player_Intelligence.py","Player Intelligence", "🧬"),
+    PageSpec("pages/15_Scouting_Hub.py",       "Scouting Hub",        "📂"),
 ]
 
 
