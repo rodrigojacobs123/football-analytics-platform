@@ -161,3 +161,88 @@ def generate_match_insights(
             })
 
     return out
+
+
+# Phrasing for the dominant attacking channel (Opta: team attacks x→100;
+# y=100 is the LEFT touchline, y=0 the RIGHT — see attack_play._channel).
+_SIDE_PHRASE = {
+    "Left": "down the left",
+    "Central": "through the middle",
+    "Right": "down the right",
+}
+
+
+def attack_direction_insights(team_name: str, atk: dict,
+                              shots: pd.DataFrame | None = None,
+                              accent_team: bool = False) -> list[dict]:
+    """Bullet-point insights on **where a team attacked** in one match.
+
+    Reads ``processing.attack_play.attack_report``'s output (final-third
+    connections split Left/Central/Right, the dominant route, the top link and
+    the most-involved player) plus the team's shots, and turns them into a few
+    plain-language ``{icon, text, tone}`` bullets — the spatial companion to the
+    narrative ``generate_match_insights`` above.
+
+    ``accent_team`` (set when this is Club América) tints the headline bullet;
+    everything else stays neutral/descriptive.
+    """
+    bullets: list[dict] = []
+    n = int(atk.get("n_connections", 0) or 0)
+    if n == 0:
+        return bullets
+
+    ch = atk.get("channels", {})
+
+    def _pct(c: str) -> float:
+        return float(ch.get(c, {}).get("pct", 0.0))
+
+    left, central, right = _pct("Left"), _pct("Central"), _pct("Right")
+    dom = max(("Left", "Central", "Right"), key=_pct)
+    accent = "info" if accent_team else "neutral"
+
+    # 1. Dominant flank + full L/C/R split.
+    bullets.append({
+        "icon": "🧭",
+        "text": (f"{team_name} attacked mainly {_SIDE_PHRASE[dom]} "
+                 f"({_pct(dom):.0f}% of final-third play) — "
+                 f"split L {left:.0f}% · C {central:.0f}% · R {right:.0f}%."),
+        "tone": accent,
+    })
+
+    # 2. Favourite route in + most frequent link.
+    dr = atk.get("dominant_route")
+    if dr:
+        _route_type = str(dr["type"]).lower()
+        _article = "an" if _route_type[:1] in "aeiou" else "a"
+        txt = (f"Their go-to way in was {_article} {_route_type} through the "
+               f"{str(dr['channel']).lower()} ({dr.get('pct', 0):.0f}% of connections).")
+        link = atk.get("top_link")
+        if link:
+            txt += (f" Most frequent link: {link['passer']} → "
+                    f"{link['receiver']} ({link['count']}×).")
+        bullets.append({"icon": "🔗", "text": txt, "tone": "neutral"})
+
+    # 3. Shot sourcing — how much came from inside the box.
+    if shots is not None and not shots.empty and {"x", "y"}.issubset(shots.columns):
+        in_box = shots[(shots["x"] >= 83.0) & shots["y"].between(21.1, 78.9)]
+        nb, nt = len(in_box), len(shots)
+        if nt:
+            bullets.append({
+                "icon": "🎯",
+                "text": (f"{nb} of their {nt} shots came from inside the box "
+                         f"({nb / nt * 100:.0f}%)."),
+                "tone": "neutral",
+            })
+
+    # 4. Most involved final-third connector.
+    tp = atk.get("top_players") or []
+    if tp:
+        t0 = tp[0]
+        bullets.append({
+            "icon": "⭐",
+            "text": (f"Most involved in the final third: {t0['player']} "
+                     f"({t0['pct']:.0f}% of connections)."),
+            "tone": accent,
+        })
+
+    return bullets

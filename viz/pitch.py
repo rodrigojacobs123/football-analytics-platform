@@ -1378,13 +1378,18 @@ def plot_carry_map(carries: pd.DataFrame, title: str = "Ball Carries") -> None:
     cmap = plt.get_cmap("YlOrRd")
     arrow_colors = cmap(norm(xt))
 
-    prog = clean["progressive"].to_numpy() if "progressive" in clean.columns \
-        else np.zeros(len(clean), dtype=bool)
-    widths = np.where(prog, 2.4, 1.1)
+    prog = (clean["progressive"].to_numpy() if "progressive" in clean.columns
+            else np.zeros(len(clean), dtype=bool))
 
-    pitch.arrows(clean["x"], clean["y"], clean["end_x"], clean["end_y"],
-                 color=arrow_colors, width=widths, headwidth=4, headlength=3,
-                 ax=ax, zorder=3, alpha=0.8)
+    # mplsoccer.arrows() needs a SCALAR width, so draw the two groups separately
+    # (progressive = thicker). Per-arrow RGBA colour arrays are fine.
+    for mask, w in ((~prog, 1.1), (prog, 2.4)):
+        if not mask.any():
+            continue
+        sub = clean[mask]
+        pitch.arrows(sub["x"], sub["y"], sub["end_x"], sub["end_y"],
+                     color=arrow_colors[mask], width=w, headwidth=4,
+                     headlength=3, ax=ax, zorder=3, alpha=0.8)
 
     n_prog = int(prog.sum())
     _show_fig(fig)

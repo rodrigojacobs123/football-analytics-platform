@@ -25,7 +25,7 @@ from processing.expected_pass import passes_xp
 from viz.charts import xg_race_chart, momentum_chart
 from viz.phases import phase_family_bars, phase_compare_bars, transition_matrix, transition_kpi_html
 from viz.xt import xt_pitch_heatmap, xt_top_contributors_bar
-from data.loader import load_match_raw, build_player_name_map, list_standings_stages
+from data.loader import load_match_raw, build_player_name_map, list_standings_stages, load_attack_report
 from data.event_parser import (
     parse_match_info, extract_shots, extract_goals,
     extract_all_touches, extract_key_events,
@@ -53,7 +53,7 @@ from viz.buildup import plot_build_up, build_up_summary_md
 from viz.attack_play import plot_attack, attack_summary_md
 from processing.xt import xt_summary, match_xt_summary, compute_xt_momentum
 from processing.pressure import compute_pressure_metrics
-from processing.match_insights import generate_match_insights
+from processing.match_insights import generate_match_insights, attack_direction_insights
 from config import AME_TEAM_ID, AME_YELLOW, AME_BLUE, AME_DARK_BG, COMPETITIONS
 
 # Guarantee CSS is injected — matches apply_theme() in app.py but needed as safety net
@@ -210,6 +210,32 @@ if _insights:
     )
 else:
     st.info("Not enough data to generate match insights.")
+
+# ── Where They Attacked (bullet-point breakdown per team) ─────────────────
+st.markdown("##### 🧭 Where They Attacked")
+_home_atk = load_attack_report(extract_passes(events, team_id=home_id))
+_away_atk = load_attack_report(extract_passes(events, team_id=away_id))
+_home_bul = attack_direction_insights(
+    home_team, _home_atk, _ov["home_shots"], accent_team=home_id == AME_TEAM_ID)
+_away_bul = attack_direction_insights(
+    away_team, _away_atk, _ov["away_shots"], accent_team=away_id == AME_TEAM_ID)
+
+if _home_bul or _away_bul:
+    _acol1, _acol2 = st.columns(2)
+    with _acol1:
+        st.markdown(f"**{home_team}**")
+        st.markdown("\n".join(f"- {b['icon']} {b['text']}" for b in _home_bul)
+                    or "_No final-third connections recorded._")
+    with _acol2:
+        st.markdown(f"**{away_team}**")
+        st.markdown("\n".join(f"- {b['icon']} {b['text']}" for b in _away_bul)
+                    or "_No final-third connections recorded._")
+    st.caption(
+        "Where each side did its attacking — final-third connection channels "
+        "(Left / Central / Right), favourite route in, top link and shot sourcing."
+    )
+else:
+    st.info("Not enough final-third play to break down attacking direction.")
 
 # ── Shot Maps ─────────────────────────────────────────────────────────────
 v3_section_header("SHOT MAPS", "Where the Chances Came From")
