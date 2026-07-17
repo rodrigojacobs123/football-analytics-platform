@@ -21,6 +21,7 @@ from processing.wyscout_bridge import (
     opta_to_wyscout_profile, market_comparison, bridge_radar,
     OPTA_POSITION_DEFAULT_GROUP,
 )
+from viz.scouting_report import build_scouting_report
 from data.loader import load_player_season_stats
 from config import AME_YELLOW, AME_BLUE, AME_TEAM_NAME, AME_TEAM_FOLDER, DEFAULT_SEASON
 
@@ -507,4 +508,36 @@ with tab_short:
             data=buf.getvalue(),
             file_name="scouting_shortlist.xlsx",
             mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+        )
+
+    # ── PDF scouting report ──────────────────────────────────────────────
+    st.markdown("---")
+    ame_section("REPORT", "PDF scouting report")
+    st.caption(
+        "Committee-format PDF for one position group: universe & data quality, "
+        "benchmarks, rankings per profile, young-talent shortlists and "
+        "highlighted scatters. Shortlisted players are marked with ★."
+    )
+    rep_group = st.selectbox(
+        "Report position group", sorted(scored["position_group"].unique()),
+        format_func=lambda x: f"{x} — {GROUP_LABELS.get(x, x)}",
+        key="report_group",
+    )
+    if st.button("📄 Generate PDF report"):
+        with st.spinner("Building report (charts + tables)…"):
+            try:
+                pdf_bytes = build_scouting_report(
+                    pooled, scored, rep_group, min_minutes,
+                    starred=set(st.session_state.shortlist.keys()),
+                )
+                st.session_state["scouting_report"] = (rep_group, pdf_bytes)
+            except ValueError as exc:
+                st.warning(str(exc))
+    if "scouting_report" in st.session_state:
+        saved_group, pdf_bytes = st.session_state["scouting_report"]
+        st.download_button(
+            f"📥 Download report — {saved_group} ({len(pdf_bytes) / 1e6:.1f} MB)",
+            data=pdf_bytes,
+            file_name=f"Reporte_Scouting_{saved_group}.pdf",
+            mime="application/pdf",
         )
