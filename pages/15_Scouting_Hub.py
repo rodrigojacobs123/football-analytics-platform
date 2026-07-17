@@ -15,13 +15,17 @@ from processing.wyscout_scouting import (
     top_by_file, radar_data, display_columns, dedupe_best,
     apply_league_coefficients, rank_col,
     GROUP_LABELS, DEFAULT_MIN_MINUTES, MIN_GROUP_SAMPLE,
-    LEAGUE_TIERS, DEFAULT_TIER,
+    LEAGUE_TIERS, DEFAULT_TIER, ARCHETYPES, ROLE_METRICS,
 )
 from processing.wyscout_bridge import (
     opta_to_wyscout_profile, market_comparison, bridge_radar,
     OPTA_POSITION_DEFAULT_GROUP,
 )
-from viz.scouting_report import build_scouting_report
+from viz.scouting_report import (
+    build_scouting_report, ARCHETYPE_ES, METRIC_ES,
+    _quality_issues as quality_issues, _bin_counts as bin_counts,
+    _player_comment as player_comment, _scatter_axes as scatter_axes,
+)
 from data.loader import load_player_season_stats
 from config import AME_YELLOW, AME_BLUE, AME_TEAM_NAME, AME_TEAM_FOLDER, DEFAULT_SEASON
 
@@ -223,9 +227,11 @@ def selectable_table(df: pd.DataFrame, key: str, height: int = 400) -> None:
         )
 
 
-tab_files, tab_global, tab_compare, tab_similar, tab_replace, tab_market, tab_short = st.tabs(
+(tab_files, tab_global, tab_compare, tab_similar, tab_replace, tab_market,
+ tab_analysis, tab_short) = st.tabs(
     ["🏆 Best per file", "🌍 Global ranking", "🎯 Compare players",
      "🧬 Similar players", "🦅 Replace from squad", "💎 Market opportunities",
+     "📊 Market analysis",
      f"⭐ Shortlist ({len(st.session_state.shortlist)})"]
 )
 
@@ -470,7 +476,168 @@ with tab_market:
         height=420,
     )
 
-# ── Tab 7: shortlist + export ────────────────────────────────────────────────
+# ── Tab 7: market analysis (report sections, interactive) ────────────────────
+with tab_analysis:
+    import plotly.graph_objects as go  # noqa: F811 — also imported in tab 2
+
+    _PLOT_LAYOUT = dict(paper_bgcolor="rgba(0,0,0,0)",
+                        plot_bgcolor="rgba(0,0,0,0)",
+                        font=dict(color="#EAF0FA"))
+
+    def _dist_fig(labels, counts, title):
+        fig = go.Figure(go.Bar(x=labels, y=counts, marker_color=AME_YELLOW,
+                               text=counts, textposition="outside"))
+        fig.update_layout(title=title, height=280,
+                          margin=dict(l=10, r=10, t=40, b=10),
+                          yaxis_title="Players", **_PLOT_LAYOUT)
+        return fig
+
+    def _highlight_scatter(df_all, top, xcol, ycol, title):
+        fig = go.Figure()
+        fig.add_trace(go.Scatter(
+            x=df_all[xcol], y=df_all[ycol], mode="markers", name="Sample",
+            marker=dict(size=6, color=AME_BLUE, opacity=0.45),
+            text=df_all["Player"] + " (" + df_all["Team"].fillna("?") + ")",
+            hoverinfo="text+x+y",
+        ))
+        fig.add_trace(go.Scatter(
+            x=top[xcol], y=top[ycol], mode="markers+text", name="Highlighted",
+            marker=dict(size=11, color=AME_YELLOW),
+            text=top["Player"], textposition="top center",
+            textfont=dict(size=9, color="#EAF0FA"),
+        ))
+        fig.update_layout(
+            title=title, height=460, showlegend=False,
+            xaxis_title=METRIC_ES.get(xcol, xcol),
+            yaxis_title=METRIC_ES.get(ycol, ycol),
+            margin=dict(l=10, r=10, t=40, b=10), **_PLOT_LAYOUT)
+        return fig
+
+    ame_section("REPORT VIEW", "Market analysis")
+    ag = st.selectbox(
+        "Position group", sorted(scored["position_group"].unique()),
+        format_func=lambda x: f"{x} — {GROUP_LABELS.get(x, x)}",
+        key="analysis_group",
+    )
+    agdf = scored[scored["position_group"] == ag]
+    universe = pooled[pooled["position_groups"].map(
+        lambda gs: ag in gs if isinstance(gs, list) else False)]
+
+    # 1 — Universe & data quality
+    u1, u2, u3, u4 = st.columns(4)
+    with u1:
+        kpi_card(f"{ag} in universe", len(universe))
+    with u2:
+        kpi_card("In rankings (≥ min. minutes)",
+                 len(agdf[["Player", "Team"]].drop_duplicates()))
+    with u3:
+        kpi_card("≥1,500 minutes", int((universe["Minutes played"] >= 1500).sum()))
+    with u4:
+        kpi_card("Secondary role", int((agdf["group_role"] == "secondary").sum()))
+
+    issues = {k: v for k, v in quality_issues(pooled).items() if v > 0}
+    if issues:
+        items = sorted(issues.items(), key=lambda kv: kv[1])
+        qfig = go.Figure(go.Bar(
+            x=[v for _, v in items], y=[k for k, _ in items], orientation="h",
+            marker_color=AME_BLUE, text=[v for _, v in items],
+            textposition="outside"))
+        qfig.update_layout(title="Data quality issues (whole upload)",
+                           height=90 + 34 * len(items),
+                           margin=dict(l=10, r=30, t=40, b=10), **_PLOT_LAYOUT)
+        st.plotly_chart(qfig, width="stretch")
+        st.caption(
+            "Market value €0 = missing, not a cheap deal. Players failing these "
+            "checks need a manual look before any shortlist decision."
+        )
+
+    # 2 — Distributions
+    d1, d2, d3 = st.columns(3)
+    age_l, age_c = bin_counts(universe["Age"].dropna(), [0, 21, 24, 28, 32, 99],
+                              ["≤21", "22-24", "25-28", "29-32", "33+"])
+    d1.plotly_chart(_dist_fig(age_l, age_c, "Age distribution"), width="stretch")
+    min_l, min_c = bin_counts(universe["Minutes played"].fillna(0),
+                              [-1, 449, 899, 1499, 2499, 99999],
+                              ["<450", "450-899", "900-1499", "1500-2499", "2500+"])
+    d2.plotly_chart(_dist_fig(min_l, min_c, "Minutes distribution"), width="stretch")
+    mv_l, mv_c = bin_counts(universe["Market value"].fillna(0),
+                            [-1, 0, 1e6 - 1, 5e6, 15e6, 30e6, 9e9],
+                            ["0/n.d.", "<€1m", "€1-5m", "€5-15m", "€15-30m", "€30m+"])
+    d3.plotly_chart(_dist_fig(mv_l, mv_c, "Market value distribution"), width="stretch")
+
+    # 3 — Benchmarks
+    st.markdown("**Benchmarks (ranked sample)** — P75 as a positive-alert "
+                "threshold, median as the baseline.")
+    bench = []
+    for col, _w, _inv in ROLE_METRICS.get(ag, []):
+        if col in agdf.columns and agdf[col].notna().any():
+            s = agdf[col].dropna()
+            bench.append({"Métrica": METRIC_ES.get(col, col),
+                          "P25": round(s.quantile(0.25), 2),
+                          "Mediana": round(s.median(), 2),
+                          "P75": round(s.quantile(0.75), 2)})
+    styled_dataframe(pd.DataFrame(bench), height=40 + 36 * len(bench))
+
+    # 4 — Profile scatter + ranking with auto-comments
+    prof_options = [a for a, _cols in ARCHETYPES.get(ag, [])
+                    if f"arch: {a}" in agdf.columns]
+    if prof_options:
+        sel_prof = st.selectbox(
+            "Style profile", prof_options,
+            format_func=lambda a: ARCHETYPE_ES.get(a, a), key="analysis_prof")
+        arch_col = f"arch: {sel_prof}"
+        bundle_cols = [c for c in dict(ARCHETYPES[ag])[sel_prof]
+                       if c in agdf.columns]
+        if len(bundle_cols) >= 2:
+            top8 = agdf.sort_values(arch_col, ascending=False).head(8)
+            st.plotly_chart(
+                _highlight_scatter(
+                    agdf, top8, bundle_cols[0], bundle_cols[1],
+                    f"Perfil {ARCHETYPE_ES.get(sel_prof, sel_prof)} — destacados"),
+                width="stretch")
+            gdf_cols = list(agdf.columns)
+            top6 = agdf.sort_values(arch_col, ascending=False).head(6)
+            rows = [{"Player": r["Player"], "Team": r["Team"],
+                     "Age": int(r["Age"]) if pd.notna(r["Age"]) else None,
+                     "Min.": int(r["Minutes played"]),
+                     "Market value": r["Market value"],
+                     "Profile score": round(r[arch_col], 1),
+                     "Lectura": player_comment(r, gdf_cols)}
+                    for _, r in top6.iterrows()]
+            styled_dataframe(pd.DataFrame(rows), height=40 + 40 * len(rows))
+
+    # 5 — Shortlist scatters
+    s1, s2 = st.columns(2)
+    axes = scatter_axes(ag, list(agdf.columns))
+    young_all = agdf[agdf["Age"] <= 23]
+    if axes and len(young_all) >= 5:
+        xcol, ycol = axes
+        topy = young_all.sort_values(RANK, ascending=False).head(10)
+        s1.plotly_chart(
+            _highlight_scatter(agdf, topy, xcol, ycol, "Shortlist U23"),
+            width="stretch")
+    with_value = agdf[agdf["Market value"] > 0].copy()
+    if len(with_value) >= 5:
+        with_value["Valor €m"] = with_value["Market value"] / 1e6
+        topv = (with_value[with_value["Age"] <= 25]
+                .sort_values("value_index", ascending=False).head(10))
+        vfig = go.Figure()
+        vfig.add_trace(go.Scatter(
+            x=with_value["Valor €m"], y=with_value[RANK], mode="markers",
+            marker=dict(size=6, color=AME_BLUE, opacity=0.45),
+            text=with_value["Player"], hoverinfo="text+x+y", name="Sample"))
+        vfig.add_trace(go.Scatter(
+            x=topv["Market value"] / 1e6, y=topv[RANK], mode="markers+text",
+            marker=dict(size=11, color=AME_YELLOW), text=topv["Player"],
+            textposition="top center", textfont=dict(size=9, color="#EAF0FA"),
+            name="Value picks"))
+        vfig.update_layout(title="U25 value — score vs price", height=460,
+                           showlegend=False, xaxis_title="Market value (€m)",
+                           yaxis_title="Composite score",
+                           margin=dict(l=10, r=10, t=40, b=10), **_PLOT_LAYOUT)
+        s2.plotly_chart(vfig, width="stretch")
+
+# ── Tab 8: shortlist + export ────────────────────────────────────────────────
 with tab_short:
     ame_section("DELIVERABLE", "Shortlist for the committee")
     if not st.session_state.shortlist:
