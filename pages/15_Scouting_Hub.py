@@ -232,7 +232,7 @@ def selectable_table(df: pd.DataFrame, key: str, height: int = 400) -> None:
     ["🏆 Best per file", "🌍 Global ranking", "🎯 Compare players",
      "🧬 Similar players", "🦅 Replace from squad", "💎 Market opportunities",
      "📊 Market analysis",
-     f"⭐ Shortlist ({len(st.session_state.shortlist)})"]
+     f"📄 Reports & Export ({len(st.session_state.shortlist)}⭐)"]
 )
 
 # ── Tab 1: best per file ─────────────────────────────────────────────────────
