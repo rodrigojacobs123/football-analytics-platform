@@ -237,6 +237,71 @@ with tab_tech:
         yaxis2=dict(title="Duels/90", overlaying="y", side="right"))
     st.plotly_chart(vfig, width="stretch")
 
+    # Cumulative finishing: does he convert what he generates?
+    cum = view.sort_values("Date")
+    cfig = go.Figure()
+    cfig.add_scatter(x=cum["Date"], y=cum["xG"].cumsum().round(2),
+                     name="xG acumulado", line=dict(color=AME_BLUE, width=2.5))
+    cfig.add_scatter(x=cum["Date"], y=cum["Goals"].cumsum(),
+                     name="Goles acumulados",
+                     line=dict(color=AME_YELLOW, width=2.5))
+    cfig.update_layout(
+        height=340, margin=dict(l=10, r=10, t=30, b=10),
+        paper_bgcolor="rgba(0,0,0,0)", plot_bgcolor="rgba(0,0,0,0)",
+        font=dict(color="#EAF0FA"),
+        title="Finalización: xG acumulado vs goles (líneas separadas = sobre/infra-rendimiento)")
+    st.plotly_chart(cfig, width="stretch")
+
+    # Rolling efficiency: the quality complement to the volume chart above.
+    w = 5
+    eff = view.sort_values("Date").copy()
+    for att, ok, dst in (("dribbles", "dribbles_ok", "drib_pct"),
+                         ("duels", "duels_ok", "duel_pct")):
+        r_ok = eff[ok].rolling(w, min_periods=1).sum()
+        r_at = eff[att].rolling(w, min_periods=1).sum()
+        eff[dst] = (100.0 * r_ok / r_at.replace(0, pd.NA)).astype(float).round(1)
+    efig = go.Figure()
+    efig.add_scatter(x=_dates, y=eff["drib_pct"], name="% regates exitosos (móvil 5)",
+                     line=dict(color=AME_YELLOW, width=2.5))
+    efig.add_scatter(x=_dates, y=eff["duel_pct"], name="% duelos ganados (móvil 5)",
+                     line=dict(color=AME_BLUE, width=2.5))
+    efig.add_hline(y=50, line_dash="dot", line_color="#556677")
+    efig.update_layout(
+        height=320, margin=dict(l=10, r=10, t=30, b=10),
+        paper_bgcolor="rgba(0,0,0,0)", plot_bgcolor="rgba(0,0,0,0)",
+        font=dict(color="#EAF0FA"), yaxis=dict(range=[0, 100]),
+        title="Eficiencia: acierto en regate y duelo (no volumen, calidad)")
+    st.plotly_chart(efig, width="stretch")
+
+    # Season-by-season trajectory in four small multiples.
+    traj = view.copy()
+    traj["season"] = traj["Date"].map(
+        lambda d: f"{d.year}-{str(d.year + 1)[2:]}" if d.month >= 7
+        else f"{d.year - 1}-{str(d.year)[2:]}")
+    seg_rows = []
+    for sname, sub in sorted(traj.groupby("season")):
+        a = aggregate_per90(sub)
+        if a and a["minutes"] >= 360:
+            seg_rows.append({"season": sname, **a})
+    if len(seg_rows) >= 2:
+        st.markdown("**Trayectoria por temporada** (mín. 360′ por temporada):")
+        mini = st.columns(4)
+        for col, (key, label) in zip(mini, [
+                ("ga90", "G+A/90"), ("xg90", "xG/90"),
+                ("dribbles90", "Regates/90"), ("duels_pct", "% duelos ganados")]):
+            with col:
+                mfig2 = go.Figure(go.Bar(
+                    x=[r["season"] for r in seg_rows],
+                    y=[r[key] for r in seg_rows],
+                    marker_color=AME_YELLOW,
+                    text=[r[key] for r in seg_rows], textposition="outside"))
+                mfig2.update_layout(
+                    height=230, margin=dict(l=6, r=6, t=30, b=6), title=label,
+                    paper_bgcolor="rgba(0,0,0,0)", plot_bgcolor="rgba(0,0,0,0)",
+                    font=dict(color="#EAF0FA", size=10),
+                    yaxis=dict(visible=False))
+                st.plotly_chart(mfig2, width="stretch")
+
     s_col, w_col = st.columns(2)
     S, W = strengths_weaknesses(agg)
     with s_col:
@@ -361,6 +426,67 @@ with tab_market:
                                               "shared metrics)"),
                             width="stretch",
                         )
+
+                    # FBref-style percentile bars: exact standing per metric.
+                    ordered = sorted(pseudo_pct.items(), key=lambda kv: kv[1])
+                    pfig2 = go.Figure(go.Bar(
+                        x=[v for _, v in ordered],
+                        y=[k for k, _ in ordered], orientation="h",
+                        marker=dict(color=[v for _, v in ordered],
+                                    colorscale=[[0, "#E53935"],
+                                                [0.5, "#FFD100"],
+                                                [1, "#4CAF50"]],
+                                    cmin=0, cmax=100),
+                        text=[f"{v:.0f}" for _, v in ordered],
+                        textposition="outside"))
+                    pfig2.update_layout(
+                        height=80 + 40 * len(ordered),
+                        margin=dict(l=10, r=40, t=40, b=10),
+                        xaxis=dict(range=[0, 108], title="Percentil en el pool"),
+                        paper_bgcolor="rgba(0,0,0,0)",
+                        plot_bgcolor="rgba(0,0,0,0)",
+                        font=dict(color="#EAF0FA"),
+                        title=f"Percentiles de {player} dentro del pool ({g})")
+                    st.plotly_chart(pfig2, width="stretch")
+
+                    # Pool scatter: the whole group on two key axes.
+                    per90_shared = [c for c in shared if "per 90" in c] or shared
+                    xcol = ("Dribbles per 90" if "Dribbles per 90" in shared
+                            else per90_shared[0])
+                    ycol = ("xG per 90" if "xG per 90" in shared and xcol != "xG per 90"
+                            else per90_shared[-1])
+                    if xcol != ycol:
+                        simnames = mmatches.head(5)["Player"].tolist()
+                        rest = gdf[~gdf["Player"].isin(simnames)]
+                        simdf = gdf[gdf["Player"].isin(simnames)]
+                        sfig = go.Figure()
+                        sfig.add_scatter(
+                            x=rest[xcol], y=rest[ycol], mode="markers",
+                            name="Pool", text=rest["Player"],
+                            marker=dict(color="#33507A", size=7, opacity=0.8))
+                        sfig.add_scatter(
+                            x=simdf[xcol], y=simdf[ycol], mode="markers+text",
+                            name="Más parecidos", text=simdf["Player"],
+                            textposition="top center",
+                            textfont=dict(size=9, color="#9DB4C8"),
+                            marker=dict(color=AME_BLUE, size=10))
+                        if xcol in profile and ycol in profile:
+                            sfig.add_scatter(
+                                x=[profile[xcol]], y=[profile[ycol]],
+                                mode="markers+text", name=player, text=[player],
+                                textposition="top center",
+                                textfont=dict(size=11, color=AME_YELLOW),
+                                marker=dict(color=AME_YELLOW, size=18,
+                                            symbol="star"))
+                        sfig.update_layout(
+                            height=460, margin=dict(l=10, r=10, t=40, b=10),
+                            xaxis=dict(title=xcol), yaxis=dict(title=ycol),
+                            paper_bgcolor="rgba(0,0,0,0)",
+                            plot_bgcolor="rgba(0,0,0,0)",
+                            font=dict(color="#EAF0FA"),
+                            title=f"El pool completo ({len(gdf)} jugadores) — "
+                                  "⭐ = " + player)
+                        st.plotly_chart(sfig, width="stretch")
 
 # ── Tab 5: social post — X-ready cards + suggested copy ──────────────────────
 with tab_social:
