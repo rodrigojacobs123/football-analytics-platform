@@ -108,9 +108,13 @@ with k[4]:
 with k[5]:
     kpi_card("xG / 90", agg["xg90"])
 
-tab_coach, tab_tech, tab_comp, tab_market, tab_pdf = st.tabs(
+# Set by the vs-Market tab in this same run; the Social tab reads it. A plain
+# variable (not session_state) so it can never go stale across reruns.
+market_ctx: dict | None = None
+
+tab_coach, tab_tech, tab_comp, tab_market, tab_social, tab_pdf = st.tabs(
     ["🧑‍🏫 Coach view", "📊 Technical analysis", "🏆 By competition",
-     "⚖️ vs Market", "📄 PDF report"]
+     "⚖️ vs Market", "📱 Social post", "📄 PDF report"]
 )
 
 # ── Tab 1: coach view — answers, not axes ────────────────────────────────────
@@ -320,6 +324,15 @@ with tab_market:
                             "pool for that position group.")
                 else:
                     rank = int((gdf["Score"] > pseudo_score).sum()) + 1
+                    market_ctx = {
+                        "group": g,
+                        "label": f"{g} — {GROUP_LABELS.get(g, g)}",
+                        "score": pseudo_score, "rank": rank, "n": len(gdf),
+                        "shared": shared,
+                        "similar": mmatches.head(5)[
+                            ["Player", "Team", "similarity"]
+                        ].to_dict("records"),
+                    }
                     b1, b2, b3 = st.columns(3)
                     with b1:
                         kpi_card("Score in this market", pseudo_score)
@@ -348,7 +361,42 @@ with tab_market:
                             width="stretch",
                         )
 
-# ── Tab 5: PDF ───────────────────────────────────────────────────────────────
+# ── Tab 5: social post — X-ready cards + suggested copy ──────────────────────
+with tab_social:
+    ame_section("DIFUSIÓN", "Post para X — imágenes y texto listos")
+    st.caption(
+        f"Tarjetas 16:9 (1680×945) con la ventana actual (**{filters_desc}**) "
+        "para adjuntar al post. La tarjeta de mercado aparece si cargaste un "
+        "pool en **⚖️ vs Market** en esta misma sesión."
+    )
+    from viz.social_cards import stat_card, form_card, market_card, suggest_posts
+
+    cards: list[tuple[str, bytes]] = [
+        ("stats", stat_card(player, team, filters_desc, agg, cons)),
+        ("forma", form_card(player, team, ctx)),
+    ]
+    if market_ctx:
+        cards.append(("mercado", market_card(
+            player, market_ctx["label"], market_ctx["score"],
+            market_ctx["rank"], market_ctx["n"], market_ctx["similar"],
+            len(market_ctx["shared"]))))
+
+    cols = st.columns(len(cards))
+    for col, (label, png) in zip(cols, cards):
+        with col:
+            st.image(png, caption=f"Tarjeta: {label}", width="stretch")
+            st.download_button(
+                f"📥 PNG — {label}", data=png,
+                file_name=f"{player.replace(' ', '_')}_{label}.png",
+                mime="image/png", key=f"dl_card_{label}",
+            )
+
+    st.markdown("**Textos sugeridos** (≤280 caracteres — copia con el icono):")
+    for i, text in enumerate(
+            suggest_posts(player, team, filters_desc, agg, cons, market_ctx), 1):
+        st.code(text, language=None)
+
+# ── Tab 6: PDF ───────────────────────────────────────────────────────────────
 with tab_pdf:
     ame_section("DELIVERABLE", "Ficha de scouting (PDF)")
     st.caption(f"The PDF is built from the current window: **{filters_desc}**. "
