@@ -74,6 +74,7 @@ def parse_player_stats(df: pd.DataFrame, source_name: str) -> pd.DataFrame:
         if c in out.columns:
             out[c] = pd.to_numeric(out[c], errors="coerce").fillna(0.0)
     out = out[out["Minutes played"] > 0].dropna(subset=["Date"])
+    out["Position"] = out["Position"].astype(str)  # mixed types break Arrow tables
     out["Competition"] = out["Competition"].astype(str)
     out["tier"] = out["Competition"].map(
         lambda c: TIER_YOUTH if _YOUTH_PAT.search(c)
@@ -518,3 +519,62 @@ def suggest_thread(player: str, team: str, window_desc: str, agg: dict,
         "Datos: Wyscout · análisis propio. ¿Lo ficharías? 👇 "
         "#Scouting #DataFútbol")
     return [t[:280] for t in tweets]
+
+
+def publication_plan(player: str, team: str, window_desc: str, agg: dict,
+                     hooks: list[dict], market: dict | None) -> dict:
+    """Ordered X-thread plan: title options + named steps with image slots.
+
+    Returns {'titles': [...], 'steps': [{'order', 'name', 'attach', 'text'}]}.
+    The order is deliberate: cover (stats) → strongest hooks → market rank →
+    honest flag near the end (credibility) → CTA close.
+    """
+    titles = [
+        f"{player}: volumen de élite buscando su rol",
+        f"Radiografía de {player} — {agg['matches']} partidos bajo el microscopio",
+        f"¿Por qué los datos piden vigilar a {player}?",
+    ]
+    steps: list[dict] = [{
+        "name": "Portada — el jugador en números",
+        "attach": "Tarjeta STATS",
+        "text": (f"🧵 {player} ({team}) — lo que dicen los datos "
+                 f"({window_desc}):\n⚽ {agg['ga90']} G+A/90 · {agg['xg90']} "
+                 f"xG/90 · {agg['dribbles90']} regates/90 "
+                 f"({agg['dribbles_pct']:.0f}%)\nAbrimos hilo 👇"),
+    }]
+    # Positive hooks first; the honest flag goes second-to-last on purpose.
+    flags = [h for h in hooks if "Bandera" in h["title"] or "muro" in h["title"]]
+    positives = [h for h in hooks if h not in flags]
+    for h in positives[:3]:
+        steps.append({
+            "name": f"Gancho — {h['title']}",
+            "attach": ("Tarjeta FORMA" if "Tendencia" in h["title"]
+                       else "(sin imagen)"),
+            "text": f"{h['icon']} {h['title']}: {h['text']}",
+        })
+    if market:
+        steps.append({
+            "name": "Contexto de mercado — dónde queda",
+            "attach": "Tarjeta MERCADO",
+            "text": (f"⚖️ Contra nuestro pool ({market['label']}): sería el "
+                     f"#{market['rank']} de {market['n']}. Perfil más parecido: "
+                     f"{market['similar'][0]['Player']} "
+                     f"({market['similar'][0]['similarity']:.0f}% similitud)."),
+        })
+    for h in flags[:1]:
+        steps.append({
+            "name": "Bandera honesta — credibilidad",
+            "attach": "Tarjeta FORMA",
+            "text": f"{h['icon']} {h['title']}: {h['text']}",
+        })
+    steps.append({
+        "name": "Cierre — conclusión y CTA",
+        "attach": "(sin imagen)",
+        "text": (f"📌 Conclusión: {player} es volumen de élite buscando su "
+                 "rol. Datos: Wyscout · análisis propio. ¿Lo ficharías? 👇 "
+                 "#Scouting #DataFútbol"),
+    })
+    for i, st_ in enumerate(steps, 1):
+        st_["order"] = i
+        st_["text"] = st_["text"][:280]
+    return {"titles": titles, "steps": steps}

@@ -212,13 +212,16 @@ def _profile_scatter(gdf: pd.DataFrame, xcol: str, ycol: str,
 
 # ── Content helpers ─────────────────────────────────────────────────────────
 def _quality_issues(pooled: pd.DataFrame) -> dict[str, int]:
+    # .get(...) guards: reduced exports may lack any of these columns.
+    def _col(name):
+        return pooled[name] if name in pooled.columns else pd.Series(dtype=object)
     issues = {
-        "Valor de mercado = 0": int((pooled["Market value"].fillna(0) == 0).sum()),
-        "Contrato sin fecha": int(pooled["Contract expires"].isna().sum()),
-        "Pie desconocido": int(pooled["Foot"].isna().sum()
-                               + (pooled["Foot"].astype(str).str.lower() == "unknown").sum()),
-        "Altura faltante/cero": int((pooled["Height"].fillna(0) == 0).sum()),
-        "Peso faltante/cero": int((pooled["Weight"].fillna(0) == 0).sum()),
+        "Valor de mercado = 0": int((_col("Market value").fillna(0) == 0).sum()),
+        "Contrato sin fecha": int(_col("Contract expires").isna().sum()),
+        "Pie desconocido": int(_col("Foot").isna().sum()
+                               + (_col("Foot").astype(str).str.lower() == "unknown").sum()),
+        "Altura faltante/cero": int((_col("Height").fillna(0) == 0).sum()),
+        "Peso faltante/cero": int((_col("Weight").fillna(0) == 0).sum()),
     }
     pct_cols = [c for c in pooled.columns if c.endswith("%")]
     if pct_cols:

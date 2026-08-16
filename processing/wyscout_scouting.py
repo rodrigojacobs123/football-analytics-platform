@@ -375,8 +375,23 @@ def normalize_wyscout(df: pd.DataFrame, source_name: str) -> pd.DataFrame:
         )
     out = df.copy()
     out["source_file"] = source_name
+    # Mixed-type Position values (Wyscout writes a literal 0 sometimes) break
+    # Arrow serialization in st.dataframe — normalise to str up front.
+    out["Position"] = out["Position"].astype(str)
     out["position_group"] = out["Position"].map(primary_position_group)
     out["position_groups"] = out["Position"].map(all_position_groups)
+    # Reduced exports (column subsets) may lack these; pages and the PDF
+    # assume they exist, so guarantee the full identity set.
+    if "Market value" not in out.columns:
+        out["Market value"] = 0.0
+    if "Contract expires" not in out.columns:
+        out["Contract expires"] = pd.NaT
+    for col in ("Foot", "Birth country", "Passport country", "On loan"):
+        if col not in out.columns:
+            out[col] = pd.NA
+    for col in ("Height", "Weight", "Age", "Matches played"):
+        if col not in out.columns:
+            out[col] = 0.0
     out["Contract expires"] = pd.to_datetime(out.get("Contract expires"), errors="coerce")
     for col in out.columns:
         if col in ("Player", "Team", "Team within selected timeframe", "Position",
