@@ -400,3 +400,121 @@ def coach_traffic_lights(matches: pd.DataFrame) -> list[dict]:
                 "text": f"{season['yellows']} amarillas y {season['reds']} rojas "
                         f"en {season['matches']} partidos."})
     return out
+
+
+# ── Scout hooks ──────────────────────────────────────────────────────────────
+# The angles that make a club stop scrolling: minutes-at-age, a weapon that
+# survives any context, an unexploited tactical lever, and the honest flag
+# that gives the whole post credibility. All computed generically from the
+# match-by-match feed so they work for any player file.
+
+def scout_hooks(matches: pd.DataFrame, ctx: pd.DataFrame,
+                team: str) -> list[dict]:
+    hooks: list[dict] = []
+    if matches.empty:
+        return hooks
+    agg = aggregate_per90(matches)
+
+    # 1 · Precocidad: youth→senior gap + senior minutes banked.
+    youth = matches[matches["tier"] == TIER_YOUTH]
+    senior = matches[matches["tier"] == TIER_SENIOR]
+    if not youth.empty and not senior.empty:
+        gap_m = max(1, (senior["Date"].min() - matches["Date"].min()).days // 30)
+        hooks.append({
+            "icon": "🚀", "title": "Precocidad",
+            "text": (f"Del fútbol formativo al debut senior en {gap_m} meses; "
+                     f"ya acumula {int(senior['Minutes played'].sum()):,}′ "
+                     f"senior en {len(senior)} partidos. Los minutos a edad "
+                     "temprana son el mejor predictor de techo que existe."),
+        })
+
+    # 2 · Palanca táctica: best position ≠ most used position.
+    pos = position_split(matches)
+    reliable = pos[pos["Min"] >= 270] if not pos.empty else pos
+    if len(reliable) >= 2:
+        best = reliable.sort_values("G+A/90", ascending=False).iloc[0]
+        used = reliable.sort_values("Min", ascending=False).iloc[0]
+        if best["Posición"] != used["Posición"] and \
+                best["G+A/90"] >= used["G+A/90"] * 1.5:
+            hooks.append({
+                "icon": "🧩", "title": "Palanca táctica sin explotar",
+                "text": (f"Su club lo usa de {used['Posición']} "
+                         f"({used['G+A/90']} G+A/90), pero como "
+                         f"{best['Posición']} produce {best['G+A/90']} G+A/90 "
+                         f"en {best['Min']}′. El comprador que lo reposicione "
+                         "compra el upside con descuento."),
+            })
+
+    # 3 · Arma que viaja: dribble volume in defeats vs overall.
+    losses = ctx[ctx["result"] == "D"]
+    if len(losses) >= 5 and agg.get("dribbles90", 0) >= 3:
+        lm = losses["Minutes played"].sum()
+        d_loss = losses["dribbles"].sum() * 90.0 / lm if lm else 0.0
+        if d_loss >= agg["dribbles90"] * 0.85:
+            hooks.append({
+                "icon": "⚔️", "title": "Su arma no se apaga",
+                "text": (f"Mantiene {d_loss:.1f} regates/90 incluso en "
+                         f"partidos perdidos (media {agg['dribbles90']}). "
+                         "El volumen que sobrevive a un equipo dominado "
+                         "viaja a cualquier contexto."),
+            })
+
+    # 4 · Tendencia dentro de la ventana (rookie wall o despegue).
+    half = len(matches) // 2
+    if half >= 5:
+        a1 = aggregate_per90(matches.sort_values("Date").head(half))
+        a2 = aggregate_per90(matches.sort_values("Date").tail(len(matches) - half))
+        if a2["ga90"] >= a1["ga90"] * 1.5 and a2["ga90"] > 0.2:
+            hooks.append({
+                "icon": "📈", "title": "Tendencia al alza",
+                "text": (f"De {a1['ga90']} a {a2['ga90']} G+A/90 entre la "
+                         "primera y la segunda mitad de la ventana — el "
+                         "precio sube con cada jornada."),
+            })
+        elif a1["ga90"] >= 0.2 and a2["ga90"] <= a1["ga90"] * 0.5:
+            hooks.append({
+                "icon": "🧱", "title": "Bandera honesta: muro del debutante",
+                "text": (f"Su producción cayó de {a1['ga90']} a {a2['ga90']} "
+                         f"G+A/90 (regates {a1['dribbles90']}→{a2['dribbles90']}) "
+                         "en la segunda mitad de la ventana. Patrón típico de "
+                         "primera temporada completa: el que crea que es "
+                         "fatiga y no techo, compra barato ahora."),
+            })
+
+    # 5 · Motor limpio: availability + discipline.
+    span_days = (matches["Date"].max() - matches["Date"].min()).days
+    if span_days > 300:
+        per_year = len(matches) * 365.0 / span_days
+        if per_year >= 30 and agg["yellows"] <= max(2, len(matches) // 20):
+            hooks.append({
+                "icon": "🛡️", "title": "Motor limpio",
+                "text": (f"{len(matches)} partidos en {span_days // 30} meses "
+                         f"(~{per_year:.0f}/año) con {agg['yellows']} "
+                         f"amarilla(s) y {agg['reds']} rojas: disponibilidad "
+                         "y disciplina de profesional veterano."),
+            })
+    return hooks
+
+
+def suggest_thread(player: str, team: str, window_desc: str, agg: dict,
+                   hooks: list[dict], market: dict | None) -> list[str]:
+    """3-5 tweet thread: hook stats → angles → honest close. Each ≤280 chars."""
+    tweets = [
+        (f"🧵 {player} ({team}) — lo que dicen los datos "
+         f"({window_desc}):\n⚽ {agg['ga90']} G+A/90 · {agg['xg90']} xG/90 · "
+         f"{agg['dribbles90']} regates/90 ({agg['dribbles_pct']:.0f}%)\n"
+         "Abrimos hilo 👇"),
+    ]
+    for h in hooks[:3]:
+        tweets.append(f"{h['icon']} {h['title']}: {h['text']}")
+    if market:
+        tweets.append(
+            f"⚖️ Contra nuestro pool de mercado ({market['label']}): sería el "
+            f"#{market['rank']} de {market['n']}, con "
+            f"{market['similar'][0]['Player']} como perfil más parecido "
+            f"({market['similar'][0]['similarity']:.0f}%).")
+    tweets.append(
+        f"📌 Conclusión: {player} es volumen de élite buscando su rol. "
+        "Datos: Wyscout · análisis propio. ¿Lo ficharías? 👇 "
+        "#Scouting #DataFútbol")
+    return [t[:280] for t in tweets]

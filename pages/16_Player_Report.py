@@ -14,6 +14,7 @@ from processing.wyscout_player import (
     aggregate_per90, form_series, consistency, competition_split,
     strengths_weaknesses, video_checklist,
     parse_match_context, position_split, venue_split, coach_traffic_lights,
+    scout_hooks, suggest_thread,
 )
 from config import AME_YELLOW, AME_BLUE
 
@@ -391,9 +392,30 @@ with tab_social:
                 mime="image/png", key=f"dl_card_{label}",
             )
 
-    st.markdown("**Textos sugeridos** (≤280 caracteres — copia con el icono):")
-    for i, text in enumerate(
-            suggest_posts(player, team, filters_desc, agg, cons, market_ctx), 1):
+    # Ganchos: the angles that make a club stop scrolling.
+    hooks = scout_hooks(view, ctx, team)
+    if hooks:
+        ame_section("GANCHOS", "Por qué un club se interesaría")
+        hcols = st.columns(min(3, len(hooks)))
+        for i, h in enumerate(hooks):
+            with hcols[i % len(hcols)]:
+                st.markdown(
+                    f'<div style="background:#0E1B36;border-radius:10px;'
+                    f'padding:0.8rem;margin-bottom:0.6rem;min-height:9rem;">'
+                    f'<div style="font-size:1.1rem;">{h["icon"]} '
+                    f'<span style="color:#FFD100;font-size:0.72rem;font-weight:700;'
+                    f'text-transform:uppercase;">{h["title"]}</span></div>'
+                    f'<div style="color:#EAF0FA;font-size:0.78rem;'
+                    f'margin-top:0.3rem;">{h["text"]}</div></div>',
+                    unsafe_allow_html=True)
+
+    st.markdown("**🧵 Hilo sugerido para X** (un tweet por gancho, ≤280 c/u):")
+    for i, tweet in enumerate(
+            suggest_thread(player, team, filters_desc, agg, hooks, market_ctx), 1):
+        st.code(f"{i}/ {tweet}" if i > 1 else tweet, language=None)
+
+    st.markdown("**Posts sueltos** (alternativa al hilo):")
+    for text in suggest_posts(player, team, filters_desc, agg, cons, market_ctx):
         st.code(text, language=None)
 
 # ── Tab 6: PDF ───────────────────────────────────────────────────────────────
