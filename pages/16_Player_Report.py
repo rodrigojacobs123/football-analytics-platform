@@ -14,7 +14,7 @@ from processing.wyscout_player import (
     aggregate_per90, form_series, consistency, competition_split,
     strengths_weaknesses, video_checklist,
     parse_match_context, position_split, venue_split, coach_traffic_lights,
-    scout_hooks, suggest_thread,
+    scout_hooks, suggest_thread, publication_plan,
 )
 from config import AME_YELLOW, AME_BLUE
 
@@ -535,14 +535,20 @@ with tab_social:
                     f'margin-top:0.3rem;">{h["text"]}</div></div>',
                     unsafe_allow_html=True)
 
-    st.markdown("**🧵 Hilo sugerido para X** (un tweet por gancho, ≤280 c/u):")
-    for i, tweet in enumerate(
-            suggest_thread(player, team, filters_desc, agg, hooks, market_ctx), 1):
-        st.code(f"{i}/ {tweet}" if i > 1 else tweet, language=None)
+    # Publication plan: title options + named, ordered steps with image slots.
+    plan = publication_plan(player, team, filters_desc, agg, hooks, market_ctx)
+    ame_section("PLAN", "Título y orden de publicación")
+    st.markdown("**Opciones de título para el post** (elige una):")
+    for t in plan["titles"]:
+        st.code(t, language=None)
+    st.markdown("**🧵 Hilo, en este orden** — cada paso dice qué imagen adjuntar:")
+    for step in plan["steps"]:
+        st.markdown(f"**{step['order']}. {step['name']}** · 📎 {step['attach']}")
+        st.code(step["text"], language=None)
 
-    st.markdown("**Posts sueltos** (alternativa al hilo):")
-    for text in suggest_posts(player, team, filters_desc, agg, cons, market_ctx):
-        st.code(text, language=None)
+    with st.expander("Posts sueltos (alternativa al hilo)"):
+        for text in suggest_posts(player, team, filters_desc, agg, cons, market_ctx):
+            st.code(text, language=None)
 
 # ── Tab 6: PDF ───────────────────────────────────────────────────────────────
 with tab_pdf:
