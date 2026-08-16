@@ -144,6 +144,7 @@ def aggregate_per90(matches: pd.DataFrame) -> dict[str, float]:
         "aerials_pct": round(pct("aerials_ok", "aerials"), 1),
         "passes90": round(tot("passes") * f, 1), "passes_pct": round(pct("passes_ok", "passes"), 1),
         "crosses90": round(tot("crosses") * f, 2),
+        "crosses_pct": round(pct("crosses_ok", "crosses"), 1),
         "long_passes90": round(tot("long_passes") * f, 2),
         "interceptions90": round(tot("Interceptions") * f, 2),
         "recoveries90": round(tot("recoveries") * f, 1),

@@ -108,8 +108,9 @@ with k[4]:
 with k[5]:
     kpi_card("xG / 90", agg["xg90"])
 
-tab_coach, tab_tech, tab_comp, tab_pdf = st.tabs(
-    ["🧑‍🏫 Coach view", "📊 Technical analysis", "🏆 By competition", "📄 PDF report"]
+tab_coach, tab_tech, tab_comp, tab_market, tab_pdf = st.tabs(
+    ["🧑‍🏫 Coach view", "📊 Technical analysis", "🏆 By competition",
+     "⚖️ vs Market", "📄 PDF report"]
 )
 
 # ── Tab 1: coach view — answers, not axes ────────────────────────────────────
@@ -255,7 +256,99 @@ with tab_comp:
         height=420,
     )
 
-# ── Tab 4: PDF ───────────────────────────────────────────────────────────────
+# ── Tab 4: vs Market — percentile the player against a Search results pool ───
+with tab_market:
+    ame_section("MARKET", "Compare vs a Search results pool")
+    st.caption(
+        f"Upload a Wyscout **Search results** export and **{player}**'s filtered "
+        f"window ({filters_desc}) is percentiled against that pool — real "
+        "percentiles instead of approximate references. Only metrics both "
+        "formats share are compared; the caption below the results lists them."
+    )
+    mkt_files = st.file_uploader(
+        "Search results exports", type=["xlsx"], accept_multiple_files=True,
+        key="market_pool_uploader",
+    )
+    if not mkt_files:
+        st.info("⬆️ Drop a 'Search results' file (e.g. a search of attacking "
+                "midfielders) to benchmark the player against it.")
+    else:
+        from processing.wyscout_scouting import (
+            normalize_wyscout, combine_sources, score_players,
+            assign_archetypes, GROUP_LABELS, display_columns,
+        )
+        from processing.wyscout_bridge import (
+            player_stats_profile, market_comparison, bridge_radar,
+        )
+        from viz.radar import radar_chart
+
+        @st.cache_data(ttl=3600, show_spinner=False)
+        def _parse_market(file_bytes: bytes, name: str) -> pd.DataFrame:
+            return normalize_wyscout(pd.read_excel(io.BytesIO(file_bytes)), name)
+
+        mframes = []
+        for up in mkt_files:
+            try:
+                mframes.append(_parse_market(up.getvalue(), up.name))
+            except Exception as exc:  # noqa: BLE001
+                st.warning(f"Skipped **{up.name}**: {exc}")
+        if mframes:
+            mpooled = combine_sources(mframes)
+            c1, c2 = st.columns([1.4, 1.6])
+            pool_min = c1.slider(
+                "Min. minutes in pool", 0, int(mpooled["Minutes played"].max()),
+                min(900, int(mpooled["Minutes played"].max())), step=90,
+                key="market_pool_min",
+            )
+            mscored = assign_archetypes(score_players(mpooled, min_minutes=pool_min))
+            groups = sorted(mscored["position_group"].dropna().unique())
+            if not groups:
+                st.warning("Pool is empty after the minutes filter.")
+            else:
+                default_g = "AM" if "AM" in groups else groups[0]
+                g = c2.selectbox(
+                    "Compare as", groups, index=groups.index(default_g),
+                    format_func=lambda x: f"{x} — {GROUP_LABELS.get(x, x)}",
+                    key="market_group",
+                )
+                profile = player_stats_profile(agg)
+                mmatches, pseudo_pct, pseudo_score, shared = market_comparison(
+                    mscored, profile, g, k=10)
+                gdf = mscored[mscored["position_group"] == g]
+                if pseudo_score is None or gdf.empty:
+                    st.info("No comparable metrics between this window and the "
+                            "pool for that position group.")
+                else:
+                    rank = int((gdf["Score"] > pseudo_score).sum()) + 1
+                    b1, b2, b3 = st.columns(3)
+                    with b1:
+                        kpi_card("Score in this market", pseudo_score)
+                    with b2:
+                        kpi_card("Would rank", f"#{rank} of {len(gdf)}")
+                    with b3:
+                        kpi_card("Metrics compared", len(shared))
+                    st.caption(
+                        "Compared on: " + ", ".join(shared) + ". Non-penalty "
+                        "goals are proxied by total goals (the match-by-match "
+                        "export has no penalty split)."
+                    )
+                    show = mmatches[["similarity"]
+                                    + [c for c in display_columns(mmatches)
+                                       if c not in ("found_in", "group_role")]]
+                    styled_dataframe(show, height=40 + 36 * len(show))
+
+                    rivals = mmatches.head(2)["Player"].tolist()
+                    categories, values = bridge_radar(
+                        mscored, g, f"{player} (ventana)", pseudo_pct, rivals)
+                    if len(categories) >= 3:
+                        st.plotly_chart(
+                            radar_chart(categories, values,
+                                        title=f"{player} vs pool ({len(shared)} "
+                                              "shared metrics)"),
+                            width="stretch",
+                        )
+
+# ── Tab 5: PDF ───────────────────────────────────────────────────────────────
 with tab_pdf:
     ame_section("DELIVERABLE", "Ficha de scouting (PDF)")
     st.caption(f"The PDF is built from the current window: **{filters_desc}**. "

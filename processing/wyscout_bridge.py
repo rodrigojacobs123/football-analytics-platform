@@ -104,6 +104,42 @@ def opta_to_wyscout_profile(stats_row: pd.Series) -> dict[str, float]:
     return {k: v for k, v in p.items() if v is not None}
 
 
+def player_stats_profile(agg: dict) -> dict[str, float]:
+    """Windowed aggregate from a 'Player stats' export → Search column space.
+
+    Both feeds are Wyscout, so most mappings are exact. Known proxies:
+    Non-penalty goals ← total goals (the match-by-match export has no penalty
+    split) and PAdj Interceptions ← raw interceptions per 90. Consumers get
+    only the shared metrics — market_comparison reports which ones were used.
+    """
+    if not agg:
+        return {}
+    shots_total = agg["shots90"] * agg["minutes"] / 90.0
+    p: dict[str, float | None] = {
+        "Goals per 90": agg["goals90"],
+        "Non-penalty goals per 90": agg["goals90"],  # proxy: no penalty split
+        "Assists per 90": agg["assists90"],
+        "xG per 90": agg["xg90"],
+        "Shots per 90": agg["shots90"],
+        "Shots on target, %": agg["shots_pct"] or None,
+        "Goal conversion, %": (100.0 * agg["goals"] / shots_total
+                               if shots_total > 0 else None),
+        "Dribbles per 90": agg["dribbles90"],
+        "Successful dribbles, %": agg["dribbles_pct"] or None,
+        "Crosses per 90": agg["crosses90"],
+        "Accurate crosses, %": agg.get("crosses_pct") or None,
+        "Aerial duels per 90": agg["aerials90"],
+        "Aerial duels won, %": agg["aerials_pct"] or None,
+        "Duels won, %": agg["duels_pct"] or None,
+        "Passes per 90": agg["passes90"],
+        "Accurate passes, %": agg["passes_pct"] or None,
+        "Long passes per 90": agg["long_passes90"],
+        "Interceptions per 90": agg["interceptions90"],
+        "PAdj Interceptions": agg["interceptions90"],  # proxy: not possession-adjusted
+    }
+    return {k: v for k, v in p.items() if v is not None}
+
+
 def market_comparison(scored: pd.DataFrame, profile: dict[str, float],
                       group: str, k: int = 10):
     """Percentile an Opta-derived profile against the market and find matches.
