@@ -473,7 +473,11 @@ def score_players(pooled: pd.DataFrame,
             valid = pct.notna()
             weighted[valid] += pct[valid] * w
             weight_used[valid] += w
-        gdf["Score"] = (weighted / weight_used.replace(0, pd.NA)).round(1)
+        # .where keeps float dtype (NaN), unlike .replace(0, pd.NA) which
+        # flips to object and breaks .round when a row has no usable metrics
+        # (e.g. a reduced-export player scored in a group whose metrics only
+        # exist in another file).
+        gdf["Score"] = (weighted / weight_used.where(weight_used > 0)).round(1)
         gdf["small_sample"] = len(gdf) < MIN_GROUP_SAMPLE
         scored_groups.append(gdf)
     if not scored_groups:

@@ -28,7 +28,7 @@ st.markdown(
     "select**: last N matches, competitions, dates."
 )
 
-_PARSE_VERSION = 1
+_PARSE_VERSION = 2
 
 
 @st.cache_data(ttl=3600, show_spinner=False)
@@ -259,7 +259,7 @@ with tab_tech:
                          ("duels", "duels_ok", "duel_pct")):
         r_ok = eff[ok].rolling(w, min_periods=1).sum()
         r_at = eff[att].rolling(w, min_periods=1).sum()
-        eff[dst] = (100.0 * r_ok / r_at.replace(0, pd.NA)).astype(float).round(1)
+        eff[dst] = (100.0 * r_ok / r_at.where(r_at > 0)).round(1)
     efig = go.Figure()
     efig.add_scatter(x=_dates, y=eff["drib_pct"], name="% regates exitosos (móvil 5)",
                      line=dict(color=AME_YELLOW, width=2.5))

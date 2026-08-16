@@ -164,7 +164,7 @@ def form_series(matches: pd.DataFrame, window: int = 5) -> pd.DataFrame:
                      ("dribbles", "dribbles90_roll"), ("duels", "duels90_roll")):
         if src in out.columns:
             out[dst] = (out[src].rolling(window, min_periods=1).sum()
-                        * 90.0 / roll_min.replace(0, pd.NA)).astype(float).round(2)
+                        * 90.0 / roll_min.where(roll_min > 0)).round(2)
     out["opponent"] = out["Match"].astype(str).str.replace(
         r"\s*\d+:\d+\s*$", "", regex=True)
     return out

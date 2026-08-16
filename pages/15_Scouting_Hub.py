@@ -49,7 +49,7 @@ st.markdown(
 # _PARSE_VERSION is part of the cache key: st.cache_data only hashes this
 # function's own body, so bump it whenever normalize_wyscout's output changes,
 # or live sessions keep getting the old cached schema.
-_PARSE_VERSION = 2
+_PARSE_VERSION = 3
 
 
 @st.cache_data(ttl=3600, show_spinner=False)
