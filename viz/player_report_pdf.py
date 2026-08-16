@@ -33,6 +33,7 @@ from viz.scouting_report import (  # shared look & helpers
 from processing.wyscout_player import (
     aggregate_per90, competition_split, consistency, form_series,
     strengths_weaknesses, ATTACKER_REFERENCE,
+    coach_traffic_lights, position_split, venue_split, parse_match_context,
 )
 
 
@@ -159,6 +160,12 @@ def build_player_report(filtered: pd.DataFrame, full: pd.DataFrame,
         "Fuente: export Wyscout partido a partido", _META))
     story.append(Spacer(1, 10))
 
+    # Lectura rápida (sin número): the coach's one-glance verdicts.
+    story.append(Paragraph("Lectura rápida", _H2))
+    for light in coach_traffic_lights(filtered):
+        story.append(Paragraph(
+            f"<b>{light['label']}:</b> {light['text']}", _BODY))
+
     # 1 · Perfil
     story.append(Paragraph("1 · Perfil", _H2))
     d0, d1 = filtered["Date"].min(), filtered["Date"].max()
@@ -226,6 +233,19 @@ def build_player_report(filtered: pd.DataFrame, full: pd.DataFrame,
         split.astype(str).values.tolist(),
         col_widths=[6.4 * cm, 1.4 * cm, 1.6 * cm, 1.6 * cm, 1.6 * cm,
                     1.6 * cm, 1.9 * cm, 1.6 * cm]))
+    pos = position_split(filtered)
+    if not pos.empty:
+        story.append(Paragraph("Rendimiento por posición (¿dónde rinde mejor?)", _H3))
+        pos_d = pos.drop(columns=["Regates/90"], errors="ignore")
+        story.append(_table(list(pos_d.columns),
+                            pos_d.astype(str).values.tolist(),
+                            col_widths=[3.2 * cm] + [1.9 * cm] * (len(pos_d.columns) - 1)))
+    ven = venue_split(parse_match_context(filtered, team))
+    if len(ven) == 2:
+        story.append(Paragraph("Casa vs fuera", _H3))
+        story.append(_table(list(ven.columns), ven.astype(str).values.tolist(),
+                            col_widths=[3.2 * cm] + [1.9 * cm] * (len(ven.columns) - 1)))
+
     story.append(Paragraph("6 · Comparación vs referencia", _H2))
     story.append(_fig_image(_bench_fig(agg)))
     story.append(Paragraph(

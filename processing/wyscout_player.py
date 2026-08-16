@@ -148,7 +148,9 @@ def aggregate_per90(matches: pd.DataFrame) -> dict[str, float]:
         "interceptions90": round(tot("Interceptions") * f, 2),
         "recoveries90": round(tot("recoveries") * f, 1),
         "losses90": round(tot("losses") * f, 1),
-        "yellows": int(tot("Yellow card")), "reds": int(tot("Red card")),
+        # Card columns hold the MINUTE of the booking, not a count.
+        "yellows": int((matches.get("Yellow card", pd.Series(dtype=float)) > 0).sum()),
+        "reds": int((matches.get("Red card", pd.Series(dtype=float)) > 0).sum()),
     }
 
 
@@ -270,4 +272,130 @@ def video_checklist(agg: dict, cons: dict) -> list[str]:
         out.append(f"Duelos al {agg['duels_pct']:.0f}%: ¿le falta cuerpo o elige "
                    "mal cuándo encarar?")
     out.append("Lenguaje corporal y reacción a la pérdida (dato ausente en Wyscout).")
+    return out
+
+
+# ── Coach-view helpers ───────────────────────────────────────────────────────
+# A coach doesn't read rolling per-90 curves. These produce the four answers
+# a coach actually asks of a player file: is he in form NOW, where should I
+# play him, can I trust him, and when does he produce.
+
+_SCORE_RE = re.compile(r"(\d+):(\d+)\s*$")
+
+
+def parse_match_context(matches: pd.DataFrame, team: str) -> pd.DataFrame:
+    """Add venue (Casa/Fuera), result (V/E/D) and scoreline per match."""
+    out = matches.copy()
+    venues, results, scores = [], [], []
+    for m in out["Match"].astype(str):
+        sc = _SCORE_RE.search(m)
+        stripped = _SCORE_RE.sub("", m).strip()
+        parts = [p.strip() for p in stripped.split(" - ")]
+        def _is_club(p: str) -> bool:
+            return p == team or p.startswith(team + " ")
+        home = parts[0] if parts else ""
+        club_found = any(_is_club(p) for p in parts)
+        is_home = _is_club(home)
+        venues.append("Casa" if is_home else ("Fuera" if club_found else "?"))
+        if sc:
+            hg, ag = int(sc.group(1)), int(sc.group(2))
+            gf, gc = (hg, ag) if is_home else (ag, hg)
+            scores.append(f"{gf}-{gc}")
+            results.append("V" if gf > gc else ("E" if gf == gc else "D"))
+        else:
+            scores.append("")
+            results.append("")
+    out["venue"] = venues
+    out["result"] = results
+    out["score"] = scores
+    out["opponent"] = [
+        next((p.strip() for p in _SCORE_RE.sub("", m).strip().split(" - ")
+              if not (p.strip() == team or p.strip().startswith(team + " "))), "?")
+        for m in matches["Match"].astype(str)
+    ]
+    return out
+
+
+def position_split(matches: pd.DataFrame, min_matches: int = 3) -> pd.DataFrame:
+    """Production per PRIMARY position — answers 'where should I play him?'."""
+    out = matches.copy()
+    out["pos"] = (out["Position"].astype(str).str.split(",").str[0].str.strip()
+                  .replace({"0": "?"}))
+    rows = []
+    for pos, sub in out.groupby("pos"):
+        if len(sub) < min_matches or pos in ("?", "nan"):
+            continue
+        m = sub["Minutes played"].sum()
+        f = 90.0 / m if m else 0.0
+        rows.append({
+            "Posición": pos, "PJ": len(sub), "Min": int(m),
+            "G": int(sub["Goals"].sum()), "A": int(sub["Assists"].sum()),
+            "G+A/90": round(sub["ga"].sum() * f, 2),
+            "xG/90": round(sub["xG"].sum() * f, 2),
+            "Regates/90": round(sub["dribbles"].sum() * f, 1)
+            if "dribbles" in sub.columns else None,
+        })
+    return (pd.DataFrame(rows).sort_values("Min", ascending=False)
+            .reset_index(drop=True))
+
+
+def venue_split(ctx: pd.DataFrame) -> pd.DataFrame:
+    """Casa vs Fuera production (expects parse_match_context output)."""
+    rows = []
+    for venue, sub in ctx[ctx["venue"] != "?"].groupby("venue"):
+        m = sub["Minutes played"].sum()
+        f = 90.0 / m if m else 0.0
+        rows.append({"Dónde": venue, "PJ": len(sub), "Min": int(m),
+                     "G": int(sub["Goals"].sum()), "A": int(sub["Assists"].sum()),
+                     "G+A/90": round(sub["ga"].sum() * f, 2)})
+    return pd.DataFrame(rows)
+
+
+def coach_traffic_lights(matches: pd.DataFrame) -> list[dict]:
+    """Plain-language verdicts with 🟢/🟡/🔴 — the one-glance row."""
+    out: list[dict] = []
+    season = aggregate_per90(matches)
+    last5 = aggregate_per90(matches.sort_values("Date").tail(5))
+    if not season or not last5:
+        return out
+
+    # Forma actual: last-5 production vs their own season baseline.
+    base, now = season["ga90"], last5["ga90"]
+    if now >= max(base * 1.2, base + 0.1):
+        out.append({"icon": "🟢", "label": "Forma actual",
+                    "text": f"Al alza: {now} G+A/90 en los últimos 5 "
+                            f"(su media es {base})."})
+    elif now <= base * 0.6:
+        out.append({"icon": "🔴", "label": "Forma actual",
+                    "text": f"A la baja: {now} G+A/90 en los últimos 5 "
+                            f"vs {base} de media."})
+    else:
+        out.append({"icon": "🟡", "label": "Forma actual",
+                    "text": f"Estable: {now} G+A/90 en los últimos 5 "
+                            f"(media {base})."})
+
+    # Confianza del técnico: starts in the last 10 apps.
+    last10 = matches.sort_values("Date").tail(10)
+    starts = int((last10["Minutes played"] >= 60).sum())
+    icon = "🟢" if starts >= 7 else ("🟡" if starts >= 4 else "🔴")
+    label = ("titular fijo" if starts >= 7
+             else "rotación" if starts >= 4 else "suplente")
+    out.append({"icon": icon, "label": "Rol en el equipo",
+                "text": f"{starts} de sus últimos 10 partidos con 60′+ — {label}."})
+
+    # Producción vs lo esperable en un titular ofensivo.
+    ref = ATTACKER_REFERENCE["ga90"]
+    icon = ("🟢" if season["ga90"] >= ref
+            else "🟡" if season["ga90"] >= ref * 0.6 else "🔴")
+    out.append({"icon": icon, "label": "Producción",
+                "text": f"{season['ga90']} G+A/90 (referencia titular ~{ref}). "
+                        f"Genera {season['xg90']} xG/90."})
+
+    # Disciplina.
+    y90 = season["yellows"] * 90.0 / max(1, season["minutes"])
+    icon = "🟢" if y90 < 0.15 and season["reds"] == 0 else (
+        "🟡" if y90 < 0.3 and season["reds"] == 0 else "🔴")
+    out.append({"icon": icon, "label": "Disciplina",
+                "text": f"{season['yellows']} amarillas y {season['reds']} rojas "
+                        f"en {season['matches']} partidos."})
     return out

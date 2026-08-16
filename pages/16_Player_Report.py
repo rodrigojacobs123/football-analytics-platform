@@ -1,4 +1,4 @@
-"""Player Report — Wyscout match-by-match exports: dashboard, filters, PDF ficha."""
+"""Player Report — Wyscout match-by-match exports: coach view, filters, PDF ficha."""
 
 import io
 
@@ -13,6 +13,7 @@ from processing.wyscout_player import (
     parse_player_stats, player_name_from_filename, infer_team, filter_matches,
     aggregate_per90, form_series, consistency, competition_split,
     strengths_weaknesses, video_checklist,
+    parse_match_context, position_split, venue_split, coach_traffic_lights,
 )
 from config import AME_YELLOW, AME_BLUE
 
@@ -21,10 +22,9 @@ apply_theme()
 page_header("Player Report", subtitle="Wyscout match-by-match — form, filters, PDF ficha")
 
 st.markdown(
-    "Upload a Wyscout **Player stats** export (one player, one row per match — "
-    "the file you get from a player's page, not from Search). The dashboard and "
-    "the PDF ficha reflect **whatever the filters select**: last N matches, "
-    "competitions, dates."
+    "Upload a Wyscout **Player stats** export (one player, one row per match). "
+    "The coach view, charts and the PDF ficha reflect **whatever the filters "
+    "select**: last N matches, competitions, dates."
 )
 
 _PARSE_VERSION = 1
@@ -60,7 +60,7 @@ matches = parsed[player]
 team = infer_team(matches)
 
 # ── Filters ──────────────────────────────────────────────────────────────────
-ame_section("WINDOW", "Filters — dashboard AND PDF follow these")
+ame_section("WINDOW", "Filters — coach view AND PDF follow these")
 f1, f2, f3 = st.columns([1.3, 2, 1])
 n_total = len(matches)
 last_n = f1.slider(
@@ -83,14 +83,15 @@ if view.empty:
 
 filters_desc = (
     f"últimos {len(view)} partidos · "
-    + (f"{len(sel_comps)}/{len(comps_all)} competiciones · " if len(sel_comps) < len(comps_all) else "todas las competiciones · ")
+    + (f"{len(sel_comps)}/{len(comps_all)} competiciones · "
+       if len(sel_comps) < len(comps_all) else "todas las competiciones · ")
     + f"{view['Date'].min():%b %Y}–{view['Date'].max():%b %Y}"
     + (f" · ≥{int(min_mins)}′/partido" if min_mins else "")
 )
 
 agg = aggregate_per90(view)
 cons = consistency(view)
-fs = form_series(view)
+ctx = parse_match_context(view, team)
 
 # ── KPIs ─────────────────────────────────────────────────────────────────────
 k = st.columns(6)
@@ -106,18 +107,103 @@ with k[4]:
     kpi_card("G+A / 90", agg["ga90"])
 with k[5]:
     kpi_card("xG / 90", agg["xg90"])
-st.caption(
-    f"⭐ {team} — G+A in {cons['ga_matches_pct']:.0f}% of matches · longest "
-    f"drought {cons['max_drought']} · {cons['starts']} starts (≥60′) in window"
+
+tab_coach, tab_tech, tab_comp, tab_pdf = st.tabs(
+    ["🧑‍🏫 Coach view", "📊 Technical analysis", "🏆 By competition", "📄 PDF report"]
 )
 
-tab_form, tab_volume, tab_comp, tab_pdf = st.tabs(
-    ["📈 Form", "⚔️ Volume & duels", "🏆 By competition", "📄 PDF report"]
-)
+# ── Tab 1: coach view — answers, not axes ────────────────────────────────────
+_RESULT_COLOR = {"V": "#4CAF50", "E": "#9E9E9E", "D": "#E53935", "": "#555"}
 
-_dates = fs["Date"].dt.strftime("%d %b %y")
 
-with tab_form:
+def _match_card(r) -> str:
+    color = _RESULT_COLOR.get(r["result"], "#555")
+    goals = "⚽" * int(r["Goals"]) + "🅰️" * int(r["Assists"])
+    venue = "🏠" if r["venue"] == "Casa" else ("✈️" if r["venue"] == "Fuera" else "")
+    return (f'<div style="flex:0 0 110px;background:#0E1B36;border-radius:8px;'
+            f'padding:8px 10px;border-top:3px solid {color};">'
+            f'<div style="color:#8899AA;font-size:0.62rem;">{r["Date"]:%d %b %y} {venue}</div>'
+            f'<div style="color:#EAF0FA;font-size:0.72rem;font-weight:600;'
+            f'white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">{r["opponent"]}</div>'
+            f'<div style="color:{color};font-weight:700;font-size:0.85rem;">'
+            f'{r["result"]} {r["score"]}</div>'
+            f'<div style="color:#EAF0FA;font-size:0.7rem;">{int(r["Minutes played"])}′ '
+            f'{goals}</div></div>')
+
+
+with tab_coach:
+    # 1 · Semáforos: the one-glance row.
+    ame_section("EN UNA MIRADA", "Semáforos del jugador")
+    lights = coach_traffic_lights(view)
+    lcols = st.columns(len(lights) or 1)
+    for col, light in zip(lcols, lights):
+        with col:
+            html = (f'<div style="background:#0E1B36;border-radius:10px;padding:0.8rem;'
+                    f'min-height:7.2rem;">'
+                    f'<div style="font-size:1.3rem;">{light["icon"]} '
+                    f'<span style="color:#FFD100;font-size:0.7rem;font-weight:700;'
+                    f'text-transform:uppercase;letter-spacing:0.5px;">{light["label"]}'
+                    f'</span></div>'
+                    f'<div style="color:#EAF0FA;font-size:0.78rem;margin-top:0.3rem;">'
+                    f'{light["text"]}</div></div>')
+            st.markdown(html, unsafe_allow_html=True)
+
+    # 2 · Racha: last matches as cards, newest first.
+    ame_section("RACHA", "Últimos partidos")
+    recent = ctx.sort_values("Date", ascending=False).head(10)
+    strip = ('<div style="display:flex;gap:8px;overflow-x:auto;padding-bottom:6px;">'
+             + "".join(_match_card(r) for _, r in recent.iterrows()) + "</div>")
+    st.markdown(strip, unsafe_allow_html=True)
+
+    # 3 · ¿Dónde lo pongo? — production by position, with the takeaway spelled out.
+    ame_section("ROL", "¿Dónde rinde mejor?")
+    pos = position_split(view)
+    if not pos.empty:
+        c_tbl, c_bar = st.columns([1.2, 1])
+        with c_tbl:
+            styled_dataframe(pos, height=40 + 36 * len(pos))
+        with c_bar:
+            reliable = pos[pos["Min"] >= 270]
+            if not reliable.empty:
+                pfig = go.Figure(go.Bar(
+                    x=reliable["G+A/90"], y=reliable["Posición"], orientation="h",
+                    marker_color=AME_YELLOW, text=reliable["G+A/90"],
+                    textposition="outside"))
+                pfig.update_layout(
+                    height=60 + 44 * len(reliable),
+                    margin=dict(l=10, r=40, t=24, b=10),
+                    title="G+A/90 por posición (≥270′)",
+                    xaxis=dict(range=[0, max(0.9, reliable["G+A/90"].max() * 1.3)]),
+                    paper_bgcolor="rgba(0,0,0,0)", plot_bgcolor="rgba(0,0,0,0)",
+                    font=dict(color="#EAF0FA"))
+                st.plotly_chart(pfig, width="stretch")
+        reliable = pos[pos["Min"] >= 270]
+        if len(reliable) >= 2:
+            best = reliable.sort_values("G+A/90", ascending=False).iloc[0]
+            used = reliable.sort_values("Min", ascending=False).iloc[0]
+            if best["Posición"] != used["Posición"] and best["G+A/90"] >= used["G+A/90"] * 1.5:
+                st.markdown(
+                    f"💡 **Dato para el cuerpo técnico:** juega sobre todo de "
+                    f"**{used['Posición']}** ({used['G+A/90']} G+A/90), pero sus números "
+                    f"como **{best['Posición']}** son claramente mejores "
+                    f"({best['G+A/90']} G+A/90 en {best['Min']}′)."
+                )
+
+    # 4 · Casa / fuera.
+    ven = venue_split(ctx)
+    if len(ven) == 2:
+        ame_section("CONTEXTO", "Casa vs fuera")
+        styled_dataframe(ven, height=130)
+        casa = ven[ven["Dónde"] == "Casa"]["G+A/90"].iloc[0]
+        fuera = ven[ven["Dónde"] == "Fuera"]["G+A/90"].iloc[0]
+        hi, lo, where = (casa, fuera, "en casa") if casa > fuera else (fuera, casa, "fuera")
+        if lo > 0 and hi / lo >= 1.7:
+            st.caption(f"💡 Produce claramente más {where} ({hi} vs {lo} G+A/90).")
+
+# ── Tab 2: technical analysis (the analyst's curves live here now) ───────────
+with tab_tech:
+    fs = form_series(view)
+    _dates = fs["Date"].dt.strftime("%d %b %y")
     fig = go.Figure()
     fig.add_bar(x=_dates, y=fs["ga"], name="G+A (match)",
                 marker_color=AME_YELLOW, opacity=0.55,
@@ -132,23 +218,13 @@ with tab_form:
                       font=dict(color="#EAF0FA"), title="Production & form trend")
     st.plotly_chart(fig, width="stretch")
 
-    mfig = go.Figure(go.Bar(
-        x=_dates, y=fs["Minutes played"], marker_color=AME_BLUE,
-        customdata=fs["Competition"],
-        hovertemplate="%{customdata}<br>%{y}′<extra></extra>"))
-    mfig.update_layout(height=240, margin=dict(l=10, r=10, t=30, b=10),
-                       paper_bgcolor="rgba(0,0,0,0)", plot_bgcolor="rgba(0,0,0,0)",
-                       font=dict(color="#EAF0FA"), title="Minutes per match")
-    st.plotly_chart(mfig, width="stretch")
-
-with tab_volume:
     vfig = go.Figure()
     vfig.add_scatter(x=_dates, y=fs["dribbles90_roll"], name="Dribbles/90 (rolling 5)",
                      line=dict(color=AME_YELLOW, width=2.5))
     vfig.add_scatter(x=_dates, y=fs["duels90_roll"], name="Duels/90 (rolling 5)",
                      line=dict(color=AME_BLUE, width=2.5), yaxis="y2")
     vfig.update_layout(
-        height=380, margin=dict(l=10, r=10, t=30, b=10),
+        height=340, margin=dict(l=10, r=10, t=30, b=10),
         paper_bgcolor="rgba(0,0,0,0)", plot_bgcolor="rgba(0,0,0,0)",
         font=dict(color="#EAF0FA"), title="Carrying & duel volume",
         yaxis=dict(title="Dribbles/90"),
@@ -169,15 +245,17 @@ with tab_volume:
     for i, item in enumerate(video_checklist(agg, cons), 1):
         st.markdown(f"{i}. {item}")
 
+# ── Tab 3: by competition ────────────────────────────────────────────────────
 with tab_comp:
     styled_dataframe(competition_split(view), height=320)
     styled_dataframe(
-        view.sort_values("Date", ascending=False)[
-            ["Date", "Match", "Competition", "Position", "Minutes played",
-             "Goals", "Assists", "xG", "dribbles", "duels"]],
+        ctx.sort_values("Date", ascending=False)[
+            ["Date", "opponent", "venue", "score", "result", "Competition",
+             "Position", "Minutes played", "Goals", "Assists", "xG"]],
         height=420,
     )
 
+# ── Tab 4: PDF ───────────────────────────────────────────────────────────────
 with tab_pdf:
     ame_section("DELIVERABLE", "Ficha de scouting (PDF)")
     st.caption(f"The PDF is built from the current window: **{filters_desc}**. "
