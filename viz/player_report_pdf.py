@@ -113,25 +113,6 @@ def _bench_fig(agg: dict):
     return fig
 
 
-def _verdict(agg: dict, cons: dict) -> tuple[str, str]:
-    """Rule-based verdict + rationale paragraph."""
-    if agg["ga90"] >= 0.45 and agg["matches"] >= 10:
-        v = "FICHAR / AVANZAR"
-        why = ("Producción de nivel titular sostenida en la ventana analizada. "
-               "Pasar a verificación de video y contexto contractual.")
-    elif agg["dribbles90"] >= 3 or agg["duels90"] >= 18:
-        v = "SEGUIR DE CERCA"
-        why = ("Volumen de intervención (conducción/duelo) por encima de su "
-               "producción final: perfil de proyecto cuyo precio subirá en "
-               "cuanto los G+A acompañen. La ventana de oportunidad es antes "
-               "de esa explosión; el riesgo, que nunca llegue.")
-    else:
-        v = "MONITORIZAR"
-        why = ("Ni la producción ni el volumen destacan en la ventana filtrada. "
-               "Reevaluar con más partidos o en otro rol.")
-    return v, why
-
-
 def build_player_report(filtered: pd.DataFrame, full: pd.DataFrame,
                         player_name: str, team: str,
                         filters_desc: str) -> bytes:
@@ -142,7 +123,6 @@ def build_player_report(filtered: pd.DataFrame, full: pd.DataFrame,
     cons = consistency(filtered)
     fs = form_series(filtered)
     S, W = strengths_weaknesses(agg)
-    verdict, why = _verdict(agg, cons)
     split = competition_split(filtered)
 
     buf = io.BytesIO()
@@ -254,10 +234,6 @@ def build_player_report(filtered: pd.DataFrame, full: pd.DataFrame,
         "comparación. Para percentiles exactos, cruzar con un 'Search results' "
         "de su posición en el Scouting Hub.", _FOOT))
 
-    # 7 · Recomendación
-    story.append(Paragraph("7 · Recomendación", _H2))
-    story.append(Paragraph(f"<b>VEREDICTO: {verdict}</b>", _BODY))
-    story.append(Paragraph(why, _BODY))
     story.append(Spacer(1, 6))
     story.append(Paragraph(
         "Este informe se generó con los filtros indicados en la cabecera; "

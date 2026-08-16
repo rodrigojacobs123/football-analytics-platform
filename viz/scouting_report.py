@@ -455,19 +455,6 @@ def build_scouting_report(pooled: pd.DataFrame, scored: pd.DataFrame,
         story.append(Paragraph("U25 con valor positivo hasta €10m", _H3))
         story.append(_table(header, _rank_rows(value, RANK), widths))
 
-    # 7 ── Usage recommendation ---------------------------------------------
-    story.append(Paragraph("6. Recomendación de uso", _H2))
-    for txt in (
-        "<b>Usar percentiles por perfil:</b> evitar un ranking único — cada "
-        "arquetipo debe evaluarse con pesos distintos, como hace este reporte.",
-        "<b>Validar en video:</b> confirmar orientación corporal, defensa de "
-        "espacio, timing de duelos y perfil de pase bajo presión antes de "
-        "cualquier decisión.",
-        "<b>Agregar contexto de equipo y liga:</b> ajustar por posesión, bloque "
-        "defensivo, altura de línea y calidad de rivales antes de recomendar "
-        "inversión.",
-    ):
-        story.append(Paragraph(txt, _BODY))
     story.append(PageBreak())
 
     # 8 ── Profile scatters --------------------------------------------------
