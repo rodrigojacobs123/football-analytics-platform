@@ -488,65 +488,58 @@ with tab_market:
                                   "⭐ = " + player)
                         st.plotly_chart(sfig, width="stretch")
 
-# ── Tab 5: social post — X-ready cards + suggested copy ──────────────────────
+# ── Tab 5: social post — X-ready cards + short-caption plan ──────────────────
 with tab_social:
-    ame_section("DIFUSIÓN", "Post para X — imágenes y texto listos")
+    ame_section("DIFUSIÓN", "Post para X — más imagen, menos texto")
     st.caption(
-        f"Tarjetas 16:9 (1680×945) con la ventana actual (**{filters_desc}**) "
-        "para adjuntar al post. La tarjeta de mercado aparece si cargaste un "
-        "pool en **⚖️ vs Market** en esta misma sesión."
+        f"Ventana actual: **{filters_desc}**. Los textos van recortados a "
+        "≤240 caracteres (margen para el límite de X); el contenido viaja en "
+        "las tarjetas — una por gancho. La de mercado aparece si cargaste un "
+        "pool en **⚖️ vs Market**."
     )
-    from viz.social_cards import stat_card, form_card, market_card, suggest_posts
+    from viz.social_cards import (
+        stat_card, form_card, market_card, hook_card, suggest_posts,
+    )
 
+    hooks = scout_hooks(view, ctx, team)
     cards: list[tuple[str, bytes]] = [
-        ("stats", stat_card(player, team, filters_desc, agg, cons)),
-        ("forma", form_card(player, team, ctx)),
+        ("STATS", stat_card(player, team, filters_desc, agg, cons)),
+        ("FORMA", form_card(player, team, ctx)),
     ]
     if market_ctx:
-        cards.append(("mercado", market_card(
+        cards.append(("MERCADO", market_card(
             player, market_ctx["label"], market_ctx["score"],
             market_ctx["rank"], market_ctx["n"], market_ctx["similar"],
             len(market_ctx["shared"]))))
+    for i, h in enumerate(hooks, 1):
+        cards.append((f"GANCHO {i}", hook_card(player, team, h)))
 
-    cols = st.columns(len(cards))
-    for col, (label, png) in zip(cols, cards):
-        with col:
-            st.image(png, caption=f"Tarjeta: {label}", width="stretch")
-            st.download_button(
-                f"📥 PNG — {label}", data=png,
-                file_name=f"{player.replace(' ', '_')}_{label}.png",
-                mime="image/png", key=f"dl_card_{label}",
-            )
-
-    # Ganchos: the angles that make a club stop scrolling.
-    hooks = scout_hooks(view, ctx, team)
-    if hooks:
-        ame_section("GANCHOS", "Por qué un club se interesaría")
-        hcols = st.columns(min(3, len(hooks)))
-        for i, h in enumerate(hooks):
-            with hcols[i % len(hcols)]:
-                st.markdown(
-                    f'<div style="background:#0E1B36;border-radius:10px;'
-                    f'padding:0.8rem;margin-bottom:0.6rem;min-height:9rem;">'
-                    f'<div style="font-size:1.1rem;">{h["icon"]} '
-                    f'<span style="color:#FFD100;font-size:0.72rem;font-weight:700;'
-                    f'text-transform:uppercase;">{h["title"]}</span></div>'
-                    f'<div style="color:#EAF0FA;font-size:0.78rem;'
-                    f'margin-top:0.3rem;">{h["text"]}</div></div>',
-                    unsafe_allow_html=True)
-
-    # Publication plan: title options + named, ordered steps with image slots.
+    # Plan first — it tells you which card goes with which tweet.
     plan = publication_plan(player, team, filters_desc, agg, hooks, market_ctx)
     ame_section("PLAN", "Título y orden de publicación")
-    st.markdown("**Opciones de título para el post** (elige una):")
+    st.markdown("**Opciones de título** (elige una):")
     for t in plan["titles"]:
         st.code(t, language=None)
-    st.markdown("**🧵 Hilo, en este orden** — cada paso dice qué imagen adjuntar:")
+    st.markdown("**🧵 Hilo, en este orden** — texto corto + la imagen indicada:")
     for step in plan["steps"]:
-        st.markdown(f"**{step['order']}. {step['name']}** · 📎 {step['attach']}")
+        st.markdown(f"**{step['order']}. {step['name']}** · 📎 {step['attach']} "
+                    f"· {len(step['text'])} caracteres")
         st.code(step["text"], language=None)
 
-    with st.expander("Posts sueltos (alternativa al hilo)"):
+    ame_section("TARJETAS", "Descarga y adjunta según el plan")
+    for row_start in range(0, len(cards), 3):
+        row = cards[row_start:row_start + 3]
+        cols = st.columns(3)
+        for col, (label, png) in zip(cols, row):
+            with col:
+                st.image(png, caption=f"Tarjeta {label}", width="stretch")
+                st.download_button(
+                    f"📥 {label}", data=png,
+                    file_name=f"{player.replace(' ', '_')}_{label.replace(' ', '_')}.png",
+                    mime="image/png", key=f"dl_card_{label}",
+                )
+
+    with st.expander("Posts sueltos (alternativa al hilo, ≤240 c/u)"):
         for text in suggest_posts(player, team, filters_desc, agg, cons, market_ctx):
             st.code(text, language=None)
 

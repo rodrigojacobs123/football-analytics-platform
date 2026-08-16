@@ -142,9 +142,26 @@ def market_card(player: str, group_label: str, score: float, rank: int,
     return _finish(fig)
 
 
+def hook_card(player: str, team: str, hook: dict) -> bytes:
+    """One card per scout hook: the tweet stays short, the card carries the
+    message. Icons are left to the tweet text — matplotlib has no color emoji."""
+    import textwrap
+    fig = _new_card()
+    _header(fig, hook["title"], f"{player}  ·  {team}")
+    body = textwrap.fill(hook["text"], width=54)
+    fig.text(0.07, 0.68, body, color=_TEXT, fontsize=18, va="top",
+             linespacing=1.7)
+    if hook.get("short"):
+        fig.add_artist(plt.Rectangle((0.045, 0.13), 0.91, 0.115,
+                                     color=_PANEL, transform=fig.transFigure))
+        fig.text(0.07, 0.205, textwrap.fill(hook["short"], width=80),
+                 color=AME_YELLOW, fontsize=13, fontweight="bold", va="top")
+    return _finish(fig)
+
+
 def suggest_posts(player: str, team: str, window_desc: str, agg: dict,
                   cons: dict, market: dict | None) -> list[str]:
-    """2-3 ready-to-paste post texts, each ≤ 280 chars."""
+    """2-3 ready-to-paste post texts, each ≤ 240 chars (X free-tier margin)."""
     tags = "#Scouting #DataFútbol"
     posts = [
         (f"📊 {player} ({team}) — {window_desc}:\n"
@@ -163,4 +180,4 @@ def suggest_posts(player: str, team: str, window_desc: str, agg: dict,
             f"nuestro pool, score {market['score']}. Perfil más parecido: "
             f"{market['similar'][0]['Player']} "
             f"({market['similar'][0]['similarity']:.0f}% similitud). {tags}"))
-    return [p[:280] for p in posts]
+    return [p[:240] for p in posts]  # X free-tier margin

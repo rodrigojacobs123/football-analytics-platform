@@ -427,6 +427,8 @@ def scout_hooks(matches: pd.DataFrame, ctx: pd.DataFrame,
                      f"ya acumula {int(senior['Minutes played'].sum()):,}′ "
                      f"senior en {len(senior)} partidos. Los minutos a edad "
                      "temprana son el mejor predictor de techo que existe."),
+            "short": (f"Del formativo al debut senior en {gap_m} meses. "
+                      f"{int(senior['Minutes played'].sum()):,}′ senior ya en el banco."),
         })
 
     # 2 · Palanca táctica: best position ≠ most used position.
@@ -444,6 +446,9 @@ def scout_hooks(matches: pd.DataFrame, ctx: pd.DataFrame,
                          f"{best['Posición']} produce {best['G+A/90']} G+A/90 "
                          f"en {best['Min']}′. El comprador que lo reposicione "
                          "compra el upside con descuento."),
+                "short": (f"De {used['Posición']}: {used['G+A/90']} G+A/90. "
+                          f"De {best['Posición']}: {best['G+A/90']}. "
+                          "El rol correcto sigue sin explotar."),
             })
 
     # 3 · Arma que viaja: dribble volume in defeats vs overall.
@@ -458,6 +463,8 @@ def scout_hooks(matches: pd.DataFrame, ctx: pd.DataFrame,
                          f"partidos perdidos (media {agg['dribbles90']}). "
                          "El volumen que sobrevive a un equipo dominado "
                          "viaja a cualquier contexto."),
+                "short": (f"{d_loss:.1f} regates/90 incluso en derrotas "
+                          f"(media {agg['dribbles90']}). Su arma viaja."),
             })
 
     # 4 · Tendencia dentro de la ventana (rookie wall o despegue).
@@ -471,6 +478,7 @@ def scout_hooks(matches: pd.DataFrame, ctx: pd.DataFrame,
                 "text": (f"De {a1['ga90']} a {a2['ga90']} G+A/90 entre la "
                          "primera y la segunda mitad de la ventana — el "
                          "precio sube con cada jornada."),
+                "short": f"De {a1['ga90']} a {a2['ga90']} G+A/90 en la ventana. Despegando.",
             })
         elif a1["ga90"] >= 0.2 and a2["ga90"] <= a1["ga90"] * 0.5:
             hooks.append({
@@ -480,6 +488,8 @@ def scout_hooks(matches: pd.DataFrame, ctx: pd.DataFrame,
                          "en la segunda mitad de la ventana. Patrón típico de "
                          "primera temporada completa: el que crea que es "
                          "fatiga y no techo, compra barato ahora."),
+                "short": (f"Bajón en la 2ª mitad: {a1['ga90']}→{a2['ga90']} "
+                          "G+A/90. ¿Fatiga de debutante o techo? Ahí está la apuesta."),
             })
 
     # 5 · Motor limpio: availability + discipline.
@@ -493,6 +503,8 @@ def scout_hooks(matches: pd.DataFrame, ctx: pd.DataFrame,
                          f"(~{per_year:.0f}/año) con {agg['yellows']} "
                          f"amarilla(s) y {agg['reds']} rojas: disponibilidad "
                          "y disciplina de profesional veterano."),
+                "short": (f"{len(matches)} partidos en {span_days // 30} meses, "
+                          f"{agg['yellows']} amarillas. Siempre disponible."),
             })
     return hooks
 
@@ -518,16 +530,17 @@ def suggest_thread(player: str, team: str, window_desc: str, agg: dict,
         f"📌 Conclusión: {player} es volumen de élite buscando su rol. "
         "Datos: Wyscout · análisis propio. ¿Lo ficharías? 👇 "
         "#Scouting #DataFútbol")
-    return [t[:280] for t in tweets]
+    return [t[:240] for t in tweets]
 
 
 def publication_plan(player: str, team: str, window_desc: str, agg: dict,
                      hooks: list[dict], market: dict | None) -> dict:
     """Ordered X-thread plan: title options + named steps with image slots.
 
-    Returns {'titles': [...], 'steps': [{'order', 'name', 'attach', 'text'}]}.
-    The order is deliberate: cover (stats) → strongest hooks → market rank →
-    honest flag near the end (credibility) → CTA close.
+    X free accounts cap posts hard, so every text here is a SHORT caption
+    (≤240 chars, margin included) and the substance travels in the attached
+    card image — one card per hook. Order: cover → hooks → market → honest
+    flag (credibility, second-to-last) → CTA close.
     """
     titles = [
         f"{player}: volumen de élite buscando su rol",
@@ -537,44 +550,41 @@ def publication_plan(player: str, team: str, window_desc: str, agg: dict,
     steps: list[dict] = [{
         "name": "Portada — el jugador en números",
         "attach": "Tarjeta STATS",
-        "text": (f"🧵 {player} ({team}) — lo que dicen los datos "
-                 f"({window_desc}):\n⚽ {agg['ga90']} G+A/90 · {agg['xg90']} "
-                 f"xG/90 · {agg['dribbles90']} regates/90 "
-                 f"({agg['dribbles_pct']:.0f}%)\nAbrimos hilo 👇"),
+        "text": (f"🧵 {player} ({team}) — lo que dicen los datos. "
+                 "Una tarjeta por hallazgo. Hilo 👇"),
     }]
-    # Positive hooks first; the honest flag goes second-to-last on purpose.
     flags = [h for h in hooks if "Bandera" in h["title"] or "muro" in h["title"]]
     positives = [h for h in hooks if h not in flags]
     for h in positives[:3]:
+        idx = hooks.index(h) + 1
         steps.append({
             "name": f"Gancho — {h['title']}",
-            "attach": ("Tarjeta FORMA" if "Tendencia" in h["title"]
-                       else "(sin imagen)"),
-            "text": f"{h['icon']} {h['title']}: {h['text']}",
+            "attach": f"Tarjeta GANCHO {idx}",
+            "text": f"{h['icon']} {h.get('short', h['text'])}",
         })
     if market:
         steps.append({
             "name": "Contexto de mercado — dónde queda",
             "attach": "Tarjeta MERCADO",
-            "text": (f"⚖️ Contra nuestro pool ({market['label']}): sería el "
-                     f"#{market['rank']} de {market['n']}. Perfil más parecido: "
+            "text": (f"⚖️ En nuestro pool ({market['label']}): #{market['rank']} "
+                     f"de {market['n']}. Su perfil gemelo: "
                      f"{market['similar'][0]['Player']} "
-                     f"({market['similar'][0]['similarity']:.0f}% similitud)."),
+                     f"({market['similar'][0]['similarity']:.0f}%)."),
         })
     for h in flags[:1]:
+        idx = hooks.index(h) + 1
         steps.append({
             "name": "Bandera honesta — credibilidad",
-            "attach": "Tarjeta FORMA",
-            "text": f"{h['icon']} {h['title']}: {h['text']}",
+            "attach": f"Tarjeta GANCHO {idx} + Tarjeta FORMA",
+            "text": f"{h['icon']} {h.get('short', h['text'])}",
         })
     steps.append({
         "name": "Cierre — conclusión y CTA",
         "attach": "(sin imagen)",
-        "text": (f"📌 Conclusión: {player} es volumen de élite buscando su "
-                 "rol. Datos: Wyscout · análisis propio. ¿Lo ficharías? 👇 "
-                 "#Scouting #DataFútbol"),
+        "text": (f"📌 {player}: volumen de élite buscando su rol. "
+                 "¿Lo ficharías? 👇 #Scouting #DataFútbol"),
     })
     for i, st_ in enumerate(steps, 1):
         st_["order"] = i
-        st_["text"] = st_["text"][:280]
+        st_["text"] = st_["text"][:240]
     return {"titles": titles, "steps": steps}
